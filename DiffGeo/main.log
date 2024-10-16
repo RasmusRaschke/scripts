@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.8)  8 OCT 2024 18:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.8)  16 OCT 2024 23:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1703,14 +1703,7 @@ LaTeX Warning: Label `expabb' multiply defined.
 
 LaTeX Warning: Label `expabb@cref' multiply defined.
 
-) (./Abschnitte/ap1_ode.aux) (./Abschnitte/ap2_physik.aux
-
-LaTeX Warning: Label `S' multiply defined.
-
-
-LaTeX Warning: Label `S@cref' multiply defined.
-
-))
+) (./Abschnitte/ap1_ode.aux) (./Abschnitte/ap2_physik.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 728.
@@ -1731,7 +1724,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 728.
 LaTeX Font Info:    ... okay on input line 728.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 728.
 LaTeX Font Info:    ... okay on input line 728.
- (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count508
 \scratchdimen=\dimen352
@@ -1836,57 +1830,57 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 7
 (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./main.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-2.
+3.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-2.
+3.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 2.
+(Font)              <10> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2.
+(Font)              <7> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 2.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 3.
 
 
 (/usr/share/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
 .
 
 (/usr/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
 
 
 (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -1906,7 +1900,6 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 /enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/us
 r/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/e
 nc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
- [2]
 \openout2 = `Abschnitte/ch1_grundbegriffe.aux'.
 
 
@@ -1915,17 +1908,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 |[]\T1/lmss/bx/n/24 Glatte Mannigfaltigkeiten und
  []
 
-<Bilder/umf_def.png, id=172, 4015.0pt x 976.64874pt>
+<Bilder/umf_def.png, id=143, 4015.0pt x 976.64874pt>
 File: Bilder/umf_def.png Graphic file (type png)
 <use Bilder/umf_def.png>
 Package pdftex.def Info: Bilder/umf_def.png  used on input line 41.
 (pdftex.def)             Requested size: 472.71088pt x 114.98723pt.
-<Bilder/graph.png, id=174, 1165.35374pt x 1003.75pt>
+<Bilder/graph.png, id=145, 1165.35374pt x 1003.75pt>
 File: Bilder/graph.png Graphic file (type png)
 <use Bilder/graph.png>
 Package pdftex.def Info: Bilder/graph.png  used on input line 63.
 (pdftex.def)             Requested size: 101.84601pt x 87.71457pt.
-[3
+[2
 
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/
 fonts/enc/dvips/lm/lm-mathex.enc} <./Bilder/umf_def.png>]
@@ -1936,24 +1929,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--85
 
  []
 
-[4 <./Bilder/graph.png>]
-<Bilder/parakompakt.png, id=220, 1233.60875pt x 1003.75pt>
+[3 <./Bilder/graph.png>]
+<Bilder/parakompakt.png, id=191, 1233.60875pt x 1003.75pt>
 File: Bilder/parakompakt.png Graphic file (type png)
 <use Bilder/parakompakt.png>
 Package pdftex.def Info: Bilder/parakompakt.png  used on input line 141.
 (pdftex.def)             Requested size: 102.53885pt x 83.42609pt.
-<Bilder/kartenwechsel.png, id=221, 1276.77pt x 1003.75pt>
+<Bilder/kartenwechsel.png, id=192, 1276.77pt x 1003.75pt>
 File: Bilder/kartenwechsel.png Graphic file (type png)
 <use Bilder/kartenwechsel.png>
 Package pdftex.def Info: Bilder/kartenwechsel.png  used on input line 176.
 (pdftex.def)             Requested size: 153.8122pt x 120.91959pt.
- [5 <./Bilder/parakompakt.png>]
-<Bilder/stereograph.png, id=239, 1019.81pt x 1002.74625pt>
+ [4 <./Bilder/parakompakt.png>]
+<Bilder/stereograph.png, id=210, 1019.81pt x 1002.74625pt>
 File: Bilder/stereograph.png Graphic file (type png)
 <use Bilder/stereograph.png>
 Package pdftex.def Info: Bilder/stereograph.png  used on input line 211.
 (pdftex.def)             Requested size: 101.84601pt x 100.12749pt.
-<Bilder/sphereproj.png, id=240, 1132.23pt x 1003.75pt>
+<Bilder/sphereproj.png, id=211, 1132.23pt x 1003.75pt>
 File: Bilder/sphereproj.png Graphic file (type png)
 <use Bilder/sphereproj.png>
 Package pdftex.def Info: Bilder/sphereproj.png  used on input line 212.
@@ -1963,20 +1956,20 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 217
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [6 <./Bilder/kartenwechsel.png> <./Bilder/stereograph.png> <./Bilder/spherepr
+) [5 <./Bilder/kartenwechsel.png> <./Bilder/stereograph.png> <./Bilder/spherepr
 oj.png>]
-<Bilder/glattetopmfk.png, id=265, 1236.62pt x 1003.75pt>
+<Bilder/glattetopmfk.png, id=236, 1236.62pt x 1003.75pt>
 File: Bilder/glattetopmfk.png Graphic file (type png)
 <use Bilder/glattetopmfk.png>
 Package pdftex.def Info: Bilder/glattetopmfk.png  used on input line 242.
 (pdftex.def)             Requested size: 131.30946pt x 106.56853pt.
-<Bilder/rpn.png, id=266, 1003.75pt x 1004.75375pt>
+<Bilder/rpn.png, id=237, 1003.75pt x 1004.75375pt>
 File: Bilder/rpn.png Graphic file (type png)
 <use Bilder/rpn.png>
 Package pdftex.def Info: Bilder/rpn.png  used on input line 257.
 (pdftex.def)             Requested size: 127.30946pt x 127.43365pt.
- [7 <./Bilder/glattetopmfk.png> <./Bilder/rpn.png>]
-<Bilder/glatteabb.png, id=287, 1579.9025pt x 1003.75pt>
+ [6 <./Bilder/glattetopmfk.png> <./Bilder/rpn.png>]
+<Bilder/glatteabb.png, id=257, 1579.9025pt x 1003.75pt>
 File: Bilder/glatteabb.png Graphic file (type png)
 <use Bilder/glatteabb.png>
 Package pdftex.def Info: Bilder/glatteabb.png  used on input line 302.
@@ -1986,23 +1979,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
-[8 <./Bilder/glatteabb.png>]
+[7 <./Bilder/glatteabb.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 351--353
 
  []
 
-<Bilder/differentialrn.png, id=312, 2002.48125pt x 1002.74625pt>
+<Bilder/differentialrn.png, id=283, 2002.48125pt x 1002.74625pt>
 File: Bilder/differentialrn.png Graphic file (type png)
 <use Bilder/differentialrn.png>
 Package pdftex.def Info: Bilder/differentialrn.png  used on input line 395.
 (pdftex.def)             Requested size: 157.57297pt x 78.89018pt.
-[9 <./Bilder/differentialrn.png>]
-<Bilder/tangentialvek1.png, id=332, 1003.75pt x 1130.2225pt>
+[8 <./Bilder/differentialrn.png>]
+<Bilder/tangentialvek1.png, id=302, 1003.75pt x 1130.2225pt>
 File: Bilder/tangentialvek1.png Graphic file (type png)
 <use Bilder/tangentialvek1.png>
 Package pdftex.def Info: Bilder/tangentialvek1.png  used on input line 415.
 (pdftex.def)             Requested size: 102.53885pt x 115.44328pt.
-<Bilder/tangentialvek2.png, id=333, 1239.63126pt x 1003.75pt>
+<Bilder/tangentialvek2.png, id=303, 1239.63126pt x 1003.75pt>
 File: Bilder/tangentialvek2.png Graphic file (type png)
 <use Bilder/tangentialvek2.png>
 Package pdftex.def Info: Bilder/tangentialvek2.png  used on input line 442.
@@ -2012,8 +2005,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 446--449
 
  []
 
-[10 <./Bilder/tangentialvek1.png> <./Bilder/tangentialvek2.png>]
-<Bilder/tangentialvek3.png, id=351, 1581.91pt x 1003.75pt>
+[9 <./Bilder/tangentialvek1.png> <./Bilder/tangentialvek2.png>]
+<Bilder/tangentialvek3.png, id=322, 1581.91pt x 1003.75pt>
 File: Bilder/tangentialvek3.png Graphic file (type png)
 <use Bilder/tangentialvek3.png>
 Package pdftex.def Info: Bilder/tangentialvek3.png  used on input line 497.
@@ -2022,39 +2015,39 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 503.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 503.
- [11 <./Bilder/tangentialvek3.png>]
-<Bilder/differential.png, id=373, 2321.67375pt x 1003.75pt>
+ [10 <./Bilder/tangentialvek3.png>]
+<Bilder/differential.png, id=344, 2321.67375pt x 1003.75pt>
 File: Bilder/differential.png Graphic file (type png)
 <use Bilder/differential.png>
 Package pdftex.def Info: Bilder/differential.png  used on input line 544.
 (pdftex.def)             Requested size: 153.8122pt x 66.48663pt.
- [12 <./Bilder/differential.png>]
+ [11 <./Bilder/differential.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 605--607
 
  []
 
-<Bilder/submerimmer.png, id=397, 1725.44624pt x 1003.75pt>
+<Bilder/submerimmer.png, id=368, 1725.44624pt x 1003.75pt>
 File: Bilder/submerimmer.png Graphic file (type png)
 <use Bilder/submerimmer.png>
 Package pdftex.def Info: Bilder/submerimmer.png  used on input line 631.
 (pdftex.def)             Requested size: 153.8122pt x 89.4759pt.
-[13]
-<Bilder/bspkritisch.png, id=418, 1292.83pt x 1003.75pt>
+[12]
+<Bilder/bspkritisch.png, id=388, 1292.83pt x 1003.75pt>
 File: Bilder/bspkritisch.png Graphic file (type png)
 <use Bilder/bspkritisch.png>
 Package pdftex.def Info: Bilder/bspkritisch.png  used on input line 650.
 (pdftex.def)             Requested size: 157.57297pt x 122.32866pt.
-<Bilder/regulaer.png, id=419, 1819.79875pt x 1003.75pt>
+<Bilder/regulaer.png, id=389, 1819.79875pt x 1003.75pt>
 File: Bilder/regulaer.png Graphic file (type png)
 <use Bilder/regulaer.png>
 Package pdftex.def Info: Bilder/regulaer.png  used on input line 659.
 (pdftex.def)             Requested size: 153.8122pt x 84.83516pt.
- [14 <./Bilder/submerimmer.png> <./Bilder/bspkritisch.png>]) [15 <./Bilder/regu
+ [13 <./Bilder/submerimmer.png> <./Bilder/bspkritisch.png>]) [14 <./Bilder/regu
 laer.png>]
 \openout2 = `Abschnitte/ch2_vektorfelderundfluesse.aux'.
 
  (./Abschnitte/ch2_vektorfelderundfluesse.tex
-<Bilder/vektorbuendel.png, id=447, 1409.265pt x 1003.75pt>
+<Bilder/vektorbuendel.png, id=418, 1409.265pt x 1003.75pt>
 File: Bilder/vektorbuendel.png Graphic file (type png)
 <use Bilder/vektorbuendel.png>
 Package pdftex.def Info: Bilder/vektorbuendel.png  used on input line 22.
@@ -2064,23 +2057,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-[16
+[15
 
 
 
  <./Bilder/vektorbuendel.png>]
-<Bilder/kozykel.png, id=461, 1784.6675pt x 1003.75pt>
+<Bilder/kozykel.png, id=431, 1784.6675pt x 1003.75pt>
 File: Bilder/kozykel.png Graphic file (type png)
 <use Bilder/kozykel.png>
 Package pdftex.def Info: Bilder/kozykel.png  used on input line 92.
 (pdftex.def)             Requested size: 262.61894pt x 147.69191pt.
- [17 <./Bilder/kozykel.png>]
-<Bilder/kozykelkonstrukt.png, id=481, 1642.135pt x 1002.74625pt>
+ [16 <./Bilder/kozykel.png>]
+<Bilder/kozykelkonstrukt.png, id=452, 1642.135pt x 1002.74625pt>
 File: Bilder/kozykelkonstrukt.png Graphic file (type png)
 <use Bilder/kozykelkonstrukt.png>
 Package pdftex.def Info: Bilder/kozykelkonstrukt.png  used on input line 110.
 (pdftex.def)             Requested size: 262.61894pt x 160.35088pt.
-<Bilder/mobius.png, id=482, 1834.855pt x 1002.74625pt>
+<Bilder/mobius.png, id=453, 1834.855pt x 1002.74625pt>
 File: Bilder/mobius.png Graphic file (type png)
 <use Bilder/mobius.png>
 Package pdftex.def Info: Bilder/mobius.png  used on input line 128.
@@ -2094,41 +2087,41 @@ U/msb/m/n/10 S[]$ \T1/lmr/m/n/10 mit den offenen Teilmengen $\OML/lmm/m/it/10 U
 lmsy/m/n/10 g$ \T1/lmr/m/n/10 und $\OML/lmm/m/it/10 U[] \OT1/lmr/m/n/10 =
  []
 
-[18 <./Bilder/kozykelkonstrukt.png> <./Bilder/mobius.png>]
-<Bilder/tangentialbundel.png, id=502, 1541.76pt x 1003.75pt>
+[17 <./Bilder/kozykelkonstrukt.png> <./Bilder/mobius.png>]
+<Bilder/tangentialbundel.png, id=473, 1541.76pt x 1003.75pt>
 File: Bilder/tangentialbundel.png Graphic file (type png)
 <use Bilder/tangentialbundel.png>
 Package pdftex.def Info: Bilder/tangentialbundel.png  used on input line 210.
 (pdftex.def)             Requested size: 210.09193pt x 136.77162pt.
-<Bilder/schnitt.png, id=503, 1038.88126pt x 1002.74625pt>
+<Bilder/schnitt.png, id=474, 1038.88126pt x 1002.74625pt>
 File: Bilder/schnitt.png Graphic file (type png)
 <use Bilder/schnitt.png>
 Package pdftex.def Info: Bilder/schnitt.png  used on input line 232.
 (pdftex.def)             Requested size: 153.8122pt x 148.46227pt.
- [19 <./Bilder/tangentialbundel.png>]
+ [18 <./Bilder/tangentialbundel.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 237--239
 
  []
 
-<Bilder/vektorfeldsph.png, id=520, 1189.44376pt x 1003.75pt>
+<Bilder/vektorfeldsph.png, id=490, 1189.44376pt x 1003.75pt>
 File: Bilder/vektorfeldsph.png Graphic file (type png)
 <use Bilder/vektorfeldsph.png>
 Package pdftex.def Info: Bilder/vektorfeldsph.png  used on input line 265.
 (pdftex.def)             Requested size: 153.8122pt x 129.78754pt.
-[20 <./Bilder/schnitt.png> <./Bilder/vektorfeldsph.png>]
-<Bilder/normalformvek.png, id=542, 1527.7075pt x 1003.75pt>
+[19 <./Bilder/schnitt.png> <./Bilder/vektorfeldsph.png>]
+<Bilder/normalformvek.png, id=513, 1527.7075pt x 1003.75pt>
 File: Bilder/normalformvek.png Graphic file (type png)
 <use Bilder/normalformvek.png>
 Package pdftex.def Info: Bilder/normalformvek.png  used on input line 307.
 (pdftex.def)             Requested size: 128.17552pt x 84.20721pt.
- [21 <./Bilder/normalformvek.png>] [22]
-<Bilder/integralkurve.png, id=582, 1308.89pt x 1003.75pt>
+ [20 <./Bilder/normalformvek.png>] [21]
+<Bilder/integralkurve.png, id=552, 1308.89pt x 1003.75pt>
 File: Bilder/integralkurve.png Graphic file (type png)
 <use Bilder/integralkurve.png>
 Package pdftex.def Info: Bilder/integralkurve.png  used on input line 457.
 (pdftex.def)             Requested size: 128.17552pt x 98.2826pt.
- [23 <./Bilder/integralkurve.png>]
-<Bilder/maxlsg.png, id=602, 3386.6525pt x 1003.75pt>
+ [22 <./Bilder/integralkurve.png>]
+<Bilder/maxlsg.png, id=573, 3386.6525pt x 1003.75pt>
 File: Bilder/maxlsg.png Graphic file (type png)
 <use Bilder/maxlsg.png>
 Package pdftex.def Info: Bilder/maxlsg.png  used on input line 479.
@@ -2138,56 +2131,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 468--482
 
  []
 
-<Bilder/kmpktvektor.png, id=603, 1415.2875pt x 1003.75pt>
+<Bilder/kmpktvektor.png, id=574, 1415.2875pt x 1003.75pt>
 File: Bilder/kmpktvektor.png Graphic file (type png)
 <use Bilder/kmpktvektor.png>
 Package pdftex.def Info: Bilder/kmpktvektor.png  used on input line 496.
 (pdftex.def)             Requested size: 105.04596pt x 74.49689pt.
-<Bilder/vektorfeldbsp.png, id=604, 1578.89874pt x 1003.75pt>
+<Bilder/vektorfeldbsp.png, id=575, 1578.89874pt x 1003.75pt>
 File: Bilder/vektorfeldbsp.png Graphic file (type png)
 <use Bilder/vektorfeldbsp.png>
 Package pdftex.def Info: Bilder/vektorfeldbsp.png  used on input line 515.
 (pdftex.def)             Requested size: 101.84601pt x 64.7406pt.
-[24 <./Bilder/maxlsg.png> <./Bilder/kmpktvektor.png> <./Bilder/vektorfeldbsp.pn
+[23 <./Bilder/maxlsg.png> <./Bilder/kmpktvektor.png> <./Bilder/vektorfeldbsp.pn
 g>]
-<Bilder/diffgruppe.png, id=626, 1741.50626pt x 1003.75pt>
+<Bilder/diffgruppe.png, id=597, 1741.50626pt x 1003.75pt>
 File: Bilder/diffgruppe.png Graphic file (type png)
 <use Bilder/diffgruppe.png>
 Package pdftex.def Info: Bilder/diffgruppe.png  used on input line 543.
 (pdftex.def)             Requested size: 128.17552pt x 73.86893pt.
-<Bilder/lieabl.png, id=627, 1510.64375pt x 1003.75pt>
+<Bilder/lieabl.png, id=598, 1510.64375pt x 1003.75pt>
 File: Bilder/lieabl.png Graphic file (type png)
 <use Bilder/lieabl.png>
 Package pdftex.def Info: Bilder/lieabl.png  used on input line 565.
 (pdftex.def)             Requested size: 205.07771pt x 136.25089pt.
- [25 <./Bilder/diffgruppe.png> <./Bilder/lieabl.png>]
-<Bilder/lieablklammer.png, id=647, 2201.22375pt x 1003.75pt>
+ [24 <./Bilder/diffgruppe.png> <./Bilder/lieabl.png>]
+<Bilder/lieablklammer.png, id=617, 2201.22375pt x 1003.75pt>
 File: Bilder/lieablklammer.png Graphic file (type png)
 <use Bilder/lieablklammer.png>
 Package pdftex.def Info: Bilder/lieablklammer.png  used on input line 580.
 (pdftex.def)             Requested size: 205.07771pt x 93.504pt.
- [26 <./Bilder/lieablklammer.png>]
+ [25 <./Bilder/lieablklammer.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 690--692
 [] \T1/lmr/m/n/10 Für linksinvariante Vektorfelder $\OML/lmm/m/it/10 X; Y$ \T1/
 lmr/m/n/10 ist auch $\OT1/lmr/m/n/10 [\OML/lmm/m/it/10 X; Y\OT1/lmr/m/n/10 ]$
  []
 
-[27]
-<Bilder/linksinvariant.png, id=688, 1511.6475pt x 1003.75pt>
+[26]
+<Bilder/linksinvariant.png, id=659, 1511.6475pt x 1003.75pt>
 File: Bilder/linksinvariant.png Graphic file (type png)
 <use Bilder/linksinvariant.png>
 Package pdftex.def Info: Bilder/linksinvariant.png  used on input line 741.
 (pdftex.def)             Requested size: 157.57297pt x 104.6234pt.
- [28 <./Bilder/linksinvariant.png>]
+ [27 <./Bilder/linksinvariant.png>]
 Underfull \hbox (badness 5388) in paragraph at lines 806--807
 []\T1/lmr/m/n/10 Zu jeder endlich-dimensionalen Lie-Algebra $\U/euf/m/n/10 g$ \
 T1/lmr/m/n/10 existiert eine bis auf Isomorphie eindeutige, einfach-
  []
 
-[29] [30] [31] [32]) [33]
+[28] [29] [30] [31]) [32]
 \openout2 = `Abschnitte/ch3_riemann.aux'.
 
- (./Abschnitte/ch3_riemann.tex [34
+ (./Abschnitte/ch3_riemann.tex [33
 
 
 
@@ -2202,32 +2195,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-[35] [36] [37] [38] [39]
+[34] [35] [36] [37] [38]
 Underfull \hbox (badness 1281) in paragraph at lines 394--396
 []\T1/lmr/m/n/10 Für verschwindende Krümmung $\OML/lmm/m/it/10 R$ \T1/lmr/m/n/1
 0 von $\OMS/lmsy/m/n/10 r$ \T1/lmr/m/n/10 auf einer offenen Teilmenge $\OML/lmm
 /m/it/10 U \OMS/lmsy/m/n/10 ^^R \OML/lmm/m/it/10 M$ \T1/lmr/m/n/10 ist der
  []
 
-[40] [41] [42]
+[39] [40] [41]
 Underfull \hbox (badness 10000) in paragraph at lines 579--580
 []\T1/lmr/m/n/10 Für die Standardmetrik $\OML/lmm/m/it/10 g[]$ \T1/lmr/m/n/10 a
 uf $\U/msb/m/n/10 R[]$ \T1/lmr/m/n/10 ist der Levi-Civita-Zusammenhang auch der
 
  []
 
-[43]
+[42]
 Underfull \hbox (badness 1466) in paragraph at lines 716--718
 \T1/lmr/m/n/10 mit der Mannigfaltigkeitstopologie $\U/euf/m/n/10 T$ \T1/lmr/m/n
 /10 ein bijektiver, lokaler Homöomorphismus ist, also auch ein globaler
  []
 
-[44] [45] [46] [47]
+[43] [44] [45] [46]
 Underfull \hbox (badness 10000) in paragraph at lines 939--941
 
  []
 
-[48] [49] [50] [51] [52]
+[47] [48] [49] [50] [51]
 Underfull \hbox (badness 2158) in paragraph at lines 1296--1298
 []\T1/lmr/m/n/10 Sei $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 M; g\OT1/lmr/m/n/10 )$ 
 \T1/lmr/m/n/10 eine Riemannsche MFK. Die Einschränkung $\OML/lmm/m/it/10 g\OMS/
@@ -2235,7 +2228,7 @@ lmsy/m/n/10 j[]$ \T1/lmr/m/n/10 auf eine Hyperfläche $\OML/lmm/m/it/10 S \OMS/l
 msy/m/n/10 ^^R \OML/lmm/m/it/10 M$ \T1/lmr/m/n/10 heiÿt \T1/lmr/bx/n/10 erste
  []
 
-[53]
+[52]
 Underfull \hbox (badness 1107) in paragraph at lines 1342--1343
 []\T1/lmss/bx/n/10 Beispiel. []\T1/lmr/m/n/10 Das Katenoid zum Parameter $\OML/
 lmm/m/it/10 a > \OT1/lmr/m/n/10 0$ \T1/lmr/m/n/10 ist das Bild der Immersion $\
@@ -2244,27 +2237,22 @@ OML/lmm/m/it/10 h \OT1/lmr/m/n/10 : \U/msb/m/n/10 R[] \OMS/lmsy/m/n/10 ! \U/msb
 10 u; ^^^\OT1/lmr/m/n/10 ) :=
  []
 
-[54] [55] [56]
+[53] [54] [55]
 Underfull \hbox (badness 10000) in paragraph at lines 1587--1589
 
  []
 
-[57] [58]
-Underfull \hbox (badness 10000) in paragraph at lines 1733--1734
-
- []
-
-
-Overfull \hbox (22.98555pt too wide) detected at line 1737
+[56] [57]
+Overfull \hbox (8.01135pt too wide) detected at line 1748
 []
  []
 
-[59]
-Overfull \hbox (8.01135pt too wide) detected at line 1758
+[58] [59]
+Overfull \hbox (22.98555pt too wide) detected at line 1821
 []
  []
 
-[60]) [61]
+) [60]
 \openout2 = `Abschnitte/ap1_ode.aux'.
 
  (./Abschnitte/ap1_ode.tex
@@ -2272,12 +2260,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 |[]\T1/lmss/bx/n/24 Appendix 1: Theorie gewöhnlicher
  []
 
-<Bilder/picard.png, id=1412, 1472.50125pt x 1003.75pt>
+<Bilder/picard.png, id=1382, 1472.50125pt x 1003.75pt>
 File: Bilder/picard.png Graphic file (type png)
 <use Bilder/picard.png>
 Package pdftex.def Info: Bilder/picard.png  used on input line 52.
 (pdftex.def)             Requested size: 153.8122pt x 104.83783pt.
-[62
+[61
 
 
 
@@ -2285,23 +2273,26 @@ Package pdftex.def Info: Bilder/picard.png  used on input line 52.
 
 LaTeX Warning: Command \" invalid in math mode on input line 89.
 
-[63 <./Bilder/picard.png>] [64] [65]
-<Bilder/fall1.png, id=1495, 1312.905pt x 1003.75pt>
+
+LaTeX Warning: Reference `auspiclÃ¶f' on page 62 undefined on input line 107.
+
+[62 <./Bilder/picard.png>] [63] [64]
+<Bilder/fall1.png, id=1466, 1312.905pt x 1003.75pt>
 File: Bilder/fall1.png Graphic file (type png)
 <use Bilder/fall1.png>
 Package pdftex.def Info: Bilder/fall1.png  used on input line 254.
 (pdftex.def)             Requested size: 262.61894pt x 200.77707pt.
-<Bilder/fall2.png, id=1496, 1003.75pt x 1276.77pt>
+<Bilder/fall2.png, id=1467, 1003.75pt x 1276.77pt>
 File: Bilder/fall2.png Graphic file (type png)
 <use Bilder/fall2.png>
 Package pdftex.def Info: Bilder/fall2.png  used on input line 264.
 (pdftex.def)             Requested size: 105.04596pt x 133.60698pt.
-<Bilder/fall3.png, id=1497, 1634.105pt x 1003.75pt>
+<Bilder/fall3.png, id=1468, 1634.105pt x 1003.75pt>
 File: Bilder/fall3.png Graphic file (type png)
 <use Bilder/fall3.png>
 Package pdftex.def Info: Bilder/fall3.png  used on input line 277.
 (pdftex.def)             Requested size: 157.57297pt x 96.78162pt.
- [66 <./Bilder/fall1.png> <./Bilder/fall2.png> <./Bilder/fall3.png>]) [67]
+ [65 <./Bilder/fall1.png> <./Bilder/fall2.png> <./Bilder/fall3.png>]) [66]
 \openout2 = `Abschnitte/ap2_physik.aux'.
 
  (./Abschnitte/ap2_physik.tex
@@ -2309,11 +2300,11 @@ Underfull \hbox (badness 2111) in paragraph at lines 1--1
 |[]\T1/lmss/bx/n/24 Appendix 2: Ein bisschen was für die
  []
 
-[68
+[67
 
 
 
-] [69]) [70] (./main.aux (./Abschnitte/ch1_grundbegriffe.aux)
+] [68]) [69] (./main.aux (./Abschnitte/ch1_grundbegriffe.aux)
 (./Abschnitte/ch2_vektorfelderundfluesse.aux) (./Abschnitte/ch3_riemann.aux)
 (./Abschnitte/ap1_ode.aux) (./Abschnitte/ap2_physik.aux))
  ***********
@@ -2322,19 +2313,28 @@ L3 programming layer <2020/03/25>
  ***********
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D6CEA3C29FE7101B6C106D57B84A3393;4445.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 337C800C421BC53A75F1D27F7A59D844;3364
+(rerunfilecheck)             After:  D6CEA3C29FE7101B6C106D57B84A3393;4445.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60739 strings out of 476076
- 1364448 string characters out of 5793775
- 2108594 words of memory out of 5000000
- 80648 multiletter control sequences out of 15000+600000
+ 60734 strings out of 476076
+ 1364396 string characters out of 5793775
+ 2112741 words of memory out of 5000000
+ 80644 multiletter control sequences out of 15000+600000
  668986 words of font info for 118 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  93i,21n,99p,1968b,1712s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2361,10 +2361,10 @@ sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/stmaryrd/stmary10.pfb>
-Output written on main.pdf (70 pages, 5083314 bytes).
+Output written on main.pdf (69 pages, 5080011 bytes).
 PDF statistics:
- 1953 PDF objects out of 2073 (max. 8388607)
- 1698 compressed objects within 17 object streams
- 1096 named destinations out of 1200 (max. 500000)
- 526 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1927 PDF objects out of 2073 (max. 8388607)
+ 1673 compressed objects within 17 object streams
+ 1095 named destinations out of 1200 (max. 500000)
+ 486 words of extra memory for PDF output out of 10000 (max. 10000000)
 

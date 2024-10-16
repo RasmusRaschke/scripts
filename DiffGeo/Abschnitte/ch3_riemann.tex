@@ -1665,13 +1665,6 @@ Sei $(M,g)$ eine vollständige, zusammenhängende Riemannsche MFK mit $K \geq \f
 \end{korollar}
 \subsection{Der Satz von Gauß-Bonnet}
 \label{subsec:gaussbonnet}
-\begin{theorem}{Theorem von Gauß-Bonnet}{gaußbonnet}
-Sei $\Sigma$ eine geschlossene, orientierte Fläche und $g$ eine Riemannsche Metrik. Sei weiterhin $\mu_g \in \Omega^2(\Sigma)$ die Volumenform  und $K: \Sigma \to \R$ die Krümmung. Dann gilt
-\begin{equation}
-\int_\Sigma K \mu_g = 2 \pi \chi(\Sigma),
-\end{equation}
-wobei $\chi(\Sigma)$ die Euler-Charakteristik von $\Sigma$ ist.
-\end{theorem}
 \begin{definition}{Triangulierung}{triangulierung}
 Eine \textbf{Triangulierung} einer Fläche $\Sigma$ ist eine Zerlegung von $\Sigma$ in abgeschlossene Dreiecke, sodass
 \begin{equation}
@@ -1698,13 +1691,14 @@ Für die Sphäre $\sph^2$, trianguliert durch drei Großkreise, gilt
 \chi (\sph^2) = 4-6+4 = 2.
 \end{equation}
 \end{beispiel}
-\begin{satz}{ONB-Vektorfeld}{onbvektorfeld}
+\begin{satz}{Geodätische Krümmung}{geodaetischekruemmung}
 Sei $\Sigma$ eine Fläche und $g$ eine Riemannsche Metrik. Sei weiterhin $\gamma: [0,b] \to \Sigma$ eine glatte Kurve mit $\| \dot{\gamma} (t)\|_g = 1$. Dann existiert ein eindeutiges Vektorfeld $N$ entlang $\gamma$, sodass $\dot{\gamma}(t)$ und $N_t$ in jedem Punkt $\gamma(t) \in \Sigma$ eine ONB von $T_{\gamma(0)}\Sigma$ bilden. Außerdem gilt dann
 \begin{equation}
 \nabla_\frac{d}{dt} \dot{\gamma} = \underbrace{g(\nabla_\frac{d}{dt} \dot{\gamma}, \dot{\gamma})}_{\frac{1}{2} \frac{d}{dt} g(\dot{\gamma}, \dot{\gamma}) = 0}\cdot \dot{\gamma} + \underbrace{g (\nabla_\frac{d}{dt} \dot{\gamma}, N)}_{=: \kappa_\gamma} \cdot N
 \end{equation}
 mit der \textbf{geodätischen Krümmung} $\kappa_\gamma$ von $\gamma$.
 \end{satz}
+
 \begin{bemerkungen}
 \begin{enumerate}
 \item Es gilt $\kappa_\gamma = 0$ $\iff$ $\gamma$ ist Geodätische.
@@ -1717,32 +1711,28 @@ mit der \textbf{geodätischen Krümmung} $\kappa_\gamma$ von $\gamma$.
 Also folgt $\kappa_{\hat{\gamma}}(t)=-\kappa_\gamma(b-t)$.
 \end{enumerate}
 \end{bemerkungen}
+
 Der Satz von Gauß-Bonnet folgt aus:
-\begin{satz}{Krümmung und Innenwinkel}{krümmunginnenwinkel}
+\begin{theorem}{Gauß-Formel}{gaussformel}
 Sei $\Sigma$ eine orientierte Fläche udn $g$ eine Riemannsche Metrik. Sei $D\sub \Sigma$ das Bild eines $n$-Ecks unter einer glatten Einbettung. Wir bezeichnen die Innenwinkel mit $\beta_i$. Dann gilt
 \begin{equation}
 \int_D K \mu_g + \int_{\partial D} \kappa_{\partial D} dt = 2 \pi- \Sum{i,1,n} (\pi - \beta_i) = (2-n) \pi + \Sum{i,1,n} \beta_i.
 \end{equation}
-\end{satz}
+\end{theorem}
+
 \begin{bemerkung}
 Für $n=3$ vereinfacht sich die rechte Seite zu 
 \begin{equation}
 \beta_1 + \beta_2 + \beta_3 - \pi.
 \end{equation}
 \end{bemerkung}
-\begin{beweis}Von \ref{gaußbonnet}.\\
-\begin{align}
-\int_\Sigma K \mu_g &= \sum_{D_i \in T} \int_{D_i} K \mu_g = \sum_i \left(\Sum{j,1,3} \beta_{ij} - \pi \right) - \underbrace{\sum_i \int_{\partial D_i} \kappa_{\partial D}}_{=0, \ \text{da jede Karte in genau zwei Dreiecken vorkommt und die Ränder entgegengesetzt sind.}}\\
-&= V(T) \cdot 2 \pi - F(T) - \pi = 2\pi (V(T)- \underbrace{\frac{3}{2} F(T)}_{=E(T)} + F(T)) = 2\pi \chi(\Sigma).
-\end{align}
-\end{beweis}
-Wir beweisen den benutzten Satz in der folgenden Form:
-\begin{satz}{Krümmungsformel}{krümmungsformel}
+
+\begin{theorem}{Totalkrümmungsformel}{totalkruemmungsformel}
 Ist $U\sub (\Sigma, g)$ das Bild einer glatten Einbettung $\Dbar \hookrightarrow \Sigma$ einer Kreisscheibe, so gilt
 \begin{equation}
 \sum_U K \mu_g + \int_{\partial U} \kappa_{\partial U} = 2 \pi.
 \end{equation}
-\end{satz}
+\end{theorem}
 \begin{beweis}
 Wir wählen uns Vektorfelder $X_1$ und $X_2$, die in jedem Punkt $x \in U$ eine positiv orientierte ONB von $T_x \Sigma$ bilden. Nun definieren wir $\omega \in \Omega^1(U)$ als
 \begin{equation}
@@ -1815,4 +1805,18 @@ und aus $\ast$ folgt
 \begin{equation}
 \int_{\delta_{i, \epsilon}} \kappa_{\delta_{i, \epsilon}} dt = \underbrace{- \int_{\delta_{i, \epsilon}} \dot{\phi}(t) dt}_{\pi - \beta_i} - \underbrace{\int_{\delta_{i, \epsilon}} \omega}_{\to 0}.
 \end{equation}
+\end{beweis}
+
+\begin{theorem}{Theorem von Gauß-Bonnet}{gaußbonnet}
+Sei $\Sigma$ eine geschlossene, orientierte Fläche und $g$ eine Riemannsche Metrik. Sei weiterhin $\mu_g \in \Omega^2(\Sigma)$ die Volumenform  und $K: \Sigma \to \R$ die Krümmung. Dann gilt
+\begin{equation}
+\int_\Sigma K \mu_g = 2 \pi \chi(\Sigma),
+\end{equation}
+wobei $\chi(\Sigma)$ die Euler-Charakteristik von $\Sigma$ ist.
+\end{theorem}
+\begin{beweis}
+\begin{align}
+\int_\Sigma K \mu_g &= \sum_{D_i \in T} \int_{D_i} K \mu_g = \sum_i \left(\Sum{j,1,3} \beta_{ij} - \pi \right) - \underbrace{\sum_i \int_{\partial D_i} \kappa_{\partial D}}_{=0, \ \text{da jede Karte in genau zwei Dreiecken vorkommt und die Ränder entgegengesetzt sind.}}\\
+&= V(T) \cdot 2 \pi - F(T) - \pi = 2\pi (V(T)- \underbrace{\frac{3}{2} F(T)}_{=E(T)} + F(T)) = 2\pi \chi(\Sigma).
+\end{align}
 \end{beweis}
