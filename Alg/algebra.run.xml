@@ -41,14 +41,14 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>main.aux</file>
-      <file>main-blx.bib</file>
+      <file>algebra.aux</file>
+      <file>algebra-blx.bib</file>
     </provides>
     <requires type="dynamic">
-      <file>main.bbl</file>
+      <file>algebra.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -61,25 +61,25 @@
       <file>biblatex.cfg</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="0">
+  <external package="biblatex" priority="5" active="1">
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>
       <option>-min-crossrefs 2</option>
-      <infile>main</infile>
+      <infile>algebra</infile>
     </cmdline>
     <input>
-      <file>main.aux</file>
+      <file>algebra.aux</file>
     </input>
     <output>
-      <file>main.bbl</file>
+      <file>algebra.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>main.bbl</file>
+      <file>algebra.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>main.aux</file>
-      <file>main-blx.bib</file>
+      <file>algebra.aux</file>
+      <file>algebra-blx.bib</file>
     </requires>
     <requires type="editable">
       <file>bibliography</file>
