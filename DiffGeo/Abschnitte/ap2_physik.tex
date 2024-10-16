@@ -1,0 +1,173 @@
+\section{Appendix 2: Ein bisschen was für die Physiker...}
+\label{ch:physik}
+Dieser Abschnitt ist nicht Inhalt der Veranstaltung. Ich habe hier ein paar Definitionen gesammelt, die gewisse Prozesse in der Physik mit den Methoden dieser Vorlesung formalisieren. Dazu folgen wir Lee, Introduction to Riemannian Manifolds und Frankel, The Geometry of Physics.
+\subsection{Ricci-Kalkül}
+Wir formalisieren ein paar Indexkonventionen aus der Physik.
+\begin{definition}{Ricci-Kalkül}
+Sei $B^{i_1 \cdots i_r}_{j_1 \cdots j_s}$ ein $(r,s)$-Tensorfeld. Die oberen Indizes $\{i_1, \dots, i_r\}$ heißen \textbf{kontravariante Indizes}, die unteren Indizes $\{j_1, \dots, j_s \}$ heißen \textbf{kovariante Indizes}. Über alle identischen Indizes, die einmal hoch- und einmal tiefgestellt auftauchen, wird summiert:
+\begin{equation}
+A^\alpha B_\alpha \equiv \sum_\alpha A^\alpha B_\alpha.
+\end{equation}
+Dies bezeichnet man als \textbf{Einsteinsche Summenkonvention}.\\
+Indizes, über die summiert wird, heißen \textbf{Dummy-Indizes}. Alle anderen Indizes heißen \textbf{freie Indizes}.\\
+Die partielle Ableitung nach einer Variable $x^\mu$ schreibt man als
+\begin{equation}
+\frac{\partial}{\partial x^\mu} A_{\alpha \beta \cdots} =: A_{\alpha \beta \cdots, \mu}.
+\end{equation}
+Die kovariante Ableitung eines Vektorfelds $A^\alpha$ schreibt sich als
+\begin{equation}
+\nabla_\beta A^\alpha = A^\alpha_{;\beta}.
+\end{equation}
+Die \textbf{Antisymmetrisierung} von Indizes ist gegeben durch:
+\begin{equation}
+A_{[\alpha_1 \cdots \alpha_i]\alpha_{i+1} \cdots \alpha_j} = \frac{1}{i!} \sum_\sigma \text{sgn}(\sigma) A_{\alpha_{\sigma(1)} \cdots \alpha_{\sigma(i)} \alpha_{i+1} \cdots \alpha_j}.
+\end{equation}
+\end{definition}
+\begin{bemerkung}
+Häufiger werden Indexfamilien mit Großbuchstaben indiziert, um sie übersichtlicher zu machen, also $I = \{i_1, \dots, i_n\}$ bzw. $T^I = T^{i_1 \cdots i_n}$. Ein Pfeil $\underrightarrow{I}$ steht für aufsteigende Ordnung $i_1 < i_2 < \cdots < i_n$ der Indizes.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Die Standardkoordinaten sind in dieser Konvention kontravariant, also $\{x\}=(x^1, \dots, x^n)$. Die assoziierten Koordinatenvektorfelder sind hingegen kovariant, also $\{\partial \}=(\partial_1, \dots, \partial_n)$.
+\item Sei $V$ ein euklidischer Vektorraum und $V^\ast$ sein Dualraum. Dann schreibt sich ein Vektor $v \in V$ als $v = v^ie_i$ und eine Dualform $f \in V^\ast$ als $f = f_ie^i$. Dabei ist $\{e^i\}$ die Dualbasis zu $\{e_i\}$ mit $e^ie_j = \delta^i_j$.\\
+Insbesondere in der Festkörperphysik stellt man die Dualbasis (\textit{Impulsraum}) gerne durch die Basis dar:
+\begin{equation}
+e^1 = \frac{e_2 \times e_3}{e_1 \cdot (e_2 \times e_3)}, \ e^2= \frac{e_3 \times e_1}{e_2 \cdot (e_3 \times e_1)}, \ e^3 = \frac{e_1 \times e_2}{e_3 \cdot (e_1 \times e_2)}
+\end{equation}
+\item Auf dem $\R^3$ mit dem Standardskalarprodukt gilt $\langle u, v \rangle = u_iv^i$. Für das Kreuzprodukt gilt hingegen $u \times v = \epsilon^i_{jk} u^j v^k \vec{e}_i$.
+\item Für Matrixmultiplikation gilt $(Av)^i = A^i_j v^j$. Die Spur einer Matrix $A^i_j$ reduziert sich zu $A_i^i$.
+\item Der Torsionstensor hat in diesem Formalismus die Gestalt 
+\begin{equation}
+T^\alpha_{\beta \gamma} = \Gamma^\alpha_{\beta \gamma} - \Gamma^\alpha_{\gamma \beta} - \gamma^\alpha_{\beta \gamma}.
+\end{equation}
+Dabei ist $\gamma^\alpha_{\beta \gamma}$ durch die Lie-Klammer gegeben. Der Riemann-Krümmungstensor hat die Form
+\begin{equation}
+R^\sigma_{\alpha \beta \gamma} = \Gamma^\sigma_{\gamma \alpha, \beta} - \Gamma^\sigma_{\beta, \alpha, \gamma} + \Gamma^\sigma_{\beta \lambda}\Gamma^\lambda_{\gamma \alpha} - \Gamma^\sigma_{\gamma \lambda}\Gamma^\lambda_{\beta \alpha}.
+\end{equation}
+Dabei heißen $\Gamma^\alpha_{\beta \gamma}$ \textbf{Christoffel-Symbole der zweiten Art}.
+\item Die äußere Ableitung wirkt auf ein total antisymmetrisches $(0,s)$-Tensorfeld, genannt $s$-Form $A_{\alpha_1 \cdots \alpha_s}$. Sie ist gegeben durch:
+\begin{equation}
+(dA)_{\gamma \alpha_1 \cdots \alpha_s} = A_{[\alpha_1 \cdots \alpha_s, \gamma]}.
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Transformationsgesetze für Tensoren}{tensortrafo}
+Sei $M$ eine glatte MFK und $T_pM$ der Tangentialraum an $p \in M$. Seien $(x^1, \dots, x^n)$ und $(\bar{x}^1, \dots, \bar{x}^n)$ zwei lokale Rahmen von $T_pM$. Dann gilt für einen $(r,s)$-Tensorfeld folgendes Transformationsgesetz:
+\begin{equation}
+T^{i'_1 \cdots i'_r}_{j'_1 \cdots j'_s} = \frac{\partial \bar{x}^{i'_1}}{\partial x^{i_1}} \cdots \frac{\partial \bar{x}^{i'_r}}{\partial x^{i_r}}\frac{\partial x^{j_1}}{\partial \bar{x}^{j'_1}} \cdots \frac{\partial x^{j_s}}{\partial \bar{x}^{j'_s}}T^{i_1 \cdots i_r}_{j_1 \cdots j_s} (x^1, \dots, x^n).
+\end{equation}
+\end{satz}
+\begin{definition}{Musikalische Isomorphismen}{musicaliso}
+Sei $(M,g)$ eine pseudo-Riemannsche MFK, $\{z_i\}$ ein Rahmen von $TM$ und $\{z^i\}$ der duale Rahmen von $T^\ast M$. Sei weiterhin $X = X^iz_i \in \Gamma(TM)$ ein glattes Vektorfeld und $g^{-1} = g^{ij}$ die inverse Metrik. Dann definiert 
+\begin{align}
+\flat: TM &\to T^\ast M\\
+X &\mapsto X^\flat = g_{ij} X^i z^j = X_j z^j
+\end{align}
+den \textbf{Flat-Isomorphismus}, für den wir auch $X^\flat(Y)=\langle X, Y \rangle$ mit $Y \in \Gamma(TM)$ schreiben.\\
+Sei jetzt $\omega = \omega_iz^i \in \Gamma(T^\ast M)$ eine Dualform. Dann definiert
+\begin{align}
+\sharp: T^\ast M &\to TM \\
+\omega &\mapsto \omega^\sharp = g^{ij}\omega_iz_j = \omega^j z_j
+\end{align}
+den \textbf{Sharp-Isomorphismus}, kompakter als $\langle \omega^\sharp, Y \rangle = \omega(Y)$ notiert.\\
+Beide Isomorphismen heißen zusammen \textbf{musikalische Isomorphismen}.
+\end{definition}
+\begin{bemerkung}
+Sei $A^{i_1 \cdots i_r}_{j_1 \cdots j_s}$ ein $(r,s)$-Tensor. Dann senken wir einen Index $i_n \in \{i_1, \dots, i_r\}$ durch die Wirkung von flat:
+\begin{equation}
+A^{i_1 \cdots i^\flat_n \cdots i_r}_{j_1 \cdots j_s} = g_{k_ni_n} A^{i_1 \cdots i_n \cdots i_r}_{j_1 \cdots j_s} = A^{i_1 \cdots i_{r-1}}_{j_1 \cdots j_{s} k_{n}}
+\end{equation}
+und heben einen Index $j_m \in \{j_1, \dots, j_s\}$ durch die Wirkung von sharp:
+\begin{equation}
+A^{i_1 \cdots i_r}_{j_1 \cdots j^\sharp_m \cdots j_s} = g^{k_mj_m} A^{i_1 \cdots i_r}_{j_1 \cdots j_m \cdots j_s} = A^{i_1 \cdots i_r k_m}_{j_1 \cdots j_s}.
+\end{equation}
+\end{bemerkung}
+\subsection{Hodge-Theorie}
+\begin{definition}{Hodge-Stern-Operator}{hodge}
+Sei $(M,g)$ eine orientierte, $n$-dimensionale pseudo-Riemannsche MFK und $\omega \in \Omega^k(M)$ eine $k$-Form auf $M$. Dann bezeichnet man den Isomorphismus
+\begin{align}
+\hodge: \Omega^k(M) &\to \Omega^{n-k} (M)\\
+\omega &\mapsto \hodge \omega
+\end{align}
+als \textbf{Hodge-Stern-Operator}. Dabei ist $\hodge \omega$ als diejenige $(n-k)$-Form eindeutig definiert, für die
+\begin{equation}
+\eta \wedge \hodge \xi = g(\eta, \xi)\mu
+\end{equation}
+gilt, wobei $\mu$ die Volumenform auf $M$ ist.
+\end{definition}
+\begin{satz}{Lokale Darstellung des Hodge-Stern-Operators}{localhodge}
+Für Rechnungen ist oftmals eine Formel in lokalen Koordinaten nützlich. Sei dazu $(M,g)$ eine Riemannsche MFK, $\{\partial^1, \dots, \partial^n\}$ eine Basis von $T_pM$ und $\{dx_1, \dots, dx_n\}$ die Dualbasis von $T^\ast_pM$ mit $g_{ij} = \langle \partial^i, \partial^j \rangle$ und $g^{ij} = \langle dx^i, dx^j \rangle$. Dann gilt für eine beliebige $k$-Form:
+\begin{equation}
+\hodge (dx^{i_1} \wedge \cdots \wedge dx^{i_k}) = \frac{\sqrt{|\det g|}}{(n-k)!} g^{i_1j_1} \dots g^{i_kj_k} \epsilon_{j_1 \cdots j_n} dx^{j_{k+1}} \wedge \cdots \wedge dx^{j_n}.
+\end{equation}
+\end{satz}
+\begin{definition}{Kodifferential}{kodifferential}
+Sei $(M,g)$ eine pseudo-Riemannsche MFK der Dimension $n$ mit Signatur $\mathfrak{s} \in \Z$ und $\omega \in \Omega^k(M)$. Dann heißt die Abbildung
+\begin{align}
+\delta: \Omega^k(M) &\to \Omega^{k-1}\\
+\omega &\mapsto \delta \omega =  (-1)^{n(k+1)+1} \mathfrak{s} \ \hodge d \hodge \omega.
+\end{align}
+\textbf{Kodifferential}.
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Das Kodifferential ist dual zur äußeren Ableitung: $\langle \eta, \delta \xi \rangle_{L^2} = \langle d\eta, \xi \rangle_{L^2}$.
+\item Das Kodifferential hat auch die Eigenschaft $\delta^2 = 0$.
+\end{enumerate}
+\end{bemerkungen}
+\begin{beispiele}
+\begin{enumerate}
+\item Wir betrachten $\R^3$ mit der Standardmetrik. Dann gilt:
+\begin{align}
+\hodge dx &= dy \wedge dz\\
+\hodge dy &= dz \wedge dx\\
+\hodge dz &= dx \wedge dy.
+\end{align}
+Damit folgt insbesondere $\hodge (u \wedge v) = u \times v$ und $\hodge (u \times v) = u \wedge v$ für $u,v \in \R^3$.
+\item Auf $\R^3$ gilt 
+\begin{equation}
+df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy + \frac{\partial f}{\partial z} dz \equiv \left(\frac{\partial f}{\partial x},  \frac{\partial f}{\partial y},\frac{\partial f}{\partial z} \right) = \text{grad} \ f
+\end{equation}
+Ein Vektorfeld $X = X^1 dx + X^2 dy + X^3 dz$ lässt sich so als $1$-Form schreiben. Dann gilt:
+\begin{equation}
+dX = \left(\frac{\partial X^3}{dy} - \frac{\partial X^2}{dz} \right) dy \wedge dz + \left(\frac{\partial X^3}{dx} - \frac{\partial X^1}{dz} \right) dx \wedge dz + \left(\frac{\partial X^2}{dx} - \frac{\partial X^1}{dy} \right) dx \wedge dy
+\end{equation}
+und damit
+\begin{equation}
+\hodge dX =  \left(\frac{\partial X^3}{dy} - \frac{\partial X^2}{dz} \right) dx - \left(\frac{\partial X^3}{dx} - \frac{\partial X^1}{dz} \right) dy + \left(\frac{\partial X^2}{dx} - \frac{\partial X^1}{dy} \right) dz \equiv \text{rot} \ X.
+\end{equation}
+Weiterhin folgt
+\begin{equation}
+\delta X = \hodge d \hodge X = \frac{\partial X^1}{\partial x} + \frac{\partial X^2}{\partial y} + \frac{\partial X^3}{\partial z} = \text{div} \ X.
+\end{equation}
+Also sind die Operatoren der Divergenz, der Rotation und des Gradienten nichts anderes als spezielle Differentialformen in $\R^3$. Durch die Identität $d^2=0$ kann man sofort mehrere Eigenschaften der Operatoren herleiten.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Die Volumenform lässt sich durch den Hodge-Stern-Operator als $\mu = \hodge 1$ auffassen mit
+\begin{equation}
+\mu = \sqrt{|\det g|} dx^1 \wedge \cdots \wedge dx^n.
+\end{equation}
+\item Damit sehen wir für das Integral über $M$ die Formel
+\begin{equation}
+\int_M \eta \wedge \hodge \xi = \int_M \langle \eta, \xi \rangle \mu.
+\end{equation}
+\item Die \textbf{Maxwell-Gleichungen} lassen sich nun von vier auf zwei Gleichungen reduzieren. Sei $E$ das elektrische Feld, $B$ das magnetische Feld, $c$ die Lichtgeschwindigkeit, $\rho$ die Ladungsdichte, $\epsilon_0$ die Permittivität des Vakuums, $\mu_0$ die Permeabilität des Vakuums und $J$ der Strom. Dann gilt:
+\begin{align}
+1.& \ d \hodge E = \frac{\rho}{\epsilon_0}\\
+2.& \ d \hodge B - \frac{1}{c^2} \frac{\partial \hodge E}{\partial t} = \mu_0 J.
+\end{align}
+\item Sei nun $F_{\alpha \beta}$ der elektromagnetische Feldstärketensor und $J^\alpha$ das Viererstrom-Vektorfeld. Die Metrik ist gegeben durch die Minkowski-Metrik $\eta_{\alpha \beta} = \diag (1,-1,-1,-1)$. Dann genügt bereits eine Maxwell-Gleichung:
+\begin{equation}
+d \hodge F = \mu_0 J.
+\end{equation}
+\end{enumerate}
+\end{bemerkungen}
+\begin{definition}{Laplace-deRham-Operator}{laplacederham}
+Der \textbf{Laplace-DeRham-Operator} ist gegeben durch:
+\begin{equation}
+\Delta = (\delta + d)^2 = \delta d + d \delta.
+\end{equation}
+Es handelt sich um einen verallgemeinerten Laplace-Operator.
+\end{definition}
