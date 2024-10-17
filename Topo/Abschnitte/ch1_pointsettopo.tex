@@ -1,11 +1,128 @@
 \section{Mengentheoretische Topologie}
 \label{PST}
-\subsection{...}
-\label{subsec:Umfn}
-\begin{definition}{Untermannigfaltigkeit}{umfn}
-Eine Teilmenge $M \subseteq \R^n$ ist eine $k$\textbf{-dim. Untermannigfaltigkeit (UMF) des }$\R^k$, falls jeder Punkt $p \in M$ eine offene Umgebung $U \subseteq \R^n$ besitzt, sodass ein Diffeomorphismus
-\begin{equation}
-h: U \to V 
+\subsection{Metrische Räume}
+\label{subsec:metrischeraeume}
+
+\begin{definition}{Metrischer Raum}{metrischerraum}
+Ein \textbf{metrischer Raum} ist ein Paar $(X, d)$, bestehend aus einer Menge $X$ und einer Abstandsfunktion \begin{equation}
+d: X \times X \to \R,
 \end{equation}
-mit $V \subseteq \R^n$ offen existiert, für den $h(U \cap M) = V \cap \R^k \times \{0\}^{n-k}$ gilt.
+genannt \textbf{Metrik}, die die folgenden Axiome erfüllt:
+\begin{enumerate}[({M}1)]
+\item \textit{Positivität}: $\forall x,y \in X: d(x,y)>0$
+\item \textit{Symmetrie}: $\forall x,y \in X: d(x,y)=d(y,x)$
+\item \textit{Dreiecksungleichung}: $\forall x,y,z \in X: d(x,z) \leq d(x,y) + d(y,z)$
+\end{enumerate}
 \end{definition}
+
+\begin{beispiele}
+\begin{enumerate}
+\item Im $\R^n$ ist die \textbf{Standardmetrik} oder \textbf{euklidische Metrik} für $x,y \in \R$ gegeben durch 
+\begin{equation}
+d_2(x,y) := \sqrt{\sum_{i=1}^n (x_i-y_i)^2}.
+\end{equation}
+\item Auf $(\R^n, d_n)$ ist eine Metrik durch \begin{equation}
+d_n(x,y) := \sum_{i=1}^n |x_i - y_i|
+\end{equation}
+gegeben.
+\item Die \textbf{Maximumsnorm} $(\R^n, d_\infty)$ ist gegeben durch 
+\begin{equation}
+d_\infty (x,y) = \max_{i \in \{1,\dots, n\}} |x_i - y_i|.
+\end{equation}
+\item Eine weitere Metrik auf $\R^n$ ist gegeben durch 
+\begin{equation}
+d_{\sqrt{\cdot}} (x,y) = \sqrt{d_2(x,y)}.
+\end{equation}
+Diese Metrik kommt nicht von einer Norm.
+\item Die \textbf{diskrete Metrik} auf einer beliebigen Menge $X$ ist gegeben durch 
+\begin{equation}
+d(x,y) := \begin{cases} 0, \, x = y \\ 1, \, x \neq y \end{cases}.
+\end{equation}
+\item Auf $X= \mathcal{C} ([0,1], \R)$ ist für $f,g \in X$ durch das Integral eine Metrik 
+\begin{equation}
+d(f,g) := \int_0^1 |f(x) - g(x)| dx
+\end{equation}
+definiert.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Wenn $(X,d)$ ein metrischer Raum ist, so ist $Y \sub X$ als $(Y,d|_{Y \times Y})$ auch ein metrischer Raum.
+\item Wenn $(X_1, d_1)$ und $(X_2, d_2)$ metrische Räume sind, so ist $(X_1 \times X_2, d_1 \times d_2)$ wieder ein metrischer Raum.
+\item Vorsicht: Für eine Familie $(X_i, d_i)_{i \in I}$ ist der Sachverhalt komplizierter.
+\end{enumerate}
+\end{bemerkungen}
+\begin{definition}{$\epsilon$-Ball}{ball}
+Sei $(X,d)$ ein metrischer Raum, $x \in X$ und $\epsilon > 0$. Dann ist der $\epsilon$\textbf{-Ball} mit $x$ im Zentrum definiert als 
+\begin{equation}
+B_\epsilon (x) := \{ y \in X \, | \, d(x,y) < \epsilon \}.
+\end{equation}
+\end{definition}
+\begin{definition}{Umgebung}{umgebung}
+Sei $(X,d)$ ein metrischer Raum. Eine Menge $U \sub X$ heißt \textbf{Umgebung} von $x \in X$, falls ein $\epsilon > 0$ mit $B_\epsilon (x) \sub U$ existiert.
+\end{definition}
+\begin{definition}{Offen und Abgeschlossen}{offenabgeschlossen}
+Sei $(X,d)$ ein metrischer Raum. Eine Teilmenge $O \sub X$ heißt \textbf{offen}, falls für alle $x \in O$ ein $\epsilon > 0$ existiert, sodass $B_\epsilon (x) \sub O$ gilt. $O$ ist also eine Umgebung all seiner Elemente.\\
+Eine Menge $A \sub X$ heißt \textbf{abgeschlossen}, falls $X \exc A$ offen ist.
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Sei $\epsilon > 0$ und $(X,d)$ ein metrischer Raum. Dann ist $B_\epsilon (x) \sub X$ offen und eine Umgebung von $x$.
+\item ÜA: Sei $(X,d)$ ein metrischer Raum und $x \in X$. Dann ist $\{x\}$ abgeschlossen.
+\end{enumerate}
+\end{bemerkungen}
+\begin{satz}{Umgebungseigenschaften metrischer Räume}{umgebungseigenschaften}
+Sei $(X,d)$ ein metrischer Raum. Dann gilt:
+\begin{enumerate}
+\item Jede Umgebung von $x \in X$ enthält $x$ und $X$ ist eine Umgebung von $x$.
+\item Ist $U \sub X$ eine Umgebung von $X$ und $U \sub V \sub X$, so ist $V$ auch eine Umgebung von $x$.
+\item Wenn $U_1$ und $U_2$ Umgebungen von $x$ sind, so auch $U_1 \cap U_2$.
+\item Ist $U \sub X$ eine Umgebung von $x$, so existiert eine weitere Teilmenge $V \sub X$, sodass $U$ eine Umgebung von allen $y \in V$ ist.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Trivial.
+\item Trivial.
+\item Nach Voraussetzung existiert für $x \in U_1 \cap U_2$ ein $\epsilon_1 > 0$, sodass $B_{\epsilon_1} (x) \sub U_1$ und ein $\epsilon_2 > 0$, sodass $B_{\epsilon_2} (x) \sub U_2$. Definiere $\epsilon := \min (\epsilon_1, \epsilon_2)$. Dann gilt $B_\epsilon (X) \sub U_1$ und $B_\epsilon (x) \sub U_2$, also $B_\epsilon (x) \sub U_1 \cap U_2$.
+\item Nach Voraussetzung existiert ein $\epsilon > 0$ mit $B_\epsilon (x) \sub U$. Dann ist die Behauptung durch $V:=B_\epsilon(x)$ erfüllt.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Eigenschaften offener Mengen}{eigenschaftoffen}
+Sei $(X,d)$ ein metrischer Raum. Dann gilt:
+\begin{enumerate}
+\item $\emptyset$ und $X$ sind offen.
+\item Sind $O_1, O_2 \sub X$ offen, so auch $O_1 \cap O_2$.
+\item Ist $(O_i)_{i \in I}$ eine Familie offener Teilmengen $O_i \sub X$, so ist $\cup_i O_i$ auch offen.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Trivial.
+\item Mit $\min (\epsilon_1, \epsilon_2)$ analog zum obigen Beweis.
+\item Sei $x \in \cup_i O_i$. Dann existiert ein $i \in I$ mit $x \in O_i$, sodass ein $\epsilon > 0$ existiert mit $B_\epsilon(x) \sub O_i \sub \cup_i O_i$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Eigenschaften abgeschlossener Mengen}{eigenschaftenabgeschlossen}
+Sei $(X,d)$ ein metrischer Raum. Dann gilt:
+\begin{enumerate}
+\item $\emptyset$ und $X$ sind abgeschlossen.
+\item Wenn $A_1, A_2 \sub X$ abgeschlossene Teilmengen sind, so ist auch $A_1 \cup A_2$ abgeschlossen.
+\item Seien $(A_i)_{i \in I}$ abgeschlossene Teilmengen von $X$. Dann ist $\cup_i A_i$ wieder abgeschlossen.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Da $\emptyset = X \exc X$ und $X = X \exc \emptyset$ gilt, sind $X$ und $\emptyset$ gemäß Satz \ref{eigenschaftoffen} offen.
+\item Sei $A_1 = X \exc O_1$ und $A_2 = X \exc O_2$ mit $O_1, O_2 \sub X$ offen. Gemäß Satz \ref{eigenschaftoffen} (2.) folgt 
+\begin{equation}
+X \exc (A_1 \cup A_2) = (X \exc A_1) \cap (X \exc A_2) = O_1 \cap O_2,
+\end{equation}
+wobei $O_1 \cap O_2$ wieder offen ist.
+\item Wir betrachten offene Teilmengen $O_i := X \exc A_i$. Gemäß Satz \ref{eigenschaftoffen} ist 
+\begin{equation}
+X \exc \bigcap_{i\in I} A_i = \bigcup_{i \in I} X \exc A_i = \bigcup_{i \in I} O_i 
+\end{equation}
+offen.
+\end{enumerate}
+\end{beweis}
