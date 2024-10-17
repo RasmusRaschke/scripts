@@ -197,12 +197,12 @@ sind durch $y \mapsto \frac{y}{||y||^2}$ gegeben.\\
 Auch andere Karten sind möglich:
 Betrachte $U_i^\pm := \{ x \in \sph^n | x_i \gtrless 0 \}$ und 
 \begin{align}
-\phi_i^\pm: U_i^\pm &\to \R^n \\
+\psi_i^\pm: U_i^\pm &\to \R^n \\
 (x_1, \dots, x_{n+1}) &\mapsto (x_1, \dots, \hat{x}_i, \dots, x_n)
 \end{align}
 mit Umkehrabbildung:
 \begin{align}
-\left( \phi_i^\pm \right)^{-1}: \D^n &\to \sph^n \\
+\left( \psi_i^\pm \right)^{-1}: \D^n &\to \sph^n \\
 (y_1, \dots, y_{n}) &\mapsto (y_1, \dots, y_{i-1}, \pm \sqrt{1-||y||^2}, y_i, \dots, y_n).
 \end{align}
 \begin{figure}[H]
@@ -218,7 +218,7 @@ Sei $X$ eine top. MFK. Zwei glatte Atlanten $\Af_1$ und $\Af_2$ heißen \textbf{
 \end{definition}
 \begin{definition}{glatte Mannigfaltigkeit}{glattmfn}
 Eine \textbf{glatte Struktur} auf einer top. MFK $X$ ist eine Äquivalenzklasse glatter Atlanten.\\
-Eine \textbf{glatte MFN} ist eine top. MFK mit einer gewählten glatten Struktur.
+Eine \textbf{glatte MFK} ist eine top. MFK mit einer gewählten glatten Struktur.
 \end{definition}
 \begin{bemerkung}
 Die für $\sph^n$ betrachteten Atlanten sind äquivalent, beschreiben also die gleiche glatte Struktur.
@@ -227,7 +227,7 @@ Wir betrachten dafür einige Beispiele:
 \begin{beispiele} Einige glatte Strukturen
 \begin{enumerate}
 \item Die Karte $\id_{\R^n}: \R^n \to \R^n$ macht den $\R^n$ zu einer glatten MFK.
-\item Offene Teilmengen von glatten MFKn sind wieder glatte MFKn, da sie die glatte Struktur der umgebenden MFK erben. Sei $O \in M$ offen und $\phi: U \to \R^n$ eine Karte für $M$. Dann ist $\phi |_{O \cap U}: O \cap U \to \R^n$ eine Karte für $O$.
+\item Offene Teilmengen von glatten MFKn sind wieder glatte MFKn, da sie die glatte Struktur der umgebenden MFK erben. Sei $O \sub M$ offen und $\phi: U \to \R^n$ eine Karte für $M$. Dann ist $\phi |_{O \cap U}: O \cap U \to \R^n$ eine Karte für $O$.
 \item Betrachte $\text{GL}(n, \R) \sub \text{Mat}(n, \R) \cong R^{n^2}$. Als Urbild von $\R \exc \{ 0 \} \sub \R$ unter $\text{det}: \text{Mat}(n, \R) \to \R$ ist $\text{GL}(n, \R)$ offen in $\text{Mat}(n, \R)$.
 \item Jede $k$-dim. UMF des $\R^n$ ist eine glatte $k$-dim. MFK.
 \item Seien $M_1$ und $M_2$ glatte MFK. Dann ist das Produkt $M_1 \times M_2$ wieder eine glatte MFK. Betrachte dazu Karten $\phi_{1,2}: U_{1,2} \to \R^{n_{1,2}}$ von $M_1$ respektive $M_2$. Dann ist $\phi_1 \times \phi_2: U_1 \times U_2 \to \R^{n_1 + n_2}$ eine Karte für $M_1 \times M_2$.
@@ -279,7 +279,7 @@ Ein Kartenübergang $\phi_j \circ \phi_i ^{-1} : \phi_i (U_i \cap U_j) \to \phi_
 \end{align}
 Für den Kartenübergang findet man:
 \begin{equation}
-\phi_j \circ \phi_i^{-1} (y_1, \dots, y_n) = \phi_j (y_1, \dots, y_{n-1}, 1, y_i, \dots, y_n) = \left(\frac{y_1}{y_j}, \dots, \hat{\frac{y_i}{y_j}},\dots, \frac{y_{i-1}}{y_j}, \frac{1}{y_j}, \frac{y_{i}}{y_j}, \dots, \frac{y_{n}}{y_j} \right)
+\phi_j \circ \phi_i^{-1} (y_1, \dots, y_n) = \phi_j (y_1, \dots, y_{i-1}, 1, y_i, \dots, y_n) = \left(\frac{y_1}{y_j}, \dots, \hat{\frac{y_i}{y_j}},\dots, \frac{y_{i-1}}{y_j}, \frac{1}{y_j}, \frac{y_{i}}{y_j}, \dots, \frac{y_{n}}{y_j} \right)
 \end{equation}
 Da auf dem Definitionsbereich $y_j \neq 0$ gilt, ist der Kartenübergang und damit auch $\Af$ glatt.
 \end{beweis}
@@ -324,7 +324,7 @@ Für jede glatte MFK $M$ bilden die Diffeomorphismen $M \to M$ eine Gruppe $\dif
 A: \sph^n &\to \sph^n \\
 p &\mapsto -p
 \end{align}
-ist ein glatter Diffeomorphismus mit $A^{-1} = id$.
+ist ein glatter Diffeomorphismus mit $A^{-1} = A$.
 \item Für jede MFK $M$ ist die Abbildung
 \begin{align}
 S: M \times M &\to M \times M \\
@@ -507,7 +507,7 @@ Der Tangentialvektor $[\phi, (\phi|_p, e_i)]$ wird auf $\left.\frac{\partial}{\p
 \let\qed\relax
 \end{beweis}
 \begin{lemma}{Taylorentwicklung}{}
-Ist $f \in C^\infty (M, \R)$ und $\phi: U \to V \in \R^n$ eine Karte um $p$ mit Koordinaten $(x_1, \dots, x_n)$, dann existiert eine offene Umgebung $W \in U$ von $p$ und Funktionen $f: W \to \R$, $i \in \{1, \dots, n \}$, sodass $f|_W (q) = f(p) + \Sum{i,1,n} (x_i(q)-x_i(p)) \cdot f_i(q)$.$(\ast)$
+Ist $f \in C^\infty (M, \R)$ und $\phi: U \to V \in \R^n$ eine Karte um $p$ mit Koordinaten $(x_1, \dots, x_n)$, dann existiert eine offene Umgebung $W \sub U$ von $p$ und Funktionen $f: W \to \R$, $i \in \{1, \dots, n \}$, sodass $f|_W (q) = f(p) + \Sum{i,1,n} (x_i(q)-x_i(p)) \cdot f_i(q)$.$(\ast)$
 \end{lemma}
 \begin{beweis}
 Sei $W' \sub V = \phi(U)$ eine konvexe Umgebung von $\phi(p)$. Wir schreiben $x_0 := \phi(p)$. Dann gilt für $x \in W'$:
