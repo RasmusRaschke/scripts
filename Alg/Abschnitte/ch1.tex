@@ -15,13 +15,13 @@ Eine \textbf{Gruppe} ist ein Paar $(G, \circ)$, bestehend aus einer Menge\footno
 (g,h) &\mapsto g \circ h
 \end{align} 
 mit folgenden Eigenschaften:
-\begin{enumerate}
+\begin{enumerate}[({G}1)]
 \item Für alle $g_1,g_2,g_3 \in G$ gilt das Assoziativgesetz: $(g_1 \circ g_2) \circ g_3 = g_1 \circ (g_2 \circ g_3)$.
 \item Es gibt ein Element $e \in G$, sodass gilt:
-\begin{itemize}
+\begin{enumerate}[({2}a)]
 \item Für jedes $g \in G$ gilt $e \circ g = g$.
 \item Für jedes $g \in G$ existiert ein $g' \in G$ mit $g' \circ g = e$.
-\end{itemize}
+\end{enumerate}
 \end{enumerate}
 Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit den Eigenschaften aus 2. heißt \textbf{neutrales Element}, und ein Element $g' \in G$ zu gegebenem $g \in G$ mit Eigenschaft 2b heißt \textbf{Inverses} von $g$.
 \end{definition}
@@ -67,18 +67,20 @@ Um den alltäglichen Gebrauch von Gruppen zu vereinfachen, machen wir folgende V
 \item Für $g,h \in G$ schreiben wir $gh = g \circ h$, für $e \in G$ schreiben wir $1$ und für $g'$ schlicht $g^{-1}$.
 \item Gilt $g \circ h = h \circ g$ für alle $g,h \in G$, so heißt $G$ \textbf{abelsch}. In diesem Fall wird die Verknüpfung oft mit $+$, das neutrale Element mit $0$ und das inverse Element mit $-g$ bezeichnet.
 \item Gemäß obiger ÜA zur Klammerung schreiben wir einfach $g_1 g_2 \cdots g_n \in G$ ohne Klammerung.
-\item Für eine Gruppe $G$ bezeichnen wir die Kardinalität \begin{equation}
+\end{enumerate}
+\end{bemerkung}
+\begin{definition}{Ordnung}{ordnung}
+Für eine Gruppe $G$ bezeichnen wir die Kardinalität \begin{equation}
 |G| \in \N \cup \{+\infty \}
 \end{equation}
 als \textbf{Ordnung} von $G$.
-\end{enumerate}
-\end{bemerkung}
+\end{definition}
 
 \subsection{Untergruppen}
 \label{subsec:untergruppen}
 \begin{definition}{Untergruppe}{untergruppe}
 Sei $(G, \circ)$ eine Gruppe. Eine Teilmenge $H \sub G$ heißt \textbf{Untergruppe}, falls gilt:
-\begin{enumerate}
+\begin{enumerate}[({U}1)]
 \item $H \neq \emptyset$
 \item Abgeschlossenheit: Für alle $a, b \in H$ gilt $ab^{-1} \in H$.
 \end{enumerate}
@@ -130,7 +132,159 @@ ist wieder eine Untergruppe.
 \begin{definition}{Erzeugte Untergruppe}{}
 Sei $G$ eine Gruppe und $M \sub G$ eine beliebige Teilmenge. Dann heißt die \textbf{Untergruppe}
 \begin{equation}
-\langle M \rangle := \bigcup_{H \leq G, M \sub H} H \leq G
+\langle M \rangle := \bigcup_{M \sub H \leq G} H \leq G
 \end{equation}
-die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$.
+die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$.Falls $M = \{g\} \leq G$ eine einelementige Menge ist, schreiben wir \begin{equation}
+\langle g \rangle := \langle \{g\} \rangle \leq G.
+\end{equation}
 \end{definition}
+\begin{definition}{Ordnung eines Elements}{ordnungelement}
+Sei $G$ eine Gruppe und $g \in G$ ein Element. Dann heißt die Kardinalität 
+\begin{equation}
+\text{ord}(g) := | \langle g \rangle | \in \N \cup \{\infty \}
+\end{equation}
+die \textbf{Ordnung von} $g$.
+\end{definition}
+\begin{satz}{Charakterisierung von einelementigen Untergruppen}{charakterisierungeinelementig}
+Sei $G$ eine Gruppe und $g \in G$ ein Element.
+\begin{enumerate}
+\item Falls $\ord (g) < \infty$, dann gilt \begin{equation}
+\ord (g) = \min \{k \geq 1 | g^k= 1\}
+\end{equation}
+und \begin{equation}
+\langle g \rangle = \{1, g, g^2, \dots, g^{n-1} \},
+\end{equation}
+wobei $n := \ord (g)$.
+\item Falls $\ord (g) = \infty$, dann gilt
+\begin{equation}
+\langle g \rangle = \{g^i | i \in \Z \} = \{ \dots, g^{-2}, g^{-1}, 1, g^1, g^2, \dots \},
+\end{equation}
+wobei die Potenzen $g^i$, $i \in \Z$ paarweise verschiedene Elemente in $G$ sind.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Zunächst gilt für beliebiges $g \in G$ das Folgende:
+\begin{equation}
+\langle g \rangle = \{ \dots,g^{-2},g^{-1},1, g, g^2, \dots \} = \{g^i | i \in \Z\},
+\end{equation}
+wobei die Potenzen im Allgemeinen nicht notwendigerweise paarweise verschieden sind.
+Dies folgt, da, damit $\langle g \rangle$ eine Untergruppe sein kann, zunächst das neutrale Element $1 = g^0$ und $g$ selbst enthalten sein muss. Dann muss aber auch die Selbstverknüpfung und das Inverse (sowie dessen Selbstverknüpfungen) enthalten sein.
+\begin{enumerate}
+\item Sei $\ord (g) < \infty$. Dann gibt es insbesondere $i,j \in \Z$ mit $i \neq j$ und $g^i = g^j$. O.B.d.A. sei $i > j$. Dann ist also $k = i-j \geq 1$ eine natürliche Zahl, für die gilt: $g^k = 1$. Nach dem Wohlordnungssatz existiert eine \textit{kleinste} natürliche Zahl $n \geq 1$, für die gilt: $g^n =1$. Sei nun $m \in \Z$. Dann gitb es eindeutig bestimmte Zahlen $a \in \Z$ und $0 \leq r < n$, sodass \begin{equation}
+m = an +r.
+\end{equation}
+Damit folgt
+\begin{equation}
+g^m = g^{an+r} = (\underbrace{g^n}_{=1})^a \cdot g^r = g^r.
+\end{equation}
+Dies impliziert $\langle g \rangle = \{1,g,g^2,\dots, g^{n-1}\}$. Wir müssen noch zeigen, dass $1, g, \dots, g^{n-1}$ paarweise verschieden sind. Dies folgt allerdings direkt aus der Tatsache, dass $n$ minimal ist.
+\item Das obige Argument zeigt per Kontraposition auch 2., denn wenn die Potenzen $g^i$, $i \in \Z$ nicht paarweise verschieden sind, dann zeigt obiges Argument, dass $\langle g \rangle = \{1,g,\dots, g^{n-1}\}$ für $n \in \N$, was ein Widerspruch zur Annahme $\ord (g) = \infty$ ist.
+\end{enumerate}
+\end{beweis}
+\subsection{Homomorphismen}
+\label{subsec:homomorphismen}
+\begin{definition}{Homomorphismus}{homomorphismus}
+Seien $G$ und $G'$ Gruppen. Eine Abbildung 
+\begin{equation}
+\phi: G \to G'
+\end{equation}
+heißt \textbf{(Gruppen-)Homomorphismus}, falls gilt:
+\begin{enumerate}[({H}1)]
+\item Für alle $g,h \in G$ gilt 
+\begin{equation}
+\phi(gh) = \phi(g) \cdot \phi(h).
+\end{equation}
+Die Menge der Homomorphismen von $G$ nach $G'$ wird mit $\Hom (G, G')$ bezeichnet.
+\end{enumerate}
+\end{definition}
+\begin{bemerkung}
+Jeder Homomorphismus erfüllt außerdem folgende Eigenschaften, die aus Definition \ref{homomorphismus} folgen:
+\begin{enumerate}[({H}1)]
+\setcounter{enumi}{1}
+\item $\phi (1_G) = 1_{G'}$
+\item Für alle $g \in G$ gilt $\phi (g^{-1}) = \phi (g)^{-1}$.
+\end{enumerate}
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Die \textbf{Einbettung} $\phi: H \hookrightarrow G$ einer Untergruppe $H \leq G$ ist ein Homomorphismus.
+\item Die \textbf{Determinantenabbildung}
+\begin{equation}
+\det: \text{GL} (n, \K) \to (\K \exc \{0\}, \cdot)
+\end{equation}
+ist ein Homomorphismus.
+\item Für $n \geq 1$ und einen Körper $\K$ ist die Permutationsabbildung
+\begin{align}
+P: \mathfrak{S}_n &\to \text{GL}(n, \K) \\
+\sigma &\mapsto P_\sigma,
+\end{align}
+mit der \textbf{Permutation}
+\begin{equation}
+(P_\sigma)_{ij} := \begin{cases} 1 \, \text{falls} \, i = \sigma(j)\\0 \, \text{sonst} \end{cases}
+\end{equation}
+ein Homomorphismus. \textit{Der Beweis sei dem Leser überlassen.}
+Für $\sigma = (123) \in \mathfrak{S}_3$ gilt z.B. 
+\begin{equation}
+P_\sigma = \mat{0,0,1}{1,0,0}{0,1,0}.
+\end{equation}
+\item Sei $G$ eine Gruppe und $g \in G$. Dann ist 
+\begin{align}
+\gamma_g: G &\to G \\
+h &\mapsto ghg^{-1}
+\end{align}
+ein Homomorphismus, genannt \textbf{Konjugation mit} $g$.
+\item Sei $G$ eine Gruppe und $g \in G$. Dann ist 
+\begin{align}
+\Z &\to G \\
+i &\mapsto g^i
+\end{align}
+ein Homomorphismus von $(\Z, +)$ nach $(G, \circ)$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Isomorphismus}{isomorphismus}
+Sei $\phi$ ein Gruppenhomomorphismus, der zusätzlich bijektiv ist. Dann heißt $\phi$ \textbf{Isomorphismus}. Zwei Gruppen $G$ und $G'$ heißen \textbf{isomorph}, in Zeichen $G \cong G'$, falls es einen Isomorphismus zwischen ihnen gibt.
+\end{definition}
+\begin{beispiel}
+Die Permutationsabbildung $P$ induziert einen Isomorphismus
+\begin{align}
+P: \mathfrak{S}_n &\to P(n, \K)\\
+\sigma \mapsto P_\sigma
+\end{align}
+zwischen der symmetrischen Gruppe und der Untergruppe der Permuationsmatrizen. Letztere sind Matrizen, die in jeder Zeile und Spalte \textit{genau eine} $1$ und sonst $0$ haben. \textit{Der Beweis sei dem Leser überlassen.}
+\end{beispiel}
+\begin{definition}{Bild und Kern}{bildkern}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann heißt die Teilmenge
+\begin{equation}
+\im (\phi) := \{g' \in G' | \exists g \in G: \phi(g) = g'\} \leq G',
+\end{equation}
+das \textbf{Bild von} $\phi$ und die Teilmenge
+\begin{equation}
+\ker (\phi) := \{g \in G|\phi(g) = 1_{G'} \} \leq G,
+\end{equation}
+der \textbf{Kern von} $\phi$.
+\end{definition}
+\begin{satz}{Bild und Kern sind Untergruppen}{bildkernuntergruppe}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann sind $\im (\phi) \leq G'$ und $\ker (\phi) \leq G$ Untergruppen der jeweiligen Gruppen $G$ und $G'$.
+\end{satz}
+\begin{beweis}
+Nachrechnen mittels (H1), (H2) und (H3), exemplarisch für den Kern gezeigt:
+\begin{enumerate}
+\item (U1) ist erfüllt, da $1_G \in \ker (\phi)$ wegen (H2) gilt.
+\item (U2) kann nachgerechnet werden. Seien dafür $g,h \in \ker (\phi)$:
+\begin{equation}
+\phi(gh^{-1}) =^{\text{(H1)}} \phi(g) \cdot \phi(h^{-1}) =^{\text{(H3)}} \phi(g) \cdot \phi(h)^{-1} = 1_{G'},
+\end{equation}
+also $gh^{-1} \in \ker (\phi)$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{}{}
+Für einen Homomorphismus $\phi: G \to G'$ sind folgende Aussagen äquivalent:
+\begin{enumerate}[(i)]
+\item $\phi$ ist injektiv.
+\item $\ker (\phi) = \{1\}$
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(i) $\implies$ (ii) ist offensichtlich. Wir zeigen noch (ii) $\implies$ (i):
+Sei also $\ker (\phi) = \{1\}$ und $g,h \in G$ mit $\phi(g) = \phi(h)$. Dann gilt $\phi(gh^{-1})=\phi(g)\phi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\phi) = \{1\}$ und damit $g = h$.
+\end{beweis}
