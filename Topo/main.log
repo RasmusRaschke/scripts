@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  17 OCT 2024 13:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  18 OCT 2024 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1935,48 +1935,61 @@ les/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/
 fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm
--mathsy.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}])
-[3]
+-mathsy.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+[3] [4]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 219
+.
+ (C:\Program Files\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)) [5]
 \openout2 = `Abschnitte/ch2_algtopo.aux'.
 
- (Abschnitte/ch2_algtopo.tex) [4
+
+(Abschnitte/ch2_algtopo.tex) [6
 
 
 
-] (main.aux (Abschnitte/ch1_pointsettopo.aux) (Abschnitte/ch2_algtopo.aux))
+] (main.aux (Abschnitte/ch1_pointsettopo.aux)
+(Abschnitte/ch2_algtopo.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F11CE6AA2A76ECF6844398B59E904A9A;552.
+(rerunfilecheck)             Checksum: 4576E4151470C01163ABDABE3E83E0E1;705.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58675 strings out of 475248
- 1329042 string characters out of 5767628
- 2267612 words of memory out of 5000000
- 79053 multiletter control sequences out of 15000+600000
- 623772 words of font info for 86 fonts, out of 8000000 for 9000
+ 58805 strings out of 475248
+ 1330963 string characters out of 5767628
+ 2279559 words of memory out of 5000000
+ 79113 multiletter control sequences out of 15000+600000
+ 630453 words of font info for 91 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 93i,8n,99p,1970b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,9n,99p,1970b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rasmu/AppData/Roaming/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pf
 b><C:/Users/rasmu/AppData/Roaming/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/M
-iKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
-lic/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX/f
-onts/type1/public/lm/lmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
-r7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Program Fi
-les/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/fonts/type
-1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy10.
-pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (4 pages, 278371 bytes).
+b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX/fon
+ts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
+mi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Program F
+iles/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/lm/lmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTe
+X/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/P
+rogram Files/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (6 pages, 329348 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 122 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

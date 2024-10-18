@@ -73,7 +73,7 @@ Eine Menge $A \sub X$ heißt \textbf{abgeschlossen}, falls $X \exc A$ offen ist.
 \end{bemerkungen}
 \begin{satz}{Umgebungseigenschaften metrischer Räume}{umgebungseigenschaften}
 Sei $(X,d)$ ein metrischer Raum. Dann gilt:
-\begin{enumerate}
+\begin{enumerate}[({U}1)]
 \item Jede Umgebung von $x \in X$ enthält $x$ und $X$ ist eine Umgebung von $x$.
 \item Ist $U \sub X$ eine Umgebung von $X$ und $U \sub V \sub X$, so ist $V$ auch eine Umgebung von $x$.
 \item Wenn $U_1$ und $U_2$ Umgebungen von $x$ sind, so auch $U_1 \cap U_2$.
@@ -105,7 +105,7 @@ Sei $(X,d)$ ein metrischer Raum. Dann gilt:
 \end{beweis}
 \begin{satz}{Eigenschaften abgeschlossener Mengen}{eigenschaftenabgeschlossen}
 Sei $(X,d)$ ein metrischer Raum. Dann gilt:
-\begin{enumerate}
+\begin{enumerate}[({A}1)]
 \item $\emptyset$ und $X$ sind abgeschlossen.
 \item Wenn $A_1, A_2 \sub X$ abgeschlossene Teilmengen sind, so ist auch $A_1 \cup A_2$ abgeschlossen.
 \item Seien $(A_i)_{i \in I}$ abgeschlossene Teilmengen von $X$. Dann ist $\cup_i A_i$ wieder abgeschlossen.
@@ -126,3 +126,164 @@ X \exc \bigcap_{i\in I} A_i = \bigcup_{i \in I} X \exc A_i = \bigcup_{i \in I} O
 offen.
 \end{enumerate}
 \end{beweis}
+\begin{definition}{stetige Abbildung}{metstetabb}
+Seien $(X,d)$ und $(Y,d')$ metrische Räume und $f: X \to Y$. Dann heißt $f$ \textbf{stetig in} $x_0 \in X$, wenn für alle $\epsilon > 0$ ein $\delta > 0$ existiert, sodass 
+\begin{equation}
+d(x_0,x) < \delta \implies d'(f(x_0), f(x)) < \epsilon
+\end{equation}
+gilt. $f$ heißt \textbf{stetig}, falls dies für alle $x_0 \in X$ erfüllt ist.
+\end{definition}
+
+\begin{satz}{Äquivalente Formulierung der Stetigkeit}{umgebungstetig}
+Seien $(X,d)$ und $(Y,d')$ metrische Räume und $f: X \to Y$. Dann sind äquivalent:
+\begin{enumerate}
+\item $f$ ist stetig.
+\item $V$ ist Umgebung von $f(x)$ $\implies$ $f^{-1}(V)$ ist eine Umgebung von $x$.
+\item $O \in Y$ ist offen $\implies$ $f^{-1}(O)$ ist offen in $X$.
+\item $A \in Y$ ist abgeschlossen $\implies$ $f^{-1}(A)$ ist abgeschlossen in $X$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(1. $\implies$ 2.): Sei $V$ eine Umgebung von $f(x)$. Per Definition existiert ein $\epsilon > 0$, sodass $f(x) \in B_\epsilon(f(x)) \sub V$ gilt. Gemäß Annahme existiert ein $\delta > 0$ mit $f(B_\delta(x))\sub B_\epsilon(f(x))$. Daraus folgt, dass 
+\begin{equation}
+B_\delta (x) \sub f^{-1}f(B_\delta(x)) \sub f^{-1}(B_\epsilon(f(x))) \sub f^{-1}(V).
+\end{equation}
+Also ist $f^{-1}(V)$ eine Umgebung von $x$.\\
+(2. $\implies$ 3.): $O$ ist Umgebung all seiner Elemente.\\
+(3. $\implies$ 4.): $Y \exc A$ ist offen in $Y$, d.h. $f^{-1}(Y \exc A) = f^{-1}(Y) \exc f^{-1}(A) = X \exc f^{-1}(A)$ ist offen in $X$. Also ist $f^{-1}(A)$ abgeschlossen.\\
+(4. $\implies$ 1.): $Y \exc B_\epsilon(f(x))$ ist abgeschlossen impliziert, dass $f^{-1} (Y \exc B_\epsilon(f(x)))$ auch abgeschlossen ist. Damit folgt, dass $X \exc f^{-1}(B_\epsilon(f(x)))$ abgeschlossen und damit $f^{-1}(B_\epsilon(f(x)))$ offen ist. Für $x \in f^{-1}(B_\epsilon(f(x)))$ existiert ein $\delta > 0$ mit $B_\delta(x) \sub f^{-1}(B_\epsilon(f(x)))$, also auch $f(B_\delta(x)) \sub B_\epsilon(f(x))$.
+\end{beweis}
+
+\begin{definition}{Äquivalenz von Metriken}{aequivalentmetrik}
+Seien $d_1$ und $d_2$ Metriken auf einer Menge $X$.
+\begin{enumerate}
+\item Gibt es $\alpha, \beta > 0$ mit
+\begin{equation}
+\alpha d_1(x,y) \leq d_2(x,y) \leq \beta d_1(x,y)
+\end{equation}
+für alle $x,y \in X$, so heißen $d_1$ und $d_2$ \textbf{stark äquivalent}.
+\item $d_1$ und $d_2$ heißen \textbf{äquivalent}, falls es für jedes $x \in X$ und alle $\epsilon > 0$ ein $\delta > 0$ gibt, sodass
+\begin{enumerate}[(i)]
+\item $d_1(x,y) < \delta \implies d_2(x,y) < \epsilon$
+\item $d_2(x,y) < \delta \implies d_1(x,y) < \epsilon$
+\end{enumerate}
+gilt.
+\end{enumerate}
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Genau dann, wenn $d_1$ und $d_2$ äquivalente Metriken sind, sind $\id_X: (X, d_1) \to (X, d_2)$ und $id_X: (X,d_2) \to (X, d_1)$ stetig.
+\item $d_1$ und $d_2$ stark äquivalent impliziert, dass $\id_X$ gleichmäßig stetig ist.
+\item Äquivalente Metriken ergeben die gleichen offenen (und abgeschlossenen) Mengen.
+\end{enumerate}
+\begin{beispiele}
+\begin{enumerate}
+\item Die $d_1$-, $d_2$- und $d_\infty$-Metrik auf dem $\R^n$ sind stark äquivalent.
+\item Sei $d_0(x,y) = |x^3 - y^3|$ und $d_2(x,y)$ die euklidische Metrik. Die Identität $\id_\R (\R, d_2) \to (\R, d_0)$ ist stetig, aber nicht gleichmäßig stetig.
+\item Sei $X$ eine beliebige Menge mit einer beliebigen Metrik $d$. Dann ist $d$ äquivalent zu 
+\begin{equation}
+d'(x,y) := \frac{d(x,y)}{1+d(x,y)} < 1
+\end{equation}
+für alle $x,y \in X$. Also ist \textit{jede Metrik äquivalent zu einer beschränkten Metrik}.
+\end{enumerate}
+\end{beispiele}
+\end{bemerkungen}
+\subsection{Topologische Räume}
+\label{subsec:topologischeraeume}
+Der Begriff des topologischen Raums wird durch Abstraktion der Eigenschaften offener Mengen und stetiger Abbildungen in metrischen Räumen konstruiert.
+\begin{definition}{Topologischer Raum}{topologischerraum}
+Ein \textbf{topologischer Raum} ist ein Paar $(X, \Tc)$, bestehend aus einer Menge $X$ und einer Familie $\Tc$ von Teilmengen von $X$, sodass folgende Axiome erfüllt sind:
+\begin{enumerate}[({O}1)]
+\item $\emptyset, X \in \Tc$
+\item $O_1, O_2 \in \Tc \implies O_1 \cap O_2 \in \Tc$
+\item Für eine Familie $(O_i)_{i \in I}$ mit $O_i \in \Tc$ für alle $i \in I$ folgt $\cup_{i \in I} O_i \in \Tc$.
+\end{enumerate}
+$\Tc$ heißt \textbf{Topologie} auf $X$ und alle $O \in \Tc$ heißen \textbf{offene Mengen}.
+\end{definition}
+\begin{bemerkung}
+Äquivalent dazu ist: Eine Topologie $\Tc \sub \Pc(X)$ ist abgeschlossen unter endlichen Schnitten und beliebigen Vereinigungen. 
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Metrische Räume $(X,d)$ sind auch topologische Räume mit offenen Mengen gegeben durch $d$.
+\item Auf einer beliebigen Menge $X$ kann die \textbf{diskrete Topologie} $\Tc := \Pc(X)$ definiert werden, in der alle Teilmengen von $X$ offen sind.
+\item Auch kann auf beliebigem $X$ die \textbf{indiskrete Topologie} oder \textbf{Klumpentopologie} durch $\Tc := \{\emptyset, X\}$ definiert werden.
+\item Auf beliebigem $X$ existiert die \textbf{koendliche Topologie}: $O\sub X$ ist offen genau dann, wenn $X \exc O$ endlich ist oder $O = \emptyset$ gilt.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Topologische Grundbegriffe}{topgrundbegriffe}
+Sei $(X, \Tc)$ ein topologischer Raum.
+\begin{enumerate}
+\item $A \sub X$ heißt \textbf{abgeschlossen}, falls $X \exc A \in \Tc$.
+\item Sei $x \in U \sub X$. Dann heißt $U$ \textbf{Umgebung von} $x$, falls ein $O \in \Tc$ existiert, sodass $x \in O \sub U$ gilt.
+\item Die Menge aller Umgebungen von $X$ wird mit $\Uf (x)$ bezeichnet und heißt \textbf{Umgebungssystem von} $x$. 
+\item Ein Punkt $x \in X$ heißt \textbf{Berührpunkt} von $B \sub X$, falls für alle $U \sub \Uf(x)$ gilt: $U \cap B \neq \emptyset$.
+\item Die \textbf{abgeschlossene Hülle} von $B \sub X$ ist definiert als 
+\begin{equation}
+\overline{B} := \bigcap_{B \sub X, C \, \text{abg.}} C.
+\end{equation}
+\item Ein Punkt $x \in X$ heißt \textbf{innerer Punkt} von $B \sub X$, falls es ein $U \in \Uf(x)$ gibt, sodass $x \in U \sub B$ gilt.
+\item Für $B \sub X$ ist 
+\begin{equation}
+\mathring{B} := \bigcup_{O \sub B, O \, \text{offen}}
+\end{equation}
+der \textbf{offene Kern} von $B$.
+\item Der \textbf{Rand von} $A \sub X$ ist definiert als
+\begin{equation}
+\partial A:= \{x \in X|\forall U \in \Uf(x): U \cap A \neq \emptyset \neq U \cap (X \exc A)\}.
+\end{equation}
+\end{enumerate}
+\end{definition}
+\begin{satz}{Eigenschaften bestimmter Mengen}{eigenschaftmengen}
+Sei $(X, \Tc)$ ein top. Raum. Dann gilt:
+\begin{enumerate}
+\item Die abgeschlossenen Mengen von $X$ erfüllen (A1)-(A3).
+\item Die Umgebungen erfüllen (U1)-(U4).
+\end{enumerate}
+\end{satz}
+\begin{bemerkung}
+Eine Topologie kann äquivalent durch die Auflistung abgeschlossener Mengen definiert werden, wenn diese (A1)-(A3) erfüllen.
+\end{bemerkung}
+\begin{definition}{Stetigkeit in top. Räumen}{stetigtopo}
+Seien $(X, \Tc)$ und $(Y, \Tc')$ top. Räume und $f: X \to Y$.
+\begin{enumerate}[(i)]
+\item $f$ heißt \textbf{stetig in} $x \in X$, wenn für alle $U \in \Uf(f(x))$ auch $f^{-1}(U) \in \Uf(x)$ gilt.
+\item $f$ heißt \textbf{stetig}, falls für alle $O \in \Tc'$ gilt, dass $f^{-1} \in \Tc$.
+\end{enumerate}
+\end{definition}
+\begin{satz}{Eigenschaften von Abschluss und Innerem}{abschlussundinneres}
+Sei $(X,\Tc)$ ein top. Raum mit $A \in \Tc$. Dann gilt
+\begin{enumerate}
+\item \begin{enumerate}
+\item $\overline{A}$ ist abgeschlossen und $A \sub \overline{A}$.
+\item $A = \overline{A}$ gilt genau dann, wenn $A$ abgeschlossen ist.
+\item $\overline{A}$ besteht aus der Menge der Berührpunkte von $A$.
+\end{enumerate}
+\item \begin{enumerate}
+\item $\mathring{B}$ ist offen und $\mathring{B} \sub B$.
+\item $B = \mathring{B}$ genau dann, wenn $B$ offen ist.
+\item $\mathring{B}$ besteht aus der Menge der inneren Punkte von $B$.
+\end{enumerate}
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(a) und (b) sind jeweils trivial. Wir beweisen 1(a). Angenommen, $x \in \overline{A}$ aber ist kein Berührpunkt von $A$. Dann existiert ein $U \in \Uf(x)$, sodass $U \cap A = \emptyset$ gilt. Daraus folgt, dass $A \sub X \exc U$ gilt, woraus $A \sub X \exc O$ abgeschlossen folgt. Weiterhin existiert ein $O \in \Tc$ mit $x \in O \sub U$, also $X \exc U \sub X \exc O$. Dann ist aber $\overline{A} \sub X \exc O$, also $x \notin \overline{A}$.\\
+Jetzt nehmen an, dass $x$ Berührpunkt ist, aber $x \notin  \overline{A}$. Also folgt aus $x \in X \exc \overline{A}$ offen, dass $V:= X \exc \overline{A} \in \Uf (x)$, aber $V \cap A = \emptyset$, also ist $x$ kein Berührpunkt im Widerspruch zur Annahme.
+\end{beweis}
+\begin{bemerkung}
+Folgendes gilt allgemein:
+\begin{itemize}
+\item Ist $A \sub B$, so auch $\mathring{A} \sub \mathring{B}$ und $\overline{A} \sub \overline{B}$.
+\item $\overline{A \cup B} = \overline{A} \cup \overline{B}$
+\item $\mathring{A \cap B} = \mathring{A} \cap \mathring{B}$
+\end{itemize}
+\end{bemerkung}
+\begin{definition}{Dichheit}{dicht}
+Sei $(X, \Tc)$ ein top. Raum. $A \sub X$ heißt \textbf{dicht}, falls $\overline{A} = X$. $A\sub X$ heißt hingegen \textbf{nirgends dicht}, falls $\mathring{\overline{A}}= \emptyset$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item $\Q \sub \R$ ist dicht.
+\item $(a,b) \sub \R \sub \R^2$, $(a,b)$ nirgends dicht in $\R$.
+\end{enumerate}
+\end{beispiele}
