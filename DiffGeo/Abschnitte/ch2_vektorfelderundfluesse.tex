@@ -190,7 +190,7 @@ T\R^n = \R^n \times \R^n \arrow[r, "\pi = pr_1"] & \R^n.
 \end{center}
 Für $V \sub \R^n$ offen gilt $TV = \pi^{-1}(V) = V \times \R^n$. Ist jetzt $M$ eine glatte MFK der Dimension $n$, so wählen wir einen Atlas $\Af = \{(U_\alpha, \phi_\alpha)\}_{\alpha \in I}$. In unserer ersten Beschreibung von Tangentialräumen hatten wir Tangentialvektoren der Äquivalenzklasse von Tangentialvektoren in Karten definiert. Insbesondere erhalten wir also eine Parametrisierung von 
 \begin{align}
-\bigcup_{\alpha \in U_\alpha} T_xM &\cong V_\alpha \times \R^n \\
+\bigcup_{x \in U_\alpha} T_xM &\cong V_\alpha \times \R^n \\
 [\phi_\alpha (y, v)] &\mapsfrom (y, v).
 \end{align}
 Ist $\phi_\beta: U_\beta \to V_\beta \sub \R^n$ eine andere Karte, so ist auf $W=U_\alpha \cap U_\beta$ die Übergangsabbildung
@@ -289,7 +289,7 @@ entspricht $\frac{\partial}{\partial x_i}$ dem konstanten Vektorfeld
 \begin{equation}
 p \mapsto \left( \phi(p), (0, \dots, 1, 0, \dots, 0)\right).
 \end{equation}
-In jedem $p \in U$ bilden die Vektoren $\frac{\partial}{\partial x_1}|_p, \dots, \frac{\partial}{\partial x_n}|_p$ eine Basis von $T_pM$. Es ist dann klar, dass jedes auf $U$ definiertes Vektorfeld sich als Linearkombination der $\frac{\partial}{\partial x_i}$ mit Koeffizienten in $\cinf{U}{}$ schreiben lässt.
+In jedem $p \in U$ bilden die Vektoren $\frac{\partial}{\partial x_1}|_p, \dots, \frac{\partial}{\partial x_n}|_p$ eine Basis von $T_pM$. Es ist dann klar, dass jedes auf $U$ definiertes Vektorfeld sich als Linearkombination der $\frac{\partial}{\partial x_i}$ mit Koeffizienten in $\mathcal{C}^\infty (M)$ schreiben lässt.
 \begin{satz}{}{}
 Sei $\phi: U \to V \sub \R^n$ eine Karte für $M$ mit lokalen Koordinaten $(x_1, \dots, x_n)$. Dann hat jedes lokal definierte, glatte Vektorfeld $X \in \Gamma(TM|_U)$ die Darstellung
 \begin{equation}
@@ -367,7 +367,7 @@ Da Vektorfelder punktweise Tangentialvektoren sind, wird für $X \in \Gamma (TM)
 \begin{equation}
 (Xf)(p):= \underbrace{X_p}_{\in T_pM} f
 \end{equation}
-eine Funktion $XF: M \to \R$ definiert. In lokalen Koordinaten rechnet man leicht nach, dass diese Funktion glatt ist. Dazu nutzt man die Darstellung $X=\sum_i X_i \frac{\partial}{\partial x_i}$ und wendet sie auf $f$ an, was eine Summe glatter Funktionen liefert.\\
+eine Funktion $Xf: M \to \R$ definiert. In lokalen Koordinaten rechnet man leicht nach, dass diese Funktion glatt ist. Dazu nutzt man die Darstellung $X=\sum_i X_i \frac{\partial}{\partial x_i}$ und wendet sie auf $f$ an, was eine Summe glatter Funktionen liefert.\\
 Außerdem ist die Zuordnung
 \begin{align}
 \cinf{M} &\to \cinf{M} \\
@@ -569,7 +569,7 @@ gegeben ist.
 \begin{bemerkung}
 Wir wissen, dass $\phi_t \to^{t \to 0} \id_M$ und $\phi_{t\ast} \to^{t \to 0} \id_{TM}$. Deshalb können wir $\Ls_XY|_p$ auch schreiben als 
 \begin{equation}
-(\Ls_XY)_p = \lim_{t \to 0} \phi_{t\ast} \left( \frac{(\phi_{-t})_\ast Y_{\phi_t(p)} - Y_p}{t}\right) = \lim_{t\to 0} \frac{ Y_{\phi_t(p)} - (\phi_t)_\ast Y_p}{t} \in T_{\phi_t(p)M}.
+(\Ls_XY)_p = \lim_{t \to 0} \phi_{t\ast} \left( \frac{(\phi_{-t})_\ast Y_{\phi_t(p)} - Y_p}{t}\right) = \lim_{t\to 0} \frac{ Y_{\phi_t(p)} - (\phi_t)_\ast Y_p}{t} \in T_{\phi_t(p)}M.
 \end{equation}
 \end{bemerkung}
 \begin{satz}{Lie-Klammer und Lie-Ableitung}{lieklammerableitung}
@@ -593,7 +593,7 @@ B(t) := (\phi_t)_\ast Y_p(f) = Y_p(f \circ \phi_t) = \frac{\partial}{\partial s}
 Dann gilt $A(0)=B(0)$ und außerdem 
 \begin{align}
 (L_XY)_p (f) &= \lim_{t \to 0} \frac{A(t)-B(t)}{t} = \lim_{t \to 0} \frac{A(t) - A(0)}{t} - \lim_{t \to 0} \frac{B(t)-B(0)}{t}\\
-&= \frac{\partial^2}{\partial t \partial s} (\psi_s \phi_t (p))|_{(s, t)=(0,0)} - \underbrace{\frac{\partial^2}{\partial t \partial s}}_{=\frac{\partial^2}{\partial s \partial t}} f(\phi_t \psi_s (p))|_{(s,t)=(0,0)} \\
+&= \frac{\partial^2}{\partial t \partial s} f(\psi_s \phi_t (p))|_{(s, t)=(0,0)} - \underbrace{\frac{\partial^2}{\partial t \partial s}}_{=\frac{\partial^2}{\partial s \partial t}} f(\phi_t \psi_s (p))|_{(s,t)=(0,0)} \\
 &= X_p \left( \frac{\partial}{\partial s} (f \circ \psi_s(p))|_{s=0} \right) - Y_p \left( \frac{\partial}{\partial t} (f \circ \phi_t(p))|_{t=0}\right) = X_p(Y(f))- Y_p(X(f)) = [X, Y]_p (f)
 \end{align}
 \end{beweis}
@@ -762,10 +762,10 @@ Der Name Exponentialabbildung kommt daher, dass für Matrixgruppen $\exp(\xi) = 
 Für $G = \quotient{\R^n}{\Z^n} \cong T^n$ ist die Exponentialabbildung $exp: \R^n \to \quotient{\R^n}{\Z^n}$ die universelle Überlagerung von $T^n$, d.h. die Abbildung, die $x\in \R^n$ auf seine Äquivalenzklasse $[x] \in T^n$ abbildet.
 \end{beispiel}
 \begin{satz}{Differential als Gruppenhomomorphismus}{diffhomo}
-Ist $\phi: G \to H$ ein glatter Gruppenhomomorphismus, dann ist $\phi_{\ast, e}: \mathfrak{h} \to \mathfrak{h}$ ein Homomorphismus von Lie-Algebren.
+Ist $\phi: G \to H$ ein glatter Gruppenhomomorphismus, dann ist $\phi_{\ast, e}: \mathfrak{g} \to \mathfrak{h}$ ein Homomorphismus von Lie-Algebren.
 \end{satz}
 \begin{beweis}
-Wir müssen zeigen, dass $\phi_\ast [\xi, \eta] = [\phi_\ast \xi, \phi_ast \eta]$.\\
+Wir müssen zeigen, dass $\phi_\ast [\xi, \eta] = [\phi_\ast \xi, \phi_\ast \eta]$.\\
 Dafür wollen wir ÜA (A12) nutzen. Um das dort gezeigte Ergebnis anwenden zu können, müssen wir zeigen, dass für die linksinvarianten Vektorfelder $X,Y$ auf $G$ zu $\xi, \eta$ bzw. $\overline{X}, \overline{Y}$ auf $H$ zu $\phi_\ast \xi, \phi_\ast \eta$ die Gleichung $\phi_\ast (X_g) = \overline{X}_{\phi(g)}$ und analog für $\overline{X}, \overline{Y}$ gilt.\\
 $\phi$ ist ein Gruppenhomomorphismus, sodass gilt:
 \begin{align}
@@ -993,7 +993,7 @@ mit $U \sub \R^3$ offen. Seien $h_1, h_2$ und $h_3$ die Komponenten von $h$. Dan
 \end{equation}
 Also sind $dh_1, dh_2$ und $dh_3$ in jedem Punkt paarweise linear abhängig. Also kann der Rang von $\Ds h$ nicht größer als $1$ sein. Das ist ein Widerspruch zur Annahme, dass $h$ eine Immersion ist.
 \end{beispiel}
-Interessant ist, was in diesem Beispiel schiefgeht. Wäre $B$ eine Integralfläche für $D$, so müsste die Lie-Klammer von Vektorfeldern, die tangential an $B$ sind, auch wieder tangential an $B$ sein (Übung A12). Aber $D$ wird aufgespannt durch $X = \frac{\partial}{\partial x} - y \frac{\partial}{\partial z}$ und $Y = \frac{\partial}{\partial y}$. Es gilt jedoch $[X,Y] = \frac{\partial}{\partial z} \notin \ker D$.
+Interessant ist, was in diesem Beispiel schiefgeht. Wäre $B$ eine Integralfläche für $D$, so müsste die Lie-Klammer von Vektorfeldern, die tangential an $B$ sind, auch wieder tangential an $B$ sein (Übung A12). Aber $D$ wird aufgespannt durch $X = \frac{\partial}{\partial x} - y \frac{\partial}{\partial z}$ und $Y = \frac{\partial}{\partial y}$. Es gilt jedoch $[X,Y] = \frac{\partial}{\partial z} \notin \ker \alpha$.
 \begin{theorem}{Satz von Frobenius}{frobenius}
 Sei $M$ eine glatte MFK und $D \sub TM$ eine glatte Distribution von Rang $k$. Dann sind folgende Aussagen äquivalent:
 \begin{enumerate}

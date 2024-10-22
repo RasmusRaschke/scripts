@@ -186,7 +186,7 @@ Ist $\nabla$ eine kovariante Ableitung auf $TM$, so induziert $\nabla$ auch kova
 \begin{satz}{Kovariante Ableitung eines Tensorfeldes}{kovabltensor}
 Ist $B^r_s$ ein $(r,s)$-Tensorfeld, so ist $\nabla B^r_s$ ein $(r+1, s)$-Tensorfeld, d.h. die Zuordnung
 \begin{equation}
-(X_0, \dots, X_r) \mapsto (\nabla_{X_0} B(X_1, \dots, X_r))
+(X_0, \dots, X_r) \mapsto (\nabla_{X_0}) B(X_1, \dots, X_r)
 \end{equation}
 ist $\cinf{M}$-linear in jedem Argument.
 \end{satz}
@@ -221,17 +221,17 @@ Der Raum $\Gamma_f (TM)$ ist:
 \begin{itemize}
 \item ein Vektorraum über $\R$.
 \item Ein Modul über $\cinf{N}$.
-\item ein Modul über $\cinf{M}$, da $f$ einen Ringhomomorphismus $f^\ast: \cinf{M} \to \cinf{N}, \ \phi \mapsto \phi \circ f$ induziert.
+\item Ein Modul über $\cinf{M}$, da $f$ einen Ringhomomorphismus $f^\ast: \cinf{M} \to \cinf{N}, \ \phi \mapsto \phi \circ f$ induziert.
 \end{itemize}
 \end{bemerkung}
 \begin{bemerkungen}
 \begin{enumerate}
 \item Zu jedem Vektorfeld $X \in \Gamma(TM)$ haben wir eine Einschränkung auf $f$: $X \circ f \in \Gamma_f(TM)$. Typischerweise sind nicht alle Vektorfelder entlang $f$ von dieser Form.
-\item Zu jedem Vektorfeld $A \in \Gamma (TN)$ erhalten wir ebenfalls ein Vektorfeld entlang $f$, nämlich $f_\ast A \in \Gamma_f(TM)$.
+\item Zu jedem Vektorfeld $X \in \Gamma (TN)$ erhalten wir ebenfalls ein Vektorfeld entlang $f$, nämlich $f_\ast X \in \Gamma_f(TM)$.
 \begin{center}
 \begin{tikzcd}
 TN \arrow[r, "f_\ast"] \arrow[d, "\pi_M"] & TM \arrow[d, "\pi_M"] \\
-N \arrow[r, "f"] \arrow[ur, "Y"] & M
+N \arrow[r, "f"] \arrow[ur, "f_\ast X"] & M
 \end{tikzcd}
 \end{center}
 \item Zu $Y \in \Gamma_f(TM)$ und $\psi \in \cinf{M}$ erhalten wir eine Funktion $Y \psi \in \cinf{N}$, definiert als
@@ -242,7 +242,7 @@ Ist $Y=X \circ f$ eine Einschränkung, dann gilt $(X \circ f)(\psi) = (X \psi) \
 \item Obwohl Vektorfelder entlang $f$ nicht unbedingt Einschränkungen sind, ist jedes Vektorfeld $Y \in \Gamma_f(TM)$ lokal als Linearkombination von Einschränkungen mit Koeffizienten in $\cinf{N}$ schreiben.\\
 Konkret: Seien $(x_1, \dots, x_n)$ Koordinaten auf $U \sub M$ und sei $V := f^{-1}(U) \sub N$. Dann hat jedes Vektorfeld $Y \in \Gamma_f(TM)$ die lokale Darstellung
 \begin{equation}
-Y|_U = \Sum{k,1,n} (Y_{x_k}) \times \partial_{x_k} \circ f.
+Y|_U = \Sum{k,1,n} Y_{x_k} \cdot (\partial_{x_k} \circ f).
 \end{equation}
 \end{enumerate}
 \end{bemerkungen}
@@ -257,7 +257,7 @@ für $f \in \cinf{N}$ mit folgenden Eigenschaften:
 \item $\bar{\nabla}$ ist $\cinf{N}$-linear im ersten Argument.
 \item $\bar{\nabla}$ ist eine Derivation im zweiten Argument, d.h.
 \begin{equation}
-\bar{\nabla}_A fY = (Af) \times Y + f \bar{\nabla}_A Y
+\bar{\nabla}_A fY = (Af) \cdot Y + f \bar{\nabla}_A Y
 \end{equation}
 für $f \in \cinf{N}$.
 \item Für $X \in \Gamma(TM)$ gilt $\bar{\nabla}_A (X \circ f) = \left( \nabla_{f_\ast A} X\right) \circ f$.
@@ -287,23 +287,23 @@ Y|_{(t_0-s, t_0+s)} = \Sum{k,1,n} a_k (\partial_{x_k} \circ \gamma)
 \end{equation}
 mit Funktionen $a_k: (t_0-s, t_0+s) \to \R$. Dann folgt
 \begin{equation}
-\nabla_\frac{d}{dt} Y = \Sum{k,1,n} \left( \frac{da_k}{dt}\right) \times (\partial_{x_k} \circ \gamma) + \Sum{j,1,n} a_j \nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma)
+\nabla_\frac{d}{dt} Y = \Sum{k,1,n} \left( \frac{da_k}{dt}\right) (\partial_{x_k} \circ \gamma) + \Sum{j,1,n} a_j \nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma)
 \end{equation}
 aus der Derivationseigenschaft von $\nabla$. Mit $\gamma_\ast (\frac{d}{dt}) = \sum_i \frac{d (x_i \circ \gamma)}{dt} \partial_{x_i}$ gilt nun: 
 \begin{align}
 \nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma) &=^3 \left( \nabla_{\gamma_\ast (\frac{d}{dt} )} \partial_{x_j}\right) \circ \gamma\\
 &= \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\nabla_{\partial_{x_j}} \partial_{x_j} ) \circ \gamma \\
-&= \sum_{i,k} \frac{d (x_i \circ \gamma)}{dt} \times (\Gamma_{ij}^k \circ \gamma)(\partial_{x_k} \circ \gamma).
+&= \sum_{i,k} \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)(\partial_{x_k} \circ \gamma).
 \end{align}
 Insgesamt erhalten wir:
 \begin{equation}
 \nabla_\frac{d}{dt}Y = \Sum{k,1,n} \left( \frac{d a_k}{dt} + \sum_{i,j} a_j \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)\right)(\partial_{x_k} \circ \gamma).
 \end{equation}
-Mit $B_j^k := - \Sum{i,1,n} \frac{d (x_i \circ \gamma}{dt} (\Gamma_{ij}^k \circ \gamma)$ ist die Bedingung $\nabla_\frac{d}{dt}  Y = 0$ äquivalent zum System
+Mit $B_j^k := - \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)$ ist die Bedingung $\nabla_\frac{d}{dt}  Y = 0$ äquivalent zum System
 \begin{equation}
 \frac{d a_k}{dt} = \Sum{j,1,n} B_j^k a_j
 \end{equation}
-mit $k \in \{1, \dots, n \}$. Dies ist ein System linearer DGL. Solche Systeme haben zu jedem Anfangswert eine global (also in unserem Fall auf ganz $(t_0 -s, t_0 +s)$) definierte und eindeutige Lösung. Für auf einem kompakten Intervall definierte Kurven können wir das Intervall in endlich viele Teile $a_0 = t_0 < t < \cdots < t_r =b$ zerlegen, sodass $\gamma([t_i, t_{i+1}]$ in einer Karte für $M$ enthalten ist. Wir erhalten also
+mit $k \in \{1, \dots, n \}$. Dies ist ein System linearer DGL. Solche Systeme haben zu jedem Anfangswert eine global (also in unserem Fall auf ganz $(t_0 -s, t_0 +s)$) definierte und eindeutige Lösung. Für auf einem kompakten Intervall definierte Kurven können wir das Intervall in endlich viele Teile $a_0 = t_0 < t < \cdots < t_r =b$ zerlegen, sodass $\gamma([t_i, t_{i+1}])$ in einer Karte für $M$ enthalten ist. Wir erhalten also
 \begin{satz}{}{}
 Sei $\nabla$ eine kovariante Ableitung auf $TM$ und $\gamma: [a,b] \to M$ eine glatte Kurve. Dann existiert zu jedem $t_0 \in [a,b]$ und jedem $v \in T_{\gamma (t_0)} M$ ein eindeutiges, entlang $\gamma$ paralleles Vektorfeld $Y$ mit $Y_{t_0} = v$.
 \end{satz}
@@ -318,7 +318,7 @@ Parallele Vektorfelder $Y_1, \dots, Y_k$ entlang $\gamma$ sind in $t_0 \in [a,b]
 Wir definieren nun den \textbf{Paralleltransport} entlang $\gamma$ als
 \begin{align}
 P_\gamma: T_{\gamma(a)} M &\to T_{\gamma(b)} M \\
-v &\mapsto \ \text{Wert in b des zugehörigen parallelen Vektorfeldes}.
+v &\mapsto \ \text{Wert in} \ \gamma(b) \ \text{des zugehörigen parallelen Vektorfeldes}.
 \end{align}
 Dies ist ein Isomorphismus.
 Allgemeiner haben wir zu einem gegebenen Weg $\gamma: [a,b] \to M$:
@@ -328,7 +328,7 @@ P_{t_0t_1}: T_{\gamma(t_0)} M \to T_{\gamma(t_1)}M
 für beliebige $t_0, t_1 \in [a,b]$.
 \end{definition}
 \begin{bemerkung}
-$P_{t_0t_1} = P_{t_0t_1}^{-1}$
+$P_{t_0t_1} = P_{t_1t_0}^{-1}$
 \end{bemerkung}
 \begin{satz}{}{}
 Sei $M$ eine glatte MFK, $\nabla$ eine kovariante Ableitung und $\gamma: [a,b] \to M$ mit $t_0 \in [a,b]$ eine glatte Kurve. Dann gilt für $X \in \Gamma_\gamma (TM)$:

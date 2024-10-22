@@ -228,7 +228,7 @@ Wir betrachten dafür einige Beispiele:
 \begin{enumerate}
 \item Die Karte $\id_{\R^n}: \R^n \to \R^n$ macht den $\R^n$ zu einer glatten MFK.
 \item Offene Teilmengen von glatten MFKn sind wieder glatte MFKn, da sie die glatte Struktur der umgebenden MFK erben. Sei $O \sub M$ offen und $\phi: U \to \R^n$ eine Karte für $M$. Dann ist $\phi |_{O \cap U}: O \cap U \to \R^n$ eine Karte für $O$.
-\item Betrachte $\text{GL}(n, \R) \sub \text{Mat}(n, \R) \cong R^{n^2}$. Als Urbild von $\R \exc \{ 0 \} \sub \R$ unter $\text{det}: \text{Mat}(n, \R) \to \R$ ist $\text{GL}(n, \R)$ offen in $\text{Mat}(n, \R)$.
+\item Betrachte $\text{GL}(n, \R) \sub \text{Mat}(n, \R) \cong \R^{n^2}$. Als Urbild von $\R \exc \{ 0 \} \sub \R$ unter $\text{det}: \text{Mat}(n, \R) \to \R$ ist $\text{GL}(n, \R)$ offen in $\text{Mat}(n, \R)$.
 \item Jede $k$-dim. UMF des $\R^n$ ist eine glatte $k$-dim. MFK.
 \item Seien $M_1$ und $M_2$ glatte MFK. Dann ist das Produkt $M_1 \times M_2$ wieder eine glatte MFK. Betrachte dazu Karten $\phi_{1,2}: U_{1,2} \to \R^{n_{1,2}}$ von $M_1$ respektive $M_2$. Dann ist $\phi_1 \times \phi_2: U_1 \times U_2 \to \R^{n_1 + n_2}$ eine Karte für $M_1 \times M_2$.
 \end{enumerate}
@@ -532,12 +532,12 @@ Wir haben also ein beliebiges $\Df \in \der{p}$ als Linearkombination der $\left
 Ab jetzt schreiben wir nur $v \in T_pM$ für einen Tangentialvektor in $p \in M$.
 \end{warning}
 \begin{definition}{Differential}{diff}
-Seien $M_1, M_2$ glatte MFK und $F: M_1 \to M_2$ glatte MFK zwischen diesen. Das \textbf{Differential} oder der \textbf{Pushforward} von $F$ im Punkt $p \in M_1$ ist die lineare Abbildung:
+Seien $M,N$ glatte MFK und $F: M \to M$ eine glatte Abbildung zwischen diesen. Das \textbf{Differential} oder der \textbf{Pushforward} von $F$ im Punkt $p \in M$ ist die lineare Abbildung:
 \begin{align}
-F_{\ast, p}: T_pM_1 &\to T_{F(p)}M_2 \\
+F_{\ast, p}: T_pM &\to T_{F(p)}N \\
 v &\mapsto F_{\ast, p} (v)
 \end{align}
-mit $F_{\ast, p} (v)(f) = v(f \circ F)$ für alle $f \in C^\infty (M_2, \R)$.
+mit $F_{\ast, p} (v)(f) = v(f \circ F)$ für alle $f \in C^\infty (N, \R)$.
 \begin{figure}[H]
 \label{fig:differential}
 \centering
@@ -585,7 +585,7 @@ Das ist auch gleich der Beweis für:
 \begin{satz}{Matrixdarstellung}{mtrx}
 In den lokalen Koordinaten $\phi: U \to \R^n$ auf $M_1$ und $\psi: W \to \R^m$ auf $M_2$ hat $F_{\ast, p}: T_pM_1 \to T_{F(p)}M_2$ bezüglich der Basen $\left( \left.\frac{\partial}{\partial x_1}\right|_p, \dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ von $T_pM_1$ und $\left( \left.\frac{\partial}{\partial x_1}\right|_{F(p)}, \dots, \left.\frac{\partial}{\partial x_m}\right|_{F(p)} \right)$ von $T_{F(p)}M_2$ die Matrixdarstellung
 \begin{equation}
-\left\{ \frac{\partial (\psi \circ F \circ \phi^{-1})_j}{\partial x_i} (\phi(p))\right\}_{\substack{j= \{1, \dots, m\}\\i = \{ 1, \dots, n\}}}.
+\left\{ \frac{\partial (\psi \circ F \circ \phi^{-1})_j}{\partial x_i} (\phi(p))\right\}_{\substack{j \in \{1, \dots, m\}\\i \in \{ 1, \dots, n\}}}.
 \end{equation}
 \end{satz}
 \begin{beispiel}
@@ -608,7 +608,7 @@ Einbettung $\implies$ injektive Immersion, aber injektive Immersion $\xcancel{\i
 \item Sei $M=\Z$ und $N= \sph^1 \cong \quotient{\R}{\Z}$. Für $\alpha \in \R, \Q$ ist die Abbildung $F_\alpha: \Z \to \sph^1, \ k \mapsto k \alpha \mod 1$ eine injektive Immersion, aber keine Einbettung, da $F_\alpha(\Z) \sub \sph^1$ nicht die diskrete Topologie hat.
 \item Jede Projektion $\pi: \R^n \to L \sub \R^k$ auf einen linearen UR $L \in \R^n$ entlang des orthogonalen Komplements $L^\perp \sub \R^n$ ist eine Submersion. Jede lineare Einbettung $A: \R^k \to \R^n$ ist eine Immersion.
 \item $F: \R^{n+1} \exc \{0\}  \to \R, \ F(x) := ||x||^2$ ist eine Submersion, denn $\Ds F_x(v) = 2 \ip{x,v}$.
-\item $G:  \R^{n+1} \exc \{0\} \to \sph^n, \ G(x):=\frac{x}{||x||^2}$ ist auch eine Submersion.
+\item $G:  \R^{n+1} \exc \{0\} \to \sph^n, \ G(x):=\frac{x}{||x||}$ ist auch eine Submersion.
 \end{enumerate}
 \end{beispiele}
 \begin{satz}{\textit{Rangsatz}}{rangsatz}
@@ -644,12 +644,6 @@ Sei $F: M \to N$ eine glatte Abbildung.\\
 Ein Punkt $p \in M$ heißt \textbf{regulär für} $F$, falls $F_{\ast, p}: T_pM \to T_{F(p)}N$ surjektiv ist. Andernfalls heißt $p$ \textbf{kritisch} für $F$.\\
 Ein Punkt $q \in N$ heißt \textbf{regulärer Wert von} $F$, falls $F^{-1}(q)$ nur aus regulären Punkten besteht. Wenn $F^{-1}(q)$ mindestens einen kritischen Punkt enthält, heißt $q \in N$ \textbf{kritischer Wert}.
 \end{definition}
-\begin{figure}[H]
-\label{fig:kritisch}
-\centering
-\includegraphics[width=0.3\linewidth]{Bilder/bspkritisch.png}
-\caption{Für die Funktion $f: \R \to \R, \ x \mapsto x^3$ ist $p=0$ kritisch.}
-\end{figure}
 \begin{satz}{Satz vom regulären Wert}{regwertsatz}
 Sei $F: M \to N$ eine glatte Abbildung und $q \in N$ ein regulärer Wert von $F$.\\
 Dann ist $F^{-1}(q) \sub M$ eine glatte UMF von $M$ der Dimension $\dim M - \dim N$. Für $p \in F^{-1}(q)$ gilt außerdem $T_pF^{-1} (q) = \ker F_{\ast, p}$.
