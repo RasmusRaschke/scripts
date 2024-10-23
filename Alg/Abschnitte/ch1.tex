@@ -23,7 +23,7 @@ mit folgenden Eigenschaften:
 \item Für jedes $g \in G$ existiert ein $g' \in G$ mit $g' \circ g = e$.
 \end{enumerate}
 \end{enumerate}
-Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit den Eigenschaften aus 2. heißt \textbf{neutrales Element}, und ein Element $g' \in G$ zu gegebenem $g \in G$ mit Eigenschaft 2b heißt \textbf{Inverses} von $g$.
+Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit den Eigenschaften aus (2G) heißt \textbf{neutrales Element}, und ein Element $g' \in G$ zu gegebenem $g \in G$ mit Eigenschaft (2b) heißt \textbf{Inverses} von $g$.
 \end{definition}
 
 \begin{bemerkung}Übungsaufgabe:\\
@@ -40,7 +40,7 @@ Wir geben einige Beispiele für Gruppen:
 \begin{enumerate}
 \item Die Gruppe $(\Z, +)$ der ganzen Zahlen $\Z$ mit der Addition $+$.
 \item Für einen Körper $\K$ existiert die additive Gruppe $(\K, +)$ und die multiplikative Gruppe $(\K \exc \{0\}, \cdot)$.
-\item Für jede Menge $M$ existiert die \textbf{symmetrische Gruppe} $(\mathfrak{S}_M, \circ)$, wobei $\mathfrak{S}_M$ die Menge der bijektiven Selbstabbildungen von $M$ und $\circ$ die Komposition ist. Für $n \geq 1$ vereinbaren wir $\mathfrak{S}_n := \mathfrak{S}_{\{1,2,\dots,n\}}$. Wir vereinbaren als Konvention die \textbf{Zykelschreibweise}. Z.B. in $\mathfrak{S}_3$ existieren Zykel
+\item Für jede Menge $M$ existiert die \textbf{symmetrische Gruppe} $(\mathfrak{S}_M, \circ)$, wobei $\mathfrak{S}_M$ die Menge der bijektiven Selbstabbildungen von $M$ und $\circ$ die Komposition ist. Für $n \geq 1$ vereinbaren wir $\mathfrak{S}_n := \mathfrak{S}_{\{1,2,\dots,n\}}$. Wir vereinbaren als Konvention die \textbf{Zykelschreibweise}. In $\mathfrak{S}_3$ beispielsweise ist ein Zykel
 \begin{align}
 \sigma: \{1,2,3\} &\to \{1,2,3\}\\
 1 &\mapsto 2 \\
@@ -51,12 +51,12 @@ auch darstellbar als
 \begin{equation}
 \mat{1,2,3}{2,1,3}
 \end{equation}
-oder $(12)$.
-\item Für $n \geq 1$ und einen Körper $\K$ ist die \textbf{allgemeine lineare Gruppe} $\text{GL}(n,\K), \circ)$ definiert, wobei 
+oder einfacher als $(12)$.
+\item Für $n \geq 1$ und einen Körper $\K$ ist die \textbf{allgemeine lineare Gruppe} $(\text{GL}(n,\K), \circ)$ definiert, wobei 
 \begin{equation}
 \text{GL}(n, \K) := \left\{ A \in \K^{n\times n} \, | \, \det A \neq 0 \right\}
 \end{equation}
-Die Menge der invertierbaren $n \times n$-Matrizen mit Einträgen in $\K$ ist. Typische Beispiele für Körper sind $\K = \Q, \R, \C, \F_q$ mit $q = p^n$, $p$ prim.\\
+die Menge der invertierbaren $n \times n$-Matrizen mit Einträgen in $\K$ ist. Typische Beispiele für Körper sind $\K = \Q, \R, \C, \F_q$ mit $q = p^n$, $p$ prim.\\
 ÜA: $| \text{GL}(n, \F_q)| = ?$.
 \end{enumerate}
 \end{beispiele}
@@ -101,7 +101,7 @@ Also: $H \sub G$ ist eine Untergruppe genau dann, wenn folgende alternativen Eig
 \item Für alle $a,b \in H$ muss $a \cdot b \in H$ gelten.
 \item Für alle $a \in H$ ist $a^{-1} \in H$.
 \end{enumerate}
-Die andere Richtung der Äquivalenz ist trivial. Daraus folgt auch, dass $(H, \circ|_{H \times H})$ mit von $G$ eingeschränkter Verknüpfung $\circ|_{H \times H}$ ist eine Gruppe. 
+Die andere Richtung der Äquivalenz ist trivial. Daraus folgt auch, dass $(H, \circ|_{H \times H})$ mit der auf $H$ eingeschränkten Verknüpfung $\circ|_{H \times H}$ eine Gruppe ist. 
 \end{bemerkung}
 \begin{beispiele}
 Einige Beispiele für Untergruppen sind:
@@ -122,11 +122,11 @@ definiert, die auch eine Untergruppe von $\text{GL}(n, \K)$ ist.
 \text{SO}(n, \K) := \text{O}(n, \K) \cap \text{SL}(n, \K)
 \end{equation}
 als Untergruppe von $\text{GL}(n, \K)$ konstruiert werden.
-\item Etwas allgemeiner: Für jede Familie $\{H_i\}_{i\in I}$ von Untergruppen $H_i \leq G$ gilt:
+\item Etwas allgemeiner: Für jede Familie $\{H_i\}_{i\in I}$ von Untergruppen $H_i \leq G$ gilt, dass
 \begin{equation}
 \bigcap_{i \in I} H_i \leq G
 \end{equation}
-ist wieder eine Untergruppe.
+wieder eine Untergruppe ist.
 \end{enumerate}
 \end{beispiele}
 \begin{definition}{Erzeugte Untergruppe}{}
@@ -134,7 +134,7 @@ Sei $G$ eine Gruppe und $M \sub G$ eine beliebige Teilmenge. Dann heißt die \te
 \begin{equation}
 \langle M \rangle := \bigcup_{M \sub H \leq G} H \leq G
 \end{equation}
-die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$.Falls $M = \{g\} \leq G$ eine einelementige Menge ist, schreiben wir \begin{equation}
+die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$. Falls $M = \{g\} \leq G$ eine einelementige Menge ist, schreiben wir \begin{equation}
 \langle g \rangle := \langle \{g\} \rangle \leq G.
 \end{equation}
 \end{definition}
@@ -143,7 +143,7 @@ Sei $G$ eine Gruppe und $g \in G$ ein Element. Dann heißt die Kardinalität
 \begin{equation}
 \text{ord}(g) := | \langle g \rangle | \in \N \cup \{\infty \}
 \end{equation}
-die \textbf{Ordnung von} $g$.
+die \textbf{Ordnung von} $g$ und $\langle g \rangle$ \textbf{zyklisch} der Ordnung $\ord (g)$.
 \end{definition}
 \begin{satz}{Charakterisierung von einelementigen Untergruppen}{charakterisierungeinelementig}
 Sei $G$ eine Gruppe und $g \in G$ ein Element.
@@ -244,14 +244,28 @@ ein Homomorphismus von $(\Z, +)$ nach $(G, \circ)$.
 \begin{definition}{Isomorphismus}{isomorphismus}
 Sei $\phi$ ein Gruppenhomomorphismus, der zusätzlich bijektiv ist. Dann heißt $\phi$ \textbf{Isomorphismus}. Zwei Gruppen $G$ und $G'$ heißen \textbf{isomorph}, in Zeichen $G \cong G'$, falls es einen Isomorphismus zwischen ihnen gibt.
 \end{definition}
-\begin{beispiel}
-Die Permutationsabbildung $P$ induziert einen Isomorphismus
+\begin{bemerkung}
+Anschaulich bedeutet das, dass zwei isomorphe Gruppen identisch bis auf Umbenennung ihrer Elemente sind.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Die Permutationsabbildung $P$ induziert einen Isomorphismus
 \begin{align}
 P: \mathfrak{S}_n &\to P(n, \K)\\
-\sigma \mapsto P_\sigma
+\sigma &\mapsto P_\sigma
 \end{align}
 zwischen der symmetrischen Gruppe und der Untergruppe der Permuationsmatrizen. Letztere sind Matrizen, die in jeder Zeile und Spalte \textit{genau eine} $1$ und sonst $0$ haben. \textit{Der Beweis sei dem Leser überlassen.}
-\end{beispiel}
+\item Die \textbf{Exponentialfunktion}
+\begin{equation}
+\exp: (\R, +) \to (\R_{> 0}, \cdot)
+\end{equation}
+und ihre Umkehrfunktion, gegeben durch den \textbf{Logarithmus}
+\begin{equation}
+\ln: (\R_{>0}, \cdot) \to (\R, +),
+\end{equation}
+bilden einen Isomorphismus, also gilt $(\R, +) \cong (\R_{>0}, \cdot)$.
+\end{enumerate}
+\end{beispiele}
 \begin{definition}{Bild und Kern}{bildkern}
 Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann heißt die Teilmenge
 \begin{equation}
@@ -287,4 +301,170 @@ Für einen Homomorphismus $\phi: G \to G'$ sind folgende Aussagen äquivalent:
 \begin{beweis}
 (i) $\implies$ (ii) ist offensichtlich. Wir zeigen noch (ii) $\implies$ (i):
 Sei also $\ker (\phi) = \{1\}$ und $g,h \in G$ mit $\phi(g) = \phi(h)$. Dann gilt $\phi(gh^{-1})=\phi(g)\phi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\phi) = \{1\}$ und damit $g = h$.
+\end{beweis}
+\begin{definition}{Links- und Rechtsnebenklassen}{linksrechtsnebenklasse}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppen. Dann ist die \textbf{Linksnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+\begin{equation}
+gH := \{gh \, | \, h \in H\}
+\end{equation}
+und die \textbf{Rechtsnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+\begin{equation}
+Hg := \{hg \, | \, h \in H \}
+\end{equation}
+definiert.
+\end{definition}
+\begin{satz}{Nebenklassen sind Äquivalenzklassen}{nebenklassenäquivalenzrel}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt:
+\begin{enumerate}
+\item Die Linksnebenklassen sind die Äquivalenzklassen bezüglich der Äquivalenzrelation
+\begin{equation}
+a \sim_L b :\iff b^{-1}a \in H
+\end{equation}
+auf $G$.
+\item Die Rechtsnebenklassen sind die Äquivalenzklassen bezüglich der analogen Äquivalenzrelation
+\begin{equation}
+a \sim_R b : \iff ab^{-1} \in H.
+\end{equation}
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Dem Leser als Übung überlassen. Es ist insbesondere auch zu zeigen, dass $\sim$ tatsächlich eine Äquivalenzrelation definiert.
+\end{beweis}
+Damit bezeichnen wir die Menge der Linksnebenklassen von $H$ mit $\quotient{G}{H} = \quotient{G}{\sim_L}$ und die der Rechtsnebenklassen mit $\quotient{G}{H} = \quotient{G}{\sim_R}$ \textcolor{red}{Hier Quotient umdrehen!}.
+\begin{definition}{Index}{index}
+Die Kardinalität
+\begin{equation}
+(G : H) := \left| \quotient{G}{H} \right| \in \N \cup \{\infty\}
+\end{equation}
+heißt \textbf{Index von} $H$ \textbf{in} $G$.
+\end{definition}
+Man beachte, dass $\left| \quotient{H}{G} \right| = \left| \quotient{H}{G} \right|$ [\textcolor{red}{Hier auch Quotient umdrehen!}] gilt, da die Abbildung $\dots$.
+\begin{theorem}{Satz von Lagrange}{satzvonlagrange}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt 
+\begin{equation}
+|G| = (G : H) \cdot |H|.
+\end{equation}
+Ist $|G| < \infty$, so gilt insbesonders
+\begin{equation}
+(G : H) = \frac{|G|}{|H|} = \left| \quotient{G}{H} \right|.
+\end{equation}
+\end{theorem}
+\begin{beweis}
+Dies ist ein direktes Korollar von Satz \ref{nebenklassenäquivalenzrel}: Als Äquivalenzklassen bzgl. einer Äquivalenzrelation bilden die Linksklassen eine Partition von $G$, also 
+\begin{equation}
+G = \bigsqcup_{gH \in \quotient{G}{H}} gH.
+\end{equation}
+Es gilt zudem für alle $g \in G$, dass $|gH| = |H|$, da Linksmultiplikation mit $g$, definiert durch 
+\begin{align}
+G &\to G\\
+x &\mapsto gx,
+\end{align}
+bijektiv ist, also eine Bijektion $H \to gH$ induziert. Insbesondere gilt für jedes $g \in G$, dass $\ord (g) \mid |G|$.
+\end{beweis}
+\begin{definition}{Normalteiler}{normalteiler}
+Eine Untergruppe $N \leq G$ heißt \textbf{normal} oder \textbf{Normalteiler}, falls für alle $g \in G$ 
+\begin{equation}
+gN = Ng
+\end{equation}
+gilt. Wir schreiben dafür $N \trianglelefteq G$.
+\end{definition}
+\begin{bemerkung}
+Eine Untergruppe $N \leq G$ ist normal genau dann, wenn für alle $g \in G$ und $n \in N$ gilt:
+\begin{equation}
+gng^{-1} \in N,
+\end{equation}
+also $N$ abgeschlossen unter Konjugation mit beliebigen Elementen aus $G$ ist.
+\end{bemerkung}
+\begin{satz}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann gilt $\ker (\phi) \trianglelefteq G$.
+\end{satz}
+\begin{beweis}
+Sei $g \in G$ und $x \in \ker (\phi)$, also $\phi (x) = 1$. Dann gilt auch 
+\begin{equation}
+\phi (gxg^{-1}) = \phi(g)\underbrace{\phi(x)}_{=1}\phi(g^{-1}) = \phi(g)\phi(g)^{-1} = 1.
+\end{equation}
+\end{beweis}
+\begin{beispiele}
+Wir betrachteten einige Beispiele für Normalteiler:
+\begin{enumerate}
+\item Sei $n \geq 1$ und $\K$ ein Körper. Für 
+\begin{equation}
+\det: \text{GL}(n,\K) = \K^\ast
+\end{equation}
+gilt
+\begin{equation}
+\ker (\det) = \text{SL}(n, \K) \trianglelefteq \text{GL}(n,\K).
+\end{equation}
+\item Betrachte für $n \geq 1$ die Komposition
+\begin{center}
+\begin{tikzcd}
+    \mathfrak{S}_n \arrow[r,"P"] & P(n, \Q) \arrow[r, "\det"] & \{+1, -1\}.
+\end{tikzcd}
+\end{center}
+Also ist 
+\begin{equation}
+A_n := \ker (\sgn) \trianglelefteq \mathfrak{S}_n
+\end{equation}
+normal. $A_n$ heißt \textbf{alternierende Gruppe}.
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Gruppenstuktur auf Nebenklassen}{nebenklassengruppen}
+Sei $G$ eine Gruppe und $N \trianglelefteq G$. Dann gilt:
+\begin{enumerate}
+\item Auf der Menge $\quotient{G}{N}$ von Nebenklassen von $N$ existiert eine Gruppenstruktur mit Verknüpfung
+\begin{align}
+\quotient{G}{N} \times \quotient{G}{N} &\to \quotient{G}{N} \\
+(aN, bN) &\mapsto abN.
+\end{align}
+\item Die Quotientenabbildung
+\begin{align}
+\pi: G &\to \quotient{G}{N}\\
+a &\mapsto aN
+\end{align}
+ist ein Gruppenhomomorphismus mit $\ker (\pi) = N$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Zunächst muss die Wohldefiniertheit der Verknüpfung bewiesen werden. Seien $\atil \in aN$ und $\btil \in bN$ Vertreter der Nebenklassen $aN$ und $bN$ $(\iff \atil N = aN)$. Dann existieren $m,n \in N$ mit $\atil = am$ und $\btil = bn$. Nun gilt
+\begin{equation}
+\atil \cdot \btil = am \cdot bn = ab \cdot \underbrace{b^{-1} mb}_{N \trianglelefteq G \implies \in N} n \in N,
+\end{equation}
+also ist der Ausdruck wohldefiniert.
+\begin{enumerate}[({G}1)]
+\item Seien $aN, bN, cN \in \quotient{G}{N}$. Dann gilt
+\begin{equation}
+(aN \cdot bN) \cdot cN =^{\text{(G1) für G}} (ab)cN = a(bc)N = aN(bN \cdot cN).
+\end{equation}
+\item Neutrales Element: $1 \cdot N = N$
+\item Inverses Element: $(aN)^{-1} = a^{-1} N$
+\end{enumerate}
+\item Es gilt 
+\begin{equation}
+\pi (ab)  = (ab)N = (aN)(bN)=\pi(a)\pi(b)
+\end{equation}
+nach Definition von $\pi$, also ist $\pi$ ein Homomorphismus. Darüber hinaus gilt
+\begin{equation}
+a \in \ker (\pi) \iff \pi(a) = 1_{\quotient{G}{H}} = N \iff aN = N \iff a \in N,
+\end{equation}
+also gilt $\ker (\pi) = N$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Homomorphiesatz (erster Isomorphisatz)}{homomorphisatz}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
+\begin{align}
+\overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
+g \ker (\phi) &\mapsto \phi(g).
+\end{align}
+\end{satz}
+\begin{beweis}
+Zunächst ist Wohldefiniertheit zu zeigen. Für $\gtil \in gN$, also $\gtil = gn$ für $n \in \ker (\phi)$, gilt:
+\begin{equation}
+\phi( \gtil) = \phi(gn) = \phi(g)\underbrace{\phi(n)}_{=1} = \phi(g),
+\end{equation}
+also ist die Abbildung wohldefiniert.\\
+Die Surjektivität von $\overline{\phi}$ ist trivial. Wir wissen, dass $\overline{\phi}$ genau dann injektiv ist, wenn $\ker (\overline{\phi}) = \{1_{\quotient{G}{\ker (\phi) }}\} = \ker (\phi)$. Wir rechnen nach:
+\begin{equation}
+g \ker (\phi) \in \ker (\overline{\phi}) \iff \phi(g) = 1_{G'} \iff g \in \ker (\phi) \iff g \ker (\phi) = \ker (\phi)
+\end{equation}
 \end{beweis}
