@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  23 OCT 2024 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  23 OCT 2024 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1728,7 +1728,7 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'german'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 73
-1.
+2.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1736,24 +1736,24 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (Abschnitte/ch1.aux))
 \openout1 = `algebra.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 731.
-LaTeX Font Info:    ... okay on input line 731.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 732.
+LaTeX Font Info:    ... okay on input line 732.
 
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1784,7 +1784,7 @@ G,.JBIG2,.JB2,.eps]
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 731.
+Package hyperref Info: Link coloring ON on input line 732.
  (algebra.out)
 (algebra.out)
 \@outlinefile=\write5
@@ -1846,15 +1846,15 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'algebra.bbl' not found.
 
 No file algebra.bbl.
-Package biblatex Info: Reference section=0 on input line 731.
-Package biblatex Info: Reference segment=0 on input line 731.
+Package biblatex Info: Reference section=0 on input line 732.
+Package biblatex Info: Reference segment=0 on input line 732.
 LaTeX Font Info:    Trying to load font information for T1+bch on input line 73
-3.
+4.
 (C:\Users\rasmu\AppData\Roaming\MiKTeX\tex/latex/psnfss\t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 7
-55.
+56.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1919,7 +1919,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \openout6 = `algebra.toc'.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
-84.
+85.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1945,9 +1945,14 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 43.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [2
 
-{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [3] [4] [5] [6]) [7
-] (algebra.aux
-(Abschnitte/ch1.aux))
+{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [3] [4] [5]
+
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 333.
+
+
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 341.
+
+[6]) [7] (algebra.aux (Abschnitte/ch1.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1959,10 +1964,10 @@ Package logreq Info: Writing requests to 'algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58948 strings out of 475248
- 1333032 string characters out of 5767628
- 2273791 words of memory out of 5000000
- 79214 multiletter control sequences out of 15000+600000
+ 58949 strings out of 475248
+ 1333043 string characters out of 5767628
+ 2273823 words of memory out of 5000000
+ 79215 multiletter control sequences out of 15000+600000
  654163 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  93i,15n,99p,1973b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1982,7 +1987,7 @@ nts/type1/public/lm/lmsy5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
 sy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebra.pdf (7 pages, 385016 bytes).
+Output written on algebra.pdf (7 pages, 384693 bytes).
 PDF statistics:
  403 PDF objects out of 1000 (max. 8388607)
  158 named destinations out of 1000 (max. 500000)
