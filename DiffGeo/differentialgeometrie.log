@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.18)  22 OCT 2024 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.18)  22 OCT 2024 23:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2170,12 +2170,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
  []
 
 [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
-Underfull \hbox (badness 10000) in paragraph at lines 939--941
+Underfull \hbox (badness 10000) in paragraph at lines 940--942
 
  []
 
 [48] [49] [50] [51] [52] [53]
-Underfull \hbox (badness 1142) in paragraph at lines 1342--1343
+Underfull \hbox (badness 1142) in paragraph at lines 1343--1344
 []\T1/lmss/bx/n/10 Beispiel. []\T1/lmr/m/n/10 Das Ka-te-no-id zum Pa-ra-me-ter 
 $\OML/lmm/m/it/10 a > \OT1/lmr/m/n/10 0$ \T1/lmr/m/n/10 ist das Bild der Im-mer
 -si-on $\OML/lmm/m/it/10 h \OT1/lmr/m/n/10 : \U/msb/m/n/10 R[] \OMS/lmsy/m/n/10
@@ -2184,17 +2184,17 @@ lmm/m/it/10 u; ^^^\OT1/lmr/m/n/10 ) :=
  []
 
 [54] [55] [56]
-Underfull \hbox (badness 10000) in paragraph at lines 1587--1589
+Underfull \hbox (badness 10000) in paragraph at lines 1588--1590
 
  []
 
 [57] [58]
-Overfull \hbox (8.01135pt too wide) detected at line 1748
+Overfull \hbox (8.01135pt too wide) detected at line 1749
 []
  []
 
 [59] [60]
-Overfull \hbox (22.98555pt too wide) detected at line 1821
+Overfull \hbox (22.98555pt too wide) detected at line 1822
 []
  []
 
@@ -2259,7 +2259,7 @@ Package logreq Info: Writing requests to 'differentialgeometrie.run.xml'.
 Here is how much of TeX's memory you used:
  61580 strings out of 476023
  1380563 string characters out of 5791581
- 2327968 words of memory out of 5000000
+ 2328968 words of memory out of 5000000
  81494 multiletter control sequences out of 15000+600000
  668986 words of font info for 118 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2287,7 +2287,7 @@ sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/stmaryrd/stmary10.pfb>
-Output written on differentialgeometrie.pdf (70 pages, 4998108 bytes).
+Output written on differentialgeometrie.pdf (70 pages, 4997810 bytes).
 PDF statistics:
  1949 PDF objects out of 2073 (max. 8388607)
  1696 compressed objects within 17 object streams

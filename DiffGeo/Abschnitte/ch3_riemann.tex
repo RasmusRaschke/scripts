@@ -716,7 +716,7 @@ Insbesondere ist $\phi$ also ein Homöomorphismus. Da auch $\phi: (K, \Ts) \to \
 \end{equation}
 mit der Mannigfaltigkeitstopologie $\mathfrak{T}$ ein bijektiver, lokaler Homöomorphismus ist, also auch ein globaler Homöomorphismus.
 \end{beweis}
-Unser nächstes Ziel ist es, einzusehen, dass geoddätische Kurven zumindest lokal kürzeste Verbindungen zwischen ihren Punkten sind.
+Unser nächstes Ziel ist es, einzusehen, dass geodätische Kurven zumindest lokal kürzeste Verbindungen zwischen ihren Punkten sind.
 \begin{beispiele}
 Wir hatten bereits Geodätische gesehen:
 \begin{enumerate}
@@ -740,7 +740,7 @@ Konkret: Wir betrachten den Zylinder von Radius $r>0$:
 \begin{equation}
 Z_r := \{ (x,y,z) \in \R^3 \ | \ x^2+y^2=r^2 \}.
 \end{equation}
-Dann ist für $a \neq 0$ und $b \in \R$ die Kurve $\gamma: \R \to Z_r$ mit $\gamma(t) = (\cos (at), r \sin (at), bt)$ eine Geodätische. Wir rechnen nach:
+Dann ist für $a \neq 0$ und $b \in \R$ die Kurve $\gamma: \R \to Z_r$ mit $\gamma(t) = (r \cos (at), r \sin (at), bt)$ eine Geodätische. Wir rechnen nach:
 \begin{align}
 \dot{\gamma}(t) &= (-ar \sin (at), ar \cos(at), b)\\
 \ddot{\gamma}(t) &= (-a^2r \cos(at), -a^2 r \sin(at), 0)
@@ -763,13 +763,14 @@ Wir betrachten die Kurve $c(t) := \gamma_v (\alpha t)$. Es gilt $\dot{c} (t) = \
 \begin{equation}
 \left( \nabla_\frac{d}{dt} \dot{c} \right)_t = \left( \nabla_{\alpha \dot{\gamma}_v (\alpha t)} \alpha \dot{\gamma}_v \right) = \alpha^2 \left( \nabla_{\dot{\gamma}_v} \dot{\gamma}_v\right)_{\alpha t} = 0,
 \end{equation}
-da $\gamma_v$ eine Geodätische ist. $c$ ist also eine Geodätische mit korrektem Startwert, und muss deshalb mit $\gamma_{\alpha v}$ übereinstimmen.\\
+da $\gamma_v$ eine Geodätische ist. $c$ ist also eine Geodätische mit korrektem Startwert, und muss deshalb mit $\gamma_{\alpha v}$ übereinstimmen.
+\end{beweis}
 Sei $(M,g)$ eine Riemannsche MFK und $p \in M$. Wir definieren
 \begin{equation}
-W_p  := \{ v \in \T_pM \ | \ \text{Die Geodätische} \ \gamma_v \ \text{ist mindestens bis zur Zeit} \ t=1 \ \text{definiert.}\}.
+W_p  := \{ v \in T_pM \ | \ \text{Die Geodätische} \ \gamma_v \ \text{ist mindestens bis zur Zeit} \ t=1 \ \text{definiert.}\}.
 \end{equation}
 Dies ist eine offene Umgebung von $0 \in T_pM$.
-\end{beweis}
+
 \begin{definition}{Exponentialabbildung}{expabb}
 Sei $(M,g)$ eine Riemannsche MFK mit $p \in M$. Dann existiert eine offene Umgebung $W_p \sub T_pM$ von $0$. Die \textbf{Exponentialabbildung} von $(M,g)$ im Punkt $p \in M$ ist die Abbildung
 \begin{align}
@@ -849,7 +850,7 @@ H_p := \{ \exp_p (v) \ | \ v \in T_pM, |v|_g = r \}.
 \begin{beweis}
 Da $\nabla$ metrisch ist, gilt 
 \begin{align}
-\frac{d}{ds} g(F_\ast \partial_s, F_\ast \partial_t) &= g(\underbrace{\nabla_{\partial_s F_\ast \nabla_s}}_{=0, \ \text{da} \ s \mapsto \exp_p(sc(t)) \ \text{eine Geodätische ist}}, F_\ast \partial_t)+ g(F_\ast \partial_s, \underbrace{\nabla_{\partial_s} F_\ast \partial_t}_{= \nabla_{\partial_t} F_\ast \partial_s, \ \text{da der Zsh. torsionsfrei ist}})\\
+\frac{d}{ds} g(F_\ast \partial_s, F_\ast \partial_t) &= g(\underbrace{\nabla_{\partial_s} F_\ast \partial_s}_{=0, \ \text{da} \ s \mapsto \exp_p(sc(t)) \ \text{eine Geodätische ist}}, F_\ast \partial_t)+ g(F_\ast \partial_s, \underbrace{\nabla_{\partial_s} F_\ast \partial_t}_{= \nabla_{\partial_t} F_\ast \partial_s, \ \text{da der Zsh. torsionsfrei ist}})\\
 &= g(F_\ast \partial_s, \nabla_{\partial_t} F_\ast \partial_s) = \frac{1}{2} \frac{d}{dt} \underbrace{g(F_\ast \partial_s, F_\ast \partial_s)}_{\| c(t) \|^2_g \equiv r} = 0
 \end{align}
 Für $s=0$ gilt aber $F(0,t) \equiv p$, d.h. $g(F_\ast \partial_s, F_\ast \partial_t)|_{(0,t)} = 0$. Aus diesen beiden Überlegungen folgt $g(T_\ast \partial_s, F_\ast \partial_t)|_{(s,t)} = 0$ für alle $(s,t) \in [0,1]\times [a,b]$.
@@ -865,7 +866,7 @@ Für den Beweis brauchen wir ein Lemma.
 \begin{lemma}{}{}
 Sei $(M,g)$ eine Riemannsche MFK mit $p \in M$ und $0 < r < \inj(p)$. Definiere $U_r := \exp_p (B(0,r))$. Jede (stückweise) glatte Kurve $\alpha: [a,b] \to U_r \exc \{p \}$ hat dann die Form
 \begin{equation}
-\alpha(t) = \exp_p (r(t)+c(t))
+\alpha(t) = \exp_p (r(t) \cdot c(t))
 \end{equation}
 mit $r: [a,b] \to (0,r)$ und $c: [a,b] \to \sph^{n-1} \sub T_pM$ (stückweise) glatt und es gilt
 \begin{equation}
@@ -904,7 +905,7 @@ miteinander verbindet. O.B.d.A. liegt dieses Teilstück vollständig außerhalb 
 Ist $\alpha: [0,1] \to (M,g)$ eine stückweise glatte Kurve mit konstanter Geschwindigkeit, und minimiert $\alpha$ die Länge aller Kurven mit denselben Endpunkten, so ist $\alpha$ eine Geodätische (also insbesondere glatt).
 \end{korollar}
 \begin{beweis}
-Jedes Teilstück $\alpha_[t_0, t_1]$ hat ebenfalls konstante Geschwindigkeit und minimiert die Länge zwischen seinen Endpunkten. Ist aber $|t_1-t_0| = \| \underbrace{ \dot{\alpha} (t_0)}_\text{konstant} \| < \inj (\alpha (t_0))$, so muss $\alpha|_{[t_0,t_1]}$ eine glatte Geodätische sein. Da wir das Intervall mit endlich vielen Teilstücken überdecken können, muss $\alpha$ global eine Geodätische sein.
+Jedes Teilstück $\alpha_{[t_0, t_1]}$ hat ebenfalls konstante Geschwindigkeit und minimiert die Länge zwischen seinen Endpunkten. Ist aber $|t_1-t_0| = \| \underbrace{ \dot{\alpha} (t_0)}_\text{konstant} \| < \inj (\alpha (t_0))$, so muss $\alpha|_{[t_0,t_1]}$ eine glatte Geodätische sein. Da wir das Intervall mit endlich vielen Teilstücken überdecken können, muss $\alpha$ global eine Geodätische sein.
 \end{beweis}
 \begin{definition}{Minimale Geodätische}{minimalegeodätische}
 Sei $\alpha:[a,b] \to M$ eine Kurve mit konstanter Geschwindigkeit und $L(\alpha) = d(\alpha(a), \alpha(b))$. Diese heißt \textbf{minimale Geodätische}.
@@ -984,7 +985,7 @@ Zu $3 \implies 4$: Wir argumentieren indirekt. Sei also $\gamma: (a,b) \to M$ ei
 \begin{equation}
 x = \lim_{n \to \infty} \gamma(t_n).
 \end{equation}
-Eine Konsequenz aus der stetigen Abhängigkeit der Lösungen der geodätischen Differentialgleichungen von den Anfangsbedingungen ist, dass eine offene Umgebung $U \sub M$ von $x$ und ein $\delta > 0$ existiert, sodass für jeden Punkt $q \in U$ und jeden Vektor $v \in T_qM$ mit $\|v\| = 1$ die Geodätische $\gamma(t) = \exp_q(tv)$ mindestens auf dem Intervall $(-\delta, \delta)$ definiert ist. Ist also $t_n \in (a,b)$ ein Parameter mit $b-t_n < \delta$, so stimmt die Geodätische $\tilde{\gamma}:(-\delta, \delta) \to M$ mit $\tilde{\gamma}(0)=\gamma(t_n)$ und $\dot{\tilde{\gamma}}(0) = \dot{\gamma}(t_n)$ auf dem Intervall $(- \delta, b-t_n)$ mit $t \mapsto \gamma(t+t_0)$ überein. Also lässt sich $\gamma$ fortsetzen, d.h. wir erhalten den gewünschten Widerspruch zur Nichtfortsetzbarkeit.\\
+Eine Konsequenz aus der stetigen Abhängigkeit der Lösungen der geodätischen Differentialgleichungen von den Anfangsbedingungen ist, dass eine offene Umgebung $U \sub M$ von $x$ und ein $\delta > 0$ existiert, sodass für jeden Punkt $q \in U$ und jeden Vektor $v \in T_qM$ mit $\|v\| = 1$ die Geodätische $\gamma(t) = \exp_q(tv)$ mindestens auf dem Intervall $(-\delta, \delta)$ definiert ist. Ist also $t_n \in (a,b)$ ein Parameter mit $b-t_n < \delta$, so stimmt die Geodätische $\tilde{\gamma}:(-\delta, \delta) \to M$ mit $\tilde{\gamma}(0)=\gamma(t_n)$ und $\dot{\tilde{\gamma}}(0) = \dot{\gamma}(t_n)$ auf dem Intervall $(- \delta, b-t_n)$ mit $t \mapsto \gamma(t+t_n)$ überein. Also lässt sich $\gamma$ fortsetzen, d.h. wir erhalten den gewünschten Widerspruch zur Nichtfortsetzbarkeit.\\
 Zu $4 \implies 1$: Ist trivial.\\
 Aus $4$ und $5_p$ folgt offensichtlich $5$.
 \end{beweis}
@@ -1020,9 +1021,9 @@ heißt \textbf{Schnittort} der MFK $(M,g)$ für $p$.
 \end{definition}
 \begin{beispiele}
 \begin{enumerate}
-\item Für $(\R^n, g_\text{st}$ gilt $C_p = \emptyset$ für alle $p \in \R^n$.
+\item Für $(\R^n, g_\text{st})$ gilt $C_p = \emptyset$ für alle $p \in \R^n$.
 \item Für einen Zylinder ist der Schnittort eines Punktes $p \in \R \times \sph^1$ eine Gerade durch den gegenüberliegenden Punkt.
-\item Für die runde Sphäre $\sph^n \sub \R^{n+1}$ gilt $C_p = \{-p\}$. Für andere Metriken auf $\sph^2$ ist der Schnittort stets ein topologischer Baum, der von $p \in \S^2$ abhängt und auch kompliziert sein kann.\\
+\item Für die runde Sphäre $\sph^n \sub \R^{n+1}$ gilt $C_p = \{-p\}$. Für andere Metriken auf $\sph^2$ ist der Schnittort stets ein topologischer Baum, der von $p \in \sph^2$ abhängt und auch kompliziert sein kann.\\
 Für ein Ellipsoid
 \begin{equation}
 \E_{a_1,a_2,a_3} := \{(x,y,z) \in \R^3 \ | \ \frac{x^2}{a_1^2}+ \frac{y^2}{a_2^2} + \frac{z^2}{a_3^2} = 1 \}
