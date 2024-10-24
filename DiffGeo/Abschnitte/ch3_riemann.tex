@@ -292,7 +292,7 @@ mit Funktionen $a_k: (t_0-s, t_0+s) \to \R$. Dann folgt
 aus der Derivationseigenschaft von $\nabla$. Mit $\gamma_\ast (\frac{d}{dt}) = \sum_i \frac{d (x_i \circ \gamma)}{dt} \partial_{x_i}$ gilt nun: 
 \begin{align}
 \nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma) &=^3 \left( \nabla_{\gamma_\ast (\frac{d}{dt} )} \partial_{x_j}\right) \circ \gamma\\
-&= \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\nabla_{\partial_{x_j}} \partial_{x_j} ) \circ \gamma \\
+&= \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\nabla_{\partial_{x_i}} \partial_{x_j} ) \circ \gamma \\
 &= \sum_{i,k} \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)(\partial_{x_k} \circ \gamma).
 \end{align}
 Insgesamt erhalten wir:
@@ -1193,7 +1193,7 @@ auffassen. Da für lineare Abbildungen $A: \R^2 \to \R^2$ $\det(-A) = \det(A)$ g
 Die Funktion
 \begin{align}
 \tilde{K}: \Sigma &\to \R \\
-q &\mapsto \tilde{K}(q):=\det(N_\ast, q)
+q &\mapsto \tilde{K}(q):=\det(N_{\ast, q})
 \end{align}
 heißt \textbf{Gauß-Krümmung} der Immersion
 \begin{equation}
@@ -1202,7 +1202,7 @@ heißt \textbf{Gauß-Krümmung} der Immersion
 \end{definition}
 \begin{beispiele}
 \begin{enumerate}
-\item Ist $\Sigma \cong \R^2 x \{0\} \sub \R^3$, so ist $N$ konstant, also $N_\ast = 0$ und somit $\tilde{K}\equiv 0$.
+\item Ist $\Sigma \cong \R^2 \times \{0\} \sub \R^3$, so ist $N$ konstant, also $N_\ast = 0$ und somit $\tilde{K}\equiv 0$.
 \item Für $\Sigma = \sph^2(r) \sub \R^3$ ist $N_x=\frac{x}{r}$, sodass $N_\ast = \frac{1}{r} \cdot \id$ und damit 
 \begin{equation}
 \tilde{K} = \frac{1}{r^2}.
@@ -1276,7 +1276,7 @@ Noch etwas Kontext zu diesem Beweis:
 \begin{satz}{}{}
 Sei $(M,g)$ eine Riemannsche MFK und $S \sub M$ eine Hyperfläche. Für $p \in S$ und $u,v \in T_pS \sub T_pM$ betrachten wir lokale Vektorfelder $X,Y \in \Gamma(TS)$ mit $X_p = u$, $Y_p =v$. Dann gilt, dass 
 \begin{equation}
-\alpha_p(u,v) := (\nabla_X^MY)_p^{\perp} = \left( \nabla_X^M Y - \nabla_X^S Y \right)_p
+\text{II}_p(u,v) := (\nabla_X^MY)_p^{\perp} = \left( \nabla_X^M Y - \nabla_X^S Y \right)_p
 \end{equation}
 unabhängig von den gewählten Fortsetzungen und symmetrisch in $u$ und $v$ ist.
 \end{satz}
@@ -1294,10 +1294,10 @@ folgt auch
 Dies zeigt bereits die Unabhängigkeit von der Wahl von $Y$.
 \end{beweis}
 \begin{definition}{Fundamentalformen}{fundamentalformen}
-Sei $(M,g)$ eine Riemannsche MFK. Die Einschränkung $g|_S$ auf eine Hyperfläche $S \sub M$ heißt \textbf{erste Fundamentalform}.
+Sei $(M,g)$ eine Riemannsche MFK. Die Einschränkung $\text{I}=g|_S$ auf eine Hyperfläche $S \sub M$ heißt \textbf{erste Fundamentalform}.
 Die Bilinearform
 \begin{align}
-\alpha_p: T_pS \times T_p S &\to N_pS \cong (T_pS)^{\perp} \sub T_pM
+\text{II}_p: T_pS \times T_p S &\to N_pS \cong (T_pS)^{\perp} \sub T_pM
 \end{align}
 heißt \textbf{zweite Fundamentalform} der Hyperfläche $S \sub M$ im Punkt $p$.
 \end{definition}
@@ -1596,18 +1596,18 @@ Dieser Satz sagt, dass MFK mit nicht-positiver Schnittkrümmung eine Topologie h
 Sei $(M,g)$ eine Riemannsche MFK. Die \textbf{Ricci-Krümmung} von $(M,g)$ im Punkt $p \in M$ ist der $(2,0)$-Tensor 
 \begin{align}
 \ric_p: T_p M \times T_pM &\to \R \\
-(u,v) &\mapsto \ric_p(u,v):=\Tr \left(  \omega \mapsto R(w,u)v \right).
+(u,v) &\mapsto \Ric_p(u,v):=\Tr \left(  \omega \mapsto R(w,u)v \right).
 \end{align}
 \end{definition}
 \begin{bemerkungen}
 \begin{enumerate}
 \item Ist $\{ e_1, \dots e_n \}$ eine ONB von $(T_pM, g_T)$, so gilt
 \begin{equation}
-\ric_p(u,v) = \Sum{i,1,n} g(R(e_i,u)v, e_i).
+\Ric_p(u,v) = \Sum{i,1,n} g(R(e_i,u)v, e_i).
 \end{equation}
-\item Aus den Symmetrieeigenschaften des Krümmungstensors folgt, dass $\ric_p$ eine symmetrische Bilinearform ist. Metriken, für die $\ric$ proportional zu $g$ ist, nennt man \textbf{Einsteinmetriken}:
+\item Aus den Symmetrieeigenschaften des Krümmungstensors folgt, dass $\ric_p$ eine symmetrische Bilinearform ist. Metriken, für die $\Ric$ proportional zu $g$ ist, nennt man \textbf{Einsteinmetriken}:
 \begin{equation}
-\ric = \lambda \times g, \ \lambda \in \R.
+\Ric = \lambda g, \ \lambda \in \R.
 \end{equation}
 \end{enumerate}
 \end{bemerkungen}
@@ -1712,22 +1712,6 @@ mit der \textbf{geodätischen Krümmung} $\kappa_\gamma$ von $\gamma$.
 Also folgt $\kappa_{\hat{\gamma}}(t)=-\kappa_\gamma(b-t)$.
 \end{enumerate}
 \end{bemerkungen}
-
-Der Satz von Gauß-Bonnet folgt aus:
-\begin{theorem}{Gauß-Formel}{gaussformel}
-Sei $\Sigma$ eine orientierte Fläche udn $g$ eine Riemannsche Metrik. Sei $D\sub \Sigma$ das Bild eines $n$-Ecks unter einer glatten Einbettung. Wir bezeichnen die Innenwinkel mit $\beta_i$. Dann gilt
-\begin{equation}
-\int_D K \mu_g + \int_{\partial D} \kappa_{\partial D} dt = 2 \pi- \Sum{i,1,n} (\pi - \beta_i) = (2-n) \pi + \Sum{i,1,n} \beta_i.
-\end{equation}
-\end{theorem}
-
-\begin{bemerkung}
-Für $n=3$ vereinfacht sich die rechte Seite zu 
-\begin{equation}
-\beta_1 + \beta_2 + \beta_3 - \pi.
-\end{equation}
-\end{bemerkung}
-
 \begin{theorem}{Totalkrümmungsformel}{totalkruemmungsformel}
 Ist $U\sub (\Sigma, g)$ das Bild einer glatten Einbettung $\Dbar \hookrightarrow \Sigma$ einer Kreisscheibe, so gilt
 \begin{equation}
@@ -1789,8 +1773,23 @@ Der Umlaufsatz aus der Topologie sagt nun aber
 \begin{equation}
 \int_0^l \dot{\phi} (t) dt = - 2 \pi.
 \end{equation}
-Daraus folgt die Behauptung.\\
-Nun beweisen wir den Satz aus dieser Behauptung. Sei $D \sub \Sigma$ ein $n$-Eck wie im Satz. Für $\epsilon > 0$ klein verschieben wir jede der Kanten um jeweils Abstand $\epsilon$ in orthogonale Richtung nach außen und erhalten das vergrößerte Gebiet $U_\epsilon \supseteq D$. Die Randkurven seien mit $\gamma_i$ bezeichnet, die verschobenen Randkurven mit $\gamma_{i,\epsilon}$. Wir verbinden die Randpunkte mit Kreissegmenten. Die abgerundeten Ecken bezeichnen wir mit $\delta_{i, \epsilon}$. Aus der Behauptung wissen wir, dass
+Daraus folgt die Behauptung.
+\end{beweis}
+Der Satz von Gauß-Bonnet folgt aus:
+\begin{theorem}{Gauß-Formel}{gaussformel}
+Sei $\Sigma$ eine orientierte Fläche udn $g$ eine Riemannsche Metrik. Sei $D\sub \Sigma$ das Bild eines $n$-Ecks unter einer glatten Einbettung. Wir bezeichnen die Innenwinkel mit $\beta_i$. Dann gilt
+\begin{equation}
+\int_D K \mu_g + \int_{\partial D} \kappa_{\partial D} dt = 2 \pi- \Sum{i,1,n} (\pi - \beta_i) = (2-n) \pi + \Sum{i,1,n} \beta_i.
+\end{equation}
+\end{theorem}
+\begin{bemerkung}
+Für $n=3$ vereinfacht sich die rechte Seite zu 
+\begin{equation}
+\beta_1 + \beta_2 + \beta_3 - \pi.
+\end{equation}
+\end{bemerkung}
+\begin{beweis}
+Sei $D \sub \Sigma$ ein $n$-Eck wie im Satz. Für $\epsilon > 0$ klein verschieben wir jede der Kanten um jeweils Abstand $\epsilon$ in orthogonale Richtung nach außen und erhalten das vergrößerte Gebiet $U_\epsilon \supseteq D$. Die Randkurven seien mit $\gamma_i$ bezeichnet, die verschobenen Randkurven mit $\gamma_{i,\epsilon}$. Wir verbinden die Randpunkte mit Kreissegmenten. Die abgerundeten Ecken bezeichnen wir mit $\delta_{i, \epsilon}$. Aus der Behauptung wissen wir, dass
 \begin{equation}
 \int_{U_\epsilon} K \mu_g + \int_{\partial U_\epsilon} \kappa_{\partial U_\epsilon} = 2\pi
 \end{equation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.18)  22 OCT 2024 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.18)  24 OCT 2024 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2189,12 +2189,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1588--1590
  []
 
 [57] [58]
-Overfull \hbox (8.01135pt too wide) detected at line 1749
+Overfull \hbox (8.01135pt too wide) detected at line 1733
 []
  []
 
 [59] [60]
-Overfull \hbox (22.98555pt too wide) detected at line 1822
+Overfull \hbox (22.98555pt too wide) detected at line 1821
 []
  []
 
@@ -2257,10 +2257,10 @@ Package logreq Info: Writing requests to 'differentialgeometrie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61580 strings out of 476023
- 1380563 string characters out of 5791581
- 2328968 words of memory out of 5000000
- 81494 multiletter control sequences out of 15000+600000
+ 61581 strings out of 476023
+ 1380580 string characters out of 5791581
+ 2321968 words of memory out of 5000000
+ 81495 multiletter control sequences out of 15000+600000
  668986 words of font info for 118 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  93i,21n,99p,1985b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2287,7 +2287,7 @@ sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/stmaryrd/stmary10.pfb>
-Output written on differentialgeometrie.pdf (70 pages, 4997810 bytes).
+Output written on differentialgeometrie.pdf (70 pages, 4998362 bytes).
 PDF statistics:
  1949 PDF objects out of 2073 (max. 8388607)
  1696 compressed objects within 17 object streams
