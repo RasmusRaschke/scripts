@@ -287,3 +287,158 @@ Sei $(X, \Tc)$ ein top. Raum. $A \sub X$ heißt \textbf{dicht}, falls $\overline
 \item $(a,b) \sub \R \sub \R^2$, $(a,b)$ nirgends dicht in $\R$.
 \end{enumerate}
 \end{beispiele}
+\begin{definition}{Konvergenz in top. Räumen}{topkov}
+Sei $(X, \Tc)$ ein top. Raum. Eine Folge $(x_i)_{i \in N}$ mit $x_i \in X$ \textbf{konvergiert} gegen $x \in X$, falls gilt:
+Für alle $U \in \mathfrak{U}(x)$ existiert ein $N \in \N$, sodass $x_n \in U$ für alle $n \geq N$ gilt.
+\end{definition}
+Das heißt, fast alle $x_n$ müssen in $U$ liegen. Allgemein liefert dies deutlich pathologischere Beispiele als Konvergenz in metrischen Räumen.
+\begin{beispiel}
+Betrachte $(X, \{\emptyset, X\})$ mit $|X| \geq 2$. Dann liegt nur $U=X$ in $\mathfrak{U}(x)$, also konvergiert jede Folge gegen jedes $y \in X$.
+\end{beispiel}
+\subsection{Basen, Subbasen und Umgebungsbasen}
+\label{subsec:basen}
+Unser Ziel ist jetzt, auch nicht-endliche Topologien angeben zu können.
+\begin{definition}{Basis und Subbasis}{basissubbasis}
+Sei $(X, \Tc)$ ein top. Raum.
+\begin{enumerate}[(a)]
+\item Eine Familie $\mathcal{B}$ heißt \textbf{Basis} der Topologie $\Tc$, falls alle $O \sub \Tc$ als Vereinigung von $B_i \in \Bc$ geschrieben werden können:
+\begin{equation}
+\forall O \in \Tc: O = \bigcup_{j \in J} B_j. 
+\end{equation}
+\item Eine Familie $\mathcal{S} \sub \Tc$ heißt \textbf{Subbasis} der Topologie $\Tc$, falls jedes $O \in \Tc$ eine beliebige Vereinigung endlicher Schnitte von $S_i \in \mathcal{S}$ ist.
+\end{enumerate}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Sei $(X,d)$ ein metrischer Raum. Dann ist 
+\begin{equation}
+\Bc = \{B_\epsilon(x) \, | \, x \in X, \epsilon > 0\}
+\end{equation}
+eine Basis für $X$.
+\item Die diskrete Topologie $(X, \Pc(X))$ hat $\Bc = \{ \{x\} | x \in X\}$ als Basis. 
+\item Die indiskrete Topologie $(X, \{X, \emptyset \})$ hat als Basis $\Bc = \{X\}$.
+\item Jedes System beliebiger Teilmengen von $X$ gibt eine Subbasis einer Topologie. Sei z.B. $\mathcal{S} := \{S\}_{i\in i}$ gewünscht. Dann konstruieren wir 
+\begin{equation}
+\Bc = \{S_{i_1} \cap \dots \cap S_{i_n} | S_{ij} \in M\}
+\end{equation} 
+als Basis und definieren eine Topologie
+\begin{equation}
+\Tc = \left\{ \bigcup_{j \in J} (S_{i_1} \cap \cdots \cap S_{i_n})_j \right\}.
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+Das Gute an (Sub-)Basen ist, dass sie uns Arbeit ersparen:
+\begin{satz}{Stetigkeit durch Basen}{basenstetigkeit}
+Eine Abbildung $f: (X, \Tc) \to (Y, \Tc')$ zwischen top. Räumen ist stetig, falls:
+\begin{enumerate}[(a)]
+\item Ist $\Bc'$ eine Basis von $\Tc'$, so  ist $f^{-1}(B_i') \in \Tc$ für alle $B_i' \in \Bc'$.
+\item Ist $\mathcal{S}'$ eine Subbasis von $\Tc'$; so ist $f^{-1} (S_i') \in \Tc$ für alle $S_i'\in \Sc'$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Folgt aus dem Verhalten von Urbildern bzgl. $\cup$ und $\cap$.
+\end{beweis}
+\begin{definition}{Umgebungsbasis}{umgebungsbasis}
+Ein Mengensystem $\Bf (x) \sub \Uf (x)$ heißt \textbf{Umgebungsbasis} von $x$, falls für alle $U \in \Uf (x)$ ein $B \in \Bf (x)$ existiert, sodass $B \sub U$ gilt.
+\end{definition}
+\begin{beispiel}
+Sei $(X,d)$ ein metrischer Raum mit $x \in X$. Dann ist $\Bf (x) = \{B_{\frac{1}{n}}(x) \}$ eine Umgebungsbasis von $x$.
+\end{beispiel}
+\begin{satz}{Stetigkeit durch Umgebungsbasen}{stetigumgebungsbasen}
+Eine Abbildung $f: (X, \Tc) \to (Y, \Tc')$ zwischen top. Räumen ist stetig, falls gilt:
+Ist für $f(x) \in Y$ $\Bf (f(x))$ eine Umgebungsbasis von $f(x)$, so ist $f^{-1}(B) \in \Uf (x)$ für alle $B \in \Bf (f(x))$.
+\end{satz}
+\begin{definition}{Abzählbarkeitsaxiome}{abzaehlbarkeitsaxiome}
+Sei $(X,\Tc)$ ein top. Raum. Die Abzählbarkeitsaxiome für $X$ sind gegeben durch:
+\begin{enumerate}[({AZ} 1)]
+\item Jedes $x \in X$ besitzt eine abzählbare Umgebungsbasis.
+\item $\Tc$ besitzt eine abzählbare Basis.
+\end{enumerate}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Sei $(X,d)$ ein metrischer Raum mit $x \in X$. Die Umgebungsbasis $\Bf (x) = \{B_{\frac{1}{n}}(x)|n \in \N\}$ ist abzählbar, also erfüllt $X$ (AZ1).
+\item Betrachte $(\R^n, d)$ mit $d \in  \{d_1,d_2,d_\infty\}$. Dann erfüllt $\R^n$ (AZ2) mit $\mathfrak{B} = \{B_{\frac{1}{m}}(x)| m\in \N, x \in \Q^n \}$.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Es gilt (AZ2) $\implies$ (AZ1): Ist $\Bc = \{B_i\}_{i \in \N}$ eine abzählbare Basis von $\Tc$, so ist 
+\begin{equation}
+\Bf (x) := \{B \in \Bc | x \in B \}
+\end{equation}
+eine abzählbare Umgebungsbasis.
+\item Es gilt (AZ1) $\cancel{\implies}$ (AZ2): Ist z.B. $X$ überabzählbar mit der diskreten Topologie $(X, \Pc(X))$. Dann ist für alle $x \in X$ $\{x\}$ eine Umgebungsbasis, aber nicht abzählbar.
+\end{enumerate}
+\end{bemerkungen}
+\begin{satz}{Topologisches Folgenkriterium}{topfolgenkrit}
+Sei $(X, \Tc)$ ein top. Raum, der (AZ1) erfüllt. Dann gilt:
+\begin{enumerate}[(a)]
+\item $x \in \overline{A}$ für $A \sub X$ genau dann, wenn eine Folge $(a_n)$ in $A$ existiert, die gegen $x$ konvergiert.
+\item $f: X \to Y$ ist stetig in $x \in X$ genau dann, wenn aus $x_n \to x$ auch $f(x_n) \to f(x)$ folgt.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}[(a)]
+\item ($\Leftarrow$) gilt immer, der Beweis funktioniert wie in Analysis.\\
+($\Rightarrow$): Sei $x \in \overline{A}$ und $\{U_i\}_{i \in \N}$ eine abzählbare Umgebungsbasis von $x$. Wir definieren iterativ $V_1 := U_1$, $V_n := V_{n-1} \cap U_n$. Es gilt $V_i \sub \Uf (x)$ für alle $i$. Also ist $V_i \cap A \neq \emptyset$ für alle $i$. Wir wählen jeweils ein $a_i \in V_i \cap A$ und behaupten $a_n \to x$. Ist $W \in \Uf (x)$ beliebig, so existiert ein $i$, sodass $U_i \in W$. Also ist $V_i \sub U_i \sub W$ und $V_l \in W$ für alle $l \geq i$. Damit folgt $a_l \in W$ für alle $l \geq i$, also $a_n \to x$.
+\item ($\Leftarrow$) funktioniert auch wie in Analysis.
+($\Rightarrow$): $B \sub Y$ sei abgeschlossen in $Y$. Wähle $x \in \overline{f^{-1}(B)}$. Ziel ist, zu zeigen, dass aus $x \in f^{-1}(B)$ folgt, dass $f^{-1}(B) = \overline{f^{-1}(B)}$ gilt, und daraus wiederum $f^{-1}(B)$ abgeschlossen folgt.\\
+Aus (a) folgt, dass eine Folge $(x_n)_{n \in \N}$ in $f^{-1}(B)$ mit $x_n \to x$ existiert. dann ist $f(x_n) \to f(x)$, aber $f(x_n) \in B$ für alle $n$. Damit gilt $f(x) \in B = \overline{B}$, also auch $x \in f^{-1}(B)$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Vorstufe des Urysohnschen Einbettungssatzes}{urysohnvorstufe}
+Sei $(X, \Tc)$ ein top. Raum, der (AZ2) erfüllt. Dann gibt es eine abzählbare, dichte Teilmenge in $X$.
+\end{satz}
+\begin{beweis}
+$(\Bc_n)_{n \in \N}$ seinen die Basismengen von $\Tc$. Wähle jeweils ein $P_n \in \Bc_n$. Wir behaupten, dass $P := \{P_n | n \in \N \}$ dicht für alle $n$ ist. Sei dafür $x$ beliebig. Für alle $U \in \Uf(x)$ existiert ein $B_i \in \Bc_i$, sodass $x \in B_i \sub U$ gilt. Für alle $x \in X$ existiert also ein $i$, sodass $B_i \sub U$, also $P_i \sub U$ und $P \cap U \neq \emptyset$.
+\end{beweis}
+\subsection{Vergleich von Topologien}
+\label{subsec:vergleichvontopo}
+\begin{definition}{feiner und gröber}{feingrob}
+Seien $\Tc_1$ und $\Tc_2$ Topologien auf $X$. Dann heißt $\Tc_1$ \textbf{feiner} als $\Tc_2$ und $\Tc_2$ \textbf{gröber} als $\Tc_2$, wenn $\Tc_2 \sub \Tc_1$ gilt, also jedes $O \in \Tc_2$ auch in $\Tc_1$ enthalten ist.
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item $\Tc_1$ feiner als $\Tc_2$ gilt genau dann, wenn 
+\begin{equation}
+\id_X: (X, \Tc_1) \to (X, \Tc_2)
+\end{equation}
+stetig ist.
+\item Allgemein haben es Abbildungen aus $(X, \Tc_1)$ leichter, stetig zu sein, als Abbildungen aus $(X, \Tc_2)$, da für $f: X \to Y$ stetig gelten muss, dass $f^{-1}(O') \in \Tc_1 \supseteq \Tc_2$.
+\item Für Abbildungen nach $X$ ist es genau umgekehrt.
+\item Es gibt weniger konvergente Folgen in $(X,\Tc_1)$ als in $(X, \Tc_2)$.
+\item Die indiskrete Topologie ist die feinste Topologie auf $X$, die diskrete Topologie die gröbste.
+\item Topologien auf $X$ bilden eine partiell geordnete Menge.
+\end{enumerate}
+\end{bemerkungen}
+\begin{definition}{Homöomorphismus}{homoeomorphismus}
+Sei $f: (X, \Tc) \to (Y, \Tc')$ eine Abbildung zwischen topologischen Räumen. Dann heißt $f$ \textbf{Homöomorphismus}, falls $f$ stetig und bijektiv mit stetiger Umkehrabbildung ist.\\
+Existiert ein Homöomorphismus zwischen $X$ und $Y$, so heißen die Räume \textbf{homöomorph}, in Zeichen $X \cong Y$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Die Abbildung
+\begin{align}
+f: [0,1) &\to \sph^1 = \{x \in \R^2 | \| x\| = 1 \} \sub \R^2\\
+t &\mapsto \exp(2 \pi it)
+\end{align}
+ist stetig und bijektiv, aber $f^{-1}$ ist nicht stetig.
+\item Wir betrachten die abgeschlossene Kreisscheibe
+\begin{equation}
+\D^2 := \{x \in \R^2 | \|x\| \leq 1\}
+\end{equation}
+ist homöomorph zum Quadrat $[-1,1] \times [-1,1]$. Beispielsweise kann $f: [-1,1]^2 \to \D^2$ durch Aufblasen und $g: \D^2 \to [-1,1]$ durch Reskalieren erreicht werden.
+\item Es existiert ein Homöomorphismus 
+\begin{align}
+f: (-1,1) \sub \R &\to \R\\
+x \mapsto \frac{x}{1-|x|}.
+\end{align}
+Dieser lässt sich auf $(a,b)$ verallgemeinern, solange $a<b$ gilt.
+\item Die \textbf{stereographische Projektion} ist ein Homöomorphismus
+\begin{equation}
+\varphi: \sph^2 = \{x \in \R^3 \, | \, \| x\|=1 \} \exc \{0,0,1\} \to \C,
+\end{equation}
+gegeben durch $\varphi(x_1,x_2,x_3) = \left( \frac{x_1}{1-x_3}, \frac{x_2}{1-x_3}\right)$.
+\end{enumerate}
+\end{beispiele}
