@@ -375,7 +375,7 @@ gng^{-1} \in N,
 \end{equation}
 also $N$ abgeschlossen unter Konjugation mit beliebigen Elementen aus $G$ ist.
 \end{bemerkung}
-\begin{satz}
+\begin{satz}{}{}
 Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann gilt $\ker (\phi) \trianglelefteq G$.
 \end{satz}
 \begin{beweis}
@@ -389,7 +389,7 @@ Wir betrachteten einige Beispiele für Normalteiler:
 \begin{enumerate}
 \item Sei $n \geq 1$ und $\K$ ein Körper. Für 
 \begin{equation}
-\det: \text{GL}(n,\K) = \K^\ast
+\det: \text{GL}(n,\K) \to \K^\ast
 \end{equation}
 gilt
 \begin{equation}
@@ -450,7 +450,7 @@ a \in \ker (\pi) \iff \pi(a) = 1_{\quotient{G}{H}} = N \iff aN = N \iff a \in N,
 also gilt $\ker (\pi) = N$.
 \end{enumerate}
 \end{beweis}
-\begin{satz}{Homomorphiesatz (erster Isomorphisatz)}{homomorphisatz}
+\begin{satz}{Homomorphiesatz (erster Isomorphiesatz)}{homomorphiesatz}
 Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
 \begin{align}
 \overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
@@ -468,3 +468,188 @@ Die Surjektivität von $\overline{\phi}$ ist trivial. Wir wissen, dass $\overlin
 g \ker (\phi) \in \ker (\overline{\phi}) \iff \phi(g) = 1_{G'} \iff g \in \ker (\phi) \iff g \ker (\phi) = \ker (\phi)
 \end{equation}
 \end{beweis}
+\begin{beispiel}
+Wir können die Vorzeichenfunktion 
+\begin{equation}
+\sgn: \mathfrak{S}_n \to \{\pm 1\}
+\end{equation}
+betrachten, dann ist $\ker{\sgn} = A_n \trianglelefteq \Sf_n$, also erhalten wir einen Isomorphismus 
+\begin{equation}
+\quotient{\Sf_n}{A_n} \to \{ \pm 1\}.
+\end{equation}
+Insbesondere gilt $\Sf_n : A_n = 2$.
+\end{beispiel}
+\begin{satz}{Korollar aus Satz \ref{homomorphiesatz}}{korollarhomosatz}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\phi$ schreiben als
+\begin{equation}
+\phi = \iota \circ \overline{\phi} \circ \pi,
+\end{equation}
+wobei:
+\begin{enumerate}
+\item $\pi:G \to \quotient{G}{\ker (\phi)}$ der surjektive Quotientenkern ist.
+\item $\overline{\phi}: \quotient{G}{\ker (\phi)} \to \im (\phi)$ der Isomorphismus aus \ref{homomorphiesatz} ist.
+\item $\iota: \im (\phi) \hookrightarrow G'$ die injektive Einbettung von $\im (\phi) \leq G'$ ist.
+\end{enumerate}
+Das ist äquivalent dazu, dass folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+    G \arrow[r,"\phi"] \arrow[d, twoheadrightarrow, "\pi"] & G' \\
+    \quotient{G}{\ker (\phi)} \arrow[r, "\cong", "\overline{\phi}"'] & \im (\phi) \arrow[u, hook, "\iota"]
+\end{tikzcd}
+\end{center}
+ausgedrückt in Elementen:
+\begin{center}
+\begin{tikzcd}
+    g \arrow[r, mapsto] \arrow[d, mapsto] & \phi(g) \\
+    g \ker (\phi) \arrow[r, mapsto] & \phi (g) \arrow[u, mapsto]
+\end{tikzcd}
+\end{center}
+\end{satz}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $n \geq 1$ und einen Körper $\K$ induziert der Homomorphismus
+\begin{equation}
+\det: \text{GL}(n,\K) \to \K^\ast
+\end{equation}
+einen Isomorphismus
+\begin{equation}
+\quotient{\text{GL}(n,\K)}{\text{SL}(n, \K)} \to \K^\ast.
+\end{equation}
+\item Ein weiterer induzierter Isomorphismus ist
+\begin{equation}
+\overline{\sgn}: \quotient{\Sf_n}{A_n} \to \{\pm 1\}.
+\end{equation}
+\item Sei $G$ eine Gruppe mit $g \in G$. Betrachte den Homomorphismus
+\begin{equation}
+\phi: (\Z, +) \to G, i \mapsto g^i.
+\end{equation}
+\begin{enumerate}[(a)]
+\item Falls $\ord (g) = \infty$, gilt $\ker (\phi) = \{0\}$ und $\phi$ induziert einen Isomorphismus
+\begin{center}
+\begin{tikzcd}
+    \Z \arrow[r,"\pi", "\cong"'] \arrow[rr, "\phi", bend right] & \quotient{\Z}{\{0\}} \arrow[r, "\overline{\phi}", "\cong"'] & \langle g \rangle 
+\end{tikzcd}
+\end{center}
+\item Falls $\ord (g) =N < \infty$, dann gilt
+\begin{equation}
+\ker (\phi) = N \cdot \Z
+\end{equation}
+und $\phi$ induziert einen Isomorphismus
+\begin{center}
+\begin{tikzcd}
+\overline{\phi}: \quotient{\Z}{N\Z} \arrow[r, "\cong"]& \langle g \rangle.
+\end{tikzcd}
+\end{center}
+\end{enumerate}
+\end{enumerate}
+\end{beispiele}
+\subsection{Operation}
+\label{subsec:operation}
+\begin{definition}{Gruppenoperation}{operation}
+Eine \textbf{Operation} oder \textbf{Wirkung} einer Gruppe $G$ auf einer Menge $M$ ist eine Abbildung
+\begin{align}
+G \times M &\to M \\
+(g, x) &\mapsto g . x,
+\end{align}
+sodass gilt:
+\begin{enumerate}[({O}1)]
+\item Für alle $g,h \in G$ und $x \in M$ gilt: $g.(h.x) = (g \cdot h).x$.
+\item Für alle $x \in M$ gilt: $1.x=x$.
+\end{enumerate}
+Dann sagen wir, dass $G$ auf $M$ \textbf{operiert} und schreiben $G\circlearrowright M$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Jede Gruppe $G$ operiert auf sich selbst via
+\begin{enumerate}[(a)]
+\item \textbf{Linkstranslation}: $G \times G \to G$, $(g,h) \mapsto gh$ und
+\item \textbf{Rechtstranslation}: $G \times G \to G$, $(g,h) \mapsto hg^{-1}$, aber auch durch
+\item \textbf{Konjugation}: $G \times G \to G$, $(g,h) \mapsto ghg^{-1}$.
+\end{enumerate}
+\item Für jede Menge $M$ operiert die symmetrische Gruppe $\Sf_M$ auf $M$ via
+\begin{equation}
+\begin{split}
+\Sf_M \times M &\to M \\
+(\sigma, x) &\mapsto \sigma(x).
+\end{split}
+\end{equation}
+\item Für $n\geq 1$ und einen Körper $\K$ operiert die Gruppe $\text{GL}(n,\K)$ auf $\K^n$ via 
+\begin{equation}
+\begin{split}
+\text{GL}(n,\K) \times \K^n &\to \K^n\\
+(A,v) &\mapsto Av.
+\end{split}
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Äquivarianz}{aequivarianz}
+Für Operationen $G\circlearrowright M$ und $G\circlearrowright N$ heißt eine Abbildung (von Mengen) $f: M \to N$ $G$-\textbf{äquivariant}, falls für alle $g \in G$ und $x \in M$ gilt: 
+\begin{equation}
+f(g.x) = g.f(x).
+\end{equation}
+\end{definition}
+\begin{definition}{Bahnen}{bahnen}
+Sei $G \circlearrowright M$ eine Operation von $G$ auf $M$. Die Relation
+\begin{equation}
+x \sim_G g : \iff \exists g \in G: g.x = g
+\end{equation}
+definiert eine Äquivalenzrelation auf $M$. Die Äquivalenzklassen sind die Mengen der Form
+\begin{equation}
+G.x := \{g.x | g \in G\}
+\end{equation}
+für $x \in M$, die \textbf{Bahnen} von $x$ unter $G \circlearrowright M$ genannt werden. Die Quotientenmenge 
+\begin{equation}
+\invquotient{M}{G} := \quotient{M}{\sim_G}
+\end{equation}
+heißt \textbf{Bahnenraum von} $G \circlearrowright M$.
+\end{definition}
+\begin{beweis}
+\textit{Das Nachweisen der Relationseigenschaften der Äquivalenzrelation ist dem Leser überlassen.}
+\end{beweis}
+\begin{beispiel}
+Betrachte die Rotationsgruppe
+\begin{equation}
+G = \text{SO}(2, \R) := \text{SL}(2,\R) \cap O(2, \R) = \left\{ \left. \mat{\cos \phi, - \sin \phi}{\sin \phi, \cos \phi} \, \right| \, \phi \in \quotient{\R}{2\pi \Z}   \right\} \leq \text{GL}(2,\R).
+\end{equation}
+Wir erhalten Operationen 
+\begin{equation}
+\begin{split}
+\text{SO}(2,\R) \times \R^2 &\to \R^2\\
+(A,v) &\mapsto Av,
+\end{split}
+\end{equation}
+deren Bahnen konzentrische Kreise im $\R^2$ sind. Dadurch wird eine Partition von $\R^2$ erreicht.
+\end{beispiel}
+\begin{definition}{Stabilisator, Fixpunkte und Transitivität}{stabilisator}
+Sei $G \circlearrowright M$ eine Operation. 
+\begin{enumerate}[(i)]
+\item Für $x \in M$ heißt die Untergruppe
+\begin{equation}
+G_x := \{g \in G | g.x =x\} \leq G
+\end{equation}
+der \textbf{Stabilisator von} $x$.
+\item Ein Punkt $x \in M$ heißt \textbf{Fixpunkt von} $G \circlearrowright M$, falls $G_x = G$. Die Menge aller Fixpunkte wird mit 
+\begin{equation}
+M^G \sub M
+\end{equation}
+bezeichnet.
+\item Die Operation $G \circlearrowright M$ heißt \textbf{transitiv}, falls für jedes $x \in M$ gilt, dass $G.x = M$ ist, also genau eine Bahn existiert.
+\end{enumerate}
+\end{definition}
+\begin{beispiel}
+Bleiben wir bei vorigem Beispiel, so hat ein Vektor $v \neq (0,0)$ nur die Identität $\id$ als Stabilisator. Der Nullvektor wird hingegen von ganz $\text{SO}(2,\R)$ stabilisiert. Es scheint einen Zusammenhang zwischen der Größe des Stabilisators und der Bahn zu geben.
+\end{beispiel}
+\begin{satz}{Bahnformel}{bahnformel}
+Sei $G\circlearrowright M$ eine Operation auf $M$ und $x \in M$. Dann definiert 
+\begin{equation}
+\begin{split}
+\quotient{G}{G_x} &\to G.x\\
+gG_x &\mapsto  g.x
+\end{split}
+\end{equation}
+eine bijektive, $G$-äquivariante Abbildung, wobei $G \circlearrowright G.x$ durch Einschränkung von $G\circlearrowright M$ gegeben ist. Insbesondere gilt die \textbf{Bahnformel}
+\begin{equation}
+|G.x| = (G : G_x).
+\end{equation}
+Eine Wirkung $G \circlearrowright \quotient{G}{G_x} = \{gG_x|g \in G\}$ erhält man durch $g' . gG_x:= g'g.G_x$.
+\end{satz}

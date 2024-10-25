@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  23 OCT 2024 14:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  25 OCT 2024 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1952,25 +1952,29 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 333.
 
 LaTeX Warning: Command \textbackslash invalid in math mode on input line 341.
 
-[6]) [7] (algebra.aux (Abschnitte/ch1.aux))
+[6] [7] [8]
+
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 602.
+
+) [9] (algebra.aux (Abschnitte/ch1.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: 3B810E82B6281E42D6B8EB268DCA94F9;520.
+(rerunfilecheck)             Checksum: F0B9AECA0EACB8D3A03CEDCC84CDFC74;622.
 Package logreq Info: Writing requests to 'algebra.run.xml'.
 \openout1 = `algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58949 strings out of 475248
- 1333043 string characters out of 5767628
- 2273823 words of memory out of 5000000
- 79215 multiletter control sequences out of 15000+600000
+ 59213 strings out of 475248
+ 1338626 string characters out of 5767628
+ 2277424 words of memory out of 5000000
+ 79429 multiletter control sequences out of 15000+600000
  654163 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 93i,15n,99p,1973b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,18n,99p,1973b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rasmu/AppData/Roaming/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pf
 b><C:/Users/rasmu/AppData/Roaming/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pf
 b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Pro
@@ -1987,9 +1991,9 @@ nts/type1/public/lm/lmsy5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
 sy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebra.pdf (7 pages, 384693 bytes).
+Output written on algebra.pdf (9 pages, 412778 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 158 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 474 PDF objects out of 1000 (max. 8388607)
+ 208 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 
