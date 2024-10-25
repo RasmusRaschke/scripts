@@ -428,7 +428,7 @@ ist stetig und bijektiv, aber $f^{-1}$ ist nicht stetig.
 \begin{equation}
 \D^2 := \{x \in \R^2 | \|x\| \leq 1\}
 \end{equation}
-ist homöomorph zum Quadrat $[-1,1] \times [-1,1]$. Beispielsweise kann $f: [-1,1]^2 \to \D^2$ durch Aufblasen und $g: \D^2 \to [-1,1]$ durch Reskalieren erreicht werden.
+ist homöomorph zum Quadrat $[-1,1] \times [-1,1]$. Beispielsweise kann $f: [-1,1]^2 \to \D^2$ durch Reskalieren und $g: \D^2 \to [-1,1]$ durch Aufblasen erreicht werden.
 \item Es existiert ein Homöomorphismus 
 \begin{align}
 f: (-1,1) \sub \R &\to \R\\
@@ -442,3 +442,175 @@ Dieser lässt sich auf $(a,b)$ verallgemeinern, solange $a<b$ gilt.
 gegeben durch $\varphi(x_1,x_2,x_3) = \left( \frac{x_1}{1-x_3}, \frac{x_2}{1-x_3}\right)$.
 \end{enumerate}
 \end{beispiele}
+\begin{definition}{Abgeschlossene und offene Abbildungen}{abgoffabb}
+Eine stetige Abbildung $f: X \to Y$ heißt heißt
+\begin{enumerate}
+\item \textbf{abgeschlossen}, falls für abgeschlossenes $A \sub X$ auch $f(A) \sub Y$ abgeschlossen ist.
+\item \textbf{offen}, falls für offenes $O \sub X$ auch $f(O) \sub Y$ offen ist.
+\end{enumerate}
+\end{definition}
+\begin{satz}{Homöomorphismen sind stetig, bijektiv und offen}{hoemoffenstetbij}
+Sei $f: X \to Y$ stetig, bijektiv und offen (oder abgeschlossen). Dann ist $f$ ein Homöomorphismus.
+\end{satz}
+\begin{beweis}
+Sei $O' \sub Y$ offen und 
+\begin{equation}
+f^{-1}: Y \to X
+\end{equation}
+die Umkehrabbildung. Dann ist $(f^{-1})^{-1}(O) = f(O)$ offen.
+\end{beweis}
+\subsection{Unterräume}
+\label{subsec:unterraeume}
+\begin{definition}{Unterraumtopologie}
+Sei $(X,\Tc)$ ein top. Raum und $Y \sub X$. Dann ist die \textbf{Unterraumtopologie} gegeben durch
+\begin{equation}
+\Tc_{X|Y} := \{O \cap Y|  O \in \Tc\}.
+\end{equation}
+\end{definition}
+\begin{bemerkung}
+Das bedeutet, dass $B \sub Y$ genau dann offen ist, wenn ein $O \in \Tc$ existiert, sodass $B = O \cap Y$ gilt. Außerdem ist $A \sub Y$ genau dann abgeschlossen, wenn ein abgeschlossenes $A' \sub X$ mit $A = A' \cap Y$ existiert.
+\end{bemerkung}
+\begin{satz}{Stetigkeit und Inklusion}{stetinkl}
+Seien $(X,\Tc)$ und $(Z,\Tc')$ top. Räume mit $Y \sub X$.
+\begin{enumerate}[(a)]
+\item Die \textbf{Inklusionsabbildung}
+\begin{equation}
+\begin{split}
+\iota: Y &\mapsto X\\
+y &\mapsto \iota(y):=y
+\end{split}
+\end{equation}
+ist stetig.
+\item Eine Abbildung $f: Z \to Y$ ist genau dann stetig, wenn $\iota \circ f$ stetig ist.
+\end{enumerate}
+Dieser Sachverhalt wird durch folgendes kommutierendes Diagramm ausgedrückt:
+\begin{center}
+\begin{tikzcd}
+Z \arrow[r,"f"] \arrow[dr, "\iota \circ f"'] &Y \arrow[d, hook, "\iota"]\\
+&X
+\end{tikzcd}
+\end{center}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}[(a)]
+\item Sei $O \sub X$ offen, dann ist $\iota^{-1}(O)=O \cap Y$ offen nach Definition von $\Tc_{X|Y}$.
+\item $(\Rightarrow)$: Seien $f$ und $\iota$ stetig. Dann ist die Verkettung $\iota \circ f$ auch stetig.\\
+$(\Leftarrow)$: Sei $B \sub Y$ offen, dann ist zu zeigen, dass $f^{-1}(B)$ auch offen ist. Es gilt $B \in \Tc_{X|Y}$ genau dann, wenn ein $O \sub \Tc$ mit $B = \O \cap Y$ existiert. Daraus folgt 
+\begin{equation}
+f^{-1}(B) = f^{-1}(O \cap Y) = f^{-1} (\iota^{-1}(O)) = (\iota \circ f)^{-1} (O),
+\end{equation}
+was offen nach Annahme ist.
+\end{enumerate}
+\end{beweis}
+\begin{bemerkung}
+Sei $(X, \Tc)$ ein top. Raum mit $Z \sub Y \sub X$. Dann gilt $\Tc_{X|Z} = \Tc_{(X|Y)|Z}$.
+\end{bemerkung}
+\begin{definition}{Einbettung}{einbettung}
+Seien $(X', \Tc')$ und $(X,\Tc)$ top. Räume. Eine Abbildung $f: X' \to X$ heißt \textbf{Einbettung}, falls $f$ ein Homöomorphismus auf $\im (f) = f(X')$ ist. Dabei trägt $f(X') \sub X$ die Unterraumtopologie. 
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Die Funktion
+\begin{equation}
+\begin{split}
+f: [0,1) &\to \R^2 \\
+t &\mapsto \exp(2 \pi it)
+\end{split}
+\end{equation}
+ist keine Einbettung, weil $f: [0,1) \to f([0,1)) = \sph^1$ kein Homöomorphismus ist.
+\item Sei $\phi: \R \to \R$ eine beliebige, stetige Funktion. Dann ist der \textbf{Graph} von $\phi$, gegeben durch
+\begin{equation}
+\begin{split}
+\Gamma_\phi: \R &\to \R \times \R \\
+t &\mapsto (t, \phi(t))
+\end{split}
+\end{equation}
+eine Einbettung.
+\item Einbettungen $\sph^1 \to \R^3$ heißen \textbf{Knoten}.
+\end{enumerate}
+\end{beispiele}
+\begin{warning}
+Ist $f: X \to W$ stetig und $Y \sub X$ ein Unterraum mit der Topologie $\Tc_{X|Y}$, dann ist $f|_Y = f \circ \iota$ stetig. Die Umkehrung gilt jedoch nicht! Ist z.B. 
+\begin{equation}
+\begin{split}
+f: \R &\to [0,1]\\
+t &\mapsto f(t):=\begin{cases} 1, \, t \in \R \exc \Q \\0, \, t \in \Q, \end{cases}
+\end{split}
+\end{equation}
+so ist $f|_{\Q}$ konstant, also auch stetig, aber $f$ nicht.
+\end{warning}
+\subsection{Trennungsaxiome}
+\label{subsec:trennungsaxiome}
+\begin{definition}{Trennungsaxiome}{trennungsaxiome}
+Die Trennungsaxiome für topologische Räume $(X,\Tc)$ sind gegeben durch:
+\begin{enumerate}[({T}1)]
+\item Für alle $x,y \in X$, $x \neq y$ existieren Umgebungen $U \sub \Uf(x)$ und $V \sub \Uf(y)$ mit $x \neq V$ und $y \neq U$.
+\item Für alle $x,y \in X$ mit $x \neq y$ existieren Umgebungen $U \sub \Uf(x)$ und $V \sub \Uf(y)$ mit $U \cap V = \emptyset$.
+\item Für $x \in X$ und abgeschlossenes $x \notin A \sub X$ existieren Umgebungen $U \in \Uf(x)$ und $V \in \Uf(A)$, sodass $U \cap V = \emptyset$.
+\item Für abgeschlossene $A,B \sub X$ mit $A \cap B = \emptyset$ existieren Umgebungen $U \in \Uf(A)$ und $V \in \Uf(B)$, sodass $U \cap V = \emptyset$.
+\end{enumerate}
+(T2) heißt auch \textbf{Hausdorffeigenschaft}. Räume, die (T2) erfüllen, heißen \textbf{Hausdorffräume}.
+\end{definition}
+\begin{definition}{Reguläre und normale Räume}{regulaernormal}
+Sei $(X, \Tc)$ ein top. Raum.
+\begin{enumerate}[(a)]
+\item Erfüllt $X$ (T2) und (T3), so heißt $X$ \textbf{regulär}.
+\item Erfüllt $X$ (T2) und (T4), so heißt $X$ \textbf{normal}.
+\end{enumerate}
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Ist ein Raum hausdorffsch, so sind Grenzwerte eindeutig. Also ist z.B. $(X, \{\emptyset, X\})$ ist für $|X| \geq 2$ nicht hausdorffsch.
+\item Es gilt (T2) $\implies$ (T1).
+\item Jedoch gilt
+\begin{equation}
+\text{(T4)} \centernot{\implies} \text{(T3)} \centernot{\implies} \text{(T2)},
+\end{equation}
+betrachte dafür z.B. den obigen nicht-Hausdorffraum. Dieser erfüllt (T3), da es keine abgeschlossenen $A \sub X$ mit $x \notin A$ gibt. Auch (T4) ist erfüllt.
+\item (ÜA): Genau dann, wenn $X$ (T1) erfüllt, ist $\{x\}$ abgeschlossen für alle $x \in X$.
+\end{enumerate}
+\end{bemerkungen}
+\begin{satz}{Normalität impliziert Regularität}{normimplreg}
+Sei $(X, \Tc)$ ein normaler top. Raum. Dann ist $X$ auch regulär.
+\end{satz}
+\begin{beweis}
+$X$ erfüllt (T2) und (T4), und (T2) impliziert (T1). Alos ist $\{x\}$ abgeschlossen. Ist $A \sub X$ abgeschlossen und $x \notin A$, so sind $\{x\}$ und $A$ disjunkte und abgeschlossene Teilmengen. Also existieren Umgebungen $U \in \Uf(\{x\}) = \Uf(x)$ und $V \in \Uf(A)$ mit $U \cap V = \emptyset$.
+\end{beweis}
+\begin{satz}{Hausdorffeigenschaft entspricht abgeschlossener Diagonale}{abgdiaghausdorff}
+Sei $(X, \Tc)$ ein top. Raum und $\Delta:= \{(x,x)|x \in X\} \sub X \times X$ die \textbf{Diagonale} mit der Topologie $\Tc_{X \times X} := \{O_1 \times O_2 | O_i \in \Tc\}$. $X$ ist genau dann hausdorffsch, falls $\Delta \sub X \times X$ abgeschlossen ist.
+\end{satz}
+\begin{beweis}
+Seien $x, Y \in X$ mit $x \neq y$. Das ist äquivalent zu $(x,y) \in (X \times X) \exc \Delta$. Wir zeigen, dass die Hausdorffeigenschaft äquivalent dazu ist, dass das Komplement $(X \times X) \exc \Delta$ offen ist. Äquivalent zu $\Delta$ abgeschlossen ist $(X \times X) \exc \Delta$ offen. Das gilt genau dann, wenn für alle $(x,y) \in (X \times X) \exc \Delta$ ein offenes $O \in X \times X$ existiert mit $(x,y)\in O$. O.B.d.. sei $O = O_1 \times O_2$, also $x \in O_1$ und $y \in O_2$ mit $O_1 \cap O_2 \neq \emptyset$. Das gilt genau dann, wenn $X$ hausdorffsch ist.
+\end{beweis}
+\begin{satz}{(T3) und (T4) über Umgebungsbasen}{trennungundbasis}
+Sei $(X,\Tc)$ ein top. Raum.
+\begin{enumerate}[(a)]
+\item $X$ erfüllt (T3) genau dann, wenn für alle $x \in X$ die abgeschlossenen Umgebungen von $x$ eine Umgebungsbasis sind, also für alle $U \in \Uf(x)$ ein abgeschlossenes $B \in \Uf(x) \sub X$  existiert.
+\item $X$ erfüllt genau dann (T4), wenn für alle abgeschlossenen $A \sub X$ gilt, dass die abgeschlossenen Umgebungen von $A$ eine Umgebungsbasis von $A$ bilden, also für alle $U \in \Uf(A)$ ein abgeschlossenes $B \sub \Uf(A)$ existiert, sodass $A \sub B \sub C$ gilt.
+\end{enumerate}
+\end{satz}
+\begin{bemerkung}
+Sei $(X, \Tc)$ ein (T4)-Raum und $A \sub X$ abgeschlossen. Dann existiert für alle $W \in \Uf(A)$ ein offenes $U \in \Uf(A)$, sodass $A \sub U \sub \overline{U} \sub \overline{B}=B$.
+\end{bemerkung}
+\begin{beweis}
+Die Rückrichtung ist eine ÜA, wir zeigen die Hinrichtung:
+\begin{enumerate}[(a)]
+\item (T3) gelte. Seien $x \in X$ und $W \in \Uf(x)$ gegeben. Daraus folgt, dass ein $O \in \Tc$ mit $x \in O \sub W$ existiert. $X \exc O$ ist abgeschlossen und $x \notin X \exc O$. Mit (T3) folgt dann, dass $U \in \Uf(x)$ und $V \in \Uf(X \exc O)$ mit $U \cap V = \emptyset$ existieren. Aus $V \in \Uf(X \exc O)$ folgt, dass ein $O' \in \Tc$ mit $(X \exc O) \sub O' \sub V$ existiert. Wir behaupten, dass $X \exc O' =: B$ die gewünschten Eigenschaften hat.
+\begin{enumerate}[(i)]
+\item $x \in X \exc O'$: Wir haben $x \in U$ mit $U \cap V = \emptyset$, also ist $x \in X \exc V \sub X \exc O'$.
+\item Es gilt $U \sub (X \exc V) \sub (X \exc O')$ mit $U \in \Uf(x)$. Obermengen von Umgebungen sind selbst wieder Umgebungen.
+\item $X \exc O' \sub X \exc (X \exc O) = O \sub W$.
+\end{enumerate}
+\item Analog zu (a), wir ersetzen $x$ durch $A$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Vererbung der Trennungsaxiome auf Unterräume}{vererbungtrennung}
+Sei $(X, \Tc)$ ein top. Raum.
+\begin{enumerate}[(a)]
+\item Ist $X$ hausdorffsch (oder regulär) und $Y \sub X$, so ist $(Y, \Tc_{X|Y})$ ebenfalls hausdorffsch (oder regulär).
+\item Ist $X$ normal und $Y \sub X$ abgeschlossen, so ist auch $(Y, \Tc_{X|Y})$ normal.
+\end{enumerate}
+\end{satz}
+\begin{bemerkung}
+Wo liegt das Problem bei (b)? Seien $A,B \sub Y$ mit $A \cap B = \emptyset$. Dann ist $A= A' \cap Y$ und $B = B' \cap Y$. Ist $Y \sub X$ nicht abgeschlossen, so müssen $A$ und $B$ in $X$ nicht abgeschlossen sind.
+\end{bemerkung}
