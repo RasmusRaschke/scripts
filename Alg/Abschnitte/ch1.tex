@@ -653,3 +653,10 @@ eine bijektive, $G$-äquivariante Abbildung, wobei $G \circlearrowright G.x$ dur
 \end{equation}
 Eine Wirkung $G \circlearrowright \quotient{G}{G_x} = \{gG_x|g \in G\}$ erhält man durch $g' . gG_x:= g'g.G_x$.
 \end{satz}
+\begin{beweis}
+Die Abbildung ist wohldefiniert: Sei $g \in G$ und $h \in G_x$, dann gilt
+\begin{equation}
+(gh).x = g.(h.x) = g.x.
+\end{equation}
+Weiterhin ist die Abbilung injektiv, denn falls $g_1.x = g_2.x$, so ist $(g_1^{-1}).g_2.x = x$, also ist $(g_1^{-1}).g_2 \in G_x$, also $g_1G_x = g_2G_x$. Surjektivität ist per Konstruktion durch Einschränkung auf die Bahn gegeben.
+\end{beweis}
