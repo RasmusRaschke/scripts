@@ -1,0 +1,1822 @@
+\section{(Pseudo-)Riemannsche Mannigfaltigkeiten}
+\label{sec:riemann}
+\subsection{Die kovariante Ableitung}
+\label{subsec:kovabl}
+Unser Ziel in diesem Abschnitt ist es, ein Ableitungsbegriff für Schnitte $s: B \to E$ in einem Vektorbündel $B \to E$ in Richtung eines Tangentialvektors bzw. Vektorfeldes auf $B$ zu entwickeln. Diese Ableitung soll wieder ein Schnitt von $E \to B$ sein, und der Wert in $b \in B$ soll nur vom Wert des Vektorfeldes $X \in \Gamma (TB)$ abhängen, in dessen Richtung abgeleitet wird.\\
+Unsere bisherigen Ableitungsbegriffe können dies noch nicht leisten:
+\begin{enumerate}
+\item Das Differential von $s: B \to E$ bildet $v \in T_bB$ auf $s_{\ast, b}(v) \in T_{s(b)} E$ ab und es gibt a priori keine Projektion auf die Faser, also liefert $s_\ast (X)$ keinen Schnitt von $E$.
+\item Für $E = TB \to B$ hatten wir die Lie-Ableitung eingeführt:
+\begin{equation}
+\Ls_X: \Gamma (TB) \to \Gamma (TB).
+\end{equation}
+Allerdings hängt der Wert von $(\Ls_X Y)_b$ von $X$ auf einer offenen Umgebung von $b$ ab. Konkret: Betrachte $X_1=\partial_x$ und $X_2 = \partial_x - y \partial_y$ auf $B = \R^2$ mit Standardkoordinaten $(x, y)$. Dann gilt $(X_1)_0 = (X_2)_0 = (\partial_x)_0$, aber für $Y = \partial_y$ gilt $\Ls_{X_1} Y = 0$ und $\Ls_{X_2} Y = [X_2, Y] = \partial_y$.
+\end{enumerate}
+\begin{definition}{Kovariante Ableitung}{kovabl}
+Eine \textbf{kovariante Ableitung} $\nabla$ auf einem Vektorbündel $E \to B$ ist eine Abbildung:
+\begin{align}
+\nabla: \Gamma (TB) \times \Gamma (E) &\to \Gamma (E)\\
+(X, s) &\mapsto \nabla_X s
+\end{align}
+mit folgenden Eigenschaften:
+\begin{itemize}
+\item Im ersten Argument ist $\nabla$ $\cinf{B}$-linear, d.h.
+\begin{equation}
+(\nabla_{fX+gY} s) = f \cdot \nabla_X s + g \cdot \nabla_Y s
+\end{equation}
+für $f, g \in \cinf{B}$ und $X,Y \in \Gamma (TM)$.
+\item Im zweiten Argument ist $\nabla$ eine $\R$-lineare Derivation, d.h.
+\begin{equation}
+\nabla_X(c_1s_1 + c_2 s_2) = c_1 \nabla_X s_1 + c_2 \nabla_X s_2
+\end{equation}
+falls $c_1, c_2 \in \R$ und $s_1, s_2 \in \Gamma (E)$, außerdem
+\begin{equation}
+\nabla_X (f \cdot s) = X(f) \cdot s + f \cdot \nabla_X s
+\end{equation}
+für $f \in \cinf{B}$ und $s \in \Gamma (E)$.
+\end{itemize}
+Man sagt für $\nabla$ auch \textbf{(linearer) Zusammenhang}.
+\end{definition}
+\begin{lemma}{Lokalitätseigenschaft}{lokkovabl}
+Kovariante Ableitungen sind lokal im eingangs gewüschten Sinne: Ist $E \to B$ ein Vektorbündel, $s: B \to E$ ein Schnitt und $X, Y \in \Gamma (TB)$ mit $X_b = Y_b$, so gilt
+\begin{equation}
+(\nabla_X s)_b = (\nabla_Y s)_b.
+\end{equation}
+\end{lemma}
+\begin{beweis}
+Seien $(x_1, \dots, x_n)$ lokale Koordinaten nahe $b \in B$ und $\rho: B \to [0,1]$ eine glatte Funktion mit $\rho(b)=1$ und $\supp \rho \sub U$, wobei $U$ die Koordinatenumgebung ist. Dann können wir $X$ und $Y$ auf $U$ darstellen als $X|_U = \sum_k \alpha_k \partial_{x_k}$ und $Y|_U = \sum_k \beta_k \partial_{x_k}$ mit Funktionen $\alpha_k, \beta_k: U \to \R$. Nach Voraussetzung gilt $\alpha_k (b) = \beta_k (b)$ für alle $1 \leq k \leq n$. Nun benutzen wir die Rechenregeln:
+\begin{align}
+(\nabla_X s)_b &= \rho(b) \cdot (\nabla_X s)_b \\
+&= (\nabla_{\rho X} s)_b\\
+&= (\nabla_{\sum_k \rho \alpha_k \partial_{x_k}} s)_b \\
+&= \sum_k \alpha_k (b) \cdot (\nabla_{\rho \partial_{x_k}} s)_b\\
+&= \sum_k \beta_k(b) \cdot (\nabla_{\rho \partial_{x_k}} s)_b = \dots = (\nabla_Y s)_b
+\end{align}
+\end{beweis}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $B = \R^n$ und $E=T\R^n$ bilden die Koordinatenvektorfelder $\partial_{x_1}, \dots, \partial_{x_2}$ einen globalen Rahmen, d.h. jeder Schnitt $Y \in \Gamma (T\R^n)$ hat eine eindeutige Darstellung $Y = \Sum{k, 1, n} \beta_k \partial_{x_k}$ mit $\beta_k: \R^n \to \R$. Wir definieren jetzt
+\begin{equation}
+\nabla_X Y := \Sum{k,1,n} X(\beta_k) \partial_{x_k}.
+\end{equation}
+Die Rechenregeln für Ableitungen zeigen, dass dies eine kovariante Ableitung ist.\\
+Allgemeiner: Ist $\pi: E \to B$ ein triviales Bündel (es existiert ein Rahmen $(z_1, \dots, z_r)$), so können wir jeden Schnitt schreiben als $s = \Sum{k,1,r} \beta_k z_k$ und wir können die gleiche Formel
+\begin{equation}
+\nabla_X s := \Sum{k,1,r} X(\beta_k) z_k
+\end{equation}
+verwenden, um eine kovariante Ableitung zu definieren.
+\item Ist $B=G$ eine Lie-Gruppe und $E = TG$, so gibt uns jede Basis $v_1, \dots, v_n$ der Lie-Algebra $\mathfrak{g} = T_eG$ einen globalen Rahmen $z_1, \dots, z_n$ aus den zugehörigen linksinvarianten Vektorfeldern, und wir erhalten so eine kovariante Ableitung.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Parallelität}{parallel}
+Sei $E \to B$ ein Vektorbündel und $\nabla$ eine kovariante Ableitung auf $E$. Ein Schnitt $s: B \to E$ heißt \textbf{parallel} bezüglich $\nabla$, falls $\nabla_X s=0$ für alle Vektorfelder $X \in \Gamma (TB)$.
+\end{definition}
+Die bisherigen Beispiele von kovarianten Ableitungen haben jeweils viele parallele Schnitte, nämlich alle Linearkombinationen der ausgezeichneten globalen Schnitte mit Koeffizienten $c_i \in \R$.\\
+Dies ist aber sehr speziell, die meisten kovarianten Ableitungen haben überhaupt keine parallelen Schnitte.\\
+\begin{bemerkung}
+Auf jedem Vektorbündel von positivem Rang gibt es sehr viele kovariante Ableitungen:
+\begin{enumerate}
+\item Sind $\nabla^1$ und $\nabla^0$ zwei kovariante Ableitungen auf $E$, so ist $\nabla^t := t \nabla^1 + (1-t) \nabla^0$ für jedes $t \in \R$ wieder eine kovariante Ableitung.
+\item Ist $B = \bigcup_{\alpha \in A} U_\alpha$ und sind $\nabla^\alpha$ kovariante Ableitungen auf $E_\alpha = E|_{U_\alpha} \to U_\alpha$ und ist $\{ \rho_\alpha \}_{\alpha \in A}$ eine Zerlegung der Eins, dann ist $\sum_\alpha \rho_\alpha \nabla^\alpha$ eine kovariante Ableitung auf $E$.
+\end{enumerate}
+\end{bemerkung}
+Vorschau: Auf einer MFK mit einer Metrik (glatte Familie von nichtausgearteten Skalarprodukten auf den Tangentialräumen) gibt es eine ausgezeichnete kovariante Ableitung, den \textit{Levi-Civita-Zusammenhang} mit besonders guten geometrischen Eigenschaften.\\
+Für Rechnungen sind Ausdrücke in lokalen Koordinaten nützlich:
+\begin{satz}{Christoffel-Symbole}{christoffel}
+Seien $(x_1, \dots, x_n)$ lokale Koordinaten auf $U \sub M$, und $\nabla$ ein Zusammenhang auf $TM$. Aus den Rechenregeln folgt, dass $\nabla|_U$ eingeschränkt durch die Ausdrücke $\nabla_{\partial_{x_i}} \partial_{x_j}$ bestimmt ist. Diese lassen sich schreiben als 
+\begin{equation}
+\nabla_{\partial_{x_i}} \partial_{x_j}  = \Sum{k,1,n} \Gamma_{ij}^k \partial_{x_k}
+\end{equation}
+mit Funktionen $\Gamma_{ij}^k: U \to \R$. Diese heißen \textit{Christoffel-Symbole} von $\nabla$ bezüglich der Koordinaten $(x_1, \dots, x_n)$.
+\end{satz}
+\begin{beispiele}
+\begin{enumerate}
+\item Auf $\R^2$ mit Standardkoordinaten $(x,y)$ betrachten wir die Standardableitung. Dann gilt $\nabla_{\partial_x} \partial_x = \nabla_{\partial_x}\partial_y = \nabla_{\partial_y}\partial_x = \nabla_{\partial_y} \partial_y = 0$, d.h. in diesen Koordinaten verschwinden die Christoffel-Symbole. 
+\item In Polarkoordinaten $(r, \phi)$ mit $x = r \cos \phi$, $y=r \sin \phi$ gilt
+\begin{align}
+\partial_r &= \cos \phi \partial_x + \sin \phi \partial_y \\
+\partial_\phi &= -r \sin \phi \partial_x + r \cos \phi \partial_y.
+\end{align}
+Also folgt $\nabla_{\partial_r} \partial_r = 0$, d.h. $\Gamma_{rr}^r = \Gamma_{rr}^\phi = 0$ und
+\begin{equation}
+\nabla_{\partial_r} \partial_\phi = - \sin \phi \partial_x + \cos \phi \partial_y = \frac{1}{r} \partial_\phi
+\end{equation}
+und somit $\Gamma_{r \phi}^r = 0$ und $\Gamma_{r \phi}^\phi = \frac{1}{r}$. Weiterhin gilt
+\begin{equation}
+\nabla_{\partial_\phi} \partial_r = - \sin \phi \partial_x + \cos \phi \partial_y = \frac{1}{r} \partial_\phi,
+\end{equation}
+d.h. $\Gamma_{\phi r}^r = 0$ und $\Gamma_{\phi r}^\phi = \frac{1}{r}$ und außerdem
+\begin{equation}
+\nabla_{\partial_\phi} \partial_\phi = - r \cos \phi \partial_x - r \sin \phi \partial_y = -r \partial_r,
+\end{equation}
+d.h. $\Gamma_{\phi \phi}^r = -r$ und $\Gamma_{\phi \phi}^\phi = 0$.
+\end{enumerate}
+\end{beispiele}
+\subsection{Torsion und Krümmung}
+\label{subsec:torsionkrummung}
+\begin{definition}{Tensorfeld}{tensorfeld}
+Sei $M$ eine glatte MFK. Ein \textbf{Tensorfeld} vom Typ $(r, s)$ ist ein Schnitt im Bündel
+\begin{equation}
+\underbrace{T^\ast M \otimes \cdots \otimes T^\ast M}_r \otimes \underbrace{ TM \otimes \cdots \otimes TM}_s \to M.
+\end{equation}
+\end{definition}
+\begin{definition}{Alternative Definition von Tensorfeldern}{alttensorfeld}
+Ein \textbf{Tensorfeld} vom Typ $(r, s)$ ist eine Abbildung 
+\begin{equation}
+B^r_s: \Gamma(TM)^{\otimes r} \to \Gamma (TM)^{\otimes s},
+\end{equation}
+die in jedem Argument linear über $\cinf{M}$ ist, d.h. für $X_1, \dots, X_r \in \Gamma (TM)$ und $f \in \cinf{M}$ gilt
+\begin{equation}
+f \cdot B^r_s(X_1, \dots, X_r) = B^r_s(X_1, \dots, f \cdot X_j, \dots, X_r)
+\end{equation}
+für alle $1 \leq j \leq r$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item $r=1$, $s=0$, $B^1_0: \Gamma(TM) \to \Gamma (TM)^{\otimes 0} := \cinf{M}$. Diese entsprechen gerade $1$-Formen auf $M$. Allgemeiner: $k$-Formen sind Beispiele für (total schiefsymmetrische) $(k, 0)$-Tensorfelder.
+\item $r=0$, $s=1$: $(0,1)$-Tensorfelder entsprechen Vektorfeldern auf $M$.
+\item Ist $\nabla$ eine kovariante Ableitung auf $TM$ und $Y \in \Gamma (TM)$, dann ist die Zuordnung $X \mapsto \nabla_X Y$ ein $(1,1)$-Tensorfeld.
+\item Die Lie-Klammer $[.,.]: \Gamma (TM) \otimes \Gamma (TM) \to \Gamma (TM)$ ist \textit{kein} $(2,1)$-Tensorfeld, denn $[fX, Y] = f [X, Y] - Y(f) X$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Torsion und Krümmung}{torskrumm}
+Zu jeder kovarianten Ableitung $\nabla$ auf $TM$ gehören zwei Tensorfelder:
+\begin{enumerate}
+\item Die \textbf{Torsion} ist das $(2,1)$-Tensorfeld
+\begin{equation}
+T(X,Y) = \nabla_X Y - \nabla_Y X - [X,Y].
+\end{equation}
+\item Die \textbf{Krümmung} ist das $(3,1)$-Tensorfeld
+\begin{equation}
+R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.
+\end{equation}
+\end{enumerate}
+Beide sind schiefsymmetrisch in $X$ und $Y$.
+\end{definition}
+Die Tensorfeld-Eigenschaft für $T$ sieht man wie folgt:
+\begin{align}
+T(fX, Y) &= \nabla_{fX} Y - \nabla_Y fX - [fX, Y]\\
+&= f \nabla_X Y - (f \nabla_Y X + \cancel{Y(f) X}) - (f [X, Y] - \cancel{Y(f)X})\\
+&= f T(X,Y).
+\end{align}
+Übungsaufgabe:
+\begin{enumerate}
+\item Sind $\nabla^0$ und $\nabla^1$ kovariante Ableitungen auf $TM$, so ist 
+\begin{equation}
+S(X,Y) = \nabla^0_X Y - \nabla^1_X Y
+\end{equation}
+ein $(2,1)$-Tensorfeld.
+\item Ist umgekehrt $\nabla$ eine kovariante Ableitung auf $TM$ und $S$ ein $(2,1)$-Tensorfeld, so ist
+\begin{equation}
+\tilde{\nabla}_X Y := \nabla_X Y + S(X,Y)
+\end{equation}
+wieder eine kovariante Ableitung.
+\item Ist $\nabla$ eine kovariante Ableitung auf $TM$ mit Torsion $T$, so ist
+\begin{equation}
+\tilde{\nabla} := \nabla - \frac{1}{2} T
+\end{equation}
+eine kovariante Ableitung mit verschwindender Torsion.
+\end{enumerate}
+\begin{bemerkung}
+Ist $\nabla$ eine kovariante Ableitung auf $TM$, so induziert $\nabla$ auch kovariante Ableitungen auf den Bündeln $(T^\ast M)^{\otimes r} \otimes (TM)^{\otimes s}$ mit $r, s \geq 0$. Wir benötigen nur die Formeln für $s=0$ und $s=1$:
+\begin{equation}
+(\nabla_X B)(X_1, \dots, X_r) = \nabla_X (B(X_1, \dots, X_r)) - \Sum{j,1,r} B(X_1, \dots, \nabla_X X_j, \dots, X_r) \left( = X(B(X_1, \dots, X_r)) \ \text{falls} \ s=0\right)
+\end{equation}
+\end{bemerkung}
+\begin{satz}{Kovariante Ableitung eines Tensorfeldes}{kovabltensor}
+Ist $B^r_s$ ein $(r,s)$-Tensorfeld, so ist $\nabla B^r_s$ ein $(r+1, s)$-Tensorfeld, d.h. die Zuordnung
+\begin{equation}
+(X_0, \dots, X_r) \mapsto (\nabla_{X_0}) B(X_1, \dots, X_r)
+\end{equation}
+ist $\cinf{M}$-linear in jedem Argument.
+\end{satz}
+Zur Erinnerung: Ein paralleles Tensorfeld ist ein Tensorfeld $B$ mit $\nabla B = 0$.\\
+Unser nächstes Ziel ist es, eine kovariante Ableitung für Vektorfelder entlang einer glatten Abbildung zu finden.
+\begin{definition}{Vektorfeld entlang einer Abbildung}{vekabb}
+Sei $f: N \to M$ eine glatte Abbildung. Ein \textbf{Vektorfeld entlang} $f$ ist eine Abbildung $Y: N \to TM$ mit der Eigenschaft $\pi_M \circ Y = f$, also
+\begin{center}
+\begin{tikzcd}
+TM \arrow[dr, "\pi_M"] \\
+N \arrow[r, "f"] \arrow[u, "Y"] & M.
+\end{tikzcd}
+\end{center}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Ist $\gamma: (a,b) \to M$, so ist $Y(t) = \dot{\gamma}(t)$ ein Vektorfeld entlang $\gamma$.
+\item Ist $\gamma: (a,b) \to M$ eine konstante Kurve $\gamma(t) = p \in M$, dann ist ein Vektorfeld entlang $\gamma$ eine Kurve $Y: (a,b) \to T_pM$.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkung}
+Vektorfelder entlang $f$ sind Schnitte im zurückgezogenen Tangentialbündel mit Totalraum
+\begin{center}
+\begin{tikzcd}
+f^\ast TM = \{ (x,v) \in N \times TM | f(x) = \pi_M (v) \} \arrow[d, "\pi = \text{pr}_1"] \\
+N .
+\end{tikzcd}
+\end{center}
+Die Faser dieses Bündels im Punkt $x \in N$ ist gerade $T_{f(x)}M$.
+Wir bezeichnen den Raum der Vektorfelder entlang $f: N \to M$ mit $T_f(TM)=T(f^\ast TM)$.
+Der Raum $\Gamma_f (TM)$ ist:
+\begin{itemize}
+\item ein Vektorraum über $\R$.
+\item Ein Modul über $\cinf{N}$.
+\item Ein Modul über $\cinf{M}$, da $f$ einen Ringhomomorphismus $f^\ast: \cinf{M} \to \cinf{N}, \ \phi \mapsto \phi \circ f$ induziert.
+\end{itemize}
+\end{bemerkung}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Zu jedem Vektorfeld $X \in \Gamma(TM)$ haben wir eine Einschränkung auf $f$: $X \circ f \in \Gamma_f(TM)$. Typischerweise sind nicht alle Vektorfelder entlang $f$ von dieser Form.
+\item Zu jedem Vektorfeld $X \in \Gamma (TN)$ erhalten wir ebenfalls ein Vektorfeld entlang $f$, nämlich $f_\ast X \in \Gamma_f(TM)$.
+\begin{center}
+\begin{tikzcd}
+TN \arrow[r, "f_\ast"] \arrow[d, "\pi_M"] & TM \arrow[d, "\pi_M"] \\
+N \arrow[r, "f"] \arrow[ur, "f_\ast X"] & M
+\end{tikzcd}
+\end{center}
+\item Zu $Y \in \Gamma_f(TM)$ und $\psi \in \cinf{M}$ erhalten wir eine Funktion $Y \psi \in \cinf{N}$, definiert als
+\begin{equation}
+(Y \psi)(p) = Y_p \psi.
+\end{equation}
+Ist $Y=X \circ f$ eine Einschränkung, dann gilt $(X \circ f)(\psi) = (X \psi) \circ f$.
+\item Obwohl Vektorfelder entlang $f$ nicht unbedingt Einschränkungen sind, ist jedes Vektorfeld $Y \in \Gamma_f(TM)$ lokal als Linearkombination von Einschränkungen mit Koeffizienten in $\cinf{N}$ schreiben.\\
+Konkret: Seien $(x_1, \dots, x_n)$ Koordinaten auf $U \sub M$ und sei $V := f^{-1}(U) \sub N$. Dann hat jedes Vektorfeld $Y \in \Gamma_f(TM)$ die lokale Darstellung
+\begin{equation}
+Y|_U = \Sum{k,1,n} Y_{x_k} \cdot (\partial_{x_k} \circ f).
+\end{equation}
+\end{enumerate}
+\end{bemerkungen}
+\begin{satz}{}{}
+Sei $f: N \to M$ glatt und $\nabla$ eine kovariante Ableitung auf $TM$. Dann existiert eine eindeutige und natürliche Fortsetzung
+\begin{align}
+\bar{\nabla}: \Gamma(TN) \otimes \Gamma_f(TM) &\to \Gamma_f(TM)\\
+(A, Y) &\mapsto \bar{\nabla}_A Y
+\end{align}
+für $f \in \cinf{N}$ mit folgenden Eigenschaften:
+\begin{enumerate}
+\item $\bar{\nabla}$ ist $\cinf{N}$-linear im ersten Argument.
+\item $\bar{\nabla}$ ist eine Derivation im zweiten Argument, d.h.
+\begin{equation}
+\bar{\nabla}_A fY = (Af) \cdot Y + f \bar{\nabla}_A Y
+\end{equation}
+für $f \in \cinf{N}$.
+\item Für $X \in \Gamma(TM)$ gilt $\bar{\nabla}_A (X \circ f) = \left( \nabla_{f_\ast A} X\right) \circ f$.
+\end{enumerate}
+Zusätzlich erfüllt $\bar{\nabla}$ die Strukturgleichungen
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item $T(f_\ast A, f_\ast B) = \bar{\nabla}_A f_\ast B - \bar{\nabla}_B f_\ast A - f_\ast [A, B]$
+\item $R(f_\ast A, f_\ast B)Y = \bar{\nabla}_A \bar{\nabla}_B Y - \bar{\nabla}_B \bar{\nabla}_A Y - \bar{\nabla}_{[A,B]} Y$.
+\end{enumerate}
+\end{satz}
+\begin{bemerkung}
+Die ersten zwei Eigenschaften drücken aus, dass $\bar{\nabla}$ eine kovariante Ableitung auf dem Vektorbündel $f^\ast TM$ ist. Weil jedes Vektorfeld entlang $f$ sich lokal als Linearkombination von Einschränkungen schreiben lässt, wird $\bar{\nabla}$ durch die ersten drei Eigenschaften eindeutig festgelegt.\\
+Daher ist es üblich, $\bar{\nabla}$ mit $\nabla$ zu bezeichnen.
+\end{bemerkung}
+Wir betrachten nun speziell Vektorfelder entlang Kurven.
+\begin{definition}{parallele Vektorfelder}{parallelvek}
+Sei $\gamma: [a,b] \to M$ glatt und $\nabla$ ein Zusammenhang auf $TM$. Dann heißt ein Vektorfeld $Y \in \Gamma_\gamma (TM)$ \textbf{parallel}, wenn
+\begin{equation}
+\nabla_{\frac{d}{dt}} Y = 0
+\end{equation}
+gilt.
+\end{definition}
+Wir wollen diese DGL einmal lokal in Koordinaten verstehen. Sei dazu $t_0 \in [a,b]$ und $(x_1, \dots, x_n)$ Koordinaten auf einer Umgebung $U \sub M$ von $\gamma (t_0)$. Für $Y \in \Gamma_\gamma (TM)$ haben wir die lokale Darstellung 
+\begin{equation}
+Y|_{(t_0-s, t_0+s)} = \Sum{k,1,n} a_k (\partial_{x_k} \circ \gamma)
+\end{equation}
+mit Funktionen $a_k: (t_0-s, t_0+s) \to \R$. Dann folgt
+\begin{equation}
+\nabla_\frac{d}{dt} Y = \Sum{k,1,n} \left( \frac{da_k}{dt}\right) (\partial_{x_k} \circ \gamma) + \Sum{j,1,n} a_j \nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma)
+\end{equation}
+aus der Derivationseigenschaft von $\nabla$. Mit $\gamma_\ast (\frac{d}{dt}) = \sum_i \frac{d (x_i \circ \gamma)}{dt} \partial_{x_i}$ gilt nun: 
+\begin{align}
+\nabla_\frac{d}{dt} (\partial_{x_j} \circ \gamma) &=^3 \left( \nabla_{\gamma_\ast (\frac{d}{dt} )} \partial_{x_j}\right) \circ \gamma\\
+&= \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\nabla_{\partial_{x_i}} \partial_{x_j} ) \circ \gamma \\
+&= \sum_{i,k} \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)(\partial_{x_k} \circ \gamma).
+\end{align}
+Insgesamt erhalten wir:
+\begin{equation}
+\nabla_\frac{d}{dt}Y = \Sum{k,1,n} \left( \frac{d a_k}{dt} + \sum_{i,j} a_j \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)\right)(\partial_{x_k} \circ \gamma).
+\end{equation}
+Mit $B_j^k := - \Sum{i,1,n} \frac{d (x_i \circ \gamma)}{dt} (\Gamma_{ij}^k \circ \gamma)$ ist die Bedingung $\nabla_\frac{d}{dt}  Y = 0$ äquivalent zum System
+\begin{equation}
+\frac{d a_k}{dt} = \Sum{j,1,n} B_j^k a_j
+\end{equation}
+mit $k \in \{1, \dots, n \}$. Dies ist ein System linearer DGL. Solche Systeme haben zu jedem Anfangswert eine global (also in unserem Fall auf ganz $(t_0 -s, t_0 +s)$) definierte und eindeutige Lösung. Für auf einem kompakten Intervall definierte Kurven können wir das Intervall in endlich viele Teile $a_0 = t_0 < t < \cdots < t_r =b$ zerlegen, sodass $\gamma([t_i, t_{i+1}])$ in einer Karte für $M$ enthalten ist. Wir erhalten also
+\begin{satz}{}{}
+Sei $\nabla$ eine kovariante Ableitung auf $TM$ und $\gamma: [a,b] \to M$ eine glatte Kurve. Dann existiert zu jedem $t_0 \in [a,b]$ und jedem $v \in T_{\gamma (t_0)} M$ ein eindeutiges, entlang $\gamma$ paralleles Vektorfeld $Y$ mit $Y_{t_0} = v$.
+\end{satz}
+\qed
+\begin{korollar}{}{}
+Die entlang $\gamma$ parallelen Vektorfelder bilden einen Unterraum der Dimension $\dim M$ in $\Gamma_\gamma (TM)$.
+\end{korollar}
+\begin{korollar}{}{}
+Parallele Vektorfelder $Y_1, \dots, Y_k$ entlang $\gamma$ sind in $t_0 \in [a,b]$ linear unabhängig genau dann, wenn $Y_1, \dots, Y_k$ in allen $t \in [a,b]$ linear unabhängig sind.
+\end{korollar}
+\begin{definition}{Paralleltransport}{paralleltrans}
+Wir definieren nun den \textbf{Paralleltransport} entlang $\gamma$ als
+\begin{align}
+P_\gamma: T_{\gamma(a)} M &\to T_{\gamma(b)} M \\
+v &\mapsto \ \text{Wert in} \ \gamma(b) \ \text{des zugehörigen parallelen Vektorfeldes}.
+\end{align}
+Dies ist ein Isomorphismus.
+Allgemeiner haben wir zu einem gegebenen Weg $\gamma: [a,b] \to M$:
+\begin{equation}
+P_{t_0t_1}: T_{\gamma(t_0)} M \to T_{\gamma(t_1)}M
+\end{equation}
+für beliebige $t_0, t_1 \in [a,b]$.
+\end{definition}
+\begin{bemerkung}
+$P_{t_0t_1} = P_{t_1t_0}^{-1}$
+\end{bemerkung}
+\begin{satz}{}{}
+Sei $M$ eine glatte MFK, $\nabla$ eine kovariante Ableitung und $\gamma: [a,b] \to M$ mit $t_0 \in [a,b]$ eine glatte Kurve. Dann gilt für $X \in \Gamma_\gamma (TM)$:
+\begin{equation}
+(\nabla_\frac{d}{dt}X)_{t_0} = \lim_{t \to t_0} \frac{P_{t_0t}^{-1} X_t - X_{t_0}}{t-t_0}
+\end{equation}
+\end{satz}
+\begin{beweis}
+Sei $Z_1, \dots, Z_n$ ein Rahmen von parallelen Vektorfeldern entlang $\gamma$. Dann gilt $X = \Sum{k,1,n} a_k Z_k$ und $\nabla_\frac{d}{dt} X = \Sum{k,1,n} \frac{d a_k}{dt} Z_k + \cancel{a_k \nabla_\frac{d}{dt} Z_k}$. Andererseits gilt $P_{t_0t}^{-1} X_t = \Sum{k,1,n} a_k(t) (Z_k)_{t_0}$. Daraus folgt
+\begin{align}
+\lim_{t \to t_0} \frac{P_{t_0t}^{-1} X_t - X_{t_0}}{t-t_0} &= \lim_{t \to t_0} \sum_k \left( \frac{a_k(t) - a_k(t_0)}{t-t_0} \right) (Z_k)_{t_0} \\
+&= \left( \sum_k \frac{d a_k}{dt} Z_k\right)_{t_0} \\
+&= \left( \nabla_\frac{d}{dt} X\right)_{t_0}.
+\end{align}
+\end{beweis}
+\begin{bemerkung}Eine andere Sicht auf den Paralleltransport\\
+Der Paralleltransport entlang $\gamma$ liefert zu jedem Anfangswert $v \in T_{\gamma(a)}M$ eine Kurve $Y: [a,b] \to TM$ mit $Y(a) = v$ und $\pi_M \circ Y = \gamma$. Zu jedem Tangentialvektor $w \in T_pM$ finden wir so ein $Y$ mit Startpunkt $v \in TM$, und die Zuordnung $T_pM \to T_v TM, \ w \mapsto \dot{Y}_w (0)$ ist linear. Das Bild ist ein $n$-dimensionaler Unterraum $H_v \sub T_v TM$ mit der Eigenschaft, dass $\pi_{M, \ast}$ $H_v$ isomorph auf $T_pM$ abbildet. Die Familie von Unterräumen $\{H_v \sub T_v TM \}_{v \in TM}$ enthält die vollständige Information über $\nabla$.\\
+Zur Erinnerung: Fasst man $Y \in \Gamma(TM)$ als Abbildung $Y: M \to TM$ auf, so ist $Y_\ast (X)_x \in T_{Y_x} TM$ und die Zerlegung $T_v TM = V_v \oplus H_v$ mit $V_v \cong T_pM$.\\
+Dies führt zur (korrekten) Behauptung, dass $(\nabla_X Y)_X ) = \text{pr}_V (Y_{X, \ast} (X))$ gilt. Die kovariante Ableitung liefert also eine Möglichkeit, die normale Ableitung zurück auf die Fasern zu projizieren.
+\end{bemerkung}
+\begin{satz}{Paralleltransport und Krümmung}
+Sei $M$ eine MFK mit $p \in M$ und $\nabla$ ein Zusammenhang auf $TM$ mit $u,v,w  \in T_pM$. Sei weiterhin $F: (-\epsilon, \epsilon) \times (-\epsilon, \epsilon) \to M$ glatt mit $F(0,0)=p$, $\left.\frac{\partial F}{\partial t}\right|_{(0,0)} = u$ und $\left.\frac{\partial F}{\partial s}\right|_{(0,0)}$. Für $(s,t) \in (- \epsilon, \epsilon)$ definieren wir
+\begin{equation}
+\pi_\text{st}: T_pM \to T_pM
+\end{equation}
+als Verknüpfung der folgenden Paralleltransporte:
+\begin{itemize}
+\item $P_t$: Von $p = F(0,0)$ nach $F(t,0)$ entlang der Kurve $\tau \mapsto F(\tau,0)$.
+\item $P_s$: Von $F(t,0)$ nach $F(t,s)$ entlang der Kurve $\sigma \mapsto F(t, \sigma)$.
+\item $P_{-t}$: Von $F(t,s)$ nach $F(0,s)$ entlang $\tau \mapsto F(\tau, s)$.
+\item $P_{-s}$: Von $F(0,s)$ nach $F(0,0)$ entlang $\sigma \mapsto F(0, \sigma)$.
+\end{itemize}
+Also ist $\pi_\text{st} = P_{-s}P_{-t}P_sP_t$.\\
+Dann gilt:
+\begin{equation}
+R(u,v)w = \lim_{s,t \to 0} \frac{\pi^{-1}_\text{st}w-w}{st}=\frac{\partial^2}{\partial s \partial t} \left.(\pi^{-1}_\text{st} w)\right|_{(0,0)}.
+\end{equation}
+\end{satz}
+\begin{beweis}
+Wir definieren $Y \in T_F(TM)$ entlang $F$ wie folgt:
+\begin{itemize}
+\item $Y_{(0,0)} = w$
+\item $\sigma \mapsto Y_{(0,\sigma)}$ ist parallel entlang $\sigma \mapsto F(0,\sigma)$.
+\item Für ein festes $s \in (-\epsilon, \epsilon)$ ist $\tau \mapsto Y_{(\tau, s)}$ parallel entlang $\tau \mapsto F(\tau, s)$.
+\end{itemize}
+Damit gilt $Y_{(t,s)} = P_tP_sw$. Die Strukturgleichungen der Krümmung entlang $F$ liefern:
+\begin{equation}
+R(F_\ast \partial_s, F_\ast \partial_t)Y = \nabla_{\partial_t} \nabla_{\partial_s} Y - \nabla_{\partial_s} \underbrace{\nabla_{\partial_t} Y}_{=0 \ \text{nach Konstruktion}} - \underbrace{\nabla_{[\partial_t, \partial_s]}}_{=0 \Leftarrow [\partial_s, \partial_t] = 0} Y
+\end{equation}
+Damit folgt $R(u,v)w =(R(F_\ast \partial_t, F_\ast \partial_s)Y)_{(0,0)} = (\nabla_{\partial_t} \nabla_{\partial_s} Y)_{(0,0)}$. Aus $\pi_\text{st} = P_{-s}P_{-t}P_sP_t$ folgt weiterhin $\pi_\text{st}^{-1} = P_{-t}P_{-s}P_tP_s$. Nun gilt:
+\begin{equation}
+(\nabla_{\partial_s}Y)_{(t,0)} = \lim_{s \to 0} \frac{P_s^{-1}(Y_{(t,s)}) - Y_{(t,0)}}{s} = \lim_{s \to 0} \frac{P_t \pi_\text{st}^{-1} w - P_t w}{s} = P_t \left( \lim_{s \to 0} \frac{\pi^{-1}_\text{st} w-w}{s}\right) = P_t \left( \frac{\partial}{\partial_s} (\pi_\text{st}^{-1} w)|_{s=0} \right).
+\end{equation}
+Daraus folgt:
+\begin{align}
+(\nabla_{\partial_t} \nabla_{\partial_s} Y)_{(0,0)} &= \lim_{t \to 0} \frac{P_{-t}(P_t(\frac{\partial}{\partial s} \pi_\text{st}^{-1}w))|_{s=0} - (\frac{\partial}{\partial s} \pi_\text{st}^{-1}w)_{(0,0)}}{t} \\
+&= \lim_{t \to 0} \frac{\frac{\partial}{\partial s} (\pi_\text{st}^{-1}w)_{(t,0)} - \frac{\partial}{\partial s} (\pi_\text{st}^{-1}w)_{(0,0)}}{t}\\
+&= \frac{\partial^2}{\partial t \partial s}(\pi_\text{st}^{-1} w)_{(0,0)}
+\end{align}
+\end{beweis}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Für verschwindende Krümmung $R$ von $\nabla$ auf einer offenen Teilmenge $U \sub M$ ist der Paralleltransport wegunabhängig im folgenden Sinne:\\
+Sind $p,q \in U$ und $\gamma_1, \gamma_2: [0,1] \to U$ Wege von $p$ nach $q$, die in $U$ homotop relativ zu ihren Endpunkten sind, dann gilt $P_{\gamma_1}=P_{\gamma_2}: T_pM \to T_pM$.
+\item Es gilt sogar die Umkehrung: Ist der Paralleltransport in diesem Sinne wegunabhängig, verschwindet die Krümmung von $\nabla$.
+\item $R \equiv 0$ ist die Integrabilitätsbedingung der Distribution $H \sub T(TM)$ im Sinne des Satzes von Frobenius. 
+\end{enumerate}
+\end{bemerkungen}
+Nun wollen wir eine globale Interpretation entwickeln.
+\begin{definition}{Schleifenraum}{schleifen}
+Sei $M$ eine glatte MFK und $\nabla$ ein Zusammenhang auf TM. Sei $p \in M$. Dann heißt der Raum
+\begin{equation}
+\Omega_p M := \{ \gamma: [0,1] \to M \ | \ \gamma \in \text{C}^\infty, \gamma(0)=\gamma(1)=p\}
+\end{equation}
+\textbf{(glatter) Schleifenraum} im Punkt $p \in M$. Mit der Verknüpfung 
+\begin{align}
+\ast: \Omega_p M \times \Omega_p M &\to \Omega_p M\\
+(\gamma_1 \ast \gamma_2)(t) &= 
+\begin{cases}
+    \gamma_1(2t), \ t \leq \frac{1}{2}\\
+    \gamma_2(2t-1), \ t > \frac{1}{2}
+\end{cases}
+\end{align}
+wird $\Omega_p M$ zum Monoid.
+\end{definition}
+Damit können wir Paralleltransporte als Abbildungen 
+\begin{align}
+\Omega_p M &\to \text{Gl}(T_pM)\\
+\gamma &\mapsto P_\gamma
+\end{align}
+auffassen. 
+\begin{satz}{Holonomiegruppe}{holonomie}
+Das Bild der obigen Abbildung bildet eine Untergruppe. Diese wird mit $\text{Hol}_p (M, \nabla)$ bezeichnet und heißt \textbf{Holonomiegruppe} des Zusammenhangs $\nabla$ im Punkt $p \in M$. Für zusammenhängendes $M$ sind die Holonomiegruppen $\text{Hol}_p$ und $\text{Hol}_q$ (nach Identifikation $\text{Gl}(T_pM) \cong \text{Gl}(n, \R) \cong \text{Gl}(T_qM)$) konjugiert zueinander.\\
+Betrachten wir nur die Teilmenge $\Omega_p^0 M  \sub \Omega_p M$ der kontrahierbaren Schleifen, so erhalten wir mit derselben Konstruktion die \textbf{reduzierte Holonomiegruppe} $\text{Hol}^0_p (M, \nabla) \sub \text{Hol}_p (M, \nabla)$. Es gilt:
+\begin{equation}
+\text{Hol}_p^0 (M) = \{ \id \} \iff R \equiv 0.
+\end{equation}
+Insbesondere steigt in diesem Fall der Paralleltransport ab zu einem Gruppenhomomorphismus $\pi_1 (M,p) \to \text{Gl}(T_pM)$.
+\end{satz}
+\begin{bemerkung}
+Wenn zu einer kovarianten Ableitung $\nabla$ auf $M$ ein bezüglich $\nabla$ paralleles Tensorfeld $B$ gibt, so ist die Holonomiegruppe $\text{Hol}_p$ stets eine Untergruppe der Automorphismengruppen $\text{Aut}(B_p)$.
+\end{bemerkung}
+\subsection{(Pseudo-)Riemannsche Metriken}
+\label{subsec:metric}
+\begin{definition}{Bilinearformen}{bilinear}
+Sei $V$ ein reeller VR. Eine \textbf{Bilinearform} auf $V$ ist eine Abbildung $b: V \times V \to \R$, die in beiden Argumenten linear ist, also eine lineare Abbildung $b: V \otimes V \to \R$ (ein $(2,0)$-Tensor).\\
+Eine Bilinearform heißt:
+\begin{itemize}
+\item \textbf{symmetrisch}, falls $b(v,w)=b(w,v)$ für alle $v,w \in V$.
+\item \textbf{antisymmetrisch}, falls $b(v,w)=-b(w,v)$.
+\item \textbf{nicht ausgeartet}, falls zu jedem $v \in V$ mit $v \neq 0$ ein $w \in V$ mit $b(v,w) \neq 0$ existiert.
+\end{itemize}
+Die letzte Eigenschaft lässt sich auch so verstehen, dass die Abbildung 
+\begin{align}
+V &\to V^\ast\\
+v &\mapsto b(v, \cdot)
+\end{align}
+injektiv ist. Da wir nur $\dim V < \infty$ betrachten, ist dies äquivalent zur Bijektivität.
+\end{definition}
+\begin{definition}{Skalarprodukt}{skalarprodukt}
+Ein \textbf{Skalarprodukt} auf einem reellen VR $V$ ist eine symmetrische, nicht ausgeartete Bilinearform.
+\end{definition}
+\begin{satz}{Erkenntnisse aus der lin. Alg.}{eigbilin}
+Symmetrische, nicht ausgeartete Bilinearformen auf $V$ werden durch ihre \textbf{Signatur} klassifiziert: Dafür sei $0 \neq p \neq \dim V$ die maximale Dimension eines linearen UR $W \leq V$, sodass $b(v,w) > 0$ für $w \in W$, $w \neq 0$.\\
+Analog definieren wir $0 \leq q \leq \dim V$ als die maximale Dimension eines UR $W \sub V$, auf dem $b$ negativ definit ist, also $b(v,w) < 0$ für alle $w \in W$, $w \neq 0$.\\
+Dann gilt $p+q = \dim V$ und $(p,q)$ heißt \textbf{Signatur} von $b$. Positiv definite Skalarprodukte nennt man \textbf{euklidisch}.
+\end{satz}
+\begin{definition}{Pseudo-Riemannsche Metrik}{riemannmfk}
+Sei $M$ eine glatte MFK. Eine \textbf{pseudo-Riemannsche Metrik} auf $M$ ist ein glattes $(2,0)$-Tensorfeld $g$, das punktweise symmetrisch und nicht ausgeartet ist. Außerdem ist die Signatur von $g_p$ unabhängig von $p \in M$.\footnote{Für zusammenhängende $M$ ist dies automatisch gegeben.} Ist $g$ positiv definit, heißt $g$ \textbf{Riemannsche Metrik}. Hat $g$ Signatur $(1,n-1)$ oder $(n-1,1)$, heißt $g$ \textbf{Lorentzsche Metrik}.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Ist $(V, \langle \cdot , \cdot \rangle)$ ein reeller VR mit Skalarprodukt, so können wir aus $\langle \cdot, \cdot \rangle$ durch die Identifikation $T_v V \cong V$ ein $(2,0)$-Tensorfeld $g$ konstruieren, sodass $(V,g)$ eine pseuso-Riemannsche MFK wird.\\
+Als einfachstes Beispiel liefert der $\R^n$ mit dem Standard-Skalarprodukt die \textit{Standardmetrik} $g_\text{st}$.
+\item Ist $M \sub \R^n$ eine UMF, so ist für jedes $p \in M$ der Tangentialraum $T_pM \sub T_p\R^n$ ein UR. Durch Einschränkung der Standardmetrik erhalten wir eine Riemannsche Metrik auf $M$, die von der Einbettung $M \hookrightarrow \R^n$ abhängt. Diese Konstruktion funktioniert nur für definite Metriken.
+\item Allgemeiner: Ist $(M,g)$ eine Riemannsche MFK und $\iota: N \hookrightarrow M$ eine Immersion, so wird durch $h:=\iota^\ast g(v,w) := g(\iota^\ast v, \iota^\ast w)$ eine Riemannsche Metrik auf $N$ definiert, die sogenannte \textbf{induzierte} oder \textbf{zurückgezogene Metrik}.
+\item Das Produkt zweier pseudo-Riemannscher MFK ist wieder eine pseudo-Riemannsche MFK.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkung}Koordinatendarstellung\\
+Seien $(x_1, \dots, x_n)$ lokale Koordinaten auf $U \sub M$. Dann ist eine Metrik $g$ eindeutig durch die Komponentenfunktionen
+\begin{equation}
+g_{ij}(p) = g(\partial_{x_i,p}, \partial_{x_j, p})
+\end{equation}
+gegeben. Glattheit einer Metrik ist damit äquivalent zur Glattheit dieser Komponentenfunktionen.
+\end{bemerkung}
+\begin{beispiel}
+Sei $g$ die Standardmetrik auf $\R^n$. Dann gilt in Standardkoordinaten:
+\begin{equation}
+g_{ij}=\delta_{ij}.
+\end{equation}
+\end{beispiel}
+\begin{satz}{Existenz Riemannscher Metriken}{existmetrik}
+Auf jeder glatten MFK existieren Riemannsche Metriken.
+\end{satz}
+\begin{beweis}
+Die Menge der positiv definiten Skalarprodukte auf einem Vektorraum ist konvex.\footnote{Im Sinne von: Ist ein Konvexitätsraum?} Sei daher $\Af = \{ (\phi_\alpha, U_\alpha )\}_{\alpha \in I}$ ein Atlas und $\{ \rho_\alpha \}_{\alpha \in I} $ eine der Überdeckung $\{U_\alpha\}_\alpha$ untergeordnete Zerlegung der Eins. Wir erhalten lokale Metriken $g_\alpha$ auf $U_\alpha$ als $g_\alpha = \phi_\alpha^\ast g_\text{st}$. Damit ist 
+\begin{equation}
+g := \sum_{\alpha \in I} \rho_\alpha g_\alpha
+\end{equation} 
+eine Riemannsche Metrik auf $M$.
+\end{beweis}
+\begin{bemerkung}
+Für andere Signaturen scheitert diese Konstruktion an der fehlenden Konvexität. Auch die Aussage des Satzes ist dann nicht korrekt, z.B. existieren auf $\sph^n$ nur Lorentz-Metriken für ungerade $n \geq 3$.
+\end{bemerkung}
+\begin{definition}{Isometrie}{isometrie}
+Eine \textbf{Isometrie} zwischen (pseudo)-Riemannschen MFK $(M,g)$ und $(N,h)$ ist ein Diffeomorphismus 
+\begin{equation}
+\phi: M \to N
+\end{equation}
+mit $\phi^\ast h = g$. Hier ist $\phi^\ast h (v,w) = h(\phi_\ast (v), \phi_\ast (w))$.
+\end{definition}
+\begin{bemerkung}
+Die Gruppe $\text{Iso}(M,g)$ der Isometrien von $(M, g)$ besteht für die meisten pseudo-Riemannschen MFKn $(M,g)$ nur aus der Identität $\id: M \to M$. Interessante Beispiele können aber auch sehr große Isomorphiegruppen haben.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Sei $\sph^n \sub \R^{n+1}$ die $n$-Sphäre mit der von der Standardmetrik $g_{\text{st}}$ auf $\R^{n+1}$ induzierten \textit{runden} Metrik $g$. Jede lineare Isometrie von $(\R^{n+1}, \langle \ , \ \rangle_\text{st})$ erhält $\sph^n$ und induziert eine Isometrie $\sph^n \to \sph^n$. Also gilt $\text{Iso} (\sph^n) \cong \Os (n+1)$.
+\item In $(\R^2, g_\text{st})$ sind beliebige Translationen Isometrien. Sind nun $v_1, v_2 \in \R^2$ zwei linear unabhängige Vektoren, so blden die ganzzahligen Linearkombinationen von $v_1$ und $v_2$ ein Gitter
+\begin{equation}
+\Lambda = \{ nv_1+mv_2 | n,m \in \Z \} \cong \Z^2.
+\end{equation}
+Der Quotientenraum $\quotient{\R^2}{\Z^2} \cong \T^2$ ist ein $2$-dimensionaler Torus. Da Translationen in $\R^2$ Isometrien sind, induziert die Metrik $g_\text{st}$ des $\R^2$ eine Metrik $g$ auf $\T^2$, die vom Gitter $\Lambda \sub \R^2$ abhängt. Jede Translation von $\R^2$ steigt ab zu einer Isometrie für \textit{jeden} dieser Tori. Die Symmetriegruppe der so erhaltenen Tori ist also immer noch transitiv auf jeden einzelnen dieser Tori.
+\end{enumerate}
+\item Wir können einen Torus auch als Rand eines Doughnuts in den $\R^3$ einbetten. Diese ist verschieden von allen Metriken aus Beispiel 2.
+\end{beispiele}
+Wir betrachten jetzt kovariante Ableitungen auf pseudo-Riemannschen MFKn $(M, g)$.
+\begin{definition}{metrischer Zusammenhang}{metrisch}
+Sei $(M,g)$ eine pseudo-Riemannsche MFK und $\nabla$ ein Zusammenhang auf $(M,g)$. $\nabla$ heißt \textbf{metrisch}, wenn für alle Vektorfelder $X,Y,Z \in \Gamma(TM)$ bezüglich $g$ gilt:
+\begin{equation}
+X(g(Y,Z)) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
+\end{equation}
+\end{definition}
+Mit anderen Worten heißt das, dass das $(2,0)$-Tensorfeld $g$ parallel bezüglich $\nabla$ ist. Zur Erinnerung: Der volle Ausdruck wäre sonst:
+\begin{equation}
+(\nabla g)(X,Y,Z)=X(g(Y,Z)) - \ \text{''rechte Seite''}
+\end{equation}
+\begin{bemerkung}
+Diese Eigenschaft lässt sich entlang Kurven testen: \\
+$\nabla$ metrisch bzgl. $g$ $\iff$ $\forall$ Kurven $\gamma: (a,b) \to M$ gilt $\forall Y,Z \in \Gamma_\gamma (TM)$:
+\begin{equation}
+\frac{d}{dt} g(Y,Z) = g(\nabla_\frac{d}{dt} Y, Z) + g (Y, \nabla_\frac{d}{dt} Z).
+\end{equation}
+Eine weitere äquivalente Umformulierung lautet:\\
+$\nabla$ ist metrisch bzgl. $g$ $\iff$ Für jede Kurve $\gamma: [a,b] \to M$ ist der Paralleltransport $P_\gamma: T_aM \to T_bM$ eine Isometrie bzgl. $g$.
+\end{bemerkung}
+\begin{theorem}{Hauptsatz der pseudo-Riemannschen Geometrie}{hauptsatz}
+Zu jeder pseudo-Riemannschen Metrik $g$ auf einer MFK $M$ existiert ein eindeutiger Zusammenhang, der metrisch bezüglich $g$ und torsionsfrei ist. Dieser Zusammenhang heißt \textbf{Levi-Civita-Zusammenhang} und ist bestimmt durch die \textbf{Koszul-Formel}:
+\begin{equation}
+2g(\nabla_X Y, Z) = X g(Y,Z) + Y g(Z,X) - Zg(X,Y) + g(Z, [X,Y]) + g(Y, [Z,X]) - g(X, [Y,Z]).
+\end{equation}
+\end{theorem}
+\begin{beweis}
+Wir zeigen zuerst: Ist $\nabla$ metrisch und torsionsfrei, dann gilt die Koszul-Formel.\\
+$\nabla$ torsionsfrei heißt, dass $\nabla_X Y - \nabla_Y X = [X,Y]$.\\
+$\nabla$ metrisch heißt, dass $X g(Y,Z) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z)$.\\
+Wir erhalten daraus:
+\begin{itemize}
+\item $Xg(Y,Z) = g(\nabla_X Y,Z) + g(Y, \nabla_X Z)$
+\item $Yg(Z,X) = g(\nabla_Y Z, X) + g(Z, \nabla_Y X) = g(\nabla_Y Z, X) + g(Z, \nabla_X Y) - g(Z, [X,Y])$
+\item $Zg(X,Y) = g(\nabla_Z X, Y) + g(X, \nabla_Z Y)=g(\nabla_X Z,Y) - g([X,Z], Y) + g(X, \nabla_Y Z) - g(X, [Y,Z])$
+\end{itemize}
+Jetzt rechnen wir $i+ii-iii$:
+\begin{equation}
+Xg(Y,Z) + Yg(Z,X)-Zg(X,Y) = 2 g(\nabla_X Y, Z) - g(Z, [X,Y]) + g(Y, [X,Z])+g(X, [Y,Z])
+\end{equation}
+Dies ist äquivalent zur Koszul-Formel. Da $g$ nicht ausgeartet ist, ist der Zusammenhang $\nabla$ eindeutig durch diese beiden Bedingungen festgelegt. Um die Existenz zu zeigen, überlegt man sich zunächst, dass die rechte Seite der Koszul-Formel $C^\infty$-linear in Z ist. Der Ausdruck bestimmt also eine $1$-Form $\alpha_{\ast, Y}$, sodass $\nabla_X Y$ durch die Koszul-Formel eindeutig festgelegt ist als duales Vektorfeld bezüglich $g$ dieser $1$-Form. Wenn wir $Z$ fixieren, ist die rechte Seite der Koszul-Formel $C^\infty$-linear in $X$ und eine Derivation in $Y$, d.h., dass das über die Koszul-Formel definierte $\nabla$ tatsächlich eine kovariante Ableitung ist. $\nabla$ ist torsionsfrei, da alle Terme auf der rechten Seite außer dem $4.$ Term symmetrisch in $X$ und $Y$ sind. $\nabla$ ist metrisch, da alle Terme außer dem ersten Term auf der rechten Seite antisymmetrisch in $Y$ und $Z$ sind.
+\end{beweis}
+\begin{bemerkung}
+Ist $\phi: (M, g) \to (N, h)$ eine Isometrie, so gilt
+\begin{equation}
+\phi_\ast (\nabla_X^M Y) = \nabla_{\phi_\ast X}^N \phi_\ast Y
+\end{equation}
+\end{bemerkung}
+Für manche Rechnungen brauchen wir erneut einen Ausdruck für den Levi-Civita-Zusammenhang in lokalen Koordinaten. Diese erhalten wir aus der Koszul-Formel.
+\begin{satz}{Lokale Form des Levi-Civita-Zusammenhangs}{lokallevi}
+Seien $(x_1, \dots, x_n)$ lokale Koordinaten auf $U \sub M$. Dann gilt für die Christoffel-Symbole des Levi-Civita-Zusammenhangs einer Metrik $g$:
+\begin{equation}
+\Gamma_{ij}^k = \frac{1}{2} \Sum{l,1,n} g^{kl} (\partial_{x_i} g_{jl} + \partial_{x_j} g_{il} - \partial_{x_l} g_{ij}).
+\end{equation}
+Hier sind $g_{ij}: U \to \R$ die Koeffizientenfunktionen von $g$ und $g^{ij}:U \to \R$ die Koeffizientenfunktionen der inversen Matrix.
+\end{satz}
+\begin{beweis}
+Übungsaufgabe
+\end{beweis}
+\begin{beispiele}
+\begin{enumerate}
+\item Für die Standardmetrik $g_\text{st}$ auf $\R^n$ ist der Levi-Civita-Zusammenhang auch der Standardzusammenhang mit $\Gamma_{ij}^k \equiv 0$.
+\item (ÜA) Ist $M \xhookrightarrow{} \R^n$ eine UMF und ist $g$ die von $g_\text{st}$ induzierte Metrik auf $M$, so gilt
+\begin{equation}
+\nabla_X^M Y = \underbrace{(\nabla_X^{\R^k} Y)^{\top}}_\text{tangentiale Komponente}.
+\end{equation}
+Die Tangentialkomponente ist dabei einfach das Bild der orthogonalen Projektion $T_p\R^k \to T_pM$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Geodätische}{geodaetische}
+Sei $(M,g)$ eine pseudo-Riemannsche MFK und $\nabla$ der Levi-Civita-Zusammenhang von $g$. Eine Kurve $\gamma: [a,b] \to M$ heißt \textbf{Geodätische}, falls
+\begin{equation}
+\nabla_\frac{d}{dt} \dot{\gamma} = 0.
+\end{equation}
+\end{definition}
+\begin{beispiel}
+In $(\R^n, g_\text{st})$ gilt $\nabla_\frac{d}{dt} \dot{\gamma} = \ddot{\gamma}$. Also haben Geodätische die Form $\gamma(t) = p + tv$ für $p, v \in \R^n$.
+\end{beispiel}
+Sei $\iota: M \hookrightarrow \R^k$ eine Einbettung der $m$-dimensionalen UMF $M$. Dann ist $T_pM \sub T_p\R^k$ in jedem Punkt $p \in M$ ein linearer Unterraum. Sei $\pi_p: T_p\R^k \to T_pM$ die orthogonale Projektion bezüglich $g_\text{st}$.
+\begin{satz}{\textit{Orthogonale Projektion des Zusammenhangs}}{orthproj}
+Sei $\nabla$ der Levi-Civita-Zusammenhang, $X, Y \in \Gamma(TM)$ und $g_\text{st}$ die Standardmetrik auf $\R^k$. Dann gilt
+\begin{equation}
+(\nabla_XY)_p = \left( \nabla_{X_p}^{\R^k}(\iota_\ast Y) \right)^{\top} = \pi_p \left( \nabla_{X_p}^{\R^k}(\iota_\ast Y) \right).
+\end{equation}
+Insbesondere ist $Y \in \Gamma_\gamma (TM)$ parallel entlang $\gamma: [a,b] \to M$, wenn die Ableitung von $Y$ in jedem Punkt $\gamma (t)$ orthogonal bezüglich $g_\text{st}$ zu $T_{\gamma(t)}M$ ist.
+\end{satz}
+\begin{beweis}
+Übung (A24)
+\end{beweis}
+Eine Isometrie $\phi: (M,g) \to (N,h)$ zwischen Riemannschen MFK bildet den Levi-Civita-Zusammenhang von $g$ auf den Levi-Civita-Zusammenhang von $h$ ab, also gilt für $X,Y \in \Gamma(TM)$:
+\begin{equation}
+\phi_\ast (\nabla_X^g Y)=\nabla^h_{\phi_\ast X} (\phi_\ast Y).
+\end{equation}
+Insbesondere bildet $\phi$ auch Geodätische in $(M,g)$ auf Geodätische in $(N,h)$ ab.
+\begin{satz}{\textit{Geodäten als Fixpunkte einer Isometrie}}{fixpunktgeo}
+Sei $(M,g)$ eine Riemannsche MFK und $F \subset M$ die Fixpunktmenge der Isometrie $\phi: (M,g) \to (M,g)$. Ist die Geodätische $\gamma: (a,b) \to M$ in einem Punkt $p = \gamma(t_0)\in F$ tangential an $F$, also gilt
+\begin{equation}
+\dot{\gamma}(t_0) \in T_pF \subset T_pM,
+\end{equation}
+so liegt das Bild von $\gamma$ ganz in $F$.
+\end{satz}
+\begin{beweis}
+Übung (A24)
+\end{beweis}
+\subsection{Längen und Abstände}
+\label{subsec:laengenundabstaende}
+
+In diesem Abschnitt sei $(M,g)$ eine \textit{Riemannsche MFK}. In diesem Fall wird durch
+\begin{equation}
+||v||_g = \sqrt{g(v,v)}
+\end{equation}
+eine Norm auf jedem Tangentialraum $T_pM$ in $p \in M$ definiert.
+\begin{definition}{Länge}{laenge}
+Sei $\gamma: [a,b] \to M$ eine glatte Kurve. Dann heißt
+\begin{equation}
+L(\gamma) := \int_a^b || \dot{\gamma}(t) ||_g dt
+\end{equation}
+\textbf{Länge} von $\gamma$.
+\end{definition}
+\begin{bemerkung}
+Diese Definition ist auch für stückweise glatte Kurven (oder sogar stückweise $C^1$-Kurven) gültig, d.h. es muss nur eine Unterteilung
+\begin{equation}
+a = t_0 < t_1 < \cdots < t_r =b
+\end{equation}
+mit $\gamma|_{[t_i, t_{i+1}]}$ glatt oder $C^1$ existieren.
+\end{bemerkung}
+\begin{satz}{Eigenschaften der Länge}{laengeneig}
+Sei $(M, g)$ eine Riemannsche MFK. Dann gilt:
+\begin{itemize}
+\item Für jede (stückweise) glatte Kurve $\gamma: [a,b] \to M$ ist $L(\gamma) \geq 0$ mit $L(\gamma)=0$ genau dann, wenn $\gamma$ konstant ist.
+\item Für $\gamma_1:[a,b] \to M$ und $\gamma_2: [b,c] \to M$ stückweise glatt mit $\gamma_1(b)=\gamma_2(b)$ hat die Kurve $\gamma_1 \ast \gamma_2: [a,c] \to M$ die Länge
+\begin{equation}
+L(\gamma_1 \ast \gamma_2) = L(\gamma_1) + L(\gamma_2).
+\end{equation}
+\item Ist $\phi: [a',b'] \to [a,b]$ ein Diffeomorphismus, so gilt für jede Kurve $\gamma: [a,b] \to M$, dass $L(\gamma \circ \phi) = L(\gamma)$.
+\end{itemize}
+\end{satz}
+\begin{beweis}
+Der Beweis ist trivial.
+\end{beweis}
+\begin{bemerkung}
+Für die letzte Eigenschaft genügt es, dass $\phi$ monoton, glatt und surjektiv ist.
+\end{bemerkung}
+\begin{satz}{Metrisierung}{metrisierung}
+Sei $(M,g)$ eine Riemannsche MFK. Dann gilt:
+\begin{itemize}
+\item Ist $M$ zusammenhängend, so wird durch
+\begin{equation}
+d(p,q) := \inf \{ L(\gamma) | \gamma \ \text{ist stückweise glatte Kurve von} \ p \ \text{nach} \ q \}
+\end{equation}
+eine Abstandsfunktion auf $M$ definiert.
+\item Die Topologie des metrischen Raumes $(M,d)$ stimmt in diesem Fall mit der Topologie von $M$ überein.
+\end{itemize}
+\end{satz}
+\begin{beweis}
+$d(p,q)$ ist offensichtlich symmetrisch und erfüllt die Dreiecksungleichung. Wir müssen also zeigen, dass $d(p,q) > 0$ für $p \neq q$ gilt. Seien dafür $p,q$ mit $p \neq q$ gegeben. Wir wählen eine Karte $\phi: U \to \R^n$ um $p$ mit $\phi(p)=0$ und finden $\epsilon > 0$, sodass $q \notin \phi^{-1} \left(\overline{B(0,\epsilon)}\right) =: K$. Sei jetzt
+\begin{equation}
+\hat{S} := \{ w \in T\R^n \ | \ \pi(w) \in \overline{B(0,\epsilon)} \wedge ||w||^2_\text{st} =1 \} \sub T\R^n
+\end{equation}
+und 
+\begin{equation}
+S:= \phi^{-1}_\ast (\hat{S}) \sub TM.
+\end{equation}
+Als Bild der kompakten Menge $S$ unter der glatten (also stetigen) Abbildung $\phi^{-1}_\ast$ ist $S$ kompakt. Da $\phi$ ein Diffeomorphismus ist, hat $S$ leeren Durchschnitt mit dem Nullschnitt in $TM$, d.h. 
+\begin{align}
+f: S &\to \R \\
+v &\mapsto f(v):= g(v,v)
+\end{align}
+ist strikt positiv auf $S$. Nach Konstruktion gilt $f(v)=g(v,v) = \frac{g(v,v)}{g_\text{st} (\phi_\ast v, \phi_\ast v)}$, wobei $g_\text{st} (\phi_\ast v, \phi_\ast v)=1$ ist. Da $f$ glatt und $S$ kompakt ist, existieren Konstanten $0<c_1<c_2$ mit
+\begin{equation}
+c_1 \leq f(v) \leq c_2
+\end{equation}
+für alle $v \in S$. 
+Ist $\gamma: [a, b'] \to K$ eine Kurve in $K$, so folgt
+\begin{equation}
+\sqrt{c_1} \leq \frac{L_q(\gamma)}{L_{\R^n}(\phi \circ \gamma)} \leq \sqrt{c_2} \ (\ast),
+\end{equation}
+da die Normen punktweise diese Ungleichung erfüllen.
+Sei nun $\gamma: [a,b] \to M$ eine Kurve von $p$ nach $q$. Mit $b' := \sup \{ t \in [a,b] | \gamma([a,b]) \sub K \}$ gilt dann $\phi(\gamma(b')) \in \partial \overline{B(0,\epsilon)}$, d.h.
+\begin{equation}
+\epsilon = d_{\R^n} (0, \phi(\gamma(b'))) \leq L_{\R^n} (\phi \circ \gamma |_{[a,b']}).
+\end{equation}
+Aus $(\ast)$ erhalten wir nun
+\begin{equation}
+L(\gamma) \geq L(\gamma|_{[a,b']}) \geq \sqrt{c_1} L_{\R^n} (\phi \circ \gamma|_{[a,b']}) \geq \sqrt{c_1} \epsilon > 0.
+\end{equation}
+Da diese Abschätzung für \textit{alle} Kurven $\gamma$ von $p$ nach $q$ gilt, folgt $d(p,q) \geq \sqrt{c_1} \epsilon > 0$, womit Teil $1$ bewiesen wäre.\\
+Für Teil $2$ bemerken wir, dass die Abbildung
+\begin{equation}
+\phi: (K, d_g) \to (\overline{B(0,\epsilon)}, d_\text{st})
+\end{equation}
+wegen $(\ast)$ eine bi-Lipschitzabbildung ist, d. h. es gilt
+\begin{equation}
+\sqrt{c_1} d_{\R^n} (\phi (x), \phi (y) ) \leq d_g(x,y) \leq \sqrt{c_2} d_{\R^n} (\phi(x), \phi(y)).
+\end{equation}
+Insbesondere ist $\phi$ also ein Homöomorphismus. Da auch $\phi: (K, \Ts) \to \overline{B(0,\epsilon)}$ mit der Topologie $\Ts$ von $M$ ein Homöomorphismus ist, sehen wir, dass 
+\begin{equation}
+\id: (M, d_g) \to (M, \mathfrak{T})
+\end{equation}
+mit der Mannigfaltigkeitstopologie $\mathfrak{T}$ ein bijektiver, lokaler Homöomorphismus ist, also auch ein globaler Homöomorphismus.
+\end{beweis}
+Unser nächstes Ziel ist es, einzusehen, dass geodätische Kurven zumindest lokal kürzeste Verbindungen zwischen ihren Punkten sind.
+\begin{beispiele}
+Wir hatten bereits Geodätische gesehen:
+\begin{enumerate}
+\item $(\R^n, g_\text{st})$\\
+Geodätische sind mit konstanter Geschwindigkeit parametrisierte Geradenstücke. Diese minimieren jeweils global die Länge von Kurven zwischen den jeweiligen Endpunkten.
+\item Für die runde Sphäre $\sph^n \sub \R^{n+1}$ sind die Geodätischen gerade die mit konstanter Geschwindigkeit parametrisierten Großkreise. Läuft man von einem Startpunkt $p \in \sph^n$ auf so einem Großkreis über den gegenüberliegenden Punkt hinaus, so ist die Geodätische nicht mehr die kürzeste Verbindung zwischen ihren Endpunkten.
+\end{enumerate}
+\end{beispiele}
+Zur Erinnerung: $\gamma: [a,b] \to (M,g)$ ist eine Geodätische, falls $\nabla_\frac{d}{dt} \dot{\gamma} = 0$ gilt. In lokalen Koordinaten $(x_1, \dots, x_n)$ hat die Gleichung die Form
+\begin{equation}
+0 = \sum_k \left[\ddot{\gamma}_k + \sum_{i,j} \dot{\gamma}_i \dot{\gamma}_j \cdot (\Gamma^k_{ij} \circ \gamma) \right] \frac{\partial}{\partial x_k} \cdot \gamma.
+\end{equation}
+Wir erhalten also ein System von DGLn zweiter Ordnung, das oftmals sehr mühsam zu lösen ist. Für die Bestimmung von Geodätischen nutzt man daher oftmals alternative Methoden.
+\begin{beispiel}
+Für UMF $M \sub \R^k$ hatten wir gesehen, dass der Levi-Civita-Zsm. sich als Projektion $\nabla_X Y = (\nabla_X^{\R^n} Y)^{\top}$ schreiben lässt. Insbesondere ist $\gamma: [a,b] \to M$ genau dann eine Geodätische für die induzierte Metrik auf $M$, falls 
+\begin{equation}
+\ddot{\gamma}(t) \perp T_{\gamma(t)} M
+\end{equation} 
+für alle $t \in [a,b]$ gilt.\\
+Konkret: Wir betrachten den Zylinder von Radius $r>0$:
+\begin{equation}
+Z_r := \{ (x,y,z) \in \R^3 \ | \ x^2+y^2=r^2 \}.
+\end{equation}
+Dann ist für $a \neq 0$ und $b \in \R$ die Kurve $\gamma: \R \to Z_r$ mit $\gamma(t) = (r \cos (at), r \sin (at), bt)$ eine Geodätische. Wir rechnen nach:
+\begin{align}
+\dot{\gamma}(t) &= (-ar \sin (at), ar \cos(at), b)\\
+\ddot{\gamma}(t) &= (-a^2r \cos(at), -a^2 r \sin(at), 0)
+\end{align}
+Dies ist ein innerer Normalenvektor an $Z_r$ im Punkt $\gamma (t)$.
+\end{beispiel}
+Aus den Existenz- und Eindeutigkeitssätzen für lokalen Lösungen von DGLn erhalten wir zu jedem Punkt $p \in M$ un zu jedem $v \in T_pM$ eine eindeutige maximale Geodätische
+\begin{equation}
+\gamma_v : (a,b) \to M
+\end{equation}
+mit $\gamma_v(0)=p$, $\dot{\gamma}_v(0) = v$ und $- \infty \leq a <0 < b \leq \infty$.
+\begin{lemma}{}{}
+Ist $\gamma_v: (- \epsilon, \epsilon) \to M$ die Geodätische zur Anfangsbedingung $\gamma_v (0) = p$, $\dot{\gamma}_v(0) = v$, und ist $\alpha > 0$, dann ist die Geodätische $\gamma_{\alpha v}$ mit $\gamma_{\alpha v} (0) = p$, $\dot{\gamma}_{\alpha v} (0)= \alpha v$ mindestens auf dem Intervall $\left( -\frac{\epsilon}{\alpha}, \frac{\epsilon}{\alpha} \right)$ definiert, und es gilt
+\begin{equation}
+\gamma_{\alpha v} (t) = \gamma_v (\alpha t).
+\end{equation}
+\end{lemma}
+\begin{beweis}
+Wir betrachten die Kurve $c(t) := \gamma_v (\alpha t)$. Es gilt $\dot{c} (t) = \alpha \dot{\gamma}_v (\alpha t)$, also $\dot{c}(0) = \alpha v$ und 
+\begin{equation}
+\left( \nabla_\frac{d}{dt} \dot{c} \right)_t = \left( \nabla_{\alpha \dot{\gamma}_v (\alpha t)} \alpha \dot{\gamma}_v \right) = \alpha^2 \left( \nabla_{\dot{\gamma}_v} \dot{\gamma}_v\right)_{\alpha t} = 0,
+\end{equation}
+da $\gamma_v$ eine Geodätische ist. $c$ ist also eine Geodätische mit korrektem Startwert, und muss deshalb mit $\gamma_{\alpha v}$ übereinstimmen.
+\end{beweis}
+Sei $(M,g)$ eine Riemannsche MFK und $p \in M$. Wir definieren
+\begin{equation}
+W_p  := \{ v \in T_pM \ | \ \text{Die Geodätische} \ \gamma_v \ \text{ist mindestens bis zur Zeit} \ t=1 \ \text{definiert.}\}.
+\end{equation}
+Dies ist eine offene Umgebung von $0 \in T_pM$.
+
+\begin{definition}{Exponentialabbildung}{expabb}
+Sei $(M,g)$ eine Riemannsche MFK mit $p \in M$. Dann existiert eine offene Umgebung $W_p \sub T_pM$ von $0$. Die \textbf{Exponentialabbildung} von $(M,g)$ im Punkt $p \in M$ ist die Abbildung
+\begin{align}
+\exp_p: W_p &\to M \\
+v &\mapsto \gamma_v (1).
+\end{align}
+\end{definition}
+Aus der Länge wissen wir: Für $v \in W_p$ und $t<1$ gilt $\exp_p (tv) = \gamma_{tv} (1) = \gamma_v (t)$.
+\begin{beispiele}
+\begin{enumerate}
+\item Für $(\R^n, g_\text{st})$ gilt $\exp_p (v) = p+v$, d. h. für alle $p \in \R^n$ ist $\exp_p: T_p\R^n \to \R^n$ ein globaler Diffeomorphismus.
+\item Für die runde Sphäre $\sph^n \sub \R^{n+1}$ ist die Exponentialabbildung jeweils auf ganz $T_p \sph^n$ definiert und surjektiv, aber nicht injektiv.
+\item Es ist einfach, Riemannsche MFK $(M,g)$ anzugeben, in denen es Punkte gibt, für die $\exp_p$ nicht auf ganz $T_pM$ definiert ist und/oder nicht surjektiv ist. Ein Beispiel dafür ist $B^n(0,r) \sub \R^n$. Für diesen Ball gilt $W_0 = B(0,r) \sub T_0 \R^n$.\\
+Für $(\R^n \exc \{0\}, g_\text{st})$ existiert keine Geodätische von $(1,0, \dots, 0)$ nach $(-1, 0, \dots, 0 )$.
+\item Für Lie-Gruppen haben wir jetzt zwei Definitionen von Exponentialabbildungen:
+\begin{itemize}
+\item $\exp: \mathfrak{g} \to G$ über Integralkurven von linksinvarianten Vektorfeldern
+\item $\exp_e: \mathfrak{g} \to G$ über Geodätische einer Metrik
+\end{itemize}
+Diese beiden Definitionen stimmen genau dann überein, wenn die Metrik $g$ in der zweiten Definition sowohl unter Rechts- als auch unter Linkstransformationen invariant ist.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkung}
+Die Kurve $\gamma_v(1)$ ist die Geodätische mit AW $\gamma_v(0)=p$ und $\dot{\gamma}_v(0)=v$. Das Differential von $\exp_p$ in $0 \in W_p$ ist eine Abbildung
+\begin{equation}
+(\exp_p)_{\ast,0}: T_0(T_pM) \cong T_pM \to T_pM.
+\end{equation}
+Es gilt
+\begin{equation}
+(\exp_p)_{\ast,0} (v) = \frac{d}{dt} (\exp_p(tv))|_{t=0} = \frac{d}{dt} (\gamma_{tv}(1))|_{t=0} = \frac{d}{dt}(\gamma_v (t))|_{t=0} = v.
+\end{equation}
+Also ist $(\exp_p)_{\ast,0}$ die Identität $T_pM \to T_pM$.\\
+Insbesondere ist $\exp_p: W_p \to M$ ein lokaler Diffeomorphismus einer Umgebung $W_p' \sub W_p$ von $0$ auf einer offenen Umgebung von $p \in M$.
+\end{bemerkung}
+\begin{bemerkung}Geodätische Normalkoordinaten\\
+Wählt man eine Orthonormalbasis $\{ e_1, \dots, e_n \}$ von $(T_pM, g_p)$, so erhalten wir Koordinaten auf einer Umgebung von $p$, in denen gilt:
+\begin{equation}
+(g_{ij})_p = \delta_{ij} \ \text{und} \ ( \Gamma_{ij}^k)_p = 0
+\end{equation}
+Solche Koordinaten heißen \textbf{geodätische Normalkoordinaten} im Punkt $p$.
+\end{bemerkung}
+\begin{definition}{Injektivitätsradius}{injekrad}
+Sei $(M,g)$ eine Riemannsche MFK. Der \textbf{Injektivitätsradius von} $(M,g)$ \textbf{in einem Punkt} $p\in M$ ist definiert als
+\begin{equation}
+\text{inj}(p) := \sup \{ r > 0 \ | \ \exp_p \ \text{ist auf} \ B(0,r) \sub T_pM \ \text{definiert und dort injektiv} \}.
+\end{equation} 
+Der \textbf{Injektivitätsradius von} $(M,g)$ ist definiert als 
+\begin{equation}
+\text{inj}(M,g) := \inf_{p \in M} \text{inj}(p).
+\end{equation}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item $\inj (\R^n, g_\text{st}) = \infty$ und $\inj (\R^n \exc \{0\}, g_\text{st}) = 0$.
+\item $\inj (\sph^n, g_\text{st}) = \pi$
+\item Sei $\Lambda \sub \R^n$ ein $n$-dimensionales Gitter, d.h. $\Lambda \cong \Z^n$. Für einen Torus $(\T^n,g) = \quotient{(\R^n, g_\text{st})}{\Lambda}$ ist der Injektivitätsradius
+\begin{equation}
+\inj (\T^n, g) = \frac{1}{2} \min \{ \| v \|\ \ | \ v \in \Lambda, v \neq 0 \}.
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Lemma von Gauß}{lemmavongauß}
+Sei $(M,g)$ eine Riemannsche MFK, $\nabla$ der Levi-Civita-Zusammenhang, $p \in M$ und $0 < r < \inj (p)$. Sei weiterhin $c: [a,b] \to T_pM$ eine Kurve mit $|c(t)|_g = r$ für alle $t \in [a,b]$. Dann erfüllt die Abbildung
+\begin{align}
+F: [0,1] \times [a,b] &\to M\\
+(s,t) &\mapsto F(s,t):=\exp_p (s c(t))
+\end{align}
+die Gleichung
+\begin{equation}
+g(F_\ast \partial_s, F_\ast \partial_t) = 0.
+\end{equation}
+Insbesondere sind die radialen Geodäten $t \mapsto \exp_p (tv)$ orthogonal zu den Hyperflächen
+\begin{equation}
+H_p := \{ \exp_p (v) \ | \ v \in T_pM, |v|_g = r \}.
+\end{equation}
+\end{satz}
+\begin{beweis}
+Da $\nabla$ metrisch ist, gilt 
+\begin{align}
+\frac{d}{ds} g(F_\ast \partial_s, F_\ast \partial_t) &= g(\underbrace{\nabla_{\partial_s} F_\ast \partial_s}_{=0, \ \text{da} \ s \mapsto \exp_p(sc(t)) \ \text{eine Geodätische ist}}, F_\ast \partial_t)+ g(F_\ast \partial_s, \underbrace{\nabla_{\partial_s} F_\ast \partial_t}_{= \nabla_{\partial_t} F_\ast \partial_s, \ \text{da der Zsh. torsionsfrei ist}})\\
+&= g(F_\ast \partial_s, \nabla_{\partial_t} F_\ast \partial_s) = \frac{1}{2} \frac{d}{dt} \underbrace{g(F_\ast \partial_s, F_\ast \partial_s)}_{\| c(t) \|^2_g \equiv r} = 0
+\end{align}
+Für $s=0$ gilt aber $F(0,t) \equiv p$, d.h. $g(F_\ast \partial_s, F_\ast \partial_t)|_{(0,t)} = 0$. Aus diesen beiden Überlegungen folgt $g(T_\ast \partial_s, F_\ast \partial_t)|_{(s,t)} = 0$ für alle $(s,t) \in [0,1]\times [a,b]$.
+\end{beweis}
+\begin{satz}{}{}
+Sei $(M,g)$ eine Riemannsche MFK mit $p \in M$ und $0 < r < \inj(p)$. Ist $v \in T_pM$ ein Tangentialvektor mit $\| v \|_g \leq r$, so gilt für $q = \exp_p (v)$:
+\begin{equation}
+d(p,q) = \| v \|_g,
+\end{equation}
+und eine Kurve $\gamma$ von $p$ nach $q$ hat genau dann minimale Länge $L(\gamma) = d(p,q)$, wenn $\gamma$ eine monotone Umparametrisierung von $t \mapsto \exp_p (tv)$ ist.
+\end{satz}
+Für den Beweis brauchen wir ein Lemma.
+\begin{lemma}{}{}
+Sei $(M,g)$ eine Riemannsche MFK mit $p \in M$ und $0 < r < \inj(p)$. Definiere $U_r := \exp_p (B(0,r))$. Jede (stückweise) glatte Kurve $\alpha: [a,b] \to U_r \exc \{p \}$ hat dann die Form
+\begin{equation}
+\alpha(t) = \exp_p (r(t) \cdot c(t))
+\end{equation}
+mit $r: [a,b] \to (0,r)$ und $c: [a,b] \to \sph^{n-1} \sub T_pM$ (stückweise) glatt und es gilt
+\begin{equation}
+L(\alpha) = \int_a^b \| \dot{\alpha} (t) \|_g dt \geq |r(b)-r(a)|
+\end{equation}
+mit Gleichheit genau dann, wenn $r$ monoton und $c$ konstant ist.
+\end{lemma}
+\begin{beweis} Beweis des Lemmas\\
+Da $\exp_p: B(0,r) \to U_r$ ein Diffeomorphismus ist, ist klar, dass jede solche Kurve $\alpha$ sich in dieser Form schreiben lässt. Wir betrachten 
+\begin{align}
+A: (0,r) \times [a,b] &\to M \\
+(s,t) &\mapsto A(s,t)=\exp_p(sc(t)).
+\end{align}
+Dann gilt $\alpha(t) = A(r(t), t)$, also $\dot{\alpha}(t) = \dot{r}(t) \cdot A_\ast(\partial_s) + A_\ast (\partial_t)$. Nach dem Gauß-Lemma sind die Summanden punktweise orthogonal, sodass
+\begin{equation}
+\| \dot{\alpha} (t) \|^2_g = | \dot{r}(t)|^2 \cdot \underbrace{\| A_\ast (\partial_s) \|_g^2}_{\equiv 1} + \| A_\ast (\partial_r)\|^2 \geq |\dot{r}(t)|^2
+\end{equation}
+mit Gleichheit genau für $\| A_\ast (\partial_r)\|^2 = 0$, was für konstantes $c$ gilt. Dann folgt aber
+\begin{equation}
+\int_a^b \| \dot{\alpha} (t) \| dt = \int_a^b |\dot{r}(t)|dt \geq \left| \int_a^b \dot{r} (t) dt \right| = |r(b)-r(a)|
+\end{equation}
+mit Gleichheit genau dann, wenn $\dot{r}$ keinen Vorzeichenwechsel hat, also monoton ist.
+\end{beweis}
+\begin{beweis} Beweis des Satzes\\
+Sei $\gamma: [0,1] \to M$ eine Kurve mit $\gamma(0) = p$ und $\gamma (1) = q \in \partial \bar{U}_r$. Da $r < \inj(p)$, gibt es ein $v \in T_pM$ mit $\|v\|_g = r$, sodass $\exp_p(v)=q$. Für jedes $\delta > 0$ und $\rho < r$ enthält die Kurve $\gamma$ ein Teilstück, das die Hyperflächen
+\begin{equation}
+H_\delta = \{ \exp_p (\delta w) \ | \ w \in T_pM, \|w\| = 1 \}
+\end{equation}
+und 
+\begin{equation}
+H_\rho = \{ \exp_p (\rho w) \ | \ w \in T_pM, \|w\| = 1 \}
+\end{equation}
+miteinander verbindet. O.B.d.A. liegt dieses Teilstück vollständig außerhalb von $H_\delta$, trifft also $p$ nicht. Nach dem Lemma hat dieses Teilstück mindestens die Länge $\rho - \delta$, und genau diese Länge nur, wenn es eine monotone Umparametrisierung einer radialen Geodätischen ist. Für $\delta \to 0$ und $\rho \to r$ folgt nun die Behauptung des Satzes.
+\end{beweis}
+\begin{korollar}{aus 3.4.8}{aus348}
+Ist $\alpha: [0,1] \to (M,g)$ eine stückweise glatte Kurve mit konstanter Geschwindigkeit, und minimiert $\alpha$ die Länge aller Kurven mit denselben Endpunkten, so ist $\alpha$ eine Geodätische (also insbesondere glatt).
+\end{korollar}
+\begin{beweis}
+Jedes Teilstück $\alpha_{[t_0, t_1]}$ hat ebenfalls konstante Geschwindigkeit und minimiert die Länge zwischen seinen Endpunkten. Ist aber $|t_1-t_0| = \| \underbrace{ \dot{\alpha} (t_0)}_\text{konstant} \| < \inj (\alpha (t_0))$, so muss $\alpha|_{[t_0,t_1]}$ eine glatte Geodätische sein. Da wir das Intervall mit endlich vielen Teilstücken überdecken können, muss $\alpha$ global eine Geodätische sein.
+\end{beweis}
+\begin{definition}{Minimale Geodätische}{minimalegeodätische}
+Sei $\alpha:[a,b] \to M$ eine Kurve mit konstanter Geschwindigkeit und $L(\alpha) = d(\alpha(a), \alpha(b))$. Diese heißt \textbf{minimale Geodätische}.
+\end{definition}
+Wir wissen jetzt:
+\begin{itemize}
+	\item Ist $d(p,q) < \inj (p)$, so existiert eine eindeutige minimale Geodätische von $p$ nach $q$ mit Geschwindigkeit $1$.
+	\item Jedes hinreichend kurze Teilstück einer Geodätischen ist minimal.
+	\item Global müssen Geodätische aber nicht minimal sein.
+\end{itemize}
+Wir wollen nun die Frage beantworten, unter welchen Bedingungen an $(M,g)$ für alle $p,q \in M$, $p \neq q$ eine minimale Geodätische von $p$ nach $q$ existiert.
+\begin{definition}{Geodätisch vollständig}{geodatischvollstandig}
+Eine Riemannsche MFK $(M,g)$ heißt \textbf{geodätisch vollständig}, falls jede Geodätische sich (als Geodätische) zu einer Abbildung $\gamma: \R \to M$ fortsetzen lässt.
+\end{definition}
+\begin{bemerkung}
+Eine äquivalente Umformulierung lautet: $\exp_p$ ist für alle $p \in M$ auf ganz $T_pM$ definiert.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item $(\R^n, g_\text{st})$ und $\sph^n$ mit der runden Metrik sind geodätisch vollständig.
+\item Der offene Ball $B^n \sub (\R^n, g_\text{st})$ oder auch $(\R^n \exc \{ 0 \}, g_\text{st})$ sind nicht geodätisch vollständig.
+\end{enumerate}
+\end{beispiele}
+\begin{theorem}{Satz von Hopf und Rinow}{hopfrinow}
+Sei $(M,g)$ eine zusammenhängende, unberandete Riemannsche MFK, und sei $d$ die zu $g$ gehörende Abstandsfunktion. Dann sind folgende Aussagen äquivalent:
+\begin{enumerate}
+\item Es existiert ein $p \in M$, sodass $\exp_p$ auf ganz $T_pM$ definiert ist.
+\item Jede abgeschlossene und beschränkte Teilmenge von $(M,d)$ ist kompakt.
+\item $(M,d)$ ist ein vollständiger metrischer Raum.
+\item $(M,g)$ ist geodätisch vollständig.
+\end{enumerate}
+Jede dieser Aussagen impliziert die folgende Aussage:\\
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Jedes Paar $p \neq q$ von Punkten in $M$ ist durch eine minimale Geodätische verbunden.
+\end{enumerate}
+\end{theorem}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Der offene Ball $B^n \sub \R^n$ zeigt, dass $5.$ im Allgemeinen nicht die anderen Eigenschaften impliziert.
+\item Wegen $3. \iff 4.$ spricht man meist einfach von vollständigen Riemannschen MFKn.
+\end{enumerate}
+\end{bemerkungen}
+\begin{korollar}{Aus Hopf und Rinow}{aushr}
+Jede kompakte Riemannsche MFK ohen Rand ist vollständig.
+\end{korollar}
+\begin{beweis}
+Wir beweisen zunächst die leicht veränderte Aussage $5_p$: Ist $\exp_p$ auf ganz $T_pM$ definiert, so ist $p$ mit jedem Punkt $q \in M$ durch eine minimale Geodätische verbunden.\\
+Sei ein solcher Punkt $p \in M$ gegeben, sei weiterhin $q \in  M$ und $r := d(p,q)$. Wir wissen: Es existiert ein $\delta > 0$, sodass jeder Punkt in $\overline{B(p,\delta)}$ durch eine eindeutige minimale Geodätische mit $p$ verbunden ist. Wir betrachten nun den Fall $r > \delta$. Sei $S(p, \delta) := \partial \overline{B(p,\delta)}$. Da $S(p, \delta)$ kompakt ist, nimmt die Funktion $f(x)=d(x,q)$ ihr Minimum auf $S(p,\delta)$ an. Sei $x_0 \in S(p, \delta)$ ein solches Minimum für $f$. Dann gilt, dass $d(x_0,q)=r-\delta \ (\ast)$, da jede Kurve von $p$ nach $q$ die Menge $S(p,\delta)$ trifft.\\
+Wir schreiben nun $x_0 = \exp_p(\delta \cdot v)$ mit $v \in T_pM$, $\| v \|_g = 1$. Für die Kurve
+\begin{align}
+\gamma: [0,r] &\to M\\
+t &\mapsto \gamma(t):=\exp_p(tv)
+\end{align}
+gilt dann $L(\gamma|_{[0,t]}) = t$, also $d(p, \gamma(t)) \leq t$. Wir zeigen nun: 
+\begin{equation}
+d(\gamma(t), q) = r - t \ (\ast \ast)
+\end{equation}
+für alle $t \in [\delta, r]$. Gilt dies, so folgt $\gamma(r)=q$, und $\gamma$ ist die gesuchte minimale Geodätische von $p$ und $q$.\\
+Sei $A \sub [\delta, t]$ die Teilmenge der Parameter $t$, für die $(\ast \ast)$ gilt. Aus $(\ast)$ folgt $\delta \in A$, also $A \neq \emptyset$. Wir betrachten nun $t_0 := \sup A = \max A$ und nehmen an, dass $t_0 < r$ gilt. Sei $\delta' > 0$ so gewählt, dass jeder Punkt in $\overline{B(\gamma(t_0), \delta')}$ durch eine eindeutige minimale Geodätische mit $\gamma(t_0)$ verbunden ist. Sei erneut $S(\gamma(t_0), \delta')= \partial \overline{B(\gamma(t_0), \delta')}$ und $x_0' \in S(\gamma(t_0), \delta')$ ein Punkt mit minimalem Abstand zu $q$. Dann gilt
+\begin{equation}
+r - t_0 = d(\gamma(t_0),q) = \min_{s \in S'} \underbrace{d(\gamma(t_0), s)}_{\equiv \delta'} - \underbrace{d(s,q)}_{\text{minimiert durch} \ x_0'} = \delta' + d(x_0', q).
+\end{equation}
+Also gilt $d(x_0', q) = r - (t_0 + \delta') \ (\ast \ast \ast)$. Aus der Dreiecksungleichung
+\begin{equation}
+d(p,q) \leq d(p, x_0') + d(x_0', q)
+\end{equation}
+folgt, dass
+\begin{equation}
+d(x_0', p) \geq d(p,q)-d(x_0',q) = r-(r-(t_0+\delta')) = t_0 + \delta'.
+\end{equation}
+Wir kennen aber eine stückweise glatte Kurve mit genau dieser Länge von $p$ nach $x_0'$, nämlich $\gamma([0,t_0])$, gefolgt von der radialen Geodätischen von $\gamma(t_0)$ nach $x_0'$. Nach unserer Charakterisierung von kürzesten Verbindungen als Geodätischen folgt nun, dass diese Kurve glatt ist und $x_0' = \gamma(t_0+\delta')$. Mit $(\ast \ast \ast)$ erhalten wir den gewünschten Widerspruch zur Wahl von $t_0$.\\
+Wir beweisen nun $1 \implies 2 \implies 3 \implies 4 \implies 1$.\\
+Zu $1 \implies 2$: Sei $p$ ein Punkt, sodass $\exp_p$ auf ganz $T_pM$ definiert ist. Ist $A \sub (M,d)$ beschränkt, so finden wir ein $R > 0$ mit $A \sub \overline{B(p,R)}$. Nach $5_p$ gilt $\overline{B(p,R)} \sub \exp_p(\overline{B(0,R)})$, ist also eine abgeschlossene Teilmenge des Bildes einer kompakten Menge unter einer stetigen Abbildung, also selbst kompakt. Ist also $A$ auch abgeschlossen, so muss $A$ kompakt sein.\\
+Zu $2 \implies 3$: Sei $(x_n)_n$ eine Cauchy-Folge in $(M,d)$. Wir betrachten $A = \overline{\{ x_n | n \in \N \}}$. $A$ ist beschränkt und abgeschlossen, also kompakt. Also hat $\{x_n\}$ eine konvergente Teilfolge. Dann muss aber die Folge $\{x_n\}$ selbst gegen den gleichen Grenzwert konvergieren.\\
+Zu $3 \implies 4$: Wir argumentieren indirekt. Sei also $\gamma: (a,b) \to M$ eine Geodätische mit $b < \infty$, die nicht fortsetzbar ist. O.B.d.A. gelte $\| \dot{\gamma}(t) \| = 1$. Für $t,s \in (a,b)$ gilt dann $L(\gamma|_{[t,s]}) = s-t$, also $d(\gamma(t), \gamma(s)) \leq s-t$. Für $t_n \to b$ ist dann $\{\gamma(t_n)\}_{n \geq 1}$ eine Cauchy-Folge in $M$. Sei 
+\begin{equation}
+x = \lim_{n \to \infty} \gamma(t_n).
+\end{equation}
+Eine Konsequenz aus der stetigen Abhängigkeit der Lösungen der geodätischen Differentialgleichungen von den Anfangsbedingungen ist, dass eine offene Umgebung $U \sub M$ von $x$ und ein $\delta > 0$ existiert, sodass für jeden Punkt $q \in U$ und jeden Vektor $v \in T_qM$ mit $\|v\| = 1$ die Geodätische $\gamma(t) = \exp_q(tv)$ mindestens auf dem Intervall $(-\delta, \delta)$ definiert ist. Ist also $t_n \in (a,b)$ ein Parameter mit $b-t_n < \delta$, so stimmt die Geodätische $\tilde{\gamma}:(-\delta, \delta) \to M$ mit $\tilde{\gamma}(0)=\gamma(t_n)$ und $\dot{\tilde{\gamma}}(0) = \dot{\gamma}(t_n)$ auf dem Intervall $(- \delta, b-t_n)$ mit $t \mapsto \gamma(t+t_n)$ überein. Also lässt sich $\gamma$ fortsetzen, d.h. wir erhalten den gewünschten Widerspruch zur Nichtfortsetzbarkeit.\\
+Zu $4 \implies 1$: Ist trivial.\\
+Aus $4$ und $5_p$ folgt offensichtlich $5$.
+\end{beweis}
+In einer vollständigen Riemannschen MFK $(M,g)$ wissen wir also:
+\begin{enumerate}
+\item Ist $\gamma: [a,b] \to M$ eine glatte Kurve und sind alle Kurven von $\gamma(a)$ nach $\gamma(b)$ mindestens so lang wie $\gamma$, dann ist $\gamma$ eine minimale Geodätische.
+\item Gibt es eine weitere Geodätische gleicher Länge von $\gamma(a)$ nach $\gamma(b)$, dann ist die Fortsetzung $\gamma: [a, b+\epsilon] \to M$ von $\gamma$ über $b$ hinaus für \textit{kein} $\epsilon > 0$ minimal. Da $\gamma' \cup \gamma|_{[b,t]}$ die gleiche Länge wie $\gamma|_{[0,t]}$ hat, aber nicht glatt ist, kann $\gamma' \cup \gamma|_{[b,t]}$ (und somit auch $\gamma|_{[0,t]}$) nicht die kürzeste Verbindung von $\gamma(a)$ nach $\gamma(t)$ sein.
+\end{enumerate}
+\subsection{Schnittkrümmung, Gauß-Krümmung und das Theorema Egregium}
+\label{schnittgauß}
+\begin{bemerkung}
+Sei $(M,g)$ vollständig und $p \in M$. Dann existiert für jeden Vektor $v \in T_pM$ mit $\| v \|_g = 1$ ein $\rho (v) \in (0, \infty]$, sodass $t \mapsto \exp_p (tv)$ genau auf dem Intervall $[0,\rho(v)]$ minimal ist. Man kann zeigen:
+\begin{align}
+\rho: \sph^{n-1} &\to (0, \infty]\\
+v &\mapsto \rho(v)
+\end{align}
+ist stetig. Wir erhalten also eine sternförmige Teilmenge
+\begin{equation}
+\Os_p := \{ v \in T_pM \ | \ \|v\|_g \leq \rho \left(\frac{v}{\|v\|_g} \right)\} \sub T_pM,
+\end{equation}
+sodass $M = \exp_p (\Os_p)$. Für $M$ kompakt ist $\Os_p$ kompakt, also homöomorph zu einem abgeschlossenen Ball. Offenbar gilt
+\begin{equation}
+M = \exp_p(\dot{\Os_p}) \sqcup \exp_p(\partial \Os_p).
+\end{equation}
+Ist $M$ kompakt, so auch $C_p$ und $M \exc C_p$ ist homöomorph zu einem offenen Ball.
+\end{bemerkung}
+\begin{definition}{Schnittort}{schnittort}
+Die Teilmenge 
+\begin{equation}
+C_p := \exp_p(\partial \Os_p) \sub M
+\end{equation}
+heißt \textbf{Schnittort} der MFK $(M,g)$ für $p$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $(\R^n, g_\text{st})$ gilt $C_p = \emptyset$ für alle $p \in \R^n$.
+\item Für einen Zylinder ist der Schnittort eines Punktes $p \in \R \times \sph^1$ eine Gerade durch den gegenüberliegenden Punkt.
+\item Für die runde Sphäre $\sph^n \sub \R^{n+1}$ gilt $C_p = \{-p\}$. Für andere Metriken auf $\sph^2$ ist der Schnittort stets ein topologischer Baum, der von $p \in \sph^2$ abhängt und auch kompliziert sein kann.\\
+Für ein Ellipsoid
+\begin{equation}
+\E_{a_1,a_2,a_3} := \{(x,y,z) \in \R^3 \ | \ \frac{x^2}{a_1^2}+ \frac{y^2}{a_2^2} + \frac{z^2}{a_3^2} = 1 \}
+\end{equation}
+mit $a_1 = a_2 < a_3$ ist der Schnittort für $p$ auf dem kleinen Kreis ein Intervall.
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Bianchi-Identität}{bianchiidentität}
+Ist $\nabla$ ein Zusammenhang auf $TM$ mit $R(X,Y)Z=-R(Y,X)Z$ und $\nabla_XY-\nabla_YX=[X,Y]$, so gilt die \textbf{erste Bianchi-Identität}:
+\begin{enumerate}
+\item $R(X,Y)Z+R(Y,Z)X+R(Z,X)Y=0$.
+\end{enumerate}
+Ist $\nabla$ der Levi-Civita-Zusammenhang, gelten zwei weitere Identitäten:
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item $g(R(X,Y)Z,W)=-g(R(X,Y)W,Z)$
+\item $g(R(X,Y)Z,W)=g(R(Z,W)X,Y)$
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item
+Ausgeschrieben ist die Summe gleich 
+\begin{align}
+\nabla_X\nabla_YZ &-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z + \nabla_Y\nabla_ZX-\nabla_Z\nabla_YX-\nabla_{[Y,Z]}X+\nabla_Z\nabla_XY-\nabla_X\nabla_ZY-\nabla_{[Z,X]}Y = \\
+&=\nabla_X[Y,Z]+\nabla_Y[Z,X]+\nabla_Z[X,Y]-\nabla_{[Y,Z]}X-\nabla_{[Z,X]}Y-\nabla_{[X,Y]}Z \\
+&= [X, [Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]] = 0.
+\end{align}
+Die letzte Gleichheit gilt aufgrund der Jacobi-Identität.
+\item 
+Wir zeigen: $g(R(X,Y)U,U)=0$.
+\begin{align}
+g(R(X,Y)U,U)&=g(\nabla_X\nabla_YU-\nabla_Y\nabla_XU-\nabla_{[X,Y]}U,U)\\
+&=Xg(\nabla_YU,U)-g(\nabla_YU,\nabla_XU)-Yg(\nabla_XU,U)+g(\nabla_XU,\nabla_YU)-\frac{1}{2}[X,Y]g(U,U)\\
+&=\frac{1}{2}XYg(U,U)-\frac{1}{2}YXg(U,U)-\frac{1}{2}[X,Y]g(U,U)=0.
+\end{align}
+\item Wir verwenden vier Gleichungen, die aus der Bianchi-Identität folgen:
+\begin{align}
+\textcolor{blue}{g(R(Y,Z)X,W)}+\textcolor{red}{g(R(Z,X)Y,W)}+g(R(X,Y)Z,W)&=0\\
+\textcolor{red}{g(R(Z,X)W,Y)}+\textcolor{green}{g(R(X,W)Z,Y)}+g(R(W,Z)X,Y)&=0\\
+\textcolor{green}{g(R(X,W)Y,Z)}+\textcolor{yellow}{g(R(W,Y)X,Z)}+g(R(Y,X)W,Z)&=0\\
+\textcolor{yellow}{g(R(W,Y)Z,X)}+\textcolor{blue}{g(R(Y,Z)W,X)}+g(R(Z,W)Y,X)&=0
+\end{align}
+Jetzt addieren wir alle vier Terme:
+\begin{equation}
+2g(R(X,Y)Z,W)-2g(R(Z,W)X,Y)=0
+\end{equation}
+Dies wollten wir zeigen.
+\end{enumerate}
+\end{beweis}
+Für pseudo-Riemannsche MFK wollen wir den Begriff der Schnittkrümmung etablieren.
+Sei $(M,g)$ eine pseudo-Riemannsche MFK mit $p \in M$. Sei weiterhin $\sigma \sub T_pM$ ein $2$-dimensionaler linearer UR. Für eine Basis $\{u,v\}$ von $\sigma$ betrachten wir
+\begin{equation}
+Q(u,v):= g(u,u)g(v,v)-g(u,v)^2 = \det \mat{g(u {,} u),g(u {,} v)}{g(v {,} u),g(v {,} v)}.
+\end{equation}
+Es gilt $Q(u,v) \neq 0$ genau dann, wenn $g|_\sigma$ nicht ausgeartet ist.\footnote{Für Riemannsche MFK ist dies für alle $\sigma$ der Fall.}.
+\begin{definition}{Schnittkrümmung}{schnittkrümmung}
+Die \textbf{Schnittkrümmung} eines nicht ausgearteten UR $\sigma \sub T_pM$ ist definiert als
+\begin{equation}
+K(\sigma):=\frac{g(R(u,v)v,u)}{Q(u,v)}
+\end{equation}
+mit $\sigma = \spn \{u,v\}$.
+\end{definition}
+Wir zeigen Wohldefiniertheit:\\
+Ist $\{x,y\}$ eine andere Basis von $\sigma$. Dann gilt
+\begin{align}
+u&=ax+by\\
+v&=cx+dy
+\end{align}
+mit $ad-bc\neq 0$. Also folgt 
+\begin{align}
+g(R(u,v)v,u)&=g(R(ax+by,cx+dy)(cx+dy),ax+by)\\
+&=g(R(ax,dy)cx,by)+g(R(ax,dy)dy,ax)+g(R(by,cx)cx,by)+g(R(by,cx)dy,ax)\\
+&=(a^2d^2-2abcd+b^2c^2)g(R(x,y)y,x)=(ad-bc)^2g(R(x,y)y,x).
+\end{align}
+Analog rechnet man
+\begin{equation}
+Q(u,v)=\cdots = (ad-bc)^2Q(x,y).
+\end{equation}
+Also bleibt der Quotient unverändert.
+\begin{bemerkungen}
+\begin{enumerate}
+\item Die Schnittkrümmungen bestimmen den vollständigen Krümmungstensor.
+\item Wählt man als Basis von $\sigma$ eine Orthonormalbasis $\{e_1,e_2\}$, so vereinfacht sich die Beschreibung zu
+\begin{equation}
+K(\spn \{e_1,e_2\}) = \pm g(R(e_1,e_2)e_2,e_1).
+\end{equation}
+Das Vorzeichen hängt von der Signatur von $g|_\sigma$ ab. Für Riemannsche Metriken ist das Vorzeichen immer positiv.
+\end{enumerate}
+\end{bemerkungen}
+\begin{bemerkung}
+Ist $\phi:(M,g)\to (N,h)$ eine Isometrie und $\sigma \sub T_pM$ nicht ausgeartet, so gilt
+\begin{equation}
+K^{(N,h)} (\phi_\ast\sigma) = K^{(M,g)}(\sigma).
+\end{equation}
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $(\R^n, g_\text{st})$ verschwindet der Krümmungstensor, sodass auch alle Schnittkrümmungen gleich $0$ sind.
+\item Wir betrachten die runde Sphäre $\sph^n \sub \R^{n+1}$. Die Isometriegruppe von $\sph^n$ ist $\Os(n+1)$. Seien nun $p,p' \in \sph^n$ und $\sigma \sub T_p\sph^n$, $\sigma' \sub T_{p'}\sph^n$ gegeben. Ist $\{e_1,e_2\}$ eine ONB von $\sigma$ und $\{e_1', e_2'\}$ eine ONB von $\sigma'$, so existiert $A \leq \Os(n+1)$ mit $A(p)=p', A(e_1)=e_1'$ und $A(e_2)=e_2'$. Wir sehen also: Die Schnittkrümmung muss für alle $2$-dimensionalen tangentialen UR an die Sphäre gleich sein. Um sie zu bestimmen, rechnen wir in $\sph^2$ mit lokalen Koordinaten $(\phi, \theta) \in (0,2\pi) \times (- \frac{\pi}{2}, \frac{\pi}{2})$. Dann gilt:
+\begin{equation}
+\cvc{x_1,x_2,x_3}=\cvc{\cos \phi \cos \theta, \sin \phi \cos \theta, \sin \theta}
+\end{equation}
+und damit erhalten wir für die Koordinatenvektorfelder:
+\begin{align}
+\partial_\phi &= - \sin \phi \cos \theta \partial_{x_1} + \cos \phi \cos \theta \partial_{x_2}\\
+\partial_\theta &= - \cos \phi \sin \theta \partial_{x_1} - \sin \phi \sin \theta \partial_{x_2} + \cos \theta \partial_{x_3}
+\end{align}
+und für die Metrik $g_{\phi\phi}=g_\text{st}(\partial_\phi, \partial_\phi)=\cos^2 \theta$, $g_{\phi\theta}=g_{\theta\phi}=0$ sowie $g_{\theta\theta}=1$. Damit folgt für die inverse Metrik $g^{\phi\phi}=\frac{1}{\cos^2 \theta}$, $g^{\phi\theta}=g^{\theta\phi}=0$ und $g^{\theta\theta}=1$ und für die Christoffel-Symbole:
+\begin{align}
+\Gamma_{\phi\phi}^\theta &= \frac{1}{2} g^{\theta\theta}(-\partial_\theta g_{\phi\phi})=\sin \theta \cos \theta \\
+\Gamma_{\phi\theta}^\phi&=\Gamma_{\theta \phi}^\phi=\frac{1}{2}g^{\phi\phi}(\partial_\theta g_{\phi\phi})=- \tan \theta.
+\end{align}
+Alle anderen Symbole verschwinden. Insbesondere gilt $\nabla_{\partial_\theta}\partial_\theta=0$ und $\nabla_{\partial_\phi}\partial_\theta=-\tan \theta \partial_\phi = \nabla_{\partial_\theta} \partial_\phi$.
+Es folgt also
+\begin{align}
+g(R(\partial_\phi, \partial_\theta)\partial_\theta, \partial_\phi) &= g(\nabla_{\partial_\phi}\nabla_{\partial_\theta}\partial_\theta - \nabla_{\partial_\theta}\nabla_{\partial_\phi} \partial_\theta, \partial_\phi)\\
+&= g(\nabla_{\partial_\theta}(\tan \theta \partial_\phi), \partial_\phi) = \left(\frac{1}{\cos^2 \theta} - \tan^2 \theta \right) g(\partial_\phi, \partial_\phi) = \cos^2 \theta
+\end{align}
+und $Q(\partial_\phi, \partial_\theta)=\cos^2 \theta$. Die Sphäre hat also konstante Schnittkrümmung $1$.
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{\textit{ONB und Krümmung}}{onbkrummung}
+Sei $(M,g)$ eine Riemannsche MFK und seien $(x_1, \dots, x_n)$ Koordinaten auf $U \subset M$ offen. Sei $(\partial_{x_1}, \dots, \partial_{x_n})$ eine Orthonormalbasis des Tangentialraums bezüglich $g$. Dann verschwindet die Krümmung von $g$ auf $U$.\\
+Anders ausgedrückt: Hat $(M,g)$ nicht-verschwindende Krümmung, gibt es keine lokalen Koordinaten, für die die Koordinatenvektorfelder an jedem Punkt eine ONB bilden.
+\end{satz}
+\begin{beweis}
+Übung (P20)
+\end{beweis}
+\begin{definition}{Mannigfaltigkeiten konstanter Schnittkrümmung}{mfkkonstanterschnittkrümmungen}
+Sei $(M,g)$ eine pseudo-Riemannsche MFK. Ist die Schnittkrümmung $K$ für alle Ebenen $\sigma$ gleich, heißt $(M,g)$ \textbf{Mannigfaltigkeit konstanter Schnittkrümmung}.
+\end{definition}
+\begin{satz}{}{}
+Sei $(M,g)$ eine vollständige Riemannsche MFK der Dimension $n$ mit konstanter Schnittkrümmung $\varkappa \in \R$, die zusammenhängend ist und $\pi_1(M)=0$ erfüllt. dann ist $(M,g)$ isometrisch zu:
+\begin{itemize}
+\item $(\sph^n, g_\text{rund})$, falls $\varkappa=1$.
+\item $(\R^n, g_\text{st})$, falls $\varkappa=0$.
+\item $(\mathbb{H}^n, h)$, falls $\varkappa=-1$.
+\end{itemize}
+\end{satz}
+\begin{bemerkung}
+Andere Konstanten erhält man aus diesen Beispielen durch Skalierung: Für $\tilde{g} = c^2 g$ gilt $\tilde{\varkappa}(\sigma)=\frac{1}{c^2}\varkappa(\sigma)$.
+\end{bemerkung}
+\begin{bemerkung}
+Jede MFK $M$ hate eine universelle Überlagerung $\tilde{M} \to^\pi M$, wobei $\pi: \tilde{M} \to M$ ein lokaler Diffeomorphismus ist und $\pi_1(\tilde{M})=0$ gilt. Also erhalten wir: Eine beliebige vollständige Riemannsche MFK mit konstanter Schnittkrümmung ist ein Quotient eines dieser drei Modelle bezüglich einer diskreten Untergruppe der Isometriegruppe.
+\end{bemerkung}
+Für Flächen $(\Sigma, g)$ ist die Schnittkrümmung eine Funktion
+\begin{align}
+K: \Sigma &\to \R\\
+p &\mapsto K(T_p\Sigma).
+\end{align}
+Wir wollen für die induzierte Metrik einer Immersion $\iota: \Sigma \to (\R^3, g_\text{st})$ mit $g:= \iota^\ast g_\text{st}$ eine alternative Beschreibung der Schnittkrümmung geben.\\
+Ist $p \in \Sigma$ gegeben, so finden wir auf einer Umgebung $U \sub \Sigma$ von $p$ ein Einheitsnormalenvektorfeld $N \in \Gamma_\iota (T\R^3)$ mit $N_q \perp T_q\Sigma$ und $\| N \|_{g_\text{st}} \equiv 1$. Da $T\R^3$ global trivial ist, können wir $N$ auch als Abbildung 
+\begin{equation}
+N: U \to \sph^2
+\end{equation}
+auffassen.
+\begin{bemerkung}
+Ist $\Sigma$ orientierbar, so existiert das Vektorfeld $N$ global und das Vorzeichen hängt von der Wahl einer Orientierung von $\Sigma$ ab.
+\end{bemerkung}
+Da $T_q\Sigma = (N_q)^{\perp} \cong T_{N_q}\sph^2$ gilt, können wir das Differential der Abbildung $N: U \to \sph^2$ im Punkt $q$ als Endomorphismus
+\begin{equation}
+N_{\ast,q}: T_q\Sigma \to T_q \Sigma
+\end{equation}
+auffassen. Da für lineare Abbildungen $A: \R^2 \to \R^2$ $\det(-A) = \det(A)$ gilt, ist $\det(N_\ast): \Sigma \to \R$ eine wohldefinierte Funktion.
+\begin{definition}{Gauß-Krümmung}{gaußkrümmung}
+Die Funktion
+\begin{align}
+\tilde{K}: \Sigma &\to \R \\
+q &\mapsto \tilde{K}(q):=\det(N_{\ast, q})
+\end{align}
+heißt \textbf{Gauß-Krümmung} der Immersion
+\begin{equation}
+\iota: \Sigma \to \R^3.
+\end{equation}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Ist $\Sigma \cong \R^2 \times \{0\} \sub \R^3$, so ist $N$ konstant, also $N_\ast = 0$ und somit $\tilde{K}\equiv 0$.
+\item Für $\Sigma = \sph^2(r) \sub \R^3$ ist $N_x=\frac{x}{r}$, sodass $N_\ast = \frac{1}{r} \cdot \id$ und damit 
+\begin{equation}
+\tilde{K} = \frac{1}{r^2}.
+\end{equation}
+\item Wir betrachten den Graphen der Funktion $f(x,y)=x^2-y^2$. Ein Einheitsnormalenfeld ist dann
+\begin{equation}
+N_{(x,y)}=\frac{1}{\sqrt{1+4x^2+4y^2}} (2x \partial_x - zy\partial_y+\partial_z).
+\end{equation}
+Nachrechnen ergibt, dass
+\begin{equation}
+\tilde{K}(x,y)=- \frac{4}{1+4x^2+4y^2} < 0.
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{theorem}{Theorema Egregium}{theoremaegregium}
+Ist $\iota: \Sigma \hookrightarrow \R^3$, so stimmt die Schnittkrümmung $K$ der induzierten Metrik $g=\iota^\ast g_\text{st}$ mit der Gauß-Krümmung in $\tilde{K}$ überein.
+\end{theorem}
+\begin{beweis}
+Wir fixieren $p \in \Sigma$ und wählen lokale Koordinaten $(x,y)$ nahe $p$, sodass $u:= (\partial_x)_p$ und $v:=(\partial_y)_p$ eine ONB von $T_q \Sigma$ bilden. Für ein lokales Einheitsnormalenvektorfeld $N$ gilt dann 
+\begin{align}
+N_{\ast, p}(u)&=g(N_{\ast,p}u,u)u+g(N_{\ast, p}u,v)v\\
+N_{\ast, p}(v)&=g(N_{\ast, p}v,u)u+g(N_{\ast,p}v,v)v
+\end{align}
+Also gilt 
+\begin{equation}
+\tilde{K}(p)=\det (N_{\ast, p})=\det \mat{g(N_{\ast,p}u {,} u), g(N_{\ast,p}u {,} v)}{g(N_{\ast,p}v {,}u), g(N_{\ast,p}v {,} v)}.
+\end{equation}
+Für die Schnittkrümmung gilt
+\begin{equation}
+K(p) = g(R(u,v)v,u) = g(\nabla^\Sigma_{\partial_x} \nabla^\Sigma_{\partial_y} \partial_y - \nabla^\Sigma_{\partial_y}\nabla^\Sigma_{\partial_x} \partial_y, \partial_x).
+\end{equation}
+Nun verwenden wir folgende Beobachtungen:
+\begin{enumerate}
+\item Der Levi-Civita-Zusammenhang auf $\Sigma$ erfüllt
+\begin{equation}
+\nabla^\Sigma_A B=(\nabla_A^{\R^3} B)^{\top} = \nabla_A^{\R^3}B-(\nabla_AB)^{\perp}
+\end{equation}
+für alle Vektorfelder $A \in \Gamma(T\Sigma)$ und $B \in \Gamma_\iota (T\R^3)$.
+\item Mit der Identifikation $\Gamma_\iota (T\R^3) \cong \cinf{\Sigma}{\R^3}$ (gegeben durch die globale Trivialisierung von $T\R^3$ gilt
+\begin{equation}
+\nabla_A^{\R^3}B=dB(A)
+\end{equation}
+und
+\begin{equation}
+(\nabla_A B)^{\perp} = \langle dB(A), N \rangle \cdot N.
+\end{equation}
+\item Für $Z_1,Z_2 \in \Gamma(T\Sigma)$ und das Normalenvektorfeld $N \in \Gamma_\iota (T\R^3)$ gilt $\langle N, Z_2 \rangle =0$ und deshalb
+\begin{equation}
+\langle \nabla_{Z_1} N, Z_2 \rangle = - \langle N, \nabla_{Z_1}Z_2 \rangle.
+\end{equation}
+\end{enumerate}
+Nun rechnen wir für $X=\partial_x$ und $Y=\partial_y$:
+\begin{align}
+0 &= \langle R^{\R^3}(X,Y)Y,X \rangle = \langle \nabla_X\nabla_Y Y- \nabla_Y \nabla_X Y, X \rangle \\
+&= X \langle \nabla_Y Y, X \rangle - \langle \nabla_YY, \nabla_XX \rangle - \left( Y \langle \nabla_XY, X\rangle - \langle \nabla_XY, \nabla_YX \rangle \right)\\
+&= X \langle \nabla_Y^\Sigma Y, X \rangle - \langle \nabla_Y^\Sigma Y, \nabla_X^\Sigma X \rangle- \langle (\nabla_Y Y)^{\perp}, (\nabla_X X)^{\perp} \rangle - Y \langle \nabla_X^\Sigma  Y, X \rangle + \langle \nabla_X^\Sigma Y, \nabla_Y^\Sigma X \rangle + \langle (\nabla_XY)^{\perp}, (\nabla_YX)^{\perp} \rangle\\
+&= g(\nabla_X^\Sigma \nabla_Y^\Sigma Y, X) - g(\nabla_Y^\Sigma \nabla_X^\Sigma Y, X) - \left( \langle (\nabla_YY)^{\perp},(\nabla_XX)^{\perp} \rangle - \langle (\nabla_XY)^{\perp}, (\nabla_YX)^{\perp} \rangle \right)
+\end{align}
+Für ein beliebiges Vektorfeld $Z \in \Gamma_\iota (T\R^3)$ gilt aber $Z^{\perp} =^{2.} \langle Z,N\rangle N$. Also sehen wir
+\begin{align}
+g(R^\Sigma(X,Y)Y,X) &= \langle  \nabla_YY,N\rangle \langle \nabla_XX, N\rangle - \langle \nabla_XY,N \rangle \langle \nabla_YX,N \rangle\\
+&=^{3.}  \langle Y, \nabla_Y N \rangle \langle X, \nabla_X N \rangle - \langle Y, \nabla_X N \rangle \langle X, \nabla_Y N \rangle\\
+&=^{2.} \langle Y, N_\ast(Y) \rangle \langle X, N_\ast(X) \rangle - \langle Y, N_\ast (X) \rangle \langle X, N_\ast Y \rangle.
+\end{align}
+Auswertung im Punkt $p \in \Sigma$ ergibt nun: 
+\begin{equation}
+K(p) = \tilde{K}(p)
+\end{equation}
+\end{beweis}
+Noch etwas Kontext zu diesem Beweis: 
+\begin{satz}{}{}
+Sei $(M,g)$ eine Riemannsche MFK und $S \sub M$ eine Hyperfläche. Für $p \in S$ und $u,v \in T_pS \sub T_pM$ betrachten wir lokale Vektorfelder $X,Y \in \Gamma(TS)$ mit $X_p = u$, $Y_p =v$. Dann gilt, dass 
+\begin{equation}
+\text{II}_p(u,v) := (\nabla_X^MY)_p^{\perp} = \left( \nabla_X^M Y - \nabla_X^S Y \right)_p
+\end{equation}
+unabhängig von den gewählten Fortsetzungen und symmetrisch in $u$ und $v$ ist.
+\end{satz}
+\begin{beweis}
+Unabhängigkeit von der Fortsetzung $X$ ist klar, da kovariante Ableitungen tensoriell im ersten Argument sind.\\
+Für die Symmetrie ergibt sich:
+Aus
+\begin{equation}
+\nabla_X^S Y-\nabla_Y^S X = [X,Y] = \nabla_X^M Y - \nabla_Y^M X
+\end{equation}
+folgt auch 
+\begin{equation}
+\nabla_Y^MX-\nabla_Y^SX = \nabla_X^MY-\nabla_X^S Y.
+\end{equation}
+Dies zeigt bereits die Unabhängigkeit von der Wahl von $Y$.
+\end{beweis}
+\begin{definition}{Fundamentalformen}{fundamentalformen}
+Sei $(M,g)$ eine Riemannsche MFK. Die Einschränkung $\text{I}=g|_S$ auf eine Hyperfläche $S \sub M$ heißt \textbf{erste Fundamentalform}.
+Die Bilinearform
+\begin{align}
+\text{II}_p: T_pS \times T_p S &\to N_pS \cong (T_pS)^{\perp} \sub T_pM
+\end{align}
+heißt \textbf{zweite Fundamentalform} der Hyperfläche $S \sub M$ im Punkt $p$.
+\end{definition}
+Ist $N$ ein lokales Einheitsnormalenvektorfeld nahe $p \in S$, so können wir $\alpha$ lokal schreiben als
+\begin{equation}
+\alpha(X,Y)=g(\nabla_XY,N)N=-g(Y,\nabla_XN)N.
+\end{equation}
+\begin{definition}{Reellwertige zweite Fundamentalform}{reellwertigezweitefundform}
+Die Bilinearform
+\begin{align}
+\overline{\alpha}_p: T_pS \times T_pS &\to \R\\
+(u,v) &\mapsto -g(v, \nabla_uN)
+\end{align}
+wird \textbf{reellwertige zweite Fundamentalform} genannt.
+\end{definition}
+Das Vorzeichen von $\overline{\alpha}$ hängt von der Wahl von $N$ ab, aber die Gauß-Krümmung eines $2$-dimensionalen Unterraums $\sigma = \spn (u,v) \sub T_pS$, definiert als
+\begin{equation}
+\tilde{K}(\sigma) = \frac{\overline{\alpha}(u,u)\overline{\alpha}(v,v)-\overline{\alpha}(u,v)^2}{Q(u,v)}
+\end{equation}
+ist wohldefiniert. Unser Beweis des Theorems \ref{theoremaegregium} zeigt dann
+\begin{equation}
+\underbrace{K^s(\sigma)}_\text{intrinsisch} = \underbrace{K^M(\sigma) + \tilde{K}(\sigma)}_\text{extrinsisch}.
+\end{equation}
+Da $\overline{\alpha}$ symmetrisch ist, können wir es bezüglich $g|_S$ diagonalisieren, d.h. wir finden eine ONB $(u_1, \dots, u_n)$ von $T_pS$ mit
+\begin{equation}
+\overline{\alpha}_p(u_i,u_j)=\lambda_i \delta_{ij}
+\end{equation}
+für gewisse $\lambda_i \in \R$.
+\begin{definition}{Hauptkrümmung}{hauptkrümmung}
+Diese Koeffizienten $\lambda_i \in \R$ nennt man \textbf{Hauptkrümmungen} von $S \sub M$.
+\end{definition}
+\begin{definition}{Mittlere Krümmung}{mittlerekrümmung}
+Die normierte Spur
+\begin{equation}
+H:=\frac{1}{n} \Sum{i,1,n} \lambda_i
+\end{equation}
+heißt \textbf{mittlere Krümmung} von $S \sub M$.
+\end{definition}
+\begin{bemerkung}
+Die Bedingung $H \equiv 0$ beschreibt minimale Hyperflächen, also solche, für die das Volumenfunktional extremal wird.
+\end{bemerkung}
+\begin{beispiel}
+Das Katenoid zum Parameter $a>0$ ist das Bild der Immersion $h: \R^2 \to \R^3$, $h(u,\phi):=(a \cosh u \cos \phi, a \cosh u \sin \phi, au)$. Diese Rotationsflächen erfüllen $H \equiv 0$.
+\end{beispiel}
+\subsection{Das Energiefunktional}
+\label{energiefunk}
+Wir kehren zurück zur Betrachtung von Geodätischen. Wir hatten bereits das \textbf{Längenfunktional}
+\begin{equation}
+L[\gamma] = \int_a^b \| \dot{\gamma}(t) \| dt
+\end{equation} 
+betrachtet.
+\begin{definition}{Energiefunktional}{energiefunktional}
+Das \textbf{Energiefunktional} ist gegeben durch
+\begin{equation}
+E[\gamma]:= \frac{1}{2} \int_a^b \| \dot{\gamma} \|^2 dt.
+\end{equation}
+\end{definition}
+Aus der Cauchy-Schwarz-Ungleichung
+\begin{equation}
+\int_a^b f(t)g(t)dt \leq \left( \int_a^b f(t)^2 dt \right)^\frac{1}{2} \left( \int_a^b g(t)^2 dt \right)^\frac{1}{2}
+\end{equation}
+mit $f(t)=\| \dot{\gamma}(t)\|$ und $g(t)\equiv 1$ erhalten wir
+\begin{equation}
+L[\gamma]^2 \leq 2 E [\gamma](b-a)
+\end{equation}
+mit Gleichheit genau dann, wenn $\| \dot{\gamma}(t) \|$ konstant ist.
+\begin{satz}{}{}
+Sei $\gamma: [a,b] \to (M,g)$ eine minimale Geodätische von $p$ nach $q$ und $c: [a,b] \to M$ eine beliebige andere (stückweise) glatte Kurve von $p$ nach $q$, so gilt
+\begin{equation}
+2 E[\gamma](b-a) = (L[\gamma])^2 \leq (L[c])^2 \leq 2 E[c](b-a).
+\end{equation}
+\end{satz}
+Also minimieren minimale Geodätische von $p$ nach $q$ die Energie unter allen Kurven von $p$ und $q$. Wir betrachten nun
+\begin{equation}
+\Omega_{p,q} := \{ \gamma:[0,1] \to M \ | \ \gamma \ \text{ist glatt mit} \ \gamma(0)=p, \gamma(1)=q \}.
+\end{equation}
+Eine Kurve in $\Omega_{p,q}$ ist eine Abbildung
+\begin{align}
+(\alpha, \beta) &\to \Omega_{p,q}\\
+s &\mapsto \gamma_s
+\end{align}
+oder äquivalent eine Abbildung
+\begin{align}
+\Gamma: (\alpha, \beta) \times [0,1] &\to M\\
+(s,t) &\mapsto \Gamma(s,t):=\gamma_s(t)
+\end{align}
+mit $\Gamma(s,0)=p$, $\Gamma(s,1)=q$ für alle $s \in (\alpha, \beta)$. Der Tangentialvektor an $\gamma_s$ im Punkt $s_0 \in (\alpha, \beta)$ ist nun
+\begin{equation}
+\frac{\partial \Gamma}{\partial s}|_{s=s_0} = \Gamma_\ast(\frac{\partial}{\partial s})|_{s=s_0}.
+\end{equation}
+Dies ist ein Vektorfeld entlang der Kurve $\gamma_{s_0}$. Ist umgekehrt $V \in \Gamma_\gamma(TM)$ ein Vektorfeld entlang $\gamma$, so können wir eine Variation 
+\begin{align}
+\Gamma: (-\epsilon, \epsilon) \times [0,1] &\to M\\
+(s,t) &\mapsto \exp_{\gamma(t)}(sV(t))
+\end{align}
+der Kurve $\gamma = \Gamma(0, \cdot)$ definieren. Damit $\Gamma(s, \cdot) \in \Omega_{\gamma(0)\gamma(1)}$, muss $V(0)=0=V(1)$. Wir sehen also:
+\begin{equation}
+T_\gamma \cinf{[0,1]}{M} = \Gamma_\gamma(TM)
+\end{equation}
+und
+\begin{equation}
+T_\gamma \Omega_{\gamma(0)\gamma(1)} = \{ V \in \Gamma_\gamma (TM) | V(0)=0=V(1) \}.
+\end{equation}
+Wir kommen zu den Variationsformeln für die Energie.
+\begin{satz}{Erste Variationsformel für die Energie}{erstevariationsformel}
+Sei $(M,g)$ eine Riemannsche MFK, $\gamma: [0,1] \to M$ glatt und $V \in \Gamma_\gamma(TM)$. Dann gilt
+\begin{equation}
+dE_\gamma[V] = \int_0^1 g(V, \nabla_\frac{d}{dt} \dot{\gamma})dt + g(V_1, \dot{\gamma}(1))-g(V_0, \dot{\gamma}(0))
+\end{equation}
+\end{satz}
+\begin{beweis}
+Sei $\Gamma: (-\epsilon, \epsilon) \times [0,1] \to M$ eine Variation mit $\frac{\partial \Gamma}{\partial s}|_{s=0} = \Gamma_\ast(\partial_s)|_{s=0} = V$. Dann gilt
+\begin{align}
+dE_\gamma [V] &= \frac{d}{ds} E[\gamma_s]|_{s=0} = \frac{1}{2} \int_0^1 \frac{d}{ds} g(\Gamma_\ast (\partial_t), \Gamma_\ast(\partial_t))|_{s=0} dt\\
+&= \int_0^1 g(\nabla_\frac{d}{ds} \Gamma_\ast(\partial_t), \Gamma_\ast(\partial_t))|_{s=0} dt = \int_0^1 g(\nabla_\frac{d}{dt} \Gamma_\ast (\partial_s), \Gamma_\ast(\partial_t))|_{s=0} dt\\
+&= \int_0^1 \frac{d}{dt} g(\Gamma_\ast \partial_s, \Gamma_\ast \partial_t)|_{s=0} - g(\Gamma_\ast \partial_s, \nabla_\frac{d}{dt} \Gamma_\ast \partial_t)|_{s=0} dt\\
+&= g(V_1, \dot{\gamma}(1) )- g(V_0, \dot{\gamma}(0)) - \int_0^1 g(V, \nabla_\frac{d}{dt} \dot{\gamma} dt.
+\end{align}
+Dies ist die Behauptung. Dabei wurde die Torsionsfreiheit von $\nabla$ genutzt.
+\end{beweis}
+Wir sehen mit diesem Satz, dass $\gamma$ genau dann ein kritischer Punkt von
+\begin{equation}
+E: \Omega_{p,q} \to \R
+\end{equation}
+ist, wenn $\gamma$ eine Geodätische ist.
+\begin{satz}{Zweite Variationsformel für die Energie}{zweitevariationsformel}
+Sei $(M,g)$ eine Riemannsche MFK und $\gamma: [0,1] \to M$ eine Geodätische. Ist $\Gamma: (-\epsilon, \epsilon) \times [0,1] \to M$ eine Variation von $\gamma$ mit festen Endpunkten in Richtung des Vektorfeldes $V$, so gilt:
+\begin{equation}
+\frac{d^2}{ds^2} E[\gamma_s]|_{s=0} = - \int_0^1 g(\nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V + R(V, \dot{\gamma})\dot{\gamma}, V) dt.
+\end{equation}
+\end{satz}
+\begin{beweis}
+Aus der Rechnung oben sehen wir, dass
+\begin{equation}
+\frac{d}{ds} E[\gamma_s] = - \int_0^1 g(\Gamma_\ast \partial_s, \nabla_\frac{d}{dt} \Gamma_\ast \partial_t) dt.
+\end{equation}
+Die Randterme verschwinden, da wir Variationen mit festen Endpunkten betrachten. Also folgt
+\begin{equation}
+\frac{d^2}{ds^2} E[\gamma_s]=-\int_0^1 g(\nabla_\frac{d}{ds} \Gamma_\ast \partial_s, \nabla_\frac{d}{dt} \Gamma_\ast \partial_t) dt - \int_0^1 g(\Gamma_\ast \partial_s, \nabla_\frac{d}{ds} \nabla_\frac{d}{dt} \Gamma_\ast \partial_t)dt.
+\end{equation}
+Der erste Term verschwindet in $s=0$, da $\gamma=\gamma_0$ eine Geodätische ist. Wegen
+\begin{equation}
+R(\Gamma_\ast \partial_s, \Gamma_\ast \partial_t)\Gamma_\ast \partial_t=\nabla_\frac{d}{ds} \nabla_\frac{d}{dt} \Gamma_\ast \partial_t - \nabla_\frac{d}{dt} \nabla_\frac{d}{ds} \Gamma_\ast \partial_t
+\end{equation}
+haben wir
+\begin{equation}
+\frac{d^2}{ds^2}E[\gamma_s]|_{s=0} = - \int_0^1 g(R(V, \dot{\gamma})\dot{\gamma}, V) + g(V, \nabla_\frac{d}{dt} \nabla_\frac{d}{ds} \Gamma_\ast \partial_t) dt = - \int_0^1 g(V, R(V, \dot{\gamma})\dot{\gamma} + \nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V) dt,
+\end{equation}
+wie behauptet.
+\end{beweis}
+\begin{bemerkung}
+Dieselbe Rechnung funktioniert auch, wenn $\gamma(0)=\gamma(1)$, $\dot{\gamma}(0) = \dot{\gamma}(1)$ und $V_0=V_1$, d.h. wenn wir eine geschlossene Geodätische im raum der geschlossenen Kurven variieren.
+\end{bemerkung}
+\begin{satz}{Satz von Synge}{synge}
+Sei $(M,g)$ eine Riemannsche MFK mit folgenden Eigenschaften:
+\begin{itemize}
+\item $M$ ist geschlossen (kompakt ohne Rand).
+\item $\dim M = 2k$, $k\in \N$.
+\item Alle Schnittkrümmungen sind positiv.
+\item $M$ ist orientierbar.
+\end{itemize}
+Dann ist M einfach zusammenhängend, d.h. jede Abbildung $\gamma: \sph^1 \to M$ ist nullhomotop.
+\end{satz}
+\begin{beweis}
+Wir skizzieren den Beweis:\\
+Wir behaupten, dass in jeder (nichttrivialen) freien Homotopieklasse von Kurven $\gamma: \sph^1 \to M$ eine kürzeste Kurve existiert, und dass diese eine geschlossene Geodätische ist.\\
+Sei also $\gamma$ eine solche Geodätische in einer nichttrivialen Homotopieklasse. Wir betrachten den Paralleltransport entlang $\gamma$. Da $P_{\gamma(0)\gamma(1)}: T_{\gamma_0}M \to T_{\gamma_0}M$ eine Isometrie ist und $P_{\gamma(0)\gamma(1)} (\dot{\gamma}(0))=\dot{\gamma}(0)$. Also bildet der Paralleltransport den UR $\dot{\gamma}(0)^{\perp} \sub T_{\gamma(0)}M$ isometrisch und orientierungserhaltend auf sich selbst ab. Da $\dot{\gamma}^{\perp}$ ungerade Dimension hat, muss es einen Vektor $v \perp \dot{\gamma}(0)$, $v\neq 0$ existieren, sodass $P_{\gamma(0)\gamma(1)}v=v$ gilt. Sei $V \in \Gamma_\gamma (TM)$ das parallele Vektorfeld entlang $\gamma$ mit $V_0=v$. Dann gilt für die Variation von $\gamma$ in Richtung $V$:
+\begin{align}
+\frac{d^2}{ds^2} E[\gamma_s]|_{s=0} &= - \int_0^1 g(V,R(V,\dot{\gamma})\dot{\gamma})dt - \int_0^1 g(V, \nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V) dt \\
+&= - \int_0^1 K(\spn\{ V_t, \dot{\gamma}(t) \})dt.
+\end{align}
+Also ist $\gamma$ kein lokales Minimum der Energie, im Widerspruch zur Annahme.
+\end{beweis}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Das Beispiel $\R P^2$ zeigt, dass Orientierbarkeit wesentlich ist. Das Beispiel $\R P^3$ zeigt, dass $\dim M$ gerade wichtig ist.
+\item Die folgende Frage von \emph{H. Hopf} ist bis heute offen: Gibt es auf $\sph^2 \times \sph^2$ eine Riemannsche Metrik mit positiver Schnittkrümmung?
+\end{enumerate}
+\end{bemerkungen}
+\begin{satz}{Variationsvektorfeld}{variationsvektorfeld}
+Sei $(M,g)$ eine Riemannsche MFK. Ist $\Gamma: (-\epsilon, \epsilon) \times [a,b] \to M$ eine Familie von Geodätischen, so erfüllt das Variationsvektorfeld $V= \frac{\partial \Gamma}{\partial s}|_{s=0}=\Gamma_{\gamma_s} (TM)$ die Gleichung
+\begin{equation}
+\nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V + R(V, \dot{\gamma})\dot{\gamma}=0 \ (\ast).
+\end{equation}
+\end{satz}
+\begin{beweis}
+Nach Voraussetzung wissen wir
+\begin{equation}
+\nabla_\frac{d}{dt} \Gamma_\ast (\partial_t)=0
+\end{equation}
+für alle $(s,t)\in (-\epsilon, \epsilon) \times [a,b]$. Also folgt $\nabla_\frac{d}{ds} \nabla_\frac{d}{dt} \Gamma_\ast \partial_t = 0$, und deshalb gilt 
+\begin{equation}
+R(\Gamma_\ast \partial_s, \Gamma_\ast \partial_t)\Gamma_\ast \partial_t = - \nabla_\frac{d}{dt} \nabla_\frac{d}{ds} \Gamma_\ast \partial_t = - \nabla_\frac{d}{dt} \nabla_\frac{d}{dt} \Gamma_\ast \partial_s.
+\end{equation}
+Für $s=0$ ist dies die Behauptung.
+\end{beweis}
+\begin{definition}{Jacobifeld}{jacobifeld}
+Die Gleichung 
+\begin{equation}
+\nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V + R(V, \dot{\gamma})\dot{\gamma}=0
+\end{equation}
+heißt \textbf{Jacobi-Gleichung}. Ist $\gamma: [a,b] \to M$ eine Geodätische, so heißen Lösungen dieser Gleichung \textbf{Jacobifelder}. Sie bilden den Raum $\Js(\gamma)$. 
+\end{definition}
+Die Jacobi-Gleichung ist eine lineare Differentialgleichung zweiter Ordnung, sodass zu jedem Paar von Anfangswerten $V_Q=v$ und $(\nabla_\frac{d}{dt} V)_Q = w$ eine eindeutige Lösung existiert. Der Raum $\Js (\gamma) \sub \Gamma_\gamma(TM)$ der Jacobifelder hat also die Dimension $2n$ mit $n = \dim M$.
+\begin{beispiele}
+Sei $\gamma: [a,b] \to (M,g)$ eine Geodätische.
+\begin{enumerate}
+\item $\dot{\gamma}$ ist ein Jacobifeld entlang $\gamma$. In diesem Fall verschwinden die beiden Terme separat.
+\item Das Vektorfeld $t \cdot \dot{\gamma}$ ist auch ein Jacobifeld entlang $\gamma$.
+\item Ist $c: (-\epsilon, \epsilon) \to T_{\gamma(a)}M$ eine glatte Kurve mit $c(0)=\dot{\gamma}(a)$, dann ist 
+\begin{equation}
+\Gamma(s,t) = \exp_{\gamma(a)}((t-a) \cdot c(s))
+\end{equation}
+eine Familie von Geodätischen mit Startpunkt $\gamma(a)$. Das zugehörige Jacobifeld hat die Anfangsbedingungen $\Js_a=0$ und $(\nabla_\frac{d}{dt} \Js)_a = \dot{c}(0)$.
+\end{enumerate}
+\end{beispiele}
+
+\begin{definition}{Konjugation}{konjugation}
+Sei $(M,g)$ eine Riemannsche MFK und $\gamma: [a,b] \to M$ eine Geodätische von $p = \gamma(a)$ nach $q = \gamma(b)$. Der Punkt $q$ heißt \textbf{konjugiert zu} $p$ \textbf{entlang} $\gamma$, falls ein Jacobifeld $J$ entlang $\gamma$ existiert mit 
+\begin{equation}
+J_a = 0 = J_b.
+\end{equation}
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item
+Die Eigenschaft, konjugiert zu sein, ist \textcolor{red}{symmetrisch} in $p$ und $q$. Dies sieht man, da die Jacobi-Gleichung erfüllt ist und Lösungen entlang $\gamma$ auch Lösungen entlang $\bar{\gamma} (t) = \gamma(b+a-t)$ sind.
+\item Die Jacobifelder mit $J_a = 0 = J_b$ bilden einen Unterraum $\Js_0$ im Raum $\Js (\gamma)$ aller Jacobifelder. Der Unterraum der Jacobifelder mit $J_a=0$ hat die Dimension $\dim M = n$. Das Jacobifeld $J_t = (t-0)\cdot \dot{\gamma}(t)$ liegt in diesem UR und hat keine weiteren Nullstellen. Also hat $\Js_0(\gamma)$ höchstens Dimension $n-1$. Man nennt $\dim \Js_0(\gamma)$ die \textbf{Vielfachheit} des konjugierten Punktes $q$.
+\end{enumerate}
+\end{bemerkungen}
+\begin{beispiele}
+\begin{enumerate}
+\item Sei $(M,g)=(\sph^n, g_\text{st})$ und sei $\gamma: [0, \pi] \to \sph^n$ eine Geodätische mit $\gamma(0)=p$ und $\| \dot{\gamma}(t) \| = 1$, also $\gamma(\pi)=-p$. Dann ist für jeden Vektor $w \in T_p\sph^n$ mit $w \perp \dot{\gamma}(0)$ das Vektorfeld 
+\begin{equation}
+J_t = \sin (t) \cdot w
+\end{equation}
+ein Jacobifeld entlang $\gamma$. Also ist $-p$ konjugiert zu $p$ entlang $\gamma$ mit Vielfachheit $n-1$.
+\item  Sei $(M,g) = (\R^n, g_\text{st})$ und $\gamma: \R \to \R^n$ eine beliebige Geodätische. Hier hat jedes Jacobifeld entlang $\gamma$ die Form $J_t = v+tw$ mit $v,w \in \R^n$. Dies hat maximal eine Nullstelle, also existieren in $(\R^n, g_\text{st})$ keine Paare konjugierter Punkte.
+\end{enumerate}
+\end{beispiele}
+\begin{lemma}{Schnittkrümmung und Konjugation}{schnittkonj}
+Ist $(M,g)$ eine Riemannsche MFK mit $K \leq 0$, so hat $(M,g)$ keine konjugierten Punkte.
+\end{lemma}
+\begin{beweis}
+Sei $\gamma: [0,b] \to M$ eine Geodätische mit $\gamma(0)=p$. Sei $J$ ein Jacobifeld entlang $\gamma$. Dann gilt
+\begin{equation}
+\frac{d^2}{dt^2} g(J,J) = \frac{d}{dt} (2g(\nabla_\frac{d}{dt}J,J)) = 2g(\nabla_\frac{d}{dt} \nabla_\frac{d}{dt} J,J) + 2g (\nabla_\frac{d}{dt} J, \nabla_\frac{d}{dt} J) = 2(-K (\spn \{ J, \dot{\gamma}\}) + \| \nabla_\frac{d}{dt} J \|^2) \geq \| \nabla_\frac{d}{dt} J \|^2,
+\end{equation}
+also ist die Funktion $t \mapsto \| J_t \|^2_g$ konvex. Ist also $J$ ein Jacobifeld entlang $\gamma$ mit $J_0 = 0$, aber $J \cancel{\equiv} 0$, so kann es keine weitere Nullstellen haben.
+\end{beweis}
+Wir geben noch eine alternative Beschreibung konjugierter Punkte:
+\begin{lemma}{Konjugation und Exponential}{konjexp}
+Sei $(M, g)$ eine Riemannsche MFK und $\gamma: [0,b] \to M$ eine Geodätische mit $\gamma(0) = p$ und $\dot{\gamma}(0)=v$. Ein Punkt $\gamma(t_0)$ ist genau dann konjugiert zu $p$ entlang $\gamma$, falls $t_0v$ ein kritischer Punkt der Exponentialabbildung $\exp_p: T_pM \to M$ ist. In diesem Fall ist die Vielfachheit von $\gamma(t_0)$ als konjugierter Punkt gleich 
+\begin{equation}
+\dim \ker (\exp_p)_{\ast, t_0v}.
+\end{equation}
+\end{lemma}
+\begin{beweis}
+Sei $c: (- \epsilon, \epsilon) \to M$ die Kurve $c(s)=v+sw$ für ein $w \in T_pM$. Dann gilt für die Variation $\Gamma(s,t)=\exp_p(t\cdot c(s))$, dass
+\begin{equation}
+\Gamma_\ast(\frac{\partial}{\partial s})|_{s=0} = \frac{d}{ds}(\exp_p(t \cdot c(s)))|_{s=0} = (\exp_p)_{\ast, tv} (tw).
+\end{equation}
+Dieses Jacobifeld erfüllt $J_0=0$ und $(\nabla_\frac{d}{dt} J)_0=w$. Es erfüllt genau dann $J_{t_0}=0$, wenn $w \in \ker(\exp_p)_{\ast, t_0v}$. Daraus folgen die Behauptungen.
+\end{beweis}
+\begin{definition}{Überlagerung}{fundamentalgruppe}
+Seien $\Xs, \Ys$ topologische Räume und $\pi: \Xs \to \Ys$ stetig. $\pi$ heißt \textbf{Überlagerung}, falls $\pi$ surjektiv ist und jeder Punkt $b \in \Ys$ eine Umgebung $U \sub \Ys$ besitzt, sodass 
+\begin{equation}
+\pi^{-1}(U) = \sqcup_{i \in I} V_i
+\end{equation}
+mit $V_i$ offen in $\Xs$ und
+\begin{equation}
+\pi|_{V_i}:V_i \to U
+\end{equation}
+für alle $i \in I$ ein Homöomorphismus ist.
+\end{definition}
+\begin{beispiel}
+$\exp:\R \to \sph^1$, $t \mapsto \exp(2\pi i t)$.
+\end{beispiel}
+Diese beiden Lemmata sind die zentralen Zutaten für den Beweis des folgenden Theorems:
+\begin{theorem}{Satz von Cartan-Hadamard}{cartanhadamard}
+Sei $(M,g)$ eine vollständige, zusammenhängende Riemannsche MFK mit $K\leq 0$. Dann ist für jeden Punkt $p \in M$ die Abbildung
+\begin{equation}
+\exp_p: T_pM \to M
+\end{equation}
+eine Überlagerung. Ist insbesondere $\pi_1(M)=0$, so ist $\exp_p$ ein Diffeomorphismus.
+\end{theorem}
+Dieser Satz sagt, dass MFK mit nicht-positiver Schnittkrümmung eine Topologie haben, die vollkommen von der Fundamentalgruppe bestimmt ist.
+\begin{beispiele}Beispiele für nicht-positive Schnittkrümmung\\
+\begin{enumerate}
+\item $(\R^n, g_{st})$, $\T^n = \quotient{(\R^n, g_\text{st})}{\Lambda}$ mit einem Gitter $\Lambda \cong \Z^n$.
+\item Flächen von Geschlecht $\geq 1$.
+\item Produkte solcher Beispiele.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Ricci-Krümmung}{riccikrümmung}
+Sei $(M,g)$ eine Riemannsche MFK. Die \textbf{Ricci-Krümmung} von $(M,g)$ im Punkt $p \in M$ ist der $(2,0)$-Tensor 
+\begin{align}
+\ric_p: T_p M \times T_pM &\to \R \\
+(u,v) &\mapsto \Ric_p(u,v):=\Tr \left(  \omega \mapsto R(w,u)v \right).
+\end{align}
+\end{definition}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Ist $\{ e_1, \dots e_n \}$ eine ONB von $(T_pM, g_T)$, so gilt
+\begin{equation}
+\Ric_p(u,v) = \Sum{i,1,n} g(R(e_i,u)v, e_i).
+\end{equation}
+\item Aus den Symmetrieeigenschaften des Krümmungstensors folgt, dass $\ric_p$ eine symmetrische Bilinearform ist. Metriken, für die $\Ric$ proportional zu $g$ ist, nennt man \textbf{Einsteinmetriken}:
+\begin{equation}
+\Ric = \lambda g, \ \lambda \in \R.
+\end{equation}
+\end{enumerate}
+\end{bemerkungen}
+\begin{beispiele}
+\begin{enumerate}
+\item $(\R^n, g_\text{st})$ ist eine Einsteinmfk. mit $\lambda = 0$.
+\item $(\sph^n, g_\text{st})$ ist eine Einsteinmfk. mit $\lambda = 1$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{}{}
+Die normierte quadratische Form
+\begin{equation}
+\ric_p(v) := \frac{1}{(n-1)\|v\|^2_g} \Ric_p(v,v)
+\end{equation}
+ist ein Mittelwert von Schnittkrümmungen von Ebenen, die $v$ enthalten.
+\end{definition}
+\begin{theorem}{Satz von Bonnet-Myers}{bonnetmyers}
+Sei $(M,g)$ eine vollständige, zusammenhängende Riemannsche MFK. Gibt es ein $r > 0$ mit $\ric (v) \geq \frac{1}{r^2}$ für alle $v \in TM$, $v \neq 0$, so gilt, dass
+\begin{equation}
+(\ast) \ \text{diam} \ (M,g) := \sup \{ d(p,q) \ | \ p,q \in M \} \leq r \cdot \pi.
+\end{equation}
+Insbesondere ist $M$ kompakt und $\pi_1(M)$ endlich.
+\end{theorem}
+\begin{beweis}
+Kompaktheit folgt aus $(\ast)$ und dem Satz von Hopf und Rinow. Die Aussage über $\pi_1(M)$ folgt, weil die zurückgezogene Metrik $\tilde{g} = \pi^\ast g$ auf der universellen Überlagerung $\pi: \tilde{M} \to M$ auch die Voraussetzungen des Satzes erfüllt, und somit $\tilde{M}$ ebenfalls kompakt ist.\\
+Wir beweisen $(\ast)$ in der folgenden Form:\\
+\underline{Beh.:} \quad Ist $\gamma:[0,l] \to M$ eine Geodätische mit $\|\dot{\gamma}(t)\| = 1$ und $L[\gamma]=l \geq \pi r$, so ist $\gamma$ nicht die kürzeste Verbindung zwischen den Endpunkten.\\
+\underline{Bew.:} \quad Wir konstruieren eine Variation, für die die zweite Ableitung der Energie negativ ist. Sei dazu $(v_1:= \dot{\gamma}(0), v_2, \dots, v_n)$ eine ONB von $T_{\gamma(0)}M$. Wir betrachten die entlang $\gamma$ parallelen Vektorfelder $X_i$ mit $X_{i,0}=v_i$. Sei $V_{i,t} := \sin(\frac{\pi t}{l}) \circ X_{i,t}$. Die zu $V_i$ gehörige Variation $\Gamma_i$ fixiert die Endpunkte. Es gilt
+\begin{equation}
+\Gamma_i (s,t) = \exp_{\gamma(t)}(sV_{i,t}).
+\end{equation}
+Nun gilt
+\begin{equation}
+\frac{d^2}{ds^2} E[\Gamma_i (s)]|_{s=0} = - \int_0^l g(\nabla_\frac{d}{dt} \nabla_\frac{d}{dt} V_i + R(V_i, \dot{\gamma})\dot{\gamma}, V_i) dt = \int_0^l \left[\sin^2(\frac{\pi t}{l})\cdot(\frac{\pi}{l})^2 - \sin^2(\frac{\pi t}{l}) \cdot K(\sigma_i(t))\right] dt,
+\end{equation}
+wobei $\sigma_i(t) =\spn \{ x_{i,t}, \dot{\gamma}(t) \}$. Daraus folgt
+\begin{equation}
+\Sum{i,2,n} \frac{d^2}{ds^2} E[\Gamma_i(s)]|_{s=0} = \int_0^l \sin^2(\frac{\pi t}{l}) \cdot \left[ (\frac{\pi}{l})^2 - (n-1) \underbrace{\ric(\dot{\gamma} (t))}_{\geq \frac{1}{r^2}} \right] dt \leq  \int_0^l \underbrace{\sin^2(\frac{\pi t}{l})(n-1)}_{> 0} \left[ \underbrace{(\frac{\pi}{l})^2 - \frac{1}{r^2}}_{< 0} \right] dt < 0 .
+\end{equation}
+Also ist mindestens einer der zwei Ableitungen negativ, und für dieses $i \in \{ 2, \dots, n\}$ ist $E[\Gamma_i(s)] < E[\gamma]$ für $s$ nahe $0$. Also ist $\gamma$ nicht minimal.
+\end{beweis}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $(\sph^n, g_\text{st})$ ist die Aussage scharf: Es gilt $\ric \equiv 1$ und $\text{diam} \ (\sph^n, g_\text{st})=\pi$.
+\item Für $\R P^n = \quotient{(\sph^n, g_\text{st})}{\Z_2}$ gilt immer noch $\ric \equiv 1$, aber $\text{diam} \ (\R P^n, g) = \frac{\pi}{2}$.
+\item Eine Konsequenz aus dem Satz ist, dass $\T ^n$ keine Metrik mit $\ric > 0$ zulässt.
+\item Die \textcolor{red}{strikt positive} untere Schranke ist wesentlich: Das Paraboloid
+\begin{equation}
+P_{a,b} = \{ (x,y,z) \in \R^3 \ | \ z = ax^2 + by^2 \}
+\end{equation}
+mit $a,b > 0$ hat positive Schnittkrümmung, die aber nicht von Null weg beschränkt ist.
+\end{enumerate}
+\end{beispiele}
+\begin{korollar}{aus \ref{bonnetmyers}}{}
+Sei $(M,g)$ eine vollständige, zusammenhängende Riemannsche MFK mit $K \geq \frac{1}{r^2}$. Dann gilt $\text{diam} \ (M,g) \leq r\pi$.
+\end{korollar}
+\subsection{Der Satz von Gauß-Bonnet}
+\label{subsec:gaussbonnet}
+\begin{definition}{Triangulierung}{triangulierung}
+Eine \textbf{Triangulierung} einer Fläche $\Sigma$ ist eine Zerlegung von $\Sigma$ in abgeschlossene Dreiecke, sodass
+\begin{equation}
+\Sigma = \cup_i \Delta_i.
+\end{equation}
+Dabei müssen die Dreiecke entweder paarweise disjunkt sein oder genau eine gemeinsame Ecke haben.
+\end{definition}
+\begin{definition}{Euler-Charakteristik}{eulercharakteristik}
+Die Zahl
+\begin{equation}
+\chi(\Sigma) := V(T)-E(T)+F(T)
+\end{equation}
+heißt \textbf{Euler-Charakteristik} der Fläche $\Sigma$. Dabei ist $V(T)$ die Anzahl der Ecken, $E(T)$ die Anzahl der Kanten und $F(T)$ die Anzahl der Dreiecke von $\Sigma$.
+\end{definition}
+\begin{satz}{Invarianz der Euler-Charakteristik}{eulercharakinvarianz}
+Die Euler-Charakteristik ist unabhängig von der Wahl der Triangulierung.
+\end{satz}
+\begin{satz}{Existenz von Triangulierungen}{existtriang}
+Jede geschlossene, glatte Fläche besitzt Triangulierungen.
+\end{satz}
+\begin{beispiel}
+Für die Sphäre $\sph^2$, trianguliert durch drei Großkreise, gilt
+\begin{equation}
+\chi (\sph^2) = 4-6+4 = 2.
+\end{equation}
+\end{beispiel}
+\begin{satz}{Geodätische Krümmung}{geodaetischekruemmung}
+Sei $\Sigma$ eine Fläche und $g$ eine Riemannsche Metrik. Sei weiterhin $\gamma: [0,b] \to \Sigma$ eine glatte Kurve mit $\| \dot{\gamma} (t)\|_g = 1$. Dann existiert ein eindeutiges Vektorfeld $N$ entlang $\gamma$, sodass $\dot{\gamma}(t)$ und $N_t$ in jedem Punkt $\gamma(t) \in \Sigma$ eine ONB von $T_{\gamma(0)}\Sigma$ bilden. Außerdem gilt dann
+\begin{equation}
+\nabla_\frac{d}{dt} \dot{\gamma} = \underbrace{g(\nabla_\frac{d}{dt} \dot{\gamma}, \dot{\gamma})}_{\frac{1}{2} \frac{d}{dt} g(\dot{\gamma}, \dot{\gamma}) = 0}\cdot \dot{\gamma} + \underbrace{g (\nabla_\frac{d}{dt} \dot{\gamma}, N)}_{=: \kappa_\gamma} \cdot N
+\end{equation}
+mit der \textbf{geodätischen Krümmung} $\kappa_\gamma$ von $\gamma$.
+\end{satz}
+
+\begin{bemerkungen}
+\begin{enumerate}
+\item Es gilt $\kappa_\gamma = 0$ $\iff$ $\gamma$ ist Geodätische.
+\item Für $\dot{\hat{\gamma}} = \gamma(b-t)$ gilt
+\begin{align}
+\dot{\hat{\gamma}} (t) &= - \dot{\gamma} (b-t)\\
+\hat{N}_t &= -N_{b-t}\\
+\left( \nabla_\frac{d}{dt} \dot{\hat{\gamma}}\right)_t &= \left( \nabla_\frac{d}{dt} \dot{\gamma} \right)_{b-t}.
+\end{align}
+Also folgt $\kappa_{\hat{\gamma}}(t)=-\kappa_\gamma(b-t)$.
+\end{enumerate}
+\end{bemerkungen}
+\begin{theorem}{Totalkrümmungsformel}{totalkruemmungsformel}
+Ist $U\sub (\Sigma, g)$ das Bild einer glatten Einbettung $\Dbar \hookrightarrow \Sigma$ einer Kreisscheibe, so gilt
+\begin{equation}
+\sum_U K \mu_g + \int_{\partial U} \kappa_{\partial U} = 2 \pi.
+\end{equation}
+\end{theorem}
+\begin{beweis}
+Wir wählen uns Vektorfelder $X_1$ und $X_2$, die in jedem Punkt $x \in U$ eine positiv orientierte ONB von $T_x \Sigma$ bilden. Nun definieren wir $\omega \in \Omega^1(U)$ als
+\begin{equation}
+\omega(Y):= g(X_1, \nabla_YX_2).
+\end{equation}
+\underline{Beh.:} \quad $d\omega = K \mu_{g|_U}$.\\
+\underline{Bew.:} \quad Wir beweisen $d\omega(X_1, X_2) = K$ als Funktion auf $U$. Dazu rechnen wir:
+\begin{align}
+d\omega (X_1, X_2) &= X_1 \omega (X_2) - X_2 \omega (X_1) - \omega( [X_1, X_2])\\
+&= X_1 g(X_1, \nabla_{X_2} X_2) - X_2 g(X_1, \nabla_{X_1}X_2) - g(X_1, \nabla_{[X_1, X_2]} X_2)\\
+&= g(\nabla_{X_1} X_1, \nabla_{X_2} X_2) + g(X_1, \nabla_{X_1}\nabla_{X_2} X_2) - g(\nabla_{X_2}X_1, \nabla_{X_1}X_2)-g(X_1, \nabla_{X_2}\nabla_{X_1}X_2) - g(X_1, \nabla_{[X_1, X_2]} X_2)\\
+&= g(X_1, R(X_1, X_2)X_2) = K.
+\end{align}
+Der erste und der dritte Term verschwinden, da 
+\begin{equation}
+g(\nabla_{X_i}X_j, X_j) = \frac{1}{2} X_i \| X_j \|^2_g = 0.
+\end{equation}
+Aus der Behauptung und dem Satz von Stokes erhalten wir 
+\begin{equation}
+\int_U K \mu_g = \int_U d\omega = \int_{\partial U} \omega.
+\end{equation}
+Um dieses Randintegral zu bestimmen, wählen wir eine Parametrisierung $\gamma: [0,l] \to \partial U$ mit $\| \dot{\gamma}(t) \| =1$. In jedem Punkt $\gamma (t)$ haben wir jetzt zwei positiv orientierte ONBs für $T_{\gamma(t)}\Sigma$: $\{ X_{1, \gamma(t)} X_{2, \gamma(t)} \}$ und $\{ \dot{\gamma} (t), N_t \}$.\\
+Sei $A: [0,l] \to \text{SO}(2)$ die Familie von Drehungen mit $A(\dot{\gamma}(t)) = X_{1, \gamma(t)}$ und $A(N_t) = X_{2, \gamma(t)}$. Wir wissen
+\begin{equation}
+A(t) = \mat{\cos \phi(t), -\sin \phi(t)}{\sin \phi(t), \cos \phi(t)}.
+\end{equation}
+Wir wollen $\int_{\partial U} \omega$ bestimmen, also 
+\begin{equation}
+\int_0^l \omega(\dot{\gamma}(t)) dt.
+\end{equation}
+Nun gilt
+\begin{align}
+\omega(\dot{\gamma}(t)) &= g(X_1, \nabla_\frac{d}{dt} X_2) = -g (\nabla_\frac{d}{dt} X_1, X_2) + \frac{d}{dt} \underbrace{g(X_1, X_2)}_{=0} \\
+&= -g(\nabla_\frac{d}{dt} A(t) \dot{\gamma}(t), A(t) N_t) = -g (\dot{A}(t) \dot{\gamma}(t), A(t) N_t) \underbrace{- g(A(t) \nabla_\frac{d}{dt} \dot{\gamma}, A(t) N_t)}_{= -g(\nabla_\frac{d}{dt} \dot{\gamma}, A(t) N_t) = - \kappa_\gamma}.
+\end{align}
+Die untere Gleichheit gilt, da $A(t)$ eine Isometrie darstellt. Weiterhin gilt
+\begin{equation}
+\dot{A}(t) = \mat{-\sin \phi(t), - \cos \phi(t)}{- \cos \phi(t), -\sin \phi(t)} \dot{\phi} (t),
+\end{equation}
+also folgt $\dot{A}(t) \dot{\gamma} (t) = A(t)N(t)\cdot \dot{\phi} (t)$ und somit
+\begin{equation}
+g(\dot{A}(t) \dot{\gamma}(t), A(t)N_t) = \dot{\phi}(t) \underbrace{g(A(t)N_t, A(t)N_t)}_{=1}.
+\end{equation}
+Insgesamt erhalten wir
+\begin{equation}
+\omega(\dot{\gamma}(t)) = - \dot{\phi}(t) - \kappa_\gamma \ (\ast).
+\end{equation}
+Daraus folgt
+\begin{equation}
+\int_{\partial U} \omega = \int_0^l \omega(\dot{\gamma}(t)) dt = - \int_0^l \dot{\phi} (t) dt - \int_0^l \kappa_\gamma dt.
+\end{equation}
+Der Umlaufsatz aus der Topologie sagt nun aber
+\begin{equation}
+\int_0^l \dot{\phi} (t) dt = - 2 \pi.
+\end{equation}
+Daraus folgt die Behauptung.
+\end{beweis}
+Der Satz von Gauß-Bonnet folgt aus:
+\begin{theorem}{Gauß-Formel}{gaussformel}
+Sei $\Sigma$ eine orientierte Fläche udn $g$ eine Riemannsche Metrik. Sei $D\sub \Sigma$ das Bild eines $n$-Ecks unter einer glatten Einbettung. Wir bezeichnen die Innenwinkel mit $\beta_i$. Dann gilt
+\begin{equation}
+\int_D K \mu_g + \int_{\partial D} \kappa_{\partial D} dt = 2 \pi- \Sum{i,1,n} (\pi - \beta_i) = (2-n) \pi + \Sum{i,1,n} \beta_i.
+\end{equation}
+\end{theorem}
+\begin{bemerkung}
+Für $n=3$ vereinfacht sich die rechte Seite zu 
+\begin{equation}
+\beta_1 + \beta_2 + \beta_3 - \pi.
+\end{equation}
+\end{bemerkung}
+\begin{beweis}
+Sei $D \sub \Sigma$ ein $n$-Eck wie im Satz. Für $\epsilon > 0$ klein verschieben wir jede der Kanten um jeweils Abstand $\epsilon$ in orthogonale Richtung nach außen und erhalten das vergrößerte Gebiet $U_\epsilon \supseteq D$. Die Randkurven seien mit $\gamma_i$ bezeichnet, die verschobenen Randkurven mit $\gamma_{i,\epsilon}$. Wir verbinden die Randpunkte mit Kreissegmenten. Die abgerundeten Ecken bezeichnen wir mit $\delta_{i, \epsilon}$. Aus der Behauptung wissen wir, dass
+\begin{equation}
+\int_{U_\epsilon} K \mu_g + \int_{\partial U_\epsilon} \kappa_{\partial U_\epsilon} = 2\pi
+\end{equation}
+und gehen über zu
+\begin{equation}
+\int_D K \mu_g + \lim_{\epsilon \to 0} \sum_i \int_{\gamma_{i,\epsilon}} dt + \lim_{\epsilon \to 0} \sum_i \int_{\delta_i} \kappa_{\delta_{i, \epsilon}} dt = 2 \pi.
+\end{equation}
+Nun gilt aber
+\begin{equation}
+\lim_{\epsilon \to 0} \sum_i \int_{\gamma_{i,\epsilon}} dt = \int_{\partial D} \kappa_{\partial D} dt
+\end{equation}
+und aus $\ast$ folgt
+\begin{equation}
+\int_{\delta_{i, \epsilon}} \kappa_{\delta_{i, \epsilon}} dt = \underbrace{- \int_{\delta_{i, \epsilon}} \dot{\phi}(t) dt}_{\pi - \beta_i} - \underbrace{\int_{\delta_{i, \epsilon}} \omega}_{\to 0}.
+\end{equation}
+\end{beweis}
+
+\begin{theorem}{Theorem von Gauß-Bonnet}{gaußbonnet}
+Sei $\Sigma$ eine geschlossene, orientierte Fläche und $g$ eine Riemannsche Metrik. Sei weiterhin $\mu_g \in \Omega^2(\Sigma)$ die Volumenform  und $K: \Sigma \to \R$ die Krümmung. Dann gilt
+\begin{equation}
+\int_\Sigma K \mu_g = 2 \pi \chi(\Sigma),
+\end{equation}
+wobei $\chi(\Sigma)$ die Euler-Charakteristik von $\Sigma$ ist.
+\end{theorem}
+\begin{beweis}
+\begin{align}
+\int_\Sigma K \mu_g &= \sum_{D_i \in T} \int_{D_i} K \mu_g = \sum_i \left(\Sum{j,1,3} \beta_{ij} - \pi \right) - \underbrace{\sum_i \int_{\partial D_i} \kappa_{\partial D}}_{=0, \ \text{da jede Karte in genau zwei Dreiecken vorkommt und die Ränder entgegengesetzt sind.}}\\
+&= V(T) \cdot 2 \pi - F(T) - \pi = 2\pi (V(T)- \underbrace{\frac{3}{2} F(T)}_{=E(T)} + F(T)) = 2\pi \chi(\Sigma).
+\end{align}
+\end{beweis}

@@ -1,0 +1,662 @@
+\section{Gruppen und Symmetrie}
+\label{gruppentheorie}
+
+\begin{bemerkung}
+Wir möchten Gruppentheorie zunächst motivieren: Man betrachte einen Tetraeder. Um dessen Symmetrien zu erfassen, könnten wir z.B. schauen, welche Bewegungen diesen in sich selbst überführen. Es gibt vier Rotationsachsen, die eine Ecke und eine Fläche durchdringen und bei Rotation um $120^\circ$ den Tetraeder in sich selbst überführen. Weiterhin gibt es drei $180^\circ$-Rotationsachsen mittig durch gegenüberliegende Kanten. Auch die Identität lässt den Tetraeder unverändert. Also gibt es $1+4 \cdot 2 + 3 = 12$ Symmetrien. Gruppen bieten eine Möglichkeit, solche Symmetrien und deren Verkettungen zu erfassen und zu untersuchen.
+\end{bemerkung}
+
+\subsection{Grundbegriffe}
+\label{subsec:grundbegriffe}
+
+\begin{definition}{Gruppe}{gruppe}
+Eine \textbf{Gruppe} ist ein Paar $(G, \circ)$, bestehend aus einer Menge\footnote{im ZFC-Axiomensystem} $G$ und einer Abbildung
+\begin{align}
+\circ: G \times G &\to G\\
+(g,h) &\mapsto g \circ h
+\end{align} 
+mit folgenden Eigenschaften:
+\begin{enumerate}[({G}1)]
+\item Für alle $g_1,g_2,g_3 \in G$ gilt das Assoziativgesetz: $(g_1 \circ g_2) \circ g_3 = g_1 \circ (g_2 \circ g_3)$.
+\item Es gibt ein Element $e \in G$, sodass gilt:
+\begin{enumerate}[({2}a)]
+\item Für jedes $g \in G$ gilt $e \circ g = g$.
+\item Für jedes $g \in G$ existiert ein $g' \in G$ mit $g' \circ g = e$.
+\end{enumerate}
+\end{enumerate}
+Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit den Eigenschaften aus (2G) heißt \textbf{neutrales Element}, und ein Element $g' \in G$ zu gegebenem $g \in G$ mit Eigenschaft (2b) heißt \textbf{Inverses} von $g$.
+\end{definition}
+
+\begin{bemerkung}Übungsaufgabe:\\
+Sei $(G, \circ)$ eine Gruppe. Dann gelte:
+\begin{enumerate}
+\item Das neutrale Element $e \in G$ ist eindeutig bestimmt, außerdem gelte $ \forall g \in G : g \circ e = g$.
+\item Zu gegebenem $g \in G$ ist das Inverse $g' \in G$ eindeutig bestimmt und erfüllt zudem $g \circ g' = e$.
+\item Für $n \geq 3$ hängt das Produkt von Gruppenelementen $g_1, g_2, \dots, g_n$ nicht von der Klammerung ab.
+\end{enumerate}
+\end{bemerkung}
+
+\begin{beispiele}
+Wir geben einige Beispiele für Gruppen:
+\begin{enumerate}
+\item Die Gruppe $(\Z, +)$ der ganzen Zahlen $\Z$ mit der Addition $+$.
+\item Für einen Körper $\K$ existiert die additive Gruppe $(\K, +)$ und die multiplikative Gruppe $(\K \exc \{0\}, \cdot)$.
+\item Für jede Menge $M$ existiert die \textbf{symmetrische Gruppe} $(\mathfrak{S}_M, \circ)$, wobei $\mathfrak{S}_M$ die Menge der bijektiven Selbstabbildungen von $M$ und $\circ$ die Komposition ist. Für $n \geq 1$ vereinbaren wir $\mathfrak{S}_n := \mathfrak{S}_{\{1,2,\dots,n\}}$. Wir vereinbaren als Konvention die \textbf{Zykelschreibweise}. In $\mathfrak{S}_3$ beispielsweise ist ein Zykel
+\begin{align}
+\sigma: \{1,2,3\} &\to \{1,2,3\}\\
+1 &\mapsto 2 \\
+2 &\mapsto 1 \\
+3 &\mapsto 3,
+\end{align}
+auch darstellbar als
+\begin{equation}
+\mat{1,2,3}{2,1,3}
+\end{equation}
+oder einfacher als $(12)$.
+\item Für $n \geq 1$ und einen Körper $\K$ ist die \textbf{allgemeine lineare Gruppe} $(\text{GL}(n,\K), \circ)$ definiert, wobei 
+\begin{equation}
+\text{GL}(n, \K) := \left\{ A \in \K^{n\times n} \, | \, \det A \neq 0 \right\}
+\end{equation}
+die Menge der invertierbaren $n \times n$-Matrizen mit Einträgen in $\K$ ist. Typische Beispiele für Körper sind $\K = \Q, \R, \C, \F_q$ mit $q = p^n$, $p$ prim.\\
+ÜA: $| \text{GL}(n, \F_q)| = ?$.
+\end{enumerate}
+\end{beispiele}
+\begin{bemerkung}
+Um den alltäglichen Gebrauch von Gruppen zu vereinfachen, machen wir folgende Vereinbarungen:
+\begin{enumerate}
+\item Wir bezeichnen $(G, \circ)$ üblicherweise einfach mit $G$ und lassen $\circ$ implizit.
+\item Für $g,h \in G$ schreiben wir $gh = g \circ h$, für $e \in G$ schreiben wir $1$ und für $g'$ schlicht $g^{-1}$.
+\item Gilt $g \circ h = h \circ g$ für alle $g,h \in G$, so heißt $G$ \textbf{abelsch}. In diesem Fall wird die Verknüpfung oft mit $+$, das neutrale Element mit $0$ und das inverse Element mit $-g$ bezeichnet.
+\item Gemäß obiger ÜA zur Klammerung schreiben wir einfach $g_1 g_2 \cdots g_n \in G$ ohne Klammerung.
+\end{enumerate}
+\end{bemerkung}
+\begin{definition}{Ordnung}{ordnung}
+Für eine Gruppe $G$ bezeichnen wir die Kardinalität \begin{equation}
+|G| \in \N \cup \{+\infty \}
+\end{equation}
+als \textbf{Ordnung} von $G$.
+\end{definition}
+
+\subsection{Untergruppen}
+\label{subsec:untergruppen}
+\begin{definition}{Untergruppe}{untergruppe}
+Sei $(G, \circ)$ eine Gruppe. Eine Teilmenge $H \sub G$ heißt \textbf{Untergruppe}, falls gilt:
+\begin{enumerate}[({U}1)]
+\item $H \neq \emptyset$
+\item Abgeschlossenheit: Für alle $a, b \in H$ gilt $ab^{-1} \in H$.
+\end{enumerate}
+Wir verwenden dann die Notation $H \leq G$, um Untergruppen zu kennzeichnen.
+\end{definition}
+
+\begin{bemerkung} Übungsaufgabe:
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt:
+\begin{enumerate}
+\item Aus Eigenschaft 1:Da $H \neq \emptyset$, existiert ein $a \in H$.
+\item Aus Eigenschaft 2: $a \cdot a^{-1} = e \in H$.
+\item Aus Eigenschaft 2: Für jedes $a \in H$ gilt $a^{-1} = e \cdot a^{-1} \in H$.
+\item Aus Eigenschaft 2: Für jedes $a,b \in H$ gilt $ab = a \cdot (b^{-1})^{-1} \in H$.
+\end{enumerate}
+Also: $H \sub G$ ist eine Untergruppe genau dann, wenn folgende alternativen Eigenschaften gelten:
+\begin{enumerate}[1.{$^\ast $}]
+\item $e_G \in H$
+\item Für alle $a,b \in H$ muss $a \cdot b \in H$ gelten.
+\item Für alle $a \in H$ ist $a^{-1} \in H$.
+\end{enumerate}
+Die andere Richtung der Äquivalenz ist trivial. Daraus folgt auch, dass $(H, \circ|_{H \times H})$ mit der auf $H$ eingeschränkten Verknüpfung $\circ|_{H \times H}$ eine Gruppe ist. 
+\end{bemerkung}
+\begin{beispiele}
+Einige Beispiele für Untergruppen sind:
+\begin{enumerate}
+\item $(G, \circ) = (\R, +)$ hat $(\Z, +)$ als Untergruppe mit $\Z \sub \R$.
+\item Sei $n \geq 1$ und $\K$ ein Körper. Die \textbf{spezielle lineare Gruppe}
+\begin{equation}
+\text{SL} (n, \K) := \left\{ A \in \text{GL}(n, \K) \, | \, \det A = 1\right\} \leq \text{GL}(n, \K)
+\end{equation}
+ist eine Untergruppe von $\text{GL}(n,\K)$.
+\item Für $n \geq$ und einen Körper $\K$ ist die \textbf{orthogonale Gruppe}
+\begin{equation}
+\text{O}(n, \K) := \left\{ A \in \text{GL}(n, \K) \, | \, A^TA = I_n \right\} \leq \text{GL}(n, \K)
+\end{equation}
+definiert, die auch eine Untergruppe von $\text{GL}(n, \K)$ ist.
+\item Seien $H_1, H_2 \leq G$ Untergruppen. Dann ist $H_1 \cap H_2 \leq G$ auch eine Untergruppe. So kann z.B. die \textbf{spezielle orthogonale Gruppe}
+\begin{equation}
+\text{SO}(n, \K) := \text{O}(n, \K) \cap \text{SL}(n, \K)
+\end{equation}
+als Untergruppe von $\text{GL}(n, \K)$ konstruiert werden.
+\item Etwas allgemeiner: Für jede Familie $\{H_i\}_{i\in I}$ von Untergruppen $H_i \leq G$ gilt, dass
+\begin{equation}
+\bigcap_{i \in I} H_i \leq G
+\end{equation}
+wieder eine Untergruppe ist.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Erzeugte Untergruppe}{}
+Sei $G$ eine Gruppe und $M \sub G$ eine beliebige Teilmenge. Dann heißt die \textbf{Untergruppe}
+\begin{equation}
+\langle M \rangle := \bigcup_{M \sub H \leq G} H \leq G
+\end{equation}
+die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$. Falls $M = \{g\} \leq G$ eine einelementige Menge ist, schreiben wir \begin{equation}
+\langle g \rangle := \langle \{g\} \rangle \leq G.
+\end{equation}
+\end{definition}
+\begin{definition}{Ordnung eines Elements}{ordnungelement}
+Sei $G$ eine Gruppe und $g \in G$ ein Element. Dann heißt die Kardinalität 
+\begin{equation}
+\text{ord}(g) := | \langle g \rangle | \in \N \cup \{\infty \}
+\end{equation}
+die \textbf{Ordnung von} $g$ und $\langle g \rangle$ \textbf{zyklisch} der Ordnung $\ord (g)$.
+\end{definition}
+\begin{satz}{Charakterisierung von einelementigen Untergruppen}{charakterisierungeinelementig}
+Sei $G$ eine Gruppe und $g \in G$ ein Element.
+\begin{enumerate}
+\item Falls $\ord (g) < \infty$, dann gilt \begin{equation}
+\ord (g) = \min \{k \geq 1 | g^k= 1\}
+\end{equation}
+und \begin{equation}
+\langle g \rangle = \{1, g, g^2, \dots, g^{n-1} \},
+\end{equation}
+wobei $n := \ord (g)$.
+\item Falls $\ord (g) = \infty$, dann gilt
+\begin{equation}
+\langle g \rangle = \{g^i | i \in \Z \} = \{ \dots, g^{-2}, g^{-1}, 1, g^1, g^2, \dots \},
+\end{equation}
+wobei die Potenzen $g^i$, $i \in \Z$ paarweise verschiedene Elemente in $G$ sind.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Zunächst gilt für beliebiges $g \in G$ das Folgende:
+\begin{equation}
+\langle g \rangle = \{ \dots,g^{-2},g^{-1},1, g, g^2, \dots \} = \{g^i | i \in \Z\},
+\end{equation}
+wobei die Potenzen im Allgemeinen nicht notwendigerweise paarweise verschieden sind.
+Dies folgt, da, damit $\langle g \rangle$ eine Untergruppe sein kann, zunächst das neutrale Element $1 = g^0$ und $g$ selbst enthalten sein muss. Dann muss aber auch die Selbstverknüpfung und das Inverse (sowie dessen Selbstverknüpfungen) enthalten sein.
+\begin{enumerate}
+\item Sei $\ord (g) < \infty$. Dann gibt es insbesondere $i,j \in \Z$ mit $i \neq j$ und $g^i = g^j$. O.B.d.A. sei $i > j$. Dann ist also $k = i-j \geq 1$ eine natürliche Zahl, für die gilt: $g^k = 1$. Nach dem Wohlordnungssatz existiert eine \textit{kleinste} natürliche Zahl $n \geq 1$, für die gilt: $g^n =1$. Sei nun $m \in \Z$. Dann gitb es eindeutig bestimmte Zahlen $a \in \Z$ und $0 \leq r < n$, sodass \begin{equation}
+m = an +r.
+\end{equation}
+Damit folgt
+\begin{equation}
+g^m = g^{an+r} = (\underbrace{g^n}_{=1})^a \cdot g^r = g^r.
+\end{equation}
+Dies impliziert $\langle g \rangle = \{1,g,g^2,\dots, g^{n-1}\}$. Wir müssen noch zeigen, dass $1, g, \dots, g^{n-1}$ paarweise verschieden sind. Dies folgt allerdings direkt aus der Tatsache, dass $n$ minimal ist.
+\item Das obige Argument zeigt per Kontraposition auch 2., denn wenn die Potenzen $g^i$, $i \in \Z$ nicht paarweise verschieden sind, dann zeigt obiges Argument, dass $\langle g \rangle = \{1,g,\dots, g^{n-1}\}$ für $n \in \N$, was ein Widerspruch zur Annahme $\ord (g) = \infty$ ist.
+\end{enumerate}
+\end{beweis}
+\subsection{Homomorphismen}
+\label{subsec:homomorphismen}
+\begin{definition}{Homomorphismus}{homomorphismus}
+Seien $G$ und $G'$ Gruppen. Eine Abbildung 
+\begin{equation}
+\phi: G \to G'
+\end{equation}
+heißt \textbf{(Gruppen-)Homomorphismus}, falls gilt:
+\begin{enumerate}[({H}1)]
+\item Für alle $g,h \in G$ gilt 
+\begin{equation}
+\phi(gh) = \phi(g) \cdot \phi(h).
+\end{equation}
+Die Menge der Homomorphismen von $G$ nach $G'$ wird mit $\Hom (G, G')$ bezeichnet.
+\end{enumerate}
+\end{definition}
+\begin{bemerkung}
+Jeder Homomorphismus erfüllt außerdem folgende Eigenschaften, die aus Definition \ref{homomorphismus} folgen:
+\begin{enumerate}[({H}1)]
+\setcounter{enumi}{1}
+\item $\phi (1_G) = 1_{G'}$
+\item Für alle $g \in G$ gilt $\phi (g^{-1}) = \phi (g)^{-1}$.
+\end{enumerate}
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Die \textbf{Einbettung} $\phi: H \hookrightarrow G$ einer Untergruppe $H \leq G$ ist ein Homomorphismus.
+\item Die \textbf{Determinantenabbildung}
+\begin{equation}
+\det: \text{GL} (n, \K) \to (\K \exc \{0\}, \cdot)
+\end{equation}
+ist ein Homomorphismus.
+\item Für $n \geq 1$ und einen Körper $\K$ ist die Permutationsabbildung
+\begin{align}
+P: \mathfrak{S}_n &\to \text{GL}(n, \K) \\
+\sigma &\mapsto P_\sigma,
+\end{align}
+mit der \textbf{Permutation}
+\begin{equation}
+(P_\sigma)_{ij} := \begin{cases} 1 \, \text{falls} \, i = \sigma(j)\\0 \, \text{sonst} \end{cases}
+\end{equation}
+ein Homomorphismus. \textit{Der Beweis sei dem Leser überlassen.}
+Für $\sigma = (123) \in \mathfrak{S}_3$ gilt z.B. 
+\begin{equation}
+P_\sigma = \mat{0,0,1}{1,0,0}{0,1,0}.
+\end{equation}
+\item Sei $G$ eine Gruppe und $g \in G$. Dann ist 
+\begin{align}
+\gamma_g: G &\to G \\
+h &\mapsto ghg^{-1}
+\end{align}
+ein Homomorphismus, genannt \textbf{Konjugation mit} $g$.
+\item Sei $G$ eine Gruppe und $g \in G$. Dann ist 
+\begin{align}
+\Z &\to G \\
+i &\mapsto g^i
+\end{align}
+ein Homomorphismus von $(\Z, +)$ nach $(G, \circ)$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Isomorphismus}{isomorphismus}
+Sei $\phi$ ein Gruppenhomomorphismus, der zusätzlich bijektiv ist. Dann heißt $\phi$ \textbf{Isomorphismus}. Zwei Gruppen $G$ und $G'$ heißen \textbf{isomorph}, in Zeichen $G \cong G'$, falls es einen Isomorphismus zwischen ihnen gibt.
+\end{definition}
+\begin{bemerkung}
+Anschaulich bedeutet das, dass zwei isomorphe Gruppen identisch bis auf Umbenennung ihrer Elemente sind.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Die Permutationsabbildung $P$ induziert einen Isomorphismus
+\begin{align}
+P: \mathfrak{S}_n &\to P(n, \K)\\
+\sigma &\mapsto P_\sigma
+\end{align}
+zwischen der symmetrischen Gruppe und der Untergruppe der Permuationsmatrizen. Letztere sind Matrizen, die in jeder Zeile und Spalte \textit{genau eine} $1$ und sonst $0$ haben. \textit{Der Beweis sei dem Leser überlassen.}
+\item Die \textbf{Exponentialfunktion}
+\begin{equation}
+\exp: (\R, +) \to (\R_{> 0}, \cdot)
+\end{equation}
+und ihre Umkehrfunktion, gegeben durch den \textbf{Logarithmus}
+\begin{equation}
+\ln: (\R_{>0}, \cdot) \to (\R, +),
+\end{equation}
+bilden einen Isomorphismus, also gilt $(\R, +) \cong (\R_{>0}, \cdot)$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Bild und Kern}{bildkern}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann heißt die Teilmenge
+\begin{equation}
+\im (\phi) := \{g' \in G' | \exists g \in G: \phi(g) = g'\} \leq G',
+\end{equation}
+das \textbf{Bild von} $\phi$ und die Teilmenge
+\begin{equation}
+\ker (\phi) := \{g \in G|\phi(g) = 1_{G'} \} \leq G,
+\end{equation}
+der \textbf{Kern von} $\phi$.
+\end{definition}
+\begin{satz}{Bild und Kern sind Untergruppen}{bildkernuntergruppe}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann sind $\im (\phi) \leq G'$ und $\ker (\phi) \leq G$ Untergruppen der jeweiligen Gruppen $G$ und $G'$.
+\end{satz}
+\begin{beweis}
+Nachrechnen mittels (H1), (H2) und (H3), exemplarisch für den Kern gezeigt:
+\begin{enumerate}
+\item (U1) ist erfüllt, da $1_G \in \ker (\phi)$ wegen (H2) gilt.
+\item (U2) kann nachgerechnet werden. Seien dafür $g,h \in \ker (\phi)$:
+\begin{equation}
+\phi(gh^{-1}) =^{\text{(H1)}} \phi(g) \cdot \phi(h^{-1}) =^{\text{(H3)}} \phi(g) \cdot \phi(h)^{-1} = 1_{G'},
+\end{equation}
+also $gh^{-1} \in \ker (\phi)$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{}{}
+Für einen Homomorphismus $\phi: G \to G'$ sind folgende Aussagen äquivalent:
+\begin{enumerate}[(i)]
+\item $\phi$ ist injektiv.
+\item $\ker (\phi) = \{1\}$
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(i) $\implies$ (ii) ist offensichtlich. Wir zeigen noch (ii) $\implies$ (i):
+Sei also $\ker (\phi) = \{1\}$ und $g,h \in G$ mit $\phi(g) = \phi(h)$. Dann gilt $\phi(gh^{-1})=\phi(g)\phi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\phi) = \{1\}$ und damit $g = h$.
+\end{beweis}
+\begin{definition}{Links- und Rechtsnebenklassen}{linksrechtsnebenklasse}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppen. Dann ist die \textbf{Linksnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+\begin{equation}
+gH := \{gh \, | \, h \in H\}
+\end{equation}
+und die \textbf{Rechtsnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+\begin{equation}
+Hg := \{hg \, | \, h \in H \}
+\end{equation}
+definiert.
+\end{definition}
+\begin{satz}{Nebenklassen sind Äquivalenzklassen}{nebenklassenäquivalenzrel}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt:
+\begin{enumerate}
+\item Die Linksnebenklassen sind die Äquivalenzklassen bezüglich der Äquivalenzrelation
+\begin{equation}
+a \sim_L b :\iff b^{-1}a \in H
+\end{equation}
+auf $G$.
+\item Die Rechtsnebenklassen sind die Äquivalenzklassen bezüglich der analogen Äquivalenzrelation
+\begin{equation}
+a \sim_R b : \iff ab^{-1} \in H.
+\end{equation}
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Dem Leser als Übung überlassen. Es ist insbesondere auch zu zeigen, dass $\sim$ tatsächlich eine Äquivalenzrelation definiert.
+\end{beweis}
+Damit bezeichnen wir die Menge der Linksnebenklassen von $H$ mit $\quotient{G}{H} = \quotient{G}{\sim_L}$ und die der Rechtsnebenklassen mit $\invquotient{G}{H} = \quotient{G}{\sim_R}$.
+\begin{definition}{Index}{index}
+Die Kardinalität
+\begin{equation}
+(G : H) := \left| \quotient{G}{H} \right| \in \N \cup \{\infty\}
+\end{equation}
+heißt \textbf{Index von} $H$ \textbf{in} $G$.
+\end{definition}
+Man beachte, dass $\left| \quotient{H}{G} \right| = \left| \invquotient{H}{G} \right|$ gilt, da die Abbildung \textcolor{red}{Tafel nicht hochgeschoben...}.
+\begin{theorem}{Satz von Lagrange}{satzvonlagrange}
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt 
+\begin{equation}
+|G| = (G : H) \cdot |H|.
+\end{equation}
+Ist $|G| < \infty$, so gilt insbesonders
+\begin{equation}
+(G : H) = \frac{|G|}{|H|} = \left| \quotient{G}{H} \right|.
+\end{equation}
+\end{theorem}
+\begin{beweis}
+Dies ist ein direktes Korollar von Satz \ref{nebenklassenäquivalenzrel}: Als Äquivalenzklassen bzgl. einer Äquivalenzrelation bilden die Linksklassen eine Partition von $G$, also 
+\begin{equation}
+G = \bigsqcup_{gH \in \quotient{G}{H}} gH.
+\end{equation}
+Es gilt zudem für alle $g \in G$, dass $|gH| = |H|$, da Linksmultiplikation mit $g$, definiert durch 
+\begin{align}
+G &\to G\\
+x &\mapsto gx,
+\end{align}
+bijektiv ist, also eine Bijektion $H \to gH$ induziert. Insbesondere gilt für jedes $g \in G$, dass $\ord (g) \mid |G|$.
+\end{beweis}
+\begin{definition}{Normalteiler}{normalteiler}
+Eine Untergruppe $N \leq G$ heißt \textbf{normal} oder \textbf{Normalteiler}, falls für alle $g \in G$ 
+\begin{equation}
+gN = Ng
+\end{equation}
+gilt. Wir schreiben dafür $N \trianglelefteq G$.
+\end{definition}
+\begin{bemerkung}
+Eine Untergruppe $N \leq G$ ist normal genau dann, wenn für alle $g \in G$ und $n \in N$ gilt:
+\begin{equation}
+gng^{-1} \in N,
+\end{equation}
+also $N$ abgeschlossen unter Konjugation mit beliebigen Elementen aus $G$ ist.
+\end{bemerkung}
+\begin{satz}{}{}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann gilt $\ker (\phi) \trianglelefteq G$.
+\end{satz}
+\begin{beweis}
+Sei $g \in G$ und $x \in \ker (\phi)$, also $\phi (x) = 1$. Dann gilt auch 
+\begin{equation}
+\phi (gxg^{-1}) = \phi(g)\underbrace{\phi(x)}_{=1}\phi(g^{-1}) = \phi(g)\phi(g)^{-1} = 1.
+\end{equation}
+\end{beweis}
+\begin{beispiele}
+Wir betrachteten einige Beispiele für Normalteiler:
+\begin{enumerate}
+\item Sei $n \geq 1$ und $\K$ ein Körper. Für 
+\begin{equation}
+\det: \text{GL}(n,\K) \to \K^\ast
+\end{equation}
+gilt
+\begin{equation}
+\ker (\det) = \text{SL}(n, \K) \trianglelefteq \text{GL}(n,\K).
+\end{equation}
+\item Betrachte für $n \geq 1$ die Komposition
+\begin{center}
+\begin{tikzcd}
+    \mathfrak{S}_n \arrow[r,"P"] & P(n, \Q) \arrow[r, "\det"] & \{+1, -1\}.
+\end{tikzcd}
+\end{center}
+Also ist 
+\begin{equation}
+A_n := \ker (\sgn) \trianglelefteq \mathfrak{S}_n
+\end{equation}
+normal. $A_n$ heißt \textbf{alternierende Gruppe}.
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Gruppenstuktur auf Nebenklassen}{nebenklassengruppen}
+Sei $G$ eine Gruppe und $N \trianglelefteq G$. Dann gilt:
+\begin{enumerate}
+\item Auf der Menge $\quotient{G}{N}$ von Nebenklassen von $N$ existiert eine Gruppenstruktur mit Verknüpfung
+\begin{align}
+\quotient{G}{N} \times \quotient{G}{N} &\to \quotient{G}{N} \\
+(aN, bN) &\mapsto abN.
+\end{align}
+\item Die Quotientenabbildung
+\begin{align}
+\pi: G &\to \quotient{G}{N}\\
+a &\mapsto aN
+\end{align}
+ist ein Gruppenhomomorphismus mit $\ker (\pi) = N$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Zunächst muss die Wohldefiniertheit der Verknüpfung bewiesen werden. Seien $\tila \in aN$ und $\tilb \in bN$ Vertreter der Nebenklassen $aN$ und $bN$ $(\iff \tila N = aN)$. Dann existieren $m,n \in N$ mit $\tilb = am$ und $\tilb = bn$. Nun gilt
+\begin{equation}
+\tila \cdot \tilb = am \cdot bn = ab \cdot \underbrace{b^{-1} mb}_{N \trianglelefteq G \implies \in N} n \in N,
+\end{equation}
+also ist der Ausdruck wohldefiniert.
+\begin{enumerate}[({G}1)]
+\item Seien $aN, bN, cN \in \quotient{G}{N}$. Dann gilt
+\begin{equation}
+(aN \cdot bN) \cdot cN =^{\text{(G1) für G}} (ab)cN = a(bc)N = aN(bN \cdot cN).
+\end{equation}
+\item Neutrales Element: $1 \cdot N = N$
+\item Inverses Element: $(aN)^{-1} = a^{-1} N$
+\end{enumerate}
+\item Es gilt 
+\begin{equation}
+\pi (ab)  = (ab)N = (aN)(bN)=\pi(a)\pi(b)
+\end{equation}
+nach Definition von $\pi$, also ist $\pi$ ein Homomorphismus. Darüber hinaus gilt
+\begin{equation}
+a \in \ker (\pi) \iff \pi(a) = 1_{\quotient{G}{H}} = N \iff aN = N \iff a \in N,
+\end{equation}
+also gilt $\ker (\pi) = N$.
+\end{enumerate}
+\end{beweis}
+\begin{satz}{Homomorphiesatz (erster Isomorphiesatz)}{homomorphiesatz}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
+\begin{align}
+\overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
+g \ker (\phi) &\mapsto \phi(g).
+\end{align}
+\end{satz}
+\begin{beweis}
+Zunächst ist Wohldefiniertheit zu zeigen. Für $\tilg \in gN$, also $\tilg = gn$ für $n \in \ker (\phi)$, gilt:
+\begin{equation}
+\phi( \tilg) = \phi(gn) = \phi(g)\underbrace{\phi(n)}_{=1} = \phi(g),
+\end{equation}
+also ist die Abbildung wohldefiniert.\\
+Die Surjektivität von $\overline{\phi}$ ist trivial. Wir wissen, dass $\overline{\phi}$ genau dann injektiv ist, wenn $\ker (\overline{\phi}) = \{1_{\quotient{G}{\ker (\phi) }}\} = \ker (\phi)$. Wir rechnen nach:
+\begin{equation}
+g \ker (\phi) \in \ker (\overline{\phi}) \iff \phi(g) = 1_{G'} \iff g \in \ker (\phi) \iff g \ker (\phi) = \ker (\phi)
+\end{equation}
+\end{beweis}
+\begin{beispiel}
+Wir können die Vorzeichenfunktion 
+\begin{equation}
+\sgn: \mathfrak{S}_n \to \{\pm 1\}
+\end{equation}
+betrachten, dann ist $\ker{\sgn} = A_n \trianglelefteq \Sf_n$, also erhalten wir einen Isomorphismus 
+\begin{equation}
+\quotient{\Sf_n}{A_n} \to \{ \pm 1\}.
+\end{equation}
+Insbesondere gilt $\Sf_n : A_n = 2$.
+\end{beispiel}
+\begin{satz}{Korollar aus Satz \ref{homomorphiesatz}}{korollarhomosatz}
+Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\phi$ schreiben als
+\begin{equation}
+\phi = \iota \circ \overline{\phi} \circ \pi,
+\end{equation}
+wobei:
+\begin{enumerate}
+\item $\pi:G \to \quotient{G}{\ker (\phi)}$ der surjektive Quotientenkern ist.
+\item $\overline{\phi}: \quotient{G}{\ker (\phi)} \to \im (\phi)$ der Isomorphismus aus \ref{homomorphiesatz} ist.
+\item $\iota: \im (\phi) \hookrightarrow G'$ die injektive Einbettung von $\im (\phi) \leq G'$ ist.
+\end{enumerate}
+Das ist äquivalent dazu, dass folgendes Diagramm kommutiert:
+\begin{center}
+\begin{tikzcd}
+    G \arrow[r,"\phi"] \arrow[d, twoheadrightarrow, "\pi"] & G' \\
+    \quotient{G}{\ker (\phi)} \arrow[r, "\cong", "\overline{\phi}"'] & \im (\phi) \arrow[u, hook, "\iota"]
+\end{tikzcd}
+\end{center}
+ausgedrückt in Elementen:
+\begin{center}
+\begin{tikzcd}
+    g \arrow[r, mapsto] \arrow[d, mapsto] & \phi(g) \\
+    g \ker (\phi) \arrow[r, mapsto] & \phi (g) \arrow[u, mapsto]
+\end{tikzcd}
+\end{center}
+\end{satz}
+\begin{beispiele}
+\begin{enumerate}
+\item Für $n \geq 1$ und einen Körper $\K$ induziert der Homomorphismus
+\begin{equation}
+\det: \text{GL}(n,\K) \to \K^\ast
+\end{equation}
+einen Isomorphismus
+\begin{equation}
+\quotient{\text{GL}(n,\K)}{\text{SL}(n, \K)} \to \K^\ast.
+\end{equation}
+\item Ein weiterer induzierter Isomorphismus ist
+\begin{equation}
+\overline{\sgn}: \quotient{\Sf_n}{A_n} \to \{\pm 1\}.
+\end{equation}
+\item Sei $G$ eine Gruppe mit $g \in G$. Betrachte den Homomorphismus
+\begin{equation}
+\phi: (\Z, +) \to G, i \mapsto g^i.
+\end{equation}
+\begin{enumerate}[(a)]
+\item Falls $\ord (g) = \infty$, gilt $\ker (\phi) = \{0\}$ und $\phi$ induziert einen Isomorphismus
+\begin{center}
+\begin{tikzcd}
+    \Z \arrow[r,"\pi", "\cong"'] \arrow[rr, "\phi", bend right] & \quotient{\Z}{\{0\}} \arrow[r, "\overline{\phi}", "\cong"'] & \langle g \rangle 
+\end{tikzcd}
+\end{center}
+\item Falls $\ord (g) =N < \infty$, dann gilt
+\begin{equation}
+\ker (\phi) = N \cdot \Z
+\end{equation}
+und $\phi$ induziert einen Isomorphismus
+\begin{center}
+\begin{tikzcd}
+\overline{\phi}: \quotient{\Z}{N\Z} \arrow[r, "\cong"]& \langle g \rangle.
+\end{tikzcd}
+\end{center}
+\end{enumerate}
+\end{enumerate}
+\end{beispiele}
+\subsection{Operation}
+\label{subsec:operation}
+\begin{definition}{Gruppenoperation}{operation}
+Eine \textbf{Operation} oder \textbf{Wirkung} einer Gruppe $G$ auf einer Menge $M$ ist eine Abbildung
+\begin{align}
+G \times M &\to M \\
+(g, x) &\mapsto g . x,
+\end{align}
+sodass gilt:
+\begin{enumerate}[({O}1)]
+\item Für alle $g,h \in G$ und $x \in M$ gilt: $g.(h.x) = (g \cdot h).x$.
+\item Für alle $x \in M$ gilt: $1.x=x$.
+\end{enumerate}
+Dann sagen wir, dass $G$ auf $M$ \textbf{operiert} und schreiben $G \acts M$.
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Jede Gruppe $G$ operiert auf sich selbst via
+\begin{enumerate}[(a)]
+\item \textbf{Linkstranslation}: $G \times G \to G$, $(g,h) \mapsto gh$ und
+\item \textbf{Rechtstranslation}: $G \times G \to G$, $(g,h) \mapsto hg^{-1}$, aber auch durch
+\item \textbf{Konjugation}: $G \times G \to G$, $(g,h) \mapsto ghg^{-1}$.
+\end{enumerate}
+\item Für jede Menge $M$ operiert die symmetrische Gruppe $\Sf_M$ auf $M$ via
+\begin{equation}
+\begin{split}
+\Sf_M \times M &\to M \\
+(\sigma, x) &\mapsto \sigma(x).
+\end{split}
+\end{equation}
+\item Für $n\geq 1$ und einen Körper $\K$ operiert die Gruppe $\text{GL}(n,\K)$ auf $\K^n$ via 
+\begin{equation}
+\begin{split}
+\text{GL}(n,\K) \times \K^n &\to \K^n\\
+(A,v) &\mapsto Av.
+\end{split}
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Äquivarianz}{aequivarianz}
+Für Operationen $G \acts M$ und $G \acts N$ heißt eine Abbildung (von Mengen) $f: M \to N$ $G$-\textbf{äquivariant}, falls für alle $g \in G$ und $x \in M$ gilt: 
+\begin{equation}
+f(g.x) = g.f(x).
+\end{equation}
+\end{definition}
+\begin{definition}{Bahnen}{bahnen}
+Sei $G \acts M$ eine Operation von $G$ auf $M$. Die Relation
+\begin{equation}
+x \sim_G g : \iff \exists g \in G: g.x = g
+\end{equation}
+definiert eine Äquivalenzrelation auf $M$. Die Äquivalenzklassen sind die Mengen der Form
+\begin{equation}
+G.x := \{g.x | g \in G\}
+\end{equation}
+für $x \in M$, die \textbf{Bahnen} von $x$ unter $G \acts M$ genannt werden. Die Quotientenmenge 
+\begin{equation}
+\invquotient{M}{G} := \quotient{M}{\sim_G}
+\end{equation}
+heißt \textbf{Bahnenraum von} $G \acts M$.
+\end{definition}
+\begin{beweis}
+\textit{Das Nachweisen der Relationseigenschaften der Äquivalenzrelation ist dem Leser überlassen.}
+\end{beweis}
+\begin{beispiel}
+Betrachte die Rotationsgruppe
+\begin{equation}
+G = \text{SO}(2, \R) := \text{SL}(2,\R) \cap O(2, \R) = \left\{ \left. \mat{\cos \phi, - \sin \phi}{\sin \phi, \cos \phi} \, \right| \, \phi \in \quotient{\R}{2\pi \Z}   \right\} \leq \text{GL}(2,\R).
+\end{equation}
+Wir erhalten Operationen 
+\begin{equation}
+\begin{split}
+\text{SO}(2,\R) \times \R^2 &\to \R^2\\
+(A,v) &\mapsto Av,
+\end{split}
+\end{equation}
+deren Bahnen konzentrische Kreise im $\R^2$ sind. Dadurch wird eine Partition von $\R^2$ erreicht.
+\end{beispiel}
+\begin{definition}{Stabilisator, Fixpunkte und Transitivität}{stabilisator}
+Sei $G \acts M$ eine Operation. 
+\begin{enumerate}[(i)]
+\item Für $x \in M$ heißt die Untergruppe
+\begin{equation}
+G_x := \{g \in G | g.x =x\} \leq G
+\end{equation}
+der \textbf{Stabilisator von} $x$.
+\item Ein Punkt $x \in M$ heißt \textbf{Fixpunkt von} $G \acts M$, falls $G_x = G$. Die Menge aller Fixpunkte wird mit 
+\begin{equation}
+M^G \sub M
+\end{equation}
+bezeichnet.
+\item Die Operation $G \acts M$ heißt \textbf{transitiv}, falls für jedes $x \in M$ gilt, dass $G.x = M$ ist, also genau eine Bahn existiert.
+\end{enumerate}
+\end{definition}
+\begin{beispiel}
+Bleiben wir bei vorigem Beispiel, so hat ein Vektor $v \neq (0,0)$ nur die Identität $\id$ als Stabilisator. Der Nullvektor wird hingegen von ganz $\text{SO}(2,\R)$ stabilisiert. Es scheint einen Zusammenhang zwischen der Größe des Stabilisators und der Bahn zu geben.
+\end{beispiel}
+\begin{satz}{Bahnformel}{bahnformel}
+Sei $G\acts M$ eine Operation auf $M$ und $x \in M$. Dann definiert 
+\begin{equation}
+\begin{split}
+\quotient{G}{G_x} &\to G.x\\
+gG_x &\mapsto  g.x
+\end{split}
+\end{equation}
+eine bijektive, $G$-äquivariante Abbildung, wobei $G \acts G.x$ durch Einschränkung von $G\acts M$ gegeben ist. Insbesondere gilt die \textbf{Bahnformel}
+\begin{equation}
+|G.x| = (G : G_x).
+\end{equation}
+Eine Wirkung $G \acts \quotient{G}{G_x} = \{gG_x|g \in G\}$ erhält man durch $g' . gG_x:= g'g.G_x$.
+\end{satz}
+\begin{beweis}
+Die Abbildung ist wohldefiniert: Sei $g \in G$ und $h \in G_x$, dann gilt
+\begin{equation}
+(gh).x = g.(h.x) = g.x.
+\end{equation}
+Weiterhin ist die Abbilung injektiv, denn falls $g_1.x = g_2.x$, so ist $(g_1^{-1}).g_2.x = x$, also ist $(g_1^{-1}).g_2 \in G_x$, also $g_1G_x = g_2G_x$. Surjektivität ist per Konstruktion durch Einschränkung auf die Bahn gegeben.
+\end{beweis}
