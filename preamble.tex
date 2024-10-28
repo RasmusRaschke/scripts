@@ -5,7 +5,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{mathabx}
 \usepackage{mathtools} % Wraparound amsmath. For fancy math typesetting
 \usepackage[nointegrals]{wasysym} % nointegrals prevents wasysym from overwriting integral symbols from LaTeX and amsmath
 \usepackage{bbm} % For extended bold and blackboard bold characters
@@ -25,8 +24,7 @@
     linkcolor=blue,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
+    pdftitle={script},
     }
 
 \urlstyle{same}
@@ -62,7 +60,6 @@
 
 \newcommand{\remind}[1]{\textcolor{red}{\textbf{#1}}} % To remind me of unfinished work to fix later
 \newcommand{\hide}[1]{} % To hide large blocks of code without using % symbols
-\newcommand{\hodge}{{\star}}
 % Same as \href, but the text appears in typewriter font and in a custom color
 \newcommand{\Href}[3][red!50!black]{\href{#2}{\textcolor{#1}{\texttt{#3}}}}
 
@@ -75,10 +72,12 @@
 \DeclareDocumentCommand\ceil{ l m }{\braces#1{\lceil}{\rceil}{#2}} % Ceiling function ⌈x⌉
 
 %import incscape figures easily
+\graphicspath{{./figures}}
 \newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
+    \def\svgwidth{0.2\columnwidth}
+    \input{./figures/#1.pdf_tex}
 }
+
 % Shortcuts for blackboard bold letters, e.g. \A outputs \mathbb{A}
 \newcommand{\A}{\mathbb{A}}
 		\newcommand{\B}{\mathbb{B}}
@@ -214,7 +213,9 @@
 \DeclareMathOperator{\Hom}{\text{Hom}}
 \DeclareMathOperator{\ord}{\text{ord}}
 \newcommand{\spn}{\trigbraces{\operatorname{span}}}
-\def\acts{\lefttorightarrow}
+\newcommand{\acts}{\curvearrowright}
+\newcommand{\lnormal}{\trianglelefteq}
+\newcommand{\rnormal}{\trianglerighteq}
 %Topology
 
 %Differential Geometry
@@ -224,6 +225,7 @@
 \DeclareMathOperator{\ric}{ric}
 \newcommand{\inj}{\text{inj}}
 \DeclareMathOperator{\gst}{g_{st}}
+\newcommand{\hodge}{{\star}}
 
 % Shortcuts for inverse hyperbolic functions (and other operators with the same structure)
 \def\do#1{\csdef{#1}{\trigbraces{\operatorname{#1}}}}
@@ -274,6 +276,7 @@
 \theoremstyle{mystyle}{\newtheorem*{beispiel}{Beispiel}}
 \theoremstyle{mystyle}{\newtheorem*{beispiele}{Beispiele}}
 \theoremstyle{definition}{\newtheorem*{übung}{Übung}}
+\theoremstyle{definition}{\newtheorem*{lösung}{Lösung}}
 
 % Warning environment
 \newtheoremstyle{warn}{}{}{}{}{\normalfont}{}{ }{}
@@ -295,7 +298,7 @@
 
 \makeatletter
 % \fsize stores the current font size but is expandable (and can be called later without using \makeatletter and \makeatother)
-\def\fsize{\dimexpr\f@size pt\relax}
+\def\figsize{\dimexpr\f@size pt\relax}
 \makeatother
 
 %%%Matrix Shortcut%%%
