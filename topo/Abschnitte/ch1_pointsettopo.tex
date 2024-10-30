@@ -217,15 +217,15 @@ Sei $(X, \Tc)$ ein topologischer Raum.
 \item $A \sub X$ heißt \textbf{abgeschlossen}, falls $X \exc A \in \Tc$.
 \item Sei $x \in U \sub X$. Dann heißt $U$ \textbf{Umgebung von} $x$, falls ein $O \in \Tc$ existiert, sodass $x \in O \sub U$ gilt.
 \item Die Menge aller Umgebungen von $X$ wird mit $\Uf (x)$ bezeichnet und heißt \textbf{Umgebungssystem von} $x$. 
-\item Ein Punkt $x \in X$ heißt \textbf{Berührpunkt} von $B \sub X$, falls für alle $U \sub \Uf(x)$ gilt: $U \cap B \neq \emptyset$.
+\item Ein Punkt $x \in X$ heißt \textbf{Berührpunkt} von $B \sub X$, falls für alle $U \in \Uf(x)$ gilt: $U \cap B \neq \emptyset$.
 \item Die \textbf{abgeschlossene Hülle} von $B \sub X$ ist definiert als 
 \begin{equation}
-\overline{B} := \bigcap_{B \sub X, C \, \text{abg.}} C.
+\overline{B} := \bigcap_{B \sub C, C \, \text{abg.}} C.
 \end{equation}
 \item Ein Punkt $x \in X$ heißt \textbf{innerer Punkt} von $B \sub X$, falls es ein $U \in \Uf(x)$ gibt, sodass $x \in U \sub B$ gilt.
 \item Für $B \sub X$ ist 
 \begin{equation}
-\mathring{B} := \bigcup_{O \sub B, O \, \text{offen}}
+\mathring{B} := \bigcup_{O \sub B, O \, \text{offen}} O
 \end{equation}
 der \textbf{offene Kern} von $B$.
 \item Der \textbf{Rand von} $A \sub X$ ist definiert als
@@ -248,7 +248,7 @@ Eine Topologie kann äquivalent durch die Auflistung abgeschlossener Mengen defi
 Seien $(X, \Tc)$ und $(Y, \Tc')$ top. Räume und $f: X \to Y$.
 \begin{enumerate}[(i)]
 \item $f$ heißt \textbf{stetig in} $x \in X$, wenn für alle $U \in \Uf(f(x))$ auch $f^{-1}(U) \in \Uf(x)$ gilt.
-\item $f$ heißt \textbf{stetig}, falls für alle $O \in \Tc'$ gilt, dass $f^{-1} \in \Tc$.
+\item $f$ heißt \textbf{stetig}, falls für alle $O \in \Tc'$ gilt, dass $f^{-1} (O) \in \Tc$.
 \end{enumerate}
 \end{definition}
 \begin{satz}{Eigenschaften von Abschluss und Innerem}{abschlussundinneres}
@@ -267,8 +267,9 @@ Sei $(X,\Tc)$ ein top. Raum mit $A \in \Tc$. Dann gilt
 \end{enumerate}
 \end{satz}
 \begin{beweis}
-(a) und (b) sind jeweils trivial. Wir beweisen 1(a). Angenommen, $x \in \overline{A}$ aber ist kein Berührpunkt von $A$. Dann existiert ein $U \in \Uf(x)$, sodass $U \cap A = \emptyset$ gilt. Daraus folgt, dass $A \sub X \exc U$ gilt, woraus $A \sub X \exc O$ abgeschlossen folgt. Weiterhin existiert ein $O \in \Tc$ mit $x \in O \sub U$, also $X \exc U \sub X \exc O$. Dann ist aber $\overline{A} \sub X \exc O$, also $x \notin \overline{A}$.\\
-Jetzt nehmen an, dass $x$ Berührpunkt ist, aber $x \notin  \overline{A}$. Also folgt aus $x \in X \exc \overline{A}$ offen, dass $V:= X \exc \overline{A} \in \Uf (x)$, aber $V \cap A = \emptyset$, also ist $x$ kein Berührpunkt im Widerspruch zur Annahme.
+(a) und (b) sind jeweils trivial. Wir beweisen 1(c). Angenommen, $x \in \overline{A}$ aber ist kein Berührpunkt von $A$. Dann existiert ein $U \in \Uf(x)$, sodass $U \cap A = \emptyset$ gilt. Daraus folgt, dass $A \sub X \exc U$ gilt, woraus $A \sub X \exc O$ abgeschlossen folgt. Weiterhin existiert ein $O \in \Tc$ mit $x \in O \sub U$, also $X \exc U \sub X \exc O$. Dann ist aber $\overline{A} \sub X \exc O$, also $x \notin \overline{A}$.\\
+Jetzt nehmen an, dass $x$ Berührpunkt ist, aber $x \notin  \overline{A}$. Also folgt aus $x \in X \exc \overline{A}$ offen, dass $V:= X \exc \overline{A} \in \Uf (x)$, aber $V \cap A = \emptyset$, also ist $x$ kein Berührpunkt im Widerspruch zur Annahme.\\
+2 ist dual.
 \end{beweis}
 \begin{bemerkung}
 Folgendes gilt allgemein:
@@ -284,7 +285,7 @@ Sei $(X, \Tc)$ ein top. Raum. $A \sub X$ heißt \textbf{dicht}, falls $\overline
 \begin{beispiele}
 \begin{enumerate}
 \item $\Q \sub \R$ ist dicht.
-\item $(a,b) \sub \R \sub \R^2$, $(a,b)$ nirgends dicht in $\R$.
+\item $[a,b] \sub \R \sub \R^2$ liegt nirgends dicht in $\R^2$.
 \end{enumerate}
 \end{beispiele}
 \begin{definition}{Konvergenz in top. Räumen}{topkov}
@@ -301,7 +302,7 @@ Unser Ziel ist jetzt, auch nicht-endliche Topologien angeben zu können.
 \begin{definition}{Basis und Subbasis}{basissubbasis}
 Sei $(X, \Tc)$ ein top. Raum.
 \begin{enumerate}[(a)]
-\item Eine Familie $\mathcal{B}$ heißt \textbf{Basis} der Topologie $\Tc$, falls alle $O \sub \Tc$ als Vereinigung von $B_i \in \Bc$ geschrieben werden können:
+\item Eine Familie $\mathcal{B}$ heißt \textbf{Basis} der Topologie $\Tc$, falls alle $O \in \Tc$ als Vereinigung von $B_i \in \Bc$ geschrieben werden können:
 \begin{equation}
 \forall O \in \Tc: O = \bigcup_{j \in J} B_j. 
 \end{equation}
@@ -319,7 +320,7 @@ eine Basis für $X$.
 \item Die indiskrete Topologie $(X, \{X, \emptyset \})$ hat als Basis $\Bc = \{X\}$.
 \item Jedes System beliebiger Teilmengen von $X$ gibt eine Subbasis einer Topologie. Sei z.B. $\mathcal{S} := \{S\}_{i\in i}$ gewünscht. Dann konstruieren wir 
 \begin{equation}
-\Bc = \{S_{i_1} \cap \dots \cap S_{i_n} | S_{ij} \in M\}
+\Bc = \{S_{i_1} \cap \dots \cap S_{i_n} |n \in \N, \, S_{i_k} \in \cS\}
 \end{equation} 
 als Basis und definieren eine Topologie
 \begin{equation}
@@ -350,7 +351,7 @@ Ist für $f(x) \in Y$ $\Bf (f(x))$ eine Umgebungsbasis von $f(x)$, so ist $f^{-1
 \end{satz}
 \begin{definition}{Abzählbarkeitsaxiome}{abzaehlbarkeitsaxiome}
 Sei $(X,\Tc)$ ein top. Raum. Die Abzählbarkeitsaxiome für $X$ sind gegeben durch:
-\begin{enumerate}[({AZ} 1)]
+\begin{enumerate}[({AZ}1)]
 \item Jedes $x \in X$ besitzt eine abzählbare Umgebungsbasis.
 \item $\Tc$ besitzt eine abzählbare Basis.
 \end{enumerate}
@@ -396,7 +397,7 @@ $(\Bc_n)_{n \in \N}$ seinen die Basismengen von $\Tc$. Wähle jeweils ein $P_n \
 \subsection{Vergleich von Topologien}
 \label{subsec:vergleichvontopo}
 \begin{definition}{feiner und gröber}{feingrob}
-Seien $\Tc_1$ und $\Tc_2$ Topologien auf $X$. Dann heißt $\Tc_1$ \textbf{feiner} als $\Tc_2$ und $\Tc_2$ \textbf{gröber} als $\Tc_2$, wenn $\Tc_2 \sub \Tc_1$ gilt, also jedes $O \in \Tc_2$ auch in $\Tc_1$ enthalten ist.
+Seien $\Tc_1$ und $\Tc_2$ Topologien auf $X$. Dann heißt $\Tc_1$ \textbf{feiner} als $\Tc_2$ und $\Tc_2$ \textbf{gröber} als $\Tc_1$, wenn $\Tc_2 \sub \Tc_1$ gilt, also jedes $O \in \Tc_2$ auch in $\Tc_1$ enthalten ist.
 \end{definition}
 \begin{bemerkungen}
 \begin{enumerate}
@@ -432,7 +433,7 @@ ist homöomorph zum Quadrat $[-1,1] \times [-1,1]$. Beispielsweise kann $f: [-1,
 \item Es existiert ein Homöomorphismus 
 \begin{align}
 f: (-1,1) \sub \R &\to \R\\
-x \mapsto \frac{x}{1-|x|}.
+x &\mapsto \frac{x}{1-|x|}.
 \end{align}
 Dieser lässt sich auf $(a,b)$ verallgemeinern, solange $a<b$ gilt.
 \item Die \textbf{stereographische Projektion} ist ein Homöomorphismus
@@ -443,7 +444,7 @@ gegeben durch $\varphi(x_1,x_2,x_3) = \left( \frac{x_1}{1-x_3}, \frac{x_2}{1-x_3
 \end{enumerate}
 \end{beispiele}
 \begin{definition}{Abgeschlossene und offene Abbildungen}{abgoffabb}
-Eine stetige Abbildung $f: X \to Y$ heißt heißt
+Eine stetige Abbildung $f: X \to Y$ heißt
 \begin{enumerate}
 \item \textbf{abgeschlossen}, falls für abgeschlossenes $A \sub X$ auch $f(A) \sub Y$ abgeschlossen ist.
 \item \textbf{offen}, falls für offenes $O \sub X$ auch $f(O) \sub Y$ offen ist.
@@ -461,7 +462,7 @@ die Umkehrabbildung. Dann ist $(f^{-1})^{-1}(O) = f(O)$ offen.
 \end{beweis}
 \subsection{Unterräume}
 \label{subsec:unterraeume}
-\begin{definition}{Unterraumtopologie}
+\begin{definition}{Unterraumtopologie}{unterraumtopo}
 Sei $(X,\Tc)$ ein top. Raum und $Y \sub X$. Dann ist die \textbf{Unterraumtopologie} gegeben durch
 \begin{equation}
 \Tc_{X|Y} := \{O \cap Y|  O \in \Tc\}.
@@ -495,7 +496,7 @@ Z \arrow[r,"f"] \arrow[dr, "\iota \circ f"'] &Y \arrow[d, hook, "\iota"]\\
 \begin{enumerate}[(a)]
 \item Sei $O \sub X$ offen, dann ist $\iota^{-1}(O)=O \cap Y$ offen nach Definition von $\Tc_{X|Y}$.
 \item $(\Rightarrow)$: Seien $f$ und $\iota$ stetig. Dann ist die Verkettung $\iota \circ f$ auch stetig.\\
-$(\Leftarrow)$: Sei $B \sub Y$ offen, dann ist zu zeigen, dass $f^{-1}(B)$ auch offen ist. Es gilt $B \in \Tc_{X|Y}$ genau dann, wenn ein $O \sub \Tc$ mit $B = \O \cap Y$ existiert. Daraus folgt 
+$(\Leftarrow)$: Sei $B \sub Y$ offen, dann ist zu zeigen, dass $f^{-1}(B)$ auch offen ist. Es gilt $B \in \Tc_{X|Y}$ genau dann, wenn ein $O \sub \Tc$ mit $B = O \cap Y$ existiert. Daraus folgt 
 \begin{equation}
 f^{-1}(B) = f^{-1}(O \cap Y) = f^{-1} (\iota^{-1}(O)) = (\iota \circ f)^{-1} (O),
 \end{equation}
@@ -580,7 +581,7 @@ $X$ erfüllt (T2) und (T4), und (T2) impliziert (T1). Alos ist $\{x\}$ abgeschlo
 Sei $(X, \Tc)$ ein top. Raum und $\Delta:= \{(x,x)|x \in X\} \sub X \times X$ die \textbf{Diagonale} mit der Topologie $\Tc_{X \times X} := \{O_1 \times O_2 | O_i \in \Tc\}$. $X$ ist genau dann hausdorffsch, falls $\Delta \sub X \times X$ abgeschlossen ist.
 \end{satz}
 \begin{beweis}
-Seien $x, Y \in X$ mit $x \neq y$. Das ist äquivalent zu $(x,y) \in (X \times X) \exc \Delta$. Wir zeigen, dass die Hausdorffeigenschaft äquivalent dazu ist, dass das Komplement $(X \times X) \exc \Delta$ offen ist. Äquivalent zu $\Delta$ abgeschlossen ist $(X \times X) \exc \Delta$ offen. Das gilt genau dann, wenn für alle $(x,y) \in (X \times X) \exc \Delta$ ein offenes $O \in X \times X$ existiert mit $(x,y)\in O$. O.B.d.. sei $O = O_1 \times O_2$, also $x \in O_1$ und $y \in O_2$ mit $O_1 \cap O_2 \neq \emptyset$. Das gilt genau dann, wenn $X$ hausdorffsch ist.
+Seien $x, y \in X$ mit $x \neq y$. Das ist äquivalent zu $(x,y) \in (X \times X) \exc \Delta$. Wir zeigen, dass die Hausdorffeigenschaft äquivalent dazu ist, dass das Komplement $(X \times X) \exc \Delta$ offen ist. Äquivalent zu $\Delta$ abgeschlossen ist $(X \times X) \exc \Delta$ offen. Das gilt genau dann, wenn für alle $(x,y) \in (X \times X) \exc \Delta$ ein offenes $O \in X \times X$ existiert mit $(x,y)\in O$. O.B.d.A. sei $O = O_1 \times O_2$, also $x \in O_1$ und $y \in O_2$ mit $O_1 \cap O_2 \neq \emptyset$. Das gilt genau dann, wenn $X$ hausdorffsch ist.
 \end{beweis}
 \begin{satz}{(T3) und (T4) über Umgebungsbasen}{trennungundbasis}
 Sei $(X,\Tc)$ ein top. Raum.

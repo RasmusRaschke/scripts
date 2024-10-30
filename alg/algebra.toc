@@ -3,4 +3,4 @@
 \contentsline {subsection}{\numberline {1.1}Grundbegriffe}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Untergruppen}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Homomorphismen}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Operation}{8}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Gruppenwirkung}{9}{subsection.1.4}%

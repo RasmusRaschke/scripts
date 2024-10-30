@@ -26,14 +26,33 @@ mit folgenden Eigenschaften:
 Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit den Eigenschaften aus (2G) heißt \textbf{neutrales Element}, und ein Element $g' \in G$ zu gegebenem $g \in G$ mit Eigenschaft (2b) heißt \textbf{Inverses} von $g$.
 \end{definition}
 
-\begin{bemerkung}Übungsaufgabe:\\
+\begin{übung}
 Sei $(G, \circ)$ eine Gruppe. Dann gelte:
 \begin{enumerate}
 \item Das neutrale Element $e \in G$ ist eindeutig bestimmt, außerdem gelte $ \forall g \in G : g \circ e = g$.
 \item Zu gegebenem $g \in G$ ist das Inverse $g' \in G$ eindeutig bestimmt und erfüllt zudem $g \circ g' = e$.
 \item Für $n \geq 3$ hängt das Produkt von Gruppenelementen $g_1, g_2, \dots, g_n$ nicht von der Klammerung ab.
 \end{enumerate}
-\end{bemerkung}
+\end{übung}
+
+\begin{lösung}
+Zuerst zeigen wir Kommutativität des Inversen. Sei $g \in G$, dann gilt:
+\begin{align}
+g \circ g^{-1} &= (e \circ g) \circ g^{-1} = \left( \left( \left( g^{-1}\right)^{-1} \circ g^{-1} \right) \circ g \right) \circ g^{-1} = \left(  \left( g^{-1}\right)^{-1} \circ \left( g^{-1} \circ g \right)\right) \circ g^{-1}\\ 
+&= \left( g^{-1}\right)^{-1} \circ \left( e  \circ g^{-1} \right) = \left( g^{-1}\right)^{-1} \circ g^{-1} = e = g^{-1} \circ g,
+\end{align}
+also stimmen Links- und Rechtsinverses in Gruppen überein.
+Die Kommutativität des neutralen Elements folgt damit direkt aus:
+\begin{equation}
+g \circ e = g \circ (g^{-1} \circ g) = (g \circ g^{-1}) \circ g = (g^{-1} \circ g) \circ g = e \circ g,
+\end{equation}
+womit auch Links-Einselement und Rechts-Einselement übereinstimmen.
+Für die Eindeutigkeit des Inversen seien $g^{-1}, g'^{-1} \in G$ zwei Inverse von $g \in G$. Dann gilt:
+\begin{equation}
+g^{-1} = g^{-1} \circ e = g^{-1} \circ (g'^{-1} \circ g) = g^{-1} \circ (g \circ g'^{-1}) = (g^{-1} \circ g) \circ g'^{-1} = e \circ g'^{-1} = g'^{-1}.
+\end{equation}
+Weiterhin seien $e,e' \in G$ zwei Einselemente. Da $e = e \circ e' = e' \circ e = e$ gilt, ist das neutrale Element eindeutig. \qed
+\end{lösung}
 
 \begin{beispiele}
 Wir geben einige Beispiele für Gruppen:
@@ -143,7 +162,7 @@ Sei $G$ eine Gruppe und $g \in G$ ein Element. Dann heißt die Kardinalität
 \begin{equation}
 \text{ord}(g) := | \langle g \rangle | \in \N \cup \{\infty \}
 \end{equation}
-die \textbf{Ordnung von} $g$ und $\langle g \rangle$ \textbf{zyklisch} der Ordnung $\ord (g)$.
+die \textbf{Ordnung von} $g$.
 \end{definition}
 \begin{satz}{Charakterisierung von einelementigen Untergruppen}{charakterisierungeinelementig}
 Sei $G$ eine Gruppe und $g \in G$ ein Element.
@@ -170,17 +189,21 @@ Zunächst gilt für beliebiges $g \in G$ das Folgende:
 wobei die Potenzen im Allgemeinen nicht notwendigerweise paarweise verschieden sind.
 Dies folgt, da, damit $\langle g \rangle$ eine Untergruppe sein kann, zunächst das neutrale Element $1 = g^0$ und $g$ selbst enthalten sein muss. Dann muss aber auch die Selbstverknüpfung und das Inverse (sowie dessen Selbstverknüpfungen) enthalten sein.
 \begin{enumerate}
-\item Sei $\ord (g) < \infty$. Dann gibt es insbesondere $i,j \in \Z$ mit $i \neq j$ und $g^i = g^j$. O.B.d.A. sei $i > j$. Dann ist also $k = i-j \geq 1$ eine natürliche Zahl, für die gilt: $g^k = 1$. Nach dem Wohlordnungssatz existiert eine \textit{kleinste} natürliche Zahl $n \geq 1$, für die gilt: $g^n =1$. Sei nun $m \in \Z$. Dann gitb es eindeutig bestimmte Zahlen $a \in \Z$ und $0 \leq r < n$, sodass \begin{equation}
+\item Sei $\ord (g) < \infty$. Dann gibt es insbesondere $i,j \in \Z$ mit $i \neq j$ und $g^i = g^j$. O.B.d.A. sei $i > j$. Dann ist also $k = i-j \geq 1$ eine natürliche Zahl, für die gilt: $g^k = 1$. Nach dem Wohlordnungssatz existiert eine \textit{kleinste} natürliche Zahl $n \geq 1$, für die gilt: $g^n =1$. Sei nun $m \in \Z$. Dann gibt es eindeutig bestimmte Zahlen $a \in \Z$ und $0 \leq r < n$, sodass \begin{equation}
 m = an +r.
 \end{equation}
 Damit folgt
 \begin{equation}
 g^m = g^{an+r} = (\underbrace{g^n}_{=1})^a \cdot g^r = g^r.
 \end{equation}
-Dies impliziert $\langle g \rangle = \{1,g,g^2,\dots, g^{n-1}\}$. Wir müssen noch zeigen, dass $1, g, \dots, g^{n-1}$ paarweise verschieden sind. Dies folgt allerdings direkt aus der Tatsache, dass $n$ minimal ist.
+Dies impliziert $\langle g \rangle = \{1,g,g^2,\dots, g^{n-1}\}$, da $r$ der Rest ist, der bei der Division von $n$ durch $m$ bleibt. Die möglichen Reste für gegebenes $n$ legen also die Elemente von $G$ fest.\\
+Wir müssen noch zeigen, dass $1, g, \dots, g^{n-1}$ paarweise verschieden sind. Dies folgt allerdings direkt aus der Tatsache, dass $n$ minimal ist.
 \item Das obige Argument zeigt per Kontraposition auch 2., denn wenn die Potenzen $g^i$, $i \in \Z$ nicht paarweise verschieden sind, dann zeigt obiges Argument, dass $\langle g \rangle = \{1,g,\dots, g^{n-1}\}$ für $n \in \N$, was ein Widerspruch zur Annahme $\ord (g) = \infty$ ist.
 \end{enumerate}
 \end{beweis}
+\begin{definition}{zyklische Gruppe}{zyklisch}
+Sei $G$ eine Gruppe. Existiert ein $g\in G$, sodass sich jedes $h \in G$ als $g^n = h$ für ein $n \in \Z$ schreiben lässt, heißt $G$ \textbf{zyklisch der Ordnung} $\ord (g)$. Das Element $g$ heißt \textbf{Erzeuger von} $G$.
+\end{definition}
 \subsection{Homomorphismen}
 \label{subsec:homomorphismen}
 \begin{definition}{Homomorphismus}{homomorphismus}
@@ -204,6 +227,7 @@ Jeder Homomorphismus erfüllt außerdem folgende Eigenschaften, die aus Definiti
 \item $\phi (1_G) = 1_{G'}$
 \item Für alle $g \in G$ gilt $\phi (g^{-1}) = \phi (g)^{-1}$.
 \end{enumerate}
+Das sieht man schnell, da $\phi(1) = \phi(1g) = \phi(1) \phi(g)$ gilt, also $\phi(1) = 1'$ sein muss. Weiterhin gilt $1' = \phi(1) = \phi(gg^{-1}) = \phi(g) \phi(g^{-1})$, Linksmultiplikation mit $\phi^{-1}(g)$ liefert (H3).
 \end{bemerkung}
 \begin{beispiele}
 \begin{enumerate}
@@ -303,11 +327,11 @@ Für einen Homomorphismus $\phi: G \to G'$ sind folgende Aussagen äquivalent:
 Sei also $\ker (\phi) = \{1\}$ und $g,h \in G$ mit $\phi(g) = \phi(h)$. Dann gilt $\phi(gh^{-1})=\phi(g)\phi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\phi) = \{1\}$ und damit $g = h$.
 \end{beweis}
 \begin{definition}{Links- und Rechtsnebenklassen}{linksrechtsnebenklasse}
-Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppen. Dann ist die \textbf{Linksnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppen. Dann ist die \textbf{Linksnebenklasse von} $H$ \textbf{bezüglich} $g \in G$ als 
 \begin{equation}
 gH := \{gh \, | \, h \in H\}
 \end{equation}
-und die \textbf{Rechtsnebenklasse von} $H$ \textbf{bezüglich} $g$ als 
+und die \textbf{Rechtsnebenklasse von} $H$ \textbf{bezüglich} $g \in G$ als 
 \begin{equation}
 Hg := \{hg \, | \, h \in H \}
 \end{equation}
@@ -327,9 +351,23 @@ a \sim_R b : \iff ab^{-1} \in H.
 \end{equation}
 \end{enumerate}
 \end{satz}
-\begin{beweis}
-Dem Leser als Übung überlassen. Es ist insbesondere auch zu zeigen, dass $\sim$ tatsächlich eine Äquivalenzrelation definiert.
-\end{beweis}
+\begin{übung}
+Beweis des Satzes.
+\end{übung}
+\begin{lösung}
+Zunächst ist zu zeigen, dass tatsächlich eine Äquivalenzrelation definiert wird.\\
+\begin{enumerate}[(a)]
+\item Reflexivität: Sei $a \in G$. Dann gilt $a^{-1}a = 1 \in H$, also ist $a \sim_L a$.
+\item Symmetrie: Seien $a,b \in G$ mit $a \sim_L b$. Dann gilt $a^{-1} b = h$ für ein $h \in H$. Daraus folgt:
+\begin{equation}
+a = bh \iff ah^{-1} =b \iff a^{-1}b = h^{-1} \in H,
+\end{equation}
+also ist auch $b \sim_L a$, da $H$ abgeschlossen unter Inversenbildung ist.
+\item Transitivität: Seien $a,b,c \in G$ mit $a \sim_L b$ und $b \sim_L c$. Dann gilt $b^{-1}a = h \in H$ und $c^{-1} b = h' \in H$. Also folgt $H \ni h'h = c^{-1}bb^{-1}a = c^{-1} a$ und damit die Behauptung.
+\end{enumerate}
+Ist nun $g \in G$ und $h \in H$, so besteht die Äquivalenzklasse von $g$ unter $\sim_L$ aus allen Elementen der Form $ah$ mit $a \in G$, $h \in H$. Die Vereinigung aller Äquivalenzklassen muss also per Konstruktion ganz $gH$ sein. Der Beweis für $\sim_R$ ist dual dazu. \qed
+\end{lösung}
+
 Damit bezeichnen wir die Menge der Linksnebenklassen von $H$ mit $\quotient{G}{H} = \quotient{G}{\sim_L}$ und die der Rechtsnebenklassen mit $\invquotient{G}{H} = \quotient{G}{\sim_R}$.
 \begin{definition}{Index}{index}
 Die Kardinalität
@@ -426,9 +464,9 @@ ist ein Gruppenhomomorphismus mit $\ker (\pi) = N$.
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
-\item Zunächst muss die Wohldefiniertheit der Verknüpfung bewiesen werden. Seien $\tila \in aN$ und $\tilb \in bN$ Vertreter der Nebenklassen $aN$ und $bN$ $(\iff \tila N = aN)$. Dann existieren $m,n \in N$ mit $\tilb = am$ und $\tilb = bn$. Nun gilt
+\item Zunächst muss die Wohldefiniertheit der Verknüpfung bewiesen werden. Seien $\tila \in aN$ und $\tilb \in bN$ Vertreter der Nebenklassen $aN$ und $bN$ $(\iff \tila N = aN)$. Dann existieren $m,n \in N$ mit $\tila = am$ und $\tilb = bn$. Nun gilt
 \begin{equation}
-\tila \cdot \tilb = am \cdot bn = ab \cdot \underbrace{b^{-1} mb}_{N \trianglelefteq G \implies \in N} n \in N,
+\tila \cdot \tilb = am \circ bn = ab \circ \underbrace{b^{-1} mb}_{N \trianglelefteq G \implies \in N} \circ n \in N,
 \end{equation}
 also ist der Ausdruck wohldefiniert.
 \begin{enumerate}[({G}1)]
@@ -479,7 +517,7 @@ betrachten, dann ist $\ker{\sgn} = A_n \trianglelefteq \Sf_n$, also erhalten wir
 \end{equation}
 Insbesondere gilt $\Sf_n : A_n = 2$.
 \end{beispiel}
-\begin{satz}{Korollar aus Satz \ref{homomorphiesatz}}{korollarhomosatz}
+\begin{korollar}{Korollar aus Satz \ref{homomorphiesatz}}{korollarhomosatz}
 Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\phi$ schreiben als
 \begin{equation}
 \phi = \iota \circ \overline{\phi} \circ \pi,
@@ -497,14 +535,14 @@ Das ist äquivalent dazu, dass folgendes Diagramm kommutiert:
     \quotient{G}{\ker (\phi)} \arrow[r, "\cong", "\overline{\phi}"'] & \im (\phi) \arrow[u, hook, "\iota"]
 \end{tikzcd}
 \end{center}
-ausgedrückt in Elementen:
+Ausgedrückt in Elementen:
 \begin{center}
 \begin{tikzcd}
     g \arrow[r, mapsto] \arrow[d, mapsto] & \phi(g) \\
     g \ker (\phi) \arrow[r, mapsto] & \phi (g) \arrow[u, mapsto]
 \end{tikzcd}
 \end{center}
-\end{satz}
+\end{korollar}
 \begin{beispiele}
 \begin{enumerate}
 \item Für $n \geq 1$ und einen Körper $\K$ induziert der Homomorphismus
@@ -543,8 +581,8 @@ und $\phi$ induziert einen Isomorphismus
 \end{enumerate}
 \end{enumerate}
 \end{beispiele}
-\subsection{Operation}
-\label{subsec:operation}
+\subsection{Gruppenwirkung}
+\label{subsec:wirkung}
 \begin{definition}{Gruppenoperation}{operation}
 Eine \textbf{Operation} oder \textbf{Wirkung} einer Gruppe $G$ auf einer Menge $M$ ist eine Abbildung
 \begin{align}
