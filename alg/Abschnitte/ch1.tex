@@ -698,3 +698,104 @@ Die Abbildung ist wohldefiniert: Sei $g \in G$ und $h \in G_x$, dann gilt
 \end{equation}
 Weiterhin ist die Abbilung injektiv, denn falls $g_1.x = g_2.x$, so ist $(g_1^{-1}).g_2.x = x$, also ist $(g_1^{-1}).g_2 \in G_x$, also $g_1G_x = g_2G_x$. Surjektivität ist per Konstruktion durch Einschränkung auf die Bahn gegeben.
 \end{beweis}
+\begin{korollar}{Aus Satz \ref{bahnformel}}{ausbahn}
+Sei $G \acts M$ eine Wirkung und $|M| < \infty$. Dann gilt:
+\begin{equation}
+\label{eq:ausbahneq}
+|M| = \sum_{G.x \in \invquotient{G}{M}} |G.x| = \sum_{G.x \in \invquotient{G}{M}} (G : G_x).
+\end{equation}
+\end{korollar}
+\begin{bemerkung}
+Gleichung \ref{eq:ausbahneq} lässt sich weiter vereinfachen zu
+\begin{equation}
+\label{eq:korrausbahn}
+|M| = \left|M^G \right| + \sum_{G.x \in \invquotient{G}{M}, G_x \neq G} (G : G_x).
+\end{equation}
+\end{bemerkung}
+\begin{definition}{Konjugationsklasse, Zentrum und Zentralisator}{selbstwirkung}
+Wir definieren die Selbstwirkung $G \acts G$ Gruppe als
+\begin{equation}
+\begin{split}
+G \times G &\to G\\
+(g,x) &\mapsto gxg^{-1}.
+\end{split}
+\end{equation}
+\begin{enumerate}
+\item Für $x \in G$ heißt die Bahn
+\begin{equation}
+[x] := G.x = \{gxg^{-1}|g \in G\}
+\end{equation}
+\textbf{Konjugationsklasse von} $x$.
+\item Die Menge der Fixpunkte 
+\begin{equation}
+Z(G) := G^G = \{x \in G | gx = xg \} \leq G
+\end{equation}
+heißt \textbf{Zentrum von} $G$ und bildet eine Untergruppe.
+\item Für $x \in G$ heißt der Stabilisator
+\begin{equation}
+C_G(x):=G_x = \{g \in G|gx=xg\}
+\end{equation}
+auch \textbf{Zentralisator von} $x$.
+\end{enumerate}
+Für $\ord (G) < \infty$ hat Gleichung \ref{eq:korrausbahn} dann die Form
+\begin{equation}
+\label{eq:klassengleichung}
+|G| = |Z(G)| + \sum_{[x] \in \invquotient{G}{G}, C_G(x)\neq G} \underbrace{(G : C_G(x))}_{=|[x]|}
+\end{equation}
+und heißt \textbf{Klassengleichung} von $G$.  Alle Summanden der Klassengleichung teilen $\ord (G)$.
+\end{definition}
+\begin{übung}
+Zeigen Sie, dass das Zentrum von $G$ eine Untergruppe bildet.
+\end{übung}
+\begin{beispiel}
+Wir wollen die Untergruppenstruktur von $A_4 \lnormal \Sf_4$ verstehen. Dazu bestimmen wir die Klassengleichung der Gruppe. Es gilt $(\Sf_4 : A_4)  =2$, da $\quotient{\Sf_4}{A_4} = \{\pm 1\}$. Aus dem Satz von Lagrange folgt 
+\begin{equation}
+|A_4| = \frac{|\Sf_4|}{(\Sf_4 : A_4)} = 12.
+\end{equation}
+Wir listen alle Elemente, sortiert nach Ordnung. Mögliche Ordnungen sind $1$, $2$, $3$, $4$, $6$ und $\cancel{12}$.
+\begin{itemize}
+\item Elemente der Ordnung $1$: $(1)$
+\item Elemente der Ordnung $2$: $(12)(34)$, $(13)(24)$, $(14)(23)$
+\item Elemente der Ordnung $3$: $(123)=(12)\circ (23)$, $(124)$, $(134)$, $(234)$, $(142)$, $(143)$, $(243)$, $(132)$
+\end{itemize}
+Das es jeweils keine weiteren Elemente gibt, sieht man daran, dass die Ordnungen untereinander unter Verknüpfung abgeschlossen sind. Dass es insgesamt keine weiteren Elemente gibt, ist daran erkennbar, dass wir schon $12$ Elemente haben.\\
+Jetzt bestimmen wir das \textbf{Gitter} aller Untergruppen von $A_4$: Nach dem Satz von Lagrange ist die Ordnung der Untergruppen ein Teiler von $12$.
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|}
+\hline 
+Ordnung &  &  & &   \\ 
+\hline 
+$4$ & $\langle \{(12)(34), (13),(24)\}\rangle$ &  &  &  \\ 
+\hline 
+$3$ & $\langle (123) \rangle$ = $\langle (132)\rangle$ & $\langle (124)\rangle$ & $\langle (134) \rangle$ & $\langle (234)\rangle$ \\ 
+\hline 
+$2$ & $\langle (12)(34)\rangle$ & $\langle (13)(24)\rangle$ & $\langle (14)(23)\rangle$ &  \\ 
+\hline 
+$1$ & \{(1)\} &  &  &  \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Weiter geht es mit den Konjugationsklassen. Ganz allgemein gilt für $\sigma \in \Sf_n$ und $(a_1 a_2 \cdots a_k) \in \Sf_n$:
+\begin{equation}
+\sigma \circ (a_1a_2 \cdots a_k) \circ \sigma^{-1} = \left(\sigma (a_1) \sigma (a_2) \cdots \sigma (a_k) \right) \, (\ast),
+\end{equation}
+also z.B. 
+\begin{equation}
+(124) \circ (123) \circ (124)^{-1} = (124) \circ (123)\circ (142) = (1)(234) = (234).
+\end{equation}
+Dies hilft, die Konjugationsklassen zu bestimmen. Diese sind:
+\begin{align}
+[(1)]&=\{(1)\} = Z(G)\\
+[(12)(34)]&=\{(12)(34), (13)(24),(14)(23)\}\\
+[(123)]&=\{(123), (142), (134), (243)\}\\
+[(132)] &= \{(132), (124), (143), (234)\}
+\end{align}
+Die Überlegung, dass die unteren beiden Konjugationsklassen nicht eine gemeinsame Konjugationsklasse bilden, folgt daraus, dass die Kardinalität der entstehenden Untergruppe $8$ wäre, und $8$ nicht $12$ teilt. Damit haben wir die Klassengleichung bestimmt:
+\begin{equation}
+12 = 1+3+4+4
+\end{equation}
+Daraus können wir direkt ablesen, dass es keine Untergruppen der Ordnung $6$ geben kann. Gäbe es nämlich eine solche Untergruppe $A \leq A_4$, hätte diese Index $2$, und jede Gruppe von Index $2$ ist normal. Damit wäre $A$ normal, also eine Vereinigung von Konjugationsklassen von $A_4$. Dann müsste die Summe von Summanden der Klassengleichung $6$ ergeben, das ist aber unmöglich.
+\end{beispiel}
+\begin{übung}
+Verifiziere $(\ast)$. Beweise, dass Untergruppen mit Index $2$ normal sind. Zeige, dass normale Untergruppen als Vereinigung von Konjugationsklassen geschrieben werden können.
+\end{übung}
