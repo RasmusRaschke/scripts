@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  30 OCT 2024 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  1 NOV 2024 11:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2009,22 +2009,22 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 712.
 
 LaTeX Warning: Command \textbackslash invalid in math mode on input line 743.
 
-[10]) [11] (algebra.aux (Abschnitte/ch1.aux))
+[10] [11] [12]) [13] (algebra.aux (Abschnitte/ch1.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: F70EB22A03AA3479CC97AE3C021A01F9;647.
+(rerunfilecheck)             Checksum: E5A61BAC639CC20EFCC74FF49B87BB4F;817.
 Package logreq Info: Writing requests to 'algebra.run.xml'.
 \openout1 = `algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60053 strings out of 475248
- 1354228 string characters out of 5767628
- 2286488 words of memory out of 5000000
- 80197 multiletter control sequences out of 15000+600000
+ 60121 strings out of 475248
+ 1355282 string characters out of 5767628
+ 2287144 words of memory out of 5000000
+ 80224 multiletter control sequences out of 15000+600000
  654163 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  98i,18n,102p,1997b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2036,19 +2036,20 @@ iles/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX/fonts/typ
 e1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi10.p
 fb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Program Files/M
 iKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Pro
-gram Files/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts
-/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri
-7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/typ
-e1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy5.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/Mi
-KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fo
-nts/type1/public/amsfonts/symbols/msam7.pfb><C:/Program Files/MiKTeX/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebra.pdf (11 pages, 441098 bytes).
+ic/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Program Files/MiKTeX/fonts
+/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri10
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri7.pfb><C:/Program Files
+/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/p
+ublic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy10.pfb
+><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public
+/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/symbols/msam7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbo
+ls/msbm10.pfb>
+Output written on algebra.pdf (13 pages, 480650 bytes).
 PDF statistics:
- 533 PDF objects out of 1000 (max. 8388607)
- 240 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 281 named destinations out of 1000 (max. 500000)
+ 229 words of extra memory for PDF output out of 10000 (max. 10000000)
 

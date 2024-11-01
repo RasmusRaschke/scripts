@@ -799,3 +799,156 @@ Daraus können wir direkt ablesen, dass es keine Untergruppen der Ordnung $6$ ge
 \begin{übung}
 Verifiziere $(\ast)$. Beweise, dass Untergruppen mit Index $2$ normal sind. Zeige, dass normale Untergruppen als Vereinigung von Konjugationsklassen geschrieben werden können.
 \end{übung}
+\subsection{Euklidische Bewegungen}
+\label{subsec:euklidbewegungen}
+Wir beginnen mit einer Widerholdung von Grundbegriffen:
+\begin{definition}{Skalarprodukt, Norm, Metrik}{skalarprodukt}
+Sei $v = (v_1 \cdots v_n)^T, w = (w_1 \cdots w_n)^T \in \R^n$ mit $n \geq 1$. Wir definieren das \textbf{Skalarprodukt} von $v$ mit $w$ als
+\begin{equation}
+\langle v,w \rangle := \Sum{i,1,n} v_iw_i \in \R
+\end{equation}
+und die \textbf{euklidische Norm}
+\begin{equation}
+\|v\| := \sqrt{\langle v, v \rangle} \in \R_{\geq 0}.
+\end{equation}
+Dies induziert den \textbf{euklidischen Abstand}
+\begin{equation}
+d(v,w) := \|v-w\|
+\end{equation}
+auf $\R^n$.
+\end{definition}
+Daraus erhalten wir einen speziellen Isometriebegriff für den $\R^n$:
+\begin{definition}{Euklidische Bewegung}{euklidbeweg}
+Eine Abbildung 
+\begin{equation}
+T: \R^n \to \R^n
+\end{equation}
+heißt \textbf{(euklidische) Bewegung} oder \textbf{(euklidische) Isometrie}, falls für alle $v,w \in \R^n$ gilt:
+\begin{equation}
+d(Tv,Tw) = d(v,w).
+\end{equation}
+Die Menge $E(n)$ der euklidischen Bewegungen mit der Komposition als Verknüpfung bildet eine Gruppe.
+\end{definition}
+\begin{bemerkung}
+Die Injektivität von $T \in E(n)$ ist klar, die Injektivität folgt aus untenstehendem Korollar \ref{allgisoform}.
+\end{bemerkung}
+\begin{beispiele} Wir schauen uns Beispiele für euklidische Isometrien an:
+\begin{enumerate}
+\item Für jedes $b \in \R^n$ sind die \textbf{Translationen}
+\begin{equation}
+\begin{split}
+\tau_b: \R^n &\to \R^n \\
+v &\mapsto v + b
+\end{split}
+\end{equation}
+Isometrien.
+\item Für jede Matrix $A \in \text{O}(n,\R)$ ist die Abbildung
+\begin{equation}
+\begin{split}
+\mu_A: \R^n &\to \R^n\\
+v &\mapsto Av
+\end{split}
+\end{equation}
+eine Isometrie, denn es gilt $\langle v, w \rangle = v^Tw$, und damit
+\begin{equation}
+\langle Av, Aw \rangle = (Av)^T Aw = v^T A^T A w = v^T w = \langle v, w \rangle.
+\end{equation}
+Für den Abstand gilt dann:
+\begin{equation}
+d(Av,Aw) = \| Av-Aw\| = \|A(v-w)\| = \sqrt{\langle A(v-w), A(v-w) \rangle} = \|v-w\| = d(v,w),
+\end{equation}
+also ist $\mu_A$ tatsächlich eine euklidische Isometrie.
+\end{enumerate}
+\end{beispiele}
+\begin{satz}{Euklidische Bewegungen sind orthogonale Transformationen}{eulidistortho}
+Sei $T \in E(n)$ mit $T(0) = 0$. Dann existiert ein $A \in \text{O}(n, \R)$, sodass $T = \mu_A$.
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item Zuerst zeigen wir, dass $T$ das Skalarprodukt erhält:
+\begin{equation}
+T \in E(n) \implies \langle Tv-Tw, Tv-Tw\rangle = d(Tv,Tw)^2 = \langle v-w, v-w \rangle \, (\ast).
+\end{equation}
+Setze $w = 0$. Dann gilt 
+\begin{equation}
+ \langle Tv, Tv \rangle = Tv-T0 = \langle v-0, v-0 \rangle = \langle v,v \rangle
+\end{equation}
+Mit der Bilinearität des Skalarprodukts erhalten wir
+\begin{equation}
+\langle Tv,Tv \rangle - \langle Tv,Tw \rangle - \langle Tw, Tv \rangle + \langle Tw, Tw \rangle =^{(\ast)} \ip{v,v} - \ip{v,w} - \ip{w,v} + \ip{w,w}.
+\end{equation}
+Da das Skalarprodukt darüber hinaus symmetrisch ist, folgt
+\begin{equation}
+-2 \ip{Tv,Tw} = -2 \ip{v,w}.
+\end{equation}
+\item Falls zusätzlich für alle $1 \leq i \leq n$ gilt, dass $Te_i = e_i$, so ist $T = \id$. Für $v \in \R^n$ gilt dann:
+\begin{equation}
+(Tv)_i = \langle Tv, e_i \rangle =  \langle Tv, Te_i \rangle = \langle v, e_i \rangle = v_i.
+\end{equation}
+\item Sei nun $T$ wieder allgemein mit $T(0)=0$. Setze
+\begin{equation}
+A:=(Te_1 Te_2 \cdots Te_n) \in \R^{n \times n}
+\end{equation}
+mit Spaltenvektoren $Te_i$. Wegen $\langle Te_i, Te_j \rangle =^1 \langle e_i , e_j \rangle$ gilt $A \in \text{O}(n,\R)$. Zudem ist $\mu_{A^\text{T}} \circ T =: \widetilde{T} \in E(n)$ mit $\widetilde{T}(0) = 0$ für alle $i$. Also $\widetilde{T}e_i = e_i$ und damit $\widetilde{T} = \id$.
+\end{enumerate}
+\end{beweis}
+\begin{korollar}{aus Satz \ref{eulidistortho}}{allgisoform}
+Jede Isometrie $T \in E(n)$ ist von der Form
+\begin{equation}
+\begin{split}
+T: \R^n &\to \R^n\\
+v &\mapsto Av + b
+\end{split}
+\end{equation}
+für $A \in \text{O}(n,\R)$ und $b \in \R^n$.
+\end{korollar}
+\begin{beweis}
+Sei $b:=T(0)$. Dann gilt
+\begin{equation}
+\tau_{-b}\circ T(0) = 0.
+\end{equation}
+Nach Satz \ref{eulidistortho} gilt $\tau_{-b} \circ T = \mu_A$ für $A \in \text{O}(n,\R)$. Also ist $T = \tau_b \circ \mu_A$.
+\end{beweis}
+\begin{bemerkungen}
+\begin{enumerate}
+\item Wir machen eine Vorbemerkung: Sind $G, G'$ Gruppen, so ist $G \times G'$ wieder eine Gruppe mit der Verknüpfung $(g_1, g_1') \circ (g_2, g_2') = (g_1 \circ g_2, g_1' \circ g_2')$, genannt \textbf{direktes Produkt} von $G$ und $G'$.
+\item Es existiert also eine Bijektion
+\begin{equation}
+E(n) \cong \{(A,b) \, | \, A \in \text{O}(n, \R), b \in \R^n\},
+\end{equation}
+wobei das Kompositionsgesetz durch
+\begin{equation}
+(A,b) \circ (A', b') = (AA', Ab'+b)
+\end{equation}
+gegeben ist. Also ist $E(n) = O(n, \R) \times \R^n$ als Menge, aber nicht als Gruppe!
+\end{enumerate}
+\end{bemerkungen}
+\begin{definition}{Semidirektes Produkt}{semidirektesprodukt}
+Seien $H,N$ Gruppen und $H$ wirke auf $N$ via Gruppenhomomorphismen, also
+\begin{enumerate}
+\item $H \acts G$
+\item Für jedes $h \in H$ ist die Abbildung $N \to N, \, x \mapsto h.x$ ein Gruppenhomomorphismus.
+\end{enumerate}
+Dann definieren wir eine Verknüpfung auf $H \times N$ durch:
+\begin{equation}
+\begin{split}
+\circ: (H \times N) \times (H \times N) &\to H \times N\\
+\left( (h,x) , (h', x')\right) &\mapsto \left( (hh', x(hx') \right).
+\end{split}
+\end{equation}
+Dies definiert eine Gruppenstruktur auf $H \times N$, genannt \textbf{semidirektes Produkt} von $(H,N, H\acts N)$ und bezeichnet mit $H \ltimes N$.
+\end{definition}
+\begin{übung}
+Man zeige, dass $H \ltimes N$ tatsächlich eine Gruppe ist.
+\end{übung}
+\begin{beispiele}
+\begin{enumerate}
+\item Falls $H \acts N$ die triviale Wirkung ist, so ist $H \ltimes N = H \times N$.
+\item Betrachte die Wirkung $\text{O}(n,\R) \acts \R^n$ durch Matrixmultiplikation. Dann gilt $E(n) \cong \text{O}(n,\R) \ltimes \R^n$ als Gruppen.
+\item Sei $T \in E(2)$ mit $T(0) = 0$. Dann gilt $T = \mu_A$ mit $A \in \text{O}(n, \R)$. Falls $T$ orientierungserhaltend ist, gilt sogar $A \in \text{SO}(2, \R)$, also 
+\begin{equation}
+A = \mat{\cos \theta, - \sin \theta}{\sin \theta, \cos \theta}
+\end{equation}
+für $\theta \in \quotient{\R}{2\pi \Z}$. Also sind die Isometrien der Form $\mu_A, A \in \text{SO}(2,\R)$ genau die Drehungen um den Ursprung. Alle Bewegungen $T \in E(2)$ sind Kompositionen von Translationen, Spiegelungen und Drehungen.
+\end{enumerate}
+\end{beispiele}
