@@ -6,5 +6,6 @@
 \contentsline {subsection}{\numberline {1.4}Vergleich von Topologien}{7}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Unterräume}{8}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Trennungsaxiome}{9}{subsection.1.6}%
-\contentsline {section}{\numberline {2}Algebraische Topologie}{11}{section.2}%
-\contentsline {subsection}{\numberline {2.1}...}{11}{subsection.2.1}%
+\contentsline {subsection}{\numberline {1.7}Initialtopologie und Produkte}{11}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Algebraische Topologie}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}...}{14}{subsection.2.1}%

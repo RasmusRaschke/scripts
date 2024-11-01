@@ -615,3 +615,180 @@ Sei $(X, \Tc)$ ein top. Raum.
 \begin{bemerkung}
 Wo liegt das Problem bei (b)? Seien $A,B \sub Y$ mit $A \cap B = \emptyset$. Dann ist $A= A' \cap Y$ und $B = B' \cap Y$. Ist $Y \sub X$ nicht abgeschlossen, so müssen $A$ und $B$ in $X$ nicht abgeschlossen sind.
 \end{bemerkung}
+\begin{beweis}
+\begin{enumerate}[(a)]
+\item Wir zeigen zuerst hausdorffsch. Seien $x_1,x_2 \in Y$ mit $x_1 \neq x_2$. Dann ist \\
+Nun noch Regularität. Sei $x \in Y$ und $A' \sub Y$ abgeschlossen mit $x \neq A'$. Dann existiert ein abgeschlossenes $A$ in $X$ mit $A' = A \cap Y$. Aus $A$ abgeschlossen und $x \in X$ folgt, dass $x \neq A$ ist. Da $X$ regulär ist, existieren $U \in \Uf^X(x)$ und $V \in \Uf^X(A)$ mit $U \cap V = \emptyset$. Setze $U':= U \cap Y$ und $V' = V\cap Y$. Dann ist $U' \in \Uf^Y(x)$ und $V' \in \Uf^Y(A')$ mit $U' \cap V' = \emptyset$.
+\item Sei $Y \sub X$ abgeschlossen und $A', B' \sub Y$ abgeschlossen mit $A' \cap B' = \emptyset$. Da $X$ normal ist, existieren abgeschlossene $A,B \sub X$ mit $A' = A \cap Y$ und $B' = B \cap Y$. Da $Y$ abgeschlossen ist, sind $A'$ und $B'$ auch abgeschlossen in $X$. Wegen (T3) sind $A'$ und $B'$ trennbar mit $U \in \Uf^X(A')$ und $V \in \Uf^X(B')$, sodass $U \cap V = \emptyset$. Dann sind die Mengen trennbar in $Y$ mit $U \cap Y$ und $V \cap Y$.
+\end{enumerate}
+\end{beweis}
+\begin{theorem}{Fortsetzungssatz von Tietze}{tietze}
+Sei $X$ normal und $A \sub X$ abgeschlossen. Betrachte eine \textcolor{red}{streng monotone} Funktion
+\begin{equation}
+f: A \to \R.
+\end{equation}
+Dann existiert eine stetige Fortsetzung
+\begin{equation}
+F: X \to \R
+\end{equation}
+mit $F|_A = f$.
+\end{theorem}
+Dieses Theorem wollen wir nicht beweisen.
+\begin{bemerkung}
+Der Fortsetzungssatz kann verstärkt werden: Ist $f$ nicht konstant, so gilt $\sup F = \sup f$ und $\inf F = \inf f$ mit $\inf f < F(x) < \sup f$ für alle $x \notin A$.
+\end{bemerkung}
+\begin{theorem}{Lemma von Urysohn}{urysohnlemma}
+Sei $(X,\Tc)$ ein top. Raum. Dann sind folgende Aussagen äquivalent:
+\begin{enumerate}[(a)]
+\item $X$ erfüllt (T4).
+\item Für alle abgeschlossenen Teilmengen $A \sub X$ und alle offenen Teilmengen $U$ mit $A \sub U \sub X$ gilt: Es existiert eine \textbf{Urysohn-Funktion}:
+\begin{equation}
+\begin{split}
+f: X &\to [0,1] \sub \R \\
+x &\mapsto f(x):=\begin{cases} 0 \ \text{für} \ x \in A \\ 1 \ \text{für} \ x \in X \exc U ,\end{cases}
+\end{split}
+\end{equation}
+die stetig auf $U \exc A$ ist.
+\end{enumerate}
+\end{theorem}
+\begin{beweis}
+\begin{enumerate}
+\item (b $\implies$ a): Sei $f$ eine Urysohn-Funktion und $A,B \sub X$ abgeschlossen. Dann ist $U := X \exc B$ offen und $A \sub U \sub X$. dann trennen $U_1 := f^{-1}[0,\frac{1}{2})$ und $U_2 := f^{-1} (\frac{1}{2}, 1]$ die Mengen $A$ und $B$.
+\item (a $\implies$ b): Dies beweisen wir konstruktiv. Sei $A \sub U \sub X$ gegeben, $A$ abgeschlossen, $U$ offen, und $X$ erfülle (T4). Setze $U_0 := A$ und $U_1 := U$. Gemäß Satz \ref{trennungundbasis} existiert offenes $U_{\frac{1}{2}}$ mit $A =U_0 \sub U_\frac{1}{2} \sub \overline{U}_\frac{1}{2} \sub U_1 = U$. Nun konstruieren wir eine $2$-adische Schachtelung: Der nächste Schritt ist
+\begin{equation}
+A = U_0 \sub U_\frac{1}{4} \sub \overline{U}_\frac{1}{4} \sub U_\frac{1}{2} \sub \overline{U}_\frac{1}{2} \sub U_\frac{3}{4} \sub \overline{U}_\frac{3}{4} \sub U_1 = U.
+\end{equation}
+Der $n+1$-te Schritt ist dann gegeben durch 
+\begin{equation}
+A=U_0 \sub \cdots \sub U_\frac{2k-1}{2^{n+1}} \sub \overline{U}_\frac{2k-1}{2^{n+1}} \sub U_\frac{k}{2^n} \sub \overline{U}_\frac{k}{2n} \sub U_\frac{k+1}{2^n} \sub \cdots \sub U_1 = U.
+\end{equation}
+Wir setzen $D:= \left\{\frac{i}{2^n} | n, i \in \N, 0 \leq i \leq 2^n \right\}$. Sei $r,s \in D$ mit $r<s$, also $\overline{U}_r \sub U_s$. Für $t \in [0,1]$ sei $U_t := \bigcup_{r \leq t, r \in D} U_r$. Dann erhalten wir eine Urysohn-Funktion durch
+\begin{equation}
+f(x):= 
+\begin{cases}
+\inf_{x \in U_t} \{0 \leq t \leq 1\} \ &\text{für} \ x \in U\\
+1 \ &\text{für} \ x \notin U
+\end{cases}
+\end{equation}
+gegeben. Für $x \in A = U_0$ ist $f(x)=0$. Ist $f(x)<t$, so existiert $r \in D$ mit $r<t$, sodass $x \in U_r$. Ist $f(x)>t$, existiert $r' \in D$ mit $r'>t$ und $x \notin \overline{U}_r$. Also sind 
+\begin{equation}
+f^{-1}([0,t)) = \bigcup_{r \in D, r <t} U_r
+\end{equation}
+und
+\begin{equation}
+f^{-1}((t,1]) = \bigcup_{r' \in D, r' > t} (X \exc \overline{U}_{r'})
+\end{equation}
+offen. Damit ist 
+\begin{equation}
+test
+\end{equation}
+eine Subbasis von $[0,1] \sub \R$.
+\end{enumerate}
+\end{beweis}
+\subsection{Initialtopologie und Produkte}
+\label{subsec:initialtopoprodukte}
+Wir wollen die Unterraumtopologie verallgemeinern:
+\begin{definition}{Initialtopologie}{initialtopo}
+Gegeben sei eine Menge $X$ mit einer Familie topologischer Räume $(X_i, \Tc_i)_{i \in I}$ und Abbildungen $f_i: X \to X_i$ für alle $i \in I$. Eine Topologie $\Tc$ auf $X$ heißt \textbf{Initialtopologie}, falls folgendes gilt:\\
+Ist $Y$ ein beliebiger top. Raum und $g: Y \to (X, \Tc)$ eine Abbildung. Dann ist $g$ stetig genau dann, wenn $f_i \circ g$ stetig für alle $i \in I$ ist. Dies ist äquivalent zu folgendem kommutierenden Diagramm:
+\begin{center}
+\begin{tikzcd}
+Y \arrow[r,"g"] \arrow[dr, "f_i \circ g"'] &X \arrow[d, "f_i"]\\
+&X_i
+\end{tikzcd}
+\end{center}
+\end{definition}
+\begin{satz}{Eindeutigkeit und Feinheit der Initialtopologie}{eindeutfeintopo}
+Sei $X$ und $(f_i: X \to X_i)_{i \in I}$ gegeben. 
+\begin{enumerate}
+\item Dann gibt es auf $X$ \textcolor{red}{genau eine} Initialtopologie bezüglich der $(f_i)_{i \in I}$.
+\item Die Initialtopologie ist die gröbste Topologie auf $X$, sodass alle $(f_i)_{i\in I}$ stetig sind.
+\item Eine Subbasis ist $\Sc := \bigcup_{i \in I} \{f_i^{-1} (O_i) | O_i \in \Tc_i\}$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{itemize}
+\item $f_i$ ist stetig, falls die Initaltopologie $\Tc$ auf $X$ existiert. Betrachte folgendes kommutierendes Diagramm:
+\begin{center}
+\begin{tikzcd}
+(X,\Tc) \arrow[r,"g=\id_X"] \arrow[dr, "f_i"'] &(X,\Tc) \arrow[d, "f_i"]\\
+&(X_i, \Tc_i)
+\end{tikzcd}
+\end{center}
+Die Abbildung $\id_X: (X,\Tc) \to (X, \Tc)$ ist immer stetig. Dann folgt, dass alle $f_i$ stetig sind, denn $f_i = f_i \circ \id_X$.
+\item Eindeutigkeit: Angenommen, es gibt zwei $\Tc_1$ und $\Tc_2$ auf $X$. Betrachte
+\begin{center}
+\begin{tikzcd}
+(X,\Tc_1) \arrow[r,"\id_X"] \arrow[dr, "f_i \circ g"'] &(X,\Tc_2) \arrow[d, "f_i"]\\
+&X_i,
+\end{tikzcd}
+\end{center}
+also ist $\Tc_1 = \Tc_2$.
+\item Subbasis: Da $f_i$ stetig ist, muss $f^{-1}(O_i)$ offen sein in $(X, \Tc)$ mit der Initialtopologie $\Tc$. Also ist $\Sc \sub \Tc$. $\Tc$ war die gröbste Topologie, also $\langle \Sc \rangle = \Tc$. Zu zeigen ist nun, dass $(X,\Tc)$ mit $\Tc = \langle \Sc \rangle$ die universelle Eigenschaft erfüllt, also 
+\begin{center}
+\begin{tikzcd}
+Y \arrow[r,"g"] \arrow[dr, "f_i \circ g"'] &(X, \Tc) \arrow[d, "f_i"]\\
+&X_i
+\end{tikzcd}
+\end{center}
+ist genau dann stetig, wenn $f_i \circ g$ stetig für alle $i \in I$ ist.
+\item Klar ist, dass aus der Stetigkeit von $g$ folgt, dass $f_i \circ g$ stetig ist, weil alle $f_i$ stetig sind. 
+\item Wir nehmen an, dass $f_i \circ g$ stetig ist für alle $i \in I$. $g$ ist stetig genau dann, wenn $g^{-1}(O)$ offen in $Y$ für  alle $O \in \Sc$ ist. Es genügt $O=f_i^{-1}(O_i)$ für beliebiges $i \in I$ zu zeigen. Es gilt:
+\begin{equation}
+g^{-1}(f_i^{-1}(O_i)) = (g^{-1} \circ f_i^{-1})(O_i) = \underbrace{(f_i \circ g)^{-1}}_\text{stetig} \underbrace{(O_i)}_{\in \Tc_i}
+\end{equation}
+ist offen.
+\end{itemize}
+\end{beweis}
+Wir wollen nun Produkte von Mengen betrachten. Sei $(X_i)_{i \in I}$ eine Familie von Mengen. Betrachte das kartesische Produkt
+\begin{equation}
+X = \prod_{i \in I} X_i
+\end{equation}
+der Mengen $X_i$. Sei $x = (x_i)_{i \in I}$ mit $x_i \in X_i$. Dann betrachten wir die \textbf{Projektionsabbildung}
+\begin{equation}
+\begin{split}
+\pi_j: X &\to X_j\\
+(x_i)_{i \in I} &\mapsto x_j
+\end{split}
+\end{equation}
+$X = \prod X_i$ hat die universelle Eigenschaft:
+Die Abbildung $g: Z \to \prod X_i$ ist bijektiv mit Umkehrung $g_i: Z \to X_i$ für alle $i \in I$. Man setzt dafür $g_i \mapsto g(z) = (g_i(z))_{i \in I}$. Ziel ist, eine Topologie auf $X = \prod X_i$ zu definieren, falls alle $X_i$ top. Räume sind.
+\begin{definition}{Produkte}{produkte}
+Sei $(X_i, \Tc_i)_{i \in I}$ eine Familie topologischer Räume und $\prod_{i \in I} X_i =: X$ ihr Produkt (als Mengen). Dann heißt die Initialtopologie bezüglich der Projektion
+\begin{equation}
+\left( \pi_i: \prod_{j \in I} X_j \to X_i \right)_{i \in I}
+\end{equation}
+\textbf{Produkttopologie} auf $X$.
+\end{definition}
+\begin{satz}{Basis der Produkttopologie}{Produktbasis}
+Die Produkttopologie auf $X = \prod_{i \in I} X_i$ hat die Basis 
+\begin{equation}
+\Bc := \left\{\prod_{i \in I} O_i | O_i \in \Tc_i, O_i = X_i \ \text{für fast alle} \ i \in I \right\}.
+\end{equation}
+\end{satz}
+\begin{beweis}
+Betrachte die Projektion
+\begin{equation}
+\pi_i: \prod_{j \in I} X_j \to X_i.
+\end{equation}
+Für $O_i \in \Tc_i$ ist $\pi^{-1}_i (O_i) = \prod_{j \in I} O_j$ mit 
+\begin{equation}
+O_j = \begin{cases} O_i \ &\text{für} \ j = 1\\ X_j \ &\text{für} \ j \neq i.\end{cases}
+\end{equation}
+Endliche Schnitte davon geben die Elemente der Basis und das ist $\Bc$.
+\end{beweis}
+\begin{satz}
+Zu jeder Familie stetiger Abbildungen $(f_i: T \to X_i)_{i \in I}$ gibt es genau eine stetige Funtkion $f: T \to \prod X_i$ mit $\pi_i \circ f = f_i$ für alle $i \in I$, also kommutiert das folgende Diagramm:
+\begin{center}
+\begin{tikzcd}
+T \arrow[r,"???"] \arrow[dr, "f_i"'] &\prod_{j \in I}X_j \arrow[d, "\pi_i"]\\
+&X_i
+\end{tikzcd}
+\end{center}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}[(i)]
+\item $f$ existiert als Abbildung von Mengen wegen der universellen Eigenschaft des kartesischen Produktes von Mengen.
+\item Dieses $f$ ist automatisch stetig wegen der universellen Eigenschaft der Initialtopologie: $f_i$ sind alle stetig, $\pi_i$ sind stetig.
+\end{enumerate}
+\end{beweis}
