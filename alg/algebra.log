@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  1 NOV 2024 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  6 NOV 2024 11:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2009,22 +2009,22 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 712.
 
 LaTeX Warning: Command \textbackslash invalid in math mode on input line 743.
 
-[10] [11] [12]) [13] (algebra.aux (Abschnitte/ch1.aux))
+[10] [11] [12] [13]) [14] (algebra.aux (Abschnitte/ch1.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: E5A61BAC639CC20EFCC74FF49B87BB4F;817.
+(rerunfilecheck)             Checksum: 2074092E698E66698742EABDCD16F940;965.
 Package logreq Info: Writing requests to 'algebra.run.xml'.
 \openout1 = `algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60121 strings out of 475248
- 1355282 string characters out of 5767628
- 2287144 words of memory out of 5000000
- 80224 multiletter control sequences out of 15000+600000
+ 60244 strings out of 475248
+ 1357020 string characters out of 5767628
+ 2287913 words of memory out of 5000000
+ 80322 multiletter control sequences out of 15000+600000
  654163 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  98i,18n,102p,1997b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2047,9 +2047,9 @@ TeX/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
 ts/symbols/msam7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb>
-Output written on algebra.pdf (13 pages, 480650 bytes).
+Output written on algebra.pdf (14 pages, 498801 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 281 named destinations out of 1000 (max. 500000)
- 229 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 306 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

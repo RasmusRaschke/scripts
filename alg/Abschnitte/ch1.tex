@@ -761,19 +761,39 @@ Wir listen alle Elemente, sortiert nach Ordnung. Mögliche Ordnungen sind $1$, $
 Das es jeweils keine weiteren Elemente gibt, sieht man daran, dass die Ordnungen untereinander unter Verknüpfung abgeschlossen sind. Dass es insgesamt keine weiteren Elemente gibt, ist daran erkennbar, dass wir schon $12$ Elemente haben.\\
 Jetzt bestimmen wir das \textbf{Gitter} aller Untergruppen von $A_4$: Nach dem Satz von Lagrange ist die Ordnung der Untergruppen ein Teiler von $12$.
 \begin{center}
-\begin{tabular}{|c||c|c|c|c|}
-\hline 
-Ordnung &  &  & &   \\ 
-\hline 
-$4$ & $\langle \{(12)(34), (13),(24)\}\rangle$ &  &  &  \\ 
-\hline 
-$3$ & $\langle (123) \rangle$ = $\langle (132)\rangle$ & $\langle (124)\rangle$ & $\langle (134) \rangle$ & $\langle (234)\rangle$ \\ 
-\hline 
-$2$ & $\langle (12)(34)\rangle$ & $\langle (13)(24)\rangle$ & $\langle (14)(23)\rangle$ &  \\ 
-\hline 
-$1$ & \{(1)\} &  &  &  \\ 
-\hline 
-\end{tabular} 
+\begin{tikzpicture}[node distance=2cm]
+\node(A4)                           {$A_4$};
+\node(V4)       [below right of=A4] {$\langle \{(12)(34), (13)(24)\}\rangle$};
+\node(C31)      [below left of=A4]  {$\langle (123) \rangle$};
+\node(C32)      [left of=C31]       {$\langle (124) \rangle$};
+\node(C33)      [left of=C32]       {$\langle (134) \rangle$};
+\node(C34)      [left of=C33]       {$\langle (234) \rangle$};
+\node(C22)      [below of=V4]       {$\langle (12)(34)\rangle$};
+\node(C21)      [left of=C22]       {$\langle (13)(24)\rangle$};
+\node(C23)      [right of=C22]      {$\langle (14)(23)\rangle$};
+
+\node(1)            [below left of=C21]     {$\left\{1\right\}$};
+\draw(A4)       -- (V4);
+\draw(A4)       -- (C31);
+\draw(A4)       -- (C32);
+\draw(A4)       -- (C33);
+\draw(A4)       -- (C34);
+\draw(C31)      -- (C32);
+\draw(C32)      --  (C33);
+\draw(C33)      --  (C34);
+\draw(C31)      --  (1);
+\draw(C32)      --  (1);
+\draw(C33)      --  (1);
+\draw(C34)      --  (1);
+\draw(V4)       -- (C21);
+\draw(V4)       -- (C22);
+\draw(V4)       -- (C23);
+\draw(C21)      -- (C22);
+\draw(C22)      -- (C23);
+\draw(C21)      --  (1);
+\draw(C22)      --  (1);
+\draw(C23)      --  (1);
+\end{tikzpicture}
 \end{center}
 Weiter geht es mit den Konjugationsklassen. Ganz allgemein gilt für $\sigma \in \Sf_n$ und $(a_1 a_2 \cdots a_k) \in \Sf_n$:
 \begin{equation}
@@ -909,10 +929,18 @@ Sei $b:=T(0)$. Dann gilt
 \end{equation}
 Nach Satz \ref{eulidistortho} gilt $\tau_{-b} \circ T = \mu_A$ für $A \in \text{O}(n,\R)$. Also ist $T = \tau_b \circ \mu_A$.
 \end{beweis}
-\begin{bemerkungen}
-\begin{enumerate}
-\item Wir machen eine Vorbemerkung: Sind $G, G'$ Gruppen, so ist $G \times G'$ wieder eine Gruppe mit der Verknüpfung $(g_1, g_1') \circ (g_2, g_2') = (g_1 \circ g_2, g_1' \circ g_2')$, genannt \textbf{direktes Produkt} von $G$ und $G'$.
-\item Es existiert also eine Bijektion
+\begin{definition}{Direktes Produkt}{direktesprod}
+Seien $G$ und $G'$ Gruppen. Dann heißt die Gruppe $G \times G'$ mit der Verknüpfung
+\begin{equation}
+\begin{split}
+(G \times G') \times (G \times G') &\to G \times G'\\
+((g,h), (g',h')) &\mapsto (g\circ g', h \circ h')
+\end{split}
+\end{equation}
+\textbf{direktes Produkt} von $G$ und $G'$.
+\end{definition}
+\begin{bemerkung}
+Es existiert also eine Bijektion
 \begin{equation}
 E(n) \cong \{(A,b) \, | \, A \in \text{O}(n, \R), b \in \R^n\},
 \end{equation}
@@ -921,12 +949,11 @@ wobei das Kompositionsgesetz durch
 (A,b) \circ (A', b') = (AA', Ab'+b)
 \end{equation}
 gegeben ist. Also ist $E(n) = O(n, \R) \times \R^n$ als Menge, aber nicht als Gruppe!
-\end{enumerate}
-\end{bemerkungen}
+\end{bemerkung}
 \begin{definition}{Semidirektes Produkt}{semidirektesprodukt}
-Seien $H,N$ Gruppen und $H$ wirke auf $N$ via Gruppenhomomorphismen, also
+Seien $H$ und $N$ Gruppen und wirke $H$ auf $N$ via Gruppenhomomorphismen, also:
 \begin{enumerate}
-\item $H \acts G$
+\item $H \acts G$.
 \item Für jedes $h \in H$ ist die Abbildung $N \to N, \, x \mapsto h.x$ ein Gruppenhomomorphismus.
 \end{enumerate}
 Dann definieren wir eine Verknüpfung auf $H \times N$ durch:
@@ -936,7 +963,7 @@ Dann definieren wir eine Verknüpfung auf $H \times N$ durch:
 \left( (h,x) , (h', x')\right) &\mapsto \left( (hh', x(hx') \right).
 \end{split}
 \end{equation}
-Dies definiert eine Gruppenstruktur auf $H \times N$, genannt \textbf{semidirektes Produkt} von $(H,N, H\acts N)$ und bezeichnet mit $H \ltimes N$.
+Dies definiert eine Gruppenstruktur auf $H \times N$, genannt \textbf{semidirektes Produkt} $H \ltimes N$ von $(H,N, H\acts N)$.
 \end{definition}
 \begin{übung}
 Man zeige, dass $H \ltimes N$ tatsächlich eine Gruppe ist.
@@ -952,3 +979,70 @@ A = \mat{\cos \theta, - \sin \theta}{\sin \theta, \cos \theta}
 für $\theta \in \quotient{\R}{2\pi \Z}$. Also sind die Isometrien der Form $\mu_A, A \in \text{SO}(2,\R)$ genau die Drehungen um den Ursprung. Alle Bewegungen $T \in E(2)$ sind Kompositionen von Translationen, Spiegelungen und Drehungen.
 \end{enumerate}
 \end{beispiele}
+Wir versuchen jetzt, die $\text{O}(3,\R) \supseteq \text{SO}(3, \R)$ zu verstehen.
+\begin{definition}{Drehung}{drehung}
+Eine \textbf{Drehung von} $\R^3$ um den Ursprung $0 \in \R^3$ ist eine Drehung um einen Winkel $\theta \in \quotient{R}{2 \pi \Z}$ um eine Achse aufgespannt von $v \in \R^3 \exc \{0\}$.
+\end{definition}
+\begin{satz}{Drehungen sind spezielle orthogonale Transformationen}{drehungistso}
+Die Bewegungen der Form $\mu_A$ mit $A \in \text{SO}(3,\R)$ sind genaud die Drehungen um $0$.
+\end{satz}
+\begin{beweis}
+\begin{enumerate}
+\item $A$ hat einen Eigenvektor $v \neq 0$ zum Eigenwert $1$, also $Av=v$. Dafür genügt es, $\det (A-I_3) = 0$ zu zeigen. Wir rechnen schrittweise:
+\begin{enumerate}[(i)]
+\item \begin{equation}
+\det(A-I_3) = \det(A(I_3-A^\text{T})) = \det(A) \det(I_3 - A^\text{T}) = \det(I_3 - A^\text{T}) = \det(I_3 -A)
+\end{equation}
+\item \begin{equation}
+\det(A-I_3) = \det(-(I-A)) = (-1)^3 \det(I_3-A)
+\end{equation}
+\end{enumerate}
+Aus diesen beiden Gleichungen folgt bereits $\det(A-I_3) = 0$, was zu zeigen war.
+\item Sei $v \neq 0$ ein Eigenvektor von $A$ zum Eigenwert $1$. O.B.d.A. sei $\|v\|=1$ (ersetze $v$ durch $\frac{v}{\|v\|}$). Ergänze $v$ mit Gram-Schmidt zu einer ONB $(v,p,q)$ des $\R^3$. Bezüglich dieser Basis hat $\mu_A$ die Form
+\begin{equation}
+\mat{1,0,0}{0,\ast,\ast}{0,\ast,\ast} \in \text{SO}(3,\R).
+\end{equation}
+Das sehen wir ein, da die erste Spalte der Abbildung des Eigenvektors $v$ entspricht. Nun ist die Abbildung orthogonal, also bleibt das Skalarprodukt erhalten. Damit muss im ersten Eintrag der zweiten und dritten Spalte $0$ sein, sonst wäre das Bild der ONB keine ONB. Die untere Blockdiagonalmatrix ist in $\text{SO}(2,\R)$, also gilt
+\begin{equation}
+\mat{\ast, \ast}{\ast, \ast} = \mat{\cos \theta, - \sin \theta}{\sin \theta, \cos \theta}.
+\end{equation}
+\end{enumerate}
+Damit ist $\mu_A$ eine Drehung um die von $v$ aufgespannte Achse mit Winkel $\theta$.
+\end{beweis}
+\begin{korollar}{Aus Satz \ref{drehungistso}}{aussatzdrehungistso}
+Die Menge der Drehungen von $\R^3$ um $0 \in \R^3$ bildet eine Gruppe unter Verknüpfung, die isomorph zu $\text{SO}(3,\R)$ ist.
+\end{korollar}
+\subsection{Symmetrie im Raum}
+\label{subsec:symmetrieimraum}
+\begin{definition}{Euklidische Symmetriegruppe}{euklidsymmetriegruppe}
+Für eine Teilmenge $F \sub \R^3$, genannt \textbf{Figur}, definieren wir die \textbf{euklidische Symmetriegruppe}
+\begin{equation}
+\Sym (F) := \left\{ T \in E(3) | T(F) = F\right\} \leq E(3)
+\end{equation}
+und die \textbf{euklidische Drehsymmetriegruppe}
+\begin{equation}
+\Symso (F) := \left\{ A \in \text{SO}(3,\R) | \mu_A (F) = F\right\} \leq \text{SO}(3,\R)
+\end{equation}
+von $F$.
+\end{definition}
+\begin{satz}{Klassifikation der Drehgruppe in $\R^3$}{drehgruppenklass}
+Jede endliche Untergruppe von $\text{SO}(3, \R)$ ist konjugiert zu einer der folgenden Gruppen:
+\begin{enumerate}
+\item $\left\{ \mat{1,0,0}{0,1,0}{0,0,1} \right\}$: triviale Gruppe
+\item Die zyklische Gruppe $\text{C}_n$ der Ordnung $n$, gegeben durch die Drehgruppe $\Symso (P)$ einer Pyramide $P$ über einem regulären $n$-Eck mit Mittelpunkt $0$.
+\item Die Drehgruppe $\text{D}_n$ der Ordnung $2n$, gegeben durch die Drehgruppe eines regulären Prismas über einem regulären $n$-Eck mit $n\geq 2$ und Mittelpunkt $0$.
+\item Die Gruppe $A_4$, gegeben als Drehgruppe eines Tetraeders.
+\item Die Gruppe $\Sf_4$, gegeben als Drehgruppe eines Würfels oder eines Oktaeders.
+\item Die Gruppe $A_5$, gegeben als Drehgruppe eines Dodekaeders oder Ikosaeders.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+O.B.d.A. sei $G \leq \text{SO}(3,\R)$ eine endliche Untergruppe mit $G \neq \{I_3\}$. In Abschnitt \ref{subsec:euklidbewegungen} haben wir gezeigt, dass jedes $A \in \text{SO}(3,\R)$, $A \neq I_3$ eine Drehung um eine Achse $l = \langle v \rangle \sub \R^3$. Wir bezeichnen die zwei Elemente der Menge $l \cap \S^2$ mit $\S^2 := \{ v \in \R^3| \|v\| = 1\}$ als \textbf{Pole von} $A$. Wir bezeichnen weiterhin mit $P \sub \S^2$ die Menge aller Pole aller Elemente $A \in G$, $A \neq I_3$.
+\begin{enumerate}
+\item Die Operation $G \acts \R^3$ via Links-Matrixmultiplikation schränkt sich ein auf eine Operation $G \acts P$. Sei dazu $P$ ein Pol von $A \in G$, $A \neq I_3$ und sei $B \in G$. Dann gilt
+\begin{equation}
+(BAB^{-1})B.p = B(AB^{-1}B).p = BA.p = B.p,
+\end{equation}
+da Pole von $A$ invariant unter $A$ sind. Also ist $B.p$ ein Pol von $A' = B AB^{-1} \in G$.
+\end{enumerate}
+\end{beweis}
