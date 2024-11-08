@@ -1046,3 +1046,67 @@ O.B.d.A. sei $G \leq \text{SO}(3,\R)$ eine endliche Untergruppe mit $G \neq \{I_
 da Pole von $A$ invariant unter $A$ sind. Also ist $B.p$ ein Pol von $A' = B AB^{-1} \in G$.
 \end{enumerate}
 \end{beweis}
+\begin{lemma}{Klassifikation von $\text{SO}(2,\R)$}{so2klass}
+Sei $0 \neq p \in \R^3$ und $H \leq \Symso (\R^3)_p$ eine endliche Untergruppe von Drehungen um die Achse $0_p \in \R^3$.\footnote{Notationell ist $\Symso (\R^3)_p$ der Stabilisator von $p$ unter $\Symso (\R^3) \acts \R^3$.} Dann ist $H$ zyklisch, erzeugt von der Drehung $\delta_\theta$ in $H$ um den kleinsten Winkel $0<\theta \leq 2\pi$ gegen den Uhrzeigersinn.
+\end{lemma}
+\begin{beweis}
+Sei $\delta_\theta \in H$ eine Drehung um den kleinsten Winkel. Diese existiert, da 
+\begin{equation}
+\{\theta \in (0,2\pi)|\delta_\theta \in H\} \sub \R
+\end{equation}
+eine endliche, nicht-leere Teilmenge ist. Wir behaupten, dass $H = \langle \delta_\theta \rangle$. Wäre dem nicht so, gäbe es $\phi \in (0,2\pi)$ und $n \in \N$, sodass $n\theta < \phi < (n+1) \theta$ mit $\delta_\phi \in H$. Dann gilt aber 
+\begin{equation}
+\delta_{\phi - n\theta} = \delta_\phi (\delta_\theta^n)^{-1} \in H
+\end{equation}
+mit $0 < \phi - n\theta < \theta$, was ein Widerspruch zur Annahme ist.
+\end{beweis}
+\begin{beweis}
+Wir machen weiter im Beweis von Satz \ref{drehgruppenklass}. 
+\begin{enumerate}[2.]
+\item Für $p \in P$ besteht $G_p \leq G$ genau aus den Drehungen $\delta_\theta$ mit $\theta \in \quotient{\R}{2\pi \Z}$ um die Achsen $O_p$ mit $\delta_\theta \in G$. Gemäß Lemma \ref{so2klass} gilt also $G_p = \langle \delta_\theta \rangle$, wobei $\delta_\theta$ der kleinste Winkel mit $\delta_\theta \in G_p$ ist. Da $p \in P$ ein Pol ist, ist $G_p \neq \langle I_3 \rangle$. Es gilt $\theta = \frac{2\pi}{r_p}$ mit $r_p = |G_p|$ und $r_p > 1$, da $p$ ein Pol ist. Wir definieren $n_p := |G.p|$ und betrachten die Bahnformel
+\begin{equation}
+N:=|G| = n_p \cdot r_p.
+\end{equation}
+\item Betrachte die Menge
+\begin{equation}
+X := \{(p,A)\,|\, p \in P \, \text{ist Pol von} \, A \in G\} \sub P \times G.
+\end{equation}
+Da jedes $I_3 \neq A \in G$ genau zwei Pole hat, gilt $|X| = 2N-2$. Fixieren wir andererseits einen Pol $p$, dann hat die Menge $\{I_3 \neq A \in G \, | \, p \, \text{Pol von} \, A \} = G_p \exc \{I_3\}$ die Kardinalität $r_p-1$. Also gilt $|X| = \sum_{p \in P} (r_p -1) = 2N-2$. Für $p' \in G.p$ gilt: $|G_p| = |G_{p'}|$, also $r_p = r_{p'}$. Wir erhalten insgesamt:
+\begin{equation}
+\sum_{G.p \in \invquotient{G}{P}} n_p(r_p-1) = 2N-2.
+\end{equation}
+Division beider Seiten durch $N = n_pr_p$ liefert
+\begin{equation}
+\label{eq:drehgruppenbahngl}
+\sum_{G.p \in \invquotient{G}{P}} \left(1- \frac{1}{r_p}\right) = 2-\frac{2}{N}.
+\end{equation}
+\item Aus Gleichung \ref{eq:drehgruppenbahngl} folgt sofort, dass höchstens drei Bahnen existieren können, also $\left|\invquotient{G}{P}\right| \leq 3$.
+\begin{enumerate}[1. {Fall}:]
+\item Sei $\left|\invquotient{G}{P}\right| =1$. Dann gilt gemäß Gleichung \ref{eq:drehgruppenbahngl}: 
+\begin{equation}
+\underbrace{-\frac{1}{r}}_{<1} = \underbrace{-\frac{2}{N}}_{\geq 1}
+\end{equation}
+für $r = |G_p|$, $p \in P$, was ein Widerspruch ist. Solche Bahnen existieren somit nicht.
+\item Sei $\left|\invquotient{G}{P}\right| =2$, also 
+\begin{align}
+\left( 1 - \frac{1}{r_1}\right) + \left(1 - \frac{1}{r_2} \right) &= 2 - \frac{2}{N}\\
+\iff \frac{2}{N} &= \frac{1}{r_1}+ \frac{1}{r_2}.
+\end{align}
+Es gilt aber $r_i \leq N$, also $r_1=r_2=N$ und damit $n_1=n_2=1$. Es gibt somit zwei Pole $P=\{\pm p\}$, die von allen Gruppenelementen stabilisiert werden. Also ist $G \leq \Symso (\R^3)_p$ eine endliche Gruppe von Drehungen um die Achse $0_p$ (sowie um die Achse $\overline{(-p)p}$). Mit Lemma \ref{so2klass} folgt
+\begin{equation}
+G = \langle \delta_\theta \rangle \sim \text{C}_n.
+\end{equation}
+\item Sei $\left|\invquotient{G}{P}\right| =3$, also 
+\begin{equation}
+\frac{2}{N} = \frac{1}{r_1} + \frac{1}{r_2} + \frac{1}{r_3} - 1.
+\end{equation}
+O.B.d.A. sei $r_1 \leq r_2 \leq r_3$. Falls alle $r_i \geq 3$ sind, ist dies ein Widerspruch, also $r_1 = 2$. Wir unterscheiden weitere Fälle:
+\begin{enumerate}[{3.}1. {Fall:}]
+\item Sei $r_2=2$, dann ist $r_3 = \frac{N}{2}$ und $N=2r_3$ gerade.
+\item Sei $r_2=3$ und $r_3 = 3$. Dann ist $N = (2, n_i = (6,4,4))$.
+\item Sei $r_2 = 3$ und $r_3 = 4$, dann ist $N=24$ und $n_i = (12,8,6)$.
+\item Sei $r_2=3$ und $r_3 =5$, dann ist $N=60$ und $n_i=(30,20,12)$.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{beweis}
