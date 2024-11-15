@@ -1,0 +1,139 @@
+\section{Ringe}
+\label{sec:ringe}
+\subsection{Ringe, Ideale und Homomorphismen}
+\label{subsec:ringeidealehomo}
+\begin{definition}{Ring}{ring}
+Ein \textbf{Ring} ist ein Tripel $(R, +, \cdot)$, bestehend aus einer Menge $R$ und Abbildungen
+\begin{equation}
++: R \times R \to R
+\end{equation}
+und
+\begin{equation}
+\cdot: R \times R \to R,
+\end{equation}
+sodass gilt:
+\begin{enumerate}[({R}1)]
+\item Das Paar $(R,+)$ ist eine abelsche Gruppe.
+\item Für $a,b \in R$ gilt:
+\begin{equation}
+\begin{split}
+a \cdot (b \cdot c) = (a \cdot b) \cdot c \\
+(a+b) \cdot c = a\cdot c + b \cdot c \\
+a \cdot (b+c) = a \cdot b + a \cdot c
+\end{split}
+\end{equation}
+\item Es existiert ein Einselement $1 \in R$, sodass für alle $a \in R$ gilt:
+\begin{equation}
+1 \cdot a = a \cdot 1 = a.
+\end{equation}
+\end{enumerate}
+Gilt zusätzlich 
+\begin{equation}
+a \cdot b = b \cdot a,
+\end{equation}
+dann heißt der Ring \textbf{kommutativ}.
+\end{definition}
+\begin{bemerkung}
+Manche Autoren definieren Ringe, ohne ein Einselement zu fordern. Dann werden Ringe mit Einselement als \textbf{unitale Ringe} bezeichnet.
+\end{bemerkung}
+\begin{beispiele}
+\begin{enumerate}
+\item Der \textbf{Nullring} $\{0\}$ ist ein Ring, da wir insbesondere nicht fordern, dass $0 \neq 1$ gelten muss. Jedoch ist der Nullring (bis auf Umbenennung der Elemente) der einzige Ring mit dieser Eigenschaft.
+\item $(\Z, +, \cdot)$ bildet einen kommutativen Ring.
+\item Jeder Körper bildet einen kommutativen Ring.
+\item Für $\alpha \in \C$ ist die Menge 
+\begin{equation}
+\Z [\alpha] := \left\{ \sum_{k=0}^w \lambda_k \alpha^k \, | \, k \in \N, \lambda_k \in \Z \right\} \sub \C
+\end{equation}
+abgeschlossen unter Addition und Multiplikation. Die Ringaxiome werden von $(\C, +, \cdot)$ vererbt, also bildet $\Z[\alpha]$ einen kommutativen Ring, den \textbf{Polynomring über} $\Z$. Besonders wichtig für die Zahlentheorie is der Fall, wenn $\alpha$ eine \textit{ganze algebraische Zahl} ist, also $\alpha$ als Nullstelle eines monischen Polynoms
+\begin{equation}
+x^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+\end{equation}
+mit Koeffizienten $a_i \in \Z$ auftritt. Zum Beispiel ist die imaginäre Zahl $i \in \C$ als Nullstelle des Polynoms $x^2+1$ eine ganze algebraische Zahl. Der Ring
+\begin{equation}
+\Z[i] = \{ a+bi | a,b \in \Z \}
+\end{equation}
+heißt \textbf{Gaußscher Zahlenring}.
+\item Für einen Ring $R$ bildet die Menge $R[x]$ der Polynome mit Koeffizienten in $R$ einen Ring, genannt \textbf{Polynomring über} $R$.
+\item Für jeden Körper $\K$ bildet die Menge $M(n,\K)$ der $\K$-wertigen $n \times n$-Matrizen einen Ring mit elementweiser Addition und Matrixmultiplikation.
+\item Für Ringe $R$ und $S$ ist das Produkt $R \times S$ wieder ein Ring mit komponentenweisen Verknüpfungen. 
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Schiefkörper}{schiefkoerper}
+Sei $(R,+,\cdot)$ ein Ring. Existiert zusätzlich für alle $a \in R$ ein $a^{-1} \in R$ mit 
+\begin{equation}
+a \cdot a^{-1} = a^{-1} a = 1,
+\end{equation}
+so heißt $(R,+,\cdot)$ \textbf{Schiefkörper}.
+\end{definition}
+\begin{beispiel}
+Die \textbf{Quaternionen} $\H$ bilden einen nicht-kommutativen Ring. Da jedes $q \in \H \exc \{0\}$ allerdings ein multiplikatives Inverses besitzt, ist $\H$ ein Schiefkörper.
+\end{beispiel}
+\begin{bemerkung}
+Historisch wurde der Begriff des Rings und zugehörige Definitionen wie Ideale und Moduln in der algebraischen Zahlentheorie des 19. Jahrhunderts eingeführt und entwickelt (\textit{Kummer}, \textit{Noether}, \textit{Dedekind}, \textit{Hilbert}, \dots).\\
+Ziel der Einführung der Ringstruktur ist die Verallgemeinerung des Primzahlbegriffs und der Primfaktorzerlegung für ganze algebraische Zahlen. Zum Beispiel zerfällt die Primzahl $2$ in ein Produkt
+\begin{equation}
+2 = (1+i)(1-i),
+\end{equation}
+welches in $\Z[i]$ die neue Primfaktorzerlegung von $2$ wird. Die Tatsache, dass $\Z[i]$ noch immer eindeutige Primfaktorzerlegung besitzt, hat direkte zahlentheoretische Konsequenzen. Ein Beispiel dafür ist der sehr elegante Beweis des folgenden Satzes.
+\end{bemerkung}
+\begin{satz}{Quadratsumme}{quadratsumme}
+Eine ganze Zahl $n \in \Z$ ist genau dann eine Summe $a^2+b^2$ von Quadraten mit $a,b \in \Z$, falls gilt: Jeder Primfaktor $p \mid n$ mit $ p \equiv_4 3$ kommt mit gerader Vielfachheit vor. 
+\end{satz}
+Umgekehrt gibt es algebraische Zahlenringe ohne eindeutige Primfaktorzerlegung, z.B. $\Z [\sqrt{-5}]$:
+\begin{equation}
+6 = 2 \cdot 3 = (1-\sqrt{-5})(1+\sqrt{-5}).
+\end{equation}
+\textbf{Ab jetzt vereinbaren wir, dass alle vorkommenden Ringe kommutativ sind.}
+\begin{definition}{Ideal}{ideal}
+Sei $R$ ein Ring. Eine nicht-leere Teilmenge $\cI \sub R$ heißt \textbf{Ideal}, falls gilt:
+\begin{enumerate}[({I}1)]
+\item Für alle $x, y \in \cI$ gilt: $x+y \in \cI$.
+\item Für alle $r \in R$ und $x \in \cI$ gilt: $r \cdot x \in \cI$.
+\end{enumerate}
+\end{definition}
+\begin{beispiel}Hauptideale\\
+Sei $R$ ein Ring und $x \in R$. Dann bildet 
+\begin{equation}
+(x) := Rx = \{rx | r \in R \} \sub R
+\end{equation}
+ein Ideal, das von $x$ erzeugte \textbf{Hauptideal}. Allgemeiner ist für jede Teilmenge $M \sub R$ 
+\begin{equation}
+(M) := \bigcap_{M \sub \cI \sub R} \cI \sub R
+\end{equation}
+das von $M$ \textbf{erzeugte Ideal}.
+\end{beispiel}
+\begin{bemerkung}
+Jeder vom Nullring verschiedene Ring $R$ besitzt mindestens zwei unterschiedliche Ideale, nämlich $\{0\}$ und $R$ selbst.
+\end{bemerkung}
+\begin{satz}{Ring $=$ Körper?}{ringkörper}
+Ein Ring $R$ ist genau dann ein Körper, wenn $R$ genau zwei verschiedene Ideale besitzt.
+\end{satz}
+\begin{beweis}
+Sei $\K$ ein Körper und $\{0\} \subset \cI \sub \K$ ein Ideal. Wähle $0 \neq x \in \cI$. Dann existiert ein $r \in R$ mit $rx = 1 \in \cI$. Also gilt für alle $s \in \K$: $s \cdot 1 = s \in \cI$, und somit $\cI = \K$.\\
+Angenommen, $R$ hat genau zwei Ideale. Sei $0 \neq x \in R$, dann ist $\{0\} \subset (x) \sub R$ ein Ideal. Daraus folgt aber, dass $(x)=R \ni 1$, also existiert ein $r \in R$ mit $rx = 1$.
+\end{beweis}
+\begin{definition}{Ringhomomorphismus}{ringhomomorphismen}
+Eine Abbildung $\phi: R \to S$ zwischen Ringen $R$ und $S$ heißt \textbf{(Ring-)Homomorphismus}, falls gilt:
+\begin{enumerate}[({H}1)]
+\item Für alle $r_1, r_2 \in R$ gilt:
+\begin{align}
+\phi(r_1+r_2) &= \phi(r_1)+\phi(r_2)\\
+\phi(r_1 \cdot r_2) &= \phi(r_1) \cdot \phi(r_2).
+\end{align}
+\item Für $1 \in R$, $1' \in S$ gilt:
+\begin{equation}
+\phi(1) = 1'.
+\end{equation}
+\end{enumerate}
+\end{definition}
+\begin{beispiel}
+Sei $R$ ein Ring, $R[x]$ der zugehörige Polynomring über $R$ und $\alpha \in R$. Dann ist die \textbf{Auswertungsabbildung}
+\begin{equation}
+\begin{split}
+\text{ev}_\alpha: R[x] &\to R\\
+f(x) &\mapsto f(\alpha)
+\end{split}
+\end{equation}
+ein Homomorphismus, genannt \textbf{Einsetzungshomomorphismus}.
+\end{beispiel}

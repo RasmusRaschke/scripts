@@ -6,3 +6,5 @@
 \contentsline {subsection}{\numberline {1.4}Gruppenwirkung}{9}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Euklidische Bewegungen}{11}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Symmetrie im Raum}{14}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Ringe}{17}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ringe, Ideale und Homomorphismen}{17}{subsection.2.1}%
