@@ -488,13 +488,23 @@ a \in \ker (\pi) \iff \pi(a) = 1_{\quotient{G}{H}} = N \iff aN = N \iff a \in N,
 also gilt $\ker (\pi) = N$.
 \end{enumerate}
 \end{beweis}
-\begin{satz}{Homomorphiesatz (erster Isomorphiesatz)}{homomorphiesatz}
-Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
+\begin{theorem}{Isomorphiesätze}{isomorphiesaetze}
+\begin{enumerate}
+\item Isomorphiesatz: Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
 \begin{align}
 \overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
 g \ker (\phi) &\mapsto \phi(g).
 \end{align}
-\end{satz}
+\item Isomorphiesatz: Sei $H \leq G$ eine Untergruppe und $N \lnormal G$ eine normale Untergruppe. Dann definiert $g(N \cap H) \to gN$ einen Isomorphismus 
+\begin{equation}
+\quotient{H}{(N\cap H)} \to \quotient{NH}{N}.
+\end{equation}
+\item Seien $M, N \lnormal G$ und $M \leq N$. Dann ist $\quotient{N}{M} \lnormal \quotient{G}{M}$ und es existiert ein Isomorphismus
+\begin{equation}
+\quotient{(\quotient{G}{M})}{(\quotient{N}{M})} \to \quotient{G}{N}.
+\end{equation}
+\end{enumerate}
+\end{theorem}
 \begin{beweis}
 Zunächst ist Wohldefiniertheit zu zeigen. Für $\tilg \in gN$, also $\tilg = gn$ für $n \in \ker (\phi)$, gilt:
 \begin{equation}
@@ -517,7 +527,7 @@ betrachten, dann ist $\ker{\sgn} = A_n \trianglelefteq \Sf_n$, also erhalten wir
 \end{equation}
 Insbesondere gilt $\Sf_n : A_n = 2$.
 \end{beispiel}
-\begin{korollar}{Korollar aus Satz \ref{homomorphiesatz}}{korollarhomosatz}
+\begin{korollar}{Korollar aus Satz \ref{isomorphiesaetze}}{korollarhomosatz}
 Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\phi$ schreiben als
 \begin{equation}
 \phi = \iota \circ \overline{\phi} \circ \pi,
@@ -747,6 +757,15 @@ und heißt \textbf{Klassengleichung} von $G$.  Alle Summanden der Klassengleichu
 \begin{übung}
 Zeigen Sie, dass das Zentrum von $G$ eine Untergruppe bildet.
 \end{übung}
+\begin{satz}{Zyklische Zentren geben abelsche Gruppen}{zyklzentabel}
+Sei $G$ eine Gruppe und $Z(G)$ das Zentrum von $G$. Falls $\quotient{G}{Z(G)}$ zyklisch ist, ist $G$ abelsch.
+\end{satz}
+\begin{beweis}
+Übung 4.2
+\end{beweis}
+\begin{bemerkung}
+Ist $\quotient{G}{Z(G)}$ abelsch, ist $G$ nicht notwendigerweise abelsch.
+\end{bemerkung}
 \begin{beispiel}
 Wir wollen die Untergruppenstruktur von $A_4 \lnormal \Sf_4$ verstehen. Dazu bestimmen wir die Klassengleichung der Gruppe. Es gilt $(\Sf_4 : A_4)  =2$, da $\quotient{\Sf_4}{A_4} = \{\pm 1\}$. Aus dem Satz von Lagrange folgt 
 \begin{equation}
@@ -819,6 +838,23 @@ Daraus können wir direkt ablesen, dass es keine Untergruppen der Ordnung $6$ ge
 \begin{übung}
 Verifiziere $(\ast)$. Beweise, dass Untergruppen mit Index $2$ normal sind. Zeige, dass normale Untergruppen als Vereinigung von Konjugationsklassen geschrieben werden können.
 \end{übung}
+\begin{definition}{Zykeltyp}{zykeltyp}
+Sei $\Sf_n$ die symmetrische Gruppe. Ein $\sigma \in \Sf_n$ kann als Produkt
+\begin{equation}
+\sigma = \sigma_1 \circ \sigma_2 \circ \cdots \sigma_k
+\end{equation}
+paarweise disjunkter Zykel $\sigma_i$ der Länge $m_i \geq 2$ geschrieben werden, wobei $(1)=\sigma_0$ gilt. O.B.d.A sei $m_1 \geq m_2 \geq \cdots \geq m_k$. Dann heißt der $k$-Tupel 
+\begin{equation}
+(m_1, m_2, \cdots, m_k)
+\end{equation}
+\textbf{Zykeltyp} von $\sigma$.
+\end{definition}
+\begin{satz}{Zykeltyp bestimmt Konjugationsklasse}{zykelkonjugation}
+Zwei Elemente $\sigma, \sigma' \in \Sf_n$ sind genau dann in der gleichen Konjugationsklasse, wenn sie den gleichen Zykeltyp haben.
+\end{satz}
+\begin{beweis}
+Übung 3.2
+\end{beweis}
 \subsection{Euklidische Bewegungen}
 \label{subsec:euklidbewegungen}
 Wir beginnen mit einer Widerholdung von Grundbegriffen:
@@ -979,12 +1015,54 @@ A = \mat{\cos \theta, - \sin \theta}{\sin \theta, \cos \theta}
 für $\theta \in \quotient{\R}{2\pi \Z}$. Also sind die Isometrien der Form $\mu_A, A \in \text{SO}(2,\R)$ genau die Drehungen um den Ursprung. Alle Bewegungen $T \in E(2)$ sind Kompositionen von Translationen, Spiegelungen und Drehungen.
 \end{enumerate}
 \end{beispiele}
+\begin{definition}{Kurze exakte Sequenz}{kes}
+Eine \textbf{kurze exakte Sequenz} von Gruppen ist gegeben durch 
+\begin{center}
+\begin{tikzcd}
+    \{1\} \arrow[r] & N \arrow[r, "i"] & G \arrow[r, "p"] &H \arrow[r] &\{1\}, 
+\end{tikzcd}
+\end{center}
+wobei:
+\begin{itemize}
+\item $N,G$ und $H$ Gruppen sind.
+\item $i: N \to G$ ein injektiver Gruppenhomomorphismus (Monomorphismus) ist.
+\item $p: G \to H$ ein surjektiver Gruppenhomomorphismus (Epimorphismus) ist.
+\item $\im (i) = \ker (p)$ gilt.
+\end{itemize}
+Eine kurze exakte Sequenz \textbf{zerfällt}, falls ein Homomorphismus $s: H \to G$ mit $p \circ s = \id_H$ existiert.
+\end{definition}
+\begin{satz}{Kurze exakte Sequenzen und semidirekte Produkte}{kessemidirekt}
+\begin{enumerate}
+\item Seien $H,N$ Gruppen und $H$ wirke auf $N$ via Homomorphismen. Dann existiert eine zerfallende kurze exakte Sequenz:
+\begin{center}
+\begin{tikzcd}
+    \{1\} \arrow[r] & N \arrow[r, "i"] & N \rtimes H \arrow[r, "p"] &H \arrow[r] &\{1\}. 
+\end{tikzcd}
+\end{center}
+\item Sei 
+\begin{center}
+\begin{tikzcd}
+    \{1\} \arrow[r] & N \arrow[r, "i"] & G \arrow[r, "p"] &H \arrow[r] &\{1\}. 
+\end{tikzcd}
+\end{center}
+eine zerfallende kurze exakte Sequenz mit Schnitt $s$. Dann definiert Konjugation mit $s(H)$ eine Wirkung von $H$ auf $N$ via Homomorphismen, sodass $G \cong N \rtimes H$ ist:
+\begin{center}
+\begin{tikzcd}
+    \{1\} \arrow[r] & N \arrow[r, "i"] & G \arrow[r, "p"] \arrow[d, "\phi"] &H \arrow[r] &\{1\}\\
+    \{1\} \arrow[r] & N \arrow[r, "i"] & N \rtimes H \arrow[r, "p"] &H \arrow[r] &\{1\}.
+\end{tikzcd}
+\end{center}
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Übung 4.4
+\end{beweis}
 Wir versuchen jetzt, die $\text{O}(3,\R) \supseteq \text{SO}(3, \R)$ zu verstehen.
 \begin{definition}{Drehung}{drehung}
 Eine \textbf{Drehung von} $\R^3$ um den Ursprung $0 \in \R^3$ ist eine Drehung um einen Winkel $\theta \in \quotient{R}{2 \pi \Z}$ um eine Achse aufgespannt von $v \in \R^3 \exc \{0\}$.
 \end{definition}
 \begin{satz}{Drehungen sind spezielle orthogonale Transformationen}{drehungistso}
-Die Bewegungen der Form $\mu_A$ mit $A \in \text{SO}(3,\R)$ sind genaud die Drehungen um $0$.
+Die Bewegungen der Form $\mu_A$ mit $A \in \text{SO}(3,\R)$ sind genau die Drehungen um $0$.
 \end{satz}
 \begin{beweis}
 \begin{enumerate}
@@ -1256,7 +1334,8 @@ mit $0 < \phi - n\theta < \theta$, was ein Widerspruch zur Annahme ist.
 \end{beweis}
 \begin{beweis}
 Wir machen weiter im Beweis von Satz \ref{drehgruppenklass}. 
-\begin{enumerate}[2.]
+\begin{enumerate}
+\setcounter{enumi}{1}
 \item Für $p \in P$ besteht $G_p \leq G$ genau aus den Drehungen $\delta_\theta$ mit $\theta \in \quotient{\R}{2\pi \Z}$ um die Achsen $O_p$ mit $\delta_\theta \in G$. Gemäß Lemma \ref{so2klass} gilt also $G_p = \langle \delta_\theta \rangle$, wobei $\delta_\theta$ der kleinste Winkel mit $\delta_\theta \in G_p$ ist. Da $p \in P$ ein Pol ist, ist $G_p \neq \langle I_3 \rangle$. Es gilt $\theta = \frac{2\pi}{r_p}$ mit $r_p = |G_p|$ und $r_p > 1$, da $p$ ein Pol ist. Wir definieren $n_p := |G.p|$ und betrachten die Bahnformel
 \begin{equation}
 N:=|G| = n_p \cdot r_p.
@@ -1302,6 +1381,25 @@ O.B.d.A. sei $r_1 \leq r_2 \leq r_3$. Falls alle $r_i \geq 3$ sind, ist dies ein
 \item Sei $r_2=3$ und $r_3 =5$, dann ist $N=60$ und $n_i=(30,20,12)$.
 \end{enumerate}
 \end{enumerate}
+\item Jetzt müssen wir noch die verschiedenen Fälle aus dem 4. Schritt genauer untersuchen.
+\begin{enumerate}[(I)]
+\item Es existieren zwei Bahnen, bestehend aus je einem Pol, also $P=\{\pm p\}$. Daher ist $G=G_p$ eine endliche Gruppe von Drehungen um die von $p$ erzeugte Achse. Nach Lemma \ref{so2klass} ist die Gruppe zyklisch, erzeugt durch Drehungen um $\frac{2\pi}{N}$ durch $\overline{(-p)p}$. Sei $C \in \text{SO}(3,\R)$ eine Drehung, die die Standardkoordinate $e_3$ auf $p$ abbildet. Dann ist $C^{-1}GC: e_3 \to p \to p \to e_3$ genau die Drehgruppe $P_n$ der Pyramide.
+\item 
+\begin{enumerate}[(a)]
+\item Für $n_3=2$ und $r_3=r$ hat die zugehörige Bahn zwei Pole $\{p,p'\}$. Für einen Pol $p$ existiert ein $I_3 \neq A$ mit $A_p = p$. Wegen $G \acts \{p,p'\}$ induziert $\{p,p'\} \to \{p,p'\}, x \mapsto Ax$ eine Selbstbijektion, also $Ap'=p'$ und damit $p'=-p$. Gemäß Lemma \ref{so2klass} ist der Stabilisator $G_p$ eine zyklische Gruppe der Ordnung $r$, erzeugt von einer Drehung $\delta$ um die Achse $\overline{0p}$ mit Winkel $\frac{2\pi}{r}$. Sei $tau \in \quotient{G}{G_p}$. Dann gilt $\tau.p = -p$, also ist $\tau$ eine Drehung um eine zu $p$ orthogonale Achse mit Winkel $\pi$. Damit erzeugt $\langle \delta, \tau \rangle \leq G$ eine Diedergruppe der Ordnung $2r$, also $G = \langle \delta, \tau \rangle$. Durch analogen Koordinatenwechsel mit $C \in \text{SO}(3,\R)$ wie in (I) gilt: $C^{-1}GC$ ist die Diedergruppe von $Z_r$.
+\item Es gilt $n_3=4$ und $r_3=3$. Sei $B=\{p_1,p_2,p_3,p_4\}$ die zugehörige Bahn. Dann gilt $|G_{p_1}| = 3$ und $G_{p_1}$ besteht aus Drehungen um die von $p_1$ erzeugte Achse. Daher muss $G_p$ nicht trivial auf $\{p_2,p_3,p_4\}$ wirken, also nach der Bahnformel transitiv sein. Da $G_{p_1}$ durch Bewegungen wirkt, muss für die Skalarprodukte gelten:
+\begin{equation}
+\langle p_1,p_2 \rangle = \langle p_1, p_3 \rangle = \langle p_1, p_4 \rangle.
+\end{equation}
+Dieses Argument kann für jedes $i \in  \{1,2,3,4\}$ angewandt werden, wodurch wir Gleichheit von allen $\langle p_i, p_j \rangle$ für alle $1 \leq i \neq j \leq n$ erhalten. Weiterhin gilt $\langle p_i , p_j \rangle =1$ für alle $1 \leq i \leq n$. Mit der Bijektivität des Skalarprodukts folgt daraus, dass alle Abstände $\|p_i-p_j\|$ für $i \neq j$ gleich sind. Jeweils drei der vier Pole aus $B$ bilden also ein gleichseitiges Dreieck. Das impliziert, dass $B$ die Eckpunkte eines Tetraeders mit Schwerpunkt $0$ bildet.\\
+Die Gruppe $G$ permutiert $B$ via Drehungen (lineare Abbildungen), also erhält $G$ $T'= \text{Konv}(B)$. Damit gilt $G \leq \text{SO}(T')$. Da $|G|=12$ und $|\text{SO}(T')|=12$ gilt, muss $G=\text{SO}(T')$ sein. Durch eine Drehung $C$ lässt sich $T$ überführen in eine Skalarstreckung von $T'$, also $C^{-1}GC=\text{SO}(T)$.
+\item Es gilt $n_3 = 6$, $r_3 = 4$ und $N=24$. Sei $B:= \{p_1, \dots, p_6\}$ die zugehörige Bahn. Es gilt $|G_{p_1}|=4$, wobei $G_{p_1}$ die zyklische Gruppe von Drehungen um $p_i$ ist. Wegen der Bahnformel hat die Wirkung von $G_{p_1}$ auf $B\exc \{p_1\}$ einen Fixpunkt. Dann muss aber $p_2 = -p_1$ sein. Aus Lemma \ref{so2klass} folgt, dass $G_{p_1} =\langle \delta \rangle$ zyklisch der Ordnung $4$ ist. Die Bahnformel erlaubt zwei Möglichkeiten:
+\begin{enumerate}[(i)]
+\item $G_{p_1} \acts \{p_3, \dots, p_6\}$ zerfällt in zwei Bahnen der Kardinalität zwei. Seien diese Bahnen o.B.d.A. $\{p_3,p_4\}$ und $\{p_5,p_6\}$. Dann gilt aber $\delta.p_3 = p_4$ und $\delta.p_4 = p_3$. Das ist aber unmöglich, da $\delta$ eine Drehung um $90 \deg$ beschreibt.
+\item $G_{p_1}$ wirkt transitiv, es gibt nur eine Bahn. Nach obigem Argument für $p_2 = -p_1$ muss o.B.d.A. gelten: $p_5 = -p_3$ und $p_6=-p_4$. Es folgt dann, dass $p_3,p_4,p_5$ und $p_6$ die Eckpunkte eines Quadrats in der Ebene senkrecht zu $p_1$ bilden.
+\end{enumerate} 
 \end{enumerate}
-\textcolor{red}{Vorlesung 9 Einfügen}
+\end{enumerate}
+\end{enumerate}
+\textit{Der Rest verläuft analog und ist dem Leser überlassen.}
 \end{beweis}
