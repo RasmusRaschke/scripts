@@ -137,3 +137,192 @@ f(x) &\mapsto f(\alpha)
 \end{equation}
 ein Homomorphismus, genannt \textbf{Einsetzungshomomorphismus}.
 \end{beispiel}
+\begin{definition}{Unterring}{unterring}
+Sei $(R,+,\cdot)$ ein Ring. Eine Teilmenge $U \sub R$ heißt \textbf{Unterring} von $R$, falls $(U, +|_U, \cdot|_U)$ wieder ein Ring ist.
+\end{definition}
+\begin{satz}{Bild und Kern von Homomorphismen}{ringbildkern}
+Sei $\phi: R \to S$ ein Ringhomomorphismus. Dann gelten folgende Aussagen:
+\begin{enumerate}[(i)]
+\item $\im (\phi) \sub S$ ist ein Unterring.
+\item $\ker (\phi) \sub R$ ist ein Ideal.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+Wir beweisen (ii): Seien $x,y \in \ker (\phi)$ und $r \in R$. Dann gilt:
+\begin{enumerate}
+\item $\phi(x+y) = \cancel{\phi(x)} + \cancel{\phi(y)} = 0$.
+\item $\phi(rx) = \phi(r) \cancel{\phi(x)} = 0$.
+\end{enumerate}
+\end{beweis}
+\begin{übung}
+Beweise (i).
+\end{übung}
+\begin{korollar}{Aus \ref{ringbildkern}}{ausringbildkern}
+Sei $\K$ ein Körper, $S$ ein Ring und $\phi: \K \to S$ ein Ringhomomorphismus. Dann ist $\phi$ entweder injektiv, oder $S=\{0\}$.
+\end{korollar}
+\begin{beweis}
+Die einzigen Ideale von $\K$ sind $\K$ und $\{0\}$. Für $\ker (\phi) = \{0\}$ ist $\phi$ injektiv. Für $\ker (\phi) = \K$ ist $\phi = 0$. Also folgt $1 = \phi(1) = 0$ und damit $S=\{0\}$.
+\end{beweis}
+\begin{definition}{Restklassen}{restklassen}
+Sei $R$ ein Ring und $\mathcal{I} \sub R$ ein Ideal. Dann definiert
+\begin{equation}
+r_1 \sim r_2 : \iff r_1 - r_2 \in \mathcal{I}
+\end{equation}
+eine Äquivalenzrelation auf $R$. Die Äquivalenzklasse eines $r \in R$ hat die Gestalt
+\begin{equation}
+[r) = \{r+x|x \in \Ic \},
+\end{equation}
+genannt \textbf{Restklassen modulo} $\Ic$. Die Menge aller Restklassen modulo $\Ic$ wird mit $\quotient{R}{T}$ bezeichnet.
+\end{definition}
+\begin{satz}{Quotientenringe}{quotientenringe}
+Sei $R$ ein Ring und $\mathcal{I} \sub R$ ein Ideal.
+\begin{enumerate}[(i)]
+\item Die Verknüpfungen 
+\begin{equation}
+\begin{split}
++: \quotient{R}{\mathcal{I}} \times \quotient{R}{\mathcal{I}} &\to \quotient{R}{\mathcal{I}}\\
+([r_1), [r_2)) \mapsto [r_1 + r_2)
+\end{split}
+\end{equation}
+und
+\begin{equation}
+\begin{split}
+\cdot: \quotient{R}{\mathcal{I}} \times \quotient{R}{\mathcal{I}} &\to \quotient{R}{\mathcal{I}}\\
+([r_1), [r_2)) \mapsto [r_1 \cdot r_2)
+\end{split}
+\end{equation}
+definieren eine Ringstruktur $(\quotient{R}{\mathcal{I}}$, genannt \textbf{Quotientenring} von $R$ modulo $\mathcal{I}$.
+\item Die Abbildung 
+\begin{equation}
+\begin{split}
+\pi: R &\to \quotient{R}{\mathcal{I}}\\
+r &\mapsto [r)
+\end{split}
+\end{equation}
+ist ein Ringhomomorphismus mit $\ker (\pi) = \mathcal{I}$.
+\end{enumerate}
+\end{satz}
+\begin{übung}
+Man beweise diesen Satz analog zum Fall für Gruppen.
+\end{übung}
+\begin{beispiel}
+Sei $n \in \N, n \geq 2$. Dann ist $\quotient{\Z}{(n)}$ der Restklassenring modulo $n$. Für $n=p$ prim ist $\Z$
+\end{beispiel}
+\begin{theorem}{Isomorphiesatz}{isomorphiesatz}
+Sei $\phi: R \to S$ ein Ringhomomorphismus. Dann ist die induzierte Abbildung
+\begin{equation}
+\begin{split}
+\overline{\phi}: \quotient{R}{\ker (\phi)} &\to \im (\phi)\\
+[r) &\mapsto \phi(r)
+\end{split}
+\end{equation}
+ein Ringisomorphismus.
+\end{theorem}
+\begin{übung}
+Man beweise diesen Satz analog zum Fall für Gruppen.
+\end{übung}
+
+\subsection{Primelemente und Primideale}
+\label{subsec:primelementeideale}
+\begin{definition}{Teiler}{teiler}
+Sei $R$ ein Ring und $a,b \in R$. Wir sagen, dass $a$ $b$ \textbf{teilt}, wenn ein $r \in R$ mit $b=ar$ existiert, und schreiben $a \mid b$.\\
+Für Ideale gilt
+\begin{equation}
+a \mid b \iff b \in (a) \iff (b) \sub (a).
+\end{equation}
+Damit führen wir \textit{einen} Teilbarkeitsbegriff für Ideale ein:
+\begin{equation}
+\Ic \mid \Jc : \iff \Jc \sub \Ic.
+\end{equation}
+\end{definition}
+\begin{definition}{Einheit}{einheit}
+Sei $R$ ein Ring. Ein $n \in R$ heißt \textbf{Einheit}, falls es ein $v\in R$ mit $nv = 1$ gibt. Die Einheiten von $R$ bilden eine abelsche Gruppe unter Multiplikation, bezeichnet mit $R^\times$.
+\end{definition}
+\begin{definition}{Primelement}{primelement}
+Ein Element $0 \neq p \in R$ mit $p \notin R^\times$ heißt \textbf{Primelement}, falls für alle $a,b \in R$ gilt:
+\begin{equation}
+p \mid ab \implies p \mid a \, \text{oder} \, p \mid b.
+\end{equation}
+\end{definition}
+\begin{beispiel}
+Die Gruppe der Einheiten in $\Z$ ist $\Z^\times = \{\pm 1\}$ und die Primelemente sind die Zahlen $\pm p$ für $p \in \N$ prim.
+\end{beispiel}
+\begin{satz}{Gaußsche Zahlen}{gaußzahlen}
+Die Einheiten im Ring $\Z[i)$ der Gaußschen Zahlen bilden die Gruppe
+\begin{equation}
+\Z[i)^\times = \{\pm 1, \pm i\}
+\end{equation}
+der vierten Einheitswurzeln.
+\end{satz}
+\begin{beweis}
+Wir definieren für $a+bi =:\alpha \in \Z[i)$ die Norm
+\begin{equation}
+N(\alpha) := \alpha \overline{\alpha} = a^2 + b^2 \in \N.
+\end{equation}
+Die Norm ist multiplikativ:
+\begin{equation}
+N(\alpha \beta)= N(\alpha) N(\beta),
+\end{equation}
+daher gilt für $u,v \in \Z[i)$ mit $uv=1$ auch $N(u)N(v)=1$. Die einzige Gaußsche Zahl mit Norm $<1$ ist $0$. Daher muss jede Einheit Norm $1$ haben. Umgekehrt sind daher auch alle Zahlen der Norm $1$ Einheiten.
+\end{beweis}
+\begin{definition}{Primideal}{primideal}
+Sei $R$ ein Ring. Ein Ideal $\Pc \subset R$ heißt \textbf{Primideal}, falls für alle $x,y \in R$ gilt:
+\begin{equation}
+xy \in \Pc \implies x\in \Pc \, \text{oder} \, y \in \Pc.
+\end{equation}
+\end{definition}
+\begin{satz}{Kriterien für Einheit und Primideal}{kriterieneinprim}
+Sei $R$ ein Ring.
+\begin{enumerate}[(i)]
+\item Ein Element $a \in R$ ist eine Einheit genau dann, wenn $(a) =R$.
+\item Ein Element $0 \neq a \in R$ ist ein Primelement genau dann, wenn $(a) \sub R$ ein Primideal ist.
+\end{enumerate}
+\end{satz}
+\begin{übung}
+Man beweise den Satz direkt aus den Definitionen.
+\end{übung}
+\begin{übung}
+Sei $R$ ein Ring. Für Ideale $\Ic, \Jc \sub R$ definieren wir das \textbf{Produktideal} durch
+\begin{equation}
+\Ic \cdot \Jc := \left(\{xy| x \in \Ic, y \in \Jc\}\right).
+\end{equation}
+Dann ist $\Pc \sub R$ ein Primideal genau dann, wenn für alle Ideale $\Ic, \Jc \sub R$ gilt:
+\begin{equation}
+\Pc \mid \Ic \cdot \Jc \implies \Pc \mid \Ic \, \text{oder} \, \Pc \mid \Jc,
+\end{equation}
+das heißt: $\Ic \cdot \Jc \sub \Pc  \implies \Ic \sub \Pc \, \text{oder} \, \Jc \sub \Pc$.\\
+Ein (Gegen-)Beispiel ist 
+\begin{equation}
+\Ic + \Jc := \{x+y| x \in \Ic, y \in \Jc\} = (\Ic \cup \Jc) \neq \Ic \cdot \Jc.
+\end{equation}
+\end{übung}
+\begin{definition}{Integritätsbereich und Nullteilerfreiheit}{nullteilerfreiheit}
+Ein Ring $R$ heißt \textbf{nullteilerfrei} oder \textbf{Integritätsbereich}, falls $R\neq \{0\}$ und für alle $r,s \in R$ gilt:
+\begin{equation}
+rs = 0 \implies r=0 \ \text{oder} \ s=0.
+\end{equation}
+\end{definition}
+\begin{satz}{Nullteilerfreiheit und Primideale}{primnullteilerfrei}
+Sei $R$ ein Ring und $\Ic \sub R$ ein Ideal. Dann sind äquivalent:
+\begin{enumerate}[(i)]
+\item $\quotient{R}{I}$ ist nullteilerfrei.
+\item $\Ic \sub R$ ist ein Primideal.
+\end{enumerate}
+\end{satz}
+\begin{übung}
+Beweise diesen Satz direkt aus den Definitionen.
+\end{übung}
+\begin{definition}{Irreduzibilität}{irreduzibilität}
+Sei $R$ ein Ring. Ein Element $0 \neq r \in R$ mit $r \notin R^\times$ heißt \textbf{unzerlegbar} oder \textbf{irreduzibel}, falls für alle $a,b \in R$ mit $r=ab$ gilt, dass $a \in R^\times$ oder $b \in R^\times$.
+\end{definition}
+\begin{beispiel}
+Jedes Primelement $p \in R$ eines nullteilerfreien Rings $R$ ist irreduzibel. Denn aus $p = ab$ folgt $p \mid a$ oder $p \mid b$, also o.B.d.A. $p \mid a$. Dann existiert $t \in R$, sodass $a = tp$. Dann gilt aber $p=ptb \implies 1 = tb$ wegen der Nullteilerfreiheit, damit also $b \in R^\times$.
+\end{beispiel}
+\begin{satz}{Maximale Hauptideale sind irreduzibel}{}
+Sei $R$ ein nullteilerfreier Ring. Dann sind für ein $r \in R$ äquivalent:
+\begin{enumerate}[(i)]
+\item $r$ ist irreduzibel.
+\item $(r)$ ist maximal unter den echten Hauptidealen von $R$.
+\end{enumerate}
+\end{satz}
+Ein Ideal heißt maximal, falls für alle $s \in R$

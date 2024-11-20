@@ -8,3 +8,4 @@
 \contentsline {subsection}{\numberline {1.6}Symmetrie im Raum}{15}{subsection.1.6}%
 \contentsline {section}{\numberline {2}Ringe}{18}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Ringe, Ideale und Homomorphismen}{18}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Primelemente und Primideale}{20}{subsection.2.2}%
