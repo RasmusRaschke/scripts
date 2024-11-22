@@ -181,14 +181,14 @@ Sei $R$ ein Ring und $\mathcal{I} \sub R$ ein Ideal.
 \begin{equation}
 \begin{split}
 +: \quotient{R}{\mathcal{I}} \times \quotient{R}{\mathcal{I}} &\to \quotient{R}{\mathcal{I}}\\
-([r_1), [r_2)) \mapsto [r_1 + r_2)
+([r_1], [r_2]) \mapsto [r_1 + r_2]
 \end{split}
 \end{equation}
 und
 \begin{equation}
 \begin{split}
 \cdot: \quotient{R}{\mathcal{I}} \times \quotient{R}{\mathcal{I}} &\to \quotient{R}{\mathcal{I}}\\
-([r_1), [r_2)) \mapsto [r_1 \cdot r_2)
+([r_1], [r_2]) \mapsto [r_1 \cdot r_2]
 \end{split}
 \end{equation}
 definieren eine Ringstruktur $(\quotient{R}{\mathcal{I}}$, genannt \textbf{Quotientenring} von $R$ modulo $\mathcal{I}$.
@@ -196,7 +196,7 @@ definieren eine Ringstruktur $(\quotient{R}{\mathcal{I}}$, genannt \textbf{Quoti
 \begin{equation}
 \begin{split}
 \pi: R &\to \quotient{R}{\mathcal{I}}\\
-r &\mapsto [r)
+r &\mapsto [r]
 \end{split}
 \end{equation}
 ist ein Ringhomomorphismus mit $\ker (\pi) = \mathcal{I}$.
@@ -208,7 +208,7 @@ Man beweise diesen Satz analog zum Fall für Gruppen.
 \begin{beispiel}
 Sei $n \in \N, n \geq 2$. Dann ist $\quotient{\Z}{(n)}$ der Restklassenring modulo $n$. Für $n=p$ prim ist $\Z$
 \end{beispiel}
-\begin{theorem}{Isomorphiesatz}{isomorphiesatz}
+\begin{theorem}{Isomorphiesatz}{ringisomorphiesatz}
 Sei $\phi: R \to S$ ein Ringhomomorphismus. Dann ist die induzierte Abbildung
 \begin{equation}
 \begin{split}
@@ -318,11 +318,100 @@ Sei $R$ ein Ring. Ein Element $0 \neq r \in R$ mit $r \notin R^\times$ heißt \t
 \begin{beispiel}
 Jedes Primelement $p \in R$ eines nullteilerfreien Rings $R$ ist irreduzibel. Denn aus $p = ab$ folgt $p \mid a$ oder $p \mid b$, also o.B.d.A. $p \mid a$. Dann existiert $t \in R$, sodass $a = tp$. Dann gilt aber $p=ptb \implies 1 = tb$ wegen der Nullteilerfreiheit, damit also $b \in R^\times$.
 \end{beispiel}
-\begin{satz}{Maximale Hauptideale sind irreduzibel}{}
-Sei $R$ ein nullteilerfreier Ring. Dann sind für ein $r \in R$ äquivalent:
+\begin{satz}{Irreduzible Elemente erzeugen maximale Hauptideale}{irreduzibelmaximal}
+Sei $R$ ein nullteilerfreier Ring. Dann sind für ein $0 \neq r \in R$ äquivalent:
 \begin{enumerate}[(i)]
 \item $r$ ist irreduzibel.
-\item $(r)$ ist maximal unter den echten Hauptidealen von $R$.
+\item $(r)$ ist maximal unter den echten\footnote{Ein Hauptideal $\Ic$ heißt echt, wenn $\Ic \subset R$.} Hauptidealen von $R$.
 \end{enumerate}
 \end{satz}
-Ein Ideal heißt maximal, falls für alle $s \in R$
+\begin{beweis}
+(i) $\implies$ (ii): Sei $r$ irreduzibel und $(r) \sub (s) \sub R$. Dann gibt es also $a \in R$ mit $r = as$. Da $r$ irreduzibel ist, ist entweder $a \in R^\times$ oder $b \in R^\times$. Für $a \in R^\times$ folgt direkt $(r)=(s)$, für $s \in R^\times$ folgt hingegen $(s)=R$. In beiden Fällen ist $(r)$ maximal unter den echten Hauptidealen.\\
+(ii) $\implies$ (i): Sei $(r)$ maximal unter den Hauptidealen und $r=ab$ eine Zerlegung von $r$. Dann gilt, dass $(r)\sub (b) \sub R$, also entweder $(r) = (b)$ oder $(b)=R$. Im ersten Fall existiert ein $s \in R$ mit $b=rs$, also $r = asr$. Da $R$ nullteilerfrei ist, folgt $as=1$, also $a \in R^\times$. Im zweiten Fall ist schon $b \in R^\times$, also ist $r$ immer irreduzibel.
+\end{beweis}
+\begin{definition}{Maximale Ideale}{maximaleideale}
+Sei $R$ ein Ring und $\Ic \subset R$ ein Ideal. Dieses heißt \textbf{maximal}, wenn es maximal unter allen echten Idealen von $R$ ist, wenn also gilt:
+\begin{equation}
+\forall \Jc \subset R, \Jc \, \text{Ideal} \, : \Ic \sub \Jc \implies \Ic = \Jc
+\end{equation}
+\end{definition}
+\begin{satz}{Maximale Ideale erzeugen Körper}{maxidealkörper}
+Sei $R$ ein Ring und $\Ic \sub R$ ein Ideal. Dann sind äquivalent:
+\begin{enumerate}[(i)]
+\item $\Ic \sub R$ ist maximal.
+\item $\quotient{R}{\Ic}$ ist ein Körper.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(i) $\implies$ (ii): Sei $\Ic \subset R$ maximal. Sei $[0] \neq [x] \in \quotient{R}{\Ic}$. Dann gilt: $x \notin \Ic \implies \Ic \subset (I \cup [x]) \sub R$ ist ein Ideal. Da $\Ic$ maximal ist, gilt also $(\Ic \cup [x]) = R$. Dann existiert ein $y \in \Ic$ und ein $r \in R$ mit $y +rx=1$. Also $[r] \cdot [x] = [1]$, womit ein multiplikatives Inverses existiert, also ist $\quotient{R}{\cI}$ ein Körper.\\
+(ii) $\implies$ (i): Sei $\quotient{R}{\Ic}$ ein Körper und $\Ic \subset \Jc \sub R$ ein Ideal. Sei $x \in \Jc \setminus \Ic$, dann gilt also $0 \neq [x] \in \quotient{R}{\Ic}$. Also hat $[x]$ ein Inverses $r \in R$ mit $[x] \cdot [r] = [1]$. Daraus folgt, dass $1 = xr +y$, also $1 \in \Jc$ und damit $\Jc = R$.
+\end{beweis}
+\begin{korollar}{Aus Satz \ref{maxidealkörper}}{ausmaxidealkörper}
+Jedes maximale Ideal ist ein Primideal.
+\end{korollar}
+\begin{beispiele}
+\begin{enumerate}
+\item Sei $\K$ ein Körper und $\K[x,y] = (\K[x])[y]$ der Polynomring in Variablen $x$ und $y$. Die Gruppe der Einheiten ist $\K[x,y]^\times = \K^\times$. Das Ideal $(y)$ ist gerade der Kern des Evaluationshomomorphismus
+\begin{equation}
+\begin{split}
+\K[x,y] &\to \K[x]\\
+f(x,y) &\mapsto f(x,0).
+\end{split}
+\end{equation}
+Nach dem Isomorphiesatz \ref{ringisomorphiesatz} gilt 
+\begin{equation}
+\quotient{K[x,y]}{(y)} \cong \K[x],
+\end{equation}
+und weiterhin, da $\K[x]$ nullteilerfrei ist, dass $(y)$ ein Primideal, also $y$ ein Primelement und damit irreduzibel ist. Also ist $(y)$ maximal unter den Hauptidealen gemäß Satz \ref{irreduzibelmaximal}. Da $\K[x]$ kein Körper ist, kann $(y)$ kein maximales Ideal sein. Dies sehen wir auch explizit sofort ein: Sei z.B.
+\begin{equation}
+(y) \subset (x,y) \subset \K[x,y].
+\end{equation}
+Weiterhin ist $(x,y)$ der Kern von
+\begin{equation}
+\begin{split}
+\K[x,y] &\to \K\\
+f(x,y) &\mapsto f(0,0).
+\end{split}
+\end{equation}
+Also ist $\K \cong \quotient{\K[x,y]}{(x,y)}$, woraus folgt, dass $(x,y)$ maximal ist.
+\item Für $\K = \overline{\K}$ gilt der \textbf{Hilbertsche Nullstellensatz}: Die maximalen Ideale in $\K[x,y]$ sind genau die Ideale der Form $(x-a,y-b)$ mit $a,b \in \K$.
+\end{enumerate}
+\end{beispiele}
+\begin{definition}{Hauptidealring}{hauptidealring}
+Ein nullteilerfreier Ring $R$ heißt \textbf{Hauptidealring}, falls jedes Ideal ein Hauptideal ist.
+\end{definition}
+\begin{satz}{}{}
+Sei $R$ ein Hauptidealring. Dann sind für $r \in R$ äquivalent:
+\begin{enumerate}[(i)]
+\item $r$ ist irreduzibel.
+\item $r$ ist Primelement.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(ii) $\implies$ (i): Schon bewiesen.\\
+(i) $\implies$ (ii): Sei $r$ irreduzibel. Dann ist $(r)$ maximal unter den Hauptidealen, also ist $(r)$ maximal und damit ein Primideal. Damit muss $r$ ein Primelement sein.
+\end{beweis}
+\begin{definition}{Euklidische Ringe}{euklidischeringe}
+Ein Integritätsbereich $R$ heißt \textbf{euklidischer Ring}, falls eine Abbildung
+\begin{equation}
+\lambda: R \exc \{0\} \to \N
+\end{equation}
+mit folgender Eigenschaft existiert: Für alle $a,b \in R$ mit $b \neq 0$ existieren Elemente $q, r \in R$, sodass $a = q \cdot b + r$, wobei entweder $r=0$ oder $\lambda (r) < \lambda (b)$ gilt.
+\end{definition}
+\begin{satz}{Euklidische Ringe sind HIR}{euklidisthir}
+Jeder euklidische Ring ist ein Hauptidealring.
+\end{satz}
+\begin{beweis}
+Sei $\{0\} \neq \Ic \sub R$ ein Ideal. Wähle $0 \neq x \in \Ic$ mit $\lambda (x)$ minimal (Wohlordnung von $\N$). Für $y \in \Ic$ beliebig existieren $q,r \in R$ mit $y = qx +r$, sodass entweder $r=0$ oder $\lambda(r) < \lambda (x)$ gilt. Der letztere Fall ist unmöglich, da $\lambda(x)$ minimal ist. Also gilt $r=0$, woraus $\Ic = (x)$ folgt.
+\end{beweis}
+\begin{beispiele}
+Folgende Ringe sind euklidisch:
+\begin{enumerate}
+\item Der Ring $(\Z, +, \cdot)$ mit $\lambda (n) = |n|$.
+\item Der Polynomring $\K[x]$ mit $\lambda(f) = \deg (f)$, wobei $\K$ ein Körper sein muss.
+\item Die gaußschen Zahlen $\Z[i]$ mit $\lambda(\alpha) = N(\alpha) = a^2 +b^2$.
+\end{enumerate}
+\begin{beweis}
+1. und 2. sind bereits aus der Schule als Division mit Rest und Polynomdivision bekannt. Zeigen wir also 3.: Zu gegebenen $\alpha, \beta \in \Z[i]$, mit $\alpha, \beta \neq 0$ müssen wir $q,r \in \Z[i]$ finden, sodass $\alpha = q \beta +r$, wobei entweder $r=0$ oder $N(r) < N(\beta)$ gilt. Fasse $\Z[i] \sub \C$ auf und betrachte die komplexe Zahl $z:= \frac{\alpha}{\beta} \in \C$. Falls $z \in \Z[i]$ gilt, setze $q = z$ und $r=0$. Andernfalls gilt $r = \alpha - q \beta$ und wir suchen $r$ mit $N(r) < N(\beta)$. Das gilt genau dann, wenn $\frac{N(r)}{N(\beta)} = N\left(\frac{r}{\beta}\right) < 1$, was äquivalent zu $| \underbrace{\frac{\alpha}{\beta}}_{=z \in \C} -\underbrace{q}_{\in \Z[i]} | < 1 \, (\ast)$ ist. Dieses $q\in \Z[i]$ gilt es, zu finden. Die Zahl $z$ liegt in einer der quadratischen Maschen, die vom Gitter $\Z[i]$ aufgespannt werden. Einer der Eckpunkte $q$ dieses Quadrats erfüllt immer die Ungleichung $(\ast)$, da $\max d(q,z) = \frac{\sqrt{2}}{2} < 1$.
+\end{beweis}
+\end{beispiele}
