@@ -161,7 +161,7 @@ Beweise (i).
 Sei $\K$ ein Körper, $S$ ein Ring und $\phi: \K \to S$ ein Ringhomomorphismus. Dann ist $\phi$ entweder injektiv, oder $S=\{0\}$.
 \end{korollar}
 \begin{beweis}
-Die einzigen Ideale von $\K$ sind $\K$ und $\{0\}$. Für $\ker (\phi) = \{0\}$ ist $\phi$ injektiv. Für $\ker (\phi) = \K$ ist $\phi = 0$. Also folgt $1 = \phi(1) = 0$ und damit $S=\{0\}$.
+Die einzigen Ideale von $\K$ sind $\K$ und $\{0\}$. Für $\ker (\phi) = \{0\}$ ist $\phi$ injektiv. Für $\ker (\phi) = \K$ ist $\phi \equiv 0$. Also folgt $1 = \phi(1) = 0$ und damit $S=\{0\}$, da der Nullring als einziger diese Eigenschaft aufweist.
 \end{beweis}
 \begin{definition}{Restklassen}{restklassen}
 Sei $R$ ein Ring und $\mathcal{I} \sub R$ ein Ideal. Dann definiert
@@ -170,9 +170,9 @@ r_1 \sim r_2 : \iff r_1 - r_2 \in \mathcal{I}
 \end{equation}
 eine Äquivalenzrelation auf $R$. Die Äquivalenzklasse eines $r \in R$ hat die Gestalt
 \begin{equation}
-[r) = \{r+x|x \in \Ic \},
+[r] = \{r+x|x \in \Ic \},
 \end{equation}
-genannt \textbf{Restklassen modulo} $\Ic$. Die Menge aller Restklassen modulo $\Ic$ wird mit $\quotient{R}{T}$ bezeichnet.
+genannt \textbf{Restklassen modulo} $\Ic$. Die Menge aller Restklassen modulo $\Ic$ wird mit $\quotient{R}{\Ic}$ bezeichnet.
 \end{definition}
 \begin{satz}{Quotientenringe}{quotientenringe}
 Sei $R$ ein Ring und $\mathcal{I} \sub R$ ein Ideal.
@@ -191,7 +191,7 @@ und
 ([r_1], [r_2]) \mapsto [r_1 \cdot r_2]
 \end{split}
 \end{equation}
-definieren eine Ringstruktur $(\quotient{R}{\mathcal{I}}$, genannt \textbf{Quotientenring} von $R$ modulo $\mathcal{I}$.
+definieren eine Ringstruktur auf $\quotient{R}{\mathcal{I}}$, genannt \textbf{Quotientenring} von $R$ modulo $\mathcal{I}$.
 \item Die Abbildung 
 \begin{equation}
 \begin{split}
@@ -213,7 +213,7 @@ Sei $\phi: R \to S$ ein Ringhomomorphismus. Dann ist die induzierte Abbildung
 \begin{equation}
 \begin{split}
 \overline{\phi}: \quotient{R}{\ker (\phi)} &\to \im (\phi)\\
-[r) &\mapsto \phi(r)
+[r] &\mapsto \phi(r)
 \end{split}
 \end{equation}
 ein Ringisomorphismus.
@@ -248,9 +248,9 @@ p \mid ab \implies p \mid a \, \text{oder} \, p \mid b.
 Die Gruppe der Einheiten in $\Z$ ist $\Z^\times = \{\pm 1\}$ und die Primelemente sind die Zahlen $\pm p$ für $p \in \N$ prim.
 \end{beispiel}
 \begin{satz}{Gaußsche Zahlen}{gaußzahlen}
-Die Einheiten im Ring $\Z[i)$ der Gaußschen Zahlen bilden die Gruppe
+Die Einheiten im Ring $\Z[i]$ der Gaußschen Zahlen bilden die Gruppe
 \begin{equation}
-\Z[i)^\times = \{\pm 1, \pm i\}
+\Z[i]^\times = \{\pm 1, \pm i\}
 \end{equation}
 der vierten Einheitswurzeln.
 \end{satz}
@@ -266,9 +266,9 @@ N(\alpha \beta)= N(\alpha) N(\beta),
 daher gilt für $u,v \in \Z[i)$ mit $uv=1$ auch $N(u)N(v)=1$. Die einzige Gaußsche Zahl mit Norm $<1$ ist $0$. Daher muss jede Einheit Norm $1$ haben. Umgekehrt sind daher auch alle Zahlen der Norm $1$ Einheiten.
 \end{beweis}
 \begin{definition}{Primideal}{primideal}
-Sei $R$ ein Ring. Ein Ideal $\Pc \subset R$ heißt \textbf{Primideal}, falls für alle $x,y \in R$ gilt:
+Sei $R$ ein Ring. Ein Ideal $\fp \subset R$ heißt \textbf{Primideal}, falls für alle $x,y \in R$ gilt:
 \begin{equation}
-xy \in \Pc \implies x\in \Pc \, \text{oder} \, y \in \Pc.
+xy \in \fp \implies x\in \fp \, \text{oder} \, y \in \fp.
 \end{equation}
 \end{definition}
 \begin{satz}{Kriterien für Einheit und Primideal}{kriterieneinprim}
@@ -286,11 +286,11 @@ Sei $R$ ein Ring. Für Ideale $\Ic, \Jc \sub R$ definieren wir das \textbf{Produ
 \begin{equation}
 \Ic \cdot \Jc := \left(\{xy| x \in \Ic, y \in \Jc\}\right).
 \end{equation}
-Dann ist $\Pc \sub R$ ein Primideal genau dann, wenn für alle Ideale $\Ic, \Jc \sub R$ gilt:
+Dann ist $\fp \sub R$ ein Primideal genau dann, wenn für alle Ideale $\Ic, \Jc \sub R$ gilt:
 \begin{equation}
-\Pc \mid \Ic \cdot \Jc \implies \Pc \mid \Ic \, \text{oder} \, \Pc \mid \Jc,
+\fp \mid \Ic \cdot \Jc \implies \fp \mid \Ic \, \text{oder} \, \fp \mid \Jc,
 \end{equation}
-das heißt: $\Ic \cdot \Jc \sub \Pc  \implies \Ic \sub \Pc \, \text{oder} \, \Jc \sub \Pc$.\\
+das heißt: $\Ic \cdot \Jc \sub \fp  \implies \Ic \sub \fp \, \text{oder} \, \Jc \sub \fp$.\\
 Ein (Gegen-)Beispiel ist 
 \begin{equation}
 \Ic + \Jc := \{x+y| x \in \Ic, y \in \Jc\} = (\Ic \cup \Jc) \neq \Ic \cdot \Jc.
@@ -330,9 +330,9 @@ Sei $R$ ein nullteilerfreier Ring. Dann sind für ein $0 \neq r \in R$ äquivale
 (ii) $\implies$ (i): Sei $(r)$ maximal unter den Hauptidealen und $r=ab$ eine Zerlegung von $r$. Dann gilt, dass $(r)\sub (b) \sub R$, also entweder $(r) = (b)$ oder $(b)=R$. Im ersten Fall existiert ein $s \in R$ mit $b=rs$, also $r = asr$. Da $R$ nullteilerfrei ist, folgt $as=1$, also $a \in R^\times$. Im zweiten Fall ist schon $b \in R^\times$, also ist $r$ immer irreduzibel.
 \end{beweis}
 \begin{definition}{Maximale Ideale}{maximaleideale}
-Sei $R$ ein Ring und $\Ic \subset R$ ein Ideal. Dieses heißt \textbf{maximal}, wenn es maximal unter allen echten Idealen von $R$ ist, wenn also gilt:
+Sei $R$ ein Ring und $\mathfrak{m} \subset R$ ein Ideal. Dieses heißt \textbf{maximal}, wenn es maximal unter allen echten Idealen von $R$ ist, wenn also gilt:
 \begin{equation}
-\forall \Jc \subset R, \Jc \, \text{Ideal} \, : \Ic \sub \Jc \implies \Ic = \Jc
+\forall \Jc \subset R, \Jc \, \text{Ideal} \, : \mathfrak{m} \sub \Jc \implies \mathfrak{m} = \Jc
 \end{equation}
 \end{definition}
 \begin{satz}{Maximale Ideale erzeugen Körper}{maxidealkörper}
