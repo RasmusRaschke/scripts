@@ -415,3 +415,128 @@ Folgende Ringe sind euklidisch:
 1. und 2. sind bereits aus der Schule als Division mit Rest und Polynomdivision bekannt. Zeigen wir also 3.: Zu gegebenen $\alpha, \beta \in \Z[i]$, mit $\alpha, \beta \neq 0$ müssen wir $q,r \in \Z[i]$ finden, sodass $\alpha = q \beta +r$, wobei entweder $r=0$ oder $N(r) < N(\beta)$ gilt. Fasse $\Z[i] \sub \C$ auf und betrachte die komplexe Zahl $z:= \frac{\alpha}{\beta} \in \C$. Falls $z \in \Z[i]$ gilt, setze $q = z$ und $r=0$. Andernfalls gilt $r = \alpha - q \beta$ und wir suchen $r$ mit $N(r) < N(\beta)$. Das gilt genau dann, wenn $\frac{N(r)}{N(\beta)} = N\left(\frac{r}{\beta}\right) < 1$, was äquivalent zu $| \underbrace{\frac{\alpha}{\beta}}_{=z \in \C} -\underbrace{q}_{\in \Z[i]} | < 1 \, (\ast)$ ist. Dieses $q\in \Z[i]$ gilt es, zu finden. Die Zahl $z$ liegt in einer der quadratischen Maschen, die vom Gitter $\Z[i]$ aufgespannt werden. Einer der Eckpunkte $q$ dieses Quadrats erfüllt immer die Ungleichung $(\ast)$, da $\max d(q,z) = \frac{\sqrt{2}}{2} < 1$.
 \end{beweis}
 \end{beispiele}
+\begin{definition}{assoziiert}{assoziiert}
+Sei $R$ ein Integritätsbereich. Zwei Elemente $a,b \in R$ heißen \textbf{assoziiert}, geschrieben $a \sim b$, wenn ein $n \in \R^\times$ mit $a = nb$ existiert.
+\end{definition}
+\begin{satz}{Assoziiertheit = gleiche Hauptideale}{asshauptideal}
+Es gilt $a \sim b$ genau dann, wenn $(a) = (b)$.
+\end{satz}
+\begin{beweis}
+Wir zeigen $\Leftarrow$: Es existiert ein $r \in R$ mit $b =ra$ und ein $s \in R$ mit $a = sb$. Dann gilt $b=rsb \iff (1-rs) b = 0$, wegen der Nullteilerfreiheit also $rs=1$.
+\end{beweis}
+\begin{definition}{faktoriell}{faktoriell}
+Ein Integritätsbereich $R$ heißt \textbf{faktoriell}, falls für jede Nichteinheit $a \in R$ mit $a \neq 0 $ gilt:
+\begin{enumerate}[(i)]
+\item Es gibt eine Faktorzerlegung 
+\begin{equation}
+\label{eq:faktoren}
+a = p_1p_2 \cdots p_m
+\end{equation}
+in $m$ irreduzible Faktoren.
+\item Falls $a = p_1p_2 \cdots p_m$ und $a = q_1 q_2 \cdots q_n$ Faktorzerlegungen in irreduzible Faktoren sind, dann gilt:
+\begin{enumerate}[(a)]
+\item $m = n$
+\item Nach geeigneter Umbennenung der Faktoren gilt für alle $1 \leq i \leq m$: $p_i \sim q_i$.
+\end{enumerate}
+\end{enumerate}
+\end{definition}
+\begin{satz}{Irreduzible Elemente sind Primelemente in Faktorringen}{irredprimfaktor}
+Sei $R$ ein Integritätsbereich, in dem jede Nichteinheit $a \neq 0$ eine Faktorzerlegung in Form von Gleichung $\ref{eq:faktoren}$ besitzt. Dann sind äquivalent:
+\begin{enumerate}[(a)]
+\item $R$ ist faktoriell.
+\item Jedes irreduzible Element ist ein Primelement.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(a) $\implies$ (b): Sei $R$ faktoriell und $r\in R$ irreduzibel. Seien $a,b \in R$ mit $r \mid ab$. Per Definition gibt es ein $s \in R$ mit $sr = ab$. Zerlege alle Teile der Gleichung in irreduzible Elemente, also
+\begin{equation}
+s_1s_2 \cdots s_t r = a_1 a_2  \cdots a_m b_1 b_2 \cdots b_n.
+\end{equation}
+Also ist $r \sim a_i$ für ein $1 \leq i \leq m$ oder $r \sim b_j$ für $1 \leq j \leq n$. Je nachdem gilt also $r \mid a$ oder $r \mid b$.\\
+(b) $\implies$ (a): Sei $a \in R$ mit $a \neq 0$ und $a \notin R^\times$. Betrachte zwei Zerlegungen
+\begin{equation}
+a = p_1 p_2 \cdots p_m = q_1 q_2 \cdots q_n.
+\end{equation}
+in irreduzible Elemente. O.B.d.A. sei $m \leq n$. Es gilt $p_1 \mid q_1 q_2 \cdots q_n$ und, da $p_i$ ein Primelement ist, auch, dass ein $j$ mit $p_i \mid q_j$ existiert. O.B.d.A. sei $p_i \mid q_i$. Da aber $q_i$ irreduzibel ist, existiert ein $n \in R^\times$ mit $q_1 = np_1$. Durch Kürzen mit $p_1$ erhalten wir 
+\begin{equation}
+p_2 p_3 \cdots p_m = \tilde{q}_2 q_3 \cdots q_n
+\end{equation}
+mit $q_2 \sim \tilde{q}_2$. Durch Induktion über $m$ reduzieren wir auf $m=1$. Dann gilt:
+\begin{equation}
+p_1 = q_1 q_2 \cdots q_n.
+\end{equation}
+Da aber $p_1$ irreduzibel ist, muss $n=1$ und $p_1 = q_1$ gelten.
+\end{beweis}
+\begin{satz}{Hauptidealringe sind faktoriell}{hirfaktoriell}
+Sei $R$ ein Hauptidealring. Dann ist $R$ faktoriell.
+\end{satz}
+\begin{beweis}
+Nach obigen Überlegungen genügt es, die Existenz von Zerlegungen wie in Gleichung \ref{eq:faktoren} nachzuweisen.\\
+Angenommen, es gibt $0 \neq a$ mit $a \notin R^\times$, welches keine Faktorzerlegung \ref{eq:faktoren} zulässt. Dann ist $a$ also reduzibel (nicht irreduzibel), es gibt also eine nichttriviale Zerlegung 
+\begin{equation}
+a = x_1y_1
+\end{equation}
+mit $0 \neq x_1, y_1$ und $x_1, y_1 \notin R^\times$. Dann hat entweder $x_1$ oder $y_1$ keine Zerlegung gemäß \ref{eq:faktoren}. Sei o.B.d.A. $x_1$ nichttrivial zerlegbar in 
+\begin{equation}
+x_1 = x_2 y_2.
+\end{equation}
+Rekursive Fortsetzung dieses Prozesses liefert eine Folge
+\begin{equation}
+(x_1) \subset (x_2) \subset (x_3) \subset \cdots \subset R
+\end{equation}
+von echten Inklusionen. Die Vereinigung
+\begin{equation}
+\Uc = \bigcup_{i \geq 0} (x_i) \sub R
+\end{equation}
+ist ein Ideal. Da $R$ ein Hauptidealring ist, existiert ein $b \in R$ mit $(b) = \Uc$. Dann existiert ein $i \geq 0$ mit $b \in (x_i)$, also $(b) = (x_i)$. Dies impliziert aber auch, dass für alle $j > i$ gilt, dass $(b) = (x_j)$, denn $(x_i) \sub (x_j) \sub (b)$. Dies ist ein Widerspruch zu den echten Inklusionen.
+\end{beweis}
+\begin{übung}
+Verifiziere:
+\begin{itemize}
+\item Die rekursive Fortsetzung des Prozesses liefert tatsächlich eine wohldefinierte Folge.
+\item Die Vereinigung ist tatsächlich ein Ideal (Das gilt nicht allgemein!).
+\end{itemize}
+\end{übung}
+\begin{bemerkung}
+Das Argument aus dem Beweis von Satz \ref{hirfaktoriell} zeigt, dass jeder Hauptidealring die folgende Eigenschaft hat:\\
+Für jede aufsteigende Kette 
+\begin{equation}
+\Ic_1 \sub \Ic_2 \sub \cdots \sub R
+\end{equation}
+von Idealen $\Ic_i$ in $R$ gibt es ein $k_0 \in \N$, sodass für alle $k \geq k_0$ gilt, dass $\Ic_{k_0} = \Ic_k$. Man sagt, dass jede aufsteigende Kette von Idealen \textbf{stationär} wird. Ringe mit dieser Eigenschaft heißen \textbf{Noethersche Ringe}.
+\end{bemerkung}
+Zum Abschluss der Diskussion zur verallgemeinerten Primfaktorzerlegung betrachten wir die Klassifikation der Primideale in $\Z$.
+\begin{definition}{Spektrum}{spektrum}
+Die Menge der Primideale $\fp$ eines Ringes $R$ heißt Spektrum $\Pf$ von $R$.
+\end{definition}
+\begin{bemerkung}
+Für $R=\Z$ ist $\Pf = \{(0), (p)\}$, wobei $p$ eine Primzahl ist.
+\end{bemerkung}
+\begin{lemma}{Primzahlen in $\Z$}{primz}
+Sei $p$ eine ungerade Primzahl. Dann sind äquivalent:
+\begin{enumerate}[(a)]
+\item Es gibt Zahlen $a,b \in \Z$ mit $a^2 + b^2 = p$.
+\item Es gilt $p \equiv_4 1$.
+\end{enumerate}
+\end{lemma}
+\begin{beweis}
+Sei zunächst $p$ eine ungerade Primzahl mit $p = a^2 + b^2$. Die Quadrate in $\quotient{\Z}{(4)}$ sind $0^2 = 0$, $1^2 = 1$, $2^2 = 0$ und $3^2 = 1$. Daraus folgt (b).\\
+Sei nun $p = 1 + 4n$ mit $n \in \N$. Wir rechnen zunächst in $\quotient{\Z}{(p)}$:
+\begin{equation}
+[(p-1)!] = [1] [2] \cdots [p-1] = [-1]
+\end{equation}
+Dies gilt, da der Restklassenring $\quotient{\Z}{(p)}$ ein Körper ist, also jedes von $0$ verschiedene Element ein Inverses und die einzigen selbstinversen Elemente sind $1$ und $-1$, die Nullstellen des Polynoms $x^2-1=0$. Das heißt also, dass $[2] [p-2] = [1]$, $[3][p-3]=1$ usw., sodass die Gleichung erfüllt ist.\\
+Wir rechnen weiter:
+\begin{equation}
+[-1] = [(p-1)!] = [1][2] \cdots [2n][p-2n] \cdots [p-1]  = [(2n)!]^2.
+\end{equation}
+Also ist $x =(2n)!$ eine Lösung der Kongruenz $x^2 \equiv_4 -1$. Die Primzahl $p$ ist also ein Teiler von $x^2 +1 = (x+i)(x-i)$, aber $p$ teilt weder $(x+i)$ noch $(x-i)$. Daher ist $p$ kein Primelement in den Gaußschen Zahlen. Da $\Z[i]$ ein Hauptidealring und damit faktoriell ist, gibt es also eine Zerlegung
+\begin{equation}
+p = \alpha \beta
+\end{equation}
+in $\Z[i]$ mit $\alpha, \beta \notin \Z[i]^\times$. Wir gehen über zu Normen:
+\begin{equation}
+p^2 = N(\alpha) \cdot N(\beta).
+\end{equation}
+Da $\alpha$ und $\beta$ Nichteinheiten sind, ist $N(\alpha), N(\beta) \neq 1$. Also muss $N(\alpha) = p = N(\beta)$ gelten. Ist $\alpha = a+ib$, so ist $p = a^2 + b^2$.
+\end{beweis}
