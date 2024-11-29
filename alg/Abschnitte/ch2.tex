@@ -540,3 +540,80 @@ p^2 = N(\alpha) \cdot N(\beta).
 \end{equation}
 Da $\alpha$ und $\beta$ Nichteinheiten sind, ist $N(\alpha), N(\beta) \neq 1$. Also muss $N(\alpha) = p = N(\beta)$ gelten. Ist $\alpha = a+ib$, so ist $p = a^2 + b^2$.
 \end{beweis}
+\begin{theorem}{Das Spektrum der gaußschen Zahlen}{spektgauss}
+Das Spektrum $\Pf(\Z[i])$ besteht aus:
+\begin{enumerate}[(i)]
+\item $(1+i)$
+\item $\{(a+bi) | a^2+b^2=p, p \, \text{prim}, p \equiv_4 1, a>|b| \}$
+\item $\{(p)| p \, \text{prim}, p \equiv_4 3 \}$.
+\end{enumerate} 
+\end{theorem}
+\begin{beweis}
+Die Erzeuger $x$ der Ideale aus (i) und (ii) sind Primelemente: Für eine Zerlegung $x=\alpha \beta$ gilt $N(\alpha)N(\beta) = p$, wobei $p$ prim ist. Also ist $N(\alpha)=1$ oder $N(\beta)=1$, und damit entweder $\alpha$ oder $\beta$ eine Einheit.\\
+Eine Primzahl $p$ aus (iii) muss irreduzibel sein, da für eine nicht-triviale Zerlegung $p=\alpha \beta$, analog zu Beweis \ref{primz}, gelten würde, dass $N(\alpha) = N(\beta) = p = a^2+b^2$. Dies ist aber ein Widerspruch, da $p \equiv_4 3$.\\
+Es bleibt nur noch zu zeigen, dass diese Liste vollständig ist. Dafür zeigen wir, dass jedes Primelement $\pi \in \Z[i]$ assoziiert zu (genau) einem der Erzeuger aus (i), (ii) oder (iii) ist. Zunächst folgt aus der Primfaktorzerlegung 
+\begin{equation}
+N(\pi) = \pi \cdot \overline{\pi} = p_1p_2 \cdots p_n
+\end{equation}
+in $\N$, dass eine Zahl $i \in \N$ mit $1 \leq i \leq n$ existiert, sodass $\pi \mid p_i$. Setze $p:=p_i$. Dann teilt $N(\pi)$ also auch $N(p)=p^2$. Also ist entweder $N(\pi)=p$ oder $N(\pi)=p^2$. Gilt $N(\pi)=p$, so ist $\pi$ assoziiert zu einem der Erzeuger aus (i) oder (ii). Ist andererseits $N(\pi)=p^2$, so gilt, dass $N\left(\frac{p}{\pi}\right) = 1$, also ist $\pi \sim p$. In diesem Fall muss gelten, dass $p \equiv_4 3$, denn andernfalls wäre $\pi = \epsilon (a+ib)(a-ib)$ mit $\epsilon \in \Z[i]^\times = \{\pm 1, \pm i\}$ reduzibel, im Widerspruch zu Lemma \ref{primz}.
+\end{beweis}
+\begin{beispiel}
+Aus Theorem \ref{spektgauss} erschließt sich also ein präzises Verständnis des Zerlegungsverhaltens von Primidealen beim Übergang von $\Z$ nach $\Z[i]$:
+\begin{enumerate}[(a)]
+\item Das Primideal $(2)$ zerfällt in $(1+i)^2$.
+\item Die Primideale $(p)$ mit $p \equiv_4 1$ zerfallen in ein Produkt $(p)=(a+ib)(a-ib)$ von komplex konjugierten Idealen.
+\item Die Primideale $(p)$ mit $p \equiv_4 3$ bleiben prim.
+\end{enumerate}
+\end{beispiel}
+\begin{definition}{Dedekindring}{dedekindring}
+Ein Integritätsbereich $R$ heißt \textbf{Dedekindring}, falls $R$ kein Körper ist und für jedes Paar von Idealen $\Ic, \Jc \sub R$ die folgenden Bedingungen äquivalent sind:
+\begin{enumerate}[(i)]
+\item $\Ic \mid \Jc$
+\item Es existiert ein Ideal $\Kc \sub R$ mit $\Jc = \Ic \cdot \Kc$.
+\end{enumerate}
+\end{definition}
+\begin{bemerkung}
+Oftmals ist die folgende, äquivalente Definition nützlicher zur Überprüfung:\\
+Ein Integritätsbereich $R$ ist ein Dedekindring, wenn:
+\begin{enumerate}[(a)]
+\item $R$ ist noetherisch.
+\item $R$ ist \textit{ganz abgeschlossen} in seinem \textit{Divisionskörper} 
+\begin{equation}
+(R \setminus \{0\})^{-1}R := \left\{ \left. \frac{r}{s} \right| r \in R, s \in R \setminus \{0\}\right\}
+\end{equation}
+\item Die Primideale $\fp \neq (0)$ sind gerade die maximalen Ideale.
+\end{enumerate}
+\end{bemerkung}
+Wir geben noch einen Satz ohne Beweis an:
+\begin{satz}{Reduzibilität in Dedekindringen}{dedekindred}
+Sei $R$ ein Dedekindring und sei $\Ic \subset R$ ein echtes Ideal mit $\Ic \neq (0)$. Dann gibt es eine bis aus Permutation der Faktoren eindeutige Zerlegung
+\begin{equation}
+\Ic = \fp_1 \fp_2 \cdots \fp_n
+\end{equation}
+mit $\fp_i \sub R$ Primideal.
+\end{satz}
+\begin{übung}
+Zeige, dass sich die Uneindeutigkeit der Zerlegung
+\begin{equation}
+6 = 2 \cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})
+\end{equation}
+in $\Z[\sqrt{-5}]$ nach Übergang zu Idealen
+\begin{equation}
+\begin{split}
+\fp_1 &= (2, 1+\sqrt{-5})\\
+\fp_2 &= (2, 1-\sqrt{-5})\\
+\fp_3 &= (3, 1+\sqrt{-5})\\
+\fp_4 &= (3, 1-\sqrt{-5})
+\end{split}
+\end{equation}
+gilt:
+\begin{equation}
+\begin{split}
+(2) &= \fp_1 \fp_2\\
+(3) &= \fp_3 \fp_4\\
+(1+\sqrt{-5}) &= \fp_1 \fp_3\\
+(1-\sqrt{-5}) &= \fp_2 \fp_4,
+\end{split}
+\end{equation}
+also ist $(6) = \fp_1 \fp_2 \fp_3 \fp_4$ eindeutig.
+\end{übung}
