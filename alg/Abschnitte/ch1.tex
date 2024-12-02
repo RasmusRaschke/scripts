@@ -490,7 +490,7 @@ also gilt $\ker (\pi) = N$.
 \end{beweis}
 \begin{theorem}{Isomorphiesätze}{isomorphiesaetze}
 \begin{enumerate}
-\item Isomorphiesatz: Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
+\item Isomorphiesatz (Homomorphiesatz): Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
 \begin{align}
 \overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
 g \ker (\phi) &\mapsto \phi(g).
@@ -499,7 +499,7 @@ g \ker (\phi) &\mapsto \phi(g).
 \begin{equation}
 \quotient{H}{(N\cap H)} \to \quotient{NH}{N}.
 \end{equation}
-\item Seien $M, N \lnormal G$ und $M \leq N$. Dann ist $\quotient{N}{M} \lnormal \quotient{G}{M}$ und es existiert ein Isomorphismus
+\item Isomorphiesatz: Seien $M, N \lnormal G$ und $M \leq N$. Dann ist $\quotient{N}{M} \lnormal \quotient{G}{M}$ und es existiert ein Isomorphismus
 \begin{equation}
 \quotient{(\quotient{G}{M})}{(\quotient{N}{M})} \to \quotient{G}{N}.
 \end{equation}
@@ -1103,7 +1103,7 @@ und die \textbf{euklidische Drehsymmetriegruppe}
 \end{equation}
 von $F$.
 \end{definition}
-\begin{satz}{Klassifikation der Drehgruppe in $\R^3$}{drehgruppenklass}
+\begin{theorem}{Klassifikation der Drehgruppe}{drehgruppenklass}
 Jede endliche Untergruppe von $\text{SO}(3, \R)$ ist konjugiert zu einer der folgenden Gruppen:
 \begin{enumerate}
 \item $\left\{ \mat{1,0,0}{0,1,0}{0,0,1} \right\}$: triviale Gruppe
@@ -1113,7 +1113,7 @@ Jede endliche Untergruppe von $\text{SO}(3, \R)$ ist konjugiert zu einer der fol
 \item Die Gruppe $\Sf_4$, gegeben als Drehgruppe eines Würfels oder eines Oktaeders.
 \item Die Gruppe $A_5$, gegeben als Drehgruppe eines Dodekaeders oder Ikosaeders.
 \end{enumerate}
-\end{satz}
+\end{theorem}
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
