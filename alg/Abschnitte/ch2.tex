@@ -636,7 +636,7 @@ Die irreduziblen Polynome sind also $(x-\lambda_i)$ mit $\lambda_i \in \C$.
 \begin{equation}
 f(x) = r(x-\lambda_1)(x-\lambda_2) \cdots (x-\lambda_n)= r(x-\overline{\lambda}_1) \cdots (x -\overline{\lambda}_n)
 \end{equation}
-da für $f \in \R[x]$ die Konjugation der Identität entspricht. Also folgt $\lambda_i = \overline{\lambda}_1$. Ist $\lambda_1 = \overline{\lambda}_1$, hat $f$ eine reelle Nullstelle $\lambda = \lambda_1$, also $f=(x-\lambda)g$. Ist hingegen $\lambda_i = \overline{lambda}_i =: \lambda$ mit $i \neq 1$, so ist 
+da für $f \in \R[x]$ die Konjugation der Identität entspricht. Also folgt $\lambda_i = \overline{\lambda}_1$. Ist $\lambda_1 = \overline{\lambda}_1$, hat $f$ eine reelle Nullstelle $\lambda = \lambda_1$, also $f=(x-\lambda)g$. Ist hingegen $\lambda_i = \overline{\lambda}_i =: \lambda$ mit $i \neq 1$, so ist 
 \begin{equation}
 f = (x-\lambda)(x-\overline{\lambda})g = \underbrace{(x^2 - (\lambda + \overline{\lambda})x + \lambda \overline{\lambda})}_{\in \R[x]}g.
 \end{equation} 
@@ -654,6 +654,93 @@ f(x) = a_nx^n+a_{n-1}x^{n-1} + \cdots + a_0 \in \Z[x]
 \textbf{primitiv}, falls:
 \begin{enumerate}[(i)]
 \item $a_n > 0$ 
-\item $\text{ggT} (a_0, a_1, \dots, a_n) = \{\pm 1\}$, also $(a_0, a_1, \dots, a_n) = (1)$.
+\item $\text{ggT} (a_0, a_1, \dots, a_n) = \{\pm 1\}$, also $(a_0, a_1, \dots, a_n) = \Z$.
 \end{enumerate}
 \end{definition}
+\begin{übung}
+Man zeige, dass $(a_0,a_1, \dots, a_n)=\Z$.
+\end{übung}
+\begin{lemma}{Inhalt}{inhalt}
+Sei $f \in \Q[x]$. Dann gilt:
+\begin{enumerate}[(i)]
+\item Es existiert ein eindeutiges $c(f) \in \Q$, genannt \textbf{Inhalt} von $f$, und ein eindeutiges primitives Polynom $f_0 \in \Z[x]$, sodass 
+\begin{equation}
+f(x) = c(f) f_0(x).
+\end{equation}
+\item Es gilt $f \in \Z[x]$ genau dann, wenn $c(f) \in \Z$.
+\end{enumerate}
+\end{lemma}
+\begin{beweis}
+(i) Es existiert $m \in \Z$, sodass $f_0 = m f \in \Z[x]$. Sei $t$ der größte gemeinsame Teilder der Koeffizienten von $f_0$. Dann ist das Polynom $f_1 = \frac{1}{t} f_o \in \Z[x]$ primitiv. Daraus folgt
+\begin{equation}
+f= \frac{t}{m} f_1
+\end{equation}
+mit $\frac{t}{m} \in \Q$ und $f_1 \in \Z[x]$.\\
+Seien $c,d \in \Q$ und $g,h \in \Z[x]$ primitiv mit $f=cg=dh$. O.B.d.A. nehmen wir an, dass $c,d \in \Z$. Für alle $0 \leq i \leq n$ gilt, dass $cb_i = de_i$, also
+\begin{equation}
+(c) = (cb_0, \dots, cb_n) = (de_0, \dots, de_n)=(d).
+\end{equation}
+Damit folgt $c=d$ oder $c = -d$. Mit der Primitivität erhalten wir $c=d$.
+\end{beweis}
+\begin{übung}
+Beweise (ii).
+\end{übung}
+\begin{lemma}{Gauß-Lemma}{gausslemma}
+Das Produkt primitiver Polynome ist primitiv.
+\end{lemma}
+\begin{beweis}
+Seien $f,g \in \Z[x]$ primitive Polynome. Der Leitkoeffizient von $f\cdot g$ ist als Produkt der Leitkoeffizienten positiv. Wir betrachten für jede Primzahl $p$ den Ringhomomorphismus
+\begin{equation}
+\begin{split}
+\pi:\Z[x] &\to \F_p[x]\\
+\sum_{i=0}^n a_i x^i &\mapsto \sum_{i=0}^n [a_i]_p x^i.
+\end{split}
+\end{equation}
+Sind die Leitkoeffizienten von $f$ und $g$ nicht teilerfremd, so existiert ein $p$ mit $\pi(fg) = \pi(f) \pi(g) = 0$. Da $\F_p[x]$ ein Integritätsbereich ist, müsste bereits $\pi(f)=0$ oder $\pi(g)=0$ gelten. Das widerspricht allerdings der Primitivität von $f$ und $g$.
+\end{beweis}
+\begin{korollar}{Aus Lemma \ref{gausslemma}}{ausgauss}
+Für $f,g \in \Q[x]$ gilt:
+\begin{equation}
+c(fg) = c(f)c(g)
+\end{equation}
+\end{korollar}
+\begin{übung}
+Beweise das Korollar.
+\end{übung}
+\begin{satz}{Irreduzibilität in $\Z[x]$}{faktorisierungganz}
+Sei $f \in \Z[x]$ ein Polynom mit positivem Leitkoeffizienten. Dann sind äquivalent:
+\begin{enumerate}[(i)]
+\item $f$ ist irreduzibel. 
+\item Entweder ist $f$ eine Primzahl (also von Grad $0$) oder $f$ ist primitiv und irreduzibel über $\Q[x]$.
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+(2) $\implies$ (1): Ist klar und dem Leser überlassen.\\
+(1) $\implies$ (2): Zerlege $f= c(f)f_0$ mit $c(f) \in \Z$ und $f_0 \in \Z[x]$ primitiv. Da $f$ irreduzibel ist, muss entweder $c(f)\in \Z^\times$ oder $f_0 \in \Z[x]^\times$ gelten.
+\begin{enumerate}[(a)]
+\item Sei also $f_0 \in \Z[x]^\times$, also $f_0 = 1$. Dann ist $f = c(f) \in \Z$, also ist $f$ eine Primzahl, da $f$ irreduzibel ist.
+\item Sei nun $c(f)\in \Z^\times$, also $c(f)=1$. Dann gilt $f=f_0$, also ist $f$ primitiv. Angenommen, $f$ ließe sich zerlegen in $f=gh$ mit $g,h \in \Q[x]$. Aus Korrolar \ref{ausgauss} folgt, dass $c(f)=c(g)c(h)=1$, und damit 
+\begin{equation}
+f=gh=c(g)c(h)g_0h_0=g_0h_0
+\end{equation}
+mit $g_0,h_0 \in \Z[x]$. Also ist entweder $g_0$ oder $h_0$ eine Einheit in $\Z[x]^\times$ und damit $g_0=1$ oder $h_0=1$. Sei also $g_0=1$. Dann ist $f=c(g)h$. Da $c(g)$ eine Einheit in $\Q[x]$ ist, folgt, dass $f$ irreduzibel über $\Q[x]$ ist.
+\end{enumerate}
+\end{beweis}
+\begin{theorem}{Faktorisierung ganzzahliger Polynome}{zfaktor}
+Der Ring $\Z[x]$ ist faktoriell.
+\end{theorem}
+\begin{beweis}
+Sei $f \in \Z[x]$, dann können wir $f$ in $\Q[x]$ zerlegen:
+\begin{equation}
+f= f_1 f_2 \cdots f_n
+\end{equation}
+mit $f_i \in \Q[x]$ irreduzibel für alle $i \in \N$. Es gilt also
+\begin{equation}
+f= f_1 \cdots f_n = c(f_1 \cdots f_n) \cdot (f_1)_0 \cdots (f_n)_0.
+\end{equation}
+Da $Z$ faktoriell ist, können wir $c(f_1 \cdots f_n)$ in Primfaktoren zerlegen. Da für alle $1 \leq i \leq n$ gilt, dass $f_i = c(f_i)(f_i)_0$, ist auch $(f_i)_0$ irreduzibel in $\Q[x]$. Da $(f_i)_0$ auch primitiv ist, ist es auch irreduzibel in $\Z[x]$. Es bleibt die Eindeutigkeit.\\
+Nach Satz \textcolor{red}{$\dots$} reicht es, zu zeigen, dass jedes irreduzible Element $f \in \Z[x]$ auch ein Primelement ist. Seien $g,h \in \Z[x]$, sodass $f \mid gh$. Dann gibt es zwei Fälle:
+\begin{enumerate}
+\item Fall: $f$ ist eine Primzahl $p$. Dann zerlegen wir $g=c(g)g_0$ und $h=c(h)h_0$. Da $g_0h_0$ primitiv ist, hat $g_0h_0$ mindestens einen Koeffizienten $a$, der nicht durch $p$ teilbar ist. Da aber $f \mid gh$, muss $p \mid ac(h)c(g)$ gelten, also entweder $p \mid c(g)$ oder $p \mid c(h)$. Es folgt $p \mid g$ oder $p \mid h$.
+\end{enumerate}
+\end{beweis}
