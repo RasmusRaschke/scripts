@@ -744,3 +744,193 @@ Nach Satz \textcolor{red}{$\dots$} reicht es, zu zeigen, dass jedes irreduzible 
 \item Fall: $f$ ist eine Primzahl $p$. Dann zerlegen wir $g=c(g)g_0$ und $h=c(h)h_0$. Da $g_0h_0$ primitiv ist, hat $g_0h_0$ mindestens einen Koeffizienten $a$, der nicht durch $p$ teilbar ist. Da aber $f \mid gh$, muss $p \mid ac(h)c(g)$ gelten, also entweder $p \mid c(g)$ oder $p \mid c(h)$. Es folgt $p \mid g$ oder $p \mid h$.
 \end{enumerate}
 \end{beweis}
+
+\subsection{Moduln}
+\label{subsec:moduln}
+
+\begin{definition}{Modul}{modul}
+Ein $\mathbf{R}$\textbf{-Modul} ist ein Tripel $(M, +, \cdot)$, bestehend aus einer Menge $M$, einer Addition $+$, die eine abelsche Gruppe $(M,+)$ bildet, und einer \textbf{Skalarmultiplikation} 
+\begin{equation}
+\begin{split}
+\cdot: R \times M &\to M\\
+(r,m) &\mapsto r \cdot m,
+\end{split}
+\end{equation}
+sodass für alle $m, n \in M$ und alle $r, s \in R$ gilt:
+\begin{enumerate}[({M}1)]
+\item $r\cdot (s\cdot m) = (rs) \cdot m.$
+\item $(r+s)\cdot m = r \cdot m + s \cdot m.$
+\item $r \cdot (m+n) = r\cdot m + r \cdot n.$
+\item $\exists 1 \in R: 1 \cdot m = m$.
+\end{enumerate}
+\end{definition}
+\begin{beispiele}
+\begin{enumerate}
+\item Ist $R=\K$ ein Körper, so sind $\K$-Moduln gerade Vektorräume über $\K$.
+\item Für jede natürliche Zahl $n\geq 0$ ist das kartesische Produkt 
+\begin{equation}
+R^n = \underbrace{R \times R \times \cdots \times R}_n
+\end{equation}
+ein $R$-Modul mit der Skalarmultiplikation
+\begin{equation}
+\begin{split}
+R \times R^n &\to R^n\\
+\left( r, (r_1, \dots, r_n) \right) &\mapsto r \cdot (r_1, \dots, r_n) = (rr_1, \dots, rr_n),
+\end{split}
+\end{equation}
+genannt \textbf{freier Standard-$\mathbf{R}$-Modul von Rang $\mathbf{n}$}.
+\item Für $R$-Moduln $M,N$ ist das kartesische Produkt $M \times N$ ein $R$-Modul mit der Skalarmultiplikation
+\begin{equation}
+(r,(x,y)) \mapsto (rx,ry).
+\end{equation}
+\end{enumerate}
+\end{beispiele}
+\begin{übung}
+Ein $\Z$-Modul ist eine abelsche Gruppe.
+\end{übung}
+Wir stellen fest, dass sich jedes Element in $M \times N$ eindeutig als Summe $(x,y) = (x,0)+(0,y)$ mithilfe der kanonischen Inklusionen $x \hookrightarrow (x,0)$ und $y \hookrightarrow (0,y)$ schreiben lässt. Das rechtfertigt die folgende Definition:
+\begin{definition}{Direkte Summe (Moduln)}{direktesumme}
+Seien $M,N$ Moduln und $M\times N$ das Produktmodul. Dann schreiben wir 
+\begin{equation}
+M \oplus N := M \times N
+\end{equation}
+und nennen $M \oplus N$ die \textbf{direkte Summe} von $M$ und $N$.
+\end{definition}
+Wir wollen nun bekannte Resultate der linearen Algebra auf Moduln übertragen.
+\begin{definition}{Lineare Abbildung}{linabb}
+Eine Abbildung $\varphi: M \to N$ zwischen $R$-Moduln $M$ und $N$ heißt \textbf{$\mathbf{R}$-linear}, falls für alle $r\in R$ und $m,n \in M$ gilt:
+\begin{enumerate}[({L}1)]
+\item $\varphi(rm+rn) = r \phi(m) + r \phi(n).$
+\end{enumerate}
+\end{definition}
+\begin{definition}{Isomorphismus von Moduln}{isomorphmodul}
+Sei $\varphi: M \to N$ eine lineare Abbildung zwischen $R$-Moduln. Ist $\varphi$ bijektiv, so heißt $\varphi$ \textbf{Isomorphismus von $\mathbf{R}$-Moduln}. 
+\end{definition}
+\begin{definition}{Untermodul und Erzeugnis}{untererzeugnis}
+Sei $M$ ein $R$-Modul.
+\begin{enumerate}
+\item Ein \textbf{Untermodul} $N \leq M$ ist eine abelsche Untergruppe von $M$, die zusätzlich abgeschlossen unter Skalarmultiplikation ist, also $ry \in N$ für alle $y \in M$ und alle $r \in R$. $N$ erbt eine $R$-Modul-Struktur von $M$.
+\item Für eine Teilmenge $S \sub M$ heißt der Untermodul
+\begin{equation}
+\langle S \rangle := \bigcap_{S \sub N \leq M} N
+\end{equation}
+der von $S$ \textbf{erzeugte Untermodul}.
+\end{enumerate}
+\end{definition}
+\begin{übung}
+Zeigen Sie, dass das erzeugte Untermodul tatsächlich ein Untermodul ist.
+\end{übung}
+\begin{beispiel}
+DIe Untermoduln des freien $R$-Moduls von Rang $1$ sin genau die Ideale von $R$.
+\end{beispiel}
+\begin{satz}{Bild und Kern}{bildkern}
+Sei $\varphi: M \to N$ eine $R$-lineare Abbildung zwischen $R$-Moduln. Dann gilt:
+\begin{enumerate}[(i)]
+\item $\im (\varphi) \leq N$ ist ein Untermodul.
+\item $\ker (\varphi) \leq M$ ist ein Untermodul.
+\item $\varphi$ ist injektiv genau dann, wenn $\ker (\varphi) = \{0\}$.
+\end{enumerate}
+\end{satz}
+\begin{definition}{Quotientenmodul}{quotientenmodul}
+Sei $M$ ein $R$-Modul und $N \leq M$ ein Untermodul. Dann ist $\left( \quotient{M}{N}, +, \cdot \right)$ mit der Verknüpfung
+\begin{equation}
+\begin{split}
+\cdot: R \times \quotient{M}{N} &\to \quotient{M}{N} \\
+(r, [x]) &\mapsto [rx]
+\end{split}
+\end{equation}
+ein $R$-Modul, genannt \textbf{Quotientenmodul} von $M$ modulo $N$.
+\end{definition}
+\begin{theorem}{Isomorphiesatz}{isomorphiesatzmod}
+Sei $\varphi: M \to N$ eine $R$-lineare Abbildung zwischen Moduln. Dann ist die induzierte Abbildung
+\begin{equation}
+\begin{split}
+\overline{\varphi}: \quotient{M}{\ker (\varphi)} &\to \im (\varphi)\\
+[x] &\mapsto \varphi(x)
+\end{split}
+\end{equation}
+ein Isomorphismus von $R$-Moduln.
+\end{theorem}
+\begin{definition}{Freier Modul}{freiermodul}
+Für eine natürliche Zahl $n \geq 0$ heißt ein $R$-Modul $\cF$ \textbf{frei} von Rang $n$, falls es einen Isomorphismus $R^n \cong \cF$ gibt.
+\end{definition}
+\begin{bemerkung}
+\item Sei $\cF$ frei von Rang $n$. Dann besitzt $\cF$ eine $R$-Basis $(x_1, \dots, x_n)$, sodass sich jedes $m \in \cF$ auf eindeutige Weise als 
+\begin{equation}
+m = \sum_{i = 1}^n \lambda_i x_i
+\end{equation}
+mit $\lambda_i \in R$ schreiben lässt.
+\end{bemerkung}
+\begin{beispiel}
+In jedem Integritätsbereich $R$ ist für $0 \neq a \in R$ das Ideal $(a) \sub R$ ein freier $R$-Modul von Rang $1$ durch die Abbildung
+\begin{equation}
+\begin{split}
+R &\to (a)\\
+r &\mapsto ra.
+\end{split}
+\end{equation}
+Falls zusätzlich $a$ eine Nichteinheit ist, ist der Quotientenmodul $\quotient{R}{(a)}$ nicht frei, denn es gibt $0 \neq x \in \quotient{R}{(a)}$ und $0 \neq r \in R$ mit $r \cdot x= 0$, z.B.: $R=\Z$, $0 \neq a \neq \{\pm 1\}$, $\quotient{\Z}{(a)} \acts \Z$.
+\end{beispiel}
+Wir stellen die Vermutung auf, dass endliche, nullteilerfreie Ringe Körper sind.
+\begin{definition}{endlich erzeugt}{endlerzeugt}
+Ein $R$-Modul $M$ heißt \textbf{endlich erzeugt}, falls es eine surjektive, $R$-lineare Abbildung $R^n \to M$ mit $n \geq 0$ gibt.
+\end{definition}
+\begin{bemerkung}
+Ein Modul $M$ ist genau dann endlich erzeugt, wenn es eine endliche Teilmenge $S \sub M$ gibt, sodass $\langle S \rangle = M$ gilt.
+\end{bemerkung}
+\begin{definition}{Kurze exakte Sequenz (Moduln)}{kesmod}
+Eine \textbf{kurze exakte Sequenz (KES)} von Moduln ist gegeben durch 
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & M' \arrow[r, "f"] & M \arrow[r, "g"] &M'' \arrow[r] &\{0\}, 
+\end{tikzcd}
+\end{center}
+wobei:
+\begin{itemize}
+\item $M,M'$ und $M''$ $R$-Moduln sind.
+\item $f: M' \to M$ eine injektive, $R$-lineare Abbildung (Monomorphismus) ist.
+\item $g: M \to M''$ eine surjektive, $R$-lineare Abbildung (Epimorphismus) ist.
+\item $\im (f) = \ker (g)$ gilt.
+\end{itemize}
+Eine kurze exakte Sequenz \textbf{zerfällt}, falls eine $R$-lineare Abbildung $s: M' \to M$ mit $g \circ s = \id_M''$ existiert.
+\end{definition}
+\begin{satz}{Zerfällungskriterium}{zerfallkes}
+Sei 
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & N \arrow[r, "f"] & M \arrow[r, "g"] &\cF \arrow[r] &\{0\}, 
+\end{tikzcd}
+\end{center}
+eine KES von Moduln, wobei $\cF$ ein freier $R$-Modul ist. Dann zerfällt die KES mit $s: \cF \to M$, $g \circ s = \id_\cF$. Für jeden solchen Schnitt ist 
+\begin{equation}
+\begin{split}
+\varphi: N \oplus \cF &\to M\\
+(x,y) &\mapsto f(x) + s(y)
+\end{split}
+\end{equation}
+ein Isomorphismus.
+\end{satz}
+\begin{beweis}
+Wähle für die Elemente $x_1, \dots, x_n$ einer $R$-Basis von $\cF$ Elemente $y_1, \dots, y_n \in M$ mit $g(y_i)=x_i$. Dann erfüllt der Schnitt die Eigenschaft 
+\begin{equation}
+s\left( \sum_{i=1}^n \lambda_i x_i \right) = \sum_{i=1}^n \lambda_i s(x_i). = \sum_{i=1}^n \lambda_i y_i.
+\end{equation}
+\begin{enumerate}
+\item $\varphi$ ist injektiv: Sei $(x,y)\in N \oplus \cF$ mit $\varphi(x,y) =f(x)+s(g)$. Anwendung von $g$ liefert
+\begin{equation}
+0 = g\left( f(x)\right) + g \left( g(y) \right) = y
+\end{equation}
+und damit $f(x)=0$, also $x=0$, da $f$ injektiv ist.
+\item $\varphi$ ist surjektiv: Sei $m \in M$, also $g(m-s(g(m))) = 0$. Da $\ker (g) = \im (f)$ gilt, existiert $x \in M$ mit $m-s(y)=f(x)$, also
+\begin{equation}
+m = f(x)+s(y)=\varphi(x,y).
+\end{equation}
+\end{enumerate}
+\end{beweis}
+\begin{beispiel}Ganzzahlen.
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & \Z \arrow[r, "\cdot 5"] & \Z \arrow[r] & \underbrace{\quotient{\Z}{(5)}}_\text{nicht frei} \arrow[r] &\{0\}, 
+\end{tikzcd}
+\end{center}
+\end{beispiel}

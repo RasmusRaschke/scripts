@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {2.1}Ringe, Ideale und Homomorphismen}{18}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Primelemente und Primideale}{20}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Faktorisierung in Polynomringen}{26}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Moduln}{28}{subsection.2.4}%
