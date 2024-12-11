@@ -84,7 +84,7 @@ Umgekehrt gibt es algebraische Zahlenringe ohne eindeutige Primfaktorzerlegung, 
 \begin{equation}
 6 = 2 \cdot 3 = (1-\sqrt{-5})(1+\sqrt{-5}).
 \end{equation}
-\textbf{Ab jetzt vereinbaren wir, dass alle vorkommenden Ringe kommutativ sind.}
+\warning{Ab jetzt vereinbaren wir, dass alle vorkommenden Ringe kommutativ sind.}
 \begin{definition}{Ideal}{ideal}
 Sei $R$ ein Ring. Eine nicht-leere Teilmenge $\cI \sub R$ heißt \textbf{Ideal}, falls gilt:
 \begin{enumerate}[({I}1)]
@@ -221,7 +221,18 @@ ein Ringisomorphismus.
 \begin{übung}
 Man beweise diesen Satz analog zum Fall für Gruppen.
 \end{übung}
-
+\begin{satz}{Endliche Integritätsbereiche sind Körper}{integerkörper}
+Sei $R$ ein endlicher, nullteilerfreier Ring. Dann ist $R$ ein Körper.
+\end{satz}
+\begin{beweis}
+Betrachte $r \in R \setminus \{0\}$. Dann existiert ein Isomorphismus
+\begin{equation}
+\begin{split}
+\mu_r: R \exc \{0\} &\to R \exc \{0\} \\
+x &\mapsto rx.
+\end{split}
+\end{equation}
+\end{beweis}
 \subsection{Primelemente und Primideale}
 \label{subsec:primelementeideale}
 \begin{definition}{Teiler}{teiler}
@@ -892,7 +903,7 @@ wobei:
 \item $g: M \to M''$ eine surjektive, $R$-lineare Abbildung (Epimorphismus) ist.
 \item $\im (f) = \ker (g)$ gilt.
 \end{itemize}
-Eine kurze exakte Sequenz \textbf{zerfällt}, falls eine $R$-lineare Abbildung $s: M' \to M$ mit $g \circ s = \id_M''$ existiert.
+Eine kurze exakte Sequenz \textbf{zerfällt}, falls eine $R$-lineare Abbildung $s: M' \to M$ mit $g \circ s = \id_{M''}$ existiert.
 \end{definition}
 \begin{satz}{Zerfällungskriterium}{zerfallkes}
 Sei 
@@ -927,10 +938,177 @@ m = f(x)+s(y)=\varphi(x,y).
 \end{equation}
 \end{enumerate}
 \end{beweis}
-\begin{beispiel}Ganzzahlen.
+\begin{beispiele}
+\begin{enumerate}
+\item Ganzzahlen:
 \begin{center}
 \begin{tikzcd}
     \{0\} \arrow[r] & \Z \arrow[r, "\cdot 5"] & \Z \arrow[r] & \underbrace{\quotient{\Z}{(5)}}_\text{nicht frei} \arrow[r] &\{0\}, 
 \end{tikzcd}
 \end{center}
+\item Kanonische Inklusion und Projektion:
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & M' \arrow[r, "\iota_{M'}"] & M' \oplus M'' \arrow[r, "\pi_{M''}"] & M'' \arrow[r] &\{0\}, 
+\end{tikzcd}
+\end{center}
+\end{enumerate}
+\end{beispiele}
+\subsection{Endlich erzeugte Moduln über Hauptidealringen}
+\label{subsec:endlmodulnhir}
+
+\warning{In diesem Abschnitt bezeichnet $R$ einen Hauptidealring (also insbesondere einen Integritätsbereich).}
+\begin{lemma}{Freie Moduln haben freie Untermoduln}{freiunter}
+Sei $\cF$ ein freier $R$-Modul von Rang $n \geq 0$ und $\cM \leq \cF$ ein Untermodul. Dann ist $\cM$ auch frei von Rang $n$.
+\end{lemma}
+\begin{beweis}
+Sei zunächst $n=1$, also $\cF \cong R$. O.B.d.A. also $\cF = R$. Ein Untermodul von $R$ ist ein Ideal $\cI \sub R$, also insbesondere ein Hauptideal $\cI = (a)$. Für $a \neq 0$ ist die Abbildung
+\begin{equation}
+\begin{split}
+R &\to (a) \\
+r &\mapsto ra
+\end{split}
+\end{equation}
+ein Isomorphismus, da $R$ nullteilerfrei ist. Für $a=0$ ist $\cI = 0$ frei von Rang $0$. Sei nun $\cF \cong R^n$, also o.B.d.A. $\cF = R^n$ mit $n>1$. Betrachte die Projektionsabbildung
+\begin{equation}
+\begin{split}
+\pi: R^n &\to R\\
+(r_1, r_2, \dots, r_n) &\mapsto r_1
+\end{split}
+\end{equation}
+mit $\ker(\pi) \cong R^{n-1}$. Dies ist gerade der Untermodul von Tupeln mit $r_1=0$. Wir schränken nun $\pi$ auf $\cM$ ein und erhalten so eine KES
+\begin{center}
+\begin{tikzcd}
+\label{untermodulkes}
+    \{0\} \arrow[r] & \ker(\pi(\cM)) \arrow[r, "\iota"] & \cM \arrow[r, "\pi|_{\cM}"] & \pi(\cM) \arrow[r] &\{0\}. 
+\end{tikzcd}
+\end{center}
+Nach Induktionsvoraussetzung ist $\pi(\cM)$ frei von Rang $\leq 1$. Es gilt weiterhin:
+\begin{equation}
+\ker(\pi(\cM)) = \ker(\pi) \cap \cM \leq \ker(\pi) \cong R^{n-1}.
+\end{equation}
+Per Induktion nach $n$ ist $\ker(\pi(\cM))$ also frei von Rang $\leq n-1$, und nach Satz \ref{zerfallkes} spaltet die KES \ref{untermodulkes}, sodass 
+\begin{equation}
+M \cong \underbrace{\pi(\cM)}_{\text{frei} \, \leq 1} \oplus \underbrace{\ker(\pi(\cM))}_{\text{frei} \, \leq n-1}
+\end{equation}
+frei von Rang $\leq n$.
+\end{beweis}
+\begin{definition}{Torsionsmodul}{torsionsmodul}
+Sei $M$ ein $R$-Modul.
+\begin{enumerate}
+\item Der \textbf{Torsionsmodul} von $M$ ist definiert als
+\begin{equation}
+T(M) := \{x \in M | \exists r \in R, r\neq 0: r \cdot x = 0 \} \leq M.
+\end{equation}
+\item Für $p \in R$ prim ist der \textbf{$\mathbf{p}$-Torsionsuntermodul} oder \textbf{$\mathbf{p}$-primäre Torsionsuntermodul} definiert als
+\begin{equation}
+T_p(M) := \{x \in M| \exists n \geq 0: p^n \cdot x = 0\} \leq T(M).
+\end{equation}
+\item $M$ heißt \textbf{Torsionsmodul} bzw. \textbf{$\mathbf{p}$-Torsionsmodul}, falls $T(M)=M$ bzw. $T_p(M)=M$.
+\item $M$ heißt \textbf{torsionsfrei}, falls $T(M)=0$.
+\end{enumerate}
+\end{definition}
+\begin{übung}
+Zeige, dass der Torsionsmodul tatsächlich ein Untermodul ist. Dafür benötigt man die Nullteilerfreiheit von $R$.
+\end{übung}
+\begin{beispiel}
+Sei $R=\Z$ und betrachte 
+\begin{equation}
+M = \Z \oplus \overbrace{\underbrace{\quotient{\Z}{(2)}}_{T_2(M)} \oplus \underbrace{\quotient{Z}{(9)}}_{T_3(M)}}^{T(M)}.
+\end{equation}
 \end{beispiel}
+\begin{lemma}{Endlich torsionsfreie Module sind frei}{torsionsfreiheit}
+Sei $M$ ein endlich erzeugter, torsionsfreier $R$-Modul. Dann ist $M$ ein freier $R$-Modul.
+\end{lemma}
+\begin{beweis}
+Nach Lemma \ref{freiunter} genügt es, zu zeigen, dass $M$ ein Untermodul eines freien Moduls ist. Sei $M$ erzeugt von der endlichen Menge $S \sub M$. Wir wählen eine maximale, $R$-linear unabhängige Teilmenge
+\begin{equation}
+\cB = \{x_1, x_2, \dots, x_d\} \sub S,
+\end{equation}
+d.h. für alle $\lambda_1, \dots, \lambda_d \in R$ gilt, dass 
+\begin{equation}
+\sum_{i=1}^d \lambda_i x_i=0 \implies \forall i: \lambda_i = 0
+\end{equation}
+und die Teilmenge $\cB \sub S$ ist maximal mit dieser Eigenschaft. Wir setzen $N:=\langle \cB \rangle \leq M$. Dann ist die Abbildung
+\begin{equation}
+\begin{split}
+R^d &\to N \\
+(\lambda_1, \lambda_2, \dots, \lambda_d) &\mapsto \sum_{i=1}^d \lambda_i x_i
+\end{split}
+\end{equation}
+ein Isomorphismus. Wegen der Maximalität von $\cB$ existiert für jedes $s \in S \exc \cB$ ein $a_s \in R$, $a_s \neq 0$ mit $a_s \cdot s \in N$ $(\ast)$. Setze
+\begin{equation}
+a := \prod_{s \in S \exc \cB} a_s \in R \exc \{0\} \, (\ast \ast).
+\end{equation}
+Da $M$ torsionsfrei ist, ist die $R$-lineare Abbildung
+\begin{equation}
+\begin{split}
+\mu_a: M &\to M\\
+x &\mapsto a \cdot x
+\end{split}
+\end{equation}
+injektiv. Also ist 
+\begin{equation}
+M \cong \im (\mu_a) \leq N \cong R^d,
+\end{equation}
+und damit ist $M$ frei.
+\end{beweis}
+\begin{übung}
+Zeige, dass der konstruierte Isomorphismus tatsächlich ein solcher ist. Zeige, dass $(\ast)$ und $(\ast \ast)$ gilt.
+\end{übung}
+\begin{lemma}{Torsionszerlegung}{torsionszerlegung}
+Sei $M$ ein endlich erzeugter $R$-Modul mit Torsionsuntermodul $T \leq M$. Dann ist $T$ endlich erzeugt, $\quotient{M}{T}$ ist ein freier $R$-Modul und es gibt einen Isomorphismus 
+\begin{equation}
+M \cong T \oplus \quotient{M}{T}.
+\end{equation}
+\end{lemma}
+\begin{beweis}
+Wir zeigen zunächst, dass $\quotient{M}{T}$ torsionsfrei ist. Sei dazu $[x]\in \quotient{M}{T}$ und sei $r \in R$, $r \neq 0$ mit $[r \cdot x ] = 0$. Dann gilt $rx \in T$, es gibt also $s \in R$, $s \neq 0$ mit:
+\begin{equation}
+s(rx) = 0 \implies \underbrace{(sr)}_{\neq 0} x = 0 \implies x \in T \implies [x]=0.
+\end{equation}
+Also ist der Quotient torsionsfrei. Da $M \twoheadrightarrow \quotient{M}{T}$ und $M$ endlich erzeugt ist, ist auch $\quotient{M}{T}$ endlich erzeugt. Mit Lemma \ref{torsionsfreiheit} folgt, dass $\quotient{M}{T}$ frei ist. Also spaltet die KES
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & T \arrow[r,] & B \arrow[r] & \quotient{M}{T} \arrow[r] &\{0\}, 
+\end{tikzcd}
+\end{center}
+woraus $M \cong T \oplus \quotient{M}{T}$ folgt. Damit existiert eine Abbildung $M \twoheadrightarrow T$, also ist $T$ endlich erzeugt. 
+\end{beweis}
+\begin{definition}{Annihilator}{annihilator}
+Sei $M$ ein $R$-Modul und $S \sub M$ eine nichtleere Teilmenge. Dann heißt das Ideal
+\begin{equation}
+\Ann_R(S):=\{r \in R| \forall s \in S:r \cdot s =0\} \sub R
+\end{equation}
+\textbf{Annihilator} oder \textbf{Annihilatorideal} von $S$. Für $S=\{x\}$ schreiben wir $\Ann_R(x)$.
+\end{definition}
+\begin{übung}
+Zeige, dass $\Ann_R(S)$ tatsächlich ein Ideal ist.
+\end{übung}
+\begin{satz}{Torsionsprimfaktorzerlegung}{torsionsprimfaktorzerlegung}
+Sei $\{0\} \neq M$ ein endlich erzeugter Torsionsmodul über $R$. Dann gelten:
+\begin{enumerate}[(i)]
+\item Für eine Nichteinheit $d \neq 0$ gilt $\Ann_R(M)=(d)$.
+\item Sei $d = \epsilon p_1^{n_1}p_2^{n_2} \cdots p_k^{n_k}$ die Primfaktorzerlegung mit paarweise nicht-assoziierten Primelementen $p_i \nsim p_j$ für $i \neq j$ und $\epsilon \in R^\times$. Dann gilt
+\begin{equation}
+M \cong \bigoplus_{i=1}^k T_{p_i}(M).
+\end{equation}
+\end{enumerate}
+\end{satz}
+\begin{beweis}
+\begin{enumerate}[(i)]
+\item Sei $S=\{x_1, x_2, \dots, x_n\} \sub M \exc \{0\}$ eine erzeugende Teilmenge. da $M$ ein Torsionsmodul ist, gibt es für jedes $1 \leq i \leq n$ ein $r_i \in R$, $r_i \neq 0$ mit $r_i \cdot x_i = 0$. Dann ist $0 \neq r_1r_2 \cdots r_n \in \Ann_R(M)$. Da $R$ ein Hauptidealring ist, folgt daraus $\Ann_R(M)=(d)$ mit $d \neq 0$. Außerdem ist $d \notin R^\times$, da andernfalls $M=\{0\}$ gelten würde.
+\item Wir setzen $I:=\{1,2,\dots, k\}$ und betrachten die Abbildung
+\begin{equation}
+\begin{split}
+\varphi: \bigoplus_{i \in I} T_{p_i}(M) &\to M\\
+(x_i)_{i \in I} &\mapsto \sum_{i \in I} x_i.
+\end{split}
+\end{equation}
+Mit $d_i := \quotient{d}{p_i^{n_i}}$ gilt (da $[d_i]$ teilerfremd):
+\begin{equation}
+(d_1, d_2, \dots, d_k ) = (1) = R,
+\end{equation}
+es gibt also Elemente $r_i$, $1 \leq i \leq k$, mit $\sum_i r_i d_i = 1$. Für beliebiges $x \in M$ gilt dann für alle $i \in I$: $x_i = r_i d_i x \in T_{p_i}(M)$ und $x=\sum_{i \in I} x_i$. \textcolor{red}{Rest des Beweises nachtragen.}
+\end{enumerate}
+\end{beweis}
