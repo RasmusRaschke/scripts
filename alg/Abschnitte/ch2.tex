@@ -1112,3 +1112,116 @@ Mit $d_i := \quotient{d}{p_i^{n_i}}$ gilt (da $[d_i]$ teilerfremd):
 es gibt also Elemente $r_i$, $1 \leq i \leq k$, mit $\sum_i r_i d_i = 1$. Für beliebiges $x \in M$ gilt dann für alle $i \in I$: $x_i = r_i d_i x \in T_{p_i}(M)$ und $x=\sum_{i \in I} x_i$. \textcolor{red}{Rest des Beweises nachtragen.}
 \end{enumerate}
 \end{beweis}
+\begin{beispiel}
+Für $d=\epsilon p_1^{n_1}p_2^{n_2} \cdots p_k^{n_k} \in R$ wie in Satz \ref{torsionsprimfaktorzerlegung} gilt der \textbf{Chinesische Restsatz (CRT)}:
+\begin{equation}
+\quotient{R}{(d)} \cong \quotient{R}{(p_1^{n_1})} \oplus \quotient{R}{(p_2^{n_2})} \oplus \cdots \oplus \quotient{R}{(p_k^{n_k})}
+\end{equation}
+mit 
+\begin{equation}
+T_{p_i}\left( \quotient{R}{(d)}\right) \cong \quotient{R}{(p_i^{n_i})}.
+\end{equation}
+Vorsicht: Dies ist kein direktes Korollar von Satz \ref{torsionsprimfaktorzerlegung}, sondern ein Spezialfall.
+\end{beispiel}
+\begin{theorem}{Klassifikationssatz für endlich erzeugte Torsionsmodule}{klasstorsion}
+Sei $p \in R$ ein Primelement und $T$ ein endlich erzeugter $p$-Torsionsmodul. Dann gibt es eindeutig bestimmte Zahlen $m \geq 0$, $0 < l_1 \leq l_2 \leq \cdots \leq l_m$, sodass
+\begin{equation}
+\label{eq:isotorsion}
+T \cong \bigoplus_{i=1}^m \quotient{R}{(p^{l_i})}.
+\end{equation}
+\end{theorem}
+\begin{beweis}
+Sei $T=\langle x_1, x_2, \dots, x_m \rangle$, sodass $m$ minimal ist. Zunächst wollen wir die Existenz des Isomorphismus zeigen. Für $m=1$ folgt die Aussage direkt aus dem CRT, sei also $m > 1$. Für jedes $1 \leq i \leq m$ gilt: Wegen des CRT ist der Annihilator durch $\Ann_R (x_i) = (p^{n_i})$ mit $n_i > 0$ gegeben. Sei o.B.d.A. $\Ann_R(x_m) = (p^e)$, wobei $e$ maximal unter den $n_i$ ist (wäre das nicht für $x_m$ der Fall, sortieren wir um). Dann gilt auch, dass $\Ann_R(T)=(p^e)$. Betrachte die KES
+\begin{center}
+\begin{tikzcd}
+    \{0\} \arrow[r] & \underbrace{\langle x_m \rangle}_{\cong \quotient{R}{(p^e)}} \arrow[r, hook] & T \arrow[r] & \quotient{T}{\langle x_m \rangle} \arrow[r] &\{0\}. 
+\end{tikzcd}
+\end{center}
+Die maximale Anzahl von Erzeugern von $\quotient{T}{\langle x_m \rangle} =: \overline{T}$ ist $m-1$, da $m$ minimal ist. Induktiv folgt, dass
+\begin{equation}
+\overline{T} \cong \bigoplus_{i=1}^{n-1} \quotient{R}{(p^{l_i})}.
+\end{equation}
+Jetzt brauchen wir ein Lemma.
+\end{beweis}
+\begin{lemma}{Hochhebung des Annihilators}{hochhebungann}
+Sei $\overline{T}$ wie oben. Für jedes $y \in \overline{T}$ mit $\Ann_R(y)=(p^f)$ existiert ein Element $\tilde{y} \in T$ mit $\Ann_R(\tilde{y}) = (p^f)$ und $\pi (\tilde{y})=y$. 
+\end{lemma}
+\begin{beweis}
+Klar ist, dass $f \leq e$. Sei $z \in T$ mit $\pi(z)=y$ beliebig. Dann gilt $p^fz = r \cdot x_m$. Weiterhin gilt:
+\begin{equation}
+0 = p^e z = p^{e-f} p^f z = p^{e-f} rx_m.
+\end{equation}
+Da $\Ann_R(x_m)=(p^e)$ gilt, muss auch $r=sp^f$ für $s \in R$ gelten. Wir setzen nun 
+\begin{equation}
+\tilde{y}:= z-s \cdot x_m.
+\end{equation}
+Dann gilt $\pi (\tilde{y})=y$, sodass $p^j \tilde{y} \neq 0$ für $j < f$. Außerdem ist
+\begin{equation}
+p^f \tilde{y} = p^fz-p^fsx_m = rx_m - rx_m =0,
+\end{equation}
+was zu zeigen war. Also ist $\tilde{y}$ die gesuchte Hochhebung.
+\end{beweis}
+Jetzt machen wir weiter im Beweis von Theorem \ref{klasstorsion}:
+\begin{beweis}
+Betrachte den Isomorphismus
+\begin{equation}
+\begin{split}
+\bigoplus_{i=1}^{n-1} \quotient{R}{(p^{l_i})} &\to \overline{T}\\
+(0,\dots,0,\underbrace{1}_{j\text{-ter Eintrag}},0,\dots,0) &\mapsto y_j
+\end{split}
+\end{equation}
+mit der Projektion $\pi: T \twoheadrightarrow \overline{T}$. Jedes Element $z \in \overline{T}$ löasst sich auf eindeutige Weise schreiben als 
+\begin{equation}
+z = \sum_{i=1}^{n-1} r_iy_j.
+\end{equation}
+Wir definieren
+\begin{equation}
+\begin{split}
+s: \overline{T} &\to T\\
+\sum_{k=1}^{n-1} r_i y_i &\mapsto \sum_{i=1}^{n-1} r_i \tilde{y}_i
+\end{split}
+\end{equation}
+mit $\pi (\tilde{y}) =y$. Dies ist eine wohldefinierte, $R$-lineare Abbildung, da $\Ann_R(y_i) = \Ann_R(\tilde{y}_i)$. Damit zerfällt die KES, woraus die Existenz des Isomorphismus \ref{eq:isotorsion} folgt.\\
+Jetzt zeigen wir die Eindeutigkeit. Die Zahl $m$ ist eindeutig bestimmt als minimale Erzeugerzahl von $T$. Alternativ gilt:
+\begin{equation}
+m = \dim_{\quotient{R}{(p)}} \quotient{T}{pT},
+\end{equation}
+da $\quotient{R}{(p)}$ ein Körper ist. Analog können wir die Anzahl von Exponenten $e_i$, die größer als $1$ sind, beschreiben als
+\begin{equation}
+\dim_{\quotient{R}{(p)}} \quotient{pT}{p^2T}.
+\end{equation}
+Weiter ist also die Anzahl von Exponenten $e_i > e^j$ allgemein gegeben durch
+\begin{equation}
+\dim_{\quotient{R}{(p)}}\quotient{p^jT}{p^{j+1}T}.
+\end{equation}
+Damit ist auch die Eindeutigkeit gezeigt.
+\end{beweis}
+\begin{übung}
+Zeige die Aussage für $m=1$ mit dem CRT. Zeige die letzte Gleichheit von Annihilatoren.
+\end{übung}
+\begin{korollar}{Klassifikation endlich erzeugter Moduln}{klassendlmod}
+Sei $M$ ein endlich erzeugter $R$-Modul. Dann gibt es eindeutig bestimmte $r, m \in \N$ und Primelementpotenzen $p_1^{e_1}, \dots, p_m^{e_m}$ (wobei nicht notwendigerweise $p_i \nsim p_j$ für $i \neq j$ gilt) mit
+\begin{equation}
+M \cong R^r \oplus \quotient{R}{(p_1^{e_1})} \oplus \cdots \oplus \quotient{R}{(p_m^{e_m})}.
+\end{equation}
+\end{korollar}
+\begin{korollar}{Hauptsatz von endlich erzeugten, abelschen Gruppen}{klassendabel}
+Jede endlich erzeugte, abelsche Gruppe $A$ besitzt eine eindeutige, direkte Summenzerlegung der Form
+\begin{equation}
+A  \cong \Z^r \oplus \quotient{\Z}{(p_1^{e_1})} \oplus \cdots \oplus \quotient{\Z}{(p_m^{e_m})}.
+\end{equation}
+\end{korollar}
+\begin{beispiel}\textbf{Jordansche Normalform}\\
+Sei $\K$ ein algebraisch abgeschlossener Körper und $\K[x]$ der Polynomring über $\K$. Sei $V$ ein endlich-dimensionaler $\K$-Vektorraum und $\varphi: V \to V$ ein Endomorphismus. Wir betrachten $V$ als $\K[x]$-Modul, wobei wir für $f(x) \in \K[x]$ und $v \in V$ eine Skalarmultiplikation durch
+\begin{equation}
+f(x) \cdot v = f(\varphi)(v)=(a_n \varphi^n + a_{n-1} \varphi^{n-1} + \cdots + a_1 \varphi + a_0 \id) (v).
+\end{equation}
+Wir erhalten eine Wirkung $V \acts \K$ mit $x.v \sim \varphi(v)$. Damit ist $V$ ein endlich erzeugter $\K[x]$-Modul, der vollständig nicht-torsionsfrei ist. Also folgt:
+\begin{equation}
+V \cong \bigoplus_{i=1}^m \quotient{\K[x]}{(x-a_i)^{e_i}}
+\end{equation}
+als $\K[x]$-Moduln. Wir müssen noch verstehen, wie $\varphi$ auf einem der Blöcke $\quotient{\K[x]}{(x-a_j)^{e_j}}$ wirkt. Betrachte dazu einen $\K[x]$-Modul der Form $\quotient{\K[x]}{(x-a)^{x}}$. Wähle die Basis $\cB = \left( (x-a)^{e-1}, (x-a)^{e-2},\dots, x-a\right, 1)$, dann hat die darstellende Matrix von $\varphi$ Blockdiagonalgestalt:
+\begin{equation}
+\mat{a,1,0,0,\cdots,0}{0,a,1,0,\cdots,0}{\vdots, \ddots, \ddots, \ddots, \vdots, \vdots}{0, 0, 0, 0, \cdots, a}
+\end{equation}
+\end{beispiel}
