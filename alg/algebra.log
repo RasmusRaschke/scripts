@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  13 DEC 2024 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.4.25)  20 DEC 2024 11:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1764,6 +1764,19 @@ LaTeX Warning: Label `bildkern' multiply defined.
 
 LaTeX Warning: Label `bildkern@cref' multiply defined.
 
+) (Abschnitte/ch3.aux
+
+LaTeX Warning: Label `•' multiply defined.
+
+
+LaTeX Warning: Label `•@cref' multiply defined.
+
+
+LaTeX Warning: Label `•' multiply defined.
+
+
+LaTeX Warning: Label `•@cref' multiply defined.
+
 ))
 \openout1 = `algebra.aux'.
 
@@ -2047,20 +2060,21 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 1372.
 
 
 ] [19] [20] [21] [22] [23] [24] [25] [26]
-[27] [28] [29] [30] [31] [32]
-! Missing delimiter (. inserted).
-<to be read again> 
-                   ,
-l.1223 ...-a)^{e-1}, (x-a)^{e-2},\dots, x-a\right,
-                                                   1)$, dann hat die darstel...
-I was expecting to see something like `(' or `\{' or
-`\}' here. If you typed, e.g., `{' instead of `\{', you
-should probably delete the `{' by typing `1' now, so that
-braces don't get unbalanced. Otherwise just proceed.
-Acceptable delimiters are characters whose \delcode is
-nonnegative, or you can use `\delimiter <delimiter code>'.
+[27] [28] [29] [30] [31] [32] [33]) [34]
+\openout2 = `Abschnitte/ch3.aux'.
 
-[33]) [34] (algebra.aux (Abschnitte/ch1.aux) (Abschnitte/ch2.aux))
+ (Abschnitte/ch3.tex
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
+4.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\ts1lmss.fd
+File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [35
+
+
+
+]) [36] (algebra.aux
+(Abschnitte/ch1.aux) (Abschnitte/ch2.aux) (Abschnitte/ch3.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2073,17 +2087,17 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `algebra.out' has not changed.
-(rerunfilecheck)             Checksum: 637B483EA6E31B34DE0181F2A8A46034;2063.
+(rerunfilecheck)             Checksum: 50A3E4FBDA47470816775FC736BD3C36;2478.
 Package logreq Info: Writing requests to 'algebra.run.xml'.
 \openout1 = `algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 61905 strings out of 475248
- 1388952 string characters out of 5767628
- 2312434 words of memory out of 5000000
- 81613 multiletter control sequences out of 15000+600000
- 675005 words of font info for 120 fonts, out of 8000000 for 9000
+ 62038 strings out of 475248
+ 1391658 string characters out of 5767628
+ 2316217 words of memory out of 5000000
+ 81700 multiletter control sequences out of 15000+600000
+ 675381 words of font info for 121 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  98i,24n,102p,1997b,2118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rasmu/AppData/Roaming/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pf
@@ -2109,9 +2123,9 @@ ram Files/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Program Files/MiKTeX/fonts
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files
 /MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on algebra.pdf (34 pages, 796005 bytes).
+Output written on algebra.pdf (36 pages, 818448 bytes).
 PDF statistics:
- 1230 PDF objects out of 1440 (max. 8388607)
- 664 named destinations out of 1000 (max. 500000)
- 285 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 699 named destinations out of 1000 (max. 500000)
+ 309 words of extra memory for PDF output out of 10000 (max. 10000000)
 

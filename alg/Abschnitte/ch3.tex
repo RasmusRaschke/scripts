@@ -1,0 +1,143 @@
+\section{Galoistheorie}
+\label{sec:galoistheorie}
+
+\begin{satz}{•}{•}
+Seien $\L \mid \K$ und $\E \mid \K$ Körpererweiterungen. seien weiterhin $\sigma_1, \sigma_2, \dots, \sigma_n$ paarweise verschiedene Ringhomomorphismen $\sigma_i: \L \to \E$ mit $\sigma_i|_{\K}=\id_\K$. Dann gilt:
+\begin{equation}
+n \leq [\L : \K].
+\end{equation}
+\end{satz}
+\begin{beweis}
+Falls $[\L : \K] = \infty$ gilt, ist die Aussage trivial. Sei also $[\L : \K] = m < \infty$ und sei $(e_1, e_2, \dots, e_m)$ eine $\K$-Basis von $\L$. Das LGS
+\begin{equation}
+\E^{m \times n} \ni \mat{\sigma_1(l_1), \cdots, \sigma_n(l_1)}{\sigma_1(l_2), \cdots, \sigma_n(l_2)}{\vdots, \vdots, \vdots}{\sigma_1(l_m), \cdots, \sigma_n(l_m)} \cvc{x_1, x_2, \vdots, x_n} = \cvc{0,0,\vdots,0}.
+\end{equation}
+Falls $n>m$ gilt, existiert eine nicht-triviale Lösung $(\lambda_1, \dots, \lambda_n) \in \E^n$, also 
+\begin{equation}
+\sum_{i=1}^n \lambda_i \sigma_i = 0.
+\end{equation}
+Dies ist ein Widerspruch zu Lemma \textbf{Dedekind}.
+\end{beweis}
+\begin{korollar}{Aus }{•}
+Satz 3.2 folgt direkt.
+\end{korollar}
+\subsection{Galoiserweiterungen}
+\label{subsec:galoiserweiterungen}
+
+\begin{definition}{Galoiserweiterung}{galoiserweiterung}
+Eine endliche Körpererweiterung $\L \mid \K$ heißt \textbf{Galoiserweiterung}, falls 
+\begin{equation}
+|\Gal (\L \mid \K)| = [\L : \K].
+\end{equation}
+\end{definition}
+\begin{definition}{Fixkörper}{fixkörper}
+Sei $\L$ ein Körper und $G \leq \Aut(\L)$. Der Unterkörper
+\begin{equation}
+\L^G := \{ x \in \L | \forall \sigma \in G: \sigma(x) = x\} \sub \L
+\end{equation}
+heißt \textbf{Fixkörper} von $G$.
+\end{definition}
+\begin{übung}
+Zeige, dass $\L^G$ tatsächlich ein Unterkörper ist.
+\end{übung}
+\begin{satz}{Fixkörper ist Grundkörper}{•}
+Sei $\L \mid \K$ eine Galoiserweiterung mit $G = \Gal(\L \mid \K)$. Dann gilt $\L^G = \K$.
+\end{satz}
+\begin{beweis}
+Direkt aus den Definitionen folgt, dass $\Gal(\L \mid \K) = \Gal(\L \mid \L^G)$. Weiterhin gilt $\K \sub \L^G \sub \L$. Da $\L \mid \K$ galoissch ist, gilt $|G|=[\L : \K]$. Aus Satz \textbf{3.2} folgt, dass
+\begin{equation}
+[\L :\K] = |G| = |\Gal(\L \mid \L^G)| \leq [\L : \L^G]
+\end{equation}
+gilt, also
+\begin{equation}
+[\L:\L^G] = [\L : \K] \implies [\L^G : K] = 1 \implies \L^G = \K.
+\end{equation}
+\end{beweis}
+\begin{übung}
+Begründe, warum die letzte Implikation gelten muss.
+\end{übung}
+\begin{satz}{Satz von Artin}{artin}
+Sei $\L$ ein Körper und $G \leq \Aut (\L)$. Dann gilt
+\begin{equation}
+[\L: \L^G] = |G|.
+\end{equation}
+Falls $G$ endlich ist, ist damit insbesondere die Körpererweiterung $\L \mid \L^G$ galoissch mit Galoisgruppe $G$.
+\end{satz}
+\begin{beweis}
+Sei $\K := \L^G$. Wegen $G \leq \Gal(\L \mid \K)$ gilt
+\begin{equation}
+|G| \leq |\Gal(\L : \K)| \leq [\L : \K].
+\end{equation}
+Wir zeigen nun $[\L:\K] \leq |G|$. Ist $|G|=\infty$, ist die Aussage trivial, also sei $|G|=n<\infty$. Wir zeigen, dass je $n+1$ Elemente $x_1, x_2, \dots, x_{n+1} \in \L$ linear abhängig über $\K$ sind. Betrachte dazu für $G=\{\sigma_1, \sigma_2, \dots, \sigma_n\}$ das $\L$-lineare Gleichungssystem
+\begin{equation}
+\sum_{j=1}^{n+1} y_j \sigma_i(x_j) = 0
+\end{equation}
+für $1 \leq i \leq n$. Dieses LGS hat $n+1$ Variablen und $n$ Gleichungen, also existiert eine nicht-triviale Lösung $(\lambda_1, \lambda_2, \dots, \lambda_{n+1}) \in \L^{n+1}$. Sei o.B.d.A. $\lambda_1 \neq 0$. Für $1 \leq i \leq n$ wenden wir $\sigma_i^{-1}$ auf die $i$-te Gleichung an und erhalten
+\begin{equation}
+\sum_{j=1}^{n+1} \sigma_i^{-1}(\lambda_j) \cdot x_j = 0
+\end{equation}
+für $1 \leq i \leq n$. Summiere über alle Gleichungen:
+\begin{equation}
+\sum_{j=1}^{n+1} \underbrace{\alpha_j}_{\in \K} x_j = 0
+\end{equation}
+mit
+\begin{equation}
+\alpha_j = \sum_{i=1}^n \sigma_i^{-1}(\lambda_j)=\sum_{\sigma \in G} \sigma(\lambda_j) \in \L^G,
+\end{equation}
+da für die Gruppe $G$ Inversenbildung $g \mapsto g^{-1}$ eine Bijektion ist und die Summe invariant unter Wirkung von $G$ ist. Es bleibt noch, zu zeigen, dass die Koeffizienten $\alpha$ nicht-trivial sind. Wegen des Dedekind-Lemmae gilt $\sum_{\sigma \in G} \sigma \neq 0$, es gibt also $l \in \L$ mit $\sum_{\sigma \in G} \sigma (l)\neq 0$. Ersetze den Lösungsvektor $(\lambda_1, \lambda_2, \dots, \lambda_{n+1})$ durch die Reskalierung $l\cdot \lambda_1^{-1} \in \L$, also:
+\begin{equation}
+\left( (l\lambda_1^{-1}) \lambda_1, (l\lambda_1^{-1}) \lambda_2, \dots, (l\lambda_1^{-1}) \lambda_{n+1} \right) \in \L^{n+1}.
+\end{equation}
+Daraus folgt, dass
+\begin{equation}
+\alpha_1 = \sum_{\sigma \in G} \sigma(l) \neq 0 ,
+\end{equation}
+also liegt eine nicht-triviale $\K$-Linearkombination vor.
+\end{beweis}
+\begin{korollar}{Aus Satz \ref{artin}}{ausartin}
+Sei $\L \mid \K$ eine endliche Körpererweiterung. Dann gilt:
+\begin{equation}
+(|\Gal(\L \mid \K)|) \mid ([\L : \K])
+\end{equation}
+\end{korollar}
+\begin{beweis}
+Aus dem Satz von Artin folgt, dass
+\begin{equation}
+|\Gal(\L \mid \K)| = |\Gal(\L \mid \L^G)| = [\L : \L^G] \mid [\L : \K]
+\end{equation}
+\end{beweis}
+
+\subsection{Galoiskorrespondenz}
+\label{subsec:galoiskorrespondenz}
+
+Sei $\L \mid \K$ eine Körpererweiterung mit Galoisgruppe $\Gal(\L\mid \K) =: G$. Betrachte die Mengen
+\begin{equation}
+\{H | H \leq G\}
+\end{equation}
+und
+\begin{equation}
+\{\M | \K \sub \M \sub \L\}.
+\end{equation}
+Die Körper $\K$ und $\M$ heißen Unterkörper, $\M$ heißt Zwischenkörper von $\K, \L$. Zwischen diesen Mengen existieren Abbildungen: \dots
+
+\begin{theorem}{Hauptsatz der Galois-Theorie}{hauptsatzgalois}
+Die Abbildungen 
+\begin{equation}
+f: \{H | H \leq G\} \to \{\M | \K \sub \M \sub \L\}
+\end{equation}
+und
+\begin{equation}
+g: \{\M | \K \sub \M \sub \L\} \to \{H | H \leq G\}
+\end{equation}
+sind zueinander inverse Bijektionen.
+\end{theorem}
+\begin{beispiel}
+Sei $\L \mid \K$ eine Galoiserweiterung mit $\Gal(\L \mid \K) \cong \Sf_3$. Diese Gruppe verstehen wir bereits: (Diagramm einfügen)
+\end{beispiel}
+\begin{beweis}
+$g \circ f = \id$ ist klar, da
+\begin{equation}
+H = \Gal(\L \mid \L^H)
+\end{equation}
+nach dem Satz von Artin.
+\end{beweis}
