@@ -13,5 +13,8 @@
 \contentsline {subsection}{\numberline {2.4}Moduln}{28}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Endlich erzeugte Moduln über Hauptidealringen}{30}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Galoistheorie}{35}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Galoiserweiterungen}{35}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Galoiskorrespondenz}{36}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Galoisgruppen}{35}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Körpererweiterungen}{35}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Körperautomorphismen}{36}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Galoiserweiterungen}{37}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Galoiskorrespondenz}{38}{subsection.3.5}%
