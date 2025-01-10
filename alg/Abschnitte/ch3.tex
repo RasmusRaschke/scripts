@@ -243,7 +243,7 @@ Sei $\L \mid \K$ eine endliche Körpererweiterung. Dann gilt:
 \end{equation}
 \end{korollar}
 \begin{beweis}
-Aus dem Satz von Artin folgt, dass
+Aus Satz \ref{artin} folgt, dass
 \begin{equation}
 |\Gal(\L \mid \K)| = |\Gal(\L \mid \L^G)| = [\L : \L^G] \mid [\L : \K]
 \end{equation}
@@ -258,21 +258,21 @@ Sei $\L \mid \K$ eine Körpererweiterung mit Galoisgruppe $\Gal(\L\mid \K) =: G$
 \end{equation}
 der Untergruppen von $G$ und
 \begin{equation}
-\Zc(\L \mid \K) := \{\M | \K \sub \M \sub \L\}.
+\Zc(\L \mid \K) := \{\M \mid \K \sub \M \sub \L\}.
 \end{equation}
 der Zwischenkörper von $\K$ und $\L$. Die Körper $\K$ und $\M$ heißen Unterkörper, $\M$ heißt Zwischenkörper von $\K$ und $\L$.
 \begin{theorem}{Galoiskorrespondenz}{galoiskorrespondenz}
-Sei $\L \mid \K$ eine Galoiserweiterung mit Galoisgruppe $Gal(\L \mid \K)$. Dann sind die Abbildungen
+Sei $\L \mid \K$ eine Galoiserweiterung mit Galoisgruppe $\Gal(\L \mid \K)$. Dann sind die Abbildungen
 \begin{equation}
 \begin{split}
-\Uc (G) &\to \Zc (\L \mid \K)\\
+\varphi: \Uc (G) &\to \Zc (\L \mid \K)\\
 H &\mapsto L^H
 \end{split}
 \end{equation}
 und
 \begin{equation}
 \begin{split}
-\Zc (\L \mid \K) &\to \Uc (G)\\
+\psi: \Zc (\L \mid \K) &\to \Uc (G)\\
 M &\mapsto \Gal(\L \mid \M)
 \end{split}
 \end{equation}
@@ -282,9 +282,126 @@ zueinander inverse Bijektionen.
 Sei $\L \mid \K$ eine Galoiserweiterung mit $\Gal(\L \mid \K) \cong \Sf_3$. Diese Gruppe verstehen wir bereits: (Diagramm einfügen)
 \end{beispiel}
 \begin{beweis}
-$g \circ f = \id$ ist klar, da
+Aus Satz \ref{artin} folgt, dass $\Gal (\L \mid \L^H) = H$, also $\psi \circ \varphi = \id$. Damit hat $\varphi$ ein Linksinverses, ist also ein Monomorphismus. Es bleibt zu zeigen, dass $\varphi$ surjektiv ist:\\
+Angenommen, es gibt einen Zwischenkörper $\M \nsubseteq \im(\varphi)$ mit $\K \sub \M \sub \L$ und minimalem $\dim_\K(\M)$. Dann gilt insbesondere für jeden echten Teilkörper $\K \sub \M' \subset \M$, dass $\M' \in \im(\varphi)$. Nun wählen wir minimales $H \leq G$ mit $\L^H \sub \M$, für alle echten Untergruppen $H' < H$ gilt also $\L^{H'} \nsubseteq \M$.
+\end{beweis}
+\textcolor{red}{NACHTRAG}\\
+\begin{bemerkung}
+Wir fassen zusammen, was wir nun wissen:\\
+Sei $\L \mid \K$ galoissch mit Galoisgruppe $G$ und $H \leq G$.
+\begin{enumerate}
+\item Es gibt $(G:H)$ verschiedene Einbettungen
 \begin{equation}
-H = \Gal(\L \mid \L^H)
+\begin{split}
+G &\twoheadrightarrow \cE\\
+\sigma &\mapsto \sigma|_{\L^H},
+\end{split}
 \end{equation}
-nach dem Satz von Artin.
+wobei $\cE$ durch das Diagramm
+\begin{center}
+\begin{tikzcd}
+    \L^H \arrow[r, hook, "\tau"] & \L \\
+    \K \arrow[u, hook] \arrow[u, hook]
+\end{tikzcd}
+\end{center}
+gegeben ist. Für jede dieser Einbettungen $\tau \ni \sigma \in G$ gilt $\tau = \sigma|_{\L^H}$.
+\item Für $\sigma \in G$ gilt $\sigma(\L^H)=\L^{\sigma H \sigma^{-1}}$.
+\item $\L^H \mid \K$ ist genau dann galoissch, wenn $H\trianglelefteq G$. In diesem Fall: $\pi: G \twoheadrightarrow \Gal(\L^H \mid \K)$ mit $\ker (\pi) = H$, was $\Gal(\L^H \mid \K) \cong \quotient{G}{H}$ impliziert.
+\end{enumerate}
+\end{bemerkung}
+\begin{bemerkung}
+Die Galoiskorrespondenz liefert den Isomorphismus $\cU (G) \cong \cZ (\L \mid \K)$. Die Gruppe $G$ operiert auf $\cU(G)$ via
+\begin{equation}
+\sigma.H := \sigma H \sigma^{-1}
+\end{equation}
+und auf $\cZ(\L \mid \K)$ via
+\begin{equation}
+\sigma.M := \sigma(M).
+\end{equation}
+Dann ist die Galoiskorrespondenz eine $G$-äquivariante Bijektion
+\begin{equation}
+G \acts \cU(G) \cong G \acts \cZ(\L \mid \K).
+\end{equation}
+Die Fixpunkte von $G \acts \cU(G)$ sind genau die normalen Untergruppen $H \trianglelefteq G$, die unter der Galoiskorrespondenz mit den Fixpunkten von $G \acts \cZ(\L \mid \K)$ identifiziert werden, nämlich die Galoiserweiterungen $\M \mid \K$. Allgemeiner werden Bahnen von $G \acts \cU(G)$, also Konjugationsklassen von Untergruppen $H \leq G$, mit Bahnen von $G \acts \cZ(\L \mid \K)$, also Isomorphieklassen von Zwischenkörpern $\M \mid \K$ mit $\M \sub \L$, identifiziert.
+\end{bemerkung}
+\begin{übung}
+Beweise, dass Bahnen von $G \acts \cZ(\L \mid \K)$ tatsächlich Isomorphieklassen von Zwischenkörpern wie oben sind.
+\end{übung}
+
+\subsection{Zerfällungskörper}
+\label{subsec:zerfaellungskoerper}
+
+\begin{definition}{Adjungierter Körper}{adjungierterkörper}
+Sei $\K$ ein Körper und $\alpha \notin \K$. Der kleinste Körper, der $\alpha$ und $\K$ enthält, heißt $\K$ \textbf{adjungiert} $\alpha$, in Zeichen $\K(\alpha)$, und ist gegeben durch:
+\begin{equation}
+\K(\alpha) := \bigcap_{\K \sub \L} \L,
+\end{equation}
+wobei $\L$ Körper mit $\alpha \in \L$ sind.
+\end{definition}
+
+\begin{definition}{Zerfällungskörper}{zerfällungskörper}
+Sei $\K$ ein Körper und $f \in \K[x]$ ein Polynom. Ein Körper $\E \mid \K$ heißt \textbf{Zerfällungskörper}, falls:
+\begin{enumerate}
+\item Das Polynom zerfällt über $\K$ in $f(x) = \lambda (x-\alpha_1)(x-\alpha_2)\cdots (x-\alpha_n) \in \E[x]$ mit $\alpha_1, \dots, \alpha_i \in \E$.
+\item $\E = \K(\alpha_1, \dots, \alpha_n)$.
+\end{enumerate}
+\end{definition}
+\begin{satz}{Existenz des Zerfällungskörpers}{existenzzerfällung}
+Sei $\K$ ein Körper und $f \in \K[x]$. Dann existiert ein Zerfällungskörper $\E \mid \K$, der eindeutig bis auf Körperisomorphie über $\K$ ist.
+\end{satz}
+\begin{beweis}
+Falls $\L \mid \K$ eine Körpererweiterung ist, sodass ein $\lambda \in L$ eine Nullstelle von $f$ ist, gilt:
+\begin{equation}
+f(x) = (x-\lambda) g(x) \in \L[x]
+\end{equation}
+mit $\deg(g) < \deg(f)$. Es genügt also, zu gegebenem $f$ einen Körper $\L \mid \K$ zu konstruieren, der eine Nullstelle $\alpha$ von $f$ enthält, da dann iterativ ein vollständiger Zerfall von $f$ herbeigeführt werden kann. Ist $f$ reduzibel, wenden wir die Konstruktion auf die Primfaktoren an. Sei also $f$ irreduzibel. Aus einer Übungsaufgabe folgt, dass eine entsprechende Körpererweiterung gegeben ist durch
+\begin{equation}
+\K \sub \quotient{\K[x]}{(f(x))} := \L \ni \alpha = [x].
+\end{equation}
+Diese Körpererweiterungen heißen \textbf{primitive Körpererweiterungen}. Diesen Prozess setzen wir fort mit primitiven Körpererweiterungen:
+\begin{equation}
+\K \hookrightarrow \L_1 \hookrightarrow \L_2 \hookrightarrow \cdots \hookrightarrow \L_n,
+\end{equation}
+bis das Polynom zerfällt. Dann ist $\L_n$ der gesuchte Zerfällungskörper (endlichen Grades, da $\dim_\K \L \leq n!$).
+Es bleibt noch, Eindeutigkeit zu zeigen:\\
+Für eine Körpereinbettung (Ringhomomorphismus) $\iota: \L \hookrightarrow \E$ und ein Polynom $f(x)=a_nx^n + \cdots + a_0 \in \L[x]$ definieren wir:
+\begin{equation}
+f^\iota (x) := \iota(a_n)x^n + \cdots + \iota(a_0) \in \E[x].
+\end{equation}
+Damit wird eine Einbettung
+\begin{equation}
+\begin{split}
+\L[x] &\hookrightarrow \E[x]\\
+f &\mapsto f^\iota (x)
+\end{split}
+\end{equation}
+induziert.\\
+\textcolor{red}{noqed}
+\end{beweis}
+\begin{lemma}{•}{•}
+Sei $\iota: \L \hookrightarrow \E$ eine Körpereinbettung, $f \in \L[x]$ irreduzibel und $\alpha \in \E$ eine Nullstelle von $f^\iota(x)$. Dann gibt es eine eindeutige Körpereinbettung:
+\begin{center}
+\begin{tikzcd}
+    \quotient{\L[x]}{(f(x))} \arrow[rr, hook, "\psi"] & & \E \\
+    & \L \arrow[ul, hook, "\text{const}"] \arrow[ur, hook, "\iota"]& .
+\end{tikzcd}
+\end{center}
+mit $\psi: [x] \mapsto \alpha$.
+\end{lemma}
+\begin{beweis}
+Betrachte zunächst
+\begin{center}
+\begin{tikzcd}
+	\tilde{\psi}: \L[x] \arrow[r] & \E[x] \arrow[r, "\text{ev}_\alpha"] & \E \\
+	g \arrow[r, mapsto]& g^\iota \arrow[r, mapsto]& g^\iota(\alpha)
+\end{tikzcd}
+\end{center}
+Also existiert ein $\psi$, sodass
+\begin{center}
+\begin{tikzcd}
+	& \L[x] \arrow[dl] \arrow[dr, "\tilde{\psi}"] & \\
+	\quotient{\L[x]}{\ker(\tilde{\psi})} \arrow[rr] & & \E
+\end{tikzcd}
+\end{center}
+mit $f$ irreduzibel und $f \in \ker(\tilde{\psi})$. Dann ist $\im(\psi)\sub \E$ ein Körper und damit insbesondere ein endlich-dimensionaler $\K$-Vektorraum, sodass für alle $x \in \im(\psi) \exc \{0\}$ gilt: Multiplikation mit $x$ ist injektiv impliziert auch, dass diese surjektiv ist. Also ist
 \end{beweis}
