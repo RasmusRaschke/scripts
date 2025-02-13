@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.12)  20 JAN 2025 11:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.12)  23 JAN 2025 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1972,18 +1972,14 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 1372.
 
 
 ]
-[36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
-[38] [39]
+[36] [37] [38] [39]
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-381.
+394.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [40] (./algebra.aux
-(./Abschnitte/ch1.aux) (./Abschnitte/ch2.aux) (./Abschnitte/ch3.aux))
+)) [40]
+(./algebra.aux (./Abschnitte/ch1.aux) (./Abschnitte/ch2.aux)
+(./Abschnitte/ch3.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2002,9 +1998,9 @@ Package logreq Info: Writing requests to 'algebra.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62393 strings out of 476023
- 1394948 string characters out of 5791582
- 2322454 words of memory out of 5000000
+ 62396 strings out of 476023
+ 1394992 string characters out of 5791582
+ 2322436 words of memory out of 5000000
  82615 multiletter control sequences out of 15000+600000
  675381 words of font info for 121 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2031,10 +2027,10 @@ nts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on algebra.pdf (40 pages, 678043 bytes).
+Output written on algebra.pdf (40 pages, 681242 bytes).
 PDF statistics:
- 1410 PDF objects out of 1440 (max. 8388607)
- 1261 compressed objects within 13 object streams
- 754 named destinations out of 1000 (max. 500000)
+ 1417 PDF objects out of 1440 (max. 8388607)
+ 1268 compressed objects within 13 object streams
+ 757 named destinations out of 1000 (max. 500000)
  341 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -15,7 +15,7 @@ r(\lambda_{\sigma(1)}, \dots, \lambda_{\sigma(n)}) = 0.
 \end{definition}
 Anders ausgedrückt ist $\Gal (f)$ also die Untergruppe derjenigen Permutationen, die alle algebraischen Relationen über $\Q$ der Nullstellen von $f(x)$ erhalten.
 \begin{beispiel}
-Betrache $f(x) = x^4-2 \in \Q[x]$ mit Nullstellen $a = \sqrt[4]{2}$, $b= i \sqrt[4]{2}$, $c=- \sqrt[4]{2}$ und $c=-i \sqrt[4]{2}$. Aus $x^4-2= (x-a)(x-b)(x-c)(x-d)$ folgen die Relationen:
+Betrache $f(x) = x^4-2 \in \Q[x]$ mit Nullstellen $a = \sqrt[4]{2}$, $b= i \sqrt[4]{2}$, $c=- \sqrt[4]{2}$ und $c=-i \sqrt[4]{2}$. Aus $x^4-2= (x-a)(x-b)(x-c)(x-d)$ folgen durch Ausmultiplizieren und Koeffizientenvergleich die Relationen:
 \begin{equation}
 \begin{split}
 abcd &= -2\\
@@ -71,12 +71,12 @@ Seien $\L$ und $\K$ Körper mit $\L \mid \K$. Dann können wir $\L$ als $\K$-Vek
 \end{equation}
 den \textbf{Grad} von $\L \mid \K$. Darüber hinaus nennen wir $\L \mid \K$ \textbf{endlich}, falls $[\L : \K]$ endlich ist.
 \end{definition}
-\begin{lemma}{Faktorisierung des Grades}{faktorisierunggrad}
+\begin{satz}{Gradsatz}{faktorisierunggrad}
 Seien $\M \mid \L$ und $\L \mid \K$ Körpererweiterungen. Dann ist $\M \mid \K$ genau dann endlich, wenn $\M \mid \L$ und $\L \mid \K$ endlich sind. Insbesondere gilt dann:
 \begin{equation}
 [\M : \K] = [\M : \L][\L : \K].
 \end{equation}
-\end{lemma}
+\end{satz}
 \begin{beweis}
 Betrachte Teilmengen $P:= \{m_1, \dots, m_r\} \sub \M$ und $Q:=\{l_1, \dots, l_s\} \sub \L$ sowie
 \begin{equation}
@@ -282,10 +282,23 @@ zueinander inverse Bijektionen.
 Sei $\L \mid \K$ eine Galoiserweiterung mit $\Gal(\L \mid \K) \cong \Sf_3$. Diese Gruppe verstehen wir bereits: (Diagramm einfügen)
 \end{beispiel}
 \begin{beweis}
-Aus Satz \ref{artin} folgt, dass $\Gal (\L \mid \L^H) = H$, also $\psi \circ \varphi = \id$. Damit hat $\varphi$ ein Linksinverses, ist also ein Monomorphismus. Es bleibt zu zeigen, dass $\varphi$ surjektiv ist:\\
-Angenommen, es gibt einen Zwischenkörper $\M \nsubseteq \im(\varphi)$ mit $\K \sub \M \sub \L$ und minimalem $\dim_\K(\M)$. Dann gilt insbesondere für jeden echten Teilkörper $\K \sub \M' \subset \M$, dass $\M' \in \im(\varphi)$. Nun wählen wir minimales $H \leq G$ mit $\L^H \sub \M$, für alle echten Untergruppen $H' < H$ gilt also $\L^{H'} \nsubseteq \M$.
+Sei $H \leq G$. Dann gilt:
+\begin{equation}
+(\psi \circ \varphi)(H)=\psi(\L^H) = \Gal(\L \mid \L^H) = H = \id_{\cU(G)},
+\end{equation}
+wobei die letzte Gleichheit aus \ref{artin} folgt. Damit ist $\psi$ linksinvers zu $\varphi$, also ist $\varphi$ insbesondere injektiv.\\
+Angenommen, $\varphi$ wäre nicht surjektiv. Dann finden wir einen Zwischenkörper $M \in \cZ(\L \mid \K)$ mit $M \notin \im(\phi)$, der minimal mit dieser Eigenschaft ist. Gibt es also ein $\M' \subset \M$, so gilt $\M' \in \im(\varphi)$. Nun währen wir $H \leq G$ mit $\L^H \sub M$ dahingehend minimal, dass für $H'<H$ auch $\L^{H'} \nsubseteq M$ gilt. Dies ist gerechtfertigt, da mit $\L^G = \K \subset \M$ immer ein derartiges Element existiert. Indem wir $G$ durch $H$ und $\K$ durch $\L^H$ ersetzen, können wir o.B.d.A. annehmen, dass $\M \mid \K$ keine echten Zwischenkörper besitzt.\\
+Sei nun $\alpha \in \M \exc \K$ und betrachte die Evaluationsabbildung
+\begin{equation}
+\K[x] \to \M, f(x) \mapsto f(\alpha)
+\end{equation}
+mit Bild $\K[\alpha]$. Dieses ist ein endlichdimensionaler $\K$-Vektorraum. Da für $0\neq x \in \K[\alpha]$ die Multiplikation eine injektive, $\K$-lineare Abbildung ist, ist sie nach dem Rangsatz aus der linearen Algebra auch surjektiv, also ist $\K[\alpha]$ ein Unterkörper von $\M$, womit $\K[\alpha]=\M$ gilt.\\
+Betrachte nun den Stabilisator $G_\alpha = \{\sigma \in G \mid \sigma(\alpha)=\alpha\} \leq G$. Es gilt $\K \sub \K[\alpha] \sub \L^{G_\alpha}$. Aus dem Rangsatz \ref{faktorisierunggrad} folgt
+\begin{equation}
+[\L:\K] = [\L:\L^{G_\alpha}][\L^{G_\alpha} : \K] \iff [\L^{G_\alpha} :\K] = \frac{[\L:\K]}{[\L:\L^{G_\alpha}]} = \frac{|G|}{|G_\alpha|} = |G.\alpha|
+\end{equation}
+mit dem Satz von Artin und der Bahnformel. Unter der Einschränkung $\sigma|_\M: \M \to \L$ von $\sigma \in \Gal(\L \mid \K)$ betrachten wir $|G.\alpha|$: Für jedes Element der Bahn muss es einen Automorphismus geben, eine $n$-elementige Bahn liefert also $n$ paarweise verschiedene Automorphismen. Mit Satz \ref{homsbeschraenkenerweiterung} folgt nun $|G.\alpha| \leq [\M : \K]$, also $[\L^{G_\alpha}:\K] \leq [\M : \K]$. Wegen $\M \sub \L^{G_\alpha}$ muss aber andererseits $[\L^{G_\alpha} : \K] = [\M : \K]$ gelten, also $\L^{G_\alpha}=\M$. Dann ist aber mit $\L^{G_\alpha} \in \im(\varphi)$ auch $\M \in \im(\varphi)$, ein Widerspruch.
 \end{beweis}
-\textcolor{red}{NACHTRAG}\\
 \begin{bemerkung}
 Wir fassen zusammen, was wir nun wissen:\\
 Sei $\L \mid \K$ galoissch mit Galoisgruppe $G$ und $H \leq G$.
