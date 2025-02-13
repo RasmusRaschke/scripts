@@ -19,3 +19,5 @@
 \contentsline {subsection}{\numberline {3.4}Galoiserweiterungen}{37}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Galoiskorrespondenz}{38}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Zerfällungskörper}{39}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Appendix}{42}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Lösungen ausgewählter Übungsaufgaben}{42}{subsection.4.1}%

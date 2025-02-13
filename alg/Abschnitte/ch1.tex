@@ -8,7 +8,7 @@ Wir möchten Gruppentheorie zunächst motivieren: Man betrachte einen Tetraeder.
 \subsection{Grundbegriffe}
 \label{subsec:grundbegriffe}
 
-\begin{definition}{Gruppe}{gruppe}
+\begin{definition}{Gruppe\index{Gruppe!Definition}}{gruppe}
 Eine \textbf{Gruppe} ist ein Paar $(G, \circ)$, bestehend aus einer Menge\footnote{im ZFC-Axiomensystem} $G$ und einer Abbildung
 \begin{align}
 \circ: G \times G &\to G\\
@@ -27,56 +27,39 @@ Die Abbildung $\circ$ heißt \textbf{Verknüpfung}, ein Element $e \in G$ mit de
 \end{definition}
 
 \begin{übung}
-Sei $(G, \circ)$ eine Gruppe. Dann gelte:
+\label{exc:gruppenchrakterisierung}
+Sei $(G, \circ)$ eine Gruppe. Man zeige die folgenden Aussagen:
 \begin{enumerate}
-\item Das neutrale Element $e \in G$ ist eindeutig bestimmt, außerdem gelte $ \forall g \in G : g \circ e = g$.
+\item Das neutrale Element $e \in G$ ist eindeutig bestimmt, außerdem gilt $ \forall g \in G : g \circ e = g$.
 \item Zu gegebenem $g \in G$ ist das Inverse $g' \in G$ eindeutig bestimmt und erfüllt zudem $g \circ g' = e$.
 \item Für $n \geq 3$ hängt das Produkt von Gruppenelementen $g_1, g_2, \dots, g_n$ nicht von der Klammerung ab.
 \end{enumerate}
 \end{übung}
 
-\begin{lösung}
-Zuerst zeigen wir Kommutativität des Inversen. Sei $g \in G$, dann gilt:
-\begin{align}
-g \circ g^{-1} &= (e \circ g) \circ g^{-1} = \left( \left( \left( g^{-1}\right)^{-1} \circ g^{-1} \right) \circ g \right) \circ g^{-1} = \left(  \left( g^{-1}\right)^{-1} \circ \left( g^{-1} \circ g \right)\right) \circ g^{-1}\\ 
-&= \left( g^{-1}\right)^{-1} \circ \left( e  \circ g^{-1} \right) = \left( g^{-1}\right)^{-1} \circ g^{-1} = e = g^{-1} \circ g,
-\end{align}
-also stimmen Links- und Rechtsinverses in Gruppen überein.
-Die Kommutativität des neutralen Elements folgt damit direkt aus:
-\begin{equation}
-g \circ e = g \circ (g^{-1} \circ g) = (g \circ g^{-1}) \circ g = (g^{-1} \circ g) \circ g = e \circ g,
-\end{equation}
-womit auch Links-Einselement und Rechts-Einselement übereinstimmen.
-Für die Eindeutigkeit des Inversen seien $g^{-1}, g'^{-1} \in G$ zwei Inverse von $g \in G$. Dann gilt:
-\begin{equation}
-g^{-1} = g^{-1} \circ e = g^{-1} \circ (g'^{-1} \circ g) = g^{-1} \circ (g \circ g'^{-1}) = (g^{-1} \circ g) \circ g'^{-1} = e \circ g'^{-1} = g'^{-1}.
-\end{equation}
-Weiterhin seien $e,e' \in G$ zwei Einselemente. Da $e = e \circ e' = e' \circ e = e$ gilt, ist das neutrale Element eindeutig. \qed
-\end{lösung}
-
 \begin{beispiele}
 Wir geben einige Beispiele für Gruppen:
 \begin{enumerate}
 \item Die Gruppe $(\Z, +)$ der ganzen Zahlen $\Z$ mit der Addition $+$.
-\item Für einen Körper $\K$ existiert die additive Gruppe $(\K, +)$ und die multiplikative Gruppe $(\K \exc \{0\}, \cdot)$.
-\item Für jede Menge $M$ existiert die \textbf{symmetrische Gruppe} $(\mathfrak{S}_M, \circ)$, wobei $\mathfrak{S}_M$ die Menge der bijektiven Selbstabbildungen von $M$ und $\circ$ die Komposition ist. Für $n \geq 1$ vereinbaren wir $\mathfrak{S}_n := \mathfrak{S}_{\{1,2,\dots,n\}}$. Wir vereinbaren als Konvention die \textbf{Zykelschreibweise}. In $\mathfrak{S}_3$ beispielsweise ist ein Zykel
+\item Für einen Körper $\K$ existiert die additive Gruppe $(\K, +)$ und die multiplikative Gruppe $(\K \exc \{0\}, \cdot) = (\K^\ast, \cdot)$.
+\item Für jede Menge $M$ existiert die \textbf{symmetrische Gruppe}\index{Symmetrische Gruppe} $(\mathfrak{S}_M, \circ)$, wobei $\mathfrak{S}_M$ die Menge der bijektiven Selbstabbildungen von $M$ und $\circ$ die Komposition ist. Für $n \geq 1$ vereinbaren wir $\mathfrak{S}_n := \mathfrak{S}_{\{1,2,\dots,n\}}$. Wir vereinbaren als Konvention die \textbf{Zykelschreibweise}. In $\mathfrak{S}_3$ beispielsweise ist ein Zykel
 \begin{align}
 \sigma: \{1,2,3\} &\to \{1,2,3\}\\
+\begin{split}
 1 &\mapsto 2 \\
 2 &\mapsto 1 \\
 3 &\mapsto 3,
+\end{split}
 \end{align}
 auch darstellbar als
 \begin{equation}
 \mat{1,2,3}{2,1,3}
 \end{equation}
 oder einfacher als $(12)$.
-\item Für $n \geq 1$ und einen Körper $\K$ ist die \textbf{allgemeine lineare Gruppe} $(\text{GL}(n,\K), \circ)$ definiert, wobei 
+\item Für $n \geq 1$ und einen Körper $\K$ ist die \textbf{allgemeine lineare Gruppe}\index{Allgemeine Lineare Gruppe} $(\text{GL}(n,\K), \circ)$ definiert, wobei 
 \begin{equation}
 \text{GL}(n, \K) := \left\{ A \in \K^{n\times n} \, | \, \det A \neq 0 \right\}
 \end{equation}
 die Menge der invertierbaren $n \times n$-Matrizen mit Einträgen in $\K$ ist. Typische Beispiele für Körper sind $\K = \Q, \R, \C, \F_q$ mit $q = p^n$, $p$ prim.\\
-ÜA: $| \text{GL}(n, \F_q)| = ?$.
 \end{enumerate}
 \end{beispiele}
 \begin{bemerkung}
@@ -84,21 +67,23 @@ Um den alltäglichen Gebrauch von Gruppen zu vereinfachen, machen wir folgende V
 \begin{enumerate}
 \item Wir bezeichnen $(G, \circ)$ üblicherweise einfach mit $G$ und lassen $\circ$ implizit.
 \item Für $g,h \in G$ schreiben wir $gh = g \circ h$, für $e \in G$ schreiben wir $1$ und für $g'$ schlicht $g^{-1}$.
-\item Gilt $g \circ h = h \circ g$ für alle $g,h \in G$, so heißt $G$ \textbf{abelsch}. In diesem Fall wird die Verknüpfung oft mit $+$, das neutrale Element mit $0$ und das inverse Element mit $-g$ bezeichnet.
-\item Gemäß obiger ÜA zur Klammerung schreiben wir einfach $g_1 g_2 \cdots g_n \in G$ ohne Klammerung.
+\item Gilt $g \circ h = h \circ g$ für alle $g,h \in G$, so heißt $G$ \textbf{abelsch}\index{Gruppe!abelsche}. In diesem Fall wird die Verknüpfung oft mit $+$, das neutrale Element mit $0$ und das inverse Element mit $-g$ bezeichnet.
+\item Gemäß obiger Übungsaufgabe zur Klammerung schreiben wir einfach $g_1 g_2 \cdots g_n \in G$ ohne Klammerung.
 \end{enumerate}
 \end{bemerkung}
-\begin{definition}{Ordnung}{ordnung}
+\begin{definition}{Ordnung\index{Gruppe!Ordnung}}{ordnung}
 Für eine Gruppe $G$ bezeichnen wir die Kardinalität \begin{equation}
 |G| \in \N \cup \{+\infty \}
 \end{equation}
 als \textbf{Ordnung} von $G$.
 \end{definition}
-
+\begin{übung}
+Sei $\F_p$ der Körper mit $p$ Elementen für $p \in \N$ prim. Welche Ordnung hat die allgemeine lineare Gruppe über $\F_p$ für festes $p$? 
+\end{übung}
 \subsection{Untergruppen}
 \label{subsec:untergruppen}
 \begin{definition}{Untergruppe}{untergruppe}
-Sei $(G, \circ)$ eine Gruppe. Eine Teilmenge $H \sub G$ heißt \textbf{Untergruppe}, falls gilt:
+Sei $(G, \circ)$ eine Gruppe. Eine Teilmenge $H \sub G$ heißt \textbf{Untergruppe}\index{Untergruppe!Definition}, falls gilt:
 \begin{enumerate}[({U}1)]
 \item $H \neq \emptyset$
 \item Abgeschlossenheit: Für alle $a, b \in H$ gilt $ab^{-1} \in H$.
@@ -106,7 +91,7 @@ Sei $(G, \circ)$ eine Gruppe. Eine Teilmenge $H \sub G$ heißt \textbf{Untergrup
 Wir verwenden dann die Notation $H \leq G$, um Untergruppen zu kennzeichnen.
 \end{definition}
 
-\begin{bemerkung} Übungsaufgabe:
+\begin{übung}\label{exc:untergruppencharakterisierung}
 Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppe. Dann gilt:
 \begin{enumerate}
 \item Aus Eigenschaft 1:Da $H \neq \emptyset$, existiert ein $a \in H$.
@@ -120,23 +105,26 @@ Also: $H \sub G$ ist eine Untergruppe genau dann, wenn folgende alternativen Eig
 \item Für alle $a,b \in H$ muss $a \cdot b \in H$ gelten.
 \item Für alle $a \in H$ ist $a^{-1} \in H$.
 \end{enumerate}
-Die andere Richtung der Äquivalenz ist trivial. Daraus folgt auch, dass $(H, \circ|_{H \times H})$ mit der auf $H$ eingeschränkten Verknüpfung $\circ|_{H \times H}$ eine Gruppe ist. 
-\end{bemerkung}
+\end{übung}
+\begin{korollar}{Untergruppen sind Gruppen}{untergruppensindgruppen}
+Es folgt direkt, dass $(H, \circ|_{H \times H})$ mit der auf $H$ eingeschränkten Verknüpfung $\circ|_{H \times H}$ eine Gruppe ist. 
+\end{korollar}
+
 \begin{beispiele}
 Einige Beispiele für Untergruppen sind:
 \begin{enumerate}
 \item $(G, \circ) = (\R, +)$ hat $(\Z, +)$ als Untergruppe mit $\Z \sub \R$.
-\item Sei $n \geq 1$ und $\K$ ein Körper. Die \textbf{spezielle lineare Gruppe}
+\item Sei $n \geq 1$ und $\K$ ein Körper. Die \textbf{spezielle lineare Gruppe}\index{Spezielle Lineare Gruppe}
 \begin{equation}
 \text{SL} (n, \K) := \left\{ A \in \text{GL}(n, \K) \, | \, \det A = 1\right\} \leq \text{GL}(n, \K)
 \end{equation}
 ist eine Untergruppe von $\text{GL}(n,\K)$.
-\item Für $n \geq$ und einen Körper $\K$ ist die \textbf{orthogonale Gruppe}
+\item Für $n \geq$ und einen Körper $\K$ ist die \textbf{orthogonale Gruppe}\textbf{Orthogonale Gruppe}
 \begin{equation}
 \text{O}(n, \K) := \left\{ A \in \text{GL}(n, \K) \, | \, A^TA = I_n \right\} \leq \text{GL}(n, \K)
 \end{equation}
 definiert, die auch eine Untergruppe von $\text{GL}(n, \K)$ ist.
-\item Seien $H_1, H_2 \leq G$ Untergruppen. Dann ist $H_1 \cap H_2 \leq G$ auch eine Untergruppe. So kann z.B. die \textbf{spezielle orthogonale Gruppe}
+\item Seien $H_1, H_2 \leq G$ Untergruppen. Dann ist $H_1 \cap H_2 \leq G$ auch eine Untergruppe. So kann z.B. die \textbf{spezielle orthogonale Gruppe}\index{Spezielle Orthogonale Gruppe}
 \begin{equation}
 \text{SO}(n, \K) := \text{O}(n, \K) \cap \text{SL}(n, \K)
 \end{equation}
@@ -148,7 +136,8 @@ als Untergruppe von $\text{GL}(n, \K)$ konstruiert werden.
 wieder eine Untergruppe ist.
 \end{enumerate}
 \end{beispiele}
-\begin{definition}{Erzeugte Untergruppe}{}
+
+\begin{definition}{Erzeugte Untergruppe\index{Untergruppe!erzeugte}}{erzeugteuntergruppe}
 Sei $G$ eine Gruppe und $M \sub G$ eine beliebige Teilmenge. Dann heißt die \textbf{Untergruppe}
 \begin{equation}
 \langle M \rangle := \bigcup_{M \sub H \leq G} H \leq G
@@ -157,14 +146,19 @@ die \textbf{von} $M$ \textbf{erzeugte Untergruppe} von $G$. Falls $M = \{g\} \le
 \langle g \rangle := \langle \{g\} \rangle \leq G.
 \end{equation}
 \end{definition}
-\begin{definition}{Ordnung eines Elements}{ordnungelement}
+\begin{definition}{Ordnung eines Elements\index{Untergruppe!Ordnung}}{ordnungelement}
 Sei $G$ eine Gruppe und $g \in G$ ein Element. Dann heißt die Kardinalität 
 \begin{equation}
 \text{ord}(g) := | \langle g \rangle | \in \N \cup \{\infty \}
 \end{equation}
 die \textbf{Ordnung von} $g$.
 \end{definition}
-\begin{satz}{Charakterisierung von einelementigen Untergruppen}{charakterisierungeinelementig}
+
+\begin{definition}{zyklische Gruppe\index{Gruppe!zyklische}}{zyklisch}
+Sei $G$ eine Gruppe. Existiert ein $g\in G$, sodass sich jedes $h \in G$ als $g^n = h$ für ein $n \in \Z$ schreiben lässt, heißt $G$ \textbf{zyklisch der Ordnung} $\ord (g)$. Das Element $g$ heißt \textbf{Erzeuger von} $G$.
+\end{definition}
+
+\begin{satz}{Ordnung zyklischer Untergruppen}{charakterisierungeinelementig}
 Sei $G$ eine Gruppe und $g \in G$ ein Element.
 \begin{enumerate}
 \item Falls $\ord (g) < \infty$, dann gilt \begin{equation}
@@ -201,21 +195,18 @@ Wir müssen noch zeigen, dass $1, g, \dots, g^{n-1}$ paarweise verschieden sind.
 \item Das obige Argument zeigt per Kontraposition auch 2., denn wenn die Potenzen $g^i$, $i \in \Z$ nicht paarweise verschieden sind, dann zeigt obiges Argument, dass $\langle g \rangle = \{1,g,\dots, g^{n-1}\}$ für $n \in \N$, was ein Widerspruch zur Annahme $\ord (g) = \infty$ ist.
 \end{enumerate}
 \end{beweis}
-\begin{definition}{zyklische Gruppe}{zyklisch}
-Sei $G$ eine Gruppe. Existiert ein $g\in G$, sodass sich jedes $h \in G$ als $g^n = h$ für ein $n \in \Z$ schreiben lässt, heißt $G$ \textbf{zyklisch der Ordnung} $\ord (g)$. Das Element $g$ heißt \textbf{Erzeuger von} $G$.
-\end{definition}
 \subsection{Homomorphismen}
 \label{subsec:homomorphismen}
-\begin{definition}{Homomorphismus}{homomorphismus}
+\begin{definition}{Homomorphismus\index{Homomorphismus!von Gruppen}}{homomorphismus}
 Seien $G$ und $G'$ Gruppen. Eine Abbildung 
 \begin{equation}
-\phi: G \to G'
+\varphi: G \to G'
 \end{equation}
 heißt \textbf{(Gruppen-)Homomorphismus}, falls gilt:
 \begin{enumerate}[({H}1)]
 \item Für alle $g,h \in G$ gilt 
 \begin{equation}
-\phi(gh) = \phi(g) \cdot \phi(h).
+\varphi(gh) = \varphi(g) \cdot \varphi(h).
 \end{equation}
 Die Menge der Homomorphismen von $G$ nach $G'$ wird mit $\Hom (G, G')$ bezeichnet.
 \end{enumerate}
@@ -224,20 +215,20 @@ Die Menge der Homomorphismen von $G$ nach $G'$ wird mit $\Hom (G, G')$ bezeichne
 Jeder Homomorphismus erfüllt außerdem folgende Eigenschaften, die aus Definition \ref{homomorphismus} folgen:
 \begin{enumerate}[({H}1)]
 \setcounter{enumi}{1}
-\item $\phi (1_G) = 1_{G'}$
-\item Für alle $g \in G$ gilt $\phi (g^{-1}) = \phi (g)^{-1}$.
+\item $\varphi (1_G) = 1_{G'}$
+\item Für alle $g \in G$ gilt $\varphi (g^{-1}) = \varphi (g)^{-1}$.
 \end{enumerate}
-Das sieht man schnell, da $\phi(1) = \phi(1g) = \phi(1) \phi(g)$ gilt, also $\phi(1) = 1'$ sein muss. Weiterhin gilt $1' = \phi(1) = \phi(gg^{-1}) = \phi(g) \phi(g^{-1})$, Linksmultiplikation mit $\phi^{-1}(g)$ liefert (H3).
+Das sieht man schnell, da $\varphi(1) = \varphi(1g) = \varphi(1) \varphi(g)$ gilt, also $\varphi(1) = 1'$ sein muss. Weiterhin gilt $1' = \varphi(1) = \varphi(gg^{-1}) = \varphi(g) \varphi(g^{-1})$, Linksmultiplikation mit $\varphi^{-1}(g)$ liefert (H3).
 \end{bemerkung}
 \begin{beispiele}
 \begin{enumerate}
-\item Die \textbf{Einbettung} $\phi: H \hookrightarrow G$ einer Untergruppe $H \leq G$ ist ein Homomorphismus.
-\item Die \textbf{Determinantenabbildung}
+\item Die Einbettung $\iota: H \hookrightarrow G$ einer Untergruppe $H \leq G$ ist ein Homomorphismus.
+\item Die \textbf{Determinantenabbildung}\index{Determinantenabbildung}
 \begin{equation}
-\det: \text{GL} (n, \K) \to (\K \exc \{0\}, \cdot)
+\det: \text{GL} (n, \K) \to (\K^\ast, \cdot)
 \end{equation}
 ist ein Homomorphismus.
-\item Für $n \geq 1$ und einen Körper $\K$ ist die Permutationsabbildung
+\item Für $n \geq 1$ und einen Körper $\K$ ist die Permutationsabbildung\index{Permutation}
 \begin{align}
 P: \mathfrak{S}_n &\to \text{GL}(n, \K) \\
 \sigma &\mapsto P_\sigma,
@@ -246,7 +237,7 @@ mit der \textbf{Permutation}
 \begin{equation}
 (P_\sigma)_{ij} := \begin{cases} 1 \, \text{falls} \, i = \sigma(j)\\0 \, \text{sonst} \end{cases}
 \end{equation}
-ein Homomorphismus. \textit{Der Beweis sei dem Leser überlassen.}
+ein Homomorphismus (!).
 Für $\sigma = (123) \in \mathfrak{S}_3$ gilt z.B. 
 \begin{equation}
 P_\sigma = \mat{0,0,1}{1,0,0}{0,1,0}.
@@ -256,34 +247,37 @@ P_\sigma = \mat{0,0,1}{1,0,0}{0,1,0}.
 \gamma_g: G &\to G \\
 h &\mapsto ghg^{-1}
 \end{align}
-ein Homomorphismus, genannt \textbf{Konjugation mit} $g$.
+der \textbf{Konjugationshomomorphismus}\index{Konjugation}.
 \item Sei $G$ eine Gruppe und $g \in G$. Dann ist 
 \begin{align}
 \Z &\to G \\
 i &\mapsto g^i
 \end{align}
-ein Homomorphismus von $(\Z, +)$ nach $(G, \circ)$.
+ein Homomorphismus von $(\Z, +)$ nach $(G, \circ)$, dessen Bild die von $\{g\}$ erzeugte Untergruppe von $G$ ist.
 \end{enumerate}
 \end{beispiele}
-\begin{definition}{Isomorphismus}{isomorphismus}
-Sei $\phi$ ein Gruppenhomomorphismus, der zusätzlich bijektiv ist. Dann heißt $\phi$ \textbf{Isomorphismus}. Zwei Gruppen $G$ und $G'$ heißen \textbf{isomorph}, in Zeichen $G \cong G'$, falls es einen Isomorphismus zwischen ihnen gibt.
+\begin{definition}{Isomorphismus\index{Isomorphismus!von Gruppen}}{isomorphismus}
+Sei $\varphi$ ein Gruppenhomomorphismus, der zusätzlich bijektiv ist. Dann heißt $\varphi$ \textbf{Isomorphismus}. Zwei Gruppen $G$ und $G'$ heißen \textbf{isomorph}, in Zeichen $G \cong G'$, falls es einen Isomorphismus zwischen ihnen gibt.
 \end{definition}
 \begin{bemerkung}
 Anschaulich bedeutet das, dass zwei isomorphe Gruppen identisch bis auf Umbenennung ihrer Elemente sind.
 \end{bemerkung}
+\begin{übung}\label{exc:inverseistisomorphismus}
+Sei $\varphi: G \to G'$ ein Gruppenisomorphismus und $\psi: G' \to G$ die inverse Abbildung zu $\varphi$. Zeige, dass $\psi$ auch ein Gruppenisomorphismus ist.
+\end{übung}
 \begin{beispiele}
 \begin{enumerate}
-\item Die Permutationsabbildung $P$ induziert einen Isomorphismus
+\item Die Permutationsabbildung\index{Permutation!Isomorphismus} $P$ induziert einen Isomorphismus
 \begin{align}
 P: \mathfrak{S}_n &\to P(n, \K)\\
 \sigma &\mapsto P_\sigma
 \end{align}
-zwischen der symmetrischen Gruppe und der Untergruppe der Permuationsmatrizen. Letztere sind Matrizen, die in jeder Zeile und Spalte \textit{genau eine} $1$ und sonst $0$ haben. \textit{Der Beweis sei dem Leser überlassen.}
-\item Die \textbf{Exponentialfunktion}
+zwischen der symmetrischen Gruppe und der Untergruppe der Permuationsmatrizen. Letztere sind Matrizen, die in jeder Zeile und Spalte genau eine $1$ und sonst $0$ haben (!).
+\item Die \textbf{Exponentialfunktion}\index{Exponentialfunktion}
 \begin{equation}
 \exp: (\R, +) \to (\R_{> 0}, \cdot)
 \end{equation}
-und ihre Umkehrfunktion, gegeben durch den \textbf{Logarithmus}
+und ihre Umkehrfunktion, gegeben durch den \textbf{Logarithmus}\index{Logarithmus}
 \begin{equation}
 \ln: (\R_{>0}, \cdot) \to (\R, +),
 \end{equation}
@@ -291,40 +285,40 @@ bilden einen Isomorphismus, also gilt $(\R, +) \cong (\R_{>0}, \cdot)$.
 \end{enumerate}
 \end{beispiele}
 \begin{definition}{Bild und Kern}{bildkern}
-Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann heißt die Teilmenge
+Sei $\varphi: G \to G'$ ein Gruppenhomomorphismus. Dann heißt die Teilmenge
 \begin{equation}
-\im (\phi) := \{g' \in G' | \exists g \in G: \phi(g) = g'\} \leq G',
+\im (\varphi) := \{g' \in G' | \exists g \in G: \varphi(g) = g'\} \leq G',
 \end{equation}
-das \textbf{Bild von} $\phi$ und die Teilmenge
+das \textbf{Bild von} $\varphi$\index{Homomorphismus!von Gruppen!Bild} und die Teilmenge
 \begin{equation}
-\ker (\phi) := \{g \in G|\phi(g) = 1_{G'} \} \leq G,
+\ker (\varphi) := \{g \in G|\varphi(g) = 1_{G'} \} \leq G,
 \end{equation}
-der \textbf{Kern von} $\phi$.
+der \textbf{Kern von}\index{Homomorphismus!von Gruppen!Kern} $\varphi$.
 \end{definition}
 \begin{satz}{Bild und Kern sind Untergruppen}{bildkernuntergruppe}
-Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann sind $\im (\phi) \leq G'$ und $\ker (\phi) \leq G$ Untergruppen der jeweiligen Gruppen $G$ und $G'$.
+Sei $\varphi: G \to G'$ ein Gruppenhomomorphismus. Dann sind $\im (\varphi) \leq G'$ und $\ker (\varphi) \leq G$ Untergruppen der jeweiligen Gruppen $G$ und $G'$.
 \end{satz}
 \begin{beweis}
 Nachrechnen mittels (H1), (H2) und (H3), exemplarisch für den Kern gezeigt:
 \begin{enumerate}
-\item (U1) ist erfüllt, da $1_G \in \ker (\phi)$ wegen (H2) gilt.
-\item (U2) kann nachgerechnet werden. Seien dafür $g,h \in \ker (\phi)$:
+\item (U1) ist erfüllt, da $1_G \in \ker (\varphi)$ wegen (H2) gilt.
+\item (U2) kann nachgerechnet werden. Seien dafür $g,h \in \ker (\varphi)$:
 \begin{equation}
-\phi(gh^{-1}) =^{\text{(H1)}} \phi(g) \cdot \phi(h^{-1}) =^{\text{(H3)}} \phi(g) \cdot \phi(h)^{-1} = 1_{G'},
+\varphi(gh^{-1}) =^{\text{(H1)}} \varphi(g) \cdot \varphi(h^{-1}) =^{\text{(H3)}} \varphi(g) \cdot \varphi(h)^{-1} = 1_{G'},
 \end{equation}
-also $gh^{-1} \in \ker (\phi)$.
+also $gh^{-1} \in \ker (\varphi)$.
 \end{enumerate}
 \end{beweis}
 \begin{satz}{}{}
-Für einen Homomorphismus $\phi: G \to G'$ sind folgende Aussagen äquivalent:
+Für einen Homomorphismus $\varphi: G \to G'$ sind folgende Aussagen äquivalent:
 \begin{enumerate}[(i)]
-\item $\phi$ ist injektiv.
-\item $\ker (\phi) = \{1\}$
+\item $\varphi$ ist injektiv.
+\item $\ker (\varphi) = \{1\}$
 \end{enumerate}
 \end{satz}
 \begin{beweis}
 (i) $\implies$ (ii) ist offensichtlich. Wir zeigen noch (ii) $\implies$ (i):
-Sei also $\ker (\phi) = \{1\}$ und $g,h \in G$ mit $\phi(g) = \phi(h)$. Dann gilt $\phi(gh^{-1})=\phi(g)\phi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\phi) = \{1\}$ und damit $g = h$.
+Sei also $\ker (\varphi) = \{1\}$ und $g,h \in G$ mit $\varphi(g) = \varphi(h)$. Dann gilt $\varphi(gh^{-1})=\varphi(g)\varphi(h)^{-1} =1$, also ist $gh^{-1} \in \ker (\varphi) = \{1\}$ und damit $g = h$.
 \end{beweis}
 \begin{definition}{Links- und Rechtsnebenklassen}{linksrechtsnebenklasse}
 Sei $G$ eine Gruppe und $H \leq G$ eine Untergruppen. Dann ist die \textbf{Linksnebenklasse von} $H$ \textbf{bezüglich} $g \in G$ als 
@@ -414,12 +408,12 @@ gng^{-1} \in N,
 also $N$ abgeschlossen unter Konjugation mit beliebigen Elementen aus $G$ ist.
 \end{bemerkung}
 \begin{satz}{}{}
-Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann gilt $\ker (\phi) \trianglelefteq G$.
+Sei $\varphi: G \to G'$ ein Gruppenhomomorphismus. Dann gilt $\ker (\varphi) \trianglelefteq G$.
 \end{satz}
 \begin{beweis}
-Sei $g \in G$ und $x \in \ker (\phi)$, also $\phi (x) = 1$. Dann gilt auch 
+Sei $g \in G$ und $x \in \ker (\varphi)$, also $\varphi (x) = 1$. Dann gilt auch 
 \begin{equation}
-\phi (gxg^{-1}) = \phi(g)\underbrace{\phi(x)}_{=1}\phi(g^{-1}) = \phi(g)\phi(g)^{-1} = 1.
+\varphi (gxg^{-1}) = \varphi(g)\underbrace{\varphi(x)}_{=1}\varphi(g^{-1}) = \varphi(g)\varphi(g)^{-1} = 1.
 \end{equation}
 \end{beweis}
 \begin{beispiele}
@@ -490,10 +484,10 @@ also gilt $\ker (\pi) = N$.
 \end{beweis}
 \begin{theorem}{Isomorphiesätze}{isomorphiesaetze}
 \begin{enumerate}
-\item Isomorphiesatz (Homomorphiesatz): Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\phi$ einen Isomorphismus
+\item Isomorphiesatz (Homomorphiesatz): Sei $\varphi: G \to G'$ ein Gruppenhomomorphismus. Dann induziert $\varphi$ einen Isomorphismus
 \begin{align}
-\overline{\phi} : \quotient{G}{\ker (\phi)} &\to \im (\phi)\\
-g \ker (\phi) &\mapsto \phi(g).
+\overline{\varphi} : \quotient{G}{\ker (\varphi)} &\to \im (\varphi)\\
+g \ker (\varphi) &\mapsto \varphi(g).
 \end{align}
 \item Isomorphiesatz: Sei $H \leq G$ eine Untergruppe und $N \lnormal G$ eine normale Untergruppe. Dann definiert $g(N \cap H) \to gN$ einen Isomorphismus 
 \begin{equation}
@@ -506,14 +500,14 @@ g \ker (\phi) &\mapsto \phi(g).
 \end{enumerate}
 \end{theorem}
 \begin{beweis}
-Zunächst ist Wohldefiniertheit zu zeigen. Für $\tilg \in gN$, also $\tilg = gn$ für $n \in \ker (\phi)$, gilt:
+Zunächst ist Wohldefiniertheit zu zeigen. Für $\tilg \in gN$, also $\tilg = gn$ für $n \in \ker (\varphi)$, gilt:
 \begin{equation}
-\phi( \tilg) = \phi(gn) = \phi(g)\underbrace{\phi(n)}_{=1} = \phi(g),
+\varphi( \tilg) = \varphi(gn) = \varphi(g)\underbrace{\varphi(n)}_{=1} = \varphi(g),
 \end{equation}
 also ist die Abbildung wohldefiniert.\\
-Die Surjektivität von $\overline{\phi}$ ist trivial. Wir wissen, dass $\overline{\phi}$ genau dann injektiv ist, wenn $\ker (\overline{\phi}) = \{1_{\quotient{G}{\ker (\phi) }}\} = \ker (\phi)$. Wir rechnen nach:
+Die Surjektivität von $\overline{\varphi}$ ist trivial. Wir wissen, dass $\overline{\varphi}$ genau dann injektiv ist, wenn $\ker (\overline{\varphi}) = \{1_{\quotient{G}{\ker (\varphi) }}\} = \ker (\varphi)$. Wir rechnen nach:
 \begin{equation}
-g \ker (\phi) \in \ker (\overline{\phi}) \iff \phi(g) = 1_{G'} \iff g \in \ker (\phi) \iff g \ker (\phi) = \ker (\phi)
+g \ker (\varphi) \in \ker (\overline{\varphi}) \iff \varphi(g) = 1_{G'} \iff g \in \ker (\varphi) \iff g \ker (\varphi) = \ker (\varphi)
 \end{equation}
 \end{beweis}
 \begin{beispiel}
@@ -528,28 +522,28 @@ betrachten, dann ist $\ker{\sgn} = A_n \trianglelefteq \Sf_n$, also erhalten wir
 Insbesondere gilt $\Sf_n : A_n = 2$.
 \end{beispiel}
 \begin{korollar}{Korollar aus Satz \ref{isomorphiesaetze}}{korollarhomosatz}
-Sei $\phi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\phi$ schreiben als
+Sei $\varphi: G \to G'$ ein Gruppenhomomorphismus. Dann lässt sich $\varphi$ schreiben als
 \begin{equation}
-\phi = \iota \circ \overline{\phi} \circ \pi,
+\varphi = \iota \circ \overline{\varphi} \circ \pi,
 \end{equation}
 wobei:
 \begin{enumerate}
-\item $\pi:G \to \quotient{G}{\ker (\phi)}$ der surjektive Quotientenkern ist.
-\item $\overline{\phi}: \quotient{G}{\ker (\phi)} \to \im (\phi)$ der Isomorphismus aus \ref{homomorphiesatz} ist.
-\item $\iota: \im (\phi) \hookrightarrow G'$ die injektive Einbettung von $\im (\phi) \leq G'$ ist.
+\item $\pi:G \to \quotient{G}{\ker (\varphi)}$ der surjektive Quotientenkern ist.
+\item $\overline{\varphi}: \quotient{G}{\ker (\varphi)} \to \im (\varphi)$ der Isomorphismus aus \ref{homomorphiesatz} ist.
+\item $\iota: \im (\varphi) \hookrightarrow G'$ die injektive Einbettung von $\im (\varphi) \leq G'$ ist.
 \end{enumerate}
 Das ist äquivalent dazu, dass folgendes Diagramm kommutiert:
 \begin{center}
 \begin{tikzcd}
-    G \arrow[r,"\phi"] \arrow[d, twoheadrightarrow, "\pi"] & G' \\
-    \quotient{G}{\ker (\phi)} \arrow[r, "\cong", "\overline{\phi}"'] & \im (\phi) \arrow[u, hook, "\iota"]
+    G \arrow[r,"\varphi"] \arrow[d, twoheadrightarrow, "\pi"] & G' \\
+    \quotient{G}{\ker (\varphi)} \arrow[r, "\cong", "\overline{\varphi}"'] & \im (\varphi) \arrow[u, hook, "\iota"]
 \end{tikzcd}
 \end{center}
 Ausgedrückt in Elementen:
 \begin{center}
 \begin{tikzcd}
-    g \arrow[r, mapsto] \arrow[d, mapsto] & \phi(g) \\
-    g \ker (\phi) \arrow[r, mapsto] & \phi (g) \arrow[u, mapsto]
+    g \arrow[r, mapsto] \arrow[d, mapsto] & \varphi(g) \\
+    g \ker (\varphi) \arrow[r, mapsto] & \varphi (g) \arrow[u, mapsto]
 \end{tikzcd}
 \end{center}
 \end{korollar}
@@ -569,23 +563,23 @@ einen Isomorphismus
 \end{equation}
 \item Sei $G$ eine Gruppe mit $g \in G$. Betrachte den Homomorphismus
 \begin{equation}
-\phi: (\Z, +) \to G, i \mapsto g^i.
+\varphi: (\Z, +) \to G, i \mapsto g^i.
 \end{equation}
 \begin{enumerate}[(a)]
-\item Falls $\ord (g) = \infty$, gilt $\ker (\phi) = \{0\}$ und $\phi$ induziert einen Isomorphismus
+\item Falls $\ord (g) = \infty$, gilt $\ker (\varphi) = \{0\}$ und $\varphi$ induziert einen Isomorphismus
 \begin{center}
 \begin{tikzcd}
-    \Z \arrow[r,"\pi", "\cong"'] \arrow[rr, "\phi", bend right] & \quotient{\Z}{\{0\}} \arrow[r, "\overline{\phi}", "\cong"'] & \langle g \rangle 
+    \Z \arrow[r,"\pi", "\cong"'] \arrow[rr, "\varphi", bend right] & \quotient{\Z}{\{0\}} \arrow[r, "\overline{\varphi}", "\cong"'] & \langle g \rangle 
 \end{tikzcd}
 \end{center}
 \item Falls $\ord (g) =N < \infty$, dann gilt
 \begin{equation}
-\ker (\phi) = N \cdot \Z
+\ker (\varphi) = N \cdot \Z
 \end{equation}
-und $\phi$ induziert einen Isomorphismus
+und $\varphi$ induziert einen Isomorphismus
 \begin{center}
 \begin{tikzcd}
-\overline{\phi}: \quotient{\Z}{N\Z} \arrow[r, "\cong"]& \langle g \rangle.
+\overline{\varphi}: \quotient{\Z}{N\Z} \arrow[r, "\cong"]& \langle g \rangle.
 \end{tikzcd}
 \end{center}
 \end{enumerate}
@@ -657,7 +651,7 @@ heißt \textbf{Bahnenraum von} $G \acts M$.
 \begin{beispiel}
 Betrachte die Rotationsgruppe
 \begin{equation}
-G = \text{SO}(2, \R) := \text{SL}(2,\R) \cap O(2, \R) = \left\{ \left. \mat{\cos \phi, - \sin \phi}{\sin \phi, \cos \phi} \, \right| \, \phi \in \quotient{\R}{2\pi \Z}   \right\} \leq \text{GL}(2,\R).
+G = \text{SO}(2, \R) := \text{SL}(2,\R) \cap O(2, \R) = \left\{ \left. \mat{\cos \varphi, - \sin \varphi}{\sin \varphi, \cos \varphi} \, \right| \, \varphi \in \quotient{\R}{2\pi \Z}   \right\} \leq \text{GL}(2,\R).
 \end{equation}
 Wir erhalten Operationen 
 \begin{equation}
@@ -1048,7 +1042,7 @@ Eine kurze exakte Sequenz \textbf{zerfällt}, falls ein Homomorphismus $s: H \to
 eine zerfallende kurze exakte Sequenz mit Schnitt $s$. Dann definiert Konjugation mit $s(H)$ eine Wirkung von $H$ auf $N$ via Homomorphismen, sodass $G \cong N \rtimes H$ ist:
 \begin{center}
 \begin{tikzcd}
-    \{1\} \arrow[r] & N \arrow[r, "i"] & G \arrow[r, "p"] \arrow[d, "\phi"] &H \arrow[r] &\{1\}\\
+    \{1\} \arrow[r] & N \arrow[r, "i"] & G \arrow[r, "p"] \arrow[d, "\varphi"] &H \arrow[r] &\{1\}\\
     \{1\} \arrow[r] & N \arrow[r, "i"] & N \rtimes H \arrow[r, "p"] &H \arrow[r] &\{1\}.
 \end{tikzcd}
 \end{center}
@@ -1326,11 +1320,11 @@ Sei $\delta_\theta \in H$ eine Drehung um den kleinsten Winkel. Diese existiert,
 \begin{equation}
 \{\theta \in (0,2\pi)|\delta_\theta \in H\} \sub \R
 \end{equation}
-eine endliche, nicht-leere Teilmenge ist. Wir behaupten, dass $H = \langle \delta_\theta \rangle$. Wäre dem nicht so, gäbe es $\phi \in (0,2\pi)$ und $n \in \N$, sodass $n\theta < \phi < (n+1) \theta$ mit $\delta_\phi \in H$. Dann gilt aber 
+eine endliche, nicht-leere Teilmenge ist. Wir behaupten, dass $H = \langle \delta_\theta \rangle$. Wäre dem nicht so, gäbe es $\varphi \in (0,2\pi)$ und $n \in \N$, sodass $n\theta < \varphi < (n+1) \theta$ mit $\delta_\varphi \in H$. Dann gilt aber 
 \begin{equation}
-\delta_{\phi - n\theta} = \delta_\phi (\delta_\theta^n)^{-1} \in H
+\delta_{\varphi - n\theta} = \delta_\varphi (\delta_\theta^n)^{-1} \in H
 \end{equation}
-mit $0 < \phi - n\theta < \theta$, was ein Widerspruch zur Annahme ist.
+mit $0 < \varphi - n\theta < \theta$, was ein Widerspruch zur Annahme ist.
 \end{beweis}
 \begin{beweis}
 Wir machen weiter im Beweis von Satz \ref{drehgruppenklass}. 

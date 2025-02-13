@@ -33,7 +33,7 @@
 \usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
-
+\usepackage{makeidx}
 \numberwithin{equation}{subsection}
 \usepackage{pifont} % For unusual symbols
 \usepackage{mathdots} % For unusual combinations of dots
@@ -276,8 +276,8 @@
 \theoremstyle{mystyle}{\newtheorem*{bemerkungen}{Bemerkungen}}
 \theoremstyle{mystyle}{\newtheorem*{beispiel}{Beispiel}}
 \theoremstyle{mystyle}{\newtheorem*{beispiele}{Beispiele}}
-\theoremstyle{definition}{\newtheorem*{übung}{Übung}}
-\theoremstyle{definition}{\newtheorem*{lösung}{Lösung}}
+\theoremstyle{mystyle}{\newtheorem*{übung}{Übung}}
+\theoremstyle{mystyle}{\newtheorem*{lösung}{Lösung}}
 
 % Warning environment
 \newtheoremstyle{warn}{}{}{}{}{\normalfont}{}{ }{}
@@ -347,6 +347,7 @@
 \definecolor{tcol_REM}{HTML}{18B640} % Color for Remark
 \definecolor{tcol_PRF}{HTML}{5A76B2} % Color for Proof
 \definecolor{tcol_EXA}{HTML}{21340A} % Color for Example
+\definecolor{tcol_EXC}{HTML}{f62504} % Color for Exercise
 
 \tcbset{
 tbox_DEF_style/.style={enhanced jigsaw,
@@ -361,7 +362,7 @@ tbox_PRP_style/.style={enhanced jigsaw,
     fonttitle=\sffamily\bfseries,coltitle=black,
     attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
     boxed title style={
-        colback=tcol_PRP!10,colframe=tcol_PRP!80!black,height=16pt,bean arc
+        colback=tcol_PRP!10,colframe=tcol_THM!80!black,height=16pt,bean arc
     },
     separator sign=.,label separator={},
     sharp corners,top=6pt,bottom=2pt,left=2pt,right=2pt,
@@ -730,6 +731,14 @@ flagstyle/dr/.style 2 args={
 }
 \tcolorboxenvironment{beispiele}{boxrule=0pt,boxsep=0pt,blanker,
     borderline west={2pt}{0pt}{tcol_EXA},left=8pt,right=8pt,sharp corners,
+    before skip=10pt,after skip=10pt,breakable
+}
+\tcolorboxenvironment{übung}{boxrule=0pt,boxsep=0pt,blanker,
+    borderline west={2pt}{0pt}{tcol_EXC},left=8pt,right=8pt,sharp corners,
+    before skip=10pt,after skip=10pt,breakable
+}
+\tcolorboxenvironment{lösung}{boxrule=0pt,boxsep=0pt,blanker,
+    borderline west={2pt}{0pt}{tcol_EXC},left=8pt,right=8pt,sharp corners,
     before skip=10pt,after skip=10pt,breakable
 }
 

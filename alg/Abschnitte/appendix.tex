@@ -1,0 +1,40 @@
+\section{Appendix}
+\label{sec:appendix}
+\subsection{Lösungen ausgewählter Übungsaufgaben}
+\label{subsec:solutions}
+\begin{lösung} Zu Aufgabe \ref{exc:gruppenchrakterisierung}.\\
+Zuerst zeigen wir Kommutativität des Inversen. Sei $g \in G$, dann gilt:
+\begin{align}
+g \circ g^{-1} &= (e \circ g) \circ g^{-1} = \left( \left( \left( g^{-1}\right)^{-1} \circ g^{-1} \right) \circ g \right) \circ g^{-1} = \left(  \left( g^{-1}\right)^{-1} \circ \left( g^{-1} \circ g \right)\right) \circ g^{-1}\\ 
+&= \left( g^{-1}\right)^{-1} \circ \left( e  \circ g^{-1} \right) = \left( g^{-1}\right)^{-1} \circ g^{-1} = e = g^{-1} \circ g,
+\end{align}
+also stimmen Links- und Rechtsinverses in Gruppen überein.
+Die Kommutativität des neutralen Elements folgt damit direkt aus:
+\begin{equation}
+g \circ e = g \circ (g^{-1} \circ g) = (g \circ g^{-1}) \circ g = (g^{-1} \circ g) \circ g = e \circ g,
+\end{equation}
+womit auch Links-Einselement und Rechts-Einselement übereinstimmen.
+Für die Eindeutigkeit des Inversen seien $g^{-1}, g'^{-1} \in G$ zwei Inverse von $g \in G$. Dann gilt:
+\begin{equation}
+g^{-1} = g^{-1} \circ e = g^{-1} \circ (g'^{-1} \circ g) = g^{-1} \circ (g \circ g'^{-1}) = (g^{-1} \circ g) \circ g'^{-1} = e \circ g'^{-1} = g'^{-1}.
+\end{equation}
+Weiterhin seien $e,e' \in G$ zwei Einselemente. Da $e = e \circ e' = e' \circ e = e$ gilt, ist das neutrale Element eindeutig. \qed
+\end{lösung}
+\begin{lösung} Zu Aufgabe \ref{exc:untergruppencharakterisierung}.\\
+$(\Leftarrow)$: Wegen (U1) ist $H \neq \emptyset$. Seien $a,b \in H$. Wegen (U3) ist dann auch $b^{-1} \in H$ und wegen (U2) auch $ab^{-1} \in H$.\\
+$(\Rightarrow)$: Aus $H \neq \emptyset$ und $\forall a,b \in H: ab^{-1} \in H$ folgt mit $b=a$ auch $1 \in H$. Mit $a=1$ folgt für alle $b \in H$ auch $b^{-1} \in H$. Also ist mit $a,b \in H$ auch $b^{-1} \in H$. Dann ist aber $a(b^{-1})^{-1} = ab \in H$. \qed
+\end{lösung}
+\begin{lösung} Zu Aufgabe \ref{exc:inverseistisomorphismus}.
+\begin{itemize}
+\item Homomorphismus: Seien $g_1', g_2' \in G'$. Dann finden wir Urbilder $\varphi(g_1)=g_1$ und $\varphi(g_2)=g_2$. Für diese gilt mit den Homomorphieeigenschaften von $\varphi$:
+\begin{equation}
+\psi(g_1'g_2') = \psi(\phi(g_1)\varphi(g_2))=\psi(\varphi(g_1g_2)) = g_1g_2=\psi(\varphi(g_1))\psi(\varphi(g_2))=\psi(g_1')\psi(g_2')
+\end{equation}
+\item Injektion: Seien $g_1',g_2' \in G'$ mit $g_1' \neq g_2'$. Wir finden eindeutige Urbilder $\varphi(g_1)=g_1'$ und $\varphi(g_2)=g_2'$. Dann gilt $g_1' \neq g_2'$ genau dann, wenn $\varphi(g_1) \neq \varphi(g_2)$ wegen der Injektivität von $\varphi$. Genau dann ist aber 
+\begin{equation}
+\psi(g_1) = \psi(\varphi(g_1)) = g_1' \neq g_2' = \psi(\varphi(g_2)) = \psi(g_2').
+\end{equation}
+\item Surjektion: Sei $g \in G$ und $g':= \varphi(g)$. Dann ist $g= \psi(\varphi(g))=\psi(g')$.
+\end{itemize}
+Also ist $\psi$ ein bijektiver Homomorphismus und damit ein Isomorphismus. Ein simpleres Argument wäre die Tatsache, dass beidseitige Inverse sein äquivalent zu Bijektivität ist. \qed
+\end{lösung}

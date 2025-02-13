@@ -344,8 +344,8 @@ Beweise, dass Bahnen von $G \acts \cZ(\L \mid \K)$ tatsächlich Isomorphieklasse
 \subsection{Zerfällungskörper}
 \label{subsec:zerfaellungskoerper}
 
-\begin{definition}{Adjungierter Körper}{adjungierterkörper}
-Sei $\K$ ein Körper und $\alpha \notin \K$. Der kleinste Körper, der $\alpha$ und $\K$ enthält, heißt $\K$ \textbf{adjungiert} $\alpha$, in Zeichen $\K(\alpha)$, und ist gegeben durch:
+\begin{definition}{Einfache Körpererweiterung}{adjungierterkörper}
+Sei $\K$ ein Körper und $\alpha \notin \K$. Der kleinste Körper, der $\alpha$ und $\K$ enthält, heißt \textbf{einfache Körpererweiterung} von $\K$ und ist gegeben durch:
 \begin{equation}
 \K(\alpha) := \bigcap_{\K \sub \L} \L,
 \end{equation}
@@ -362,6 +362,50 @@ Sei $\K$ ein Körper und $f \in \K[x]$ ein Polynom. Ein Körper $\E \mid \K$ hei
 \begin{satz}{Existenz des Zerfällungskörpers}{existenzzerfällung}
 Sei $\K$ ein Körper und $f \in \K[x]$. Dann existiert ein Zerfällungskörper $\E \mid \K$, der eindeutig bis auf Körperisomorphie über $\K$ ist.
 \end{satz}
+Wir brauchen noch etwas Vorarbeit für diesen Beweis. Sei $\iota: \L \hookrightarrow \E$ eine Körpereinbettung und 
+\begin{equation}
+f(x):= a_nx^n +a_{n-1}x^{n-1} + \cdots + a_0 \in \L[x].
+\end{equation}
+Dann definieren wir
+\begin{equation}
+f^\iota (x):= \iota(a_n)x^n + \iota(a_{n-1})x^{n-1} + \cdots + \iota(a_0).
+\end{equation}
+Durch direkte Rechnung folgt, dass die Abbildung
+\begin{equation}
+\begin{split}
+\iota_\ast: \L[x] &\to \E[x]\\
+f(x) &\mapsto f^\iota(x)
+\end{split}
+\end{equation}
+ein Ringhomomorphismus ist. Wir brauchen gleich folgendes Lemma:
+\begin{lemma}{Fortsetzung der Einbettung}{fortsetzungeinbettung}
+Sei $\iota: \L \hookrightarrow \E$ eine Körpereinbettung, $f \in \L[x]$ irreduzibel und $\alpha \in \E$ eine Nullstelle von $f^\iota(x)$. Dann gibt es eine eindeutige Körpereinbettung:
+\begin{center}
+\begin{tikzcd}
+    \quotient{\L[x]}{(f(x))} \arrow[rr, hook, "\psi"] & & \E \\
+    & \L \arrow[ul, hook, "\sub"] \arrow[ur, hook, "\iota"]& .
+\end{tikzcd}
+\end{center}
+mit $\psi: [x] \mapsto \alpha$.
+\end{lemma}
+\begin{beweis}
+Betrachte zunächst
+\begin{center}
+\begin{tikzcd}
+	\tilde{\psi}: \L[x] \arrow[r, "\iota_\ast"] & \E[x] \arrow[r, "\text{ev}_\alpha"] & \E \\
+	g \arrow[r, mapsto]& g^\iota \arrow[r, mapsto]& g^\iota(\alpha),
+\end{tikzcd}
+\end{center}
+also $\xi := \text{ev}_\alpha \circ \iota_\ast$. Dann gilt
+\begin{equation}
+(f(x)) \sub \ker(\tilde{\psi}) \subset \L[x].
+\end{equation}
+Da $f$ irreduzibel ist, ist $(f)$ maximal, also $(f)=\ker(\xi)$. Das induziert den gewünschten Homomorphismus als
+\begin{equation}
+\psi:= \overline{\xi}: \quotient{\L[x]}{(f(x))} \to \E
+\end{equation}
+\end{beweis}
+Damit können wir uns nun dem Beweis des Satzes zuwenden:
 \begin{beweis}
 Falls $\L \mid \K$ eine Körpererweiterung ist, sodass ein $\lambda \in L$ eine Nullstelle von $f$ ist, gilt:
 \begin{equation}
@@ -377,44 +421,39 @@ Diese Körpererweiterungen heißen \textbf{primitive Körpererweiterungen}. Dies
 \end{equation}
 bis das Polynom zerfällt. Dann ist $\L_n$ der gesuchte Zerfällungskörper (endlichen Grades, da $\dim_\K \L \leq n!$).
 Es bleibt noch, Eindeutigkeit zu zeigen:\\
-Für eine Körpereinbettung (Ringhomomorphismus) $\iota: \L \hookrightarrow \E$ und ein Polynom $f(x)=a_nx^n + \cdots + a_0 \in \L[x]$ definieren wir:
+Wir betrachten den im Existenzbeweis konstruierten Zerfällungskörper 
 \begin{equation}
-f^\iota (x) := \iota(a_n)x^n + \cdots + \iota(a_0) \in \E[x].
+\K \hookrightarrow \L_1 \hookrightarrow \L_2 \hookrightarrow \cdots \hookrightarrow \L_m
 \end{equation}
-Damit wird eine Einbettung
+von $f$ mit $\L_{i+1} = \quotient{\L_i[x]}{(f_i)}$ für $f_i \in \L_i[x]$ irreduzibel und einen beliebigen weiteren Zerfällungskörper $\E \mid \K$. Ziel ist es, die Inklusionsabbildung $\iota_0: \K \to \E$ zu einer Folge $\iota_i: \L_i \hookrightarrow \E$ von Einbettungen fortsetzen lässt, sodass $\iota_{i+1}|_{\L_i} = \iota_i$ gilt. Der Induktionsschritt ist die Existenz von $\iota_{i+1}$, sodass das Diagramm
+\begin{center}
+\begin{tikzcd}
+    \quotient{\L_i[x]}{(f_i(x))} \arrow[rr, hook, dashed, "\iota_{i+1}"] & & \E \\
+    & \L_i \arrow[ul, hook, "\sub"] \arrow[ur, hook, "\iota_i"]& 
+\end{tikzcd}
+\end{center}
+kommutiert. Mit Lemma \ref{fortsetzungeinbettung} ist dies der Fall, wenn $f_i^{\iota_i} \in \E[x]$ eine Nullstelle besitzt. In $\L_i[x]$ gilt
 \begin{equation}
-\begin{split}
-\L[x] &\hookrightarrow \E[x]\\
-f &\mapsto f^\iota (x)
-\end{split}
+f(x) = f_i(x) g(x)
 \end{equation}
-induziert.\\
-\textcolor{red}{noqed}
-\end{beweis}
-\begin{lemma}{•}{•}
-Sei $\iota: \L \hookrightarrow \E$ eine Körpereinbettung, $f \in \L[x]$ irreduzibel und $\alpha \in \E$ eine Nullstelle von $f^\iota(x)$. Dann gibt es eine eindeutige Körpereinbettung:
-\begin{center}
-\begin{tikzcd}
-    \quotient{\L[x]}{(f(x))} \arrow[rr, hook, "\psi"] & & \E \\
-    & \L \arrow[ul, hook, "\text{const}"] \arrow[ur, hook, "\iota"]& .
-\end{tikzcd}
-\end{center}
-mit $\psi: [x] \mapsto \alpha$.
-\end{lemma}
-\begin{beweis}
-Betrachte zunächst
-\begin{center}
-\begin{tikzcd}
-	\tilde{\psi}: \L[x] \arrow[r] & \E[x] \arrow[r, "\text{ev}_\alpha"] & \E \\
-	g \arrow[r, mapsto]& g^\iota \arrow[r, mapsto]& g^\iota(\alpha)
-\end{tikzcd}
-\end{center}
-Also existiert ein $\psi$, sodass
-\begin{center}
-\begin{tikzcd}
-	& \L[x] \arrow[dl] \arrow[dr, "\tilde{\psi}"] & \\
-	\quotient{\L[x]}{\ker(\tilde{\psi})} \arrow[rr] & & \E
-\end{tikzcd}
-\end{center}
-mit $f$ irreduzibel und $f \in \ker(\tilde{\psi})$. Dann ist $\im(\psi)\sub \E$ ein Körper und damit insbesondere ein endlich-dimensionaler $\K$-Vektorraum, sodass für alle $x \in \im(\psi) \exc \{0\}$ gilt: Multiplikation mit $x$ ist injektiv impliziert auch, dass diese surjektiv ist. Also ist
+mit $f_i$ irreduzibel. Das induziert die Zerlegung
+\begin{equation}
+f(x) = f^{\iota_i}(x) = f_i^{\iota_i} (x) g^{\iota_i} (x) \in \E[x].
+\end{equation}
+Da $\E$ ein Zerfällungskörper ist, zerfällt $f$ über $\E$ in primitive Linearfaktoren, also auch dessen Faktoren und es gilt:
+\begin{equation}
+f(x)= b \sum_{j=1}^n (x-\beta_j), 
+\end{equation}
+sodass die $\beta_j \in \E$ Nullstellen von $f_i^{\iota_i}$ sind. In $\L_m[x]$ gilt zudem
+\begin{equation}
+f(x) = a \sum_{j=1}^m (x-\alpha_j)
+\end{equation} 
+und somit
+\begin{equation}
+f(x) = f^{\iota_m}(x) = \iota_m(a) \sum_{j=1}^n (x-\iota_m(\alpha_j)) \in \E[x], 
+\end{equation}
+also ist $\iota_n: \L_n \hookrightarrow \E$ surjektiv. Das Bild von $\iota_m$ enthält damit alle Nullstellen $\iota_m(\alpha_1), \dots, \iota_m(\alpha_n)) \in \E$ von $f$ über $\E$. Also ist
+\begin{equation}
+\E = \K(\iota_m(\alpha_1), \dots, \iota_m(\alpha_n)) \sub \im(\iota_n).
+\end{equation} 
 \end{beweis}
