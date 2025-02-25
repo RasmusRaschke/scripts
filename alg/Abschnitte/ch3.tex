@@ -452,8 +452,31 @@ und somit
 \begin{equation}
 f(x) = f^{\iota_m}(x) = \iota_m(a) \sum_{j=1}^n (x-\iota_m(\alpha_j)) \in \E[x], 
 \end{equation}
-also ist $\iota_n: \L_n \hookrightarrow \E$ surjektiv. Das Bild von $\iota_m$ enthält damit alle Nullstellen $\iota_m(\alpha_1), \dots, \iota_m(\alpha_n)) \in \E$ von $f$ über $\E$. Also ist
+also ist $\iota_n: \L_n \hookrightarrow \E$ surjektiv. Das Bild von $\iota_m$ enthält damit alle Nullstellen $\iota_m(\alpha_1), \dots, \iota_m(\alpha_n) \in \E$ von $f$ über $\E$. Also ist
 \begin{equation}
 \E = \K(\iota_m(\alpha_1), \dots, \iota_m(\alpha_n)) \sub \im(\iota_n).
 \end{equation} 
 \end{beweis}
+\begin{beispiel}
+Wir betrachten das nach dem Eisensteinkriterium irreduzible Polynom
+\begin{equation}
+f(x) := x^4-2 \in \Q[x].
+\end{equation}
+Wir können zunächst die primitive Erweiterung $\L := \Q(\sqrt[4]{2}) \cong \quotient{\Q[x]}{(f_1)}$ konstruieren, über der sich $f$ gemäß
+\begin{equation}
+f(x) = (x-\sqrt[4]{2})(x+\sqrt[4]{2})(x^2+\sqrt{2})
+\end{equation} 
+zerlegt. Das Polynom $f_2(x):=x^2+\sqrt{2} \in \L[x] \sub \R[x]$ hat keine reellen Nullstellen, ist also irreduzibel. Einerseits erhalten wir damit die primitive Erweiterung
+\begin{equation}
+\E := \quotient{\L[x]}{(f_2)} \cong \Q(\sqrt[4]{2}, i \sqrt[4]{2}),
+\end{equation}
+andererseits können wir aber auch die primitive Erweiterung 
+\begin{equation}
+\quotient{\L[x]}{x^2+1}
+\end{equation}
+bezüglich des irreduziblen Polynoms $x^2+1 \in \L[x]$ betrachten. Über $\E$ zerfällt $f$:
+\begin{equation}
+f(x)= (x-\sqrt[4]{2})(x+\sqrt[4]{2})(x-i\sqrt[4]{2})(x+i \sqrt[4]{2}),
+\end{equation}
+also ist $\E$ ein Zerfällungskörper von $f$. 
+\end{beispiel}

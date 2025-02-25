@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.12)  14 FEB 2025 00:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.12)  20 FEB 2025 21:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2019,7 +2019,7 @@ Package logreq Info: Writing requests to 'algebra.run.xml'.
 Here is how much of TeX's memory you used:
  62514 strings out of 476023
  1397997 string characters out of 5791582
- 2326837 words of memory out of 5000000
+ 2326839 words of memory out of 5000000
  82708 multiletter control sequences out of 15000+600000
  675005 words of font info for 120 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2046,7 +2046,7 @@ nts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on algebra.pdf (43 pages, 690000 bytes).
+Output written on algebra.pdf (43 pages, 689838 bytes).
 PDF statistics:
  1476 PDF objects out of 1728 (max. 8388607)
  1324 compressed objects within 14 object streams
