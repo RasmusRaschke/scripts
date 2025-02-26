@@ -1,0 +1,209 @@
+%-----------Packages--------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+\usepackage[margin=1in]{geometry}
+
+% AMS packages
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+
+% Improved dots
+\usepackage{mathdots}
+
+% Factor 
+\usepackage{faktor}
+
+% relsize
+\usepackage{relsize}
+
+% Hyperlinks
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{winered}{rgb}{0.5,0,0}
+\hypersetup{
+    pdfborder = {0 0 0}, 
+    colorlinks=true,
+    linkcolor=winered,
+    urlcolor={winered},
+    filecolor={winered},
+}
+
+% Flexible bibliography
+\usepackage{natbib}
+\bibliographystyle{plain}
+\renewcommand\bibname{Literturverzeichnis}
+
+% Tikz
+\usepackage{tikz-cd}
+
+% enumerate improvements
+\usepackage{enumitem}
+
+% Language and date
+\usepackage[german]{babel}
+\usepackage{datetime}
+
+% The following package makes prettier tables.  
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Euscript font
+\usepackage{euscript}
+
+% diff ops
+\usepackage[thinc]{esdiff}
+
+%-----------Environments----------------------------------------------
+
+% Thm Environments
+\numberwithin{equation}{section}
+\newtheorem{thm}[equation]{Satz}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{cor}[equation]{Korollar}
+
+% Def Environments
+\theoremstyle{definition}
+\newtheorem{exa}[equation]{Beispiel}
+\newtheorem{exas}[equation]{Beispiele}
+\newtheorem{rem}[equation]{Bemerkung}
+\newtheorem{defi}[equation]{Definition}
+\newtheorem{prob}[equation]{Aufgabe}
+\newtheorem{term}[equation]{Terminologie}
+\newtheorem{konv}[equation]{Konvention}
+
+
+%------------Macros---------------------------------------------------
+
+% matrices
+
+\def\mat#1{\begin{pmatrix} #1 \end{pmatrix}}
+\def\sk#1{\langle #1 \rangle}
+
+% faktors
+
+\makeatletter
+\DeclareRobustCommand*{\mfaktor}[3][]
+{
+   { \mathpalette{\mfaktor@impl@}{{#1}{#2}{#3}} }
+}
+\newcommand*{\mfaktor@impl@}[2]{\mfaktor@impl#1#2}
+\newcommand*{\mfaktor@impl}[4]{
+   \settoheight{\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+   \settoheight{\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+      \raisebox{-0.5\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+      \mkern-4mu\diagdown\mkern-5mu%
+      \raisebox{0.5\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+}
+\makeatother
+
+% Operators
+\newcommand{\no}{\trianglelefteq}
+\newcommand{\equ}{\Leftrightarrow}
+\def\lra{\longrightarrow}
+\def\hra{\hookrightarrow}
+\def\llra{\longleftrightarrow}
+
+\def\on{\operatorname}
+
+\newcommand{\Kern}{\on{Kern}}
+\newcommand{\Ann}{\on{Ann}}
+\newcommand{\Bild}{\on{Bild}}
+\newcommand{\Konv}{\on{Konv}}
+
+\newcommand{\charac}{\on{char}}
+\newcommand{\grad}{\on{grad}}
+\newcommand{\Hom}{\on{Hom}}
+\newcommand{\Abb}{\on{Abb}}
+\newcommand{\End}{\on{End}}
+\newcommand{\Aut}{\on{Aut}}
+\newcommand{\GL}{\on{GL}}
+\newcommand{\SL}{\on{SL}}
+\newcommand{\SO}{\on{SO}}
+\newcommand{\Sym}{\on{Sym}}
+\renewcommand{\O}{\on{O}}
+\newcommand{\Z}{\on{Z}}
+\newcommand{\C}{\on{C}}
+\newcommand{\N}{\on{N}}
+
+\newcommand{\eU}{\EuScript{U}}
+\newcommand{\eZ}{\EuScript{Z}}
+\newcommand{\eE}{\EuScript{E}}
+
+\newcommand{\id}{\on{id}}
+
+\newcommand{\ggT}{\on{ggT}}
+\newcommand{\LM}{\on{LM}}
+\newcommand{\ord}{\on{ord}}
+\renewcommand{\dim}{\on{dim}}
+\newcommand{\sign}{\on{sign}}
+
+% Define an "actson" symbol
+\newcommand{\rotate}[1]{\rotatebox[origin=c]{270}{\ensuremath{#1}}}
+\newcommand{\rotater}[1]{\rotatebox[origin=c]{90}{\ensuremath{#1}}}
+\newcommand{\actson}{\ \rotate{\mathlarger{\mathlarger{\circlearrowleft}}}\ }
+\newcommand{\actsonright}{\ \rotater{\mathlarger{\mathlarger{\circlearrowleft}}}\ }
+
+% Standard BBs/cals
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\QQ}{\mathbb{Q}}
+\def\NN{\mathbb{N}}
+
+% Swap varphi and phi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+
+\let\subset\subseteq
+
+% bibliography management
+\makeatletter
+\renewcommand\bibsection%
+{
+  \subsection*{\refname
+    \@mkboth{\MakeUppercase{\refname}}{\MakeUppercase{\refname}}}
+}
+\makeatother
+
+% These commands are used to pretty-print LaTeX command
+
+%TOC pretty
+\usepackage{tocloft}
+\usepackage{titletoc}
+\renewcommand{\cftchapfont}{\scshape\bfseries}
+\renewcommand{\cftpartfont}{\scshape\Large}
+
+\newlength\mylenprt
+
+\renewcommand{\cftpartpresnum}{\partname\hspace{10pt}}
+
+\setlength{\cftpartindent}{0cm}
+\setlength{\cftchapindent}{0cm}
+
+
+
+
+% Lists
+
+\setlist[enumerate,1]{label=(\arabic{*})}
+\setlist[enumerate,2]{label=(\alph{*})}
+\setlist[enumerate,3]{label=(\roman{*})}
+
+
