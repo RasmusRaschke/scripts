@@ -1,7 +1,7 @@
 \documentclass{book}
 
 \input{preamble}
-
+\makeindex
 \begin{document}
 
 \makeatletter\@openrightfalse
@@ -51,7 +51,7 @@
 
 \section{Die Definition einer Gruppe}
 
-\begin{defi}\label{defi:category} Eine {\em Gruppe} ist ein Paar $(G,\circ)$ bestehend aus einer Menge $G$ und einer Abbildung
+\begin{defi}\label{defi:category}\index{Gruppe!Definition} Eine {\em Gruppe} ist ein Paar $(G,\circ)$ bestehend aus einer Menge $G$ und einer Abbildung
     \[
         \circ: G \times G \to G, (g,h) \mapsto g \circ h, 
     \]
@@ -82,14 +82,14 @@
     \begin{enumerate}
         \item Die Gruppe $(\ZZ,+)$ der ganzen Zahlen mit Addition.
         \item Für jeden Körper $K$, die additive Gruppe $(K,+)$ und die multiplikative Gruppe $(K^*, \cdot)$, wobei $K^* := K \setminus \{0\}$. 
-        \item Für jede Menge $M$, die symmetrische Gruppe $(S_M, \circ)$ wobei $S_M$ die
+        \item Für jede Menge $M$, die symmetrische Gruppe $(S_M, \circ)$\index{Symmetrische Gruppe!Definition} wobei $S_M$ die
             Menge der bijektiven Selbstabbildungen ist und $\circ$ die
             Kompositionsabbildung. Zudem legen wir auch die Notation
             \[
                 S_n := S_{\{1,2,...,n\}}
             \]
             fest. 
-        \item Für $n \ge 1$ und jeden Körper $K$, die allgemeine lineare Gruppe $(\GL(n,K), \circ)$ wobei
+        \item Für $n \ge 1$ und jeden Körper $K$, die allgemeine lineare Gruppe $(\GL(n,K), \circ)$\index{Allgemeine Lineare Gruppe} wobei
             \[
                 \GL(n,K) := \{ A \in K^{n \times n} \; | \; \det(A) \neq 0 \}
             \]
@@ -116,13 +116,13 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
         \[
             |G| \in \NN \cup \{\infty\}
         \]
-        als die {\em Ordnung von $G$}.
+        als die {\em Ordnung von $G$}\index{Gruppe!Ordnung}.
 \end{enumerate}
 
 \section{Untergruppen}%
 \label{sec:untergruppen}
 
-\begin{defi}
+\begin{defi}\index{Untergruppe!Definition}
     Sei $(G,\circ)$ eine Gruppe. Eine Teilmenge $H \subset G$ heisst {\em Untergruppe von $(G,\circ)$}, falls gelten 
     \begin{enumerate}[leftmargin=1.2cm,label=(U\arabic*)]
         \item\label{it:u1} $H \neq \emptyset$,
@@ -181,8 +181,8 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
         \item Die Teilmenge $\ZZ \subset \RR$ ist eine Untergruppe von $(\RR,+)$. 
         \item Für $n \ge 1$ und $K$ Körper, definieren die folgenden Teilmengen Untergruppen von $(\GL(n,K), \circ)$:
             \begin{enumerate}
-                \item $\SL(n,K) := \{A \in \GL(n,K)\;  | \; \det(A) = 1 \} \leq \GL(n,K)$, genannt {\em spezielle lineare Gruppe},
-                \item $\O(n,K) := \{A \in \GL(n,K)\; | \; A^TA = I_n \} \leq \GL(n,K)$, genannt {\em orthogonale Gruppe}.
+                \item $\SL(n,K) := \{A \in \GL(n,K)\;  | \; \det(A) = 1 \} \leq \GL(n,K)$, genannt {\em spezielle lineare Gruppe}\index{Spezielle Lineare Gruppe!Definition},
+                \item $\O(n,K) := \{A \in \GL(n,K)\; | \; A^TA = I_n \} \leq \GL(n,K)$, genannt {\em orthogonale Gruppe}\index{Orthogonale Gruppe!Definition}.
             \end{enumerate}
         \item Sei $G$ eine Gruppe und $\{H_i\}_{i \in I}$ eine Familie von Untergruppen $H_i
             \leq G$, indiziert durch die (möglicherweise unendliche) Indexmenge $I$. Dann ist
@@ -194,12 +194,12 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
             \[
                 \SO(n,K) = \SL(n,K) \cap \O(n,K) \leq \GL(n,K)
             \]
-            eine Untergruppe, genannt die {\em spezielle orthogonale Gruppe}.
+            eine Untergruppe, genannt die {\em spezielle orthogonale Gruppe}\index{Spezielle Orthogonale Gruppe!Definition}.
     \end{enumerate}
 \end{exas}
 
 
-\begin{defi}
+\begin{defi}\index{Untergruppe!Erzeugnis}
 \label{defi:erzeugte} 
 Sei $G$ eine Gruppe und $M \subset G$ eine Teilmenge. Dann heisst die
 Untergruppe
@@ -211,7 +211,7 @@ die {\em von $M$ erzeugte Untergruppe von $G$}. Der Schnitt wird hier gebildet
 wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe. 
 \end{defi}
 
-\begin{defi}
+\begin{defi}\index{Untergruppe!Ordnung}
 \label{defi:ordnung}
     Sei $G$ eine Gruppe und $g \in G$. Die Kardinalität
     \[
@@ -221,7 +221,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \end{defi}
 
 
-\begin{prop}
+\begin{prop}\index{Satz über zyklische Gruppen}
     \label{prop:ordnung} Sei $G$ eine Gruppe und $g \in G$. 
     \begin{enumerate}
         \item\label{ordnung:a} Falls $\ord(g) < \infty$, dann gilt 
@@ -279,7 +279,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \label{sec:homomorphismen}
 
 \begin{defi}
-    \label{defi:ghom}
+    \label{defi:ghom}\index{Homomorphismus!von Gruppen}
     Seien $G,G'$ Gruppen. Eine Abbildung  
     \[
         \phi: G \to G'
@@ -307,7 +307,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \begin{enumerate}
         \item Sei $G$ eine Gruppe. Die Einbettung $H \hra G$ einer Untergruppe
             $H \le G$ ist ein Homomorphismus.
-        \item Für $n \ge 1$ und $K$ Körper, definiert die Determinante
+        \item Für $n \ge 1$ und $K$ Körper, definiert die Determinante \index{Determinantenabbildung}
             \[
                 \det: \GL(n,K) \to K^*,\; A \mapsto \det(A)
             \]
@@ -329,7 +329,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \[
                 \gamma_g: G \to G,\; h \mapsto ghg^{-1}
             \]
-            einen Homomorphismus, genannt {\em Konjugation mit $g$}.
+            einen Homomorphismus, genannt {\em Konjugation mit $g$} \index{Konjugation!Definition}.
         \item Sei $G$ eine Gruppe und $g \in G$. Dann ist die Abbildung
             \[
                 \ZZ \to G, \; i \mapsto g^i
@@ -340,7 +340,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \end{enumerate}
 \end{exas}
 
-\begin{term}
+\begin{term}\index{Isomorphismus!von Gruppen}
     \label{term:iso}
     Einen bijektiven Homomorphismus von Gruppen nennen wir {\em Isomorphismus}.
     Wir sagen, Gruppen $G$ und $G'$ sind {\em isomorph}, falls es einen
@@ -364,13 +364,13 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             Permutationsmatrizen ist, nämlich die Teilmenge der Matrizen, für
             die in jeder Zeile und Spalte genau ein Eintrag $1$ ist und alle
             anderen Einträge $0$. 
-        \item Die Exponentialfunktion
+        \item Die Exponentialfunktion \index{Exponentialfunktion}
             \[
                 \exp: \RR \to \RR_{>0}, x \mapsto \exp(x)
             \]
             definiert einen Isomorphismus der additiven Gruppe $(\RR,+)$ mit
             der Gruppe $(\RR_{>0},\cdot)$ der positiven reellen Zahlen mit
-            Multiplikation. Das Inverse von $\exp$ ist der natürliche Logarithmus
+            Multiplikation. Das Inverse von $\exp$ ist der natürliche Logarithmus\index{Logarithmusabbildung}
             \[
                 \ln: \RR_{>0} \to \RR, x \mapsto \ln(x)
             \]
@@ -378,7 +378,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \end{enumerate}
 \end{exas}
 
-\begin{prop}
+\begin{prop}\index{Homomorphismus!von Gruppen!Bild und Kern}
     \label{prop:kernbild}
     Sei $\phi: G \to G'$ ein Homomorphismus. 
     \begin{enumerate}
@@ -414,7 +414,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     also $gh^{-1} \in \Kern(\phi) = \{1 \}$. Daher gilt $gh^{-1} = 1$, also $g = h$, so dass wir die Injektivität von $\phi$ gezeigt haben.
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Nebenklassen!Definition}
     \label{defi:neben}
     Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Für $g \in G$
     definieren wir die \emph{Linksnebenklasse} von $H$ bezüglich $g$
@@ -441,7 +441,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \end{enumerate}
 \end{prob}
 
-\begin{term}
+\begin{term}\index{Nebenklassen!Index}
     \label{term:index} 
     Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. 
     Wir bezeichnen die Menge der Linksnebenklassen von $H$ mit $G/H$ und die
@@ -456,7 +456,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \end{term}
 
 
-\begin{cor}[Satz von Lagrange]
+\begin{cor}[Satz von Lagrange]\index{Satz von Lagrange}
     \label{cor:lagrange} Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Dann gilt
     \[
         |G| = |H| (G:H).
@@ -477,7 +477,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     auf eine Bijektion $H \cong gH$ ein. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Nebenklassen!Normalteiler}
     \label{defi:normal}
     Eine Untergruppe $N \le G$ heißt \emph{normal} oder auch \emph{Normalteiler}, falls für alle $g \in G$ gilt:
     \[
@@ -515,7 +515,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \begin{exas}
     \label{exas:kern}
     \begin{enumerate}
-        \item Sei $n \ge 1$ und $K$ ein Körper. Für den Homomorphismus
+        \item \index{Determinante!Kern}Sei $n \ge 1$ und $K$ ein Körper. Für den Homomorphismus
             \[
                 \det: \GL(n,K) \lra K^*
             \]
@@ -531,20 +531,20 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \]
             Da die Determinante einer Permutationsmatrix entweder $+1$ oder
             $-1$ ist, nimmt diese Komposition Werte in der multiplikativen
-            Untergruppe $\{1,-1\} \le \QQ^*$. Wir erhalten also
+            Untergruppe $\{1,-1\} \le \QQ^*$ an. Wir erhalten also
             einen Homomorphismus
             \[
-                \sign: S_n \to \{\pm 1\}, \sigma \mapsto \det(P_{\sigma})
+                \sign: S_n \to \{\pm 1\}, \sigma \mapsto \det(P_{\sigma}),
             \]
-            genannt \emph{Signum}. Wir bezeichnen seinen Kern mit
+            genannt \emph{Signum}\index{Symmetrische Gruppe!Signum}. Wir bezeichnen seinen Kern mit
             \[
                 A_n := \Kern(\sign) \no S_n,
             \]
-            genannt, die \emph{alternierende Gruppe}.
+            genannt, die \emph{alternierende Gruppe}\index{Symmetrische Gruppe!Alternierende Gruppe}.
     \end{enumerate}
 \end{exas}
 
-\begin{prop}
+\begin{prop}\index{Quotientengruppe}
     \label{prop:quotientengruppe}
     Sei $G$ eine Gruppe und $N \no G$ eine normale Untergruppe. 
     \begin{enumerate}
@@ -593,7 +593,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     also $\Kern(\pi) = N$. 
 \end{proof}
 
-\begin{thm}[Homomorphiesatz]
+\begin{thm}[Homomorphiesatz]\index{Isomorphiesätze!von Gruppen}
     \label{thm:homsatz} 
     Sei $\phi: G \to G'$ ein Homomorphismus von Gruppen. Dann induziert $\phi$ einen Isomorphismus 
     \[
@@ -668,7 +668,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \section{Operationen}%
 \label{sec:operationen}
 
-\begin{defi}
+\begin{defi}\index{Wirkung}
     \label{defi:operation}
     Eine \emph{Operation} (oder \emph{Wirkung}) einer Gruppe $G$ auf einer Menge $M$ ist eine Abbildung 
     \[
@@ -689,27 +689,27 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \[
                 G \times G \to G, \; (g,h) \mapsto gh.
             \]
-        \item Jede Gruppe $G$ operiert auf sich selbst via Konjugation:
+        \item \index{Konjugation!Wirkung}Jede Gruppe $G$ operiert auf sich selbst via Konjugation:
             \[
                 G \times G \to G, \; (g,h) \mapsto ghg^{-1}.
             \]
-        \item Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Dann Operiert
+        \item \index{Nebenklassen!Wirkung}Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Dann Operiert
             $G$ auf der Menge $G/H$ von Linksnebenklassen via
             \[
                 G \times G/H \to G/H, \; (g', gH) \mapsto g'gH.
             \]
-        \item Für jede Menge $M$ operiert die symmetrische Gruppe $S_M$ auf $M$ via
+        \item \index{Symmetrische Gruppe!Wirkung}Für jede Menge $M$ operiert die symmetrische Gruppe $S_M$ auf $M$ via
             \[
                 S_M \times M \to M,\; (\sigma,x) \mapsto \sigma(x).
             \]
-        \item Für $n \ge 1$ und einen Körper $K$, operiert die Gruppe $\GL(n,K)$ auf $K^n$ via
+        \item Für $n \ge 1$ und einen Körper $K$ operiert die Gruppe $\GL(n,K)$ auf $K^n$ via
             \[
                 \GL(n,K) \times K^n \to K^n,\; (A,v) \mapsto Av.
             \]
     \end{enumerate}
 \end{exas}
 
-\begin{defi}
+\begin{defi}\index{Wirkung!Äquivariante Abbildungen}
     \label{defi:gehom}
     Für Operationen $G \actson M$ und $G \actson N$ heißt eine Abbildung
     \[
@@ -723,7 +723,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \label{term:ops}
     Gegeben sei eine Operation $G \actson M$ einer Gruppe $G$ auf der Menge $M$. 
     \begin{enumerate}
-        \item Die Relation 
+        \item \index{Wirkung!Bahn}Die Relation 
             \[
                 x \underset{G}{\sim} y\; : \equ \; \exists g \in G : x = g.y
             \]
@@ -736,20 +736,20 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
                 \mfaktor{G}{M} := M / \underset{G}{\sim} 
             \]
             heißt der \emph{Bahnenraum von $G \actson M$.}
-        \item Für $x \in M$ heißt die Untergruppe (!)
+        \item \index{Wirkung!Stabilisator}Für $x \in M$ heißt die Untergruppe (!)
             \[
                 G_x := \{g \in G \; |\; g.x = x\} \le G
             \]
             der \emph{Stabilisator von $x$}. 
-        \item Ein Punk $x \in M$ heißt \emph{Fixpunkt}, falls $G_x = G$, und wir bezeichnen die Menge aller Fixpunkte mit
+        \item \index{Wirkung!Fixpunkt}Ein Punk $x \in M$ heißt \emph{Fixpunkt}, falls $G_x = G$, und wir bezeichnen die Menge aller Fixpunkte mit
             \[
                 M^G \subset M.
             \]
-        \item Die Operation $G \actson M$ heißt \emph{transitiv}, falls für jedes $x \in M$ gilt: $G.x = M$. 
+        \item \index{Wirkung!Transitivität}Die Operation $G \actson M$ heißt \emph{transitiv}, falls für jedes $x \in M$ gilt: $G.x = M$. 
     \end{enumerate}
 \end{term}
 
-\begin{prop}
+\begin{prop}\index{Bahn-Stabilisator-Theorem}
     \label{prop:bahnformel}
     Sei $G \actson M$ und $x \in M$. Dann definiert
     \[
@@ -806,22 +806,22 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     die Wirkung durch Konjugation. Da das Beispiel dieser Gruppenwirkung
     besonders wichtig ist, führen wir spezielle Terminologie ein:
     \begin{enumerate}
-        \item Für $x \in G$ heißt die Bahn
+        \item \index{Konjugation!Konjugationsklasse}Für $x \in G$ heißt die Bahn
             \[
                 G.x = \{ gxg^{-1} | g \in G\} \subset G
             \]
             die {\em Konjugationsklasse von $x$}.
-        \item Die Menge der Fixpunkte 
+        \item \index{Konjugation!Zentrum}Die Menge der Fixpunkte 
             \[
                 \Z(G) := G^G = \{x \in G | \forall g \in G: gx = xg\} \le G
             \]
             bildet eine Untergruppe von $G$, genannt das {\em Zentrum von $G$}.
-        \item Für $x \in G$ heißt der Stabilisator
+        \item \index{Konjugation!Zentralisator}Für $x \in G$ heißt der Stabilisator
             \[
                 \C_G(x) := G_x = \{g \in G | gx = xg\} \le G
             \]
             der {\em Zentralisator von $x$}. 
-        \item Die Gleichung \eqref{eq:class1} lautet 
+        \item \index{Konjugation!Klassengleichung}Die Gleichung \eqref{eq:class1} lautet 
             \begin{equation}
                 \label{eq:klassengleichung}
                 |G| = |\Z(G)| + \sum_{\substack{G.x\; \in\; \mfaktor{G}{M} \\ G_x \ne G} } (G: \C_G(x)).
@@ -833,7 +833,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \end{enumerate}
 \end{term}
 
-\begin{exa}
+\begin{exa}\index{Symmetrische Gruppe!Alternierende Gruppe!Klassengleichung}
     \label{exa:a4}
     Wir bestimmen die Klassengleichung der alternierenden Gruppe $A_4 \no S_4$. Es gilt $(S_4:A_4) = 2$, also 
     \[
@@ -930,7 +930,7 @@ sowie den \emph{Euklidischen Abstand}
     d(v,w) := || v-w ||.
 \]
 
-\begin{defi}
+\begin{defi}\index{Isometrie!Definition}
     \label{defi:bewegung}
     Eine Abbildung $T: \RR^n \to \RR^n$ heißt \emph{(Euklidische) Bewegung} (oder \emph{Isometrie}) falls für alle $v,w \in \RR^n$ gilt:
     \[
@@ -942,12 +942,12 @@ sowie den \emph{Euklidischen Abstand}
 \begin{exas}
     \label{exas:bewegungen}
     \begin{enumerate}
-        \item Für jeder $b \in \RR^n$ definiert die Translation
+        \item \index{Translation!Definition}Für jeder $b \in \RR^n$ definiert die Translation
             \[
                 \tau_b: \RR^n \to \RR^n, \; v \mapsto v + b
             \]
             eine Isometrie. 
-        \item Für jede orthonormale Matrix $A \in \O(n,\RR)$, ist die Abbildung
+        \item \index{Orthogonale Gruppe!Isometrie}Für jede orthonormale Matrix $A \in \O(n,\RR)$, ist die Abbildung
             \[
                 \mu_A: \RR^n \to \RR^n, \; v \mapsto Av
             \]
@@ -971,7 +971,7 @@ sowie den \emph{Euklidischen Abstand}
     \end{enumerate}
 \end{exas}
 
-\begin{thm}
+\begin{thm}\index{Isometrie!Klassifikation}
     \label{thm:klassifikation}
     Sei $T \in E(n)$ mit $T(0) = 0$. Dann existiert $A \in \O(n,\RR)$, so dass
     \[
@@ -1040,7 +1040,7 @@ sowie den \emph{Euklidischen Abstand}
 
 \begin{cor}
   \label{cor:klassifikation}
-  Jede Euklidische Bewegung $T \in E(n)$ is von der Form
+  Jede Euklidische Bewegung $T \in E(n)$ ist von der Form
   \[
       T: \RR^n \to \RR^n,\; v \mapsto Av+b
   \]
@@ -1069,7 +1069,7 @@ sowie den \emph{Euklidischen Abstand}
     \mu_A$ ist $\mu_{A^T} \circ \tau_{-b}$. 
 \end{proof}
 
-\begin{rem}
+\begin{rem}\index{Gruppe!Direktes Produkt}
     \label{rem:semi}
     Im allgemeinen lässt sich aus gegebenen Gruppen $G$ und $G'$ eine neue
     Gruppe, das \emph{direkte Produkt} von $G$ und $G'$ wie folgt definieren:
@@ -1106,7 +1106,7 @@ sowie den \emph{Euklidischen Abstand}
     Direktes Nachrechnen.
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Gruppe!Semidirektes Produkt}
     \label{defi:semidirekt}
     Die Gruppe $(H \times N, \circ)$ aus Proposition \ref{prop:semidirekt}
     heißt das \emph{semidirekte Produkt} von $(H,N, H \actson N)$, geschrieben
@@ -1129,7 +1129,7 @@ sowie den \emph{Euklidischen Abstand}
             \]
             ein Isomorphismus von Gruppen ist.
         \item Sei $\GL(n,\RR) \actson \RR^n$ die Operation durch
-            Matrix-Vektor-Multiplikation. Dann erhalten wir die {\em allgemeine affine Gruppe}
+            Matrix-Vektor-Multiplikation. Dann erhalten wir die {\em allgemeine affine Gruppe}\index{Allgemeine Affine Gruppe!Definition}
             \[
                 \on{GA}(n,\RR) := \GL(n,\RR) \ltimes \RR^n. 
             \]
@@ -1138,7 +1138,7 @@ sowie den \emph{Euklidischen Abstand}
     \end{enumerate}
 \end{exas}
 
-\begin{exa}
+\begin{exa}\index{Klassifikation aller ebenen Isometrien}
     \label{exa:e2}
     Aus elementargeometrischen Überlegungen erhalten wir, dass sich jede Matrix $A \in \O(2)$ schreiben lässt als
     \[
@@ -1159,7 +1159,7 @@ sowie den \emph{Euklidischen Abstand}
 	\end{enumerate}
 \end{exa}
 
-\begin{thm}
+\begin{thm}\index{Spezielle Orthogonale Gruppe!Repräsentation}
     \label{thm:so3} Sei $A \in \SO(3,\RR)$. Dann existiert eine
     Orthonormalbasis $B = (v, p, q)$ von $\RR^3$, so dass die Darstellungsmatrix von $\mu_A$ bezüglich der Basis $B$ die Gestalt
     \[
@@ -1205,18 +1205,18 @@ sowie den \emph{Euklidischen Abstand}
 \section{Symmetrie im Raum}%
 \label{sec:symmetrie_im_raum}
 
-Sei $n \ge 1$ und $F \subset \RR^n$ eine Teilmenge. Wir definieren die {\em orthogonale Symmetriegruppe} von $F$ als
+Sei $n \ge 1$ und $F \subset \RR^n$ eine Teilmenge. Wir definieren die {\em orthogonale Symmetriegruppe}\index{Symmetriegruppe!orthogonale} von $F$ als
 \[
     \O(F) :=  \{ A \in \O(n,\RR)\; | \; \mu_A(F) = F \} \le \O(n,\RR)
 \]
-sowie die {\em spezielle orthogonale Symmetriegruppe} (oder {\em Drehsymmetriegruppe}) von $F$ als 
+sowie die {\em spezielle orthogonale Symmetriegruppe}\index{Symmetriegruppe!spezielle orthogonale} (oder {\em Drehsymmetriegruppe}) von $F$ als 
 \[
     \SO(F) :=  \{ A \in \SO(n,\RR)\; | \; \mu_A(F) = F \} \le \SO(n,\RR).
 \]
 In diesem Abschnitt untersuchen wir Drehsymmetrien in $\RR^3$ und führen dazu
 zunächst einige fundamentale Figuren ein. 
 
-\begin{exas} 
+\begin{exas} \index{Konvexität!Definition}
     \label{exas:figuren}
     Eine Teilmenge $K$ von $\RR^n$ heißt {\em konvex}, falls folgende Bedingung
     erfüllt ist: für $x,y \in K$ und $t \in [0,1]$ gilt $t x + (1-t) y \in K$. 
@@ -1224,12 +1224,12 @@ zunächst einige fundamentale Figuren ein.
     Geradensegment zwischen $x$ und $y$. Es folgt sofort aus der Definition,
     dass beliebige Schnitte von konvexen Teilmengen von $\RR^n$ konvex sind.
     Wir definieren für eine beliebige Teilmenge $M \subset \RR^n$ die {\em
-        konvexe Hülle}
+        konvexe Hülle}\index{Konvexität!Konvexe Hülle}
     \[
         \Konv(M) := \bigcap_{\substack{M \subset K\\ \text{$K$ konvex}}} K.
     \]
     von $M$.
-    \begin{enumerate}
+    \begin{enumerate}\index{Reguläre Polyeder}
         \item Für $n \ge 2$, definieren wir das {\em reguläre $n$-gon}
             \[
                 R_n = \Konv(\{(\cos(\frac{2 \pi k}{n}), \sin(\frac{2 \pi k}{n}))\; |\; 0 \le k < n \}) \subset \RR^2,
@@ -1277,12 +1277,12 @@ zunächst einige fundamentale Figuren ein.
     Die Figuren aus Beispiel \ref{exas:figuren} (2) sind tatsächlich Modelle der fünf platonischen Körper. 
 \end{prob}
 
-\begin{prop}
+\begin{prop}\index{Klassifikation der platonischen Symmetriegruppen}
     \label{prop:sym}
     Für die Figuren $F$ aus Beispiel \ref{exas:figuren} gibt es die folgenden Isomorphismen von Gruppen.
     \begin{enumerate}
         \item\label{it:sym1} ${\SO}(P_n) \cong C_n$ die zyklische Gruppe der Ordnung $n$.
-        \item\label{it:sym2} ${\SO}(Z_n) \cong D_n$ die Diedergruppe der Ordnung $2n$.
+        \item\label{it:sym2} ${\SO}(Z_n) \cong D_n$ die Diedergruppe der Ordnung $2n$.\index{Symmetriegruppe!Diedergruppe}
         \item\label{it:sym3} ${\SO}(T) \cong A_4$ die alternierende Gruppe der Ordnung $12$.
         \item\label{it:sym4} ${\SO}(W) \cong {\SO}(O) \cong S_4$ die symmetrische Gruppe der Ordnung $24$. 
         \item\label{it:sym5} ${\SO}(I) \cong {\SO}(D) \cong A_5$ die alternierende Gruppe der Ordnung $60$. 
@@ -1384,7 +1384,7 @@ zunächst einige fundamentale Figuren ein.
     Ikosaeder dual zueinander sind.
 \end{proof}
 
-\begin{thm}
+\begin{thm}\index{Klassifikation von $\SO(3, \RR)$}
     \label{thm:klass3d} Sei $G \le \SO(3,\RR)$ eine endliche Untergruppe. Dann ist $G$ konjugiert zu einer der folgenden Gruppen
     \begin{enumerate}[label=(\alph*)]
         \item\label{klass:1} der trivialen Gruppe $\{I\}$, 
@@ -5403,4 +5403,5 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     enthält die nicht auflösbare Gruppe $A_n$ (Satz \ref{thm:annot}).
 \end{proof}
 
+\printindex
 \end{document}

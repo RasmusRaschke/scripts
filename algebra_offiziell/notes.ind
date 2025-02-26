@@ -1,0 +1,129 @@
+\begin{theindex}
+
+  \item Allgemeine Affine Gruppe
+    \subitem Definition, \hyperpage{16}
+  \item Allgemeine Lineare Gruppe, \hyperpage{3}
+
+  \indexspace
+
+  \item Bahn-Stabilisator-Theorem, \hyperpage{11}
+
+  \indexspace
+
+  \item Determinante
+    \subitem Kern, \hyperpage{8}
+  \item Determinantenabbildung, \hyperpage{6}
+
+  \indexspace
+
+  \item Exponentialfunktion, \hyperpage{7}
+
+  \indexspace
+
+  \item Gruppe
+    \subitem Definition, \hyperpage{3}
+    \subitem Direktes Produkt, \hyperpage{16}
+    \subitem Ordnung, \hyperpage{4}
+    \subitem Semidirektes Produkt, \hyperpage{16}
+
+  \indexspace
+
+  \item Homomorphismus
+    \subitem von Gruppen, \hyperpage{6}
+      \subsubitem Bild und Kern, \hyperpage{7}
+
+  \indexspace
+
+  \item Isometrie
+    \subitem Definition, \hyperpage{14}
+    \subitem Klassifikation, \hyperpage{15}
+  \item Isomorphiesätze
+    \subitem von Gruppen, \hyperpage{9}
+  \item Isomorphismus
+    \subitem von Gruppen, \hyperpage{7}
+
+  \indexspace
+
+  \item Klassifikation aller ebenen Isometrien, \hyperpage{16}
+  \item Klassifikation der platonischen Symmetriegruppen, 
+		\hyperpage{18}
+  \item Klassifikation von $\SO(3, \RR)$, \hyperpage{20}
+  \item Konjugation
+    \subitem Definition, \hyperpage{6}
+    \subitem Klassengleichung, \hyperpage{12}
+    \subitem Konjugationsklasse, \hyperpage{12}
+    \subitem Wirkung, \hyperpage{11}
+    \subitem Zentralisator, \hyperpage{12}
+    \subitem Zentrum, \hyperpage{12}
+  \item Konvexität
+    \subitem Definition, \hyperpage{18}
+    \subitem Konvexe Hülle, \hyperpage{18}
+
+  \indexspace
+
+  \item Logarithmusabbildung, \hyperpage{7}
+
+  \indexspace
+
+  \item Nebenklassen
+    \subitem Definition, \hyperpage{7}
+    \subitem Index, \hyperpage{8}
+    \subitem Normalteiler, \hyperpage{8}
+    \subitem Wirkung, \hyperpage{11}
+
+  \indexspace
+
+  \item Orthogonale Gruppe
+    \subitem Definition, \hyperpage{5}
+    \subitem Isometrie, \hyperpage{14}
+
+  \indexspace
+
+  \item Quotientengruppe, \hyperpage{9}
+
+  \indexspace
+
+  \item Reguläre Polyeder, \hyperpage{18}
+
+  \indexspace
+
+  \item Satz von Lagrange, \hyperpage{8}
+  \item Satz über zyklische Gruppen, \hyperpage{5}
+  \item Spezielle Lineare Gruppe
+    \subitem Definition, \hyperpage{5}
+  \item Spezielle Orthogonale Gruppe
+    \subitem Definition, \hyperpage{5}
+    \subitem Repräsentation, \hyperpage{17}
+  \item Symmetriegruppe
+    \subitem Diedergruppe, \hyperpage{18}
+    \subitem orthogonale, \hyperpage{17}
+    \subitem spezielle orthogonale, \hyperpage{17}
+  \item Symmetrische Gruppe
+    \subitem Alternierende Gruppe, \hyperpage{9}
+      \subsubitem Klassengleichung, \hyperpage{13}
+    \subitem Definition, \hyperpage{3}
+    \subitem Signum, \hyperpage{9}
+    \subitem Wirkung, \hyperpage{11}
+
+  \indexspace
+
+  \item Translation
+    \subitem Definition, \hyperpage{14}
+
+  \indexspace
+
+  \item Untergruppe
+    \subitem Definition, \hyperpage{4}
+    \subitem Erzeugnis, \hyperpage{5}
+    \subitem Ordnung, \hyperpage{5}
+
+  \indexspace
+
+  \item Wirkung, \hyperpage{10}
+    \subitem Bahn, \hyperpage{11}
+    \subitem Fixpunkt, \hyperpage{11}
+    \subitem Stabilisator, \hyperpage{11}
+    \subitem Transitivität, \hyperpage{11}
+    \subitem Äquivariante Abbildungen, \hyperpage{11}
+
+\end{theindex}
