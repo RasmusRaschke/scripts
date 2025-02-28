@@ -89,7 +89,7 @@
                 S_n := S_{\{1,2,...,n\}}
             \]
             fest. 
-        \item Für $n \ge 1$ und jeden Körper $K$, die allgemeine lineare Gruppe $(\GL(n,K), \circ)$\index{Allgemeine Lineare Gruppe} wobei
+        \item Für $n \ge 1$ und jeden Körper $K$, die allgemeine lineare Gruppe $(\GL(n,K), \circ)$\index{Allgemeine Lineare Gruppe!Definition} wobei
             \[
                 \GL(n,K) := \{ A \in K^{n \times n} \; | \; \det(A) \neq 0 \}
             \]
@@ -1691,7 +1691,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
 \section{Ringe, Ideale, Homomorphismen }%
 \label{sec:ringe_ideale_homomorphismen}
 
-\begin{defi}
+\begin{defi}\index{Ring!Definition}
     \label{defi:ring}
     Ein {\em Ring} ist ein Tupel $(R,+,\cdot)$ bestehend aus einer Menge
     $R$, Abbildungen 
@@ -1742,22 +1742,22 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
             \[
                 \ZZ[i] = \{ a + b i \; | \; a,b \in \ZZ \}.
             \]
-            der sogenannten \emph{Gaußschen Zahlen}.
+            der sogenannten \emph{Gaußschen Zahlen}\index{Gaußscher Zahlenring!Definition}.
 
         \item Für einen Ring $R$ bildet die Menge $R[X]$ der Polynome in der
-            Variablen $X$ mit Koeffizienten in $R$ einen Ring. 
+            Variablen $X$ mit Koeffizienten in $R$ einen Ring.\index{Polynomring!Definition}
         \item Die Quaternionen $\HH$ bilden einen nichtkommutativen Ring. Jedes $q \in \HH
             \setminus \{0\}$ besitzt ein multiplikatives Inverses, daher
             sagt man auch, die Quaternionen bilden einen {\em Schiefkörper}. 
         \item Für jeden Körper $K$ bildet die Menge $M(n,K)$ der $n \times
             n$-Matrizen einen Ring mit komponentenweiser Addition und
-            Matrixmultiplikation. 
+            Matrixmultiplikation.\index{Matrizenring!Definition}
         \item Für $R,S$ Ringe, bildet das kartesische Produkt $R \times S$
             einen Ring mit komponentenweiser Addition und Multiplikation.
     \end{enumerate}
 \end{exas}
 
-Ein paar historische Kommentare sind hilfreich für die Einordnung der in diesem
+\index{Ring!Historie}Ein paar historische Kommentare sind hilfreich für die Einordnung der in diesem
 Kapitel entwickelten Theorie. Der Begriff eines Rings, sowie Begriffe wie
 Ideale und Moduln (siehe unten), wurden von Dedekind im 19. Jhd. eingeführt, um
 Verallgemeinerungen des Primzahlbegriffs und zugehörige Primfaktorzerlegungen
@@ -1806,7 +1806,7 @@ wurde schließlich von Dedekind definiert.
     Ring. Nichtkommutative Ringe werden wir explizit als solche benennen. 
 \end{konv}
 
-\begin{defi}
+\begin{defi}\index{Ideal!Definition}
     \label{defi:ideal}
     Eine Teilmenge
     \[
@@ -1819,7 +1819,7 @@ wurde schließlich von Dedekind definiert.
     \end{enumerate}
 \end{defi}
 
-\begin{exa}
+\begin{exa}\index{Ideal!Hauptideal}
     \label{exa:hauptideal}
     Sei $R$ ein Ring und $x \in R$. Dann bildet
     \[
@@ -1849,9 +1849,9 @@ Ideale, nämlich $\{0\}$ und $R$ selbst.
     geben mit $r x = 1$, so dass $R$ also ein Körper ist. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Homomorphismus!von Ringen}
     \label{defi:rhom}
-    Eine Abbildung $\phi: R \to S$ von Ringen heißt (Ring-)homomorphismus, falls:
+    Eine Abbildung $\phi: R \to S$ von Ringen heißt (Ring-)Homomorphismus, falls:
     \begin{enumerate}
         \item für alle $r_1,r_2 \in R$ gelten:
             \begin{enumerate}
@@ -1862,7 +1862,7 @@ Ideale, nämlich $\{0\}$ und $R$ selbst.
     \end{enumerate}
 \end{defi}
 
-\begin{exa}
+\begin{exa}\index{Evaluationshomomorphismus!Definition}
     \label{exa:evaluation}
     Sei $R$ ein Ring, $R[X]$ der Polynomring über $R$, und $\alpha \in R$. Dann ist die Abbildung
     \[
@@ -1871,7 +1871,7 @@ Ideale, nämlich $\{0\}$ und $R$ selbst.
     ein Ringhomomorphismus, genannt \emph{Evaluationshomomorphismus}.
 \end{exa}
 
-\begin{prop}
+\begin{prop}\index{Homomorphismus!von Ringen!Bild und Kern}
     \label{prop:kern}
     Sei $\phi: R \to S$ ein Homomorphismus von Ringen. Dann gelten:
     \begin{enumerate}
@@ -1894,7 +1894,7 @@ Ideale, nämlich $\{0\}$ und $R$ selbst.
     und in jedem Ring $S \ne \{0\}$ gilt $1 \ne 0$. 
 \end{proof}
 
-Sei $R$ ein Ring und $I \subset R$ ein Ideal. Dann definiert (!) 
+\index{Quotientenring!Definition}Sei $R$ ein Ring und $I \subset R$ ein Ideal. Dann definiert (!) 
 \[
     r_1 \sim r_2 \; : \Leftrightarrow\; r_1 - r_2 \in I
 \]
@@ -1929,14 +1929,14 @@ Wir bezeichnen die Menge der Äquivalenzklassen mit $R/I$.
    Dies sollte nun Routine sein. 
 \end{proof}
 
-\begin{exa}
+\begin{exa}\index{Quotientenring!Restklassenring mod $n$}
     \label{exa:restklassen}
     Sei $n \ge 2$ eine natürliche Zahl. Dann heißt der Ring $\ZZ/(n)$ der
     \emph{Restklassenring modulo $n$}.
 \end{exa}
 
 
-\begin{thm}
+\begin{thm}\index{Isomorphiesätze!von Ringen}
     \label{thm:haupthom}
     Sei $\phi: R \to S$ ein Homomorphismus von Ringen. Dann ist 
     \[
@@ -1969,10 +1969,10 @@ Begriffen.
     \label{term:einheitprim}
     Sei $R$ ein Ring. 
     \begin{enumerate}
-        \item Ein Element $u \in R$ heißt \emph{Einheit}, falls es $v \in R$
+        \item \index{Ring!Einheit}Ein Element $u \in R$ heißt \emph{Einheit}, falls es $v \in R$
             gibt mit $uv =1$. Die Einheiten von $R$ bilden eine Gruppe unter
             Multiplikation, bezeichnet mit $R^{\times}$. 
-        \item Ein Element $0 \neq p \in R$ mit $p \notin R^{\times}$ heißt
+        \item \index{Ring!Primelement}Ein Element $0 \neq p \in R$ mit $p \notin R^{\times}$ heißt
             \emph{Primelement} falls für alle $a,b \in R$ gilt: 
             \[
                 p|ab \quad \Rightarrow \text{$p|a$ oder $p|b$}. 
@@ -1986,7 +1986,7 @@ Begriffen.
         Primzahl.
 \end{exa}
 
-\begin{prop}
+\begin{prop}\index{Gaußscher Zahlenring!Einheiten}
     \label{prop:gausseinheiten}
     Die Einheiten im Ring $\ZZ[i]$ der Gaußschen Zahlen bilden die Gruppe
     \[
@@ -2007,7 +2007,7 @@ Begriffen.
         Zahlen der Norm $1$ sind genau die vierten Einheitswurzeln.
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Ideal!Primideal}
     \label{defi:prim}
     Sei $R$ ein Ring. Ein Ideal $P \subsetneq R$ heißt \emph{Primideal}, falls für alle $x,y \in R$ gilt:
     \[
@@ -2040,7 +2040,7 @@ Begriffen.
     \]
 \end{prob}
 
-\begin{defi}
+\begin{defi}\index{Integritätsbereich!Definition}
     \label{defi:integraldomain}
     Ein Ring $R$ heißt \emph{nullteilerfrei}, oder \emph{Integritätsbereich}, falls $R \neq \{0\}$ und für alle
     $r,s \in R$ gilt:
@@ -2061,7 +2061,7 @@ Begriffen.
     Folgt direkt aus den Definitionen (!).
 \end{proof}
 
-\begin{term}
+\begin{term}\index{Ring!Irreduzibilität}
     \label{term:unzerlegbar}
     Ein Element $0 \neq r \in R$ mit $r \notin R^{\times}$ heißt
     \emph{unzerlegbar}, oder \emph{irreduzibel}, falls für alle $a,b \in R$ mit
@@ -2101,7 +2101,7 @@ Begriffen.
     ist also $a$ eine Einheit, so dass $r$ unzerlegbar ist. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Ideal!Maximalität}
     \label{defi:maximalideal}
     Sei $R$ ein Ring. Ein Ideal $I \subsetneq R$ heißt \emph{maximal}, falls
     $I$ maximal unter den echten Idealen von $R$ ist, falls also für jedes
@@ -2135,7 +2135,7 @@ Begriffen.
     Jedes maximale Ideal ist ein Primideal.
 \end{cor}
 
-\begin{exa}
+\begin{exa}\index{Polynomring!Maximale Ideale}
     \label{exa:pol}
     Sei $K$ ein Körper und $K[X,Y] := (K[X])[Y]$ der Polynomring in den Variablen $X$ und
     $Y$. Die Gruppe der Einheiten ist $K[X,Y]^{\times} = K^{\times}$, die
@@ -2177,7 +2177,7 @@ Wir untersuchen nun eine Klasse von Ringen, in denen der in Beispiel
 \ref{exa:pol} erklärte Unterschied zwischen maximalen Hauptidealen und
 maximalen Idealen per Definition verschwindet:
 
-\begin{defi}
+\begin{defi}\index{Hauptidealring!Definition}
     \label{defi:hauptidealring}
     Ein nullteilerfreier Ring $R$ heißt \emph{Hauptidealring}, falls jedes Ideal ein Hauptideal ist. 
 \end{defi}
@@ -2204,7 +2204,7 @@ maximalen Idealen per Definition verschwindet:
 Eine wichtige Klasse von Beispielen für Hauptidealringe erschließt sich aus
 Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
 
-\begin{defi}
+\begin{defi}\index{Euklidischer Ring!Definition}
     \label{defi:euklid}
     Ein Integritätsbereich $R$ heißt \emph{Euklidisch} falls es eine Abbildung 
     \[
@@ -2236,10 +2236,10 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
 \begin{prop}
     \label{prop:euklid}
     \begin{enumerate}
-        \item Der Ring $\ZZ$ ist ein Euklidischer Ring mit $\lambda(n) = |n|$.
-        \item Der Polynomring $K[X]$ über einem Körper (!) $K$ ist ein
+        \item \index{Ganzzahlen!als euklidischer Ring}Der Ring $\ZZ$ ist ein Euklidischer Ring mit $\lambda(n) = |n|$.
+        \item \index{Polynomring!als euklidischer Ring}Der Polynomring $K[X]$ über einem Körper (!) $K$ ist ein
             Euklidischer Ring wobei $\lambda(f)$ der Grad von $f$ ist. 
-        \item Der Ring $\ZZ[i]$ der Gaußschen Zahlen ist ein Euklidischer Ring mit
+        \item \index{Gaußscher Zahlenring!als euklidischer Ring}Der Ring $\ZZ[i]$ der Gaußschen Zahlen ist ein Euklidischer Ring mit
             \[
                 \lambda(a + bi) := N(a+bi) = a^2 + b^2.
             \]
@@ -2266,14 +2266,14 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
     im Quadrat zum nächsten Eckpunkt ist $\sqrt{2}/2 < 1$, realisiert vom Mittelpunkt. 
 \end{proof}
 
-\begin{exa}
+\begin{exa}\index{Ganzzahlen!Spektrum}
     \label{exa:integers}
     Wir sind nun in der Lage alle Primideale des Rings $\ZZ$ zu bestimmen.
     Diese bestehen nämlich aus dem Nullideal $(0)$ zusammen mit den Idealen
     $(p)$, $p$ Primzahl. 
 \end{exa}
 
-Wir werden nun den von den ganzen Zahlen wohlbekannten Begriff der
+\index{Ring!Assoziierte Elemente}Wir werden nun den von den ganzen Zahlen wohlbekannten Begriff der
 Primfaktorzerlegung verallgemeinern. Dabei nennen wir Elemente $a,b$ eines
 Integritätsbereichs $R$ \emph{assoziiert}, wenn sie sich um einen
 Einheitenfaktor unterscheiden, es also eine Einheit $u \in R^{\times}$ so dass
@@ -2285,7 +2285,7 @@ $a = u b$. Wir schreiben dann $a \sim b$.
     $(a) = (b)$. 
 \end{rem}
 
-\begin{defi}
+\begin{defi}\index{Faktorieller Ring!Definition}
     \label{defi:faktoriell}
     Ein Integritätsbereich $R$ heißt faktoriell, falls für jede Nichteinheit $a \in R$ mit $a \ne 0$ gilt:
     \begin{enumerate}
@@ -2372,7 +2372,7 @@ $a = u b$. Wir schreiben dann $a \sim b$.
     echt, also ein Widerspruch.
 \end{proof}
 
-\begin{rem}
+\begin{rem}\index{Noetherscher Ring!Definition}
     \label{rem:noether}
     Das Argument aus dem Beweis von Satz \ref{thm:hauptfakt} zeigt,
     dass jeder Hauptidealring $R$ die folgende Eigenschaft hat:
@@ -2443,8 +2443,9 @@ durchführen.
     also z.B. für $\alpha = a + i b$, wie behauptet $p = a^2 + b^2$. 
 \end{proof}
 
-\begin{thm} Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau 
+\begin{thm}\index{Gaußscher Zahlenring!Spektrum}
     \label{thm:gaussprimes}
+    Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau 
     \begin{enumerate}
         \item Das Ideal $(1+i)$.
         \item Die Ideale der Form $(a + bi)$ wobei $a^2 + b^2 = p$ Primzahl mit $p \equiv 1 \pmod{4}$ und $a > |b|$. 
@@ -2496,7 +2497,7 @@ Zum Abschluss geben wir eine Definition des für die algebraische Zahlentheorie
 zentralen Begriffs eines Dedekindrings dessen genauere Untersuchung jedoch
 leider den Rahmen dieser Vorlesung sprengen würde.
 
-\begin{defi}
+\begin{defi}\index{Dedekindring!Definition}
     \label{defi:dedekind}
     Ein Integritätsbereich $R$ heißt \emph{Dedekindring} falls $R$ kein Körper
     ist und für jedes Paar von Idealen $I,J$ in $R$ die folgenden Bedingungen
@@ -2508,7 +2509,7 @@ leider den Rahmen dieser Vorlesung sprengen würde.
 \end{defi}
 
 \begin{rem}
-    \label{rem:dedekind} Dedekindringe sind allso genau diejenigen Ringe, in
+    \label{rem:dedekind} Dedekindringe sind also genau diejenigen Ringe, in
     denen die beiden potenziellen Definitionen \eqref{dede:1} und
     \eqref{dede:2} für Teilbarkeit von Idealen übereinstimmen.
     Diese Definition ist aus konzeptioneller Sicht verständlich, aus
@@ -2635,7 +2636,7 @@ Primzahlen $p$ nachgewiesen werden. Es ist nun interessant zu verstehen, wie
 Irreduzibilität in $\ZZ[X]$ und Irreduzibilität in $\QQ[X]$ zusammenhängen.
 Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt. 
 
-\begin{defi}
+\begin{defi}\index{Polynom!Primitivität}
     \label{defi:primitiv}
     Ein Polynom
     \[
@@ -2648,7 +2649,7 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     \end{enumerate}
 \end{defi}
 
-\begin{lem}
+\begin{lem}\index{Polynom!Inhalt}
     \label{lem:inhalt}
     \begin{enumerate}
         \item Jedes $0 \ne f \in \QQ[X]$ läßt sich eindeutig schreiben als
@@ -2690,7 +2691,7 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     $c(f)$. 
 \end{term}
 
-\begin{lem}
+\begin{lem}\index{Lemma von Gauß}
     \label{lem:gauß}
     Das Produkt primitiver Polynome ist primitiv. 
 \end{lem}
@@ -2713,7 +2714,7 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     Für Polynome $f,g \in \QQ[X]$ gilt $c(fg) = c(f)c(g)$. 
 \end{cor}
 
-\begin{thm}
+\begin{thm}\index{Satz über rationale Nullstellen}
     \label{thm:gauß}
     Sei $f \in \ZZ[X]$ mit positivem Leitkoeffizienten. 
     Dann sind äquivalent:
@@ -2746,7 +2747,7 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     = 1$ oder $h_0 = 1$, so dass also $f$ oder $g$ eine Einheit $\QQ[X]$ ist. 
 \end{proof}
 
-\begin{thm}
+\begin{thm}\index{Ganzzahlen!als faktorieller Ring}
     \label{thm:zxfaktoriell}
     Der Ring $\ZZ[X]$ ist faktoriell.
 \end{thm}
@@ -2822,7 +2823,7 @@ insbesondere zu beweisen:
 
 In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring. 
 
-\begin{defi}
+\begin{defi}\index{Modul!Definition}
     \label{defi:modul}
     Ein \emph{$R$-Modul} ist ein Tripel $(M,+,.)$ bestehend
     aus einer abelschen Gruppe $(M,+)$ und einer Abbildung
@@ -2842,7 +2843,7 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
 \begin{exas}
     \label{exas:moduln}
     \begin{enumerate}
-    \item Sei $K$ ein Körper. Ein $K$-Modul ist genau ein $K$-Vektorraum.
+    \item Sei $K$ ein Körper. Ein $K$-Modul ist genau ein $K$-Vektorraum.\index{Vektorraum!als Modul}
     \item Ein $\ZZ$-Modul ist eine abelsche Gruppe (!).
     \item Sei $R$ ein Ring. Dann ist für jede natürliche Zahl $n \ge 1$ das kartesische Produkt 
         \[
@@ -2852,7 +2853,7 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
         \[
             r.(r_1,r_2,...,r_n) := (rr_1,rr_2,...,rr_n)
         \]
-        genannt der \emph{freie Standard $R$-Modul vom Rang $n$.}
+        genannt der \emph{freie Standard $R$-Modul vom Rang $n$.}\index{Modul!freier Modul!freier Standard-$R$-Modul}
     \item Für $R$-Moduln $M,N$ ist das kartesische Produkt $M \times N$ ein $R$-Modul mit
         \[
             r.(m,n) = (r.m,r.n).
@@ -2863,14 +2864,14 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
         \[
             M \oplus N := M \times N
         \]
-        genannt \emph{direkte Summe} von $M$ und $N$. 
+        genannt \emph{direkte Summe} von $M$ und $N$.\index{Modul!direkte Summe}
     \end{enumerate}
 \end{exas}
 
 Die grundlegenden Begriffe und Resultate aus der Theorie der Vektorräume lassen sich direkt
 auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 
-\begin{defi}
+\begin{defi}\index{Homomorphismus!von Moduln}
     \label{defi:hom}
     Eine Abbildung $\phi: M \to N$ von $R$-Moduln heißt \emph{$R$-linear}, falls für
     alle $r \in R$ und $m_1,m_2 \in M$ gilt:
@@ -2878,10 +2879,10 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
         \phi(r m_1 + m_2 ) = r \phi(m_1) + \phi(m_2).
     \]
     Eine bijektive $R$-lineare Abbildung heißt \emph{Isomorphismus} von
-    $R$-Moduln.
+    $R$-Moduln.\index{Isomorphismus!von Moduln}
 \end{defi}
 
-\begin{defi}
+\begin{defi}\index{Untermodul}
     \label{defi:unter}
     Sei $M$ ein $R$-Modul. 
 
@@ -2904,7 +2905,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     Sei $R$ ein Ring. Dann sind die Untermoduln von $R$ genau die Ideale in $R$.
 \end{exa}
 
-\begin{prop} Sei $\phi: M \to N$ eine $R$-lineare Abbildung von $R$-Moduln. 
+\begin{prop}\index{Homomorphismus!von Moduln!Bild und Kern} Sei $\phi: M \to N$ eine $R$-lineare Abbildung von $R$-Moduln. 
     \label{prop:kernmodul}
     \begin{enumerate}
         \item Das Bild von $\phi$ ist ein Untermodul von $N$.
@@ -2914,7 +2915,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     \end{enumerate}
 \end{prop}
 
-\begin{defi}
+\begin{defi}\index{Quotientenmodul!Definition}
     \label{defi:quot}
     Sei $M$ ein $R$-Modul und $N \subset M$ ein Untermodul. Dann definiert die Skalarmultiplikation
     \[
@@ -2924,7 +2925,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     $R$-Modulstruktur auf $M/N$, genannt \emph{Quotientenmodul}.
 \end{defi}
 
-\begin{prop}
+\begin{prop}\index{Isomorphiesätze!von Moduln}
     \label{prop:homsatz}
     Sei $\phi: M \to N$ ein Homomorphismus. Dann ist die induzierte Abbildung
     \[
@@ -2933,7 +2934,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     ein $R$-linearer Isomorphismus.
 \end{prop}
 
-\begin{defi}
+\begin{defi}\index{Modul!Freier Modul}
     \label{defi:freiermodul}
     Für eine natürliche Zahl $n \ge 0$, heißt ein $R$-Modul $F$ \emph{frei vom
     Rang $n$}, falls es einen Isomorphismus $R^n \cong F$ gibt (für $n=0$ setze
@@ -2965,7 +2966,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     \end{enumerate} 
 \end{exas}
 
-\begin{defi}
+\begin{defi}\index{Modul!endlich erzeugt}
     \label{defi:label}
     Ein $R$-Modul $M$ heißt \emph{endlich erzeugt}, falls es $n \ge 0$ und eine
     surjektive $R$-lineare Abbildung $\phi: R^n \to M$ gibt. 
@@ -2977,7 +2978,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     Teilmenge $S \subset M$ gibt mit $\langle S \rangle = M$. 
 \end{rem}
 
-\begin{defi}
+\begin{defi}\index{Kurze exakte Sequenz!von Moduln}
     \label{defi:ses}
     Eine \emph{kurze exakte Sequenz}
     \[
@@ -3026,7 +3027,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 \begin{rem}
     \label{rem:spaltet}
     In der Situation von Proposition \ref{prop:spaltet} heißt die Abbildung $s$
-    ein {\em Schnitt von $g$} und wir sagen, die exakte Sequence {\em spaltet}.
+    ein {\em Schnitt von $g$} und wir sagen, die exakte Sequenz {\em spaltet}.
 \end{rem}
 
 \begin{prop}
@@ -3088,7 +3089,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     womit also $M$ frei vom Rang $\le n$ ist. 
 \end{proof}
 
-\begin{defi} Sei $M$ ein $R$-Modul.
+\begin{defi} Sei $M$ ein $R$-Modul.\index{Torsionsmodul!Definition}
     \label{defi:torsion} 
     \begin{enumerate}
         \item Wir definieren den \emph{Torsionsuntermodul}
@@ -3161,7 +3162,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     endlich erzeugt ist. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Annihilatorideal!Definition}
     \label{defi:ann} Sei $M$ ein $R$-Modul. 
             Dann heisst das Ideal
             \[
@@ -3227,7 +3228,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
 \end{exa}
 
 
-\begin{thm}
+\begin{thm}\index{Klassifikation endlich erzeugter $p$-Torsionsmoduln über HIR}
     \label{thm:fghir}
     Sei $p \in R$ ein Primelement und sei $T$ ein endlich erzeugter
     $p$-Torsionsmodul über $R$. Dann gibt es eindeutig bestimmte Zahlen $m \ge 0$ und
@@ -3284,7 +3285,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     $\{e_i\}$ eindeutig. 
 \end{proof}
 
-\begin{cor}
+\begin{cor}\index{Klassifikation endlich erzeugter Moduln über HIR}
     \label{cor:hirmodul}
     Sei $M$ ein endlich erzeugter $R$-Modul. Dann gibt es eindeutig
     bestimmte $r,m \in \NN$ und Primelementpotenzen $p_1^{e_1}, ..., p_m^{e_m}$
@@ -3295,7 +3296,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \]
 \end{cor}
 
-\begin{exa}[Klassifikation endlich erzeugter abelscher Gruppen]
+\begin{exa}[Klassifikation endlich erzeugter abelscher Gruppen]\index{Klassifikation endlich erzeugter abelscher Gruppen}
     \label{exa:klass}
     Für jede endlich erzeugte abelsche Gruppe $A$ gibt es eine direkte Summenzerlegung
     \[
@@ -3304,7 +3305,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     mit eindeutigbestimmten Summanden.
 \end{exa}
 
-\begin{exa}[Jordansche Normalform]
+\begin{exa}[Jordansche Normalform]\index{Jordanzerlegung}
     \label{exa:jordancanonical}
     Sei $K$ ein algebraisch abgeschlossener Körper und $K[X]$ der Polynomring
     über $K$. Sei weiter $V$ ein endlich--dimensionaler $K$-Vektorraum und
@@ -3363,7 +3364,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
 
 \section{Einleitung}%
 
-Lösungsformeln für polynomiale Gleichungen in einer Variablen bis hin zum Grad
+\index{Galoisgruppe!Historie}Lösungsformeln für polynomiale Gleichungen in einer Variablen bis hin zum Grad
 vier waren schon in 16. Jhd. bekannt, wenn auch in etwas anderer Form, als wir
 diese heute dokumentieren würden. Siehe Folien unter
 \begin{center}
@@ -3376,7 +3377,7 @@ solche Formel vielleicht gar nicht existiert. Die grundlegende Idee welche dem
 Beweis dieser Vermutung durch Abel und Galois zugrunde liegt, ist das Studium
 der sogenannten \emph{Galoisgruppe}.
 
-\begin{defi}
+\begin{defi}\index{Galoisgruppe!Definition}
     \label{defi:galoisgruppe}
     Sei $f(X) \in \QQ[X]$ ein Polynom vom Grad $n \ge 1$ mit rationalen Koeffizienten und seien
     $\lambda_1, \lambda_2, ..., \lambda_n \in \CC$ die komplexen Nullstellen (möglicherweise mit Vielfachheiten) von
@@ -3464,18 +3465,18 @@ der sogenannten \emph{Galoisgruppe}.
 \section{Körpererweiterungen}%
 \label{sec:korpererweiterungen}
 
-Sei $L$ ein Körper. Ein \emph{Unterkörper} $K \subset L$ ist eine Teilmenge,
+\index{Unterkörper!Definition}Sei $L$ ein Körper. Ein \emph{Unterkörper} $K \subset L$ ist eine Teilmenge,
 die $0$ und $1$ enthält und mit der von $L$ eingeschränkten Addition und
 Multiplikation einen Körper bildet. Wir sagen für einen gegebenen Teilkörper $K
 \subset L$ auch, dass $L/K$ eine \emph{Körpererweiterung} ist. Insbesondere ist
-dann $L$ ein $K$-Vektorraum un wir nennen
+dann $L$ ein $K$-Vektorraum und wir nennen
 \[
     [L:K] = \dim_K L
 \]
-den Grad von $L/K$. Eine Körpererweiterung $L/K$ heißt \emph{endlich}, falls
+den Grad von $L/K$.\index{Körpererweiterung!Grad} Eine Körpererweiterung $L/K$ heißt \emph{endlich}, falls
 der Grad $[L:K]$ endlich ist.
 
-\begin{lem}
+\begin{lem}\index{Gradsatz für Körpertürme}
     \label{lem:grad}
     Seien $M/L$ und $L/K$ Körpererweiterungen. Dann ist $M/K$ endlich genau
     dann wenn $M/L$ und $L/K$ endlich sind, und in diesem Falle gilt
@@ -3509,7 +3510,7 @@ der Grad $[L:K]$ endlich ist.
             ist $\{1,\pi, \pi^2, ... \} \subset \RR$ linear unabhängig über
             $\QQ$ (von Lindemann, 1882).
         \item Sei $K$ ein Körper und $K(X) = (K[X] \setminus \{0\})^{-1} K[X]$
-            Körper der Brüche, genannt \emph{Körper der rationalen Funktionen}.
+            Körper der Brüche, genannt \emph{Körper der rationalen Funktionen}.\index{Körper der rationalen Funktionen!Definition}
             Dann ist $K(X)/K$ Körpererweiterung mit $[K(X):K] = \infty$. Z.B.
             ist die Menge $\{1,X,X^2, ... \}$ linear unabhängig über $K$. 
         \item Sei $f(X) \in \QQ[X]$ ein Polynom vom Grad $n \ge 1$ mit
@@ -3526,6 +3527,7 @@ der Grad $[L:K]$ endlich ist.
 \section{Körperautomorphismen}%
 \label{sec:korperautomorphismen}
 
+\index{Körperautomorphismus!Definition}
 Sei $L$ ein Körper. Einen bijektiven Ringhomomorphismus $\sigma: L \to L$
 nennen wir auch \emph{Körperautomorphismus von $L$} und bezeichnen die Menge
 der Körperautomorphismen von $L$ mit $\Aut(L)$. Für eine Körpererweiterung
@@ -3544,7 +3546,7 @@ $L/K$ bezeichnen wir
     \]
 \end{exa}
 
-\begin{thm}
+\begin{thm}\blue{[Lemma von Artin]}\index{Lemma von Artin}
     \label{thm:galoisbound}
     Sei $L/K$ eine Körpererweiterung. Dann gilt
     \[
@@ -3554,7 +3556,7 @@ $L/K$ bezeichnen wir
 
 Für den Beweis des Satzes benötigen wir etwas Vorarbeit. 
 
-\begin{lem}[Dedekind Lemma]
+\begin{lem}[Dedekind-Lemma]\index{Lemma von Dedekind}
     \label{lem:dedekind}
     Seien $L$ und $E$ Körper, 
     \[
@@ -3618,7 +3620,7 @@ Der Satz \ref{thm:galoisbound} folgt natürlich sofort aus Satz \ref{thm:dedekin
 \section{Galoiserweiterungen}%
 \label{sec:galoiserweiterungen}
 
-\begin{defi}
+\begin{defi}\index{Galoiserweiterung!Definition}
     \label{defi:galois}
     Eine endliche Körpererweiterung $L/K$ heißt \emph{Galoiserweiterung}, oder
     auch \emph{galoissch}, falls gilt:
@@ -3631,7 +3633,7 @@ Sei $L$ ein Körper und $G \le \Aut(L)$ eine Gruppe von Körperautomorphismen vo
 \[
     L^G := \{ l \in L \; |\; \text{für alle $\sigma \in G$: $\sigma(l) = l$} \} \subset L
 \]
-den \emph{Fixkörper von $G$}. 
+den \emph{Fixkörper von $G$}.\index{Körperautomorphismus!Fixkörper}
 
 \begin{thm}
     \label{thm:fix}
@@ -3651,7 +3653,7 @@ den \emph{Fixkörper von $G$}.
     $L^G = K$. 
 \end{proof}
 
-\begin{thm}[Artin]
+\begin{thm}[Artin]\index{Satz von Artin}
     \label{thm:artin} Sei $L$ ein Körper und $G \le \Aut(L)$. Dann gilt
     \[
         [L:L^G] = |G|.
@@ -3731,7 +3733,7 @@ die Menge der Untergruppen von $G$ sowie mit
 \]
 die Menge der {\em Zwischenkörper von $L/K$} also Unterkörper $M \subset L$ mit $K \subset M$. 
 
-\begin{thm}[Galoiskorrespondenz]
+\begin{thm}[Galoiskorrespondenz]\index{Hauptsatz der Galois-Theorie}
     \label{thm:hauptsatz}
     Sei $L/K$ eine Galoiserweiterung mit Galoisgruppe $G=G(L/K)$. Dann sind die Abbildungen
     \[
@@ -3903,7 +3905,7 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
     mit Kern $G(L/L^H) = H$ erhalten.
 \end{proof}
 
-\begin{rem}
+\begin{rem}\index{Hauptsatz der Galois-Theorie!Interpretation}
     \label{rem:galoisoperation}
     Die verfeinerten Eigenschaften der Galoiskorrespondenz aus Satz
     \ref{thm:galoisnormal} lassen sich sehr einprägsam wie folgt
@@ -3929,7 +3931,7 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
     Diese entsprechen (!) Isomorphieklassen von Zwischenkörpern über $K$. 
 \end{rem}
 
-\begin{prob}
+\begin{prob}\index{Untergruppe!Normalisator}
     \label{prob:verfeinerung}
     Sei $L/K$ eine Galoiserweiterung mit Galoisgruppe $G(L/K)$ und $H \le G$
     eine Untergruppe mit zugehörigem Zwischenkörper $M = L^H$. Wir definieren
@@ -3992,7 +3994,7 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
 \section{Zerfällungskörper}%
 \label{sub:zerfallungskorper}
 
-\begin{defi}
+\begin{defi}\index{Zerfällungskörper!Definition}
     \label{defi:zerfällung}
     Sei $K$ ein Körper und $f \in K[X]$ ein Polynom. Ein Körper $E$ mit $K \subset E$ heißt {\em Zerfällungskörper} von $f$ falls
     \begin{enumerate}
@@ -4005,7 +4007,7 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
     \]
 \end{defi}
 
-\begin{thm}
+\begin{thm}\index{Zerfällungskörper!Existenz und Eindeutigkeit}
     \label{thm:zerfexun}
     Sei $K$ ein Körper und $f \in K[X]$ ein Polynom. Dann existiert ein
     Zerfällungskörper von $f$ und ist bis auf Körperisomorphie über $K$
@@ -4242,7 +4244,7 @@ ein Ringhomomorphismus ist.
     systematischer untersuchen.
 \end{exa}
 
-\begin{defi}
+\begin{defi}\index{Polynom!Separabilität}
     \label{defi:sep}
     Sei $K$ ein Körper. Ein irreduzibles Polynom $f \in K[X]$ heißt \emph{separabel}, falls in seinem Zerfällungskörper $E/K$ gilt:
     \[
@@ -4302,6 +4304,7 @@ Es gilt auch umgekehrt:
     Jede Galoiserweiterung $E/K$ ist Zerfällungskörper eines separablen Polynoms in $K[X]$. 
 \end{prob}
 
+\index{Algebraische Ableitung!Definition}
 Wir stellen nun noch ein einfaches Kriterium zum Testen der Separabilität eines Polynoms bereit. Dazu definieren wir für 
 \[
     f(X) = a_n X^n + a_{n-1} X^{n-1} + ... + a_0 \in K[X]
@@ -4414,7 +4417,7 @@ Wirkung auf den Nullstellen in einem Zerfällungskörper.
         G(E/K)$ die Galoisgruppe. Dann gelten:
         \begin{enumerate}
             \item Die Operation $G \actson E$ schränkt sich ein auf eine Operation $G \actson A$. 
-            \item Die Operation $G \actson A$ ist \emph{treu}, d.h. falls für
+            \item \index{Wirkung!treu}Die Operation $G \actson A$ ist \emph{treu}, d.h. falls für
                 ein $\sigma \in G$ und für alle $\alpha_i \in A$ gilt:
                 $\sigma(\alpha_i) = \alpha_i$ dann folgt schon $\sigma = \id$. 
             \item Die Operation $G \actson A$ ist \emph{transitiv}, d.h. für
@@ -4495,7 +4498,7 @@ Wir illustrieren dies am Beispiel der transitiven Untergruppe
     A_n \le S_n.
 \]
 
-\begin{defi}
+\begin{defi}\index{Polynom!Diskriminante}
     \label{defi:diskriminante}
     Sei $K$ ein Körper und $f \in K[X]$ ein irreduzibles separables Polynom vom Grad $n$. Sei $E$ der Zerfällungskörper von $f$, so dass also
     \[
@@ -4582,7 +4585,7 @@ Operation (!) von $S_n$ via Ringhomomorphismen auf dem Polynomring $K[X_1, ..., 
 \begin{equation}\label{eq:snwirkung}
         (\sigma.f)(X_1, ..., X_n) = f(X_{\sigma^{-1}(1)},..., X_{\sigma^{-1}(n)}), \quad \text{, $\sigma \in S_n$, $f \in K[X_1,...,X_n]$.}
 \end{equation}
-Die Fixpunkte dieser Wirkung heißen \emph{symmetrische Polynome}.
+Die Fixpunkte dieser Wirkung heißen \emph{symmetrische Polynome}.\index{Symmetrische Polynome!Definition}
 
 \begin{exa}
     \label{exa:sym}
@@ -4609,7 +4612,7 @@ $1 \le j n$:
     e_j(X_1,...,X_n) \in K[X_1, ..., X_n]^{S_n}.
 \]
 
-\begin{defi}
+\begin{defi}\index{Symmetrische Polynome!elementarsymmetrische Polynome}
     \label{defi:elsym}
     Die Polynome $e_j(X_1, ..., X_n)$, $j = 1, ..., n$, heißen die {\em elementar symmetrischen Polynome}. Es gilt explizit:
     \begin{align*}
@@ -4620,7 +4623,7 @@ $1 \le j n$:
     \end{align*}
 \end{defi}
 
-\begin{thm}[Hauptsatz über symmetrische Polynome]
+\begin{thm}[Hauptsatz über symmetrische Polynome]\index{Hauptsatz über symmetrische Polynome}
     \label{thm:elsym}
     Der Einsetzungshomomorphismus 
     \[
@@ -4750,7 +4753,7 @@ $1 \le j n$:
 \end{rem}
 
 
-\begin{rem}
+\begin{rem}\index{Allgemeine Gleichung $n$-ten Grades!Definition}
     \label{rem:allgemein}
     Die Galoiserweiterung aus Korollar \ref{cor:allgemein} lässt sich wegen dem
     Hauptsatz über symmetrische Polynome beschreiben als
@@ -4836,7 +4839,7 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
         \]
 \end{proof}
 
-\begin{term}
+\begin{term}\index{Primitive $n$-te Einheitswurzel!Definition}
     \label{term:primew}
     Ein Erzeuger $\zeta$ der Gruppe $\mu_n(K)$ heißt {\em primitive $n$te Einheitswurzel in $K$}, falls $\zeta$ Ordnung $n$ hat. 
 \end{term}
@@ -4865,6 +4868,7 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
     $k$ eine Einheit in $\ZZ/n\ZZ$ ist. 
 \end{proof}
 
+\index{Kreisteilungspolynom!Definition}
 Sei $n \ge 1$ und sei $L/\QQ$ der Zerfällungskörper des Polynoms $X^n -1$. Da $G(L/\QQ)$ die
 primitiven $n$-ten Einheitswurzeln permutiert, gilt
 \[
@@ -4882,10 +4886,11 @@ Für eine Primzahl $p$ gilt ist jede $p$-te Einheitswurzel $\zeta \ne 1$ primiti
 \[
 	\Phi_p(X) = X^{p-1} + X^{p-2} + \dots + 1.
 \]
-Wir haben in den Übungen gesehen, dass dieses Polynom irreduzibel ist (Eisenstein Kriterium). Wir
+Wir haben in den Übungen gesehen, dass dieses Polynom irreduzibel ist (Eisenstein-Kriterium). Wir
 zeigen nun die folgende allgemeinere Aussage: 
 
-\begin{thm} Für jedes $n \ge 1$, ist das Kreisteilungspolynom $\Phi_n(X) \in \QQ[X]$ irreduzibel. 
+\begin{thm}\index{Kreisteilungspolynom!Irreduzibilität}
+Für jedes $n \ge 1$, ist das Kreisteilungspolynom $\Phi_n(X) \in \QQ[X]$ irreduzibel. 
 \end{thm}
 \begin{proof}
 	Nach dem Gauß-Lemma genügt es zu zeigen, dass $\Phi_n(X)$ irreduzibel in $\ZZ[X]$ ist. Sei
@@ -4947,7 +4952,7 @@ zeigen nun die folgende allgemeinere Aussage:
 	Einheitswurzel für $d = \ord(\xi)$ und es gilt $d|n$. 
 \end{proof}
 
-\begin{exa}
+\begin{exa}\index{Kreisteilungspolynom!Algorithmus}
 	Mit Formel \eqref{eq:primefactor} aus Korollar \ref{cor:factor} können wir die
 	Kreisteilungspolynome rekursiv durch Polynomdivision berechnen. Die ersten Polynome sind:
 	\[
@@ -5084,7 +5089,7 @@ und seinen Zerfällungskörper $L$.
     Die Galoisgruppe ist eine Untergruppe einer endlichen zyklischen Gruppe, also selbst
     zyklisch (todo: include proof!)
 \end{proof}
-
+\red{include proof}
 \begin{thm}
     \label{thm:radikalzyklisch}
     Sei $n \ge 1$, $M$ ein Körper mit $\charac(M) \nmid n$, der eine primitive
@@ -5115,7 +5120,7 @@ und seinen Zerfällungskörper $L$.
     also $L = M(\alpha)$ so dass $L$ also der Zerfällungskörper von $X^n - b$ ist. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Radikalerweiterung!Definition}
     \label{defi:radikal}
     Sei $K$ ein Körper. 
     \begin{enumerate}
@@ -5169,7 +5174,7 @@ und seinen Zerfällungskörper $L$.
 \section{Auflösbarkeit}%
 \label{sec:auflosbarkeit}
 
-\begin{defi}
+\begin{defi}\index{Gruppe!Auflösbarkeit}
     \label{defi:auflösbar}
     Eine endliche Gruppe $G$ heißt auflösbar, falls es eine Kette 
     \begin{equation}\label{eq:kette}
@@ -5201,6 +5206,7 @@ und seinen Zerfällungskörper $L$.
     \end{enumerate}
 \end{exas}
 
+\index{Untergruppe!Kommutator}
 Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
 \[
     [G,G] := \{aba^{-1}b^{-1} | a,b \in G\} \le G. 
@@ -5221,7 +5227,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     = \{1\}$. Doch daraus folgt $[G,G] \subset \Kern(\pi) = U_{n-1} \lneq G$. 
 \end{proof}
 
-\begin{thm}
+\begin{thm}\index{Symmetrische Gruppe!Alternierende Gruppe!Auflösbarkeit}
     \label{thm:annot}
     Sei $n \ge 5$. Dann ist die alternierende Gruppe $A_n$ nicht auflösbar. 
 \end{thm}
@@ -5300,7 +5306,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     auflösbar ist. 
 \end{proof}
 
-\begin{defi}
+\begin{defi}\index{Radikalerweiterung!Radikalauflösbarkeit}
     \label{defi:radikaleauf}
         Sei $f \in K[X]$ ein Polynom. Wir sagen $f$ ist {\em durch
         Radikale auflösbar}, wenn es eine Radikalerweiterung $L/K$ gibt, so
@@ -5392,9 +5398,9 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     so dass also $E(\zeta)/K$ eine Radikalerweiterung ist und somit $f$ durch Radikale auflösbar. 
 \end{proof}
 
-\begin{cor}
+\begin{cor}\index{Unlösbarkeit des Kreisteilungsproblems}
     \label{cor:allg}
-    Für $n \ge 5$ ist das allgemeine Polynom $n$ten Grades aus Bemerkung
+    Für $n \ge 5$ ist das allgemeine Polynom $n$-ten Grades aus Bemerkung
     \ref{rem:allgemein} nicht durch Radikale auflösbar. 
 \end{cor}
 \begin{proof}
