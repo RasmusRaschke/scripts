@@ -55,7 +55,7 @@
     \[
         \circ: G \times G \to G, (g,h) \mapsto g \circ h, 
     \]
-    mit der folgenden Eigenschaften: 
+    mit den folgenden Eigenschaften: 
     \begin{enumerate}[label=(G\arabic*)]
         \item\label{it:g1} Für alle $g_1,g_2,g_3 \in G$ gilt: $(g_1 \circ g_2) \circ g_3 = g_1 \circ (g_2 \circ g_3)$
         \item\label{it:g2} Es gibt ein Element $e \in G$, so dass gelten:
@@ -64,10 +64,10 @@
         \item\label{it:g22} Für jedes $g \in G$ existiert $g' \in G$, so dass $g' \circ g = e$. 
     \end{enumerate}
     \end{enumerate}     
-    Dabei verwenden wir folgende Terminologie: Die Abbildung $\circ$ heisst
+    Dabei verwenden wir folgende Terminologie: Die Abbildung $\circ$ heißt
     {\em Verknüpfung}, ein Element $e$ mit den aufgeführten Eigenschaften
-    heisst {\em neutrales Element}, und ein Element $g'$ zu gegebenem $g \in G$
-    heisst {\em Inverses von $g$}.
+    heißt {\em neutrales Element}, und ein Element $g'$ zu gegebenem $g \in G$
+    heißt {\em Inverses von $g$}.
 \end{defi}
 
 \begin{prob}\label{prob:gruppe} Sei $(G,\circ)$ eine Gruppe. Beweise die folgenden Aussagen:
@@ -80,16 +80,16 @@
 
 \begin{exas} 
     \begin{enumerate}
-        \item Die Gruppe $(\ZZ,+)$ der ganzen Zahlen mit Addition.
-        \item Für jeden Körper $K$, die additive Gruppe $(K,+)$ und die multiplikative Gruppe $(K^*, \cdot)$, wobei $K^* := K \setminus \{0\}$. 
-        \item Für jede Menge $M$, die symmetrische Gruppe $(S_M, \circ)$\index{Symmetrische Gruppe!Definition} wobei $S_M$ die
+        \item Die Gruppe $(\ZZ,+)$ der ganzen Zahlen mit Addition bildet eine Gruppe.
+        \item Für jeden Körper $K$ existiert die additive Gruppe $(K,+)$ und die multiplikative Gruppe $(K^*, \cdot)$, wobei $K^* := K \setminus \{0\}$. 
+        \item Für jede Menge $M$ definiert man die symmetrische Gruppe $(S_M, \circ)$\index{Symmetrische Gruppe!Definition}, wobei $S_M$ die
             Menge der bijektiven Selbstabbildungen ist und $\circ$ die
             Kompositionsabbildung. Zudem legen wir auch die Notation
             \[
                 S_n := S_{\{1,2,...,n\}}
             \]
             fest. 
-        \item Für $n \ge 1$ und jeden Körper $K$, die allgemeine lineare Gruppe $(\GL(n,K), \circ)$\index{Allgemeine Lineare Gruppe!Definition} wobei
+        \item Für $n \ge 1$ und jeden Körper $K$ definieren wir die allgemeine lineare Gruppe $(\GL(n,K), \circ)$\index{Allgemeine Lineare Gruppe!Definition}, wobei
             \[
                 \GL(n,K) := \{ A \in K^{n \times n} \; | \; \det(A) \neq 0 \}
             \]
@@ -98,14 +98,14 @@
     \end{enumerate}
 \end{exas}
 
-Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir üblicherweise folgende Konventionen:
+Um uns die alltägliche Arbeit mit Gruppen zu erleichtern, verwenden wir üblicherweise folgende Konventionen:
 \begin{enumerate}
     \item Wir bezeichnen eine Gruppe $(G, \circ)$ oft einfach mit $G$ und lassen die Verknüpfung implizit. 
     \item Für $g,h \in G$ schreiben wir $gh$ statt $g \circ h$, schreiben $1$
         für das neutrale Element $e$, und schliesslich $g^{-1}$ für das
         Inverse. 
-    \item Falls für alle $g,h \in G$ gilt: $gh = hg$ dann heisst die Gruppe
-        {\em abelsch}. Um diese Eigenschaft implizit hervorzuheben verwenden
+    \item Falls für alle $g,h \in G$ gilt: $gh = hg$, dann heißt die Gruppe
+        {\em abelsch}. Um diese Eigenschaft implizit hervorzuheben, verwenden
         wir für abelsche Gruppen oft das Additionssymbol $+$ für die
         Verknüpfung, $0$ für das neutrale Element, sowie $-g$ für das Inverse
         eines Elements $g \in G$. 
@@ -123,18 +123,18 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
 \label{sec:untergruppen}
 
 \begin{defi}\index{Untergruppe!Definition}
-    Sei $(G,\circ)$ eine Gruppe. Eine Teilmenge $H \subset G$ heisst {\em Untergruppe von $(G,\circ)$}, falls gelten 
+    Sei $(G,\circ)$ eine Gruppe. Eine Teilmenge $H \subset G$ heißt {\em Untergruppe von $(G,\circ)$}, falls gelten 
     \begin{enumerate}[leftmargin=1.2cm,label=(U\arabic*)]
         \item\label{it:u1} $H \neq \emptyset$,
         \item\label{it:u2} für alle $a,b \in H$ gilt: $a b^{-1} \in H$. 
     \end{enumerate}
-    Wir verwenden die Notation $H \leq G$ um Untergruppen zu kennzeichnen.
+    Wir verwenden die Notation $H \leq G$, um Untergruppen zu kennzeichnen.
 \end{defi}
 
 \begin{prop}
     \label{prop:untergruppe}
     Sei $(G,\circ)$ eine Gruppe. Eine Teilmenge $H \subset G$ ist genau dann
-    eine Untergruppe von $(G,\circ)$, dann wenn die folgenden Bedingungen
+    eine Untergruppe von $(G,\circ)$, wenn die folgenden Bedingungen
     gelten:
     \begin{enumerate}[leftmargin=1.2cm,label=(U\arabic*')]
         \item\label{it:u1p} $1 \in H$, 
@@ -143,9 +143,9 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
     \end{enumerate}
 \end{prop}
 \begin{proof}
-    Falls \ref{it:u1p},\ref{it:u2p}, und \ref{it:u3p}, dann ist es klar, dass
+    Falls \ref{it:u1p},\ref{it:u2p}, und \ref{it:u3p} erfüllt sind, dann ist klar, dass
     \ref{it:u1} und \ref{it:u2} gelten, so dass $H \leq G$ eine Untergruppe
-    ist. Nehmen wir umgekehrt and, dass \ref{it:u1} und \ref{it:u2} gelten.
+    ist. Nehmen wir umgekehrt an, dass \ref{it:u1} und \ref{it:u2} gelten.
     Dann existiert wegen \ref{it:u1} ein Element $a \in H$. Wegen \ref{it:u2} ist damit
     \[
         1 = a a^{-1} \in H
@@ -153,7 +153,7 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
     also gilt \ref{it:u1p}. Für gegebenes $a \in H$ gilt, wiederum wegen
     \ref{it:u2}, für das Inverse
     \[
-        a^{-1} = 1 a^{-1} \in H
+        a^{-1} = 1 a^{-1} \in H,
     \]
     so dass also \ref{it:u2p} gilt. Schliesslich gilt damit auch \ref{it:u3p},
     denn für $a,b \in H$ gilt zunächst $b^{-1} \in H$ und dann auch
@@ -179,7 +179,7 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
 \label{exas:untergruppen}
     \begin{enumerate}
         \item Die Teilmenge $\ZZ \subset \RR$ ist eine Untergruppe von $(\RR,+)$. 
-        \item Für $n \ge 1$ und $K$ Körper, definieren die folgenden Teilmengen Untergruppen von $(\GL(n,K), \circ)$:
+        \item Für $n \ge 1$ und einen Körper $K$ definieren die folgenden Teilmengen Untergruppen von $(\GL(n,K), \circ)$:
             \begin{enumerate}
                 \item $\SL(n,K) := \{A \in \GL(n,K)\;  | \; \det(A) = 1 \} \leq \GL(n,K)$, genannt {\em spezielle lineare Gruppe}\index{Spezielle Lineare Gruppe!Definition},
                 \item $\O(n,K) := \{A \in \GL(n,K)\; | \; A^TA = I_n \} \leq \GL(n,K)$, genannt {\em orthogonale Gruppe}\index{Orthogonale Gruppe!Definition}.
@@ -187,7 +187,7 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
         \item Sei $G$ eine Gruppe und $\{H_i\}_{i \in I}$ eine Familie von Untergruppen $H_i
             \leq G$, indiziert durch die (möglicherweise unendliche) Indexmenge $I$. Dann ist
             \[
-                \cap_{i \in I} H_i \leq G
+                \bigcap_{i \in I} H_i \leq G
             \]
             eine Untergruppe. 
         \item Für $n \ge 1$ und $K$ Körper, ist 
@@ -201,7 +201,7 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern verwenden wir übliche
 
 \begin{defi}\index{Untergruppe!Erzeugnis}
 \label{defi:erzeugte} 
-Sei $G$ eine Gruppe und $M \subset G$ eine Teilmenge. Dann heisst die
+Sei $G$ eine Gruppe und $M \subset G$ eine Teilmenge. Dann heißt die
 Untergruppe
 \[
     \langle M \rangle := \bigcap_{M \subset H \leq G} H
@@ -217,7 +217,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \[
         \ord(g) := | \langle g \rangle |
     \]
-    der von $\{g\}$ erzeugten Untergruppe von $G$ heisst die {\em Ordnung von $g$}. 
+    der von $\{g\}$ erzeugten Untergruppe von $G$ heißt die {\em Ordnung von $g$}. 
 \end{defi}
 
 
@@ -249,11 +249,11 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     müssen. 
 
     Um \ref{ordnung:a} zu zeigen, sei nun $\ord(g) < \infty$. Dann gibt es
-    insbesondere $i \neq j$ so dass $g^i = g^j$. Sei ohne Einschränkung $i >
+    insbesondere $i \neq j$, so dass $g^i = g^j$. Sei ohne Einschränkung $i >
     j$, dann ist also $k = i-j \geq 1$ eine natürliche Zahl mit $g^k = 1$. Nach
     dem Wohlordnungssatz existiert eine kleinste natürliche Zahl $n$, für die
-    gilt $n \geq 1 $ und $g^n = 1$. Sei nun $m \in \ZZ$. Dann gibt es eindeutig bestimmte
-    Zahlen $a \in \ZZ$ un $0 \leq r < n$ so dass gilt
+    $n \geq 1 $ und $g^n = 1$ gilt. Sei nun $m \in \ZZ$. Dann gibt es eindeutig bestimmte
+    Zahlen $a \in \ZZ$ und $0 \leq r < n$ so dass gilt
     \[
         m = a n + r.
     \]
@@ -284,7 +284,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \[
         \phi: G \to G'
     \]
-    heißt {\em Homomorphismus} falls:
+    heißt {\em Homomorphismus}, falls:
     \begin{enumerate}[leftmargin=1.2cm, label=(H\arabic*), series=hom]
         \item\label{it:H1} Für alle $g,h \in G$ gilt: $\phi(gh) = \phi(g)\phi(h)$.
     \end{enumerate}
@@ -364,7 +364,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             Permutationsmatrizen ist, nämlich die Teilmenge der Matrizen, für
             die in jeder Zeile und Spalte genau ein Eintrag $1$ ist und alle
             anderen Einträge $0$. 
-        \item Die Exponentialfunktion \index{Exponentialfunktion}
+        \item Die Exponentialfunktion \index{Exponentialabbildung}
             \[
                 \exp: \RR \to \RR_{>0}, x \mapsto \exp(x)
             \]
@@ -372,7 +372,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             der Gruppe $(\RR_{>0},\cdot)$ der positiven reellen Zahlen mit
             Multiplikation. Das Inverse von $\exp$ ist der natürliche Logarithmus\index{Logarithmusabbildung}
             \[
-                \ln: \RR_{>0} \to \RR, x \mapsto \ln(x)
+                \ln: \RR_{>0} \to \RR, x \mapsto \ln(x),
             \]
             der nach Aufgabe \ref{prob:iso} auch ein Isomorphismus ist. 
     \end{enumerate}
@@ -402,7 +402,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \label{prop:kerninj}
     Sei $\phi: G \to G'$ ein Homomorphismus von Gruppen. Dann sind äquivalent:
     \begin{enumerate}[label=(\roman*)]
-        \item\label{kerninj:it:1} $\phi$ injektiv. 
+        \item\label{kerninj:it:1} $\phi$ ist injektiv. 
         \item\label{kerninj:it:2} $\Kern(\phi) = \{1 \}$. 
     \end{enumerate}
 \end{prop}
@@ -488,7 +488,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 
 \begin{rem}
     \label{rem:normal}
-    Eine Untergruppe $N \le G$ ist normal, genau dann wenn
+    Eine Untergruppe $N \le G$ ist genau dann normal, wenn
     \begin{enumerate}[label=(N\arabic*),leftmargin=1.2cm]
         \item\label{it:normal} für alle $g \in G$ und $h \in N$ gilt: $ghg^{-1} \in N$, 
     \end{enumerate}
@@ -540,7 +540,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \[
                 A_n := \Kern(\sign) \no S_n,
             \]
-            genannt, die \emph{alternierende Gruppe}\index{Symmetrische Gruppe!Alternierende Gruppe}.
+            genannt die \emph{alternierende Gruppe}\index{Symmetrische Gruppe!Alternierende Gruppe}.
     \end{enumerate}
 \end{exas}
 
@@ -563,16 +563,18 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     Um \ref{it:quot1} zu zeigen, müssen wir zunächst nachweisen, dass die
     Verknüpfungsabbildung wohldefiniert ist. Seien also $\tilde{a} \in aN$ and
     $\tilde{b} \in bN$ beliebige Vertreter der Nebenklasse $aN$ respektive
-    $bN$. Dann gibt es also $m,n \in N$ mit $\tilde{a} = am$ und $\tilde{b} = bn$. Wir rechnen
+    $bN$. Dann gibt es also $m,n \in N$ mit $\tilde{a} = am$ und $\tilde{b} = bn$. Wir rechnen:
     \begin{align*}
         \tilde{a} \tilde{b} & = am bn\\
                             & = ab (b^{-1} m b) n,
     \end{align*}
     also ein Element von $ab N$, denn da $N$ normal ist, gilt $b^{-1} m b \in
-    N$. Damit ist also $\tilde{a} \tilde{b}$ ein Vertreter der Nebenklasse $ab
+    N$. 
+    \\ \red{Im vorigen Satz scheint etwas zu fehlen. Ist $\tilde{a}\tilde{b}\in abN$ gemeint?}\index{ToDo!Korrektur1}\\
+    Damit ist also $\tilde{a} \tilde{b}$ ein Vertreter der Nebenklasse $ab
     N$, so dass also 
     \[
-        \tilde{a} \tilde{b} N = ab N
+        \tilde{a} \tilde{b} N = ab N,
     \]
     womit gezeigt ist, dass die Abbildungsvorschrift \eqref{eq:verknuepfung}
     also unabhängig von der Vertreterwahl ist. Alle Gruppenaxiome für $G/N$
@@ -588,7 +590,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \]
     so dass $\pi$ also ein Homomorphismus ist. Desweiteren gilt für $a \in G$
     \[
-        \pi(a) = N \equ a N = N \equ a \in N 
+        \pi(a) = N \equ a N = N \equ a \in N,
     \]
     also $\Kern(\pi) = N$. 
 \end{proof}
@@ -614,9 +616,9 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \]
     wobei 
     \begin{enumerate}[label=\arabic*.]
-        \item $\pi: G \twoheadrightarrow G/ \Kern(\phi)$ ist der (surjektive) Quotientenhomomorphismus,
-        \item $\overline{\phi}: G/ \Kern(\phi) \to \Bild(\phi)$ ist der Isomorphismus aus Satz \ref{thm:homsatz}, 
-        \item und $\iota: \Bild(\phi) \hra G'$ ist die (injektive) Einbettung des Bildes von $\phi$.
+        \item $\pi: G \twoheadrightarrow G/ \Kern(\phi)$ der (surjektive) Quotientenhomomorphismus ist,
+        \item $\overline{\phi}: G/ \Kern(\phi) \to \Bild(\phi)$ der Isomorphismus aus Satz \ref{thm:homsatz} ist, 
+        \item und $\iota: \Bild(\phi) \hra G'$ die (injektive) Einbettung des Bildes von $\phi$ ist.
     \end{enumerate}
     In anderen Worten kommutiert das Quadrat
     \[
@@ -630,7 +632,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
 \begin{exas}
     \label{exas:homsatz}
     \begin{enumerate}
-        \item Für $n \ge 1$ und $K$ Körper, induziert der Homomorphismus 
+        \item Für $n \ge 1$ und einen Körper $K$ induziert der Homomorphismus 
             \[
                 \det: \GL(n,K) \to K^*
             \]
@@ -679,7 +681,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
         \item für alle $g, h \in G$ und $x \in M$ gilt: $(gh).x = g.(h.x)$.
         \item für alle $x \in M$ gilt: $1.x = x$. 
     \end{enumerate}
-    Wir sagen $G$ operiert auf $M$ und schreiben $G \actson M$. 
+    Wir sagen, $G$ operiert auf $M$ und schreiben $G \actson M$. 
 \end{defi}
 
 \begin{exas}
@@ -693,7 +695,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \[
                 G \times G \to G, \; (g,h) \mapsto ghg^{-1}.
             \]
-        \item \index{Nebenklassen!Wirkung}Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Dann Operiert
+        \item \index{Nebenklassen!Wirkung}Sei $G$ eine Gruppe und $H \le G$ eine Untergruppe. Dann operiert
             $G$ auf der Menge $G/H$ von Linksnebenklassen via
             \[
                 G \times G/H \to G/H, \; (g', gH) \mapsto g'gH.
@@ -715,13 +717,13 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \[
         \phi: M \to N
     \]
-    von Mengen heißt \emph{$G$-äquivariant}, falls für alle $g \in G$ und $x
+    von Mengen \emph{$G$-äquivariant}, falls für alle $g \in G$ und $x
     \in M$ gilt: $\phi(g.x) = g. \phi(x)$. 
 \end{defi}
 
 \begin{term}
     \label{term:ops}
-    Gegeben sei eine Operation $G \actson M$ einer Gruppe $G$ auf der Menge $M$. 
+    Gegeben sei eine Operation $G \actson M$ einer Gruppe $G$ auf einer Menge $M$. 
     \begin{enumerate}
         \item \index{Wirkung!Bahn}Die Relation 
             \[
@@ -729,7 +731,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \]
             definiert eine Äquivalenzrelation auf $M$. Die Äquivalenzklassen sind die Mengen der Form
             \[
-                G.x = \{ g.x\; |\; g \in G \} \subset M
+                G.x = \{ g.x\; |\; g \in G \} \subset M,
             \]
             genannt \emph{Bahn von $x$ unter $G$}. Die Quotientenmenge 
             \[
@@ -777,7 +779,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     Sei $G \actson M$ mit $|M| < \infty$. Dann gilt 
     \begin{equation}
         \label{eq:class1}
-        |M| = \sum_{G.x\; \in\; \mfaktor{G}{M}}  (G:G_x)
+        |M| = \sum_{G.x\; \in\; \mfaktor{G}{M}}  (G:G_x),
     \end{equation}
     wobei die Summe durch ein Repräsentantensystem von $\mfaktor{G}{M}$ indiziert ist. 
 \end{cor}
@@ -803,7 +805,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \[
         G \times G \to G,\; (g,x) \mapsto gxg^{-1}
     \]
-    die Wirkung durch Konjugation. Da das Beispiel dieser Gruppenwirkung
+    durch Konjugation. Da das Beispiel dieser Gruppenwirkung
     besonders wichtig ist, führen wir spezielle Terminologie ein:
     \begin{enumerate}
         \item \index{Konjugation!Konjugationsklasse}Für $x \in G$ heißt die Bahn
@@ -863,11 +865,11 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \[
         \langle\{(12)(34),(13)(24)\}\rangle
     \]
-    hat Ordnung $4$, wobei gilt $(12)(34)\circ(13)(24) = (14)(23)$ so dass
+    hat Ordnung $4$, wobei gilt $(12)(34)\circ(13)(24) = (14)(23)$, so dass
     diese Gruppe also alle Elemente der Ordnung $2$ enthält. Daher muss dies
     die einzige Untergruppe der Ordnung $4$ sein. Wir werden später mittels der
     Klassengleichung zeigen, dass es keine Untergruppen der Ordnung $6$ gibt,
-    so dass dies also alle Untergruppen sind (cf. Abbildung \ref{fig:latticea4}).
+    so dass dies also alle Untergruppen sind (vgl. Abbildung \ref{fig:latticea4}).
     \begin{figure}[htpb]
         \centering
         \small
@@ -882,11 +884,11 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
         \label{fig:latticea4}
     \end{figure}
 
-    Ganz allgemein gilt für eine Permutation $\sigma \in S_n$ und einen Zykel $(a_1 a_2 ... a_k) \in S_n$ die Formel
+    Ganz allgemein gilt für eine Permutation $\sigma \in S_n$ und einen Zykel $(a_1 a_2 \cdots a_k) \in S_n$ die Formel
     \[
         \sigma \circ (a_1 a_2 ... a_k) \circ \sigma^{-1} = (\sigma(a_1) \sigma(a_2) ... \sigma(a_k)).
     \]
-    Dies hilft bei der Berechung der Konjugationsklassen, welche neben dem Zentrum $\Z(G) = \{1\}$ gegeben sind durch
+    Dies hilft bei der Berechnung der Konjugationsklassen, welche neben dem Zentrum $\Z(G) = \{1\}$ gegeben sind durch
     \[
         \{(12)(34),(13)(24),(14)(23)\}
     \]
@@ -904,7 +906,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \]
     Wir können nun folgern, dass es keine Untergruppen der Ordnung $6$ in $A_4$
     geben kann: Als Untergruppen der Ordnung $2$ wären diese nämlich normal,
-    also Vereinigung von Konjugationsklassen. Doch dann müsste sich $6$ als
+    also Vereinigungen von Konjugationsklassen. Doch dann müsste sich $6$ als
     eine Summe von Summanden der Klassengleichung schreiben lassen, was nicht
     der Fall ist. 
 \end{exa}
@@ -942,7 +944,7 @@ sowie den \emph{Euklidischen Abstand}
 \begin{exas}
     \label{exas:bewegungen}
     \begin{enumerate}
-        \item \index{Translation!Definition}Für jeder $b \in \RR^n$ definiert die Translation
+        \item \index{Translation!Definition}Für jedes $b \in \RR^n$ definiert die Translation
             \[
                 \tau_b: \RR^n \to \RR^n, \; v \mapsto v + b
             \]
@@ -959,7 +961,7 @@ sowie den \emph{Euklidischen Abstand}
             \begin{align*}
                 \sk{Av,Aw} &= (Av)^TAw \\
                            &= v^T A^T A w\\
-                           &= v^T w = \sk{v,w}
+                           &= v^T w = \sk{v,w},
             \end{align*}
             so dass $\mu_A$ also das Skalarprodukt erhält. Damit gilt dann auch weiterhin
             \begin{align*}
@@ -1000,7 +1002,7 @@ sowie den \emph{Euklidischen Abstand}
         =
         \sk{v,v}
         -2\sk{v,w}
-        \sk{w,w}
+        \sk{w,w},
     \]
     woraus mit \eqref{eq:Tpresnorm} folgt:
     \begin{equation}
@@ -1013,16 +1015,16 @@ sowie den \emph{Euklidischen Abstand}
 
     Für $v \in \RR^n$ gilt dann nämlich für $1 \le i \le n$: 
     \[
-        (T(v))_i = \sk{T(v), e_i} = \sk{T(v),T(e_i)} = \sk{v,e_i} = v_i
+        (T(v))_i = \sk{T(v), e_i} = \sk{T(v),T(e_i)} = \sk{v,e_i} = v_i,
     \]
     also $T(v) = v$. 
 
     \noindent
     \emph{Schritt 3.} Sei nun wieder $T$ allgemein mit $T(0) = 0$. Wir setzen 
     \[
-        A := \left(T(e_1), T(e_2), ..., T(e_n)\right) \in \RR^{n \times n}
+        A := \left(T(e_1), T(e_2), \dots, T(e_n)\right) \in \RR^{n \times n},
     \]
-    die Matrix mit den Spalten $T(e_i)$, $1 \le i \le n$. Wegen
+    $T$ ist also die Matrix mit den Spalten $T(e_i)$, $1 \le i \le n$. Wegen
     \[
         \sk{T(e_i),T(e_j)} = \sk{e_i,e_j}
     \]
@@ -1142,7 +1144,7 @@ sowie den \emph{Euklidischen Abstand}
     \label{exa:e2}
     Aus elementargeometrischen Überlegungen erhalten wir, dass sich jede Matrix $A \in \O(2)$ schreiben lässt als
     \[
-        \mat{ \epsilon & 0 \\ 0 & 1} \mat{ \cos \theta & - \sin \theta\\ \sin \theta & \cos \theta }
+        \mat{ \epsilon & 0 \\ 0 & 1} \mat{ \cos \theta & - \sin \theta\\ \sin \theta & \cos \theta },
     \]
     wobei $\epsilon = \det(A) \in \{\pm 1\}$ und $\theta \in \RR/2\pi \ZZ$.
     Daraus resultiert, dass sich jede Bewegung $T \in E(2)$ als Komposition von
@@ -1178,7 +1180,7 @@ sowie den \emph{Euklidischen Abstand}
                      & = - \det(A-I).
     \end{align}
     Daher folgt $\det(A-I) = 0$. Also ist $1$ eine Nullstelle des
-    charakteristischen Polynoms von $A$ so dass es also einen Eigenvektor $v
+    charakteristischen Polynoms von $A$, so dass es also einen Eigenvektor $v
     \ne 0$ zum Eigenwert $1$ gibt, also 
     \[
         A v = v.
@@ -1188,7 +1190,7 @@ sowie den \emph{Euklidischen Abstand}
         D_{B}(\mu_A) = \mat{ 1 & 0\\
         0 & A' }
     \]
-    von $\mu_A$ bezüglich $B$ eine Blockdiagonal matrix mit $A' \in
+    von $\mu_A$ bezüglich $B$ eine Blockdiagonalmatrix mit $A' \in
     \SO(2,\RR)$. Dies folgt direkt aus $\mu_A(v) = v$ zusammen mit der
     Tatsache, dass das Bild von $B$ unter $\mu_A$ wieder eine Orthonormalbasis
     ist. Nach Beispiel \ref{exa:e2} hat damit $D_B(\mu_A)$ also die behauptete Gestalt.
@@ -1219,7 +1221,7 @@ zunächst einige fundamentale Figuren ein.
 \begin{exas} \index{Konvexität!Definition}
     \label{exas:figuren}
     Eine Teilmenge $K$ von $\RR^n$ heißt {\em konvex}, falls folgende Bedingung
-    erfüllt ist: für $x,y \in K$ und $t \in [0,1]$ gilt $t x + (1-t) y \in K$. 
+    erfüllt ist: Für $x,y \in K$ und $t \in [0,1]$ gilt $t x + (1-t) y \in K$. 
     Also: $K$ enthält mit jedem Paar von Punkten $x,y \in K$ auch das
     Geradensegment zwischen $x$ und $y$. Es folgt sofort aus der Definition,
     dass beliebige Schnitte von konvexen Teilmengen von $\RR^n$ konvex sind.
@@ -1242,6 +1244,7 @@ zunächst einige fundamentale Figuren ein.
             \[
                 Z_n = \{\{\mat{ p \\ t } \; |\; p \in R_n ,\; -1 \le t \le 1 \}.
             \]
+            \red{Auf die Gefahr hin, die Diskussion aus der Vorlesung hervorzubringen: Ist das in der allgemeinen Vorstellung nicht eher ein reguläres Prisma?}\index{ToDo!Anmerkung1}
         \item Desweiteren definieren wir den {\em Tetraeder}
             \[
                 T = \Konv(\{(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)\}),
@@ -1290,7 +1293,7 @@ zunächst einige fundamentale Figuren ein.
 \end{prop}
 \begin{proof}
     Wir berechnen für jede der Figuren $F$ zunächst die Kardinalität von
-    ${\SO}(F)$ indem wir die transitive Operation auf der Menge der
+    ${\SO}(F)$, indem wir die transitive Operation auf der Menge der
     Randflächen (für $P_n$ ohne die Grundfläche) betrachten. Da der
     Stabilisator einer Fläche $f$ jeweils die zyklische Gruppe von
     Drehsymmetrien einer fest gewählten Randfläche ist, ergeben sich mit der
@@ -1300,7 +1303,7 @@ zunächst einige fundamentale Figuren ein.
     \] jeweils: 
     \begin{enumerate}
         \item $|{\SO}(P_n)| = n * 1 = n$.
-        \item $|{\SO}(Z_n)| = 2n * 1 = 2n$.
+        \item $|{\SO}(Z_n)| = 2n * 1 = 2n$. \red{Das macht zwar am Ende keinen Unterschied mehr, aber hier müsste, der obigen Erklärung folgend, $n*2$ stehen, oder? Wir haben $n$ rechteckige Randflächen, die eine $180^\circ$-Drehsymmetrie besitzen, also sind zwei Elemente im Stabilisator.}\index{ToDo!Korrektur2}
         \item $|{\SO}(T)| = 4 * 3 = 12$.
         \item $|{\SO}(W)| = 6 * 4 = 24 = 8 * 3 = |{\SO}(O)|$.
         \item $|{\SO}(I)| = 20 * 3 = 60 = 12 * 5 = |{\SO}(D)|$.
@@ -1311,24 +1314,24 @@ zunächst einige fundamentale Figuren ein.
 
     Die Drehgruppe von $P_n$ enthält die Matrizen
     \[
-        \{ \mat{ \cos(\frac{2 \pi k}{n} ) & -\sin(\frac{2 \pi k}{n}) & 0\\
+        \left\{ \mat{ \cos(\frac{2 \pi k}{n} ) & -\sin(\frac{2 \pi k}{n}) & 0\\
          \sin(\frac{2 \pi k}{n}) & \cos(\frac{2 \pi k}{n}) & 0\\
-            0 & 0 & 1 } \; | \; 0 \le k < n \}
+            0 & 0 & 1 } \; | \; 0 \le k < n \right\}
     \]
     welche diese also aus Kardinalitätsgründen schon ausschöpfen müssen. Die
     Projektion auf den Drehblock dieser Matrix induziert den gewünschten
-    Isomorphismus mit $C_n$ realisiert als $2$-dimensionale Drehsymmetriegruppe
+    Isomorphismus mit $C_n$, realisiert als $2$-dimensionale Drehsymmetriegruppe
     des regulären $n$-gons $R_n \subset \RR^2$ aus Beispiel \ref{exas:figuren}.
 
     Die Drehgruppe von $Z_n$ enthält die Matrizen
     \[
-        \{ \mat{ \cos(\frac{2 \pi k}{n} ) & -\sin(\frac{2 \pi k}{n}) & 0\\
+        \left\{ \mat{ \cos(\frac{2 \pi k}{n} ) & -\sin(\frac{2 \pi k}{n}) & 0\\
          \epsilon \sin(\frac{2 \pi k}{n}) & \epsilon \cos(\frac{2 \pi k}{n}) & 0\\
-            0 & 0 & \epsilon } \; | \; 0 \le k < n, \epsilon \in \{\pm 1\} \}
+            0 & 0 & \epsilon } \; | \; 0 \le k < n, \epsilon \in \{\pm 1\} \right\},
     \]
     welche, wieder aus Kardinalitätsgründen, schon die volle Gruppe ausschöpfen. Die 
     Projektion auf den oberen Block dieser Matrix induziert den gewünschten
-    Isomorphismus mit $D_n$ realisiert als $2$-dimensionale {\em orthogonale}
+    Isomorphismus mit $D_n$, realisiert als $2$-dimensionale {\em orthogonale}
     (!) Symmetriegruppe des regulären $n$-gons $R_n \subset \RR^2$.
 
     Zur Untersuchung der verbleibenden Symmetriegruppen verwenden wir das
@@ -1337,9 +1340,9 @@ zunächst einige fundamentale Figuren ein.
     \[
         \phi: G \to S_M.
     \]
-    Die Abbildung $\phi$ ist desweiteren injektiv (also insbesondere ein
-    Isomorphismus auf ihr Bild), genau dann wenn die Wirkung der Gruppe {\em
-    treu} ist, wenn also für alle $g \in G$, die Implikation
+    Die Abbildung $\phi$ ist desweiteren genau dann injektiv (also insbesondere ein
+    Isomorphismus auf ihr Bild), wenn die Wirkung der Gruppe {\em
+    treu} ist, wenn also für alle $g \in G$ die Implikation
     \[
         \forall x \in M : g.x = x \quad \Rightarrow g = 1
     \]
@@ -1355,23 +1358,23 @@ zunächst einige fundamentale Figuren ein.
             \[
                 \{(\pm 1, \pm 1, \pm 1) \} \subset D
             \]
-            on $D$ konvex, ist auch $W \subset D$. Die weiteren Würfel in $D$ ergeben
+            in $D$ konvex ist, ist auch $W \subset D$. Die weiteren Würfel in $D$ ergeben
             sich als Elemente der Bahn von $W$ unter der Wirkung von
             $\SO(D)$ auf der Menge der Teilmengen von $D$. $12$ der $24$
             Drehsymmetrien dieses Würfels sind auch Symmetrien des umgebenden
             Dodekaeders und bilden genau den Stabilisator von $W$. Daher gibt
-            es nach Bahnformel also $5$ eingeschriebene Würfel in der Bahn von
+            es nach der Bahnformel also $5$ eingeschriebene Würfel in der Bahn von
             $W$.
     \end{itemize}
 
     Desweiteren gilt $\SO(W) \cong \SO(O)$ und $\SO(D) \cong \SO(I)$, denn
-    diese Polytope sind {\em dual} zu einander: Der Oktaeder lässt sich als
+    diese Polytope sind {\em dual} zueinander: Der Oktaeder lässt sich als
     konvexe Hüller der Menge der Schwerpunkte der Randflächen des Würfels
     beschreiben und umgekehrt bildet die konvexe Hülle der Schwerpunkte der
     Randflächen eines Oktaeders einen Würfel. Da jede Drehsymmetrie des Würfels
     die Randflächen permutiert (und Abstände erhält), werden auch die
-    Schwerpunkte ineinander übergeführt. Damit erhält die Drehsymmetrie also
-    auch die konvexe Hülle der Schwerpunkte so dass wir einen injektiven Homomorphismus
+    Schwerpunkte ineinander überführt. Damit erhält die Drehsymmetrie also
+    auch die konvexe Hülle der Schwerpunkte, so dass wir einen injektiven Homomorphismus
     \[
         \SO(W) \to \SO(O)
     \]
@@ -1409,7 +1412,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     gegen den Uhrzeigersinn um die Achse $v$ mit Winkel $\theta$. 
     Sei $\delta_{\theta}$ die Drehung um den kleinsten Winkel $0 < \theta < 2 \pi$ gegen den 
     Uhrzeigersinn um $v$, welche in $H$ enthalten ist. Wir zeigen zunächst $H =
-    \langle \delta_{\theta} \rangle$. Denn wenn dies nicht so wäre, dann gibt es $n \in
+    \langle \delta_{\theta} \rangle$. Denn wenn dies nicht so wäre, dann gäbe es $n \in
     \NN$ und $0 < \alpha < 2 \pi$, so dass $n \theta < \alpha < (n+1) \theta$
     und $\delta_{\alpha} \in H$. Doch dann folgt
     \[
@@ -1420,11 +1423,11 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
         \delta_{\alpha - n \theta} = \delta_{\alpha} \circ (\delta_{\theta}^n)^{-1} \in H
     \]
     doch dies steht im Widerspruch zur Minimalität von $\theta$. Nun folgt auch
-    direkt $\theta = \frac{2 \pi}{r}$ mit $r = |H|$, aus der Tatsache, minimal
+    direkt $\theta = \frac{2 \pi}{r}$ mit $r = |H|$, aus der Tatsache, dass $\theta$ minimal
     mit $\delta_{\theta}^r = 1$, $r > 0$ ist.  
 \end{proof}
 
-\begin{rem}
+\begin{rem}\index{Klassifikation von $\SO(2, \RR)$}
     \label{rem:klass2d}
     Indem wir die Gruppe der Drehmatrizen um die Achse
     \[
@@ -1437,8 +1440,8 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
 \end{rem}
 
 \begin{proof}[Beweis von Satz \ref{thm:klass3d}]
-    Falls $G = \{I\}$ dann terminiert die Klassifikation mit Fall
-    \ref{klass:1}, so dass wir also von nun an annehmen $N := |G| > 1$.
+    Falls $G = \{I\}$, dann terminiert die Klassifikation mit Fall
+    \ref{klass:1}, so dass wir also von nun an annehmen, dass $N := |G| > 1$.
 
     Wir führen zunachst etwas Terminologie für den Beweis ein: Nach Satz
     \ref{thm:so3} korrespondiert jede Matrix $I \neq A \in \SO(3,\RR)$ zu einer
@@ -1491,12 +1494,12 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     \end{equation}
     Aus \eqref{eq:doppelt1} und \eqref{eq:doppelt2} ergibt sich demnach die Identität
     \[
-        \sum_{G.p \in P} n_p(r_p - 1) = 2 (N-1)
+        \sum_{G.p \in P} n_p(r_p - 1) = 2 (N-1),
     \]
-    welche wir noch auf beiden Seiten durch $N$ teilen womit wir, unter Verwendung von \eqref{eq:bahnso3}, erhalten:
+    welche wir noch auf beiden Seiten durch $N$ teilen, womit wir, unter Verwendung von \eqref{eq:bahnso3}, erhalten:
     \begin{equation}
         \label{eq:ade}
-        \sum_{G.p \in G \backslash P} (1 - \frac{1}{r_p} ) = 2 - \frac{2}{N} 
+        \sum_{G.p \in G \backslash P} \left(1 - \frac{1}{r_p} \right) = 2 - \frac{2}{N} 
     \end{equation}
 
 
@@ -1529,12 +1532,12 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     der Gleichung ist echt kleiner als $2$. 
 
     \begin{enumerate}
-        \item Nehmen wir an es gibt genau eine Bahn. Dann ergibt \eqref{eq:ade} also
+        \item Nehmen wir an, es gibt genau eine Bahn. Dann ergibt \eqref{eq:ade} also
             \[
-                1 - \frac{1}{r} = 2 - \frac{2}{N}  
+                1 - \frac{1}{r} = 2 - \frac{2}{N},  
             \]
-            wobei also die linke Seite kleiner als $1$ ist und die rechte Seite größer oder gleich $1$. Widerspruch. Es muss also mindestens $2$ Bahnen geben.
-        \item Nehmen wir an es gibt genau $2$ Bahnen. Dann liest sich \eqref{eq:ade} als
+            wobei also die linke Seite kleiner als $1$ und die rechte Seite größer oder gleich $1$ ist. Widerspruch. Es muss also mindestens $2$ Bahnen geben.
+        \item Nehmen wir an, es gibt genau $2$ Bahnen. Dann liest sich \eqref{eq:ade} als
             \[
                 1 - \frac{1}{r_1} +  1 - \frac{1}{r_2} = 2 - \frac{2}{N}  
             \]
@@ -1545,15 +1548,15 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
             Da $r_i \le N$ folgt dann aber $r_1 = r_2 = N$. Daraus folgen nun natürlich $n_1 = n_2 = 1$, womit wir in Fall \ref{so3:I} sind.
         \item Nun bleibt also noch der Fall $|G \backslash P| = 3$. Hier erhalten wir aus \eqref{eq:ade}
             \[
-                1 - \frac{1}{r_1} +  1 - \frac{1}{r_2} + 1 - \frac{1}{r_3} = 2 - \frac{2}{N}  
+                1 - \frac{1}{r_1} +  1 - \frac{1}{r_2} + 1 - \frac{1}{r_3} = 2 - \frac{2}{N},  
             \]
             oder äquivalent
             \[
-                \frac{1}{r_1} + \frac{1}{r_2} + \frac{1}{r_3} - 1 = \frac{2}{N}
+                \frac{1}{r_1} + \frac{1}{r_2} + \frac{1}{r_3} - 1 = \frac{2}{N}.
             \]
-            Falls alle $r_i \ge 3$ dann ist die linke Seite kleiner oder gleich
+            Falls alle $r_i \ge 3$, dann ist die linke Seite kleiner oder gleich
             $0$, ein Widerspruch, also gibt es $1 \le i \le 3$ mit $r_i = 2$.
-            Wir nehmen o.E. an $r_1 \le r_2 \le r_3$, so dass dann also $r_1 =
+            Wir nehmen o.E. an: $r_1 \le r_2 \le r_3$, so dass dann also $r_1 =
             2$. Es folgt nun durch elementare Abschätzungen, dass die in \ref{so3:II}
             aufgelisteten Fälle tatsächlich die einzigen verbleibenden
             Möglichkeiten für $(r_1,r_2,r_3)$ und $N$ sind, so dass
@@ -1569,18 +1572,18 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     genauer.\\
 
     \noindent
-    \ref{so3:I} Es gibt es also zwei Bahnen die jeweils aus einem
+    \ref{so3:I} Es gibt es also zwei Bahnen, die jeweils aus einem
     Pol bestehen. Also gilt $P = \{p,-p\}$ und $G = G_p$. Demnach ist $G$ also
     eine endliche Untergruppe von Drehungen um die von $p$ erzeugten Achse,
     nach Lemma \ref{lem:rotcyc} also eine zyklische Gruppe erzeugt von der
     Drehung in $G$ um den kleinsten Winkel. Sei nun $C \in \SO(3,\RR)$ eine
-    Drehung welche den Standardbasisvektor $e_3$ von $\RR^3$ auf $p$ abbildet.
+    Drehung, welche den Standardbasisvektor $e_3$ von $\RR^3$ auf $p$ abbildet.
     Dann ist $C^{-1} G C$ die Drehgruppe der Pyraminde $P_N$.\\ 
 
     \noindent
     (II.1) Es gilt $n_3 = 2$, die zugehörige Bahn hat also zwei Pole
     $\{p,p'\}$. Da $p$ ein Pol ist, gibt es $I \ne A \in G$ mit $Ap = p$. Doch
-    dann gilt auch $Ap' = p'$ denn $A.-$ induziert eine bijektive
+    dann gilt auch $Ap' = p'$, denn $A.-$ induziert eine bijektive
     Selbstabbildung der Bahn $\{p,p'\}$. Also gilt $p' = -p$. Nach Lemma
     \ref{lem:rotcyc} ist $G_p$ eine zyklische Gruppe der Ordnung $|r|$,
     erzeugt von der Drehung $\delta$ um die von $p$ erzeugte Achse mit Winkel
@@ -1601,12 +1604,12 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     demnach wegen der Bahnformel transitiv. Da $G$ durch Bewegungen wirkt,
     müssen also die Skalarprodukte
     \[
-        \sk{p_1, p_2} = \sk{p_1, p_3} = \sk{p_1, p_4}.
+        \sk{p_1, p_2} = \sk{p_1, p_3} = \sk{p_1, p_4}
     \]
-    Nun können wir dieses Argument aber für jeden der Indizes $1 \le i \le 4$
+    erfüllen. Nun können wir dieses Argument aber für jeden der Indizes $1 \le i \le 4$
     statt $i = 1$ wiederholen, und erhalten somit, dass alle Skalarprodukte
     zwischen beliebigen Polen $p_i$ und $p_j$ übereinstimmen. Damit müssen
-    (Bilinearität des Skalarprodukts), auch alle Abstände
+    (Bilinearität des Skalarprodukts) auch alle Abstände
     \[
         || p_i - p_j ||
     \]
@@ -1614,7 +1617,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     jeweils $3$ der Pole ein gleichseitiges Dreieck, so dass $B$ die Menge
     der Eckpunkte eines Tetraeders bildet. Die Gruppe $G$ permutiert $B$ und
     erhält daher auch die konvexe Hülle $\Konv(B)$, so dass $G \le
-    \SO(\Konv(B))$. Wie in Proposition \ref{prop:sym} gilt $|\SO(\Konv(B))| =
+    \SO(\Konv(B))$. Wie in Proposition \ref{prop:sym}, gilt $|\SO(\Konv(B))| =
     12$ und daher $G = \SO(\Konv(B))$. Durch eine geeignete Drehung $C$ können wir
     schließlich $\Konv(B)$ noch auf eine Streckung des Standardtetraeders $T$ bewegen, so
     dass $G$ via $C$ konjugiert zu $\Sym(T)$ ist.\\ 
@@ -1624,16 +1627,16 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     \[
         B = \{p_1, p_2, ... , p_6\}
     \]
-    die zugehörige Bahn. Es gilt $|G_{p_1}| = 4$ wobei $G_{p_1}$ aus Drehungen
+    die zugehörige Bahn. Es gilt $|G_{p_1}| = 4$, wobei $G_{p_1}$ aus Drehungen
     um $p_1$ besteht. Wegen der Bahnformel muss die Wirkung von $G_{p_1}$ auf
     $B \setminus \{p_1\}$ einen Fixpunkt haben, o.E. sei dies $p_2$. Dann muss
     aber $p_2 = -p_1$ gelten und die Wirkung von $G_{p_1}$ auf $\{p_3, p_4,
     p_5, p_6\}$ ist transitiv: $G_{p_1}$ ist erzeugt von einer Drehung um
-    $\pi/2$, daher hat jede Bahn die nicht einelementig ist, Kardinalität $4$.
+    $\pi/2$, daher hat jede Bahn, die nicht einelementig ist, Kardinalität $4$.
     Nach obigem Argument muss mit $p_3$ auch $-p_3 \in B$ sein, daher gilt also
     o.E. $p_5= -p_3$ und $p_6 = -p_4$. Es folgt nun, dass die Pole
     $p_3,p_4,p_5$ und $p_6$ die Eckpunkte eines Quadrats in der Ebene senkrecht
-    zur Achse durch $p_1$ und $-p_1$ bilden. Anders formuliert, bildet $B$ die
+    zur Achse durch $p_1$ und $-p_1$ bilden. Anders formuliert bildet $B$ die
     Menge der Schwerpunkte der Flächen eines Würfels. Mit dem analogen Argument
     zu (II.2) ist $G$ damit konjugiert zu $\Sym(W)$.\\
 
@@ -1650,7 +1653,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     $-x_1 = y_1$. Indem wir dieses Argument wiederholen, gilt o.E. $y_i =
     -x_i$. Es kann nicht sein, dass alle $x_i$ senkrecht auf $p$ stehen, denn
     dann wären die beiden Pole $p$ und $-p$ dadurch ausgezeichnet, dass sie auf
-    alle anderen Pole senkrecht stehen. Dies kann aber nicht sein, denn statt
+    allen anderen Polen senkrecht stehen. Dies kann aber nicht sein, denn statt
     $p$ und $-p$ hätten wir genauso $x_1$ und $-x_1$ wählen können. Daher gilt also 
     \[
         \sk{p, x_1} \ne 0
@@ -1666,21 +1669,22 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
     so dass $p$ und $x_1$ also einen spitzen Winkel bilden. Es gilt weiter, für
     alle $1 \le i \le 5$, da $G_p$ via Bewegungen operiert
     \[
-        \sk{p, x_i} = \sk{p, x_1}
+        \sk{p, x_i} = \sk{p, x_1},
     \]
     woraus folgt, dass alle Abstände $||p - x_i||$ gleich sind. Indem wir die
-    obige Argumentation statt auf einen beliebigen anderen Pol $q \in B$ statt
-    $p$ anwenden, folt also, dass die Abstände von $q$ zu den $5$ weiteren
+    obige Argumentation auf einen beliebigen anderen Pol $q \in B$ statt
+    $p$ anwenden, folgt also, dass die Abstände von $q$ zu den $5$ weiteren
     Polen in $B$ welche mit $q$ einen spitzen Winkel bilden, gleich sind. Es
-    folgt, dass $q$ gemeinsam mit diesen $5$ benachbarten Polen, die Eckpunkte
-    von $5$ gleichseitigen Dreiecken bilden, die sich in $q$ treffen. Es gibt
+    folgt, dass $q$, gemeinsam mit diesen $5$ benachbarten Polen, die Eckpunkte
+    von $5$ gleichseitigen Dreiecken bildet, die sich in $q$ treffen. 
+    Es gibt
     $12$ Punkte in $B$, so dass diese Punkte zusammen also die Eckpunkte von
     \[
         \frac{12 \cdot 5}{3} = 20
     \]
     gleichseitigen Dreiecken bilden. Die konvexe Hülle von $B$ ist also ein
     Ikosaeder (vgl. Bastelanleitung des Ikosaeders). Der Rest des Arguments ist
-    analog wie oben, wobei wir die elementargeometriche Aussage verwenden, dass
+    analog wie oben, wobei wir die elementargeometrische Aussage verwenden, dass
     sich jedes Ikosaeder auf eine Streckung des Standardikosaeders $I$ drehen
     lässt.\\ 
 \end{proof}
@@ -3101,8 +3105,8 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
             \[
                 T_p(M) = \{ x \in M\; | \; \text{es gibt $n \ge 0 $ mit $p^n x = 0$} \} \le T(M).
             \]
-        \item Der Modul $M$ heisst \emph{Torsionsmodul} (bzw. $p$-Torsionsmodul), falls $T(M) = M$ (bzw. $T_p(M) = M$).
-        \item Der Modul $M$ heisst \emph{torsionsfrei}, falls $T(M) = 0$. 
+        \item Der Modul $M$ heißt \emph{Torsionsmodul} (bzw. $p$-Torsionsmodul), falls $T(M) = M$ (bzw. $T_p(M) = M$).
+        \item Der Modul $M$ heißt \emph{torsionsfrei}, falls $T(M) = 0$. 
     \end{enumerate}    
 \end{defi}
 
@@ -3164,7 +3168,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
 
 \begin{defi}\index{Annihilatorideal!Definition}
     \label{defi:ann} Sei $M$ ein $R$-Modul. 
-            Dann heisst das Ideal
+            Dann heißt das Ideal
             \[
                 \Ann_R(S) := \{ r \in R\;|\; \text{für alle $x \in S$ gilt $r.x = 0$}\} \subset R
             \]
@@ -4251,7 +4255,7 @@ ein Ringhomomorphismus ist.
         f = c (X-\alpha_1)(X-\alpha_2) \cdots (X-\alpha_k) \in E[X]
     \]
     mit paarweise verschiedenen $\alpha_i \in E$, falls also $f$ in $E$ nur
-    \emph{einfache Nullstellen} hat. Im allgemeinen heisst ein Polynom in $K[X]$ \emph{separabel},
+    \emph{einfache Nullstellen} hat. Im allgemeinen heißt ein Polynom in $K[X]$ \emph{separabel},
     falls jeder seiner Primfaktoren separabel ist. 
 \end{defi}
 
@@ -4875,7 +4879,7 @@ primitiven $n$-ten Einheitswurzeln permutiert, gilt
 	\Phi_n(X) = \prod_{\substack{\zeta \in \mu_n(L) \\ \zeta \text{primitiv}}} (X- \zeta) \in
 	\QQ[X].
 \]
-Das Polynom $\Phi_n(X)$ heisst das {\em $n$-te Kreisteilungspolynom}. 
+Das Polynom $\Phi_n(X)$ heißt das {\em $n$-te Kreisteilungspolynom}. 
 
 \begin{rem} Da das Polynom $X^n -1$ primitiv ist, $\Phi_n(X)|(X^n-1)$, und $\Phi_n(X)$ Leitkoeffizient
 	$1$ hat, folgt mit dem Gauß-Lemma, dass $\Phi_n(X)$ sogar Koeffizienten in $\ZZ$ hat und

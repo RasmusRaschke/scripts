@@ -13,14 +13,14 @@
 
   \indexspace
 
-  \item Bahn-Stabilisator-Theorem, \hyperpage{11}
+  \item Bahn-Stabilisator-Theorem, \hyperpage{12}
 
   \indexspace
 
   \item Dedekindring
     \subitem Definition, \hyperpage{34}
   \item Determinante
-    \subitem Kern, \hyperpage{8}
+    \subitem Kern, \hyperpage{9}
   \item Determinantenabbildung, \hyperpage{6}
 
   \indexspace
@@ -29,7 +29,7 @@
     \subitem Definition, \hyperpage{30}
   \item Evaluationshomomorphismus
     \subitem Definition, \hyperpage{27}
-  \item Exponentialfunktion, \hyperpage{7}
+  \item Exponentialabbildung, \hyperpage{7}
 
   \indexspace
 
@@ -88,7 +88,7 @@
     \subitem Definition, \hyperpage{14}
     \subitem Klassifikation, \hyperpage{15}
   \item Isomorphiesätze
-    \subitem von Gruppen, \hyperpage{9}
+    \subitem von Gruppen, \hyperpage{10}
     \subitem von Moduln, \hyperpage{39}
     \subitem von Ringen, \hyperpage{28}
   \item Isomorphismus
@@ -101,7 +101,7 @@
 
   \indexspace
 
-  \item Klassifikation aller ebenen Isometrien, \hyperpage{16}
+  \item Klassifikation aller ebenen Isometrien, \hyperpage{17}
   \item Klassifikation der platonischen Symmetriegruppen, 
 		\hyperpage{18}
   \item Klassifikation endlich erzeugter $p$-Torsionsmoduln über HIR, 
@@ -110,10 +110,11 @@
 		\hyperpage{43}
   \item Klassifikation endlich erzeugter Moduln über HIR, 
 		\hyperpage{43}
+  \item Klassifikation von $\SO(2, \RR)$, \hyperpage{21}
   \item Klassifikation von $\SO(3, \RR)$, \hyperpage{20}
   \item Konjugation
     \subitem Definition, \hyperpage{6}
-    \subitem Klassengleichung, \hyperpage{12}
+    \subitem Klassengleichung, \hyperpage{13}
     \subitem Konjugationsklasse, \hyperpage{12}
     \subitem Wirkung, \hyperpage{11}
     \subitem Zentralisator, \hyperpage{12}
@@ -219,9 +220,9 @@
     \subitem Definition, \hyperpage{5}
     \subitem Repräsentation, \hyperpage{17}
   \item Symmetriegruppe
-    \subitem Diedergruppe, \hyperpage{18}
-    \subitem orthogonale, \hyperpage{17}
-    \subitem spezielle orthogonale, \hyperpage{17}
+    \subitem Diedergruppe, \hyperpage{19}
+    \subitem orthogonale, \hyperpage{18}
+    \subitem spezielle orthogonale, \hyperpage{18}
   \item Symmetrische Gruppe
     \subitem Alternierende Gruppe, \hyperpage{9}
       \subsubitem Auflösbarkeit, \hyperpage{69}
@@ -235,6 +236,10 @@
 
   \indexspace
 
+  \item ToDo
+    \subitem Anmerkung1, \hyperpage{18}
+    \subitem Korrektur1, \hyperpage{9}
+    \subitem Korrektur2, \hyperpage{19}
   \item Torsionsmodul
     \subitem Definition, \hyperpage{40}
   \item Translation
@@ -260,11 +265,11 @@
 
   \indexspace
 
-  \item Wirkung, \hyperpage{10}
+  \item Wirkung, \hyperpage{11}
     \subitem Bahn, \hyperpage{11}
-    \subitem Fixpunkt, \hyperpage{11}
+    \subitem Fixpunkt, \hyperpage{12}
     \subitem Stabilisator, \hyperpage{11}
-    \subitem Transitivität, \hyperpage{11}
+    \subitem Transitivität, \hyperpage{12}
     \subitem treu, \hyperpage{58}
     \subitem Äquivariante Abbildungen, \hyperpage{11}
 

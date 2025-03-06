@@ -3,9 +3,9 @@
 \contentsline {section}{\numberline {1.1}Die Definition einer Gruppe}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Untergruppen}{4}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Homomorphismen}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Operationen}{10}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Operationen}{11}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Euklidische Bewegungen}{14}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Symmetrie im Raum}{17}{section.1.6}%
+\contentsline {section}{\numberline {1.6}Symmetrie im Raum}{18}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Ringe}{25}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Ringe, Ideale, Homomorphismen }{25}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Primelemente und Primideale}{28}{section.2.2}%

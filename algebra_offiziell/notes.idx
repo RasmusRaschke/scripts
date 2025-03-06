@@ -13,32 +13,33 @@
 \indexentry{Determinantenabbildung|hyperpage}{6}
 \indexentry{Konjugation!Definition|hyperpage}{6}
 \indexentry{Isomorphismus!von Gruppen|hyperpage}{7}
-\indexentry{Exponentialfunktion|hyperpage}{7}
+\indexentry{Exponentialabbildung|hyperpage}{7}
 \indexentry{Logarithmusabbildung|hyperpage}{7}
 \indexentry{Homomorphismus!von Gruppen!Bild und Kern|hyperpage}{7}
 \indexentry{Nebenklassen!Definition|hyperpage}{7}
 \indexentry{Nebenklassen!Index|hyperpage}{8}
 \indexentry{Satz von Lagrange|hyperpage}{8}
 \indexentry{Nebenklassen!Normalteiler|hyperpage}{8}
-\indexentry{Determinante!Kern|hyperpage}{8}
+\indexentry{Determinante!Kern|hyperpage}{9}
 \indexentry{Symmetrische Gruppe!Signum|hyperpage}{9}
 \indexentry{Symmetrische Gruppe!Alternierende Gruppe|hyperpage}{9}
 \indexentry{Quotientengruppe|hyperpage}{9}
-\indexentry{Isomorphiesätze!von Gruppen|hyperpage}{9}
-\indexentry{Wirkung|hyperpage}{10}
+\indexentry{ToDo!Korrektur1|hyperpage}{9}
+\indexentry{Isomorphiesätze!von Gruppen|hyperpage}{10}
+\indexentry{Wirkung|hyperpage}{11}
 \indexentry{Konjugation!Wirkung|hyperpage}{11}
 \indexentry{Nebenklassen!Wirkung|hyperpage}{11}
 \indexentry{Symmetrische Gruppe!Wirkung|hyperpage}{11}
 \indexentry{Wirkung!Äquivariante Abbildungen|hyperpage}{11}
 \indexentry{Wirkung!Bahn|hyperpage}{11}
 \indexentry{Wirkung!Stabilisator|hyperpage}{11}
-\indexentry{Wirkung!Fixpunkt|hyperpage}{11}
-\indexentry{Wirkung!Transitivität|hyperpage}{11}
-\indexentry{Bahn-Stabilisator-Theorem|hyperpage}{11}
+\indexentry{Wirkung!Fixpunkt|hyperpage}{12}
+\indexentry{Wirkung!Transitivität|hyperpage}{12}
+\indexentry{Bahn-Stabilisator-Theorem|hyperpage}{12}
 \indexentry{Konjugation!Konjugationsklasse|hyperpage}{12}
 \indexentry{Konjugation!Zentrum|hyperpage}{12}
 \indexentry{Konjugation!Zentralisator|hyperpage}{12}
-\indexentry{Konjugation!Klassengleichung|hyperpage}{12}
+\indexentry{Konjugation!Klassengleichung|hyperpage}{13}
 \indexentry{Symmetrische Gruppe!Alternierende Gruppe!Klassengleichung|hyperpage}{13}
 \indexentry{Isometrie!Definition|hyperpage}{14}
 \indexentry{Translation!Definition|hyperpage}{14}
@@ -47,16 +48,19 @@
 \indexentry{Gruppe!Direktes Produkt|hyperpage}{16}
 \indexentry{Gruppe!Semidirektes Produkt|hyperpage}{16}
 \indexentry{Allgemeine Affine Gruppe!Definition|hyperpage}{16}
-\indexentry{Klassifikation aller ebenen Isometrien|hyperpage}{16}
+\indexentry{Klassifikation aller ebenen Isometrien|hyperpage}{17}
 \indexentry{Spezielle Orthogonale Gruppe!Repräsentation|hyperpage}{17}
-\indexentry{Symmetriegruppe!orthogonale|hyperpage}{17}
-\indexentry{Symmetriegruppe!spezielle orthogonale|hyperpage}{17}
+\indexentry{Symmetriegruppe!orthogonale|hyperpage}{18}
+\indexentry{Symmetriegruppe!spezielle orthogonale|hyperpage}{18}
 \indexentry{Konvexität!Definition|hyperpage}{18}
 \indexentry{Konvexität!Konvexe Hülle|hyperpage}{18}
 \indexentry{Reguläre Polyeder|hyperpage}{18}
+\indexentry{ToDo!Anmerkung1|hyperpage}{18}
 \indexentry{Klassifikation der platonischen Symmetriegruppen|hyperpage}{18}
-\indexentry{Symmetriegruppe!Diedergruppe|hyperpage}{18}
+\indexentry{Symmetriegruppe!Diedergruppe|hyperpage}{19}
+\indexentry{ToDo!Korrektur2|hyperpage}{19}
 \indexentry{Klassifikation von $\SO(3, \RR)$|hyperpage}{20}
+\indexentry{Klassifikation von $\SO(2, \RR)$|hyperpage}{21}
 \indexentry{Ring!Definition|hyperpage}{25}
 \indexentry{Gaußscher Zahlenring!Definition|hyperpage}{25}
 \indexentry{Polynomring!Definition|hyperpage}{26}
