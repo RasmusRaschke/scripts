@@ -3367,15 +3367,15 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
 \section{Einleitung}%
 
 \index{Galoisgruppe!Historie}Lösungsformeln für polynomiale Gleichungen in einer Variablen bis hin zum Grad
-vier waren schon in 16. Jhd. bekannt, wenn auch in etwas anderer Form, als wir
-diese heute dokumentieren würden. Siehe Folien unter
+vier waren schon im 16. Jhd. bekannt, wenn auch in etwas anderer Form, als wir
+diese heute dokumentieren würden, siehe Folien unter
 \begin{center}
 \url{https://www.math.uni-hamburg.de/home/dyckerhoff/algebra2425/quintic.pdf} .
 \end{center}
 
-Die vergeblichen Versuche eine Lösungsformel für die allgemeine Gleichung
+Die vergeblichen Versuche, eine Lösungsformel für die allgemeine Gleichung
 fünften Grades zu finden, führten zu der Vermutung (Gauß, 1799), dass eine
-solche Formel vielleicht gar nicht existiert. Die grundlegende Idee welche dem
+solche Formel vielleicht gar nicht existiert. Die grundlegende Idee, welche dem
 Beweis dieser Vermutung durch Abel und Galois zugrunde liegt, ist das Studium
 der sogenannten \emph{Galoisgruppe}.
 
@@ -3387,7 +3387,7 @@ der sogenannten \emph{Galoisgruppe}.
     \[
         G(f) \le S_n
     \]
-    von $f$ über $\QQ$ ist die Untergruppe, bestehend aus denjenigen
+    von $f$ über $\QQ$ ist eine Untergruppe der symmetrischen Gruppe, bestehend aus denjenigen
     Permutationen $\sigma$, welche die folgende Bedingung erfüllen:
     \begin{itemize}
         \item Für jedes
@@ -3422,7 +3422,7 @@ der sogenannten \emph{Galoisgruppe}.
         a^2b^2 & = -2\\
         b^2c^2 & = -2\\
         c^2d^2 & = -2\\
-        d^2a^2 & = -2
+        d^2a^2 & = -2,
     \end{align}
     welche wir als Kanten eines Quadrats 
 \begin{figure}[htpb]
@@ -3449,16 +3449,16 @@ der sogenannten \emph{Galoisgruppe}.
     veranschaulichen können, sowie die Relationen
     \begin{align}
         a^2c^2 & = 2\\
-        b^2d^2 & = 2
+        b^2d^2 & = 2,
     \end{align}
     korrespondierend zu den Diagonalen im Quadrat. Durch diese geometrische
     Veranschaulichung ist klar, dass nur die Permutationen in der Diedergruppe
     \[
         D_4 = \sk{ (1234), (12)(34) } \le S_4
     \]
-    die speziellere Relationen erhalten, also $G(f) \le D_4$. Tatsächlich wird
+    die speziellen Relationen erhalten, also $G(f) \le D_4$. Tatsächlich wird
     sich später zeigen, dass dies auch die Galoisgruppe des Polynoms $X^4 -2$
-    ist. Mit der jetzigen Definition ist nicht direkt einzusehen, denn es ist
+    ist. Mit der jetzigen Definition ist dies nicht direkt einzusehen, denn es ist
     unklar, ob es noch weitere algebraische Relationen gibt. Um dies effizient
     beantworten zu können, werden wir nun eine abstraktere Definition der
     Galoisgruppe geben.
@@ -3480,18 +3480,18 @@ der Grad $[L:K]$ endlich ist.
 
 \begin{lem}\index{Gradsatz für Körpertürme}
     \label{lem:grad}
-    Seien $M/L$ und $L/K$ Körpererweiterungen. Dann ist $M/K$ endlich genau
-    dann wenn $M/L$ und $L/K$ endlich sind, und in diesem Falle gilt
+    Seien $M/L$ und $L/K$ Körpererweiterungen. Dann ist $M/K$ genau dann endlich, wenn $M/L$ und $L/K$ endlich sind, und in diesem Falle gilt
     \[
         [M:K] = [M:L][L:K].
     \]
+    \blue{Ist die Formulierung nicht etwas zu stark? Die Formel gilt doch auch, wenn einer der Terme unendlich ist, und wird in der gängigen Literatur auch so angegeben.}
 \end{lem}
 \begin{proof}
     Seien Teilmengen $P=\{m_1, ..., m_r\} \subset M$ und $Q=\{l_1, ..., l_s \} \subset L$ gegeben und betrachte die Teilmenge 
     \[
         QP = \{l_i m_j\; | \; 1 \le i \le s, 1 \le j \le r\}.
     \]
-    Die Behauptungen folgen nun direkt aus den folgenden Aussagen. 
+    Die Behauptungen folgen nun direkt aus den folgenden Aussagen: 
     \begin{enumerate}
         \item Sei $P$ linear unabhängig über $L$ und $Q$ linear unabhängig über
             $K$, dann ist $QP$ linear unabhängig über $K$.
@@ -3512,7 +3512,7 @@ der Grad $[L:K]$ endlich ist.
             ist $\{1,\pi, \pi^2, ... \} \subset \RR$ linear unabhängig über
             $\QQ$ (von Lindemann, 1882).
         \item Sei $K$ ein Körper und $K(X) = (K[X] \setminus \{0\})^{-1} K[X]$
-            Körper der Brüche, genannt \emph{Körper der rationalen Funktionen}.\index{Körper der rationalen Funktionen!Definition}
+            der Körper der Brüche, genannt \emph{Körper der rationalen Funktionen}.\index{Körper der rationalen Funktionen!Definition}
             Dann ist $K(X)/K$ Körpererweiterung mit $[K(X):K] = \infty$. Z.B.
             ist die Menge $\{1,X,X^2, ... \}$ linear unabhängig über $K$. 
         \item Sei $f(X) \in \QQ[X]$ ein Polynom vom Grad $n \ge 1$ mit
@@ -3533,7 +3533,7 @@ der Grad $[L:K]$ endlich ist.
 Sei $L$ ein Körper. Einen bijektiven Ringhomomorphismus $\sigma: L \to L$
 nennen wir auch \emph{Körperautomorphismus von $L$} und bezeichnen die Menge
 der Körperautomorphismen von $L$ mit $\Aut(L)$. Für eine Körpererweiterung
-$L/K$ bezeichnen wir
+$L/K$ bezeichnen wir die Körperautomorphismen, die $K$ invariant lassen, mit
 \[
     G(L/K) := \{ \sigma \in \Aut(L)\; |\; \forall x \in K: \sigma(x) = x \} \le
     \Aut(L).
@@ -3556,13 +3556,13 @@ $L/K$ bezeichnen wir
     \]
 \end{thm}
 
-Für den Beweis des Satzes benötigen wir etwas Vorarbeit. 
+Für den Beweis des Satzes benötigen wir etwas Vorarbeit.
 
 \begin{lem}[Dedekind-Lemma]\index{Lemma von Dedekind}
     \label{lem:dedekind}
     Seien $L$ und $E$ Körper, 
     \[
-        \sigma_i: L \to E  \quad , 1 \le i \le n
+        \sigma_i: L \to E, \ 1 \le i \le n
     \]
     paarweise verschiedene Ringhomomorphismen und $\lambda_i \in E$, $1 \le i \le n$, mit
     \begin{equation}
@@ -3576,19 +3576,19 @@ Für den Beweis des Satzes benötigen wir etwas Vorarbeit.
 \begin{proof}
     Wir beweisen die Aussage durch Induktion nach $n$. Für $n =1$ folgt aus
     \eqref{eq:linearchar} direkt $0 = \lambda_1 \sigma_1(1) = \lambda_1$. Sei
-    also $n >1$. Wir nehmen an, es gibt eine nichttriviale Linearkombination
+    also $n >1$. Wir nehmen an, es gäbe eine nichttriviale Linearkombination
     wie in \eqref{eq:linearchar} und führen die Aussage zum Widerspruch. Sei also 
     \[
         \sum_{i=1}^n \lambda_i \sigma_i = 0
     \]
     mit o.E. $\lambda_1 \ne 0$. Wir wählen $a \in L$ mit $\sigma_1(a) \ne
-    \sigma_n(a)$. Dann gilt, für alle $x \in L$:
+    \sigma_n(a)$. Dann gilt für alle $x \in L$:
     \[
         0 = \sum_{i=1}^n \lambda_i \sigma_i(ax) - \sigma_n(a) \sum_{i=1}^n
         \lambda_i \sigma_i(x) = \sum_{i=1}^{n-1} \lambda_i(\sigma_i(a) -
-        \sigma_n(a)) \sigma_i(x)
+        \sigma_n(a)) \sigma_i(x).
     \]
-    also eine kürzere Linearkombination der $\sigma_1, ..., \sigma_{n-1}$ zu
+    Wir erhalten also eine kürzere Linearkombination der $\sigma_1, ..., \sigma_{n-1}$ zu
     $0$, welche nichttrivial ist, denn $\lambda_1(\sigma_1(a) - \sigma_n(a))
     \ne 0$ per Konstruktion. Ein Widerspruch.
 \end{proof}
@@ -3606,14 +3606,14 @@ Für den Beweis des Satzes benötigen wir etwas Vorarbeit.
     Für $[L:K] = \infty$ ist die Aussage inhaltslos, sei also $[L:K] =m$
     endlich und sei $l_1, ..., l_m \in L$ eine $K$-Basis von $L$. Falls $n > m$, dann existiert 
     \[
-        0 \ne (\lambda_1, \lambda_2, ..., \lambda_n) \in E^n
+        0 \ne (\lambda_1, \lambda_2, ..., \lambda_n) \in E^n,
     \]
     so dass
     \[
         \mat{ \sigma_1(l_1) & \cdots & \sigma_n(l_1)\\ \vdots & & \vdots \\ \sigma_1(l_m) & \cdots & \sigma_n(l_m) } \mat{ \lambda_1 \\ \vdots \\ \lambda_n } = 0
     \]
     Doch da $\{l_i\}$ eine Basis bildet, folgt daraus $\sum_{i=1}^n \lambda_i
-    \sigma_i = 0$. Doch dies steht im Widerspruch zum Dedekind Lemma
+    \sigma_i = 0$. Dies steht jedoch im Widerspruch zum Dedekind-Lemma
     \ref{lem:dedekind}.
 \end{proof}
 
@@ -3645,11 +3645,11 @@ den \emph{Fixkörper von $G$}.\index{Körperautomorphismus!Fixkörper}
     \]
 \end{thm}
 \begin{proof}
-    Es folgt aus den Definitionen, dass gilt $G(L/K) = G(L/L^G)$. Weiterhin gilt
+    Es folgt aus den Definitionen, dass $G(L/K) = G(L/L^G)$ gilt. Weiterhin gilt
     \[
-        K \subset L^G \subset L
+        K \subset L^G \subset L.
     \]
-    Daher gilt einerseits, da $L/K$ galoissch, $|G| = [L:K]$ und andererseits,
+    Daher gilt einerseits, da $L/K$ galoissch ist, $|G| = [L:K]$, und andererseits,
     wegen Satz \ref{thm:galoisbound}, $|G| \le [L:L^G]$, also letztlich wegen
     Lemma \ref{lem:grad} auch $[L^G:K] = 1$. Daraus folgt (!) nun aber sofort
     $L^G = K$. 
@@ -3666,26 +3666,26 @@ den \emph{Fixkörper von $G$}.\index{Körperautomorphismus!Fixkörper}
 \begin{proof}
     Wir setzen $K = L^G$. Wegen $G \le G(L/L^G)$ gilt
     \[
-        |G| \le |G(L/L^G)| \le [L:L^G]
+        |G| \le |G(L/L^G)| \le [L:L^G],
     \]
     wobei die letzte Ungleichung aus Satz \ref{thm:galoisbound} folgt. Es
-    genügt also zu zeigen: $[L:L^G] \le |G|$. Sei o.E. $|G| = n < \infty$, denn
+    genügt also, $[L:L^G] \le |G|$ zu zeigen. Sei o.E. $|G| = n < \infty$, denn
     sonst ist die Aussage inhaltslos. Wir zeigen nun, dass je $n+1$ Elemente
     $x_1, ..., x_{n+1} \in L$ linear abhängig über $K$ sind. Betrachte dazu,
-    für $G = \{\sigma_1, ..., \sigma_n\}$ das $L$-lineare Gleichungssystem
+    für $G = \{\sigma_1, ..., \sigma_n\}$, das $L$-lineare Gleichungssystem
     \begin{equation}
         \label{eq:lgsgalois}
         \sum_{j=1}^{n+1} Y_j \sigma_i(x_j) = 0, \quad 1 \le i \le n
     \end{equation}
     in den Variablen $Y_1, ..., Y_{n+1}$. Dieses hat $n$ Gleichungen und $n+1$ Unbekannte, also gibt es eine nichttriviale Lösung
     \[
-        0 \ne (\lambda_1, ..., \lambda_{n+1}) \in L^{n+1}
+        0 \ne (\lambda_1, ..., \lambda_{n+1}) \in L^{n+1},
     \]
-    wobei wir o.E. annehmen: $\lambda_1 \ne 0$. Für $1 \le i \le n$, wenden wir
-    $\sigma_i^{-1}$ auf die $i$te Gleichung von \eqref{eq:lgsgalois} an und
+    wobei wir o.E. annehmen: $\lambda_1 \ne 0$. Für $1 \le i \le n$ wenden wir
+    $\sigma_i^{-1}$ auf die $i$-te Gleichung von \eqref{eq:lgsgalois} an und
     erhalten
     \[
-        \sum_{j=1}^{n+1} \sigma_i^{-1}(\lambda_j) x_j = 0
+        \sum_{j=1}^{n+1} \sigma_i^{-1}(\lambda_j) x_j = 0.
     \]
     Eine Summation über alle so erhaltenen Gleichungen ergibt:
     \begin{equation}
@@ -3696,7 +3696,7 @@ den \emph{Fixkörper von $G$}.\index{Körperautomorphismus!Fixkörper}
     \[
         \alpha_j = \sum_{i=1}^{n} \sigma_i^{-1}(\lambda_j) = \sum_{\sigma \in G} \sigma(\lambda_j) \in L^G = K.
     \]
-    Wegen dem Dedekind Lemma gilt $\sum_{\sigma \in G} \sigma \ne 0$, so dass
+    Wegen des Dedekind-Lemmas gilt $\sum_{\sigma \in G} \sigma \ne 0$, so dass
     es also ein $0 \ne l \in L$ gibt mit $\sum_{\sigma \in G}\sigma(l) \ne 0$.
     Indem wir nun die Lösung $(\lambda_1, ..., \lambda_n)$ durch die Skalierung 
     \[
@@ -3717,7 +3717,7 @@ den \emph{Fixkörper von $G$}.\index{Körperautomorphismus!Fixkörper}
 \begin{proof}
     Es gilt
     \[
-        [L:K] = [L : L^G] [L^G:K]
+        [L:K] = [L : L^G] [L^G:K],
     \]
     wobei nach dem Satz von Artin gilt: $[L:L^G] = |G|$. 
 \end{proof}
@@ -3733,7 +3733,7 @@ die Menge der Untergruppen von $G$ sowie mit
 \[
     \eZ(L/K) := \{ M \; | K \subset M \subset L\; \;\text{Zwischenkörper}\}
 \]
-die Menge der {\em Zwischenkörper von $L/K$} also Unterkörper $M \subset L$ mit $K \subset M$. 
+die Menge der {\em Zwischenkörper von $L/K$}, also Unterkörper $M \subset L$ mit $K \subset M$. 
 
 \begin{thm}[Galoiskorrespondenz]\index{Hauptsatz der Galois-Theorie}
     \label{thm:hauptsatz}
@@ -3752,8 +3752,8 @@ die Menge der {\em Zwischenkörper von $L/K$} also Unterkörper $M \subset L$ mi
     Nach dem Satz von Artin (Satz \ref{thm:artin}) gilt $G(L/L^H) = H$, also
     $\psi \circ \phi = \id$, so dass insbesondere $\phi$ injektiv ist. Es
     verbleibt also zu zeigen, dass $\phi$ surjektiv ist. Dazu nehmen wir an, es
-    gibt einen Zwischenkörper $K \subset M \subset L$, der nicht im Bild von
-    $\phi$ liegt und führen dies zum Widerspruch.\\
+    gäbe einen Zwischenkörper $K \subset M \subset L$, der nicht im Bild von
+    $\phi$ liegt, und führen dies zum Widerspruch.\\
 
     \noindent
     \emph{Schritt 1.} Zunächst wählen wir einen Zwischenkörper $K \subset M
@@ -3778,7 +3778,7 @@ die Menge der {\em Zwischenkörper von $L/K$} also Unterkörper $M \subset L$ mi
     jedes $0 \neq x \in K[\alpha]$ ist die Multiplikationsabbildung auf
     $K[\alpha]$ eine injektive $K$-lineare Abbildung (denn $M$ ist ein Körper),
     und daher aus Dimensionsgründen auch surjektiv. Demnach ist also $K[\alpha]
-    \subset M$ ein Unterkörper so dass wegen unserer Annahme aus Schritt 2
+    \subset M$ ein Unterkörper, so dass wegen unserer Annahme aus Schritt 2
     gilt: $K[\alpha] = M$.\\ 
 
     \noindent
@@ -3819,7 +3819,7 @@ die Menge der {\em Zwischenkörper von $L/K$} also Unterkörper $M \subset L$ mi
 \begin{rem}
     \label{rem:galoisordnung}
     Die Mengen $\eU(G)$ und $\eZ(L/K)$ aus Satz \ref{thm:hauptsatz} sind
-    partiell geordnete (gegeben durch $\subset$). Diese partielle Ordnung wird
+    partiell geordnet (gegeben durch $\subset$). Diese partielle Ordnung wird
     durch die Galoiskorrespondenz umgekehrt, es gilt also für Untergruppen
     $H_1,H_2 \le
     G$:
@@ -3840,14 +3840,14 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
                 \tau: L^H \to L
             \]
             mit der Eigenschaft $\tau|K = \id_K$. Für jede dieser Einbettungen
-            gibt es einen Automorphismus $\sigma \in G$ so dass $\tau = \sigma|L^H$. 
+            gibt es einen Automorphismus $\sigma \in G$, so dass $\tau = \sigma|L^H$. 
         \item Für $\sigma \in G$ gilt
             \[
                 \sigma(L^H) = L^{\sigma H \sigma^{-1}}, 
             \]
             der Bildkörper $\sigma(L^H)$ ist also der Fixkörper der zu $H$
             konjugierten Untergruppe $\sigma H \sigma^{-1}$. 
-        \item Die Körpererweiterung $L^H/K$ ist galoissch genau dann wenn $H
+        \item Die Körpererweiterung $L^H/K$ ist genau dann galoissch, wenn $H
             \no G$ eine normale Untergruppe ist. In diesem Falle definiert die
             Einschränkungsabbildung
             \[
@@ -3891,8 +3891,8 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
         \epsilon:  G(L^H/K) \to \eE, \alpha \mapsto \iota \circ \alpha
     \]
     definiert eine Injektion, so dass also gilt: $|G(L^H/K)| \le |\eE| = [L^H:K]$. Demnach ist die Erweiterung $L^H/K$
-    galoissch genau dann wenn die Abbildung $\epsilon$ eine Bijektion
-    ist, wenn also für jede der Einbettungen aus $\tau \in \eE$ gilt $\tau(L^H)
+    galoissch genau dann, wenn die Abbildung $\epsilon$ eine Bijektion
+    ist, wenn also für jede der Einbettungen aus $\tau \in \eE$ gilt: $\tau(L^H)
     = L^H$. Da nach (1) die Einschränkungsabbildung eine Surjektion $G \to \eE$
     definiert, ist dies wegen (2) und Satz \ref{thm:hauptsatz} äquivalent zur Bedingung
     \[
@@ -3947,12 +3947,12 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
         \item Die Untergruppe $H \le \N_G(H)$ ist normal und die
             Körpererweiterung $M/L^{\N_G(H)}$ ist galoissch mit Galoisgruppe
             $\N_G(H)/H$. 
-        \item Sei $\eZ_M$ die Menge der zu $M$ über $K$ isomorphen
+        \item Sei $\eZ_M$ die Menge der zu $M/K$ isomorphen
             Zwischenkörper von $L/K$. Dann gilt: 
             \[
                 |\eZ_M| = (G:\N_G(H)).
             \]
-        \item Folgere, dass insbesondere gilt
+        \item Insbesondere gilt
             \[
                 (G:H) = |\eZ_M| |G(M/K)|.
             \]
@@ -3986,7 +3986,7 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
     von $L/K$. Dabei ist die Erweiterung $L^{A_3}/K$ galoissch mit Galoisgruppe
     $S_3/A_3 \cong C_2$. Die restlichen Zwischenkörper $L^C$, $L^{C'}$ und
     $L^{C''}$ sind nicht galoissch: Die zugehörigen Gruppen $C$, $C'$ und
-    $C''$ sind kongugiert so dass die Zwischenkörper $L^C$, $L^{C'}$ und
+    $C''$ sind kongugiert, so dass die Zwischenkörper $L^C$, $L^{C'}$ und
     $L^{C''}$ also isomorph über $K$ sind. Vom Standpunkt der $G$-Wirkungen aus
     Bemerkung \ref{rem:galoisoperation} wirkt die Gruppe $S_3$ mit Fixpunkt
     $A_3$ (bzw. $L^{A_3}$) und durch zyklische Permutation der Untergruppen
@@ -4020,8 +4020,8 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
     \[
         f(X) = (X-\alpha) g(X) \in L[X]
     \]
-    für $g(X) \in L[X]$ mit $\grad(g(X)) < \grad(f(X))$. Es genügt also für
-    allgemeines $K$ und $f$ einen Körper $L/K$ zu konstruieren der eine
+    für $g(X) \in L[X]$ mit $\grad(g(X)) < \grad(f(X))$. Es genügt also, für
+    allgemeines $K$ und $f$ einen Körper $L/K$ zu konstruieren, der eine
     Nullstelle von $f$ enthält (denn dann kann diese Konstruktion iteriert
     werden, bis $f$ vollständig in Linearfaktoren zerfällt). Ohne Einschränkung
     können wir hierbei annehmen, dass $f$ irreduzibel ist (indem wir die
@@ -4030,14 +4030,14 @@ Wir untersuchen nun weitere Eigenschaften der Galoiskorrespondenz.
         \label{eq:primitiv}
         L := K[T]/(f(T))
     \end{equation}
-    einen Körper der die Nullstelle $\alpha = [T]$ von $f$ enthält.
+    einen Körper, der die Nullstelle $\alpha = [T]$ von $f$ enthält.
     Körpererweiterungen der Form $L/K$ wie in \eqref{eq:primitiv} nennen wir
     auch {\em primitive} Erweiterungen. Durch die oben angedeutete sukzessive
     Anwendung dieser Konstruktion ergibt sich also ein Turm
     \[
         K \hra L_1 \hra L_2 \hra ... \hra L_m
     \]
-    von primitiven Körpererweiterungen wobei $L_m$ ein Zerfällungskörper ist
+    von primitiven Körpererweiterungen, wobei $L_m$ ein Zerfällungskörper ist
     (!). Zum Beweis der Eindeutigkeit benötigen wir noch ein vorbereitendes Lemma.
 \end{proof}
 
@@ -4068,6 +4068,7 @@ ein Ringhomomorphismus ist.
         \end{tikzcd}
         \]
         so dass $\phi(X) = \alpha$. 
+        \red{Hier hatten wir schon darüber gesprochen: $\phi$ sollte wahrscheinlich $\psi$ sein, korrekt? Selbiges im Beweis unten.}
 \end{lem}
 \begin{proof}
     Betrachte zunächst den Ringhomomorphismus
@@ -4077,13 +4078,13 @@ ein Ringhomomorphismus ist.
     definiert als die Komposition von \eqref{eq:koeff} mit dem
     Evaluationshomomorphismus. Dann gilt 
     \[
-        (f(X)) \subset \Kern(\xi) \subsetneq L[X]
+        (f(X)) \subset \Kern(\xi) \subsetneq L[X].
     \]
-    Da aber $\widetilde{f(X)}$ irreduzibel ist, ist $(f(X))$ maximal so dass
-    also gilt $(f(X)) =  \Kern(\widetilde{\psi})$. Daher erhalten wir den
+    Da aber $\widetilde{f(X)}$ irreduzibel ist, ist $(f(X))$ maximal, so dass
+    also gilt: $(f(X)) =  \Kern(\widetilde{\psi})$. Daher erhalten wir den
     gewünschten Homomorphismus als
     \[
-        \phi := \bar{\xi}: L[X]/(f(X)) \to E.
+        \red{\psi} := \bar{\xi}: L[X]/(f(X)) \to E.
     \]
 \end{proof}
 
@@ -4102,7 +4103,7 @@ ein Ringhomomorphismus ist.
         \begin{tikzcd}
             L_i[X]/(f_i(X)) \ar[hook, dashed]{rr}{\phi_{i+1}} & &E\\
             & L_i\ar{ul}{\subset} \ar{ur}{\phi_i} & 
-        \end{tikzcd}
+        \end{tikzcd},
     \]
     wobei es für die Existenz von $\phi_{i+1}$ nach Lemma \ref{lem:primitive}
     ausreicht zu zeigen, dass das Polynom $f_i^{\phi_i}(X) \in E[X]$ eine
@@ -4117,7 +4118,7 @@ ein Ringhomomorphismus ist.
     Da $E$ ein Zerfällungskörper ist, zerfällt $f(X)$ in Linearfaktoren
     (Primfaktoren) und daher auch $f_i^{\phi_i}(X)$ (und auch $g^{\phi_i}(X)$), also
     \[
-        f_i^{\phi_i}(X) = b (X-\beta_1) \cdots (X - \beta_k)
+        f_i^{\phi_i}(X) = b (X-\beta_1) \cdots (X - \beta_k),
     \]
     so dass die Elemente $\beta_1, ..., \beta_k \in E$ Nullstellen von
     $f_i^{\phi_i}(X)$ sind.  Schließlich gilt zudem, dass die Inklusion
@@ -4133,6 +4134,7 @@ ein Ringhomomorphismus ist.
     \[
         E = K(\phi_m(\alpha_1), ..., \phi_m(\alpha_n)) \subset \Bild(\phi_n). 
     \]
+    \red{Ich bin hier etwas verwirrt hinsichtlich der Indizes: Erst zerlegen wir in $m$ Nullstellen über $L_n$, dann wenden wir $\phi_m$ auf einmal auf $n$ Nullstellen über $E$ an. Ist hier eventuell einmal $n$ und $m$ durcheinandergeraten?}
 \end{proof}
 
 \begin{exa}
@@ -4144,7 +4146,7 @@ ein Ringhomomorphismus ist.
         L = \QQ(\sqrt[4]{2}) \cong \QQ[T]/(f_1(T))
     \]
     eine primitive Erweiterung für das irreduzible Polynom $f$
-    (Eisenstein Kriterium), wobei $\sqrt[4]{2} \in \CC$ die eindeutige reelle
+    (Eisenstein-Kriterium), wobei $\sqrt[4]{2} \in \CC$ die eindeutige reelle
     positive $4$te Wurzel in $\RR$ bezeichnet. Über $L$ zerlegt sich $f$ in 
     \[
         f(X) = (X - \sqrt[4]{2})(X + \sqrt[4]{2}) (X^{2} + \sqrt{2}).
@@ -4168,7 +4170,7 @@ ein Ringhomomorphismus ist.
     bezüglich des irreduziblen Polynoms $S^2 + 1 \in L[S]$ mit
     Nullstellen $\pm i \in \CC$ beschreiben. Es gilt in $E[X]$:
     \[
-        f(X) = (X - \sqrt[4]{2})(X + \sqrt[4]{2}) (X - i\sqrt[4]{2})(X + i\sqrt[4]{2})
+        f(X) = (X - \sqrt[4]{2})(X + \sqrt[4]{2}) (X - i\sqrt[4]{2})(X + i\sqrt[4]{2}),
     \]
     so dass $E$ also ein Zerfällungskörper von $f$ ist. 
 
@@ -4184,13 +4186,13 @@ ein Ringhomomorphismus ist.
     \]
 
     \[
-        \sigma: E \to E, \begin{cases} \sqrt[4]{2} & \mapsto i\sqrt[4]{2}\\ i & \mapsto i \end{cases}
+        \sigma: E \to E, \begin{cases} \sqrt[4]{2} & \mapsto i\sqrt[4]{2}\\ i & \mapsto i. \end{cases}
     \]
-    Zum Beispiel unter Zuhilfenahme der Veranschaulichung in Figur \ref{fig:square} sieht man ein, dass gilt
+    Zum Beispiel unter Zuhilfenahme der Veranschaulichung in Figur \ref{fig:square} sieht man ein, dass
     \[
-        D_4 \cong \sk{\sigma,\tau} \le G.
+        D_4 \cong \sk{\sigma,\tau} \le G
     \]
-    Wegen Satz \ref{thm:galoisbound} gilt $|G| \le [E:\QQ] = 8$, so dass also gelten muss 
+    gilt. Wegen Satz \ref{thm:galoisbound} gilt $|G| \le [E:\QQ] = 8$, so dass also gelten muss :
     \[
             \sk{\sigma,\tau} = G.
     \]
@@ -4212,13 +4214,13 @@ ein Ringhomomorphismus ist.
         2  &   &\color{purple} \QQ(\sqrt{2}) \ar[dl,dash]\ar[d,dash]\ar[dr,dash] &\color{purple} \QQ(i) \ar[d,dash] & \ar[dl,dash]\ar[d,dash]\ar[dr,dash]\color{purple}\QQ(\sqrt{-2}) & \\
         4  & \QQ(\sqrt[4]{2}) & \QQ(i\sqrt[4]{2})  &\color{purple} \QQ(\sqrt{2},i)  & \QQ(\sqrt[4]{-2}) & \QQ(i\sqrt[4]{-2})  \\
         8  &                & &\color{purple} \QQ(\sqrt[4]{2},i) \ar[ull,dash] \ar[ul,dash]\ar[u,dash]\ar[ur,dash] \ar[urr,dash]& & 
-    \end{tikzcd}
+    \end{tikzcd},
     \]
     wobei in der linken Spalte der Grad der Körpererweiterungen über $\QQ$
     angegeben ist und die farbig gekennzeichneten Körper die
     Galoiserweiterungen von $\QQ$ sind. Um zu überprüfen, dass ein angegebener
     Zwischenkörper $M$ tatsächlich der Fixkörper der korrespondierenden
-    Untergruppe $H$ ist zeigt man jeweils
+    Untergruppe $H$ ist, zeigt man jeweils
     \begin{enumerate}[label = \arabic *.]
         \item $M \subset E^H$, und
         \item $[K:M] = (G:H)$.
@@ -4229,10 +4231,10 @@ ein Ringhomomorphismus ist.
         \sqrt[4]{-2} & := \frac{1+i}{\sqrt{2}}\sqrt[4]{2},
     \end{align*}
     wobei wir bemerken, dass $\zeta := \frac{1+i}{\sqrt{2}}$ eine primitive
-    $8$te Einheitswurzel ist (deren Potenzen also alle $8$ten Einheitswurzeln
+    achte Einheitswurzel ist (deren Potenzen also alle achten Einheitswurzeln
     durchläuft), insbesondere gilt $\zeta^4 = -1$. Es gilt weiter
     \[
-        \QQ(\sqrt{2}, i) = \QQ(\zeta) 
+        \QQ(\sqrt{2}, i) = \QQ(\zeta),
     \]
     so dass dieser Körper also der Zerfällungskörper des Polynoms $X^8 - 1$
     ist. Unter der Galoiskorrespondenz korrespondiert $\QQ(\zeta)$ zum Zentrum
@@ -4242,7 +4244,7 @@ ein Ringhomomorphismus ist.
         G/\sk{\sigma^2} \cong C_2 \times C_2.
     \]
     Die Galoisgruppen der Zerfällungskörper der Polynome $X^n -1$, der
-    sogenannten {\em Kreisteilungskörper} werden wir im nachfolgenden Abschnitt
+    sogenannten {\em Kreisteilungskörper}, werden wir im nachfolgenden Abschnitt
     systematischer untersuchen.
 \end{exa}
 
@@ -4253,7 +4255,7 @@ ein Ringhomomorphismus ist.
         f = c (X-\alpha_1)(X-\alpha_2) \cdots (X-\alpha_k) \in E[X]
     \]
     mit paarweise verschiedenen $\alpha_i \in E$, falls also $f$ in $E$ nur
-    \emph{einfache Nullstellen} hat. Im allgemeinen heißt ein Polynom in $K[X]$ \emph{separabel},
+    \emph{einfache Nullstellen} hat. Im Allgemeinen heißt ein Polynom in $K[X]$ \emph{separabel},
     falls jeder seiner Primfaktoren separabel ist. 
 \end{defi}
 
@@ -4281,7 +4283,7 @@ ein Ringhomomorphismus ist.
     $f_i^{\phi_i}$ in $E$ eine Einbettung $\phi_{i+1}$ mit $\phi_{i+1}(X) =
     \alpha$. Doch $f_i$ ist Primfaktor des Polynoms $f \in L_i[X]$ und teilt
     daher (!) einen Primfaktor von $f \in K[X]$. Das Polynom $f_i$ (und damit
-    auch $f_i^{\phi_i}$ besitzt also genau $\grad(f_i)$ verschiedene Nullstellen
+    auch $f_i^{\phi_i}$) besitzt also genau $\grad(f_i)$ verschiedene Nullstellen
     in $E$, so dass es daher auch genau $\grad(f_i) = [L_{i+1}:L_i]$
     verschiedene Fortsetzungen $\phi_{i+1}$ der vorgegebenen Einbettung
     $\phi_i$ gibt. 
@@ -4290,11 +4292,11 @@ ein Ringhomomorphismus ist.
     \[
         [E:L_{n-1}] [L_{n-1}:L_{n-2}] \cdots [L_1:K] = [E:K]
     \]
-    verschiedene Einbettungen $L_n \hra L_n = E$, die, mit dem Argument im
-    Eindeutigkeitsbeweis von Satz \ref{thm:zerfexun} auch surjektiv sind. Also gilt
+    verschiedene Einbettungen $L_n \hra L_n = E$ \red{Hier müsste $L_{n-1} \hra L_n=E$ stehen, oder?}, die, mit dem Argument im
+    Eindeutigkeitsbeweis von Satz \ref{thm:zerfexun}, auch surjektiv sind. Also gilt
     wegen Satz \ref{thm:galoisbound}
     \[
-           [E:K] = |G(E/K)| 
+           [E:K] = |G(E/K)|,
     \]
     so dass $E/K$ galoissch ist. 
 \end{proof}
@@ -4332,7 +4334,7 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    Die Nullstelle $\alpha$ ist einfach genau dann wenn gilt
+    Die Nullstelle $\alpha$ ist genau dann einfach, wenn gilt
     \[
         f(X) = (X-\alpha)g(X)
     \]
@@ -4357,11 +4359,11 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
     Sei $E/K$ ein Zerfällungskörper von $f$. Falls $f$ separabel ist, dann
     folgt aus \eqref{eq:leibnizformel}, dass keiner der Primfaktoren
     $(X-\alpha)$ von $f$ in $E[X]$ ein Teiler von $\partial f$ ist, also sind
-    $f$ und $\partial f$ coprim.
-    Seien umgekehrt $\ggT(f, \partial f) = 1$, dann gibt es also $r,s \in K[X]$ mit
+    $f$ und $\partial f$ koprim.
+    Sei umgekehrt $\ggT(f, \partial f) = 1$, dann gibt es also $r,s \in K[X]$ mit
     \begin{equation}
         \label{eq:ggtsep}
-        rf + s\partial f = 1
+        rf + s\partial f = 1.
     \end{equation}
     Für eine Nullstelle $\alpha \in E$ von $f$ muss dann aber $\partial f (\alpha) \neq 0$
     gelten, denn sonst impliziert Evaluation von \eqref{eq:ggtsep} bei $\alpha$
@@ -4369,7 +4371,7 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
 
     Nun zur Äquivalenz von (ii) und (iii): Falls (ii) gilt, dann folgt aus
     \eqref{eq:ggtsep} sofort (iii) denn sonst wäre $f$ eine Einheit in $K[X]$.
-    Falls umgekehrt $\partial f \neq 0$ dann folgt, wegen $\grad(\partial f)
+    Falls umgekehrt $\partial f \neq 0$, dann folgt, wegen $\grad(\partial f)
     < \grad(f)$ und $f$ irreduzibel, dass die einzigen gemeinsamen Teiler von
     $f$ und $\partial f$ Einheiten sind. 
 \end{proof}
@@ -4377,8 +4379,8 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
 \begin{cor} Sei $K$ ein Körper. 
     \label{cor:charsep}
     \begin{enumerate}
-        \item Falls $\charac(K) = 0$ so ist jedes Polynom $f \in K[X]$ separabel.
-        \item Falls $\charac(K) = p$ so sind für ein irreduzibles Polynom $f \in K[X]$ äquivalent:
+        \item Falls $\charac(K) = 0$, so ist jedes Polynom $f \in K[X]$ separabel.
+        \item Falls $\charac(K) = p$, so sind für ein irreduzibles Polynom $f \in K[X]$ äquivalent:
             \begin{enumerate}[label=(\roman *)]
                 \item $f$ inseparabel.
                 \item Es gibt $g \in K[X]$ mit $f(X) = g(X^p)$. 
@@ -4390,13 +4392,13 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
     \label{exa:insep}
     Sei $K$ ein Körper der Charakteristik $p > 0$ und sei $f = X^p - a \in
     K[X]$. Im Zerfällungskörper $E/K$ besitzt $f$ eine Nullstelle $\alpha \in
-    E$ es gilt also $\alpha^p = a$. Dann gilt in $E[X]$:
+    E$, es gilt also $\alpha^p = a$. Dann gilt in $E[X]$:
     \[
-        (X-\alpha)^p = X^p + \sum_{k=1}^{p-1} {p \choose k} X^{p-k} (-\alpha)^{k} + (- \alpha)^p = X^p - a 
+        (X-\alpha)^p = X^p + \sum_{k=1}^{p-1} {p \choose k} X^{p-k} (-\alpha)^{k} + (- \alpha)^p = X^p - a,
     \]
-    wobei $(-\alpha)^p = - \alpha^p = -a$ da $p$ entweder ungerade ist, oder $1 = -1$ in $K$. 
-    Insbesondere ist also $\alpha$ eine Nullstelle mit Vielfachheit $p$ so dass
-    $f$, in Übereinstimmung mit der Aussage von Korollar \ref{cor:charsep}
+    wobei $(-\alpha)^p = - \alpha^p = -a$, da $p$ entweder ungerade ist, oder $1 = -1$ in $K$. 
+    Insbesondere ist also $\alpha$ eine Nullstelle mit Vielfachheit $p$, so dass
+    $f$, in Übereinstimmung mit der Aussage von Korollar \ref{cor:charsep},
     inseparabel ist. 
 \end{exa}
 
@@ -4421,7 +4423,7 @@ Wirkung auf den Nullstellen in einem Zerfällungskörper.
             \item Die Operation $G \actson E$ schränkt sich ein auf eine Operation $G \actson A$. 
             \item \index{Wirkung!treu}Die Operation $G \actson A$ ist \emph{treu}, d.h. falls für
                 ein $\sigma \in G$ und für alle $\alpha_i \in A$ gilt:
-                $\sigma(\alpha_i) = \alpha_i$ dann folgt schon $\sigma = \id$. 
+                $\sigma(\alpha_i) = \alpha_i$, dann folgt schon $\sigma = \id$. 
             \item Die Operation $G \actson A$ ist \emph{transitiv}, d.h. für
                 $\alpha_i \neq \alpha_j$ gibt es $\sigma \in G$ mit
                 $\sigma(\alpha_i) = \alpha_j$.
@@ -4430,11 +4432,11 @@ Wirkung auf den Nullstellen in einem Zerfällungskörper.
 \begin{proof}
     (1) Die Galoisgruppe $G$ operiert via Ringhomomorphismen auf $E[X]$ via 
     \[
-        \sigma.g(X) = g^{\sigma}(X), \quad \sigma \in G, g \in E[X]
+        \sigma.g(X) = g^{\sigma}(X), \quad \sigma \in G, g \in E[X],
     \]
     wobei wir die Notation \ref{eq:hochphi} verwenden. Es gilt in $E[X]$:
     \[
-        \prod_{i=1}^n (X - \alpha_i) = f(X) = \sigma.f(X) = \prod_{i=1}^n (X - \sigma(\alpha_i))
+        \prod_{i=1}^n (X - \alpha_i) = f(X) = \sigma.f(X) = \prod_{i=1}^n (X - \sigma(\alpha_i)),
     \]
     so dass $\sigma$ die Nullstellen $\alpha_1, \alpha_2, ..., \alpha_n$ wegen
     der Eindeutigkeit der Primfaktorzerlegung in $E[X]$ permutieren muss.\\
@@ -4483,8 +4485,8 @@ Wirkung auf den Nullstellen in einem Zerfällungskörper.
     \]
     der nach dem Argument im Beweis von Satz \ref{thm:galop} (2) injektiv ist.
     Wir können also $G(E/K)$ mit einer Untergruppe von $S_n$ identifizieren und
-    es gilt (Argument von Satz \ref{thm:galop} (3)) dass $f$ irreduzibel in
-    $K[X]$ ist, genau dann wenn die Operation $G(E/K) \actson \{1,
+    es gilt (Argument von Satz \ref{thm:galop} (3)), dass $f$ genau dann irreduzibel in
+    $K[X]$ ist, wenn die Operation $G(E/K) \actson \{1,
     ..., n\}$ transitiv ist. 
 \end{rem}
 
@@ -4492,8 +4494,8 @@ Für die Bestimmung der Galoisgruppe $G$ eines irreduziblen, separablen Polynoms
 $f$ ergibt sich folgende Strategie:
 \begin{enumerate}
     \item Bestimme alle transitiven Untergruppen von $S_n$.
-    \item Finde für jede transitive Untergruppe $H \le S_n$ ein Kriterium um zu
-        entscheiden ob $G \le H$. 
+    \item Finde für jede transitive Untergruppe $H \le S_n$ ein Kriterium, um zu
+        entscheiden, ob $G \le H$. 
 \end{enumerate}
 Wir illustrieren dies am Beispiel der transitiven Untergruppe 
 \[
@@ -4537,13 +4539,13 @@ Wir illustrieren dies am Beispiel der transitiven Untergruppe
 \begin{proof}
     Für $\sigma \in S_n$ gilt
     \[
-        \sign(\sigma) = (-1)^{f_\sigma}
+        \sign(\sigma) = (-1)^{f_\sigma},
     \]
     wobei $f_\sigma$ die Anzahl der Fehlstände von $\sigma$ bezeichnet, also
     der Paare $(i,j)$ mit $1 \le i < j \le n$ mit $\sigma(i) > \sigma(j)$.
     Daher gilt also für $\sigma \in G \subset S_n$:
     \begin{equation}\label{eq:anfix}
-            \sigma(\delta) = \prod_{i < j} (\alpha_{\sigma(i)} - \alpha_{\sigma(j)}) = \sign(\sigma) \delta
+            \sigma(\delta) = \prod_{i < j} (\alpha_{\sigma(i)} - \alpha_{\sigma(j)}) = \sign(\sigma) \delta.
     \end{equation}
     Sei nun $G \subset A_n$. Dann folgt $\delta \in E^G  = K$ mit $\delta^2 =
     D$. Sei umgekehrt $\alpha \in K$ mit $\alpha^2 = D$, dann gilt in $E$: $\alpha =
@@ -4564,7 +4566,7 @@ Wir illustrieren dies am Beispiel der transitiven Untergruppe
     \begin{align*}
         \alpha_1 + \alpha_2 + \alpha_3 & = 0\\
         \alpha_1\alpha_2 + \alpha_1\alpha_3 + \alpha_2\alpha_3 & = p\\
-        \alpha_1\alpha_2\alpha_3 & = -q
+        \alpha_1\alpha_2\alpha_3 & = -q.
     \end{align*}
     Eine explizite Rechnung unter Verwendung dieser Relationen zeigt
     \[
@@ -4609,7 +4611,7 @@ Wir betrachten nun das Polynom
 \end{equation}
 mit Koeffizienten in $K[X_1,...,X_n]$. Da $g$ ein Fixpunkt der induzierten
 (koeffizientenweisen) Operation von $S_n$ auf $(K[X_1,...,X_n])[X]$ ist, gilt für
-$1 \le j n$:
+$1 \le j \le n$:
 \[
     e_j(X_1,...,X_n) \in K[X_1, ..., X_n]^{S_n}.
 \]
@@ -4648,10 +4650,10 @@ $1 \le j n$:
     \[
         M = \{ X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} | m_i \in \NN \}
     \]
-    der Monome indem wir setzen: $X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} < X_1^{l_1}X_2^{l_2} \cdots X_n^{l_n}$ genau dann wenn 
+    der Monome, indem wir setzen: $X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} < X_1^{l_1}X_2^{l_2} \cdots X_n^{l_n}$ genau dann, wenn 
     \begin{enumerate}[label=(\alph*)]
         \item $\sum_i m_i < \sum_i l_i$, oder
-        \item $\sum_i m_i = \sum_i l_i$ und es gibt $1 \le j \le n$ so dass
+        \item $\sum_i m_i = \sum_i l_i$ und es gibt $1 \le j \le n$, so dass
     \begin{enumerate}
         \item Für $1 \le i < j$ gilt: $m_i = l_i$.
         \item Es gilt $m_j < l_j$. 
@@ -4662,8 +4664,8 @@ $1 \le j n$:
     \[
         f(X_1, ..., X_n) = \lambda X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} + r(X_1, ..., X_n)
     \]
-    mit \emph{Leitmonom} $\LM(f) = X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n}$, das heißt $r$
-    ist eine $K$-Linearkombination von Monomen die, bezüglich der
+    mit \emph{Leitmonom} $\LM(f) = X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n}$, das heißt, $r$
+    ist eine $K$-Linearkombination von Monomen, die, bezüglich der
     grad-lexikographischen Ordnung, kleiner als das Leitmonom  sind. Zudem gibt
     es eine (eindeutige) ordnungserhaltende Bijektion $M \cong \NN$ (Es gibt
     endlich viele Monome mit einem vorgegebenen totalen Grad $n$, wir können
@@ -4675,14 +4677,14 @@ $1 \le j n$:
 
     Wie schreiben $f \in K[X_1,...,X_n]^{S_n}$ als
     \[
-        f = \lambda X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} + \text{Terme niederer Ordnung}
+        f = \lambda X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} + \text{Terme niederer Ordnung},
     \]
     wobei $\lambda \ne 0$ und $X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n}$ das Monom
     mit der maximalen Ordnung in $f$ ist. Es gilt (!) dann $m_1 \ge m_2 \ge ...
     \ge m_n$. Dann gilt weiter
     \begin{align*}
         g & := \lambda e_n^{m_n} e_{n-1}^{m_{n-1} - m_n} \cdots e_1^{m_1 - m_2}\\
-          & = \lambda X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} + \text{Terme niederer Ordnung}
+          & = \lambda X_1^{m_1}X_2^{m_2} \cdots X_n^{m_n} + \text{Terme niederer Ordnung},
     \end{align*}
     also $\LM(g) = \LM(f)$ (Verwende um dies zu zeigen, dass $\LM$ multiplikativ ist, da die
     grad-lexikographische Ordnung multiplikativ ist). Das Polynom $f - g$ ist
@@ -4712,8 +4714,8 @@ $1 \le j n$:
         p(e_1, ..., e_n) & = e_n h(e_1, ..., e_n)\\
                          & = X_1 \cdots X_n h(e_1, ..., e_n) = 0.
     \end{align*}
-    Das $K[X_1, ..., X_n]$ nullteilerfrei ist, folgt also $h(e_1, ..., e_n) =
-    0$ so dass per Induktion $h(X_1, ..., X_n) = 0$ folgt. 
+    Da $K[X_1, ..., X_n]$ nullteilerfrei ist, folgt also $h(e_1, ..., e_n) =
+    0$, so dass per Induktion $h(X_1, ..., X_n) = 0$ folgt. 
 \end{proof}
 
 \begin{cor}
@@ -4722,7 +4724,7 @@ $1 \le j n$:
     \[
         \sigma.\frac{f}{g} := \frac{\sigma.f}{\sigma.g} 
     \]
-    auf $K(X_1,...,X_n)$ induziert durch die $S_n$-Wirkung \eqref{eq:snwirkung}. Dann gilt
+    auf $K(X_1,...,X_n)$, induziert durch die $S_n$-Wirkung \eqref{eq:snwirkung}. Dann gilt
     \[
         K(X_1, ..., X_n)^{S_n} = K(e_1, .., e_n).
     \]
@@ -4730,14 +4732,14 @@ $1 \le j n$:
     galoissch mit Galoisgruppe $S_n$. 
 \end{cor}
 \begin{proof}
-    Es ist klar, dass gilt $K(e_1, ..., e_n) \subset K(X_1, ..., X_n)^{S_n}$.
-    Für die umgekehrte Inklusion sei $\frac{f}{g} \in K(X_1, ..., X_n^{S_n}$. Dann gilt
+    Es ist klar, dass $K(e_1, ..., e_n) \subset K(X_1, ..., X_n)^{S_n}$ gilt.
+    Für die umgekehrte Inklusion sei $\frac{f}{g} \in K(X_1, ..., X_n^{S_n})$. Dann gilt
     \[
         \frac{f}{g}  = \frac{f \prod_{\sigma \ne \id} \sigma.g}{\prod_{\sigma \in S_n} \sigma.g} .
     \]
     Weiter gilt für den Nenner $v := \prod_{\sigma \in S_n} \sigma.g$, dass $v \in K[X_1, ..., X_n]^{S_n}$ und damit für $u := f \prod_{\sigma \ne \id} \sigma.g$
     \[
-        \sigma.u v = u v
+        \sigma.u v = u v,
     \]
     also $\sigma.u = u$. Die restlichen Aussagen folgen sofort. 
 \end{proof}
@@ -4751,14 +4753,14 @@ $1 \le j n$:
 
 \begin{rem}
     \label{rem:galoisq}
-    Die Frage ob jede endliche Gruppe als Galoisgruppe {\em über $\QQ$} auftritt ist nicht geklärt. 
+    Die Frage, ob jede endliche Gruppe als Galoisgruppe {\em über $\QQ$} auftritt, ist nicht geklärt. 
 \end{rem}
 
 
 \begin{rem}\index{Allgemeine Gleichung $n$-ten Grades!Definition}
     \label{rem:allgemein}
-    Die Galoiserweiterung aus Korollar \ref{cor:allgemein} lässt sich wegen dem
-    Hauptsatz über symmetrische Polynome beschreiben als
+    Die Galoiserweiterung aus Korollar \ref{cor:allgemein} lässt sich wegen des
+    Hauptsatzes über symmetrische Polynome beschreiben als
     \[
         K(Y_1, ..., Y_n) \hra K(X_1, ..., X_n), f(Y_1, ..., Y_n) \mapsto f(e_1, ..., e_n)
     \]
@@ -4767,12 +4769,12 @@ $1 \le j n$:
         X^n - Y_1 X^{n-1} + Y_2 X^{n-2} + ... + (-1)^n Y_n
     \]
     mit Koeffizienten im Körper $K(Y_1, ..., Y_n)$. Dieses Polynom nennen wir
-    auch das {\em allgemeine Polynom $n$ten Grades} dessen Koeffizienten also durch 
+    auch das {\em allgemeine Polynom $n$-ten Grades}, dessen Koeffizienten also durch 
     algebraisch unabhängige Variablen gegeben sind. Die Variablen $X_i$ sind damit die Lösungen der Gleichung
     \[
         X^n - Y_1 X^{n-1} + Y_2 X^{n-2} + ... + (-1)^n Y_n = 0, 
     \]
-    genannt {\em allgemeine Gleichung $n$ten Grades}. 
+    genannt {\em allgemeine Gleichung $n$-ten Grades}. 
 \end{rem}
 
 \subsection{Kreisteilungskörper}%
@@ -4782,7 +4784,7 @@ Sei $K$ ein Körper und $n \ge 1$. Wir bezeichnen mit
 \[
     \mu_n(K) := \{ \xi \in K | \xi^n = 1\}
 \]
-die Menge der {\em $n$ten Einheitswurzeln} in $K$. Es ist
+die Menge der {\em $n$-ten Einheitswurzeln} in $K$. Es ist
 \[
     \mu_n(K) \le K^*
 \]
@@ -4801,7 +4803,7 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
             \]
         \item Es ist
             \[
-                \mu_n(\CC) = \{ \exp(2 \pi i \frac{k}{n}) | 0 \le k \ne n\} .
+                \mu_n(\CC) = \left\{ \exp(2 \pi i \frac{k}{n}) | 0 \le k \ne n \right\} .
             \]
     \end{enumerate}
 \end{exa}
@@ -4815,12 +4817,12 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
     \emph{Schritt 1.}
     Sei zunächst $n = p^k$ eine Primpotenz. Da $\mu_n(K)$ eine endliche abelsche Gruppe ist, die von $p^k$ annihiliert wird, muss nach Beispiel \ref{exa:klass} gelten:
     \begin{equation}\label{eq:klassend}
-            \mu_n(K) \cong \ZZ/(p^{e_1})  \times \ZZ/(p^{e_2}) \times ... \times \ZZ/(p^{e_k})
+            \mu_n(K) \cong \ZZ/(p^{e_1})  \times \ZZ/(p^{e_2}) \times ... \times \ZZ/(p^{e_k}),
         \end{equation}
-    mit ohne Einschränkung $e_1 \ge e_2 \ge ... \ge e_k$. Damit gibt es also
-    ein $\zeta \in \mu_n(K)$ der Ordnung $m := p^{e_1}$ und es gilt
+    wobei ohne Einschränkung $e_1 \ge e_2 \ge ... \ge e_k$ gelte. Damit gibt es also
+    ein $\zeta \in \mu_n(K)$ der Ordnung $m := p^{e_1}$, und es gilt
     \[
-        \{1, \zeta, \zeta^2, ..., \zeta^{m-1} \} \le \mu_n(K)
+        \{1, \zeta, \zeta^2, ..., \zeta^{m-1} \} \le \mu_n(K),
     \]
     so dass $|\mu_n(K)| \ge m$. Andererseits gilt wegen \eqref{eq:klassend} für
     jedes $\xi \in \mu_n(K)$: $\xi^m = 1$. Umformuliert heißt dies, dass alle
@@ -4843,14 +4845,14 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
 
 \begin{term}\index{Primitive $n$-te Einheitswurzel!Definition}
     \label{term:primew}
-    Ein Erzeuger $\zeta$ der Gruppe $\mu_n(K)$ heißt {\em primitive $n$te Einheitswurzel in $K$}, falls $\zeta$ Ordnung $n$ hat. 
+    Ein Erzeuger $\zeta$ der Gruppe $\mu_n(K)$ heißt {\em primitive $n$-te Einheitswurzel in $K$}, falls $\zeta$ Ordnung $n$ hat. 
 \end{term}
 
 \begin{prop}
     \label{prop:galoisew}
     Sei $n \ge 1$ und $K$ ein Körper mit $\charac(K) \nmid n$. Sei $L/K$ ein Zerfällungskörper von $X^n -1 \in K[X]$. Dann gelten:
     \begin{enumerate}
-        \item Es gibt eine primitive $n$te Einheitswurzel $\zeta \in L$ mit $L = K(\zeta)$. 
+        \item Es gibt eine primitive $n$-te Einheitswurzel $\zeta \in L$ mit $L = K(\zeta)$. 
         \item Die Erweiterung $L/K$ ist galoissch und es gibt einen injektiven Homomorphismus
             \[
                 \rho: G(L/K) \hra (\ZZ/n\ZZ)^{\times}
@@ -4862,11 +4864,11 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
 \end{prop}
 \begin{proof}
     Die Menge der Nullstellen von $X^n-1$ in $L$ ist genau $\mu_n(L)$. Da
-    $\partial(X^n - 1) = nX^{n-1}$ hat das Polynom $X^n - 1$ keine mehrfachen
+    $\partial(X^n - 1) = nX^{n-1}$, hat das Polynom $X^n - 1$ keine mehrfachen
     Nullstellen, also $|\mu_n(L)| = n$. Der Erzeuger von $\mu_n(L)$ ist also
-    eine primitive $n$te Einheitswurzel und $L = K(\zeta)$. Die restlichen
-    Aussagen folgen sofort aus der Einsicht (!), dass $\zeta^k$, für $k \in
-    \ZZ/n\ZZ$ eine {\em primitive} $n$te Einheitswurzel ist, genau dann, wenn
+    eine primitive $n$-te Einheitswurzel und $L = K(\zeta)$. Die restlichen
+    Aussagen folgen sofort aus der Einsicht (!), dass $\zeta^k$ für $k \in
+    \ZZ/n\ZZ$ eine {\em primitive} $n$-te Einheitswurzel ist, genau dann, wenn
     $k$ eine Einheit in $\ZZ/n\ZZ$ ist. 
 \end{proof}
 
@@ -4874,7 +4876,7 @@ eine endliche Untergruppe der multiplikativen Gruppe des Körpers $K$.
 Sei $n \ge 1$ und sei $L/\QQ$ der Zerfällungskörper des Polynoms $X^n -1$. Da $G(L/\QQ)$ die
 primitiven $n$-ten Einheitswurzeln permutiert, gilt
 \[
-	\Phi_n(X) = \prod_{\substack{\zeta \in \mu_n(L) \\ \zeta \text{primitiv}}} (X- \zeta) \in
+	\Phi_n(X) = \prod_{\substack{\zeta \in \mu_n(L) \\ \zeta \ \text{primitiv}}} (X- \zeta) \in
 	\QQ[X].
 \]
 Das Polynom $\Phi_n(X)$ heißt das {\em $n$-te Kreisteilungspolynom}. 
@@ -4884,7 +4886,7 @@ Das Polynom $\Phi_n(X)$ heißt das {\em $n$-te Kreisteilungspolynom}.
 	primitiv ist. 
 \end{rem}
 
-Für eine Primzahl $p$ gilt ist jede $p$-te Einheitswurzel $\zeta \ne 1$ primitiv, so dass also gilt
+Für eine Primzahl $p$ gilt: Jede $p$-te Einheitswurzel $\zeta \ne 1$ ist primitiv, so dass also gilt
 \[
 	\Phi_p(X) = X^{p-1} + X^{p-2} + \dots + 1.
 \]
@@ -4896,18 +4898,18 @@ Für jedes $n \ge 1$, ist das Kreisteilungspolynom $\Phi_n(X) \in \QQ[X]$ irredu
 \end{thm}
 \begin{proof}
 	Nach dem Gauß-Lemma genügt es zu zeigen, dass $\Phi_n(X)$ irreduzibel in $\ZZ[X]$ ist. Sei
-	also $\Phi_n(X) = f(X) g(X)$ wobei wir ohne Einschränkung annehmen, dass $f(X)$ irreduzibel
+	also $\Phi_n(X) = f(X) g(X)$, wobei wir ohne Einschränkung annehmen, dass $f(X)$ irreduzibel
 	und primitiv ist, sowie $g(X)$ primitiv (Gauß-Lemma). Wir zeigen nun die folgende Aussage:
 	\begin{itemize}
 		\item[(*)] Für jede Primzahl $p$ mit $\ggT(p,n) =1$ und jede primitive $n$-te
 			Einheitswurzel $\zeta \in L$ gilt die Implikation $f(\zeta) = 0 \Rightarrow
 			f(\zeta^p) = 0$. 
 	\end{itemize}
-	Angenommen (*) gilt nicht. Dann gibt es also eine primitive $n$-te Einheitswurzel $\zeta$,
+	Angenommen, (*) gelte nicht. Dann gibt es also eine primitive $n$-te Einheitswurzel $\zeta$,
 	so dass $f(\zeta) = 0$, aber $f(\zeta^p) \ne 0$. Da $\zeta^p$ selbst eine primitive
 	Einheitswurzel und damit eine Nullstelle von $\Phi_n(X)$ ist, folgt $g(\zeta^p) = 0$.
 	Demnach ist $\zeta$ eine Nullstelle von $g(X^p)$. Da $f(X)$ irreduzibel ist mit $f(\zeta) =
-	0$ gilt $g(X^p) = f(X)h(X)$. Wir betrachten nun den Restklassenhomomorphismus
+	0$, gilt $g(X^p) = f(X)h(X)$. Wir betrachten nun den Restklassenhomomorphismus
 	\[
 		\ZZ[X] \lra \FF_p[X],\; r(X) \mapsto \overline{r}(X)
 	\]
@@ -4990,14 +4992,14 @@ Für jedes $n \ge 1$, ist das Kreisteilungspolynom $\Phi_n(X) \in \QQ[X]$ irredu
     \[
         [L:\QQ] = |\{\text{primitive $n$te Einheitswurzeln in $L$}\}| = |(\ZZ/n\ZZ)^*|.
     \]
-    Da $L/\QQ$ galoissch ist folgt nun aus Kardinalitätsgründen, dass die Injektion $\rho$ aus Proposition \ref{prop:galoisew} eine Bijektion sein muss.
+    Da $L/\QQ$ galoissch ist, folgt nun aus Kardinalitätsgründen, dass die Injektion $\rho$ aus Proposition \ref{prop:galoisew} eine Bijektion sein muss.
 \end{proof}
 
 \begin{rem}
     \label{rem:rest}
-    Sei $n = p_1^{n_1} p_2^{n_2} .. p_k^{n_k}$ Primfaktorzerlegung. Der chinesische Restsatz liefert einen Isomorphismus 
+    Sei $n = p_1^{n_1} p_2^{n_2} .. p_k^{n_k}$ eine Primfaktorzerlegung. Der chinesische Restsatz liefert einen Isomorphismus 
     \[
-        \ZZ/n\ZZ \cong \ZZ/p_1^{n_1}\ZZ \times \ZZ/p_2^{n_2}\ZZ \times ... \times  \ZZ/p_k^{n_k}\ZZ
+        \ZZ/n\ZZ \cong \ZZ/p_1^{n_1}\ZZ \times \ZZ/p_2^{n_2}\ZZ \times ... \times  \ZZ/p_k^{n_k}\ZZ,
     \]
     und nach Übergang zu Einheiten auch 
     \[
@@ -5017,7 +5019,7 @@ Für jedes $n \ge 1$, ist das Kreisteilungspolynom $\Phi_n(X) \in \QQ[X]$ irredu
     \[
         G(L/\QQ) \cong \ZZ/2\ZZ \times \ZZ/3\ZZ \cong \ZZ/6\ZZ.
     \]
-    Nach der Galoiskorrespondenz gibt es also einen Körper $M \subset L$ so
+    Nach der Galoiskorrespondenz gibt es also einen Körper $M \subset L$, so
     dass $M/\QQ$ eine Galoiserweiterung mit Galoisgruppe $A_3$ ist. 
 \end{exa}
 
@@ -5036,7 +5038,7 @@ und seinen Zerfällungskörper $L$.
     \label{prop:radgalois} Unter den obigen Voraussetzungen gelten:
     \begin{enumerate}
         \item Es gilt $L = K(\zeta, \alpha)$ wobei $\alpha \in L$ eine
-            Nullstelle von $f(X)$ und $\zeta \in L$ eine primitive $n$te
+            Nullstelle von $f(X)$ und $\zeta \in L$ eine primitive $n$-te
             Einheitswurzel ist. 
         \item Für den Turm
             \[
@@ -5069,9 +5071,9 @@ und seinen Zerfällungskörper $L$.
     $\alpha_1, ..., \alpha_n$ ($f$ hat einfache Nullstellen, wegen $\partial(f)
     = n X^{n-1}$). Wir setzen $\alpha = \alpha_1$, dann sind die Elemente
     $\alpha^{-1} \alpha_1, ..., \alpha^{-1} \alpha_n$ paarweise verschiedene
-    $n$te Einheitswurzeln, und demnach {\em alle} $n$ten Einheitswurzeln in
-    $L$. Wir können also für eine primitive $n$te Einheitswurzel $\zeta \in
-    \mu_n(L)$ schreiben
+    $n$-te Einheitswurzeln, und demnach {\em alle} $n$-ten Einheitswurzeln in
+    $L$. Wir können also für eine primitive $n$-te Einheitswurzel $\zeta \in
+    \mu_n(L)$ schreiben:
     \[
         f(X) = \prod_{i = 0}^{n-1} (X - \zeta^i \alpha).
     \]
@@ -5089,13 +5091,13 @@ und seinen Zerfällungskörper $L$.
 \end{cor}
 \begin{proof}
     Die Galoisgruppe ist eine Untergruppe einer endlichen zyklischen Gruppe, also selbst
-    zyklisch (todo: include proof!)
+    zyklisch \red{Die Anmerkung ist von Dir: (todo: include proof!)}
 \end{proof}
-\red{include proof}
+
 \begin{thm}
     \label{thm:radikalzyklisch}
     Sei $n \ge 1$, $M$ ein Körper mit $\charac(M) \nmid n$, der eine primitive
-    $n$te Einheitswurzel enthalte. Sei $L/M$ eine Galoiserweiterung mit
+    $n$-te Einheitswurzel enthalte. Sei $L/M$ eine Galoiserweiterung mit
     $G(L/M) \cong \ZZ/n\ZZ$. Dann gibt es $b \in M$, so dass $L$ der
     Zerfällungskörper von $X^n - b$ ist. 
 \end{thm}
@@ -5106,20 +5108,20 @@ und seinen Zerfällungskörper $L$.
         \alpha : = \sum_{i = 0}^{n-1} \zeta^{-i} \tau^i(y)
     \]
     wobei $y \in L$ so gewählt ist, dass $\alpha \ne 0$. Ein solches $y$
-    existiert nach dem Dedekind Lemma \ref{lem:dedekind}. Wir rechnen:
+    existiert nach dem Dedekind-Lemma \ref{lem:dedekind}. Wir rechnen:
     \begin{align*}
         \tau(\alpha) & = \sum_{i = 0}^{n-1} \zeta^{-i} \tau^{i+1}(y)\\ 
                      & = \zeta \sum_{i = 0}^{n-1} \zeta^{-i-1} \tau^{i+1}(y)\\
                      & = \zeta \alpha
     \end{align*}
-    Daher gilt also $\tau(b) = b$ und die paarweise verschiedenen Elemente
+    Daher gilt also $\tau(b) = b$, und die paarweise verschiedenen Elemente
     $\zeta^i\alpha$, $0 \le i \le n-1$ sind die Nullstellen von $X^n - b$. Da
     $G(L/M)$ transitiv auf diesen Nullstellen operiert, ist das Polynom $X^n -
     b$ irreduzibel in $M[X]$. Daher gilt
     \[
-        [M(\alpha):M] = n = |G(L/M)| = [L:M]
+        [M(\alpha):M] = n = |G(L/M)| = [L:M],
     \]
-    also $L = M(\alpha)$ so dass $L$ also der Zerfällungskörper von $X^n - b$ ist. 
+    also $L = M(\alpha)$, so dass $L$ also der Zerfällungskörper von $X^n - b$ ist. 
 \end{proof}
 
 \begin{defi}\index{Radikalerweiterung!Definition}
@@ -5127,9 +5129,9 @@ und seinen Zerfällungskörper $L$.
     Sei $K$ ein Körper. 
     \begin{enumerate}
         \item Eine Körpererweiterung $L/K$ heißt {\em einfache
-            Radikalerweiterung} falls es $\alpha \in L$ und $n \ge 1$ gibt so
+            Radikalerweiterung}, falls es $\alpha \in L$ und $n \ge 1$ gibt, so
             dass $\alpha^n \in K$. 
-        \item Eine Körpererweiterung $L/K$ heißt {\em Radikalerweiterung} falls es einen Turm
+        \item Eine Körpererweiterung $L/K$ heißt {\em Radikalerweiterung}, falls es einen Turm
             \[
                 K = K_0 \subset K_1 \subset \cdots \subset K_m = L
             \]
@@ -5141,12 +5143,12 @@ und seinen Zerfällungskörper $L$.
 \begin{lem}
     \label{lem:galoisradikal}
     Sei $K$ ein Körper der Charakteristik $0$ und sei $L/K$ eine
-    Radikalerweiterung. Dann existiert eine Körpererweiterung $E/L$ so dass
+    Radikalerweiterung. Dann existiert eine Körpererweiterung $E/L$, so dass
     $E/K$ eine galoissche Radikalerweiterung ist. 
 \end{lem}
 \begin{proof}
     Da $L/K$ Radikalerweiterung ist, gibt es $\alpha_1, ..., \alpha_m \in L$,
-    so dass $L = K(\alpha_1, ..., \alpha_m)$ und mit $K_i = K(\alpha_1,
+    so dass $L = K(\alpha_1, ..., \alpha_m)$, und mit $K_i = K(\alpha_1,
     ..., \alpha_i)$ gilt: $\alpha_i^{n_i} \in K_{i-1}$, $1 \le i \le n$. Seien
     $f_1, ..., f_m$ die Minimalpolynome von $\alpha_1, ..., \alpha_m$ über $K$
     und sei $E/L$ der Zerfällungskörper von $f = f_1 f_2 \cdots f_m$ über $L$.
@@ -5221,7 +5223,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
 \end{lem}
 \begin{proof}
     Es existiert eine Kette der Form \eqref{eq:kette}, wobei alle Inklusionen
-    oE echte Inklusionen sind. Wir betrachten die Quotientenabbildung
+    o.E. echte Inklusionen sind. Wir betrachten die Quotientenabbildung
     \[
         \pi: G \to G/U_{n-1}.
     \]
@@ -5231,12 +5233,12 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
 
 \begin{thm}\index{Symmetrische Gruppe!Alternierende Gruppe!Auflösbarkeit}
     \label{thm:annot}
-    Sei $n \ge 5$. Dann ist die alternierende Gruppe $A_n$ nicht auflösbar. 
+    Die alternierende Gruppe $A_n$ ist für $n \ge 5$ nicht auflösbar. 
 \end{thm}
 \begin{proof}
     Wir zeigen, dass gilt: $[A_n,A_n] = A_n$. Da sich jedes Element von $A_n$
-    als ein Produkt einer geraden Anzahl von Transpotitionen schreiben lässt,
-    genügt es für $a \neq b$ und $c \neq d$ zu zeigen:
+    als ein Produkt einer geraden Anzahl von Transpositionen schreiben lässt,
+    genügt es, für $a \neq b$ und $c \neq d$ zu zeigen:
     \[
         (ab)(cd) \in [A_n,A_n].
     \]
@@ -5245,7 +5247,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
         \item $b = c$: Dann gilt $(ab)(bd) = (abd)$. 
         \item $a,b,c,d$ paarweise verschieden: Dann gilt $(ab)(bd) = (abc)(bcd)$. 
     \end{enumerate}
-    Um alle Fälle abzudecken genügt es also für paarweise verschiedene $a,b,c$
+    Um alle Fälle abzudecken, genügt es also, für paarweise verschiedene $a,b,c$
     zu zeigen: $(abc) \in [A_n,A_n]$. Es gilt für $1 \le d < e \le n$ so dass
     $a,b,c,d,e$ paarweise verschieden sind: 
     \[
@@ -5270,13 +5272,13 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
         \{1\} = U_0 \le U_1  \le U_2 \le \cdots \le U_n = G
     \]
     und sei $H$ eine Untergruppe von $G$. 
-    Dann setzen wir, für $0 \le i \le n$:
+    Dann setzen wir für $0 \le i \le n$:
     \[
         V_i := H \cap U_i.
     \]
     Dann folgt $V_{i-1} \no V_{i}$ und nach dem Homomorphiesatz
     \[
-        V_i/V_{i-1} \hra U_i/U_{i-1} 
+        V_i/V_{i-1} \hra U_i/U_{i-1},
     \]
     so dass sich $V_i/V_{i-1}$ mit einer Untergruppe der zyklischen Gruppe
     $U_i/U_{i-1}$ identifiziert, also selbst zyklisch ist. Somit ist $H$
@@ -5310,7 +5312,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
 
 \begin{defi}\index{Radikalerweiterung!Radikalauflösbarkeit}
     \label{defi:radikaleauf}
-        Sei $f \in K[X]$ ein Polynom. Wir sagen $f$ ist {\em durch
+        Sei $f \in K[X]$ ein Polynom. Wir sagen, $f$ ist {\em durch
         Radikale auflösbar}, wenn es eine Radikalerweiterung $L/K$ gibt, so
         dass $f \in L[X]$ in Linearfaktoren zerfällt ($L$ enthält also
         einen Zerfällungskörper von $f$). 
@@ -5336,8 +5338,8 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     kleinste gemeinsame Vielfache der Zahlen $n_1, ..., n_m$ und sei $E'/E$ der
     Zerfällungskörper des Polynoms $X^n - 1$. Dann ist auch $E'/K$ galoissch:
     Sei $E$ Zerfällungskörper von $g \in K[X]$, dann ist $E'$ Zerfällungskörper
-    von $g (X^n -1)$. Per Konstruktion enthält $E'$ nun eine primitive $n$te
-    Einheitswurzel $\zeta$ und es gilt $E' = E(\zeta)$. Wir betrachten nun das Diagramm von Körpereinbettungeen
+    von $g (X^n -1)$. Per Konstruktion enthält $E'$ nun eine primitive $n$-te
+    Einheitswurzel $\zeta$ und es gilt $E' = E(\zeta)$. Wir betrachten nun das Diagramm von Körpereinbettungen
     \[
     \begin{tikzcd}
         & E(\zeta)\\
@@ -5347,10 +5349,10 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
                 & K_1(\zeta) \ar[dash]{u}\\
      &  K(\zeta) \ar[dash]{u}\\
     K \ar[dash]{ur}\ar[dash]{uuuuu} & 
-    \end{tikzcd}
+    \end{tikzcd}.
     \]
     Für jedes $1 \le i \le n$ teilt $n_i$ die Zahl $n$, mit $n = n_i k_i$ ist
-    also $\zeta^{k_i}$ eine primitive $n_i$te Einheitswurzel. Nach Satz
+    also $\zeta^{k_i}$ eine primitive $n_i$-te Einheitswurzel. Nach Satz
     \ref{prop:radgalois} und Korollar \ref{cor:galzyklisch} sind die einfachen
     Radikalerweiterungen also galoissch mit zyklischer Galoisgruppe.
     Desweiteren ist die Kreisteilungserweiterung $K(\zeta)/K$ galoissch mit
@@ -5359,7 +5361,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     \[
         \{1\} \no G(E(\zeta)/K_{m-1}(\zeta)) \no G(E(\zeta)/K_{m-2}(\zeta)) \no ... \no G(E(\zeta)/K(\zeta)) \no G(E(\zeta)/K)
     \]
-    Doch damit ist, nach Lemma \ref{lem:auflösbar} auch die Galoisgruppe
+    Doch damit ist, nach Lemma \ref{lem:auflösbar}, auch die Galoisgruppe
     $G(L/K) \cong G(E(\zeta)/K)/G(E(\zeta)/L)$ auflösbar.\\
 
     Sei nun umgekehrt die Galoisgruppe $G(L/K)$ auflösbar und sei $n = [L:K]$.
@@ -5392,12 +5394,12 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
         |G(L(\zeta)/K(\zeta))| \mid |G(L/K)| = [L:K] = n.
     \]
     Daher gilt für alle $1 \le i \le n$: $n_i | n$, so dass mit $n = n_i k_i$
-    also $\zeta^{k_i}$ eine primitive $n_i$te Einheitswurzel ist. 
+    also $\zeta^{k_i}$ eine primitive $n_i$-te Einheitswurzel ist. 
 
     Nach Satz \ref{thm:radikalzyklisch} sind damit alle Erweiterungen
     $K_i/K_{i-1}$ einfache Radikalerweiterungen. Auch die
     Kreisteilungserweiterung $K(\zeta)$ ist eine einfache Radikalerweiterung,
-    so dass also $E(\zeta)/K$ eine Radikalerweiterung ist und somit $f$ durch Radikale auflösbar. 
+    so dass also $E(\zeta)/K$ eine Radikalerweiterung und somit $f$ durch Radikale auflösbar ist. 
 \end{proof}
 
 \begin{cor}\index{Unlösbarkeit des Kreisteilungsproblems}
@@ -5406,7 +5408,7 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     \ref{rem:allgemein} nicht durch Radikale auflösbar. 
 \end{cor}
 \begin{proof}
-    Das allgemeine Polynom $n$ten Grades hat die Galoisgruppe $S_n$ welche, für
+    Das allgemeine Polynom $n$-ten Grades hat die Galoisgruppe $S_n$ welche, für
     $n \ge 5$, nach Lemma \ref{lem:auflösbar} nicht auflösbar ist, denn $S_n$
     enthält die nicht auflösbare Gruppe $A_n$ (Satz \ref{thm:annot}).
 \end{proof}

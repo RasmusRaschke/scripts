@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.2.28)  9 MAR 2025 19:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.2.28)  10 MAR 2025 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1111,29 +1111,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 3797--3799
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 4395.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4438--4441
-
- []
+(amsmath)                 on input line 4397.
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 4442--4446
+Underfull \hbox (badness 10000) in paragraph at lines 4440--4443
 
  []
 
-[59]
+
+Underfull \hbox (badness 10000) in paragraph at lines 4444--4448
+
+ []
+
+[59] [60]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4582.
+(hyperref)                removing `math shift' on input line 4584.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4582.
+(hyperref)                removing `math shift' on input line 4584.
 
-[60] [61]
-Overfull \hbox (3.2746pt too wide) in paragraph at lines 4721--4722
+[61]
+Overfull \hbox (3.2746pt too wide) in paragraph at lines 4723--4724
 [][]\T1/cmr/bx/n/10 Korollar 3.8.6. []\T1/cmr/m/it/10 Sei $\OML/cmm/m/it/10 K$ 
 \T1/cmr/m/it/10 ein Kör-per und $\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 X[]; :::; X[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 der Kör-per der Brü-che d
@@ -1141,12 +1141,12 @@ es Po-ly-nom-rings $\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; ::
 :; X[]\OT1/cmr/m/n/10 ]$\T1/cmr/m/it/10 .
  []
 
-[62] [63] [64] [65] [66] [67] [68] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 5361--5364
+[62] [63] [64] [65] [66] [67] [68] [69] [70]
+Underfull \hbox (badness 10000) in paragraph at lines 5363--5366
 
  []
 
-[70] (./notes.ind [71]
+[71] (./notes.ind [72]
 Overfull \hbox (1.42824pt too wide) in paragraph at lines 105--107
 []\T1/cmr/m/n/10 Klassifikation der pla-to-ni-schen Sym-me-trie-grup-pen, [][]1
 8[][] 
@@ -1158,9 +1158,9 @@ Overfull \hbox (6.26398pt too wide) in paragraph at lines 107--109
 r/m/n/10 -Torsionsmoduln über
  []
 
-[72
+[73
 
-] [73] [74
+] [74] [75
 
 ]) (./notes.aux)
  ***********
@@ -1171,9 +1171,9 @@ Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: 6053E726D7302E7930ED25A9DE02AF26;3865.
  ) 
 Here is how much of TeX's memory you used:
- 28075 strings out of 476023
- 515427 string characters out of 5791582
- 1959187 words of memory out of 5000000
+ 28076 strings out of 476023
+ 515434 string characters out of 5791582
+ 1961187 words of memory out of 5000000
  49069 multiletter control sequences out of 15000+600000
  584483 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1205,10 +1205,10 @@ er/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
 xmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/
 type1/public/cm-super/sftt1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm
 -super/sfxc1000.pfb>
-Output written on notes.pdf (74 pages, 750746 bytes).
+Output written on notes.pdf (75 pages, 751804 bytes).
 PDF statistics:
- 1608 PDF objects out of 1728 (max. 8388607)
- 1452 compressed objects within 15 object streams
- 619 named destinations out of 1000 (max. 500000)
+ 1612 PDF objects out of 1728 (max. 8388607)
+ 1455 compressed objects within 15 object streams
+ 620 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
