@@ -1698,7 +1698,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
 \begin{defi}\index{Ring!Definition}
     \label{defi:ring}
     Ein {\em Ring} ist ein Tupel $(R,+,\cdot)$ bestehend aus einer Menge
-    $R$, Abbildungen 
+    $R$ und Abbildungen 
     \[
         + : R \times R \to R \quad \cdot : R \times R \to R,
     \]
@@ -1716,7 +1716,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
                 a \cdot 1 = 1 \cdot a = a.
             \]
     \end{enumerate}
-    Falls zusätzlich, für alle $a,b \in R$, gilt: $a \cdot b = b \cdot a$ dann
+    Falls zusätzlich, für alle $a,b \in R$, gilt: $a \cdot b = b \cdot a$,
     heißt der Ring {\em kommutativ}.
 \end{defi}
 
@@ -1744,7 +1744,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
             Zum Beispiel ist die imaginäre Zahl $i$ als Nullstelle des Polynoms
             $X^2 + 1$ eine ganze algebraische Zahl und erzeugt den Ring
             \[
-                \ZZ[i] = \{ a + b i \; | \; a,b \in \ZZ \}.
+                \ZZ[i] = \left\{ a + b i \; | \; a,b \in \ZZ \right\}.
             \]
             der sogenannten \emph{Gaußschen Zahlen}\index{Gaußscher Zahlenring!Definition}.
 
@@ -1756,7 +1756,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
         \item Für jeden Körper $K$ bildet die Menge $M(n,K)$ der $n \times
             n$-Matrizen einen Ring mit komponentenweiser Addition und
             Matrixmultiplikation.\index{Matrizenring!Definition}
-        \item Für $R,S$ Ringe, bildet das kartesische Produkt $R \times S$
+        \item Für Ringe $R,S$ bildet das kartesische Produkt $R \times S$
             einen Ring mit komponentenweiser Addition und Multiplikation.
     \end{enumerate}
 \end{exas}
@@ -1772,11 +1772,11 @@ Vorschein kommen, die Beweise und präzisen Begriffe werden später
 nachgeliefert. Zum Beispiel zerfällt die Primzahl $2$ im Ring $\ZZ[i]$ in ein
 Produkt
 \[
-    (1+i)(1-i) = 2 
+    (1+i)(1-i) = 2 ,
 \]
 welches dort eine Zerlegung in ``Primfaktoren'' bildet.
 Die Tatsache, dass es im Ring $\ZZ[i]$ immer noch eindeutige
-Primfaktorzerlegungen gibt hat direkte zahlentheoretische Konsequenzen. Dies
+Primfaktorzerlegungen gibt, hat direkte zahlentheoretische Konsequenzen. Dies
 liefert z.B. einen sehr eleganten Beweis des folgenden klassischen Resultats:
 
 \begin{thm}
@@ -1788,7 +1788,7 @@ liefert z.B. einen sehr eleganten Beweis des folgenden klassischen Resultats:
 
 Umgekehrt gibt es algebraische Zahlringe, in denen die Eindeutigkeit der
 Primzahlzerlegung fehlschlägt. Zum Beispiel werden wir sehen, dass die Zahl $6$
-es im Ring $\ZZ[\sqrt{-5}]$ die unterschiedlichen Primfaktorzerlegungen 
+im Ring $\ZZ[\sqrt{-5}]$ die unterschiedlichen Primfaktorzerlegungen 
 \[
     6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})
 \]
@@ -1891,7 +1891,7 @@ Ideale, nämlich $\{0\}$ und $R$ selbst.
 
 \begin{cor}
     \label{cor:fieldring}
-    Sei $K$ ein Körper, $S$ ein Ring, und $\phi: K \to S$ ein Ringhomomorphismus. Dann ist $\phi$ entweder injektiv, oder $S = 0$. 
+    Sei $K$ ein Körper, $S$ ein Ring, und $\phi: K \to S$ ein Ringhomomorphismus. Dann ist $\phi$ entweder injektiv, oder $S = \{0\}$. 
 \end{cor}
 \begin{proof}
     Die einzigen Ideale von $K$ sind $\{0\}$ und $K$. Zudem gilt $\phi(1) = 1$
@@ -1920,7 +1920,7 @@ Wir bezeichnen die Menge der Äquivalenzklassen mit $R/I$.
             \[
                 \cdot: \; R/I \times R/I \to R/I, ([r_1],[r_2]) \mapsto [r_1 \cdot r_2]
             \]
-            definieren eine Ringstruktur auf $R/I$ genannt der \emph{Quotientenring von
+            definieren eine Ringstruktur auf $R/I$, genannt der \emph{Quotientenring von
             $R$ modulo $I$.} 
         \item Die Abbildung 
             \[
@@ -1955,8 +1955,8 @@ Wir bezeichnen die Menge der Äquivalenzklassen mit $R/I$.
 \section{Primelemente und Primideale}%
 \label{sec:primideale}
 
-Für Elemente $a,b \in R$ eines Rings $R$ schreiben wir $a|b$, und sagen {\em
-$a$ teilt $b$}, falls es ein $r \in R$ gibt so dass $b = a r$. Teilbarkeit
+Für Elemente $a,b \in R$ eines Rings $R$ schreiben wir $a|b$ und sagen {\em
+$a$ teilt $b$}, falls es ein $r \in R$ gibt, so dass $b = a r$. Teilbarkeit
 lässt sich in Termen von Idealen ausdrücken, denn es gilt
 \[
     a | b \quad \equ \quad b \in (a) \quad \equ \quad (b) \subset (a).
@@ -1977,7 +1977,7 @@ Begriffen.
             gibt mit $uv =1$. Die Einheiten von $R$ bilden eine Gruppe unter
             Multiplikation, bezeichnet mit $R^{\times}$. 
         \item \index{Ring!Primelement}Ein Element $0 \neq p \in R$ mit $p \notin R^{\times}$ heißt
-            \emph{Primelement} falls für alle $a,b \in R$ gilt: 
+            \emph{Primelement}, falls für alle $a,b \in R$ gilt: 
             \[
                 p|ab \quad \Rightarrow \text{$p|a$ oder $p|b$}. 
             \]
@@ -1986,7 +1986,7 @@ Begriffen.
 
 \begin{exa}
         Die Gruppe der Einheiten in $\ZZ$ ist $\ZZ^{\times} = \{1, -1 \}$ und
-        die Primelemente sind bis auf genau die Zahlen der Form $\pm p$ für $p$
+        die Primelemente sind genau die Zahlen der Form $\pm p$ für $p$
         Primzahl.
 \end{exa}
 
@@ -2023,8 +2023,8 @@ Begriffen.
     \label{prop:elementideal}
     Sei $R$ ein Ring.
     \begin{enumerate}
-        \item Ein Element $a \in R$ ist eine Einheit, genau dann wenn $(a) = R$. 
-        \item Ein Element $0 \neq a \in R$ ist ein Primelement, genau dann wenn $(a)
+        \item Ein Element $a \in R$ ist genau dann eine Einheit, wenn $(a) = R$. 
+        \item Ein Element $0 \neq a \in R$ ist ein Primelement genau dann, wenn $(a)
             \subset R$ ein Primideal ist. 
     \end{enumerate}
 \end{prop}
@@ -2038,7 +2038,7 @@ Begriffen.
     \[
         I \cdot J = (\{ xy \; | \; x \in I, y \in J\}).
     \]
-    Dann ist $P \subset R$ ein Primideal genau dann wenn für alle Ideale $I,J \subset R$ gilt:
+    Dann ist $P \subset R$ genau dann ein Primideal, wenn für alle Ideale $I,J \subset R$ gilt:
     \[
         P | I \cdot J \quad \equ \quad P | I \text{ oder } P | J.
     \]
@@ -2046,7 +2046,7 @@ Begriffen.
 
 \begin{defi}\index{Integritätsbereich!Definition}
     \label{defi:integraldomain}
-    Ein Ring $R$ heißt \emph{nullteilerfrei}, oder \emph{Integritätsbereich}, falls $R \neq \{0\}$ und für alle
+    Ein Ring $R$ heißt \emph{nullteilerfrei} oder \emph{Integritätsbereich}, falls $R \neq \{0\}$ und für alle
     $r,s \in R$ gilt:
     \[
         r \cdot s =0  \quad \Rightarrow \quad \text{$r = 0$ oder $s = 0$}.
@@ -2092,7 +2092,7 @@ Begriffen.
 \begin{proof}
     Sei $r$ unzerlegbar und sei $(r) \subset (b) \subset R$. Dann gibt es also
     $a \in R$ mit $r = ab$. Doch daraus folgt $a \in R^{\times}$ oder $b \in
-    R^{\times}$. Im ersten Fall gilt $(b) = (r)$ im zweiten Fall ist $(b) = R$
+    R^{\times}$. Im ersten Fall gilt $(b) = (r)$, im zweiten Fall ist $(b) = R$
     kein \emph{echtes} Hauptideal. 
 
     Gelte umgekehrt (ii) und sei $r = ab$ eine Zerlegung. Dann gilt
@@ -2114,7 +2114,7 @@ Begriffen.
 
 \begin{prop}
     \label{prop:maximalfield}
-    Sei $R$ ein Ring und $I \subset R$ Ideal. Dann sind äquivalent:
+    Sei $R$ ein Ring und $I \subset R$ ein Ideal. Dann sind äquivalent:
     \begin{enumerate}[label=(\roman *)]
         \item $R/I$ Körper.
         \item $I \subsetneq R$ maximal.
@@ -2129,7 +2129,7 @@ Begriffen.
 
     Sei umgekehrt $I \subsetneq R$ ein maximales Ideal und sei $0 \neq [x] \in
     R/I$. Dann gilt also $x \notin I$ und damit ist $(I \cup \{x\}) \subset R$
-    ein Ideal welches echt größer als $I$ ist. Daher also $(I \cup \{x\}) = R$.
+    ein Ideal, welches echt größer als $I$ ist. Daher also $(I \cup \{x\}) = R$.
     Also gibt es $y \in I$ und $r \in R$ so dass $1 = y + rx$ und demnach
     $[r][x] = 1$.
 \end{proof}
@@ -2146,7 +2146,7 @@ Begriffen.
     multiplikative Gruppe des Körpers $K$. Das Ideal $(Y) \subset K[X,Y]$ ist
     der Kern des Evaluationshomomorphimus
     \[
-        K[X,Y] \to K[X], f(X,Y) \mapsto f(X,0)
+        K[X,Y] \to K[X], f(X,Y) \mapsto f(X,0),
     \]
     so dass der Homomorphiesatz einen Isomorphismus $K[X,Y]/(Y) \cong K[X]$
     liefert. Dieser Ring ist ein Integritätsbereich, so dass also $(Y)$ ein
@@ -2166,7 +2166,7 @@ Begriffen.
     \[
         K[X,Y] \to K, f(X,Y) \mapsto f(0,0)
     \]
-    induziert einen Isomorphismus $K[X,Y]/(X,Y) \cong K$ so dass das Ideal
+    induziert einen Isomorphismus $K[X,Y]/(X,Y) \cong K$, so dass das Ideal
     $(X,Y)$ nun tatsächlich ein maximales Ideal ist. 
 %
     Als Randnotiz sei hier vermerkt, dass, für einen algebraisch
@@ -2195,7 +2195,7 @@ maximalen Idealen per Definition verschwindet:
     \end{enumerate}
 \end{prop}
 \begin{proof}
-    Dass jedes Primelement auch unzerlegbar gilt nach Proposition
+    Dass jedes Primelement auch unzerlegbar ist, gilt nach Proposition
     \ref{prop:nullteilerfreiprim} schon in nullteilerfreien Ringen. Sei also
     nun $r \in R$ unzerlegbar. Dann ist nach Proposition
     \ref{prop:maximalhaupt} das Ideal $(r)$ maximal unter den Hauptidealen, was
@@ -2210,14 +2210,14 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
 
 \begin{defi}\index{Euklidischer Ring!Definition}
     \label{defi:euklid}
-    Ein Integritätsbereich $R$ heißt \emph{Euklidisch} falls es eine Abbildung 
+    Ein Integritätsbereich $R$ heißt \emph{Euklidisch}, falls es eine Abbildung 
     \[
         \lambda: R \setminus \{0\} \to \NN
     \] 
-    mit der folgenden Eigenschaft gibt: Für alle $a,b \in R$ mit $b \neq 0$,
+    mit der folgenden Eigenschaft gibt: Für alle $a,b \in R$ mit $b \neq 0$
     gibt es Elemente $q,r \in R$, so dass
     \[
-        a = qb + r
+        a = qb + r,
     \]
     wobei entweder $r = 0$ oder $\lambda(r) < \lambda(b)$. 
 \end{defi}
@@ -2228,12 +2228,12 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
 \end{thm}
 \begin{proof}
     Sei $\{0\} \neq I \subset R$ ein Ideal. Sei $0 \neq x \in I$ mit $\lambda(x)$ minimal
-    (Wohlordnung von $\NN$). Für $y \in I$ beliebig gibt es nun ein $q \in R$ und $r \in R$ so dass
+    (Wohlordnung von $\NN$). Für $y \in I$ beliebig gibt es nun ein $q \in R$ und $r \in R$, so dass
     \[
         y = qx + r
     \]
-    wobei entweder $r = 0$ oder $\lambda(r) < \lambda(x)$. Doch da $r \in I$
-    kommt wegen der Minimalität von $x$ nur $r=0$ in Frage. Damit gilt also $y
+    wobei entweder $r = 0$ oder $\lambda(r) < \lambda(x)$. Doch da $r \in I$ ist,
+    kommt wegen der Minimalität von $x$ nur $r=0$ in Frage. Damit gilt $y
     = qx$, also $I = (x)$. 
 \end{proof}
 
@@ -2242,7 +2242,7 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
     \begin{enumerate}
         \item \index{Ganzzahlen!als euklidischer Ring}Der Ring $\ZZ$ ist ein Euklidischer Ring mit $\lambda(n) = |n|$.
         \item \index{Polynomring!als euklidischer Ring}Der Polynomring $K[X]$ über einem Körper (!) $K$ ist ein
-            Euklidischer Ring wobei $\lambda(f)$ der Grad von $f$ ist. 
+            Euklidischer Ring, wobei $\lambda(f)$ der Grad von $f$ ist. 
         \item \index{Gaußscher Zahlenring!als euklidischer Ring}Der Ring $\ZZ[i]$ der Gaußschen Zahlen ist ein Euklidischer Ring mit
             \[
                 \lambda(a + bi) := N(a+bi) = a^2 + b^2.
@@ -2255,16 +2255,16 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
     daher auf den Beweis von (3). Zu gegebenen Gaußschen Zahlen $\alpha$ und
     $\beta \neq 0$ müssen wir also $q,r \in \ZZ[i]$ finden mit
     \[
-        \alpha = q \beta + r
+        \alpha = q \beta + r,
     \]
     wobei entweder $r=0$ oder $N(r) < N(\beta)$. Wir betrachten die komplexe
     Zahl $z := \frac{\alpha}{\beta} \in \CC$. Falls $z \in
     \ZZ[i]$, dann setzen wir $q = z$ und $r = 0$.
-    Andernfalls liegt die Zahl $z$ in einer der quadratischen Maschen in die
+    Andernfalls liegt die Zahl $z$ in einer der quadratischen Maschen, in die
     das \emph{Gitter} $\ZZ[i] \subset \CC$ die komplexe Zahlenebende
     unterteilt. Es genügt nun (!) ein $q \in \ZZ[i]$ zu finden, so dass gilt
     \begin{equation}
-            |\frac{\alpha}{\beta} - q| < 1.
+            \left|\frac{\alpha}{\beta} - q\right| < 1.
     \end{equation}
     Doch dies ist immer möglich, denn der größtmögliche Abstand eines Punktes
     im Quadrat zum nächsten Eckpunkt ist $\sqrt{2}/2 < 1$, realisiert vom Mittelpunkt. 
@@ -2280,12 +2280,12 @@ Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
 \index{Ring!Assoziierte Elemente}Wir werden nun den von den ganzen Zahlen wohlbekannten Begriff der
 Primfaktorzerlegung verallgemeinern. Dabei nennen wir Elemente $a,b$ eines
 Integritätsbereichs $R$ \emph{assoziiert}, wenn sie sich um einen
-Einheitenfaktor unterscheiden, es also eine Einheit $u \in R^{\times}$ so dass
+Einheitenfaktor unterscheiden, es also eine Einheit $u \in R^{\times}$ gibt, so dass
 $a = u b$. Wir schreiben dann $a \sim b$. 
 
 \begin{rem}
     \label{rem:ass}
-    Elemente $a,b$ eines Integritätsbereichs sind assoziiert, genau dann wenn
+    Elemente $a,b$ eines Integritätsbereichs sind genau dann assoziiert, wenn
     $(a) = (b)$. 
 \end{rem}
 
@@ -2342,10 +2342,10 @@ $a = u b$. Wir schreiben dann $a \sim b$.
     wobei $q_2' \sim q_2$. Durch Induktion über $m$ reduzieren wir also auf den
     Fall $m=1$. In diesem Falle gilt 
     \[
-        p_1 = q_1 \cdots q_n
+        p_1 = q_1 \cdots q_n,
     \]
-    doch da $p_1$ unzerlegbar ist und alle $q_i$ Nichteinheiten, muss also
-    gelten $n = 1$ und $p_1 = q_1$.
+    doch da $p_1$ unzerlegbar ist und alle $q_i$ Nichteinheiten sind, muss also
+    $n = 1$ und $p_1 = q_1$ gelten.
 \end{proof}
 
 \begin{thm}
@@ -2370,7 +2370,7 @@ $a = u b$. Wir schreiben dann $a \sim b$.
         \bigcup_{i \ge 0} (x_i)  \subset R
     \]
     ist ein Ideal (!) and damit ein Hauptideal, also von der Form $(b)$ für $b \in
-    R$. Dann muss es aber ein $j \ge 1$ geben, so dass $b \in (x_j)$ also $(b)
+    R$. Dann muss es aber ein $j \ge 1$ geben, so dass $b \in (x_j)$, also $(b)
     = (x_j)$. Dies impliziert dann auch für alle $i >j$ die Gleichheit
     $(b) = (x_i)$. Doch die Idealinklusionen in \eqref{eq:noetherian} sind
     echt, also ein Widerspruch.
@@ -2384,7 +2384,7 @@ $a = u b$. Wir schreiben dann $a \sim b$.
     \[
         I_1 \subset I_2 \subset \cdots \subset I_k \subset  R
     \]
-    von Idealen in $R$ gibt es ein $k_0 \ge 1$ so dass für alle $k \ge k_0$
+    von Idealen in $R$ gibt es ein $k_0 \ge 1$, so dass für alle $k \ge k_0$
     gilt: $I_k = I_{k_0}$. Wir sagen auch: Jede aufsteigende Kette von Idealen
     wird \emph{stationär}. Ringe mit dieser Eigenschaft heißen
     \emph{Noethersch}, zu Ehren der Mathematikerin Emmy Noether. Wie unser
@@ -2394,7 +2394,7 @@ $a = u b$. Wir schreiben dann $a \sim b$.
 \end{rem}
 
 Wir wollen nun zum Abschluss eine vollständige Klassifikation der Primelemente
-und damit, nach Proposition \ref{prop:euklid} auch der Primideale, in $\ZZ[i]$
+und damit, nach Proposition \ref{prop:euklid}, auch der Primideale, in $\ZZ[i]$
 durchführen.
 
 \begin{lem}
@@ -2423,9 +2423,9 @@ durchführen.
     selbstinversen Elemente sind, so dass die restlichen Faktoren in Paaren von
     zueinander inversen Elementen auftreten. Wir rechnen nun weiter:
     \[
-        [-1] = [(p-1)!] = [1][2] \cdots [2n][p-2n][p-(2n-1)] \cdots [p-2][p-1] = [(2n)!]^2
+        [-1] = [(p-1)!] = [1][2] \cdots [2n][p-2n][p-(2n-1)] \cdots [p-2][p-1] = [(2n)!]^2.
     \]
-    Also ist $x = (2n)!$ eine Lösung von \eqref{eq:kongruenz} so dass also $p$ ein Teiler von 
+    Also ist $x = (2n)!$ eine Lösung von \eqref{eq:kongruenz}, so dass also $p$ ein Teiler von 
     \[
         x^2 + 1 = (x+i)(x-i)
     \]
@@ -2449,11 +2449,11 @@ durchführen.
 
 \begin{thm}\index{Gaußscher Zahlenring!Spektrum}
     \label{thm:gaussprimes}
-    Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau 
+    Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau:
     \begin{enumerate}
         \item Das Ideal $(1+i)$.
-        \item Die Ideale der Form $(a + bi)$ wobei $a^2 + b^2 = p$ Primzahl mit $p \equiv 1 \pmod{4}$ und $a > |b|$. 
-        \item Die Ideale der Form $(p)$ wobei $p$ Primzahl mit $p \equiv 3 \pmod{4}$.
+        \item Die Ideale der Form $(a + bi)$, wobei $a^2 + b^2 = p$ Primzahl mit $p \equiv 1 \pmod{4}$ und $a > |b|$ ist. 
+        \item Die Ideale der Form $(p)$, wobei $p$ eine Primzahl mit $p \equiv 3 \pmod{4}$ ist.
     \end{enumerate}
 \end{thm}
 \begin{proof}
@@ -2462,10 +2462,10 @@ durchführen.
     \[
         N(\alpha) N(\beta) = p
     \]
-    eine Primzahl so dass $N(\alpha) = 1$ oder $N(\beta) = 1$ folgt. Also ist
+    eine Primzahl, so dass $N(\alpha) = 1$ oder $N(\beta) = 1$ folgt. Also ist
     $\alpha$ oder $\beta$ eine Einheit. Eine Primzahl $p$ aus (3) muss
     unzerlegbar sein, denn eine Zerlegung $p = \alpha \beta$ hätte, mit dem
-    selben Argument wie im Beweis von Lemma \ref{lem:Gausslem}, die Konsequenz,
+    gleichen Argument wie im Beweis von Lemma \ref{lem:Gausslem}, die Konsequenz,
     dass $p$ eine Summe von Quadraten $a^2 + b^2$ ist, was wir dort schon
     ausgeschlossen haben, denn dies ist äquivalent zu $p \equiv 1 \pmod{4}$.
 
@@ -2474,13 +2474,13 @@ durchführen.
     \[
         N(\pi) = \pi \overline{\pi} = p_1 p_2 \cdots p_r
     \]
-    in $\NN$, daß es $1 \le i \le r$ gibt, mit $\pi|p_i$. Wir setzen $p := p_i$,
+    in $\NN$, dass es $1 \le i \le r$ gibt mit $\pi|p_i$. Wir setzen $p := p_i$,
     dann teilt auch $N(\pi)$ die Zahl $N(p) = p^2$, so dass also gilt: $N(\pi)
     = p$ oder $N(\pi) = p^2$. Falls $N(\pi) = p$, dann ist $p = a^2 + b^2$ für
-    $\pi = a + ib$, also Fall (2) oder, für $p=2$ Fall (1). Falls $N(p) = p^2$,
+    $\pi = a + ib$, also Fall (2) oder, für $p=2$, Fall (1). Falls $N(p) = p^2$,
     dann ist $N(\frac{p}{\pi}) = 1$, also ist $\pi$ zu $p$ assoziiert. In
-    diesem Fall muss gelten $p \equiv 3 \pmod{4}$ denn andernfalls wäre $p =
-    a^2 + b^2 = (a +i b)(a-ib)$, für $a,b \in \ZZ$, so dass $p$ nicht
+    diesem Fall muss $p \equiv 3 \pmod{4}$ gelten, denn andernfalls wäre $p =
+    a^2 + b^2 = (a +i b)(a-ib)$ für $a,b \in \ZZ$, so dass $p$ nicht
     unzerlegbar wäre. 
 \end{proof}
 
@@ -2488,7 +2488,7 @@ durchführen.
     \label{exa:verzweigung}
     Aus dem Satz erschließt sich nun auch ein präzises Verständnis des
     Zerlegungssverhaltens der Primideale beim Übergang von $\ZZ$ nach
-    $\ZZ[i]$, es gilt nämlich
+    $\ZZ[i]$, es gilt nämlich:
     \begin{enumerate}
         \item Das Primideal $(2)$ zerfällt in ein Quadrat $(2) = (1+i)^2$, 
         \item Die Primideale $(p)$ für $p \equiv 1 \pmod{4}$ zerfallen in
@@ -2498,17 +2498,17 @@ durchführen.
 \end{exa}
 
 Zum Abschluss geben wir eine Definition des für die algebraische Zahlentheorie
-zentralen Begriffs eines Dedekindrings dessen genauere Untersuchung jedoch
+zentralen Begriffs eines Dedekindrings, dessen genauere Untersuchung jedoch
 leider den Rahmen dieser Vorlesung sprengen würde.
 
 \begin{defi}\index{Dedekindring!Definition}
     \label{defi:dedekind}
-    Ein Integritätsbereich $R$ heißt \emph{Dedekindring} falls $R$ kein Körper
+    Ein Integritätsbereich $R$ heißt \emph{Dedekindring}, falls $R$ kein Körper
     ist und für jedes Paar von Idealen $I,J$ in $R$ die folgenden Bedingungen
     äquivalent sind:
     \begin{enumerate}[label=(\roman *)]
         \item\label{dede:1} $I | J$, also nach unserer Definition $J \subset I$.
-        \item\label{dede:2} es gibt ein Ideal $K \subset R$ mit $J = I \cdot K$.  
+        \item\label{dede:2} Es gibt ein Ideal $K \subset R$ mit $J = I \cdot K$.  
     \end{enumerate}
 \end{defi}
 
@@ -2518,12 +2518,12 @@ leider den Rahmen dieser Vorlesung sprengen würde.
     \eqref{dede:2} für Teilbarkeit von Idealen übereinstimmen.
     Diese Definition ist aus konzeptioneller Sicht verständlich, aus
     praktischer Sicht ist es nützlich, Dedekindringe durch etwas technischere
-    Bedingungen zu charakterisieren, z.B. ist Integritätsbereich $R$ ein Dedekindring,
-    genau dann wenn
+    Bedingungen zu charakterisieren, z.B. ist ein Integritätsbereich $R$ ein Dedekindring genau dann,
+    wenn gilt:
     \begin{enumerate}
         \item $R$ ist Noethersch,
-        \item $R$ is ganz abgeschlossen in seinem Körper der Brüche $(R \setminus \{0\})^{-1}R$,
-        \item jedes Primideal $P \subset R$ mit $P \ne (0)$ ist ein maximales Ideal.
+        \item $R$ ist ganz abgeschlossen in seinem Körper der Brüche $(R \setminus \{0\})^{-1}R$,
+        \item und jedes Primideal $P \subset R$ mit $P \ne (0)$ ist ein maximales Ideal.
     \end{enumerate}
 \end{rem}
 
@@ -2532,7 +2532,7 @@ Der fundamentale Satz über Dedekindringe, den wir hier ohne Beweis zitieren, is
 \begin{thm}
     \label{thm:dedekindfaktorisierung}
     Sei $R$ ein Dedekindring und sei $(0) \ne I \subsetneq R$ ein Ideal. Dann
-    gibt es eine bis auf Permutation der Faktoren eindeutige
+    gibt es eine bis auf Permutation der Faktoren eine eindeutige
     ``Primfaktorzerlegung''
     \[
         I = P_1 \cdot P_2 \cdots P_n
@@ -2555,10 +2555,10 @@ Der fundamentale Satz über Dedekindringe, den wir hier ohne Beweis zitieren, is
     \end{align*}
     gilt
     \begin{align*}
-        (2) & = P_1 P2\\
-        (3) & = P_1 P2\\
-        (1 + \sqrt{-5}) & = P_1 P3\\
-        (1 - \sqrt{-5}) & = P_2 P4
+        (2) & = P_1 P_2\\
+        (3) & = P_1 P_2\\
+        (1 + \sqrt{-5}) & = P_1 P_3\\
+        (1 - \sqrt{-5}) & = P_2 P_4
     \end{align*}
     also auch
     \[
@@ -2582,17 +2582,17 @@ irreduziblen Polynomen.
         \item $K = \CC$. Nach dem Fundamentalsatz der Algebra zerfällt jedes Polynom $f \in \CC[X]$ in ein Produkt
             \begin{equation}
                     \label{eq:primfak}
-                    f = c (X-\lambda_1) (X- \lambda_2) \cdots (X- \lambda_n)
+                    f = c (X-\lambda_1) (X- \lambda_2) \cdots (X- \lambda_n),
             \end{equation}
             wobei $\lambda_i \in \CC$ die Nullstellen von $f$ sind und $c \in
             \CC$. Aus Gradgründen folgt sofort, dass jedes Polynom der Form $X-
             \lambda$, $\lambda \in \CC$ irreduzibel ist. Es folgt demnach,
             dass diese Polynome, bis auf Assoziiertheit, genau die irreduziblen
             Polynome in $\CC[X]$ sind. Weiterhin ist \eqref{eq:primfak} die
-            eindeutige Primfaktorzerlegung von $f$ wobei der Skalar $c$
+            eindeutige Primfaktorzerlegung von $f$, wobei der Skalar $c$
             beliebig auf die Linearfaktoren verteilt werden kann.
-        \item $K = \RR$. Wie für jeden Körper, sind die Polynome der Form $X -
-            \lambda$, $\lambda \in \RR$ irreduzible. Es folgt weiter aus der
+        \item $K = \RR$. Wie für jeden Körper sind die Polynome der Form $X -
+            \lambda$, $\lambda \in \RR$ irreduzibel. Es folgt weiter, aus der
             Lösungsformel für die komplexen Nullstellen der quadratischen
             Gleichung, dass ein Polynom
             \[
@@ -2602,7 +2602,7 @@ irreduziblen Polynomen.
             Polynome vom Grad $\ge 3$ sind nicht irreduzibel. Denn ein
             solches Polynom $f \in \RR[X]$ können wir zunächst in $\CC[X]$ zerlegen:
             \[
-                f = r(X-\lambda_1)(X- \lambda_2) \cdots (X- \lambda_n)
+                f = r(X-\lambda_1)(X- \lambda_2) \cdots (X- \lambda_n),
             \]
             wobei $r \in \RR$ und $\lambda_i \in \CC$. Wir erweitern die komplexe Konjugation koeffizientenweise auf $\CC[X]$ und erhalten 
             \[
@@ -2628,9 +2628,9 @@ irreduziblen Polynomen.
             Assoziiertheit).
         \item\label{exa:zf2} $K = \FF_2$. Das Polynom $X^2 + X + 1$ ist irreduzibel, denn es
             hat keine Nullstellen in $\FF_2$. Daraus folgt auch, dass $X^2 + X
-            + 1$ aufgefasst als Polynom in $\ZZ[X]$ irreduzibel ist (Betrachte
+            + 1$, aufgefasst als Polynom in $\ZZ[X]$, irreduzibel ist (Betrachte
             den Ringhomomorphismus $\ZZ[X] \to \FF_2[X]$ gegeben durch
-            Reduktion der Koeffizienten modulo $2$.)
+            Reduktion der Koeffizienten modulo $2$.).
     \end{enumerate}
 \end{exas}
 
@@ -2648,15 +2648,15 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     \]
     heißt \emph{primitiv}, falls
     \begin{enumerate}[label=\arabic * .]
-        \item der Leitkoeffizient $a_n$ ist positiv,
-        \item die Koeffizienten von $f$ sind teilerfremd, also $(a_n,...,a_0) = (1)$.
+        \item Der Leitkoeffizient $a_n$ ist positiv,
+        \item Die Koeffizienten von $f$ sind teilerfremd, also $(a_n,...,a_0) = (1)$.
     \end{enumerate}
 \end{defi}
 
 \begin{lem}\index{Polynom!Inhalt}
     \label{lem:inhalt}
     \begin{enumerate}
-        \item Jedes $0 \ne f \in \QQ[X]$ läßt sich eindeutig schreiben als
+        \item Jedes $0 \ne f \in \QQ[X]$ lässt sich eindeutig schreiben als
                 \begin{equation}
                     \label{eq:inhalt}
                     f = c f_0
@@ -2671,20 +2671,20 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    Für die Existenz wählen wir $m \in \ZZ$ so dass $f_1 = m f \in \ZZ[X]$. Sei
+    Für die Existenz wählen wir $m \in \ZZ$, so dass $f_1 = m f \in \ZZ[X]$. Sei
     $t \in \ZZ$ der größte gemeinsame Teiler der Koeffizienten von $f_1$ mit
     Vorzeichen des Leitkoeffizienten von $f_1$. Dann ist $f_0 = t^{-1} f_1$
     primitiv und es gilt $f = c f_0$ mit $c = t/m$. 
-    Für die Eindeutigkeit, seien $f = c f_0 = d g_0$ zwei Darstellungen wie in
+    Für die Eindeutigkeit: Seien $f = c f_0 = d g_0$ zwei Darstellungen wie in
     (1). Durch Multiplizieren mit dem Nennerprodukt von $c$ und $d$ können wir
-    o.E. annehmen $c,d \in \ZZ$. Seien $a_i$ (bzw. $b_i$), $0 \le i \le n$ die
+    o.E. annehmen, dass $c,d \in \ZZ$. Seien $a_i$ (bzw. $b_i$), $0 \le i \le n$, die
     Koeffizienten von $f_0$ (bzw. $g_0$). Dann gilt also für alle $i$: $c a_i =
-    d b_i$. Da $f_0$ und $g_0$ primitiv sind gilt weiter:
+    d b_i$. Da $f_0$ und $g_0$ primitiv sind, gilt weiter:
     \[
-        ( c ) = (ca_0,ca_1, ..., ca_n) = (db_0,db_1, ..., db_n) = ( d)
+        ( c ) = (ca_0,ca_1, ..., ca_n) = (db_0,db_1, ..., db_n) = ( d),
     \]
     also $c = \pm d$. Doch da $f_0$ und $g_0$ beide einen positiven
-    Leitkoeffizienten haben muss gelten $c = d$ und damit auch für alle $0 \le
+    Leitkoeffizienten haben, muss $c = d$ gelten und damit auch für alle $0 \le
     i \le n$: $a_i = b_i$.
 \end{proof}
 
@@ -2737,17 +2737,17 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     Einheit in $\ZZ[X]$.\\
 
     \noindent
-    (1) Falls $f_0 \in \ZZ[X]^{\times}$, dann gilt $f_0 = 1$. Dann ist $f = c(f) \in \ZZ$ irreduzibel und positiv also eine Primzahl.\\
+    (1) Falls $f_0 \in \ZZ[X]^{\times}$, dann gilt $f_0 = 1$. Dann ist $f = c(f) \in \ZZ$ irreduzibel und positiv, also eine Primzahl.\\
 
     \noindent
-    (2) Falls $c(f)$ eine Einheit ist, dann gilt $c(f) = 1$,
-    also $f$ primitiv. Wir zeigen noch, dass $f$ dann auch irreduzibel in
+    (2) Falls $c(f)$ eine Einheit ist, gilt $c(f) = 1$,
+    also ist $f$ primitiv. Wir zeigen noch, dass $f$ dann auch irreduzibel in
     $\QQ[X]$ ist. Sei nämlich $f = gh$ mit $g,h \in \QQ[X]$. Dann gilt $1 =
     c(f) = c(g)c(h)$, also 
     \[
         f = c(g)g_0 c(h)h_0 = g_0 h_0 
     \]
-    mit $g_0,h_0 \in \ZZ[X]$. Doch weil $f$ irreduzibel in $\ZZ[X]$ folgt $g_0
+    mit $g_0,h_0 \in \ZZ[X]$. Doch weil $f$ irreduzibel in $\ZZ[X]$, folgt $g_0
     = 1$ oder $h_0 = 1$, so dass also $f$ oder $g$ eine Einheit $\QQ[X]$ ist. 
 \end{proof}
 
@@ -2782,7 +2782,7 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     \noindent
     (1) Sei $f=p \in \ZZ$ eine Primzahl. Wir schreiben $g = c(g) g_0$ und $h = c(h) h_0$.
     Dann ist $g_0 h_0$ primitiv, so dass dieses Produkt also einen
-    Koeffizienten $a$ besitzt, der nicht durch $p$ teilbar ist. Doch da $p | fg$ muss gelten:
+    Koeffizienten $a$ besitzt, der nicht durch $p$ teilbar ist. Doch da $p | fg$, muss gelten:
     \[
         p | a c(g)c(h)
     \]
@@ -2790,13 +2790,13 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     
     \noindent
     (2) Sei $f$ primitiv und irreduzibel in $\QQ[X]$. Dann ist $f$ also ein
-    Primelement in $\QQ[X]$, so dass also in $\QQ[X]$ gilt $f | g$ oder $f | h$
-    o.E. $f | g$. Wir schreiben $g = c(g) g_0$ dann teilt $f$ auch $g_0$ in
+    Primelement in $\QQ[X]$, so dass also in $\QQ[X]$ gilt: $f | g$ oder $f | h$,
+    o.E. $f | g$. Wir schreiben $g = c(g) g_0$, dann teilt $f$ auch $g_0$ in
     $\QQ[X]$. Also gibt es $r \in \QQ[X]$ mit 
     \[
-        g_0 = rf = c(r) r_0 f
+        g_0 = rf = c(r) r_0 f,
     \]
-    doch da $r_0 f$ primitiv gilt $c(r) = 1$, so dass schließlich auch 
+    doch da $r_0 f$ primitiv ist, gilt $c(r) = 1$, so dass schließlich auch 
     \[
         g = c(g) g_0 = c(g) r_0 f
     \]
@@ -2829,13 +2829,13 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
 
 \begin{defi}\index{Modul!Definition}
     \label{defi:modul}
-    Ein \emph{$R$-Modul} ist ein Tripel $(M,+,.)$ bestehend
+    Ein \emph{$R$-Modul} ist ein Tripel $(M,+,.)$, bestehend
     aus einer abelschen Gruppe $(M,+)$ und einer Abbildung
     \[
-        .: R \times M \to M, \; (r,m) \mapsto r.m
+        .: R \times M \to M, \; (r,m) \mapsto r.m,
     \]
     genannt {\em Skalarmultiplikation}, so dass für alle $m,m_1,m_2 \in M$ und
-    $r,s \in R$ gelten
+    $r,s \in R$ gelten:
     \begin{enumerate}[label=(M\arabic*)]
         \item $r.(s.m) = (rs).m$,
         \item $(r+s).m) = r.m + s.m$,
@@ -2853,9 +2853,9 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
         \[
             R^n = \underbrace{R \times R \times \cdots \times R}_{n}
         \]
-        ein $R$-Modul mit Skalarmultiplikaiton 
+        ein $R$-Modul mit Skalarmultiplikation: 
         \[
-            r.(r_1,r_2,...,r_n) := (rr_1,rr_2,...,rr_n)
+            r.(r_1,r_2,...,r_n) := (rr_1,rr_2,...,rr_n),
         \]
         genannt der \emph{freie Standard $R$-Modul vom Rang $n$.}\index{Modul!freier Modul!freier Standard-$R$-Modul}
     \item Für $R$-Moduln $M,N$ ist das kartesische Produkt $M \times N$ ein $R$-Modul mit
@@ -2866,9 +2866,9 @@ In diesem Abschnitt bezeichnet $R$ stets einen kommutativen Ring.
         Summe $(m,n) = (m,0) + (0,n)$ von Elementen in $M \hra M \times N$ und $N \hra M \times N$ schreiben
         lässt, verwendet man auch häufig die Notation 
         \[
-            M \oplus N := M \times N
+            M \oplus N := M \times N,
         \]
-        genannt \emph{direkte Summe} von $M$ und $N$.\index{Modul!direkte Summe}
+        genannt die \emph{direkte Summe} von $M$ und $N$.\index{Modul!direkte Summe}
     \end{enumerate}
 \end{exas}
 
@@ -2892,10 +2892,10 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 
     \begin{enumerate}
         \item Ein \emph{Untermodul} ist eine abelsche Untergruppe $N
-    \subset M$ die zudem abgeschlossen unter Skalarmultiplikation ist, also für
+    \subset M$, die zudem abgeschlossen unter Skalarmultiplikation ist, also für
     alle $r \in R$ und $n \in N$ gilt $r.n \in N$ Inbesondere vererbt $N$ damit
     von $M$ eine $R$-Modulstruktur. Um auszudrücken, dass $N \subset M$ ein
-    Untermodul ist schreiben wir auch $N \le M$. 
+    Untermodul ist, schreiben wir auch $N \le M$. 
         \item Für eine Teilmenge $S \subset M$ heißt der Untermodul (!)
             \[
                 \langle S \rangle := \bigcap_{\substack{S \subset N \le M }} N
@@ -2915,7 +2915,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
         \item Das Bild von $\phi$ ist ein Untermodul von $N$.
         \item Der $\Kern(\phi) = \{ m \in M | \phi(m) = 0\}$ von $\phi$
             ist ein Untermodul von $M$.
-        \item Die Abbildung $\phi$ ist injektiv genau dann wenn $\Kern(\phi) = \{0\}$. 
+        \item Die Abbildung $\phi$ ist genau dann injektiv, wenn $\Kern(\phi) = \{0\}$. 
     \end{enumerate}
 \end{prop}
 
@@ -2949,7 +2949,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     \label{exas:fg} 
     \begin{enumerate}
         \item In diesem Fall besitzt $F$ eine $R$-Basis $(x_1,
-            x_2, ..., x_n)$ so dass sich jedes $m \in F$ als eindeutige
+            x_2, ..., x_n)$, so dass sich jedes $m \in F$ als eindeutige
             $R$-Linearkombination
             \[
                 m = \lambda_1 x_1 + \lambda_2 x_2 + ... + \lambda_n x_n
@@ -2978,8 +2978,8 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 
 \begin{rem}
     \label{rem:label}
-    Ein $R$-Modul $M$ ist endlich erzeugt, genau dann wenn es eine endliche
-    Teilmenge $S \subset M$ gibt mit $\langle S \rangle = M$. 
+    Ein $R$-Modul $M$ ist genau dann endlich erzeugt, wenn es eine endliche
+    Teilmenge $S \subset M$ mit $\langle S \rangle = M$ gibt. 
 \end{rem}
 
 \begin{defi}\index{Kurze exakte Sequenz!von Moduln}
@@ -2988,8 +2988,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     \[
         0 \to M' \overset{f}{\to} M \overset{g}{\to} M'' \to 0
     \]
-    von $R$-Moduln besteht aus $R$-linearen Abbildungen $f: M' \to M$ und $g: M \to M''$, so dass
-    \begin{enumerate}
+    von $R$-Moduln besteht aus $R$-linearen Abbildungen $f: M' \to M$ und $g: M \to M''$, so dass gilt:   \begin{enumerate}
         \item $f$ ist injektiv.
         \item $\Bild(f) = \Kern(g)$. 
         \item $g$ ist surjektiv. 
@@ -3022,7 +3021,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 \end{prop}
 \begin{proof}
     Zunächst gilt $\Kern(\phi) = 0$, denn aus $f(x) + s(y) = 0$ folgt nach
-    Anwendung von $g$ auch $y=0$, dann aber, da $f$ injektiv ist auch $x=0$.
+    Anwendung von $g$ auch $y=0$, dann aber, da $f$ injektiv ist, auch $x=0$.
     Sei nun $m \in M$ beliebig. Dann liegt $m - s(g(m))$ im Kern von $g$, und
     demnach im Bild von $f$. Es gibt also ein $x \in M'$ mit $m - s(g(m)) =
     f(x)$, doch dann gilt mit $y = g(m)$: $m = \phi(x,y)$. 
@@ -3031,7 +3030,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 \begin{rem}
     \label{rem:spaltet}
     In der Situation von Proposition \ref{prop:spaltet} heißt die Abbildung $s$
-    ein {\em Schnitt von $g$} und wir sagen, die exakte Sequenz {\em spaltet}.
+    ein {\em Schnitt von $g$} und wir sagen, die exakte Sequenz {\em spaltet} oder {\em \blue{zerfällt}}.
 \end{rem}
 
 \begin{prop}
@@ -3040,7 +3039,7 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
     \[
         0 \to N \overset{f}{\to} M \overset{g}{\to} F \to 0
     \]
-    eine kurze exakte Sequenz von $R$-Moduln wobei $F$ ein freier $R$-Modul ist.
+    eine kurze exakte Sequenz von $R$-Moduln, wobei $F$ ein freier $R$-Modul ist.
     Dann spaltet die Sequenz. 
 \end{prop}
 \begin{proof}
@@ -3056,13 +3055,13 @@ auf $R$-Moduln erweitern, wir lassen daher die Beweise als Übungsaufgaben.
 \label{sub:endlich_erzeugte_moduln_uber_hauptidealringen}
 
 In diesem Abschnitt bezeichnet $R$ einen \emph{Hauptidealring}, also einen
-Integritätsbereich in dem jedes Ideal ein Hauptideal ist. Unser Ziel ist die
+Integritätsbereich, in dem jedes Ideal ein Hauptideal ist. Unser Ziel ist die
 Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie. 
 
 \begin{lem}
     \label{lem:subfree}
     Sei $F$ ein freier $R$-Modul vom Rang $n$ und $M \subset F$ ein Untermodul.
-    Dann ist $M$ vom frei vom Rang $m \le n$.
+    Dann ist $M$ frei vom Rang $m \le n$.
 \end{lem}
 \begin{proof}
     Sei zunächst $n = 1$, also $R \cong F$, o.E. $F = R$. Ein Untermodul von
@@ -3074,7 +3073,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \[
         p: R^n \to R
     \]
-    auf die erste Koordinate wobei $R^{n-1} \cong \Kern(p)$ der Untermodul der
+    auf die erste Koordinate, wobei $R^{n-1} \cong \Kern(p)$ der Untermodul der
     Tupeln mit erster Koordinate $0$ ist. Wir schränken $p$ auf $M$ ein und
     erhalten eine surjektive $R$-lineare Abbildung
     \[
@@ -3098,7 +3097,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \begin{enumerate}
         \item Wir definieren den \emph{Torsionsuntermodul}
             \[
-                T(M) = \{ x \in M\; | \; \text{es gibt $0 \ne r \in R$ mit $rx = 0$} \} \le M.
+                T(M) = \{ x \in M\; | \; \text{es gibt $0 \ne r \in R$ mit $rx = 0$} \} \le M,
             \]
             welcher tatsächlich (!) einen Untermodul von $M$ bildet.
         \item Für ein Primelement $p \in R$ definieren wir den $p$-Torsionsuntermodul
@@ -3120,7 +3119,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     endlichen Menge $S \subset M$. Wir wählen eine maximale $R$-linear
     unabhängige Teilmenge $B = \{x_1, x_2, ..., x_d \} \subset S$, es gilt also für alle $\lambda_1, ..., \lambda_n \in R$:
     \[
-        \sum \lambda_i x_i = 0 \quad \Rightarrow \quad \forall 1 \le i \le n: \lambda_i = 0
+        \sum \lambda_i x_i = 0 \quad \Rightarrow \quad \forall 1 \le i \le n: \lambda_i = 0,
     \]
     und die Teilmenge ist maximal mit dieser Eigenschaft. Wir setzen $N := \langle B \rangle \subset M$. Dann ist die Abbildung
     \[
@@ -3129,7 +3128,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     ein Isomorphismus. Wegen der Maximalität von $B$ existiert für jedes $s \in
     S \setminus B$ ein $0 \ne a_s \in R$ mit $a_s s \in N$. Setze
     \[
-        a := \prod_{s \in S \setminus B} a_s
+        a := \prod_{s \in S \setminus B} a_s.
     \]
     Da $M$ torsionsfrei ist, ist die Abbildung 
     \[
@@ -3152,10 +3151,10 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \end{equation}
 \end{lem}
 \begin{proof}
-    Wir zeigen zunächst dass $M/T$ torsionsfrei ist. Sei also $[x] \in M/T$ und sei $0
+    Wir zeigen zunächst, dass $M/T$ torsionsfrei ist. Sei also $[x] \in M/T$ und sei $0
     \ne r \in R$ mit $[rx] = 0$. Dann gilt $rx \in T$, es gibt also $0 \ne s
     \in R$ mit $s(rx) = 0$. Dann folgt aber aus $(sr)x = 0$, dass $x \in T$
-    also $[x] = 0$. Es folgt also nach Lemma \ref{lem:torsfree} dass $M/T$ ein
+    also $[x] = 0$. Es folgt also nach Lemma \ref{lem:torsfree}, dass $M/T$ ein
     freier $R$-Modul ist. Der gewünschte Isomorphismus folgt nun sofort aus
     Proposition \ref{prop:freesplit} in Anbetracht der kurzen exakten Sequenz
     \[
@@ -3195,32 +3194,31 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \Ann_R(M)$. Da $R$ ein Hauptidealring ist, gilt also $\Ann_R(M) = (d)$ mit
     $d \ne 0$. Zudem ist $d$ keine Einheit, denn sonst wäre $M = 0$. 
 
-    (2) Wir setzen $I = \{1,2,...,k\}$ betrachten die Abbildung
+    (2) Wir setzen $I = \{1,2,...,k\}$ und betrachten die Abbildung
     \[
         \phi: \bigoplus_{i \in I} T_{p_i}(M) \to M, \; (x_i)_{i \in I} \mapsto \sum_{i \in I} x_i.
     \]
     Mit $d_i := d/p_i^{n_i}$ gilt
     \[
-        (d_1, d_2, \cdots, d_n) = (1)
+        (d_1, d_2, \cdots, d_n) = (1),
     \]
-    so dass es also Elemente $r_i$, $1 \le i \le n$, gibt mit $\sum_i r_i d_i = 1$. Für
+    so dass es also Elemente $r_i$, $1 \le i \le n$, mit $\sum_i r_i d_i = 1$ gibt. Für
     beliebiges $x \in M$ gilt für alle $1 \le i \le n$: $x_i = r_i d_i x \in T_{p_i}(M)$ und weiter
     \[
         x = \sum_{i \in I} x_i.
     \]
     Damit ist also $\phi$ surjektiv. Wir zeigen nun, dass $\phi$ auch injektiv
-    ist. Sei dazu $(x_i)_{i in I} \in \Kern(\phi)$ und $1 \le j \le n$ beliebig. Dann gilt
-    also
+    ist. Sei dazu $(x_i)_{i \in I} \in \Kern(\phi)$ und $1 \le j \le n$ beliebig. Dann gilt
     \[
-        -x_j = \sum_{i \in I \setminus \{j\} } x_i
+        -x_j = \sum_{i \in I \setminus \{j\} } x_i,
     \]
-    also $p_j x_j = 0$ und $d_j x_j = 0$. Doch $(d_j,p_j) = (1)$ und daher
+    also $p_j x_j = 0$ und $d_j x_j = 0$, doch $(d_j,p_j) = (1)$ und daher
     auch $1.x_j = x_j = 0$. 
 \end{proof}
 
 \begin{exa}
     \label{exa:chinese}
-    Für $d = \epsilon p_1^{n_1} p_2^{n_2} \cdots p_k^{n_k} \in R$ gilt nach den chinesischen Restsatz (Aufgabe 8.4) 
+    Für $d = \epsilon p_1^{n_1} p_2^{n_2} \cdots p_k^{n_k} \in R$ gilt nach dem chinesischen Restsatz (Aufgabe 8.4) 
     \[
         R/(d) \cong R/(p_1^{n_1}) \oplus  R/(p_2^{n_2}) \oplus \cdots \oplus R/(p_k^{n_k})
     \]
@@ -3246,9 +3244,9 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     Sei $T = \sk{ x_1, x_2, ..., x_m }$ mit $m$ minimal. Wir beweisen zunächst die
     Existenz des Isomorphismus \eqref{eq:classification} per Induktion nach
     $m$. Für $m=1$ fogt die Aussage aus dem chinesischen Restsatz (Beispiel
-    \ref{exa:chinese}, sei also $m>1$. Für jedes $1 \le i \le n$ gilt
-    $\Ann_R(x_i) = (p^{n_i})$ für $n_i >0$ (wieder wegen dem chinesische
-    Restsatz). Sei o.E. $\Ann_R(x_m) = (p^{e})$ wobei $e$ maximal unter den
+    \ref{exa:chinese}), sei also $m>1$. Für jedes $1 \le i \le n$ gilt
+    $\Ann_R(x_i) = (p^{n_i})$ für $n_i >0$ (wieder wegen des chinesischen
+    Restsatzes). Sei o.E. $\Ann_R(x_m) = (p^{e})$, wobei $e$ maximal unter den
     Zahlen $n_i$ ist. Dann gilt auch $\Ann_R(T) = (p^e)$ und $\sk{ x_m } \cong
     R/(p^e)$. Wir betrachten nun die kurze exakte Sequenz
     \begin{equation}\label{eq:inducttor}
@@ -3262,27 +3260,27 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     mit $0 < e_1 \le e_2 \le \cdots \le e_{m-1}$.
 
     Wir behaupten nun, dass es zu jedem $y \in \overline{T}$ mit
-    $\Ann_R(y) = (p^f)$ ein Element $\tilde{y} \in T$ gibt, mit $\pi(\tilde{y}) =
-    y$ und $\Ann_R(\tilde{y}) = (p^f)$. Zunächst ist klar, dass gilt $f \le e$. Sei $z
+    $\Ann_R(y) = (p^f)$ ein Element $\tilde{y} \in T$ mit $\pi(\tilde{y}) =
+    y$ und $\Ann_R(\tilde{y}) = (p^f)$ gibt. Zunächst ist klar, dass $f \le e$ gilt. Sei $z
     \in T$ beliebig mit $\pi(z) = y$, dann gilt $p^fz = r x_m$. Weiter gilt
     \[
         0 = p^e z = p^{e-f} r x_m.
     \]
-    Da $\Ann_R(x_m) = (p^e)$ muss gelten $r = s p^f$ für $s \in R$. Wir setzen
+    Da $\Ann_R(x_m) = (p^e)$, muss $r = s p^f$ für $s \in R$ gelten. Wir setzen
     nun $\tilde{y} = z - s x_m$, dann gilt $\pi(\tilde{y}) = y$, so dass also $p^j \tilde{y} \ne 0$ für
     $j < f$. Zudem gilt
     \[
-        p^f \tilde{y} = p^f z - p^f s x_m = r x_m - r x_m = 0
+        p^f \tilde{y} = p^f z - p^f s x_m = r x_m - r x_m = 0,
     \]
     also $\Ann_R(\tilde{y}) = (p^f)$. Es folgt (!), dass die kurze exakte Sequenz
     \eqref{eq:inducttor} spaltet und damit die Existenz des Isomorphismus
     \eqref{eq:classification}.
 
-    Die Eindeutigkeit der Parameter $m$ sowie $e_1 \le e_2 \le ... \le e_m$:
+    Zur Eindeutigkeit der Parameter $m$ sowie $e_1 \le e_2 \le ... \le e_m$:
     Die Zahl $m$ ist als die minimale Anzahl von Erzeugern von $T$ eindeutig
     bestimmt. Alternativ ist $m$ die Dimension des $R/(p)$-Vektorraums $T/pT$.
-    Analog (!) können wir die Anzahl der Exponenten $e_i$ die grösser als $1$ sind
-    identifizieren mit der Dimension des $R/(p)$ Vektorraums $pT/p^2T$ und
+    Analog (!) können wir die Anzahl der Exponenten $e_i$ die größer als $1$ sind
+    identifizieren mit der Dimension des $R/(p)$-Vektorraums $pT/p^2T$ und
     allgemeiner(!), die Anzahl der Exponenten $e_i$ grösser als $j$ mit der
     Dimension des $R/(p)$-Vektorraums $p^jT/p^{j+1}T$. Diese Dimensionen sind
     intrinsische Invarianten des $R$-Moduls $T$ und bestimmen die Exponenten
@@ -3304,9 +3302,9 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     \label{exa:klass}
     Für jede endlich erzeugte abelsche Gruppe $A$ gibt es eine direkte Summenzerlegung
     \[
-        A \cong \ZZ^r \oplus ZZ/(p_1^{e_1}) \oplus ZZ/(p_2^{e_2}) \oplus \cdots \oplus ZZ/(p_m^{e_m}).
+        A \cong \ZZ^r \oplus \ZZ/(p_1^{e_1}) \oplus \ZZ/(p_2^{e_2}) \oplus \cdots \oplus \ZZ/(p_m^{e_m})
     \]
-    mit eindeutigbestimmten Summanden.
+    mit eindeutig bestimmten Summanden.
 \end{exa}
 
 \begin{exa}[Jordansche Normalform]\index{Jordanzerlegung}
@@ -3314,7 +3312,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     Sei $K$ ein algebraisch abgeschlossener Körper und $K[X]$ der Polynomring
     über $K$. Sei weiter $V$ ein endlich--dimensionaler $K$-Vektorraum und
     $\phi: V \to V$ ein $K$-linearer Endomorphismus. 
-    Wir betrachten $V$ als $K[X]$-Modul wobei wir für $f(X) \in K[X]$ und $v \in V$ die Skalarmultiplikation definieren als
+    Wir betrachten $V$ als $K[X]$-Modul, wobei wir für $f(X) \in K[X]$ und $v \in V$ die Skalarmultiplikation definieren als
     \[
         f(X).v := f(\phi)(v), 
     \]
@@ -3355,7 +3353,7 @@ Klassifikation von endlich erzeugten $R$-Moduln bis auf Isomorphie.
     Korollar \ref{cor:hirmodul} gilt natürlich auch für Moduln über dem
     Hauptidealring $K[X]$ mit $K$ {\em nicht} algebraisch abgeschlossen. In
     diesem Fall erhalten wir also auch eine Jordansche Normalform -- allerdings
-    ist diese etwas komlizierter: zu jedem irreduziblen Polynom $f \in K[X]$
+    ist diese etwas komplizierter: zu jedem irreduziblen Polynom $f \in K[X]$
     gibt es Jordanblöcke, die zu den zyklischen $K[X]$-Moduln
     \[
         K[X]/(f^e)
