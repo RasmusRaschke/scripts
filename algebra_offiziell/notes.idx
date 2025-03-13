@@ -2,6 +2,7 @@
 \indexentry{Symmetrische Gruppe!Definition|hyperpage}{3}
 \indexentry{Allgemeine Lineare Gruppe!Definition|hyperpage}{3}
 \indexentry{Gruppe!Ordnung|hyperpage}{4}
+\indexentry{Quaternionen!Definition|hyperpage}{4}
 \indexentry{Untergruppe!Definition|hyperpage}{4}
 \indexentry{Spezielle Lineare Gruppe!Definition|hyperpage}{5}
 \indexentry{Orthogonale Gruppe!Definition|hyperpage}{5}
@@ -11,12 +12,12 @@
 \indexentry{Satz über zyklische Gruppen|hyperpage}{5}
 \indexentry{Homomorphismus!von Gruppen|hyperpage}{6}
 \indexentry{Determinantenabbildung|hyperpage}{6}
-\indexentry{Konjugation!Definition|hyperpage}{6}
+\indexentry{Konjugation!Definition|hyperpage}{7}
 \indexentry{Isomorphismus!von Gruppen|hyperpage}{7}
 \indexentry{Exponentialabbildung|hyperpage}{7}
 \indexentry{Logarithmusabbildung|hyperpage}{7}
 \indexentry{Homomorphismus!von Gruppen!Bild und Kern|hyperpage}{7}
-\indexentry{Nebenklassen!Definition|hyperpage}{7}
+\indexentry{Nebenklassen!Definition|hyperpage}{8}
 \indexentry{Nebenklassen!Index|hyperpage}{8}
 \indexentry{Satz von Lagrange|hyperpage}{8}
 \indexentry{Nebenklassen!Normalteiler|hyperpage}{8}
@@ -26,28 +27,29 @@
 \indexentry{Quotientengruppe|hyperpage}{9}
 \indexentry{ToDo!Korrektur1|hyperpage}{9}
 \indexentry{Isomorphiesätze!von Gruppen|hyperpage}{10}
+\indexentry{Kurze exakte Sequenz!von Gruppen|hyperpage}{11}
 \indexentry{Wirkung|hyperpage}{11}
 \indexentry{Konjugation!Wirkung|hyperpage}{11}
 \indexentry{Nebenklassen!Wirkung|hyperpage}{11}
 \indexentry{Symmetrische Gruppe!Wirkung|hyperpage}{11}
 \indexentry{Wirkung!Äquivariante Abbildungen|hyperpage}{11}
-\indexentry{Wirkung!Bahn|hyperpage}{11}
-\indexentry{Wirkung!Stabilisator|hyperpage}{11}
+\indexentry{Wirkung!Bahn|hyperpage}{12}
+\indexentry{Wirkung!Stabilisator|hyperpage}{12}
 \indexentry{Wirkung!Fixpunkt|hyperpage}{12}
 \indexentry{Wirkung!Transitivität|hyperpage}{12}
 \indexentry{Bahn-Stabilisator-Theorem|hyperpage}{12}
-\indexentry{Konjugation!Konjugationsklasse|hyperpage}{12}
-\indexentry{Konjugation!Zentrum|hyperpage}{12}
-\indexentry{Konjugation!Zentralisator|hyperpage}{12}
+\indexentry{Konjugation!Konjugationsklasse|hyperpage}{13}
+\indexentry{Konjugation!Zentrum|hyperpage}{13}
+\indexentry{Konjugation!Zentralisator|hyperpage}{13}
 \indexentry{Konjugation!Klassengleichung|hyperpage}{13}
 \indexentry{Symmetrische Gruppe!Alternierende Gruppe!Klassengleichung|hyperpage}{13}
-\indexentry{Isometrie!Definition|hyperpage}{14}
-\indexentry{Translation!Definition|hyperpage}{14}
-\indexentry{Orthogonale Gruppe!Isometrie|hyperpage}{14}
+\indexentry{Isometrie!Definition|hyperpage}{15}
+\indexentry{Translation!Definition|hyperpage}{15}
+\indexentry{Orthogonale Gruppe!Isometrie|hyperpage}{15}
 \indexentry{Isometrie!Klassifikation|hyperpage}{15}
 \indexentry{Gruppe!Direktes Produkt|hyperpage}{16}
-\indexentry{Gruppe!Semidirektes Produkt|hyperpage}{16}
-\indexentry{Allgemeine Affine Gruppe!Definition|hyperpage}{16}
+\indexentry{Gruppe!Semidirektes Produkt|hyperpage}{17}
+\indexentry{Allgemeine Affine Gruppe!Definition|hyperpage}{17}
 \indexentry{Klassifikation aller ebenen Isometrien|hyperpage}{17}
 \indexentry{Spezielle Orthogonale Gruppe!Repräsentation|hyperpage}{17}
 \indexentry{Symmetriegruppe!orthogonale|hyperpage}{18}
@@ -56,99 +58,107 @@
 \indexentry{Konvexität!Konvexe Hülle|hyperpage}{18}
 \indexentry{Reguläre Polyeder|hyperpage}{18}
 \indexentry{ToDo!Anmerkung1|hyperpage}{18}
-\indexentry{Klassifikation der platonischen Symmetriegruppen|hyperpage}{18}
+\indexentry{Diedergruppe!Definition|hyperpage}{19}
+\indexentry{Klassifikation der platonischen Symmetriegruppen|hyperpage}{19}
 \indexentry{Symmetriegruppe!Diedergruppe|hyperpage}{19}
 \indexentry{ToDo!Korrektur2|hyperpage}{19}
-\indexentry{Klassifikation von $\SO(3, \RR)$|hyperpage}{20}
-\indexentry{Klassifikation von $\SO(2, \RR)$|hyperpage}{21}
-\indexentry{Ring!Definition|hyperpage}{25}
-\indexentry{Gaußscher Zahlenring!Definition|hyperpage}{25}
-\indexentry{Polynomring!Definition|hyperpage}{26}
-\indexentry{Matrizenring!Definition|hyperpage}{26}
-\indexentry{Ring!Historie|hyperpage}{26}
-\indexentry{Ideal!Definition|hyperpage}{26}
-\indexentry{Ideal!Hauptideal|hyperpage}{26}
-\indexentry{Homomorphismus!von Ringen|hyperpage}{27}
-\indexentry{Evaluationshomomorphismus!Definition|hyperpage}{27}
-\indexentry{Homomorphismus!von Ringen!Bild und Kern|hyperpage}{27}
-\indexentry{Quotientenring!Definition|hyperpage}{27}
-\indexentry{Quotientenring!Restklassenring mod $n$|hyperpage}{28}
-\indexentry{Isomorphiesätze!von Ringen|hyperpage}{28}
-\indexentry{Ring!Einheit|hyperpage}{28}
-\indexentry{Ring!Primelement|hyperpage}{28}
-\indexentry{Gaußscher Zahlenring!Einheiten|hyperpage}{28}
-\indexentry{Ideal!Primideal|hyperpage}{28}
-\indexentry{Integritätsbereich!Definition|hyperpage}{29}
-\indexentry{Ring!Irreduzibilität|hyperpage}{29}
-\indexentry{Ideal!Maximalität|hyperpage}{29}
-\indexentry{Polynomring!Maximale Ideale|hyperpage}{30}
-\indexentry{Hauptidealring!Definition|hyperpage}{30}
-\indexentry{Euklidischer Ring!Definition|hyperpage}{30}
-\indexentry{Ganzzahlen!als euklidischer Ring|hyperpage}{31}
-\indexentry{Polynomring!als euklidischer Ring|hyperpage}{31}
-\indexentry{Gaußscher Zahlenring!als euklidischer Ring|hyperpage}{31}
-\indexentry{Ganzzahlen!Spektrum|hyperpage}{31}
-\indexentry{Ring!Assoziierte Elemente|hyperpage}{31}
-\indexentry{Faktorieller Ring!Definition|hyperpage}{31}
-\indexentry{Noetherscher Ring!Definition|hyperpage}{32}
-\indexentry{Gaußscher Zahlenring!Spektrum|hyperpage}{33}
-\indexentry{Dedekindring!Definition|hyperpage}{34}
-\indexentry{Polynom!Primitivität|hyperpage}{35}
-\indexentry{Polynom!Inhalt|hyperpage}{36}
-\indexentry{Lemma von Gauß|hyperpage}{36}
-\indexentry{Satz über rationale Nullstellen|hyperpage}{36}
-\indexentry{Ganzzahlen!als faktorieller Ring|hyperpage}{37}
-\indexentry{Modul!Definition|hyperpage}{37}
-\indexentry{Vektorraum!als Modul|hyperpage}{38}
-\indexentry{Modul!freier Modul!freier Standard-$R$-Modul|hyperpage}{38}
-\indexentry{Modul!direkte Summe|hyperpage}{38}
-\indexentry{Homomorphismus!von Moduln|hyperpage}{38}
-\indexentry{Isomorphismus!von Moduln|hyperpage}{38}
-\indexentry{Untermodul|hyperpage}{38}
-\indexentry{Homomorphismus!von Moduln!Bild und Kern|hyperpage}{38}
-\indexentry{Quotientenmodul!Definition|hyperpage}{39}
-\indexentry{Isomorphiesätze!von Moduln|hyperpage}{39}
-\indexentry{Modul!Freier Modul|hyperpage}{39}
-\indexentry{Modul!endlich erzeugt|hyperpage}{39}
-\indexentry{Kurze exakte Sequenz!von Moduln|hyperpage}{39}
-\indexentry{Torsionsmodul!Definition|hyperpage}{40}
-\indexentry{Annihilatorideal!Definition|hyperpage}{41}
-\indexentry{Klassifikation endlich erzeugter $p$-Torsionsmoduln über HIR|hyperpage}{42}
-\indexentry{Klassifikation endlich erzeugter Moduln über HIR|hyperpage}{43}
-\indexentry{Klassifikation endlich erzeugter abelscher Gruppen|hyperpage}{43}
-\indexentry{Jordanzerlegung|hyperpage}{43}
-\indexentry{Galoisgruppe!Historie|hyperpage}{45}
-\indexentry{Galoisgruppe!Definition|hyperpage}{45}
-\indexentry{Unterkörper!Definition|hyperpage}{46}
-\indexentry{Körpererweiterung!Grad|hyperpage}{46}
-\indexentry{Gradsatz für Körpertürme|hyperpage}{46}
-\indexentry{Körper der rationalen Funktionen!Definition|hyperpage}{47}
-\indexentry{Körperautomorphismus!Definition|hyperpage}{47}
-\indexentry{Lemma von Artin|hyperpage}{47}
-\indexentry{Lemma von Dedekind|hyperpage}{47}
-\indexentry{Galoiserweiterung!Definition|hyperpage}{48}
-\indexentry{Körperautomorphismus!Fixkörper|hyperpage}{48}
-\indexentry{Satz von Artin|hyperpage}{49}
-\indexentry{Hauptsatz der Galois-Theorie|hyperpage}{50}
-\indexentry{Hauptsatz der Galois-Theorie!Interpretation|hyperpage}{52}
-\indexentry{Untergruppe!Normalisator|hyperpage}{52}
-\indexentry{Zerfällungskörper!Definition|hyperpage}{53}
-\indexentry{Zerfällungskörper!Existenz und Eindeutigkeit|hyperpage}{53}
-\indexentry{Polynom!Separabilität|hyperpage}{57}
-\indexentry{Algebraische Ableitung!Definition|hyperpage}{57}
-\indexentry{Wirkung!treu|hyperpage}{59}
-\indexentry{Polynom!Diskriminante|hyperpage}{60}
-\indexentry{Symmetrische Polynome!Definition|hyperpage}{61}
-\indexentry{Symmetrische Polynome!elementarsymmetrische Polynome|hyperpage}{61}
-\indexentry{Hauptsatz über symmetrische Polynome|hyperpage}{61}
-\indexentry{Allgemeine Gleichung $n$-ten Grades!Definition|hyperpage}{63}
-\indexentry{Primitive $n$-te Einheitswurzel!Definition|hyperpage}{64}
-\indexentry{Kreisteilungspolynom!Definition|hyperpage}{64}
-\indexentry{Kreisteilungspolynom!Irreduzibilität|hyperpage}{65}
-\indexentry{Kreisteilungspolynom!Algorithmus|hyperpage}{66}
-\indexentry{Radikalerweiterung!Definition|hyperpage}{68}
-\indexentry{Gruppe!Auflösbarkeit|hyperpage}{69}
-\indexentry{Untergruppe!Kommutator|hyperpage}{69}
-\indexentry{Symmetrische Gruppe!Alternierende Gruppe!Auflösbarkeit|hyperpage}{69}
-\indexentry{Radikalerweiterung!Radikalauflösbarkeit|hyperpage}{70}
-\indexentry{Unlösbarkeit des Kreisteilungsproblems|hyperpage}{72}
+\indexentry{Klassifikation von $\SO(3, \RR)$|hyperpage}{21}
+\indexentry{Klassifikation von $\SO(2, \RR)$|hyperpage}{22}
+\indexentry{Ring!Definition|hyperpage}{26}
+\indexentry{Gaußscher Zahlenring!Definition|hyperpage}{26}
+\indexentry{Polynomring!Definition|hyperpage}{27}
+\indexentry{Matrizenring!Definition|hyperpage}{27}
+\indexentry{Ring!Historie|hyperpage}{27}
+\indexentry{Ideal!Definition|hyperpage}{27}
+\indexentry{Ideal!Hauptideal|hyperpage}{27}
+\indexentry{Homomorphismus!von Ringen|hyperpage}{28}
+\indexentry{Evaluationshomomorphismus!Definition|hyperpage}{28}
+\indexentry{Homomorphismus!von Ringen!Bild und Kern|hyperpage}{28}
+\indexentry{Quotientenring!Definition|hyperpage}{28}
+\indexentry{Quotientenring!Restklassenring mod $n$|hyperpage}{29}
+\indexentry{Quotientenkörper!Definition|hyperpage}{29}
+\indexentry{Isomorphiesätze!von Ringen|hyperpage}{29}
+\indexentry{Ring!Einheit|hyperpage}{29}
+\indexentry{Ring!Primelement|hyperpage}{29}
+\indexentry{Gaußscher Zahlenring!Einheiten|hyperpage}{29}
+\indexentry{Ideal!Primideal|hyperpage}{30}
+\indexentry{Integritätsbereich!Definition|hyperpage}{30}
+\indexentry{Ring!Irreduzibilität|hyperpage}{30}
+\indexentry{Ideal!Maximalität|hyperpage}{31}
+\indexentry{Polynomring!Maximale Ideale|hyperpage}{31}
+\indexentry{Hauptidealring!Definition|hyperpage}{31}
+\indexentry{Euklidischer Ring!Definition|hyperpage}{32}
+\indexentry{Ganzzahlen!als euklidischer Ring|hyperpage}{32}
+\indexentry{Polynomring!als euklidischer Ring|hyperpage}{32}
+\indexentry{Gaußscher Zahlenring!als euklidischer Ring|hyperpage}{32}
+\indexentry{Ganzzahlen!Spektrum|hyperpage}{32}
+\indexentry{Ring!Assoziierte Elemente|hyperpage}{32}
+\indexentry{Faktorieller Ring!Definition|hyperpage}{32}
+\indexentry{Noetherscher Ring!Definition|hyperpage}{33}
+\indexentry{Spektrum!Definition|hyperpage}{34}
+\indexentry{Gaußscher Zahlenring!Spektrum|hyperpage}{34}
+\indexentry{Dedekindring!Definition|hyperpage}{35}
+\indexentry{Polynom!Primitivität|hyperpage}{37}
+\indexentry{Polynom!Inhalt|hyperpage}{37}
+\indexentry{Lemma von Gauß|hyperpage}{37}
+\indexentry{Satz über rationale Nullstellen|hyperpage}{38}
+\indexentry{Eisenstein-Kriterium|hyperpage}{38}
+\indexentry{Ganzzahlen!als faktorieller Ring|hyperpage}{38}
+\indexentry{Modul!Definition|hyperpage}{39}
+\indexentry{Vektorraum!als Modul|hyperpage}{39}
+\indexentry{Modul!freier Modul!freier Standard-$R$-Modul|hyperpage}{39}
+\indexentry{Modul!direkte Summe|hyperpage}{40}
+\indexentry{Homomorphismus!von Moduln|hyperpage}{40}
+\indexentry{Isomorphismus!von Moduln|hyperpage}{40}
+\indexentry{Untermodul|hyperpage}{40}
+\indexentry{Homomorphismus!von Moduln!Bild und Kern|hyperpage}{40}
+\indexentry{Quotientenmodul!Definition|hyperpage}{40}
+\indexentry{Isomorphiesätze!von Moduln|hyperpage}{40}
+\indexentry{Modul!Freier Modul|hyperpage}{40}
+\indexentry{Modul!endlich erzeugt|hyperpage}{41}
+\indexentry{Kurze exakte Sequenz!von Moduln|hyperpage}{41}
+\indexentry{Torsionsmodul!Definition|hyperpage}{42}
+\indexentry{Annihilatorideal!Definition|hyperpage}{43}
+\indexentry{Klassifikation endlich erzeugter $p$-Torsionsmoduln über HIR|hyperpage}{44}
+\indexentry{Klassifikation endlich erzeugter Moduln über HIR|hyperpage}{45}
+\indexentry{Klassifikation endlich erzeugter abelscher Gruppen|hyperpage}{45}
+\indexentry{Jordanzerlegung|hyperpage}{45}
+\indexentry{Galoisgruppe!Historie|hyperpage}{46}
+\indexentry{Galoisgruppe!Definition|hyperpage}{46}
+\indexentry{Unterkörper!Definition|hyperpage}{47}
+\indexentry{Körpererweiterung!Grad|hyperpage}{47}
+\indexentry{Gradsatz für Körpertürme|hyperpage}{47}
+\indexentry{Körper der rationalen Funktionen!Definition|hyperpage}{48}
+\indexentry{Körperautomorphismus!Definition|hyperpage}{48}
+\indexentry{Lemma von Artin|hyperpage}{48}
+\indexentry{Lemma von Dedekind|hyperpage}{48}
+\indexentry{Galoiserweiterung!Definition|hyperpage}{49}
+\indexentry{Körperautomorphismus!Fixkörper|hyperpage}{49}
+\indexentry{Satz von Artin|hyperpage}{50}
+\indexentry{Hauptsatz der Galois-Theorie|hyperpage}{51}
+\indexentry{Hauptsatz der Galois-Theorie!Interpretation|hyperpage}{53}
+\indexentry{Untergruppe!Normalisator|hyperpage}{53}
+\indexentry{Zerfällungskörper!Definition|hyperpage}{54}
+\indexentry{Zerfällungskörper!Existenz und Eindeutigkeit|hyperpage}{54}
+\indexentry{Polynom!Separabilität|hyperpage}{58}
+\indexentry{Algebraische Ableitung!Definition|hyperpage}{58}
+\indexentry{Wirkung!treu|hyperpage}{60}
+\indexentry{Polynom!Diskriminante|hyperpage}{61}
+\indexentry{Symmetrische Polynome!Definition|hyperpage}{62}
+\indexentry{Symmetrische Polynome!elementarsymmetrische Polynome|hyperpage}{62}
+\indexentry{Hauptsatz über symmetrische Polynome|hyperpage}{62}
+\indexentry{Allgemeine Gleichung $n$-ten Grades!Definition|hyperpage}{64}
+\indexentry{Primitive $n$-te Einheitswurzel!Definition|hyperpage}{65}
+\indexentry{Kreisteilungspolynom!Definition|hyperpage}{65}
+\indexentry{Kreisteilungspolynom!Irreduzibilität|hyperpage}{66}
+\indexentry{Kreisteilungspolynom!Algorithmus|hyperpage}{67}
+\indexentry{Radikalerweiterung!Definition|hyperpage}{69}
+\indexentry{Gruppe!Auflösbarkeit|hyperpage}{70}
+\indexentry{Untergruppe!Kommutator|hyperpage}{70}
+\indexentry{Symmetrische Gruppe!Alternierende Gruppe!Auflösbarkeit|hyperpage}{70}
+\indexentry{Radikalerweiterung!Radikalauflösbarkeit|hyperpage}{71}
+\indexentry{Unlösbarkeit des Kreisteilungsproblems|hyperpage}{73}
+\indexentry{Ordnung!Totalordnung|hyperpage}{74}
+\indexentry{Ordnung!Wohlordnung|hyperpage}{74}
+\indexentry{Wohlordnungssatz|hyperpage}{74}
+\indexentry{Lemma von Zorn|hyperpage}{75}

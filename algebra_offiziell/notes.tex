@@ -119,6 +119,15 @@ Um uns die alltägliche Arbeit mit Gruppen zu erleichtern, verwenden wir üblich
         als die {\em Ordnung von $G$}\index{Gruppe!Ordnung}.
 \end{enumerate}
 
+\blue{
+\begin{exa}\index{Quaternionen!Definition}
+Wir definieren die {\em Quaternionengruppe} 
+		\[
+			Q_8 := \{\pm 1, \pm i, \pm j, \pm k \}
+		\]        
+		mit komplexen Einheiten $i$, $j$ und $k$, wobei die zusätzliche Relation $i^2=j^2=k^2=ijk=-1$ die Verknüpfungstafel eindeutig bestimmt. Daraus lässt sich leicht ableiten, dass z.B. $ij=-ji$ gilt, $Q_8$ ist also ein Beispiel für eine nicht-abelsche Gruppe.
+\end{exa}
+		}
 \section{Untergruppen}%
 \label{sec:untergruppen}
 
@@ -666,6 +675,22 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
             \end{enumerate}
     \end{enumerate}
 \end{exas}
+
+\blue{
+Abschließend führen wir noch ein in der gesamten Algebra sehr wichtiges Werkzeug im gruppentheoretischen Rahmen ein und untersuchen dieses in den Übungen näher:
+\begin{defi}\index{Kurze exakte Sequenz!von Gruppen}
+Eine \emph{kurze exakte Sequenz}
+    \[
+        \{0\} \to N \overset{\phi}{\to} G \overset{\psi}{\to} H \to \{0\}
+    \]
+    von Gruppen besteht aus Gruppenhomomorphismen $\phi: N \to G$ und $\psi: G \to H$, so dass gilt:   \begin{enumerate}
+        \item $\phi$ ist injektiv.
+        \item $\Bild(\phi) = \Kern(\psi)$. 
+        \item $\psi$ ist surjektiv. 
+    \end{enumerate}
+Wir sagen, dass eine kurze exakte Sequenz {\em zerfällt}, falls ein Homomorphismus $\sigma:H \to G$ mit $\psi \circ \sigma = \id_H$ existiert. Dann heißt $\sigma$ {\em Schnitt}.
+\end{defi}
+}
 
 \section{Operationen}%
 \label{sec:operationen}
@@ -1275,6 +1300,25 @@ zunächst einige fundamentale Figuren ein.
     \end{enumerate}
 \end{exas}
 
+\blue{
+\begin{exa}\index{Diedergruppe!Definition}
+	Wir werden sehen, dass die Isometriegruppe des regelmäßigen $n$-gons die {\em Diedergruppe} $D_n$ ist. Die Gruppe besteht aus den $n$ Drehungen und $n$ Spiegelungen entlang der Symmetrieachsen des $n$-gons, in Matrixschreibweise gilt also:
+	\[
+		D_n = 
+		\left\{ 
+			\begin{pmatrix}
+			\cos \left( \frac{2 \pi k}{n}\right) & -\sin \left( \frac{2 \pi k}{n}\right)\\
+			\sin \left( \frac{2 \pi k}{n}\right) & \cos \left( \frac{2 \pi k}{n}\right)
+			\end{pmatrix},
+			\begin{pmatrix}
+			\cos \left( \frac{2 \pi k}{n}\right) & \sin \left( \frac{2 \pi k}{n}\right)\\
+			\sin \left( \frac{2 \pi k}{n}\right) & -\cos \left( \frac{2 \pi k}{n}\right)
+			\end{pmatrix} \mid 0 \leq k \leq n-1
+		\right\}.
+	\]
+\end{exa}
+}
+
 \begin{prob}
     \label{prob:}
     Die Figuren aus Beispiel \ref{exas:figuren} (2) sind tatsächlich Modelle der fünf platonischen Körper. 
@@ -1386,7 +1430,199 @@ zunächst einige fundamentale Figuren ein.
     Ein analoges Argument zeigt $\SO(D) \cong \SO(I)$, da Oktaeder und
     Ikosaeder dual zueinander sind.
 \end{proof}
-
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\coordinate (d1) at (0,2,0);
+\node (d2) at (0,-1,0) {$\text{C}_6$};
+\draw[red] (d1) -- (d2);
+\begin{scope}[canvas is xz plane at y=0]
+\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (b) at (xyz spherical cs: radius=1, longitude=60);
+\coordinate (c) at (xyz spherical cs: radius=1, longitude=120);
+\coordinate (d) at (xyz spherical cs: radius=1, longitude=180);
+\coordinate (e) at (xyz spherical cs: radius=1, longitude=240);
+\coordinate (f) at (xyz spherical cs: radius=1, longitude=300);
+\draw  (a) -- (b) -- (c) -- (d) -- (e) -- (f) -- (a);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=1.5]
+\coordinate (s) at (xyz spherical cs: radius=0);
+\end{scope}
+\draw (a) -- (s);
+\draw (b) -- (s);
+\draw (c) -- (s);
+\draw (d) -- (s);
+\draw (e) -- (s);
+\draw (f) -- (s);
+\coordinate (t) at (1.5,0,1.5);
+\coordinate (u) at (-1.5,0,1.5);
+\coordinate (v) at (-1.5,0,-1.5);
+\coordinate (w) at (1.5,0,-1.5);
+\draw (t) -- (u) -- (v) -- (w) -- (t);
+\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
+\end{tikzpicture}
+\begin{tikzpicture}
+\coordinate (d1) at (0,2,0);
+\node (d2) at(0,-2,0) {$\text{D}_6$};
+\draw[red] (d1) -- (d2);
+\begin{scope}[canvas is xz plane at y=1]
+\coordinate (pa) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (pb) at (xyz spherical cs: radius=1, longitude=60);
+\coordinate (pc) at (xyz spherical cs: radius=1, longitude=120);
+\coordinate (pd) at (xyz spherical cs: radius=1, longitude=180);
+\coordinate (pe) at (xyz spherical cs: radius=1, longitude=240);
+\coordinate (pf) at (xyz spherical cs: radius=1, longitude=300);
+\draw  (pa) -- (pb) -- (pc) -- (pd) -- (pe) -- (pf) -- (pa);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=0]
+\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (b) at (xyz spherical cs: radius=1, longitude=60);
+\coordinate (c) at (xyz spherical cs: radius=1, longitude=120);
+\coordinate (d) at (xyz spherical cs: radius=1, longitude=180);
+\coordinate (e) at (xyz spherical cs: radius=1, longitude=240);
+\coordinate (f) at (xyz spherical cs: radius=1, longitude=300);
+\draw[dashed]  (a) -- (b) -- (c) -- (d) -- (e) -- (f) -- (a);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=-1]
+\coordinate (ma) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (mb) at (xyz spherical cs: radius=1, longitude=60);
+\coordinate (mc) at (xyz spherical cs: radius=1, longitude=120);
+\coordinate (md) at (xyz spherical cs: radius=1, longitude=180);
+\coordinate (me) at (xyz spherical cs: radius=1, longitude=240);
+\coordinate (mf) at (xyz spherical cs: radius=1, longitude=300);
+\draw  (ma) -- (mb) -- (mc) -- (md) -- (me) -- (mf) -- (ma);
+\end{scope}
+\draw (pa) -- (ma);
+\draw (pb) -- (mb);
+\draw (pc) -- (mc);
+\draw (pd) -- (md);
+\draw (pe) -- (me);
+\draw (pf) -- (mf);
+\coordinate (t) at (1.5,0,1.5);
+\coordinate (u) at (-1.5,0,1.5);
+\coordinate (v) at (-1.5,0,-1.5);
+\coordinate (w) at (1.5,0,-1.5);
+\draw (t) -- (u) -- (v) -- (w) -- (t);
+\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
+\end{tikzpicture}
+\begin{tikzpicture}
+\coordinate (d1) at (0,2,0);
+\node (d2) at (0,-1,0) {$\text{A}_4$};
+\draw[red] (d1) -- (d2);
+\begin{scope}[canvas is xz plane at y=0]
+\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (b) at (xyz spherical cs: radius=1, longitude=120);
+\coordinate (c) at (xyz spherical cs: radius=1, longitude=240);
+\draw  (a) -- (b) -- (c) -- (a);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=1.5]
+\coordinate (s) at (xyz spherical cs: radius=0);
+\end{scope}
+\draw (a) -- (s);
+\draw (b) -- (s);
+\draw (c) -- (s);
+\coordinate (t) at (1.5,0,1.5);
+\coordinate (u) at (-1.5,0,1.5);
+\coordinate (v) at (-1.5,0,-1.5);
+\coordinate (w) at (1.5,0,-1.5);
+\draw (t) -- (u) -- (v) -- (w) -- (t);
+\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
+\end{tikzpicture}
+\begin{tikzpicture}
+\coordinate (d1) at (0,3,0);
+\node (d2) at( 0,-1,0) {$S_4$};
+\draw[red] (d1) -- (d2);
+\coordinate (os1) at (0,2,0);
+\coordinate (os2) at (0,0,0);
+\coordinate (oa) at (1,1,0);
+\coordinate (ob) at (0,1,-1);
+\coordinate (oc) at (-1,1,0);
+\coordinate (od) at (0,1,1);
+\draw (oa) -- (ob) -- (oc) -- (od) -- (oa);
+\draw (oa) -- (os1);
+\draw (oa) -- (os2);
+\draw (ob) -- (os1);
+\draw (ob) -- (os2);
+\draw (oc) -- (os1);
+\draw (oc) -- (os2);
+\draw (od) -- (os1);
+\draw (od) -- (os2);
+\coordinate (pa) at (1,2,1);
+\coordinate (pb) at (1,2,-1);
+\coordinate (pc) at (-1,2,1);
+\coordinate (pd) at (-1,2,-1);
+\draw (pa) -- (pb) -- (pd) -- (pc) -- (pa);
+\coordinate (a) at (1,0,1);
+\coordinate (b) at (1,0,-1);
+\coordinate (c) at (-1,0,1);
+\coordinate (d) at (-1,0,-1);
+\draw (a) -- (b) -- (d) -- (c) -- (a);
+\draw (a) -- (pa);
+\draw (b) -- (pb);
+\draw (c) -- (pc);
+\draw (d) -- (pd);
+\coordinate (t) at (1.5,0,1.5);
+\coordinate (u) at (-1.5,0,1.5);
+\coordinate (v) at (-1.5,0,-1.5);
+\coordinate (w) at (1.5,0,-1.5);
+\draw (t) -- (u) -- (v) -- (w) -- (t);
+\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
+\end{tikzpicture}
+\begin{tikzpicture}
+\coordinate (d1) at (0,2,0);
+\node (d2) at(0,-2,0) {$A_5$};
+\draw[red] (d1) -- (d2);
+\begin{scope}[canvas is xz plane at y=0.5]
+\coordinate (pa) at (xyz spherical cs: radius=1, longitude=0);
+\coordinate (pb) at (xyz spherical cs: radius=1, longitude=360/5);
+\coordinate (pc) at (xyz spherical cs: radius=1, longitude=360/5*2);
+\coordinate (pd) at (xyz spherical cs: radius=1, longitude=360/5*3);
+\coordinate (pe) at (xyz spherical cs: radius=1, longitude=360/5*4);
+\draw  (pa) -- (pb) -- (pc) -- (pd) -- (pe) -- (pa);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=-0.5]
+\coordinate (ma) at (xyz spherical cs: radius=1, longitude=36);
+\coordinate (mb) at (xyz spherical cs: radius=1, longitude=36+72);
+\coordinate (mc) at (xyz spherical cs: radius=1, longitude=36+72*2);
+\coordinate (md) at (xyz spherical cs: radius=1, longitude=36+72*3);
+\coordinate (me) at (xyz spherical cs: radius=1, longitude=36+72*4);
+\draw  (ma) -- (mb) -- (mc) -- (md) -- (me) -- (ma);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=-1]
+\coordinate (ms) at (xyz spherical cs: radius=0);
+\draw  (ma) -- (ms);
+\draw  (mb) -- (ms);
+\draw  (mc) -- (ms);
+\draw  (md) -- (ms);
+\draw  (me) -- (ms);
+\end{scope}
+\begin{scope}[canvas is xz plane at y=1]
+\coordinate (ps) at (xyz spherical cs: radius=0);
+\draw  (pa) -- (ps);
+\draw  (pb) -- (ps);
+\draw  (pc) -- (ps);
+\draw  (pd) -- (ps);
+\draw  (pe) -- (ps);
+\end{scope}
+\draw (pa) -- (ma);
+\draw (pa) -- (me);
+\draw (pb) -- (mb);
+\draw (pb) -- (ma);
+\draw (pc) -- (mc);
+\draw (pc) -- (mb);
+\draw (pd) -- (md);
+\draw (pd) -- (mc);
+\draw (pe) -- (me);
+\draw (pe) -- (md);
+\coordinate (t) at (1.5,0,1.5);
+\coordinate (u) at (-1.5,0,1.5);
+\coordinate (v) at (-1.5,0,-1.5);
+\coordinate (w) at (1.5,0,-1.5);
+\draw (t) -- (u) -- (v) -- (w) -- (t);
+\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
+\end{tikzpicture}
+\caption{Klassifikation der Drehgruppe $\SO(3,\RR)$.}
+\end{figure}
 \begin{thm}\index{Klassifikation von $\SO(3, \RR)$}
     \label{thm:klass3d} Sei $G \le \SO(3,\RR)$ eine endliche Untergruppe. Dann ist $G$ konjugiert zu einer der folgenden Gruppen
     \begin{enumerate}[label=(\alph*)]
@@ -1730,7 +1966,7 @@ Bevor wir den Satz beweisen, halten wir ein Lemma für den Beweis fest.
         \item Jeder Körper bildet einen kommutativen Ring. 
         \item Für $\alpha \in \CC$ ist die Menge 
             \[
-                \ZZ[\alpha] := \{\sum_{k=0}^n \lambda_k \alpha^k \; | \; n \ge 0, \lambda_k \in \ZZ\} \subset \CC
+                \ZZ[\alpha] := \left\{\sum_{k=0}^n \lambda_k \alpha^k \; | \; n \ge 0, \lambda_k \in \ZZ \right\} \subset \CC
             \]
             abgeschlossen unter Addition und Multiplikation in $\CC$ und bildet,
             durch Vererbung aller Axiome von $\CC$, einen kommutativen Ring.
@@ -1933,11 +2169,21 @@ Wir bezeichnen die Menge der Äquivalenzklassen mit $R/I$.
    Dies sollte nun Routine sein. 
 \end{proof}
 
-\begin{exa}\index{Quotientenring!Restklassenring mod $n$}
+\begin{exas}
     \label{exa:restklassen}
-    Sei $n \ge 2$ eine natürliche Zahl. Dann heißt der Ring $\ZZ/(n)$ der
-    \emph{Restklassenring modulo $n$}.
-\end{exa}
+    \begin{enumerate}
+    		\item \index{Quotientenring!Restklassenring mod $n$} Sei $n \ge 2$ eine natürliche Zahl. Dann heißt der Ring $\ZZ/(n)$ der \emph{Restklassenring modulo $n$}.
+    		\item \blue{\index{Quotientenkörper!Definition} Sei $R$ ein vom Nullring verschiedener Ring. Wir erklären auf $R \times (R \setminus \{0\})$ die Äquivalenzrelation $(a,b) \sim (c,d) :\iff ad=cb$ und schreiben $\frac{a}{b}$ für eine Äquivalenzklasse $[(a,b)]$. Auf Äquivalenzklassen definieren wir wie gewohnt Addition durch 
+		\[
+			\frac{a}{b} + \frac{c}{d} := \frac{ad+bc}{bd}
+		\]    		
+		und Multiplikation durch
+		\[
+			\frac{a}{b} \cdot \frac{c}{d} := \frac{ac}{bd}.
+		\]
+    		Die Quotientenmenge $(R \setminus \{0\})^{-1}R:= R \times (R \setminus \{0\}) /_\sim$ heißt {\em Quotientenkörper} oder {\em Körper der Brüche} von $R$. Dies ist ein Spezialfall der in den Übungen untersuchten {\em Lokalisierung} von Ringen. Man überzeuge sich davon, dass tatsächlich ein Körper vorliegt (!).}
+    \end{enumerate}
+\end{exas}
 
 
 \begin{thm}\index{Isomorphiesätze!von Ringen}
@@ -2395,7 +2641,15 @@ $a = u b$. Wir schreiben dann $a \sim b$.
 
 Wir wollen nun zum Abschluss eine vollständige Klassifikation der Primelemente
 und damit, nach Proposition \ref{prop:euklid}, auch der Primideale, in $\ZZ[i]$
-durchführen.
+durchführen. \blue{Zentral ist dafür folgender Begriff:
+\begin{defi}\index{Spektrum!Definition}
+	Sei $R$ ein Ring. Die Menge
+	\[
+		\Spec (R) := \{ P \subseteq R \mid P \ \text{Primideal} \}
+	\]
+	heißt {\em Spektrum  von $R$}.
+\end{defi}
+}
 
 \begin{lem}
     \label{lem:Gausslem} Sei $p$ eine ungerade Primzahl. Dann sind äquivalent:
@@ -2449,11 +2703,12 @@ durchführen.
 
 \begin{thm}\index{Gaußscher Zahlenring!Spektrum}
     \label{thm:gaussprimes}
-    Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau:
+    \blue{Das Spektrum von $\ZZ[i]$ besteht neben dem Nullideal aus:}
+    (Die Primideale in $\ZZ[i]$ sind neben dem Nullideal genau:)
     \begin{enumerate}
-        \item Das Ideal $(1+i)$.
-        \item Die Ideale der Form $(a + bi)$, wobei $a^2 + b^2 = p$ Primzahl mit $p \equiv 1 \pmod{4}$ und $a > |b|$ ist. 
-        \item Die Ideale der Form $(p)$, wobei $p$ eine Primzahl mit $p \equiv 3 \pmod{4}$ ist.
+        \item Dem Ideal $(1+i)$.
+        \item Den Idealen der Form $(a + bi)$, wobei $a^2 + b^2 = p$ Primzahl mit $p \equiv 1 \pmod{4}$ und $a > |b|$ ist. 
+        \item Den Idealen der Form $(p)$, wobei $p$ eine Primzahl mit $p \equiv 3 \pmod{4}$ ist.
     \end{enumerate}
 \end{thm}
 \begin{proof}
@@ -2751,6 +3006,21 @@ Dies ist der Ausgangspunkt für die Untersuchungen in diesem Abschnitt.
     = 1$ oder $h_0 = 1$, so dass also $f$ oder $g$ eine Einheit $\QQ[X]$ ist. 
 \end{proof}
 
+\blue{
+Wir geben noch ein nützliches Kriterium zur Bestimmung der Irreduzibilität von Polynomen an:
+\begin{prob}[Eisenstein-Kriterium]\index{Eisenstein-Kriterium}
+	Ein {\em primitives} Polynom
+	\[
+		f(X) = \sum_{i=0}^n a_i X^i
+	\]
+	ist irreduzibel über $\ZZ$ und $\QQ$, falls gilt: Es existiert eine Primzahl $p$, so dass:
+		\begin{enumerate}[label=(\roman *)]
+			\item $\forall i < n: \ p \mid a_i$,
+			\item $p^2 \nmid a_0$ und
+			\item $p \nmid a_n$.
+    		\end{enumerate}
+\end{prob}
+}
 \begin{thm}\index{Ganzzahlen!als faktorieller Ring}
     \label{thm:zxfaktoriell}
     Der Ring $\ZZ[X]$ ist faktoriell.
@@ -5412,6 +5682,50 @@ Für eine Gruppe $G$ definieren wir die {\em Kommutatoruntergruppe}
     $n \ge 5$, nach Lemma \ref{lem:auflösbar} nicht auflösbar ist, denn $S_n$
     enthält die nicht auflösbare Gruppe $A_n$ (Satz \ref{thm:annot}).
 \end{proof}
+
+
+\chapter{Addendum}
+
+\section{Das Auswahlaxiom und seine Folgen}%
+
+Neben den klassischen Axiomen der Zermelo-Fraenkel-Mengenlehre nehmen wir auch an, dass das Auswahlaxiom wahr ist. Dieses besagt, dass für ein gegebenes Mengensystem $\mathcal{A}$ von nicht-leeren Mengen $A \subseteq \mathcal{A}$ eine Funktion $f: \mathcal{A} \to \cup_{A \subseteq \mathcal{A}}A$ existiert, die jedem $A \subseteq \mathcal{A}$ ein Element von $A$ zuordnet, also vereinfacht gesagt ein Element aus jeder Menge des Systems auswählt. Wir werden vor allem zwei dazu äquivalente Sätze benötigen. Dazu brauchen wir Möglichkeiten, Mengen zu ordnen:
+
+\begin{defi}\index{Ordnung!Totalordnung}
+	Eine {\em total geordnete Menge} ist ein Paar $(M, \preceq)$, bestehend aus einer Menge $M$ und einer Relation $\preceq$, die für alle $x,y,z \in M$ den folgenden Bedingungen genügt:
+	\begin{enumerate}
+	\item Reflexivität: $x \preceq x$
+	\item Antisymmetrie: $x \preceq y \land y \preceq x \implies x = y$
+	\item Transitivität: $x \preceq y \land y \preceq z \implies x \preceq z$
+	\item Totalität: $x \preceq y \lor y \preceq x$.
+	\end{enumerate}
+	Gilt nur (1) - (3), so heißt die Menge stattdessen {\em partiell geordnet}. Eine total geordnete Teilmenge einer partiell geordneten Menge heißt {\em Kette}.
+\end{defi}
+
+\begin{defi}\index{Ordnung!Wohlordnung}
+	Sei $(M, \preceq)$ eine total geordnete Menge. Diese heißt darüber hinaus {\em wohlgeordnet}, wenn jede nicht-leere Teilmenge von $M$ ein kleinstes Element bezüglich $\preceq$ besitzt.
+\end{defi}
+
+\begin{exas} Einige Beispiele für geordnete Mengen sind:
+	\begin{enumerate}
+		\item Die Menge $\NN$ wird durch $\leq$ total geordnet, ebenso wie $\ZZ$, $\QQ$ und $\RR$. Die natürlichen Zahlen werden durch $\leq$ sogar wohlgeordnet. Für $\ZZ$ lässt sich eine Wohlordnung ausgehend von $\leq$ leicht konstruieren.
+		\item Die Ordnung $\subseteq$ auf der Potenzmenge $\mathcal{P}(M)$ einer Menge $M$ ist eine partielle Ordnung, aber keine totale Ordnung (!).
+		\item Auf $\ZZ^\ast$ lässt sich eine Ordnung durch Teilbarkeit $\mid$ definieren. Da beispielsweise $2 \nmid 3$ und $3 \nmid 2$ gilt, ist dies aber keine Totalordnung.
+	\end{enumerate}
+\end{exas}
+
+Mit dem Auswahlaxiom existiert eine solche Wohlordnung immer:
+
+\begin{prop}[Wohlordnungssatz]\index{Wohlordnungssatz}
+	Jede Menge kann wohlgeordnet werden. Insbesondere enthält jede nicht-leere Teilmenge der natürlichen Zahlen eine 			kleinste Zahl.
+\end{prop}
+
+Allgemein ist der Wohlordnungssatz hochgradig nicht-konstruktiv: Es lässt sich zeigen, dass das Auswahlaxiom die Existenz einer Wohlordnung von $\RR$ impliziert, aber es unmöglich ist, eine konstruktive Formel für diese anzugeben.\\
+Der nächste Satz garantiert die Existenz maximaler Elemente:
+\begin{prop}[Lemma von Zorn]\index{Lemma von Zorn}
+	Sei $(M, \preceq)$ eine partiell geordnete Menge. Gilt für jede Kette $T \subseteq M$, dass eine obere Schranke $s 	\in T$ mit $t \preceq s$ für alle $t \in T$ existiert, so besitzt $M$ ein maximales Element $\mathfrak{m} \in M$. 			Für alle $x \in M$ mit $\mathfrak{m} \preceq x$ gilt also $\mathfrak{m} = x$.
+\end{prop}
+
+Wichtige Folgen des Satzes von Zorn sind zum Beispiel die Existenz von Basen für beliebige Vektorräume, der Satz von Tychonoff aus der Topologie oder auch der Satz von Steinitz, der die Existenz algebraischer Abschlüsse garantiert.
 
 \printindex
 \end{document}
