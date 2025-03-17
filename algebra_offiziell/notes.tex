@@ -1352,7 +1352,11 @@ zunächst einige fundamentale Figuren ein.
         \item $|{\SO}(W)| = 6 * 4 = 24 = 8 * 3 = |{\SO}(O)|$.
         \item $|{\SO}(I)| = 20 * 3 = 60 = 12 * 5 = |{\SO}(D)|$.
     \end{enumerate}
-
+	\begin{figure}[H]
+	\centering
+	\include{./graphics/orbit_stabilizer.tex}
+	\caption{\blue{Zu sehen ist eine Skizze der Überlegung für den Tetraeder: Wir lassen die alternierende Gruppe auf den nummerierten Ecken des Tetraeders wirken, dargestellt durch Drehungen um die eingezeichneten Symmetrieachsen. Betrachten wir z.B. die Achse durch Punkt $4$, so lässt die Identität, eine $120^\circ$- und eine $240^\circ$- Drehung den Tetraeder als solches invariant. Die $4$ wird von diesen drei Elementen stabilisiert. Betrachten wir nun die anderen drei Rotationsachsen, so sehen wir, dass die $4$ auf jedes andere Element rotiert wird, also besteht ihre Bahn aus vier Elementen.}}
+	\end{figure}
     Die Kenntnis dieser Kardinalitäten vereinfacht nun auch die Konstruktion
     der behaupteten Isomorphismen: 
 
@@ -1429,200 +1433,14 @@ zunächst einige fundamentale Figuren ein.
 
     Ein analoges Argument zeigt $\SO(D) \cong \SO(I)$, da Oktaeder und
     Ikosaeder dual zueinander sind.
-\end{proof}
+    \end{proof}
+    
 \begin{figure}
 \centering
-\begin{tikzpicture}
-\coordinate (d1) at (0,2,0);
-\node (d2) at (0,-1,0) {$\text{C}_6$};
-\draw[red] (d1) -- (d2);
-\begin{scope}[canvas is xz plane at y=0]
-\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (b) at (xyz spherical cs: radius=1, longitude=60);
-\coordinate (c) at (xyz spherical cs: radius=1, longitude=120);
-\coordinate (d) at (xyz spherical cs: radius=1, longitude=180);
-\coordinate (e) at (xyz spherical cs: radius=1, longitude=240);
-\coordinate (f) at (xyz spherical cs: radius=1, longitude=300);
-\draw  (a) -- (b) -- (c) -- (d) -- (e) -- (f) -- (a);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=1.5]
-\coordinate (s) at (xyz spherical cs: radius=0);
-\end{scope}
-\draw (a) -- (s);
-\draw (b) -- (s);
-\draw (c) -- (s);
-\draw (d) -- (s);
-\draw (e) -- (s);
-\draw (f) -- (s);
-\coordinate (t) at (1.5,0,1.5);
-\coordinate (u) at (-1.5,0,1.5);
-\coordinate (v) at (-1.5,0,-1.5);
-\coordinate (w) at (1.5,0,-1.5);
-\draw (t) -- (u) -- (v) -- (w) -- (t);
-\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
-\end{tikzpicture}
-\begin{tikzpicture}
-\coordinate (d1) at (0,2,0);
-\node (d2) at(0,-2,0) {$\text{D}_6$};
-\draw[red] (d1) -- (d2);
-\begin{scope}[canvas is xz plane at y=1]
-\coordinate (pa) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (pb) at (xyz spherical cs: radius=1, longitude=60);
-\coordinate (pc) at (xyz spherical cs: radius=1, longitude=120);
-\coordinate (pd) at (xyz spherical cs: radius=1, longitude=180);
-\coordinate (pe) at (xyz spherical cs: radius=1, longitude=240);
-\coordinate (pf) at (xyz spherical cs: radius=1, longitude=300);
-\draw  (pa) -- (pb) -- (pc) -- (pd) -- (pe) -- (pf) -- (pa);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=0]
-\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (b) at (xyz spherical cs: radius=1, longitude=60);
-\coordinate (c) at (xyz spherical cs: radius=1, longitude=120);
-\coordinate (d) at (xyz spherical cs: radius=1, longitude=180);
-\coordinate (e) at (xyz spherical cs: radius=1, longitude=240);
-\coordinate (f) at (xyz spherical cs: radius=1, longitude=300);
-\draw[dashed]  (a) -- (b) -- (c) -- (d) -- (e) -- (f) -- (a);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=-1]
-\coordinate (ma) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (mb) at (xyz spherical cs: radius=1, longitude=60);
-\coordinate (mc) at (xyz spherical cs: radius=1, longitude=120);
-\coordinate (md) at (xyz spherical cs: radius=1, longitude=180);
-\coordinate (me) at (xyz spherical cs: radius=1, longitude=240);
-\coordinate (mf) at (xyz spherical cs: radius=1, longitude=300);
-\draw  (ma) -- (mb) -- (mc) -- (md) -- (me) -- (mf) -- (ma);
-\end{scope}
-\draw (pa) -- (ma);
-\draw (pb) -- (mb);
-\draw (pc) -- (mc);
-\draw (pd) -- (md);
-\draw (pe) -- (me);
-\draw (pf) -- (mf);
-\coordinate (t) at (1.5,0,1.5);
-\coordinate (u) at (-1.5,0,1.5);
-\coordinate (v) at (-1.5,0,-1.5);
-\coordinate (w) at (1.5,0,-1.5);
-\draw (t) -- (u) -- (v) -- (w) -- (t);
-\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
-\end{tikzpicture}
-\begin{tikzpicture}
-\coordinate (d1) at (0,2,0);
-\node (d2) at (0,-1,0) {$\text{A}_4$};
-\draw[red] (d1) -- (d2);
-\begin{scope}[canvas is xz plane at y=0]
-\coordinate (a) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (b) at (xyz spherical cs: radius=1, longitude=120);
-\coordinate (c) at (xyz spherical cs: radius=1, longitude=240);
-\draw  (a) -- (b) -- (c) -- (a);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=1.5]
-\coordinate (s) at (xyz spherical cs: radius=0);
-\end{scope}
-\draw (a) -- (s);
-\draw (b) -- (s);
-\draw (c) -- (s);
-\coordinate (t) at (1.5,0,1.5);
-\coordinate (u) at (-1.5,0,1.5);
-\coordinate (v) at (-1.5,0,-1.5);
-\coordinate (w) at (1.5,0,-1.5);
-\draw (t) -- (u) -- (v) -- (w) -- (t);
-\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
-\end{tikzpicture}
-\begin{tikzpicture}
-\coordinate (d1) at (0,3,0);
-\node (d2) at( 0,-1,0) {$S_4$};
-\draw[red] (d1) -- (d2);
-\coordinate (os1) at (0,2,0);
-\coordinate (os2) at (0,0,0);
-\coordinate (oa) at (1,1,0);
-\coordinate (ob) at (0,1,-1);
-\coordinate (oc) at (-1,1,0);
-\coordinate (od) at (0,1,1);
-\draw (oa) -- (ob) -- (oc) -- (od) -- (oa);
-\draw (oa) -- (os1);
-\draw (oa) -- (os2);
-\draw (ob) -- (os1);
-\draw (ob) -- (os2);
-\draw (oc) -- (os1);
-\draw (oc) -- (os2);
-\draw (od) -- (os1);
-\draw (od) -- (os2);
-\coordinate (pa) at (1,2,1);
-\coordinate (pb) at (1,2,-1);
-\coordinate (pc) at (-1,2,1);
-\coordinate (pd) at (-1,2,-1);
-\draw (pa) -- (pb) -- (pd) -- (pc) -- (pa);
-\coordinate (a) at (1,0,1);
-\coordinate (b) at (1,0,-1);
-\coordinate (c) at (-1,0,1);
-\coordinate (d) at (-1,0,-1);
-\draw (a) -- (b) -- (d) -- (c) -- (a);
-\draw (a) -- (pa);
-\draw (b) -- (pb);
-\draw (c) -- (pc);
-\draw (d) -- (pd);
-\coordinate (t) at (1.5,0,1.5);
-\coordinate (u) at (-1.5,0,1.5);
-\coordinate (v) at (-1.5,0,-1.5);
-\coordinate (w) at (1.5,0,-1.5);
-\draw (t) -- (u) -- (v) -- (w) -- (t);
-\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
-\end{tikzpicture}
-\begin{tikzpicture}
-\coordinate (d1) at (0,2,0);
-\node (d2) at(0,-2,0) {$A_5$};
-\draw[red] (d1) -- (d2);
-\begin{scope}[canvas is xz plane at y=0.5]
-\coordinate (pa) at (xyz spherical cs: radius=1, longitude=0);
-\coordinate (pb) at (xyz spherical cs: radius=1, longitude=360/5);
-\coordinate (pc) at (xyz spherical cs: radius=1, longitude=360/5*2);
-\coordinate (pd) at (xyz spherical cs: radius=1, longitude=360/5*3);
-\coordinate (pe) at (xyz spherical cs: radius=1, longitude=360/5*4);
-\draw  (pa) -- (pb) -- (pc) -- (pd) -- (pe) -- (pa);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=-0.5]
-\coordinate (ma) at (xyz spherical cs: radius=1, longitude=36);
-\coordinate (mb) at (xyz spherical cs: radius=1, longitude=36+72);
-\coordinate (mc) at (xyz spherical cs: radius=1, longitude=36+72*2);
-\coordinate (md) at (xyz spherical cs: radius=1, longitude=36+72*3);
-\coordinate (me) at (xyz spherical cs: radius=1, longitude=36+72*4);
-\draw  (ma) -- (mb) -- (mc) -- (md) -- (me) -- (ma);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=-1]
-\coordinate (ms) at (xyz spherical cs: radius=0);
-\draw  (ma) -- (ms);
-\draw  (mb) -- (ms);
-\draw  (mc) -- (ms);
-\draw  (md) -- (ms);
-\draw  (me) -- (ms);
-\end{scope}
-\begin{scope}[canvas is xz plane at y=1]
-\coordinate (ps) at (xyz spherical cs: radius=0);
-\draw  (pa) -- (ps);
-\draw  (pb) -- (ps);
-\draw  (pc) -- (ps);
-\draw  (pd) -- (ps);
-\draw  (pe) -- (ps);
-\end{scope}
-\draw (pa) -- (ma);
-\draw (pa) -- (me);
-\draw (pb) -- (mb);
-\draw (pb) -- (ma);
-\draw (pc) -- (mc);
-\draw (pc) -- (mb);
-\draw (pd) -- (md);
-\draw (pd) -- (mc);
-\draw (pe) -- (me);
-\draw (pe) -- (md);
-\coordinate (t) at (1.5,0,1.5);
-\coordinate (u) at (-1.5,0,1.5);
-\coordinate (v) at (-1.5,0,-1.5);
-\coordinate (w) at (1.5,0,-1.5);
-\draw (t) -- (u) -- (v) -- (w) -- (t);
-\fill[nearly transparent, blue] (t) -- (u) -- (v) -- (w) -- (t);
-\end{tikzpicture}
+\include{./graphics/platonic.tex}
 \caption{Klassifikation der Drehgruppe $\SO(3,\RR)$.}
 \end{figure}
+
 \begin{thm}\index{Klassifikation von $\SO(3, \RR)$}
     \label{thm:klass3d} Sei $G \le \SO(3,\RR)$ eine endliche Untergruppe. Dann ist $G$ konjugiert zu einer der folgenden Gruppen
     \begin{enumerate}[label=(\alph*)]
@@ -2423,6 +2241,7 @@ Begriffen.
     beweisen werden.
 \end{exa}
 
+
 Wir untersuchen nun eine Klasse von Ringen, in denen der in Beispiel
 \ref{exa:pol} erklärte Unterschied zwischen maximalen Hauptidealen und
 maximalen Idealen per Definition verschwindet:
@@ -2450,6 +2269,12 @@ maximalen Idealen per Definition verschwindet:
     Primideal und daher auch $r$ selbst wegen Proposition
     \ref{prop:elementideal} ein Primelement.
 \end{proof}
+
+\begin{figure}[H]
+\centering
+\include{./graphics/ring_implications.tex}
+\caption{\blue{Dargestellt sind die wichtigsten Unterschiede der verschiedenen Ringe: Schwarze Pfeile gelten in allen Ringen, blaue Pfeile nur in Integritätsbereichen und rote Pfeile nur in Hauptidealringen.}}
+\end{figure}
 
 Eine wichtige Klasse von Beispielen für Hauptidealringe erschließt sich aus
 Ringen, in denen es eine sinnvolle ``Division mit Rest'' gibt:
