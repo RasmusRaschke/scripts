@@ -25,6 +25,12 @@
 \end{center} 
 \end{minipage}
 
+\begin{figure}[H]
+\centering
+\include{./graphics/titlepic.tex}
+\end{figure}
+
+
 \end{center}
 \vfill
 
@@ -579,7 +585,7 @@ wir auch $\langle g \rangle$ für die von $\{g\}$ erzeugte Gruppe.
     \end{align*}
     also ein Element von $ab N$, denn da $N$ normal ist, gilt $b^{-1} m b \in
     N$. 
-    \\ \red{Im vorigen Satz scheint etwas zu fehlen. Ist $\tilde{a}\tilde{b}\in abN$ gemeint?}\index{ToDo!Korrektur1}\\
+    \\ \red{Im vorigen Satz scheint etwas zu fehlen. Ist $\tilde{a}\tilde{b}\in abN$ gemeint?}\\
     Damit ist also $\tilde{a} \tilde{b}$ ein Vertreter der Nebenklasse $ab
     N$, so dass also 
     \[
@@ -1269,7 +1275,7 @@ zunächst einige fundamentale Figuren ein.
             \[
                 Z_n = \{\{\mat{ p \\ t } \; |\; p \in R_n ,\; -1 \le t \le 1 \}.
             \]
-            \red{Auf die Gefahr hin, die Diskussion aus der Vorlesung hervorzubringen: Ist das in der allgemeinen Vorstellung nicht eher ein reguläres Prisma?}\index{ToDo!Anmerkung1}
+            \red{Auf die Gefahr hin, die Diskussion aus der Vorlesung hervorzubringen: Ist das in der allgemeinen Vorstellung nicht eher ein reguläres Prisma?}
         \item Desweiteren definieren wir den {\em Tetraeder}
             \[
                 T = \Konv(\{(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)\}),
@@ -1347,16 +1353,12 @@ zunächst einige fundamentale Figuren ein.
     \] jeweils: 
     \begin{enumerate}
         \item $|{\SO}(P_n)| = n * 1 = n$.
-        \item $|{\SO}(Z_n)| = 2n * 1 = 2n$. \red{Das macht zwar am Ende keinen Unterschied mehr, aber hier müsste, der obigen Erklärung folgend, $n*2$ stehen, oder? Wir haben $n$ rechteckige Randflächen, die eine $180^\circ$-Drehsymmetrie besitzen, also sind zwei Elemente im Stabilisator.}\index{ToDo!Korrektur2}
+        \item $|{\SO}(Z_n)| = 2n * 1 = 2n$. \red{Das macht zwar am Ende keinen Unterschied mehr, aber hier müsste, der obigen Erklärung folgend, $n*2$ stehen, oder? Wir haben $n$ rechteckige Randflächen, die eine $180^\circ$-Drehsymmetrie besitzen, also sind zwei Elemente im Stabilisator.}
         \item $|{\SO}(T)| = 4 * 3 = 12$.
         \item $|{\SO}(W)| = 6 * 4 = 24 = 8 * 3 = |{\SO}(O)|$.
         \item $|{\SO}(I)| = 20 * 3 = 60 = 12 * 5 = |{\SO}(D)|$.
     \end{enumerate}
-	\begin{figure}[H]
-	\centering
-	\include{./graphics/orbit_stabilizer.tex}
-	\caption{\blue{Zu sehen ist eine Skizze der Überlegung für den Tetraeder: Wir lassen die alternierende Gruppe auf den nummerierten Ecken des Tetraeders wirken, dargestellt durch Drehungen um die eingezeichneten Symmetrieachsen. Betrachten wir z.B. die Achse durch Punkt $4$, so lässt die Identität, eine $120^\circ$- und eine $240^\circ$- Drehung den Tetraeder als solches invariant. Die $4$ wird von diesen drei Elementen stabilisiert. Betrachten wir nun die anderen drei Rotationsachsen, so sehen wir, dass die $4$ auf jedes andere Element rotiert wird, also besteht ihre Bahn aus vier Elementen.}}
-	\end{figure}
+
     Die Kenntnis dieser Kardinalitäten vereinfacht nun auch die Konstruktion
     der behaupteten Isomorphismen: 
 
@@ -3595,7 +3597,7 @@ der Grad $[L:K]$ endlich ist.
     \end{enumerate}
     Diese folgen wiederum direkt aus der Umformung
     \[
-        \sum_{i,j} \lambda_{i,j} l_i m_j = \sum_j ( \sum_{i} \lambda_{i,j} l_i ) m_j .
+        \sum_{i,j} \lambda_{i,j} l_i m_j = \sum_j \left( \sum_{i} \lambda_{i,j} l_i \right) m_j .
     \]
 \end{proof}
 
