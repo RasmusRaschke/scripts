@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=latex 2025.3.18)  18 MAR 2025 01:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=latex 2025.3.18)  18 MAR 2025 01:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1543,17 +1543,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 3894--3896
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 4494.
+(amsmath)                 on input line 4510.
 
 
 
 [59]
-Underfull \hbox (badness 10000) in paragraph at lines 4537--4540
+Underfull \hbox (badness 10000) in paragraph at lines 4553--4556
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4541--4545
+Underfull \hbox (badness 10000) in paragraph at lines 4557--4561
 
  []
 
@@ -1564,16 +1564,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 4541--4545
 [61]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4681.
+(hyperref)                removing `math shift' on input line 4697.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4681.
+(hyperref)                removing `math shift' on input line 4697.
 
 
 
 [62]
-Overfull \hbox (3.2746pt too wide) in paragraph at lines 4820--4821
+
+[63]
+Overfull \hbox (3.2746pt too wide) in paragraph at lines 4836--4837
 [][]\T1/cmr/bx/n/10 Korollar 3.8.6. []\T1/cmr/m/it/10 Sei $\OML/cmm/m/it/10 K$ 
 \T1/cmr/m/it/10 ein Kör-per und $\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 X[]; :::; X[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 der Kör-per der Brü-che d
@@ -1582,8 +1584,6 @@ es Po-ly-nom-rings $\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; ::
  []
 
 
-
-[63]
 
 [64]
 
@@ -1600,7 +1600,7 @@ es Po-ly-nom-rings $\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; ::
 [70]
 
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 5460--5463
+Underfull \hbox (badness 10000) in paragraph at lines 5476--5479
 
  []
 
@@ -1610,8 +1610,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 5460--5463
 
 [73]
 Kapitel 4.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 555
-2.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 556
+8.
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -1623,13 +1623,13 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 [75]
 
 
-Overfull \hbox (1.42824pt too wide) in paragraph at lines 108--110
+Overfull \hbox (1.42824pt too wide) in paragraph at lines 113--115
 []\T1/cmr/m/n/10 Klassifikation der pla-to-ni-schen Sym-me-trie-grup-pen, [][][
 ][][][] 
  []
 
 
-Overfull \hbox (6.26398pt too wide) in paragraph at lines 110--112
+Overfull \hbox (6.26398pt too wide) in paragraph at lines 115--117
 []\T1/cmr/m/n/10 Klassifikation end-lich er-zeug-ter $\OML/cmm/m/it/10 p$\T1/cm
 r/m/n/10 -Torsionsmoduln über
  []
@@ -1658,12 +1658,12 @@ Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: E294B54866C7FE47AB0C29525EC92340;4181.
  ) 
 Here is how much of TeX's memory you used:
- 42451 strings out of 475119
- 972655 string characters out of 5764936
- 1523866 words of memory out of 5000000
- 64606 multiletter control sequences out of 15000+600000
+ 42452 strings out of 475119
+ 972676 string characters out of 5764936
+ 1523901 words of memory out of 5000000
+ 64607 multiletter control sequences out of 15000+600000
  585959 words of font info for 106 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  107i,18n,110p,1190b,1255s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on notes.dvi (78 pages, 643860 bytes).
+Output written on notes.dvi (78 pages, 645096 bytes).

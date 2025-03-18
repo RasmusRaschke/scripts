@@ -17,6 +17,11 @@
 
   \indexspace
 
+  \item Charakteristik
+    \subitem Definition, \hyperpage{59}
+
+  \indexspace
+
   \item Dedekindring
     \subitem Definition, \hyperpage{35}
   \item Determinante
@@ -69,7 +74,7 @@
     \subitem Definition, \hyperpage{31}
   \item Hauptsatz der Galois-Theorie, \hyperpage{51}
     \subitem Interpretation, \hyperpage{53}
-  \item Hauptsatz über symmetrische Polynome, \hyperpage{62}
+  \item Hauptsatz über symmetrische Polynome, \hyperpage{63}
   \item Homomorphismus
     \subitem von Gruppen, \hyperpage{6}
       \subsubitem Bild und Kern, \hyperpage{7}
@@ -127,7 +132,7 @@
     \subitem Konvexe Hülle, \hyperpage{18}
   \item Kreisteilungspolynom
     \subitem Algorithmus, \hyperpage{67}
-    \subitem Definition, \hyperpage{65}
+    \subitem Definition, \hyperpage{66}
     \subitem Irreduzibilität, \hyperpage{66}
   \item Kurze exakte Sequenz
     \subitem von Gruppen, \hyperpage{11}
@@ -191,7 +196,7 @@
     \subitem Definition, \hyperpage{27}
     \subitem Maximale Ideale, \hyperpage{31}
   \item Primitive $n$-te Einheitswurzel
-    \subitem Definition, \hyperpage{65}
+    \subitem Definition, \hyperpage{66}
 
   \indexspace
 
@@ -246,7 +251,7 @@
     \subitem Wirkung, \hyperpage{11}
   \item Symmetrische Polynome
     \subitem Definition, \hyperpage{62}
-    \subitem elementarsymmetrische Polynome, \hyperpage{62}
+    \subitem elementarsymmetrische Polynome, \hyperpage{63}
 
   \indexspace
 

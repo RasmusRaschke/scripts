@@ -4473,6 +4473,22 @@ Man verifiziert durch direkte Rechnung: Für $\lambda \in K$ und $f,g \in K[X]$ 
     $f$ und $\partial f$ Einheiten sind. 
 \end{proof}
 
+\blue{
+\begin{defi}\index{Charakteristik!Definition}
+	\label{defi:charakteristik}
+	Sei $R$ ein Ring. Die {\em Charakteristik} $\charac(R)$ von $R$ ist die eindeutig bestimmte natürliche Zahl $n$, sodass $\ZZ / n \ZZ$ der Kern des unitalen Ringhomomorphismus
+		\[
+			\chi: \ZZ \to R, \ n \mapsto n \cdot 1_R
+		\]
+	ist.\\
+	Äquivalent ist die Charakteristik die kleinste natürliche Zahl $n \geq 1$, sodass 
+	\[
+		\sum_{i=1}^n 1_R = 0_R
+	\]
+	gilt, falls diese Gleichung für ein $n$ in $R$ lösbar ist. Andernfalls setzt man $\charac(R)=0$. 
+\end{defi}
+Der Vorteil der ersten Definition ist, dass man keine Fallunterscheidung vornehmen muss.}
+
 \begin{cor} Sei $K$ ein Körper. 
     \label{cor:charsep}
     \begin{enumerate}

@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {3.6}Zerfällungskörper}{54}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Permutationsdarstellung der Galoisgruppe}{60}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Die allgemeine Gleichung $n$ten Grades}{62}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Kreisteilungskörper}{64}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.1}Kreisteilungskörper}{65}{subsection.3.8.1}%
 \contentsline {section}{\numberline {3.9}Radikalerweiterungen}{68}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Auflösbarkeit}{70}{section.3.10}%
 \contentsline {chapter}{\numberline {4}Addendum}{74}{chapter.4}%
