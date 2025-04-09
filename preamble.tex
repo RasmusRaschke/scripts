@@ -62,6 +62,8 @@
 \newcommand{\hide}[1]{} % To hide large blocks of code without using % symbols
 % Same as \href, but the text appears in typewriter font and in a custom color
 \newcommand{\Href}[3][red!50!black]{\href{#2}{\textcolor{#1}{\texttt{#3}}}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 
 \DeclareDocumentCommand\ip{ l m }{\braces#1{\langle}{\rangle}{#2}} % Inner product ⟨x,y⟩ (but only one argument is taken, so \ip{x,y} renders as ⟨x,y⟩)
 \DeclareDocumentCommand\floor{ l m }{\braces#1{\lfloor}{\rfloor}{#2}} % Floor function ⌊x⌋
@@ -163,6 +165,7 @@
 
 %%%Command section%%%
 
+
 %General
 \newcommand{\emp}{\emptyset}
 \newcommand{\exc}{\backslash}
@@ -202,6 +205,7 @@
 \newcommand{\dmu}{\,d\mu}
 \newcommand{\dnu}{\,d\nu}
 \newcommand{\graph}{\text{graph}}
+\DeclareMathOperator{\cis}{\text{cis}}
 
 %Algebra
 \newcommand{\quotient}[2]{{\raisebox{.0em}{$#1$}/\raisebox{-.2em}{$#2$}}} %Quotient Space
@@ -235,7 +239,7 @@
     arsinh,arcosh,artanh,arcoth,arsech,arcsch,
     arcsinh,arccosh,arctanh,arccoth,arcsech,arccsch,
     sen,tg,cth,senh,tgh,ctgh,
-    Re,Im,arg,Arg,im,ker
+    Re,Im,arg,Arg,im,ker,cis
 }
 
 
