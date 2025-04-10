@@ -73,6 +73,24 @@ Damit erhalten wir eine Möglichkeit, aus geometrischen Überlegungen verschiede
 \begin{equation}
 z = r \exp(i\phi) = r(\cos \phi + i \sin \phi).
 \end{equation} 
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=3]
+	\draw[step=.5cm, gray, very thin, dotted] (-1.4,-1.4) grid (1.4,1.4);
+	\foreach \x/\xtext in {-1, -.5/ -\frac{1}{2}, .5/ \frac{1}{2}, 1}
+		\draw (\x,-1pt) -- (\x, 1pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {-1, -.5/ -\frac{1}{2}, .5/ \frac{1}{2}, 1}
+		\draw (-1pt, \y) -- (1pt, \y) node[anchor=east] {$\ytext$};
+	\draw[->] (-1.5,0) -- (1.5,0);
+	\draw[->] (0,-1.5) -- (0,1.5);
+	\draw (0,0) circle [radius=1cm];
+	\draw (.5cm,0) arc [start angle=0, end angle=40, radius=.5cm];
+	\draw (20:2mm) \node[red] {$\phi$};
+	\draw[red] (40:1cm) -- node[right=1pt] {$\sin \phi$} (40:1cm |- 0,0);
+	\draw[blue] (0,0) -- node[below=10pt] {$\cos \phi$} (40:1cm |- 0,0);
+	\draw[green] (0,0) -- node[above=10pt] {$\tan \phi$}  (40:1cm);
+\end{tikzpicture}
+\end{figure}
 Eine weitere sehr wichtige Ungleichung wollen wir zur Übung beweisen:
 \begin{satz}{Cauchy-Schwarz-Ungleichung}{cauchyschwarz}
 Seien $x_1, \dots, x_n, y_1, \dots, y_n \in \C$ endlich viele komplexe Zahlen. Dann gilt die \textbf{Cauchy-Schwarz-Ungleichung}
