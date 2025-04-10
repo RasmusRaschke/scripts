@@ -357,18 +357,20 @@
 
 \tcbset{
 tbox_DEF_style/.style={enhanced jigsaw,
-    colback=tcol_DEF!10,colframe=tcol_DEF!80!black,,
-    fonttitle=\sffamily\bfseries,
-    separator sign=.,label separator={},
-    top=2pt,bottom=2pt,left=2pt,right=2pt,
-    before skip=10pt,after skip=10pt,breakable
-},
-tbox_PRP_style/.style={enhanced jigsaw,
-    colback=tcol_PRP!10, colframe=tcol_PRP!80!black,
     fonttitle=\sffamily\bfseries,coltitle=black,
     attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
     boxed title style={
-        colback=tcol_PRP!10,colframe=tcol_THM!80!black,height=16pt,bean arc
+        colback=tcol_DEF!0,colframe=tcol_DEF!80!black, height=16pt,bean arc
+    },
+    separator sign=.,label separator={},
+    sharp corners,top=6pt,bottom=2pt,left=2pt,right=2pt,
+    before skip=10pt,after skip=10pt,breakable
+},
+tbox_PRP_style/.style={enhanced jigsaw,
+    fonttitle=\sffamily\bfseries,coltitle=black,
+    attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
+    boxed title style={
+        colback=tcol_PRP!0,colframe=tcol_THM!80!black, height=16pt,bean arc
     },
     separator sign=.,label separator={},
     sharp corners,top=6pt,bottom=2pt,left=2pt,right=2pt,
