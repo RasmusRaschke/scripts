@@ -73,23 +73,46 @@ Damit erhalten wir eine Möglichkeit, aus geometrischen Überlegungen verschiede
 \begin{equation}
 z = r \exp(i\phi) = r(\cos \phi + i \sin \phi).
 \end{equation} 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=3]
 	\draw[step=.5cm, gray, very thin, dotted] (-1.4,-1.4) grid (1.4,1.4);
-	\foreach \x/\xtext in {-1, -.5/ -\frac{1}{2}, .5/ \frac{1}{2}, 1}
+	\foreach \x/\xtext in {-1, 1}
 		\draw (\x,-1pt) -- (\x, 1pt) node[anchor=north] {$\xtext$};
-	\foreach \y/\ytext in {-1, -.5/ -\frac{1}{2}, .5/ \frac{1}{2}, 1}
-		\draw (-1pt, \y) -- (1pt, \y) node[anchor=east] {$\ytext$};
+	\foreach \y/\ytext in {-1, 1}
+		\draw (-1pt, \y) -- (1pt, \y) node[anchor=east, left=2pt] {$\ytext$};
 	\draw[->] (-1.5,0) -- (1.5,0);
 	\draw[->] (0,-1.5) -- (0,1.5);
 	\draw (0,0) circle [radius=1cm];
-	\draw (.5cm,0) arc [start angle=0, end angle=40, radius=.5cm];
-	\draw (20:2mm) \node[red] {$\phi$};
-	\draw[red] (40:1cm) -- node[right=1pt] {$\sin \phi$} (40:1cm |- 0,0);
-	\draw[blue] (0,0) -- node[below=10pt] {$\cos \phi$} (40:1cm |- 0,0);
-	\draw[green] (0,0) -- node[above=10pt] {$\tan \phi$}  (40:1cm);
+	\draw (.5cm,0) arc [start angle=0, end angle=40, radius=.5cm] node[right=1pt,pos=0.5] {$\phi$};
+	\draw[red] (40:1cm) -- node[right=1pt, thick] {$\sin \phi = \Im(z)$} (40:1cm |- 0,0);
+	\draw[blue] (0,0) -- node[below=4pt,pos=0.5, thick] {$\cos \phi = \Re(z)$} (40:1cm |- 0,0);
+	\draw (0,0) -- node[above=2pt, thick] {$r$}  (40:1cm) node[black, right=1pt] {$z$};
+	\filldraw[black] (40:1cm) circle [radius=0.5pt];
 \end{tikzpicture}
+\caption{Die Einheitskreislinie $\S^1 \hookrightarrow \C$ mit der komplexen Zahl $z=r\exp(i\phi)$.}
+\end{figure}
+Nicht immer ist es ganz so einfach, das Argument aus der kartesischen Form zu ermitteln. Wir illustrieren dies mal wie folgt:
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=3]
+	\clip (-1.1, -0.3) rectangle (1.1, 1.1);
+	\draw[step=.5cm, gray, very thin, dotted] (-1.4,-1.4) grid (1.4,1.4);
+	\foreach \x/\xtext in {-1, 1}
+		\draw (\x,-1pt) -- (\x, 1pt) node[anchor=north] {$\xtext$};
+	\foreach \y/\ytext in {-1, 1}
+		\draw (-1pt, \y) -- (1pt, \y) node[anchor=east, left=2pt] {$\ytext$};
+	\draw[->] (-1.5,0) -- (1.5,0);
+	\draw[->] (0,-1.5) -- (0,1.5);
+	\draw (0,0) circle [radius=1cm];
+	\draw[blue] (.4cm,0) arc [start angle=0, end angle=120, radius=.4cm] node[right=1pt,pos=0.5] {$\phi$};
+	\draw[red] (-.4cm,0) arc [start angle=180, end angle=120, radius=.4cm] node[left=.5pt, pos=0.5] {$\alpha$};
+	\draw[green] (120:1cm) --  (120:1cm |- 0,0) node[left=1pt,pos=0.5] {$b$} ;
+	\draw[green] (0,0) -- node[below=2pt] {$a$} (120:1cm |- 0,0) ;
+	\draw (0,0) --   (120:1cm) node[black, left=2pt] {$z$};
+	\filldraw[black] (120:1cm) circle [radius=0.5pt];
+\end{tikzpicture}
+\caption{In diesem Fall lässt sich der Polarwinkel von $z=a+ib$ nicht direkt ableiten. Wir erhalten $\cos \alpha = \frac{|a|}{\sqrt{a^2+b^2}}$ und damit $\phi = \pi - \arccos(\frac{|a|}{\sqrt{a^2+b^2}}) = \arccos(\frac{a}{\sqrt{a^2+b^2}})$. Dabei nutzt man, dass $\arccos(x) = \pi - \arccos(-x)$ gilt.}
 \end{figure}
 Eine weitere sehr wichtige Ungleichung wollen wir zur Übung beweisen:
 \begin{satz}{Cauchy-Schwarz-Ungleichung}{cauchyschwarz}
