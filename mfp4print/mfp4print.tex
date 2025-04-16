@@ -1,60 +1,10 @@
 \documentclass[10pt]{extarticle}
 
 \input{../printpreamble.tex}
-\makeindex
-
-\title{Tutorium MfP4 - SoSe 25}
-\author{zur Vorlesung von PD Dr. Holtkamp}
-\date{\today} % Replace with \today to show the current date
-
 \begin{document}
-\let\temp\phi
-\let\phi\varphi
-\let\varphi\temp
-\maketitle
 
-\definecolor{tcol_CNT1}{HTML}{72E094} % First color for Contents
-\definecolor{tcol_CNT2}{HTML}{24E2D6} % Second color for Contents
-\definecolor{tcol_CNV1}{HTML}{8E44AD} % First color for Conventions
-\definecolor{tcol_CNV2}{HTML}{A10B49} % First color for Conventions
-
-\begin{tcolorbox}[enhanced,
-    title=Inhaltsverzeichnis,
-    fonttitle=\fontsize{20}{24}\sffamily\bfseries\selectfont,
-    coltitle=black,
-    fontupper=\sffamily,
-    attach boxed title to top center={yshift=10pt},
-    boxed title style={frame hidden,
-        interior style={left color=tcol_CNT1!0,right color=tcol_CNT2!0},
-        frame style={left color=tcol_CNT1!0!black,right color=tcol_CNT2!0!black},
-        height=24pt,bean arc,drop fuzzy shadow
-    },
-    top=2mm,bottom=2mm,left=2mm,right=2mm,
-    before skip=20mm,after skip=20mm,
-    drop fuzzy shadow,breakable]
-%
-\makeatletter
-\@starttoc{toc}
-\makeatother
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced,
-    title=Konventionen,
-    fonttitle=\large\sffamily\bfseries\selectfont,
-    boxrule=2pt,left=2pt,right=2pt,
-    attach boxed title to top left,
-    top=2mm,bottom=2mm,left=2mm,right=2mm,
-    before skip=10mm,after skip=10mm]
-%
-\begin{itemize}
-\item Wir schreiben für einen Körper $\K$ kurz $\K^\ast := \K \exc \{0\}$.
-\item Real- und Imaginärteil werden mit $\Re(\cdot)$ respektive $\Im(\cdot)$ bezeichnet, das Bild einer Abbildung $f$ hingegen mit $\im (f)$.
-\item Echte Teilmengen tragen das Symbol $\subset$, allgemeine Teilmengen das Symbol $\sub$.
-\end{itemize}
-\end{tcolorbox}
-Dies sind meine Tutoriumsnotizen für Mathe für Physiker 4. Falls Ihr Fehler findet, sagt immer gerne Bescheid. Allgemein sind die Notizen oft schnell von mir für meine eigene Tutoriumsvorbereitung getippt, erwartet also bitte kein voll ausgearbeitetes \LaTeX-Skript.
-\newpage 
 \sloppy
-\include{abschnitte/ch1}
+%\include{abschnitte/tutorium1}
+\include{abschnitte/tutorium2}
 \printindex
 \end{document}

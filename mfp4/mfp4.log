@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=pdflatex 2025.3.18)  10 APR 2025 23:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.14)  16 APR 2025 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1684,7 +1684,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./mfp4.aux
-(./abschnitte/tutorium1.aux))
+(./abschnitte/tutorium1.aux) (./abschnitte/tutorium2.aux))
 \openout1 = `mfp4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -1879,7 +1879,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 6.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 7.
 )
 \tf@toc=\write7
 \openout7 = `mfp4.toc'.
@@ -1901,43 +1901,54 @@ nc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{
 \openout2 = `abschnitte/tutorium1.aux'.
 
 
-(./abschnitte/tutorium1.tex
+(./abschnitte/tutorium1.tex)
 
 [2
 
+]
+\openout2 = `abschnitte/tutorium2.aux'.
+
+ (./abschnitte/tutorium2.tex
+
+[3
+
+
+
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+
+[4]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 125.
+(Font)              <8> on input line 195.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 125.
+(Font)              <6> on input line 195.
 
-
-[3]
-LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <16> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 152.
-
-
-
-[4])
 
 [5]
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <16> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 223.
+
+
+
+[6])
+
+[7]
 No file mfp4.ind.
-(./mfp4.aux (./abschnitte/tutorium1.aux))
+(./mfp4.aux (./abschnitte/tutorium1.aux) (./abschnitte/tutorium2.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `mfp4.out' has not changed.
-(rerunfilecheck)             Checksum: B0B9981079C83A7C0745D9AE775D5666;1034.
+(rerunfilecheck)             Checksum: A552D6BD7708CE029267AA692F46B3F1;1165.
 Package logreq Info: Writing requests to 'mfp4.run.xml'.
 \openout1 = `mfp4.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 59623 strings out of 475118
- 1344505 string characters out of 5764910
- 2305451 words of memory out of 5000000
- 81468 multiletter control sequences out of 15000+600000
+ 59697 strings out of 475118
+ 1346093 string characters out of 5764902
+ 2320636 words of memory out of 5000000
+ 81515 multiletter control sequences out of 15000+600000
  659830 words of font info for 110 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  103i,22n,104p,1992b,2125s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1955,10 +1966,10 @@ fb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-
 dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on mfp4.pdf (5 pages, 348353 bytes).
+Output written on mfp4.pdf (7 pages, 361597 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 213 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,5 +2,6 @@
 \contentsline {section}{\numberline {1}Tutorium 10.04.25}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Organisatorisches}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Literaturempfehlungen}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Wiederholung - Komplexe Zahlen}{2}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Funktionentheorie ist \textit {nicht} reelle Analysis in zwei Variablen}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Tutorium 17.04.25}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Wiederholung - Komplexe Zahlen}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Funktionentheorie ist \textit {nicht} reelle Analysis in zwei Variablen}{6}{subsection.2.2}%
