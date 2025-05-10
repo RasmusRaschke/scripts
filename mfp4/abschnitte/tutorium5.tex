@@ -1,0 +1,126 @@
+\section{Tutorium 15.05.25}
+\label{sec:15_05_25}
+
+\subsection{Der Cauchysche Integralsatz}
+In dieser und letzter Woche habt ihr den ersten zentralen Satz der Funktionentheorie kennengelernt:
+\begin{theorem}{Cauchyscher Integralsatz, 1. Fassung}{cauchy1}
+Wenn 
+\begin{enumerate}
+\item $U \sub \C$ eine \red{offene}, nicht-leere Teilmenge ist,
+\item $f: U \to \C$ eine \red{holomorphe} Funktion ist und
+\item $\Gamma$ ein null-homologer Zykel in $U$ ist, gilt:
+\end{enumerate}
+\begin{equation}
+\int_\Gamma f(z) dz = 0.
+\end{equation}
+\end{theorem}
+Dies ist unser erstes Ergebnis, das aus der starken Bedingung der Holomorphie folgt, was wir im Folgenden ein wenig illustrieren wollen. Dazu vergleichen wir erst einmal ein komplexes Kurvenintegral mit einem reellen Linienintegral, um direkt zu sehen, dass \ref{cauchy1} nicht auf $\R^2$ stimmt.
+\begin{beispiel}
+Betrachte die konstanten Funktionen $f_\C: \C \to \R$ und $f_\R: \R^2 \to \R$ mit $f_\C(z)=f_\R (x,y):=1$. Diese Funktionen unterscheiden sich lediglich in ihrem Definitionsbereich. Betrachte nun die Einheitskreislinie $\S^1 \sub \C$ beziehungsweise $\S^1 \sub \R^2$. Auf $\C$ können wir die Einheitskreislinie mit dem null-homologen Zykel
+\begin{equation}
+\begin{split}
+\gamma: [0,1] &\to \S^1\\
+t &\mapsto \exp(2 \pi it)
+\end{split}
+\end{equation}
+durchlaufen. Mit dem Cauchyschen Integralsatz folgt unmittelbar
+\begin{equation}
+\int_\gamma f_\C(z) \, dz = 0.
+\end{equation}
+Auf $\R^2$ können wir das Kurvenintegral als Integral über eine $1$-dimensionale Untermannigfaltigkeit mit der Parametrisierung 
+\begin{equation}
+\begin{split}
+\psi: [-\pi, \pi) &\to \S^1\\
+t &\mapsto (\cos t, \sin t)
+\end{split}
+\end{equation}
+ausrechnen. Das vektorielle Linienelement ist über die Gramsche Determinante der Parametrisierung zugänglich:
+\begin{equation}
+g(t) = \|\cvc{\cos 't, \sin 't}\|^2 = \sin^2 t + \cos^2 t =1.
+\end{equation}
+Wir erhalten also
+\begin{equation}
+\int_{\S^1} f_\R(x,y) ds(t) = \int_{-\pi}^\pi \sqrt{g(t)} f(\psi(t)) dt= \int_{-\pi}^\pi dt = 2\pi \neq 0.
+\end{equation}
+Bei der Linienintegration auf $\R^2$ erhält man auf diese Art also wie gewohnt die Bogenlänge von $\S^1$.
+\end{beispiel}
+Wohlgemerkt muss man bei dem Beispiel etwas vorsichtig sein, da die allgemeine Form des Linienelements $$ds=\sqrt{dx^2+dy^2},$$ wie man es aus der Physik kennt, keine Differentialform darstellt, denn Differentialformen sind lediglich Linearkombinationen und Dachprodukte von $1$-Formen, jedoch keine Quadrate. Da das Thema ja eine gewisse Relevanz besitzt, wollen wir einmal versuchen, die gleiche Rechnung mit Differentialformen durchzuziehen. Die globale Parametrisierung $\psi$ bleibt bestehen, wir brauchen aber eine geeignete $1$-Form, die, heuristisch argumentiert, die Länge eines Tangentialvektors in $T\S^1$ auswertet. Diese ist gerade gegeben durch
+$$
+\omega_{\S^1} := -y \, dx + \, xdy.
+$$
+Das Integral lässt sich damit wie erwartet ausrechnen:
+\begin{equation}
+\int_{\S^1} \omega = \int_{-\pi}^\pi \psi^\ast \omega = \int_{-\pi}^\pi (\sin^2 t + \cos^2 t) \, dt = 2\pi.
+\end{equation}
+\subsection{Die Cauchysche Integralformel und der Potenzreihenentwicklungssatz}
+In der Vorlesung habt ihr ohne Beweis, dass diese Definition immer standhält, die Windungszahl definiert, die zentral für eine Erweiterung des Cauchyschen Integralsatzes war:
+\begin{definition}{Windungszahl}{windung}
+Sei $\gamma: [a,b] \to \C$ ein geschlossener Weg und $\zeta \in \C$ mit $\zeta \notin \im(\gamma)$. Dann heißt die \red{ganze Zahl}
+\begin{equation}
+j(\zeta; \gamma):= \frac{1}{2\pi i} \int_\gamma \frac{dz}{z-\zeta}
+\end{equation}
+\textbf{Windungszahl} von $\gamma$.
+\end{definition}
+Hier wäre eigentlich ein Beweis notwendig, dass der Index tatsächlich immer eine ganze Zahl und darüber hinaus \red{homotopieinvariant} ist. Dies wollen wir zumindest kurz illustrieren: Man definiert dazu für zwei Punkte $z_0,z_1 \in \C$ mit $\frac{z_0}{|z_0|}\neq - \frac{z_1}{|z_1|}$\footnote{Dies garantiert, dass die Punkte nicht diametral gegenüberliegend sind.}, den Drehwinkel $\theta$, der benötigt wird, um $\frac{z_0}{|z_0|}$ auf $\frac{z_1}{|z_1|}$ abzubilden. Eine beliebige Kurve $\gamma$ mit Bild in $\C$ lässt sich dann in Teilstücke $\gamma_i$ zerlegen, die jeweils ganz in der oberen oder unteren offenen Halbebene liegen. Wenn wir dann $$j(0; \gamma):=\frac{1}{2\pi} \sum_i \theta_i$$ setzen, erhalten wir eine formale Konstruktion der Windungszahl, mit der die Behauptungen leicht folgen. Ist nämlich $\gamma$ eine geschlossene Kurve, die in $n$ hinreichend kurze Teilstücke $\gamma_i$ zerlegt sei, so muss wegen der Geschlossenheit für den ersten und letzten Punkt $\frac{\gamma(t_0)}{|\gamma(t_0)|} = \frac{\gamma(t_n)}{|\gamma(t_n)|}$ gelten. Setzen wir das in unsere Definition des Drehwinkels ein, erhalten wir
+\begin{equation}
+\exp(i \sum_{i=1}^n \theta_i) \frac{\gamma(t_0)}{|\gamma(t_0)|} = \frac{\gamma(t_n)}{|\gamma(t_n)|} = \frac{\gamma(t_0)}{|\gamma(t_0)|},
+\end{equation}
+also $\exp(i\sum_{i=1}^n \theta_i) = 1$, womit die Behauptung folgt. Ein rigoroser Beweis dazu findet sich z.B. im Werk von Jänich. Mit dieser Definition wagen wir uns auch direkt an den nächsten großen Satz:
+\begin{theorem}{Cauchysche Integralformel, Umlaufzahlversion}{cauchy2}
+Sei
+\begin{enumerate}
+\item $U \sub \C$ offen,
+\item $\gamma: [a,b] \to U$ ein geschlossener, null-homologer Weg,
+\item $\zeta \in U$ mit $\zeta \notin \im(\gamma)$ und
+\item $f: U \to \C$ \red{holomorph}.
+\end{enumerate}
+Dann gilt:
+\begin{equation}
+\frac{1}{2\pi i}\int_\gamma \frac{f(z)}{z-\zeta} dz = j(\zeta; \gamma) f(\zeta).
+\end{equation}
+\end{theorem}
+Dieses sehr schöne Resultat zeigt uns, dass es bei holomorphen Funktionen genügt, ein bestimmtes Integral um einen ausgezeichneten Punkt zu kennen, um auf den Funktionswert an diesem Punkt zu schließen. Neben nützlichen Anwendungen für Berechnungen ist aber vor allem das folgende Resultat als Folgerung daraus essentiell für das Verständnis komplexer Funktionen:
+\begin{theorem}{Potenzreihenentwicklungssatz}{potenzreihen}
+Wenn $f: U \to \C$ holomorph ist, so ist $f$ komplex-analytisch.
+\end{theorem}
+Das ist eine enorm starke Charakterisierung holomorpher Funktionen! Dies bedeutet anschaulich, dass es für jedes $z_0 \in U$ und jeden Radius $r \in \R^+$ eine Kreisscheibe $\D^2_r(z_0) \sub U$ gibt, sodass
+\begin{equation}
+f(z)=\sum_{k=0}^\infty a_k(z-z_0)^k
+\end{equation}
+für alle $z \in \D^2_r(z_0)$ gilt und die Potenzreihe einen Konvergenzradius $\geq r$ hat. Die Koeffizienten lassen sich errechnen mit 
+\begin{equation}
+a_n = \frac{1}{2 \pi i} \int_{\partial \D^2_\epsilon(z_0)} \frac{f(z)}{(z-z_0)^{n+1}} \, dz
+\end{equation}
+für alle $0<\epsilon<r$, wobei es in Anwendungen oft praktischere Wege gibt, die Koeffizienten zu bestimmen. Auch wichtig ist die Abschätzung
+\begin{equation}
+\label{eq:koef}
+|a_n| \leq \frac{\max(|f(\zeta)| \mid \zeta \in \overline{\D^2_\epsilon(z_0)})}{\epsilon^n}
+\end{equation}
+für alle $0<\epsilon<r$.\\
+Daraus lernen wir, dass die Theorie holomorpher Funktionen sich insbesondere mit Funktionen beschäftigt, die lokal eine Potenzreihendarstellung besitzen. Als Übung schauen wir uns die Implikationen dieser Einschränkung genauer an.
+\begin{übung}
+Sei $f: U \to \C$ für $U \sub \C$ offen eine holomorphe Funktion. Zeige, dass die $n$-te Ableitung $f^{(n)}$ stets
+\begin{equation}
+|f^{(n)}(z)| \leq n^n n!
+\end{equation}
+erfüllt.
+\end{übung}
+\begin{lösung}
+Zunächst einmal präzisieren wir Ungleichung \ref{eq:koef}, indem wir uns daran erinnern, wie die Taylorreihe einer Funktion aussieht und daraus eine (zugegebenermaßen relativ offensichtliche) Form für die Koeffizienten ableiten:
+\begin{equation}
+a_n = \frac{f^{(n)}(z_0)}{n!}
+\end{equation}
+Damit nimmt die Ungleichung die Form
+\begin{equation}
+|f^{(n)}(z)| \leq \frac{n! \max_{|z-z_0|=r_0}(|f(z)|)}{r_0^n} =:\frac{n!M}{r_0^n}
+\end{equation}
+an. Da $f$ stetig und $|z-z_0|=r_0$ kompakt ist, ist das Maximum $M$ beschränkt. Angenommen, $|f^{(n)}(z)| > n^n n!$ würde gelten. Dann erhielten wir
+\begin{equation}
+\frac{n!M}{r_0^n} > n! n^n \iff M > (nr_0)^n,
+\end{equation}
+was nicht sein kann, da $M$ beschränkt ist, die rechte Seite jedoch für $r_0 \neq 0$ nicht. \qed
+\end{lösung}
+Zum Abschluss heben wir noch das Korollar hervor, welches die Besonderheit holomorpher Funktionen ganz anschaulich präsentiert:
+\begin{satz}{Satz von Goursat}{auscauchy}
+Jede holomorphe Funktion ist beliebig oft stetig differenzierbar, also insbesondere von Klasse $\cC^\infty$.
+\end{satz}
