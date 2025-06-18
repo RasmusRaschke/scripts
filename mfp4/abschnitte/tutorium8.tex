@@ -1,0 +1,231 @@
+\section{Tutorium 18.06.2025}
+\label{sec:18_06_25}
+
+\subsection{Vektorräume und Basen}
+\label{subsec:vekbas}
+
+Zunächst wollen wir uns in diesem Tutorium mit den verschiedenen Basisbegriffen auseinandersetzen, die ihr im Laufe der Zeit kennengelernt habt.
+Grundlegend sind dabei lediglich die Standardbegriffe wie lineare Abhängigkeit und Spann einer Menge von Vektoren.
+
+\begin{definition}{Hamel-Basis}{hamel}
+    Sei $V$ ein $\K$-Vektorraum. Eine Teilmenge $B \sub V$ heißt \textbf{Hamel-Basis} oder \textbf{algebraische Basis} von $V$, falls gilt:
+    \begin{enumerate}[({b}1)]
+        \item Für alle endlichen Teilmengen $\{v_1, \dots, v_m\} \sub B$ folgt aus 
+        \[\lambda_1 v_1 + \cdots + \lambda_m v_m = 0\] mit $\lambda_i \in \K$ auch $\lambda_i = 0$ für alle $i$.
+        \item Für alle $v \in V$ existieren \red{endliche} Familien $(\lambda_i) \sub \K$ und $(v_i) \sub B,$ sodass $v = \sum_i \lambda_i v_i$ gilt.
+    \end{enumerate}
+\end{definition}
+Solche Basen nennen wir nun Hamel-Basen, um sie von Hilbertbasen stärker abzugrenzen. Besonders achten sollte man in der Definition auf (b2), da wir ausdrücklich nur endlich-dimensionale Linearkombinationen zulassen, auch, wenn $\dim V = \infty$ gilt. Wir geben ohne Beweis einen wichtigen Satz an:
+\begin{theorem}{Jeder VR hat eine Basis}{jedervrbasis}
+Jeder Vektorraum hat eine Hamel-Basis.
+\end{theorem}
+Der Beweis des Theorems ist gar nicht so kompliziert, aber die Aussage ist äquivalent zum Auswahlaxiom. Das heißt, dass solche Basen im schlimmsten Fall nicht-konstruktiv sind, z.B. kann man die Basis von $\R$ aufgefasst als $\Q$-Vektorraum nicht angeben. Wir wissen aber sicher, dass eine existiert!
+Für unendlich-dimensionale Vektorräume sind derartige Basen aber oft sehr unhandlich:
+\begin{beispiel}
+Betrachte den Raum der quadratintegrablen Funktionen auf $[0, 2\pi]$, $L^2([0,2\pi])$. Die Menge $$B:= 1 \cup \{ \sin(nx), \cos(nx) \mid n \in \{1,2, \dots\} \}$$ ist keine Hamel-Basis für diesen Raum, denn bereits die bekannte Sägezahn-Funktion mit Normamplitude und -periode kann als Fourier-Reihe
+\begin{equation}
+f(t) : = -\frac{2}{\pi} \sum_{k=1}^\infty (-1)^k \frac{\sin (2\pi t)}{k}
+\end{equation}
+nur mit (abzählbar) unendlich vielen Basisvektoren dargestellt werden. Eine Hamel-Basis für diesen Raum wäre also bei weitem unhandlicher als $B$.
+\end{beispiel}
+Für einen Hilbertraum $H$ ist also klar, dass wir auf der Suche nach einem Basisbegriff sind, der unendliche Linearkombinationen zulässt und dabei gut mit der unendlich-dimensionalen Struktur interagiert. Dieser Begriff ist der der Hilbertbasis:
+\begin{definition}{Hilbertbasis}{hilbertbasis}
+Sei $H$ ein (Prä-)Hilbertraum. Eine \textbf{Hilbertbasis} für $H$ ist eine Familie $(e_i)_{i \in I} \sub H$, sodass für alle $i \in I$ gilt:
+\begin{enumerate}[({H}1)]
+	\item Orthogonalität: $\langle e_i, e_j \rangle = \delta_{ij}$
+	\item Normierung: $\|e_i\| = 1$
+	\item Vollständigkeit: $\spn(e_i \mid i \in I)$ ist dicht in $H$.
+\end{enumerate}
+Eine Familie, die (H1) und (H2) erfüllt, heißt \textbf{Orthonormalsystem (ONS)} für $H$.
+\end{definition}
+Der Kern der neuen Definition liegt dabei in (H3). Diese etwas kryptische Aussage ist äquivalent dazu, dass sich jedes $x \in H$ darstellen lässt als
+\begin{equation}
+x = \sum_{i \in I} \langle e_i, x \rangle e_i.
+\end{equation}
+Da wir auch unendliche Indexmengen $I$ zulassen, kann diese Linearkombination (aufgefasst als Folge) also aus unendlich vielen Basisvektoren bestehen. \red{Dies zeigt, dass Hilbertbasen im Allgemeinen keine Hamelbasen sind!} Lediglich für $\dim H < \infty$ ist eine Hilbertbasis gleichzeitig eine Hamelbasis. Schauen wir uns mal eine Übung an, die sich mit solchen Basen leicht lösen lässt:
+\begin{übung}
+Betrachte den Raum $\ell^2_\C$ der quadratsummierbaren Zahlenfolgen. Zur Erinnerung: Dieser besteht aus Folgen $ c = (c_i)_{i \in I}$ mit $c_i \in \C$ und $\sum_{i \in I} |c_i|^2 \leq \infty$.
+\begin{enumerate}[a)]
+\item Gib eine (möglichst einfache) Hilbertbasis für diesen Raum an.
+\item Betrachte den unendlich-dimensionalen Einheitsball
+$$
+\D^\infty := \{ c \in \ell^2_\C \mid \|c\| \leq 1\} \sub \ell^2_\C.
+$$
+Beweise: $\D^\infty$ ist abgeschlossen und beschränkt, aber nicht folgenkompakt.\footnote{Erinnerung: Ein Raum heißt folgenkompakt, wenn jede Folge eine konvergente Teilfolge besitzt.}
+\end{enumerate}
+\end{übung}
+\begin{lösung}
+	\begin{enumerate}[a)]
+		\item Eine Basis ist gegeben durch $(e_i)_{i=1}^\infty \sub \ell^2_\C$ mit $$e_i := (\dots, 0, \underbrace{1}_{i\text{-te Stelle}}, 0, \dots).$$ Die Axiome sind schnell abgehakt, denn offensichtlich gilt $\langle e_i, e_j \rangle = \delta_{ij}$ und $\|e_i\| =1$. Ist $c \in \ell_\C^2$ irgendeine Folge, so ist
+		\begin{equation}
+			\sum_{i=1}^\infty \langle e_i, c \rangle e_i = \sum_{i=1}^\infty c_i e_i = c.
+		\end{equation}
+		\item Wir beweisen erst Abgeschlossenheit und Beschränktheit: $\D^\infty$ ist offensichtlich beschränkt, denn für alle $c \in \D^\infty$ gilt $\|c\| \leq 1$ gemäß Definition. Außerdem ist die Menge abgeschlossen: Sei dazu $(c_n) \in \D^\infty$ eine Folge in $\D^\infty$ mit Grenzwert $c \in \ell^2_\C$, also $\|c_n\| \overset{n \to \infty}\to \|c\|.$ Da $\|c_n\| \leq 1$ gilt, muss auch $\|c\| \leq 1$ gelten, also $c \in \D^\infty$, womit $\D^\infty$ abgeschlossen ist.
+		Nun zeigen wir, dass die Menge nicht kompakt sein kann. Betrachte dazu die Folge $(e_i)_{i =1}^\infty$ von Basisvektoren in $\ell_\C^2$. Für $i \neq j$ gilt immer $\|e_i -e_j\| = \sqrt{1+1} = \sqrt{2}$. Dementsprechend ist jede Teilfolge von dieser Folge keine Cauchy-Folge, kann also nicht konvergieren. \qed
+	\end{enumerate}
+\end{lösung}
+
+Zur allgemeinen Beruhigung können wir sicherstellen:
+
+\begin{theorem}{Existenzsatz von Hilbertbasen}{existenzhilbert}
+Jeder Hilbertraum hat eine Hilbertbasis.
+\end{theorem}
+
+Wir kommen gleich noch einmal zur Nützlichkeit von Basen zurück, nachdem wir uns lineare Abbildungen näher angesehen haben.
+
+\subsection{Lineare Operatoren auf Hilberträumen}
+
+Nun wenden wir uns den gewohnten linearen Abbildungen zu, aber auf Hilberträumen. Um uns nicht zu sehr zu wiederholen, folgen wir vorerst dem Buch \textit{Kaballo: Grundkurs Funktionalanalysis} für eine inhaltlich identische, aber anders aufgearbeitete Version der Vorlesungsthemen.
+\begin{definition}{Lineare Operatoren}{linop}
+Seien $V,W$ $\K$-Vektorräume. Eine Abbildung
+\[
+T: V \to W
+\]
+heißt \textbf{linearer Operator}, falls für alle $u,v \in V$ und $\lambda \in \K$ gilt:
+\[
+T(\lambda u + v)= \lambda T(u)+T(v).
+\]
+Der \textbf{Kern} von $T$ ist der Unterraum
+\[
+\ker(T):= \{v \in V \mid T(v)=0\} \leq V.
+\]
+Das \textbf{Bild} von $T$ ist der Unterraum
+\[
+\im(T):= \{T(v) \mid v \in V\} \leq W.
+\]
+\end{definition}
+Nach der ganzen Mühe von wegen Analysis auf Vektorräumen führen wir sodann den Stetigkeitsbegriff für diese Abbildungen ein:
+\begin{definition}{Stetige Operatoren}{stetigeop}
+Seien $(V,\|\cdot\|_V)$ und $(W,\|\cdot\|_W)$ normierte Vektorräume\footnote{Die Norm unterdrücken wir künftig in der Notation.} und $T: V \to W$ ein linearer Operator. Dann sind äquivalent:
+\begin{enumerate}[({S}1)]
+	\item $T$ ist stetig in $v \in V$.
+	\item $T$ ist gleichmäßig stetig auf $V$.
+	\item $\exists C \geq 0: \forall v \in V: \|T(v)\| \leq C \|v\|$.
+	\item $\|T\| := \sup_{\|v\| \leq 1} \| T(v) \| < \infty.$
+\end{enumerate}
+Der in (S4) definierte Ausdruck heißt \textbf{Operatornorm} von $T$.
+\end{definition}
+Nachdem all diese Ausdrücke äquivalent sind, können wir jeden davon nutzen, um Stetigkeit zu definieren, und dann zeigen, dass die anderen Aussagen daraus folgen. Praktisch von Bedeutung ist insbesondere (S4) mit der Operatornorm, die uns sagt, dass $T$ genau dann stetig ist, wenn die Einheitskugel auf $V$, $\D_V$, auf eine beschränkte Teilmenge von $W$ abbildet. Dies rechtfertigt die Bezeichnung beschränkte lineare Operatoren für stetige lineare Operatoren. Damit erhalten wir ein paar neue Räume:
+\begin{definition}{Linearformen}{linearform}
+Seien $V,W$ normierte $\K$-Vektorräume.
+\begin{itemize}
+	\item Der Raum $L(V,W)$ mit der Operatornorm bezeichnet den \textit{normierten Vektorraum der stetigen linearen Operatoren} $T: V \to W$ und wir setzen $L(V,V)=:L(V)$.
+	\item Der Dualraum $V':=L(V, \K)$ heißt \textbf{Raum der linearen Funktionale} oder \textbf{Raum der Linearformen} von $V$ und ist ein Banachraum.
+\end{itemize}
+\end{definition}
+Aus der Vorlesung erinnern wir an den Darstellungssatz von Riesz, der garantiert, dass zu jedem $T \in V'$ genau ein $v \in V$ existiert, sodass
+\[
+\forall w \in H: T(w)=\langle w, v \rangle
+\]
+und $\|T\| = \|v\|$ gilt. Außerdem ist für ein $v \in H$ die Abbildung 
+\[
+v \mapsto \langle v, \cdot \rangle
+\]
+ein stetiges Funktional mit Norm $\|v\|$.
+\begin{beispiel}
+	Sei $K$ ein metrisches Kompaktum mit $x \in K$. Das \textbf{Dirac-Funktional} $\delta_x \in \cC(K)'$ ist definiert durch
+	\[
+		\forall f \in \cC(K): \delta_x[f] := f(x).
+	\]
+	Der Raum $\cC(K)$ wird, wie zuletzt erwähnt, mit der Supremumsnorm versehen. Wir haben also
+	\[
+		|\delta_x[f]| = |f(x)| \leq \|f\|_\infty
+	\]
+	nach Definition der Supremumsnorm, also auch $\| \delta_x \| \leq 1$. Für die konstante Funktion $c: t \mapsto 1$ haben wir offensichtlich $\|f\|_\infty = 1$ und $|\delta_x [f]| = 1$, also folgt
+	\[
+		\| \delta_x \| = \sup_{\|f\|_\infty \leq 1} | \delta_x[f] | = 1
+	\]
+	und $\delta_x$ ist eine stetige Linearform.\\
+	Nun fixieren wir $\lambda_i \in \K$ sowie $x_i \in K$ und definieren damit die Linearform
+	\[
+		L := \sum_{i=1}^n \lambda_i \delta_{x_i}.
+	\] 
+	Aus der Dreiecksungleichung folgt
+	\[
+		\|L\| = \sup_{\|f\|_\infty \leq 1} \left| \sum_i \lambda_i  f(x_i) \right| \leq \sup_{\|f\|_\infty \leq 1}  \sum_i |\lambda_i| |f(x_i)| \leq \sum_i|\lambda_i|. 
+	\]
+	Wir wählen ein $f \in \cC(K)$ mit $\|f\| = 1$ und $\lambda_i f(x_i) = |\lambda_i|$ (dies ist gerechtfertigt nach der Konstruktion der Testfunktionen in MfP3). Dann gilt $L[f] = \sum_i |\lambda_i|$ nach Konstruktion, sodass
+	\[
+		\|L\|= \sum_{i=1}^n |\lambda_i|.
+	\]
+\end{beispiel}
+
+Bevor wir zu Projektoren übergehen, wollen wir noch einen sehr wichtigen Satz hervorheben. Dazu erinnere man sich daran, dass eine Abbildung $f: X \to Y$ topologischer Räume offen heißt, wenn Bilder offener Mengen wieder offen sind.\footnote{Man erinnere sich, dass Stetigkeit anders herum funktioniert: Urbilder offener Mengen sind offen für stetige Abbildungen.}
+\begin{theorem}{Satz von der offenen Abbildung (Banach-Schauder)}{offenabb}
+Seien $V,W$ komplexe Banachräume und $T: V \to W$ ein komplex-linearer Operator. Dann gilt:
+\begin{enumerate}
+	\item Die Einschränkung $T|_{\im(T)}: V \to \im(T)$ ist genau dann offen, wenn $\im(T) \leq W$ abgeschlossen ist.
+	\item Jeder lineare, surjektive und stetige Operator ist offen.
+\end{enumerate}
+
+\end{theorem}
+
+Daraus folgt sofort ein weiterer wichtiger Satz:
+\begin{satz}{Satz vom stetigen Inversen}{stetinv}
+Seien $V,W$ komplexe Banachräume und $T \in L(V,W)$ eine bijektiver Operator. Dann ist die Inverse
+\[
+T^{-1}: W \to V
+\]
+auch stetig.
+\end{satz}
+
+\subsection{Spektren und Orthogonalprojektion}
+
+Im letzten Tutorium habt ihr euch bereits mit Frederic orthogonale Projektoren angeschaut. Wir wollen im Schnelldurchlauf die wichtigsten Aussagen zusammenfassen und erinnern noch einmal daran, dass ein Operator $T \in L(H)$ positiv heißt, wenn $\langle Tx,x \rangle \geq 0$ für alle $x \in H$ gilt. Dann schreiben wir $T \geq 0$ und setzen für $R \in L(H)$ $T \leq R$ genau dann, wenn $0 \leq R -T$ gilt.
+
+\begin{satz}{Eigenschaften orthogonaler Projektoren}{ortoproj}
+Sei $H$ ein Hilbertraum und $p: H \to U \leq H$ ein orthogonaler Projektor auf den abgeschlossenen Unterraum $U$. Seien $p_i: H \to U_i \leq H$ weitere orthogonale Projektoren auf abgeschlossene Unterräume und $f \in L(H)$. Dann gilt:
+\begin{enumerate}[({P}1)]
+	\item $p$ ist stetig, selbstadjungiert und idempotent. Dies charakterisiert darüber hinaus einen orthogonalen Projektor.
+	\item $f(U) \sub U \iff f \circ p = p \circ f \circ p$.
+	\item $f(U) \sub U$ und $f(U^\perp) \sub U^\perp$ genau dann, wenn $f \circ p = p \circ f$.
+	\item $p_1 \circ p_2 = p_2 \circ p_1$ impliziert, dass $p_1 \circ p_2$ ein orthogonaler Projektor mit Bild $U_1 \cap U_2$ ist.
+	\item $p_1 \circ p_2 = 0 \implies p_2 \circ p_1 =0$. Dann gilt außerdem $U_1 \perp U_2$ und $p_1 + p_2$ ist ein orthogonaler Projektor auf den abg. Unterraum $U_1 \oplus U_2$.
+	\item $p_1 \leq p_2 \iff \|p_1(x)\| \leq \|p_2(x)\|$ für alle $x \in H$.
+	\item $0 \leq p \leq \id_H$.
+\end{enumerate}
+\end{satz}
+
+Anhand von Orthogonalprojektoren sollt ihr auf dem aktuellen Blatt euch an Spektren von Operatoren herantasten. Dazu erst einmal eine kurze Motivation: Für endlich-dimensionale Vektorräume galt die Dimensionsformel, da die kurze exakte Sequenz von Abbildungen
+\begin{equation}
+0 \to \ker(A) \overset{\iota}\to V \overset{A}\to \im (A) \to 0
+\end{equation}
+für eine lineare Transformation $A: V \to W$ zerfällt, also 
+\begin{equation}
+V = \ker(A) \oplus \im(A)
+\end{equation}
+und damit
+\begin{equation}
+\dim V = \dim \ker(A) + \dim \im(A)
+\end{equation}
+gilt. Wird aber min. einer dieser Terme in der Summe unendlich, hat diese keine Aussagekraft mehr, sodass ein Operator $T: V \to W$ für unendlich-dimensionale Vektorräume $V,W$ nicht automatisch bijektiv ist, falls er surjektiv oder injektiv ist. Betrachten wir ein $R \in L(V)$ mit Skalar $\lambda$, der kein Eigenwert von $R$ ist, so muss $L - \lambda \id_V$ zwar injektiv sein, aber kann an der Surjektivität scheitern. Genau das Verhalten wollen wir einfangen:
+\begin{definition}{Spektrum und Resolvente}{spekres}
+Sei $B$ ein komplexer Banachraum, $D(T)\leq B$ dicht und $T: D(T) \to B$ ein linearer Operator. Wir setzen $L_\lambda := L - \lambda \id$ für $\lambda \in \C$.
+Die \textbf{Resolventenmenge} von $T$ ist definiert als
+	\[
+		\rho(T):= \{\lambda \in \C \mid L_\lambda \, \text{ist bijektiv mit stetiger Umkehr} \}
+	\]
+und das \textbf{Spektrum} von $T$ als $\sigma(T):=\C \setminus \rho(T)$. Falls $L_\lambda$ injektiv ist, heißt $R := L_\lambda^{-1}$ die \textbf{Resolvente} von $T$. Die Elemente der Resolventenmenge heißen \textbf{reguläre Werte} für $T$.
+\end{definition}
+
+\begin{beispiel}
+Für einen Projektor $p: H \to p(H)$ auf einem Hilbertraum $H$ mit $p(H) \neq \{0\}$ und $p(H) \neq H$ lässt sich das Spektrum leicht bestimmen. Da $p$ weder die Identität noch die Nullabbildung ist, erhalten wir eine kanonische Zerlegung $H = p(H) \oplus p(H)^\perp,$ wobei $p(H)=:U$ und $p(H)^\perp=:U^\perp$ nicht leer sind. Nach Definition eines Projektors ist aber $p(U^\perp) = 0$, also $U^\perp = \ker(p) \neq \{0\}$, womit $p$ nicht bijektiv sein kann. Also ist $L_0$ nicht umkehrbar und damit $0 \in \sigma(p)$. Weiterhin gilt $(p-\id)(U)=p(U)-\id(U)$, aber $p(U)=U$ und damit $L_1=0$. Also ist auch $1 \in \sigma(p)$. Wir behaupten, dass dies das gesamte Spektrum ist und müssen noch zeigen, dass $p$ auf $\C \setminus \{0,1\}$ tatsächlich invertierbar ist. Dafür gibt es mehrere Methoden, die euch überlassen sind.
+\end{beispiel}
+
+Einen kleinen Trick für die Resolvente wollen wir noch erwähnen. Oft ist es sehr schwierig, die Resolventenformel direkt abzulesen, aber man kann sich \red{informell} ein bisschen aushelfen und dann zeigen, dass das, was man da konstruiert hat, tatsächlich ein beidseitiges, stetiges Inverses ist. Dazu sei $T: V \to V$ ein stetiger Operator und $P(x):= \sum_{i=0}^n a_n x^n$ ein Polynom auf $\C[x]$. Wir nennen $P(x)$ das Vernichtungspolynom oder Annihilatorpolynom von $T$, falls formell $P(T)=0$ gilt. Beispielsweise hat der Operator $\pi: T \to T$, der lediglich $\pi^2=\pi$ erfüllt, das Vernichtungspolynom $P_\pi(x)=x^2-x$, denn
+\[
+	P(\pi) = \pi^2 - \pi = \pi - \pi = 0.
+\]
+Seien $x,y \in C$ beliebig. Durch geschickte Umformung kann man den Ausdruck $P(x) - P(y)$ in die Form
+\[
+	P(x) - P(y) = (x-y) Q(x,y)
+\]
+bringen, wobei $Q(x,y)$ ein Restpolynom in $x$ und $y$ ist. Wenn man nun für $P$ das Vernichtungspolynom des Operators $T$ benutzt und formell $T=y$ setzt, erhält man
+\[
+	(P_T(x) - P_T(T))\id = P_T(x)\id = (x \id - T) Q(x,T).
+\]
+Wenn $P(x)\neq 0$ gilt, kann man die Gleichung nach $(x \id - T)^{-1}$ umstellen:
+\[
+	\frac{1}{x \id - T} = \frac{1}{P_T(x)}Q(x,T)
+\]
+und erhält so einen Ansatz für die Resolvente.
