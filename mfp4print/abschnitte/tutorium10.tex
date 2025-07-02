@@ -1,0 +1,184 @@
+\section{Tutorium 03.07.25}
+\label{sec:03_07_25}
+
+Heute wenden wir uns endlich dem Ziel des Abschnittes Funktionalanalysis zu: Den Spektralsätzen. Dazu betrachten wir in aller Ruhe bekanntes Gebiet, decken ein paar Grundlagen ab und wenden uns dann dem Spektralsatz für Operatoren auf unendlich-dimensionalen Hilberträumen zu.
+
+\subsection{Endlich-Dimensionale Spektralsätze}
+\label{subsec:finitedim}
+
+Das schöne an endlich-dimensionalen Räumen ist, dass ein Endomorphismus
+\[
+T: V \to V
+\]
+durch Wahl einer Basis von $V$ immer als Matrix dargestellt werden kann. Das führt uns vom Begriff der Eigenwerte:
+\begin{definition}{Eigenwert}{eigenwert}
+Sei $V$ ein endlich-dimensionaler $\K$-Vektorraum und $T \in \text{End}(V)$. Dann heißt $\lambda \in \K$ \textbf{Eigenwert} von $T$, falls \[Tx = \lambda x\] eine nicht-trivale Lösung $x \neq 0$ besitzt. Analog definieren wir das Spektrum $\sigma(T)$ sowie die Resolventenmenge $\rho(T)$ und die Resolvente \[R_\lambda = (T- \lambda \id_V)^{-1}.\]
+\end{definition}
+Natürlich ist dies nichts anderes als Eigenwerttheorie mit neuen Begriffen:
+\begin{satz}{Eigenwertsatz für endlich-dimensionale Räume}{findimeig}
+Sei $V$ ein endlich-dimensionaler Vektorraum über einem Körper $\K$ und 
+\[T:V \to V\] ein Endomorphismus mit darstellender Matrix $\cM_T \in \text{Mat}_\K$. Dann gilt:
+\begin{enumerate}[(a)]
+\item Die Eigenwerte $\lambda \in \K$ von $\cM_T$ sind die Lösungen der charakteristischen Gleichung
+\[ \det(\cM_T - \lambda \id_V) = 0. \]
+\item Jeder lineare Operator (Endomorphismus) auf einem endlich-dimensionalen $\C$-Vektorraum hat mindestens einen Eigenwert.
+\item Die Eigenwerte von $T$ sind invariant unter Wahl einer Basis, i.e. jede andere darstellende Matrix $\cM'_T$ hat die gleichen Eigenwerte wie $\cM_T$.
+\end{enumerate}
+\end{satz}
+Das alles ist die gewohnte Theorie aus MfP1/2 und der Physik allgemein. Für diese Theorie hattet ihr bereits einige Spektralsätze:
+\begin{theorem}{Spektralsatz für Prähilberträume - Diagonalisierung}{finspek}
+Sei $V$ ein endlich-dimensionaler Prähilbertraum über $\R$ oder $\C$ und $T \in \text{End}(V)$ ein normaler Endomorphismus mit Eigenwerten in $\K$. Dann existiert eine Orthonormalbasis von $V$, in der $\cM_T$ Diagonalgestalt hat.
+\end{theorem}
+Um auch auf einer Metaebene an MfP4 zu erinnern, formuliere ich diesen Satz nun noch einmal mit leicht anderen Worten:
+\begin{theorem}{Spektralsatz für Prähilberträume - Spektralzerlegung}{finspekorto}
+Jede normale Matrix $M \in \text{Mat}_\C(n)$ hat eine Spektralzerlegung
+\begin{equation}
+M = S \Sigma S^\ast
+\end{equation}
+mit einer Diagonalmatrix $\Sigma \in \text{Mat}_\K(n)$ und einer unitären Matrix $U \in \text{Mat}_\C(n)$. 
+\end{theorem}
+Wir werden im Folgenden sehen, dass diese Angewohnheit, Spektralsätze in verschiedenen Versionen anzugeben, nicht nur sehr üblich, sondern auch sehr nützlich ist.
+Wir haben nun ein Ziel vor Augen: Der Spektralsatz für endlich-dimensionale Prähilberträume soll auf beliebige Hilberträume verallgemeinert werden. Dabei kommt direkt ein erstes Problem auf: Nicht jeder lineare Operator ist im unendlich-dimensionalen Fall stetig.
+\subsection{Spektralsätze für kompakte Operatoren}
+\label{subsec:kompaktspekt}
+
+Die erste Klasse von Operatoren, die ihr euch angesehen habt, sind in diesem Kontext nicht besonders spannend. Für kompakte Operatoren kann man den Spektralsatz für endlich-dim. Räume fast mutatis mutandis verallgemeinern.
+
+\begin{definition}{Kompakte Operatoren}{kompakteop}
+Ein Operator $T: X \to Y$ zwischen normierten Vektorräumen heißt \textbf{kompakt linear} oder \textbf{vollständig stetig linear}, falls eine der folgenden äquivalenten Bedingungen erfüllt ist:
+\begin{enumerate}[(a)]
+\item $T$ ist linear und für jede beschränkte Teilmenge $A \sub X$ ist das Bild $T(A) \sub Y$ relativ kompakt, also $\overline{T(A)}$ ist kompakt.
+\item $T$ ist linear und für jede beschränkte Folge $(x_n) \in X$ hat $(T(x_n))_n \sub Y$ eine konvergente Teilfolge.
+\end{enumerate}
+\end{definition}
+
+Mit der Definition von Kompaktheit als Folgenkompaktheit sieht man schnell ein, dass diese Definitionen vöölig äquivalent sind. Die Charakterisierung solcher Operatoren habt ihr euch letzte Woche mit Frederic angesehen, daher konzentrieren wir uns auf den Spektralsatz. Dazu erinnern wir kurz an Selbstadjungiertheit im Falle von Operatoren:
+
+\begin{satz}{Adjungierter Operator}{adjoperator}
+Seien $G, H$ Hilberträume und $T: \cD(H) \to G$ ein dicht-definierter Operator, d.h. $\overline{\cD(H)}=H$, sodass $x \mapsto \langle T(x),y \rangle$ stetig ist für ein $y \in G$. Dann existiert genau ein $z \in \overline{\cD(T)}$ mit  
+\[ \langle T(x), y \rangle = \langle x, z \rangle. \] 
+Wir nennen den durch $\langle x, T^\ast(y) \rangle = \langle T(x), y \rangle$ definierten Operator \[T^\ast: \cD(T^\ast) \to H\] den zu $T$ \textbf{adjungierten Operator} mit
+\[ \cD(T^\ast) := \{ y \in G \mid x \mapsto \langle T(x), y \rangle \, \text{stetig}\} .\]
+\end{satz}
+
+\begin{bemerkung}
+Es ist tatsächlich notwendig, dichte Definiertheit zu fordern. Wäre dem nicht so, kann $\cD(T)^\perp \neq \emptyset$ gelten. Dann finden wir ein $u \in \cD(T)$ und es gilt:
+\[ \langle T(x), y \rangle = \langle x, z \rangle = \langle x, z \rangle + \langle x, u \rangle = \langle x, z+u \rangle.\]
+In diesem Fall wäre $T^\ast$ also nicht mehr eindeutig definiert. Der Beweis, dass $T^\ast$ existiert, ist abseits davon nur eine einfache Anwendung des Rieszschen Darstellungssatzes.
+\end{bemerkung}
+
+Für Endomorphismen haben wir zusätzliche Kriterien:
+\begin{definition}{Symmetrische und selbstadjungierte Operatoren}{symselb}
+Ein linearer Operator $T: \cD(T) \sub H \to H$ heißt:
+\begin{enumerate}[(a)]
+\item \textbf{symmetrisch}, wenn $\langle x, T(y) \rangle = \langle T(x), y \rangle$ für alle $x,y \in \cD(T)$ gilt, also $\cD(T) \sub \cD(T^\ast)$ gilt.
+\item \textbf{normal}, wenn $T^\ast T = T T^\ast$, also auch $\cD(T)=\cD(T^\ast)$, gilt.\footnote{Einfach nur, weil ich es amüsant finde, möchte ich anmerken, dass ein Operator \textbf{paranormal} heißt, wenn $\|T(x)\|^2 \leq \|T^2(x)\| \|x\|$ gilt.}
+\item \textbf{selbstadjungiert}, wenn $T= T^\ast$, also $\cD(T)=\cD(T^\ast)$  gilt.
+\end{enumerate}
+\end{definition}
+
+Ist $T$ ein beschränkter Operator, der auf ganz $H$ definiert ist, so fallen die Definitionen natürlich deutlich simpler aus. Damit können wir nun den angepriesenen analogen Spektralsatz formulieren:
+
+\begin{theorem}{Spektralsatz - Kompakte Operatoren}{komspekt}
+Sei $H$ ein komplexer Hilbertraum und $T \in L(H)$ ein kompakt-normaler Operator. Dann gibt es eine Nullfolge $(\lambda_i)_{i \in \N}$ mit $\lambda_i \in \C$ mit $|\lambda_i| \geq |\lambda_{i+1}|$ und eine Hilbertraumbasis $(e_i)_{i \in \N}$, sodass
+\begin{equation}
+S(x) = \sum_{i=0}^\infty \lambda_i \alpha_i e_i =: \Sigma (x)
+\end{equation}
+gilt, wobei $\alpha_i = \langle e_i, x \rangle$ der $i$-te Fourierkoeffizient ist. Dies definiert einen kompakten normalen Operator $\Sigma$ mit den folgenden Eigenschaften:
+\begin{enumerate}[(i)]
+\item $\Sigma$ ist genau dann selbstadjungiert, wenn alle $\lambda_i$ reell sind.
+\item Es gilt $\sigma(\Sigma)=\sigma(S)=\{0\} \cup \{\lambda_i \mid i \in \N\}.$
+\item Darüber hinaus gilt $\ker(\lambda_i \id_H - \Sigma) = \spn(e_i \mid \lambda_i = \lambda_j)$ für ein $\lambda_j \neq 0$.
+\end{enumerate}
+\end{theorem}
+Vor allem Bedinung (ii) zeigt die große Ähnlichkeit zum Spektrum endlich-dimensionaler Endomorphismen.
+
+\subsection{Banach-Algebren und $\ast$-Algebren}
+Im Skript wird nun im Folgenden immer wieder von $\circ$-Algebren gesprochen, ohne, dass diese je definiert werden. Das wollen wir im Tutorium ein bisschen abfedern, bevor wir den vollen Spektralsatz angehen. Dazu beginnen wir ganz langsam mit der Definition einer Algebra:
+\begin{definition}{Algebra}{algebra}
+Eine $\K$\textbf{-Algebra} über einem Körper $\K$ ist ein $\K$-Vektorraum $(\Af, \circ)$, auf dem neben Vektoraddition und Skalarmultiplikation noch eine Multiplikation
+\begin{equation}
+\circ: \Af \times \Af \to \Af
+\end{equation}
+mit folgenden Eigenschaften:
+\begin{enumerate}[({A}1)]
+\item $(x \circ y) \circ z = x \circ (y \circ z)$
+\item $x \circ (y+z) = x \circ y + x \circ z$
+\item $(x+y) \circ z = x \circ z + y \circ z$
+\item $\lambda (x \circ y) = (\lambda x) \circ y = x \circ (\lambda y)$
+\end{enumerate}
+für alle $x,y,z \in \Af$ und $\lambda \in \K$ definiert ist. \\
+Gilt zusätzlich $x \circ y = y \circ x$, so heißt $(\Af, \circ)$ \textbf{kommutative Algebra}.\\
+Gibt es eine Einheit $e \in \Af$ mit $e \circ x = x \circ e = x$, so heißt $(\Af, \circ)$ \textbf{unitale Algebra}.
+\footnote{Künftig unterdrücken wir $\circ$ notationell.}
+\end{definition}
+Dies dient nur der Kenntnisnahme, wir wollen unsere Algebren direkt mit analytischer Struktur versehen, um damit Funktionanalysis machen zu können:
+\begin{definition}{Banach-Algebra}{banachalg}
+Eine \textbf{Banach-Algebra} ist eine $\K$-Algebra $\Bf$, sodass $\Bf$ ein Banachraum ist und für alle $x,y \in \Bf$ gilt:
+\[ \| x \circ y \| \leq \|x\| \circ \|y\|. \] Ist $\Bf$ unital, fordern wir zusätzlich $\|e\|=1$.
+\end{definition}
+Erkennbar ist, dass hier also eigentlich gar nicht viel passiert. Wir versehen Banachräume einfach nur mit einer weiteren Struktur, zu der ihr schon überraschend viele Beispiele in der Physik gesehen habt. Die Bedingung an die Norm kann man als eine Kompatibilitätsbedigung von analytischer und Algebra-Struktur auffassen.
+\begin{beispiele}
+\begin{enumerate}[(i)]
+\item Die (langweiligen) Räume $\R$ und $\C$ werden mit der gewöhnlichen Multiplikation zu Banachalgebren.
+\item Überraschender ist vielleicht, dass $\cC[a,b]$, der Raum der stetigen Funktionen auf $[a,b] \sub \R$, eine unitale Banach-Algebra bildet. Das können wir aber ganz leicht hinbekommen, indem wir punktweise Multiplikation $(f \circ g)(t):=f(t)g(t)$ definieren.
+\item In anderen Kontexten sind Matrix-Banachalgebren sehr wichtig. Der Raum der komplexen, quadratischen Matrizen ist eine nicht-kommutative Banach-Algebra mit Matrixmultiplikation.
+\end{enumerate}
+\end{beispiele}
+So wichtig, dass wir es aus den Beispielen ausgliedern, ist die folgende Banach-Algebra:
+Sei $X$ ein komplexer Banachraum. Dann ist der Raum der stetigen, linearen Operatoren $\Lf(X)$ eine unitale Banach-Algebra. Man setzt $e = \id_X$ und defininiert als Norm die \red{Operatornorm}. In dieser gilt praktischerweise
+\[ \| T_1 T_2 \| \leq \|T_1\| \|T_2\| \]
+für beschränkte Operatoren. Für unitale Banach-Algebren entwickelt man ganz analog eine Spektraltheorie:\\
+Ein Element $x \in \Bf$ heißt \textbf{invertierbar}, wenn ein $x^{-1} \in \Bf$ mit $x \circ x^{-1} = x^{-1} \circ x = e$ existiert. Dann definieren wir die Resolventenmenge $\rho(x)$ und das Spektrum $\sigma(x)$ von $x \in \Bf$ völlig analog. \textbf{An diesem Punkt erkennt man: Eigentlich haben wir die ganze Zeit auf der Banach-Algebra der Operatoren gearbeitet!} Für Hilberträume und damit für die Quantenmechanik braucht man noch mehr Struktur:
+
+\begin{definition}{Stern-Algebren}{sternalg}
+Sei $\Bf$ eine Banach-Algebra über $\C$.
+\begin{enumerate}[(a)]
+\item $\Bf$ heißt \textbf{Banach-$\ast$-Algebra} oder \textbf{involutive Banachalgebra}, wenn zusätzlich eine Involution \[ \ast: \Bf \to \Bf \] mit folgenden Eigenschaften definiert ist:
+	\begin{enumerate}[({*}1)]
+		\item $(x^\ast)^\ast = x$
+		\item $(x \circ y)^\ast = y^\ast x^\ast$
+		\item $(\lambda x + \mu y)^\ast = \overline{\lambda} x^\ast + \overline{\mu} b^\ast$
+		\item $\|x\|=\|x^\ast\|$.
+	\end{enumerate}
+\item Eine komplexe Banach-$\ast$-Algebra heißt \textbf{$C^\ast$-Algebra}, falls zusätzlich $\|a^\ast a\| = \|a\|^2$ gilt.
+\end{enumerate}
+\end{definition}
+Einige der Eigenschaften sollten euch verdächtig bekannt vorkommen. Es handelt sich bei der Involution, im weitesten Sinne, um eine Verallgemeinerung der komplexen Konjugation auf $\C$. Und tatsächlich stellt sich heraus, dass die beschränkten linearen Operatoren $\Lf(H)$ auf einem komplexen Hilbertraum $H$ eine $C^\ast$-Algebra bilden, wobei die Involution durch Adjunktion $T \mapsto T^\ast$ gegeben ist. Für den Spektralsatz brauchen wir außerdem:
+
+\begin{definition}{$\ast$-Morphismen, Repräsentation}{morph}
+Seien $(\Af, \circ, \ast)$ und $(\Bf, \centerdot, \dagger)$ $C^\ast$-Algebren. Eine Abbildung \[ \phi: \Af \to \Bf \] heißt \textbf{$\ast$-Morphismus}, falls:
+\begin{enumerate}[(i)]
+\item $\forall x,y \in \Af: \ \phi(x \circ y) = \phi(x) \centerdot \phi(y)$.
+\item $\forall x \in \Af: \ \phi(x^\ast) = \phi(x)^\dagger$.
+\end{enumerate}
+Ist $\phi$ zusätzlich bijektiv, so heißt $\phi$ \textbf{$\ast$-Isomorphismus}. Ein $\ast$-Morphismus
+\[ \Phi: \Af \to \Lf(H) \] in die $C^\ast$-Algebra der stetigen linearen Operatoren auf einem Hilbertraum $H$ heißt \textbf{Hilbertraum-Darstellung} von $\Af$ auf $H$.
+\end{definition}
+Ein großes Ziel der folgenden Spektralsätze sind solche Hilbertraum-Darstellungen. Und wir können mal wieder ein Theorem zur Beruhigung angeben:
+\begin{theorem}{Theorem von Gelfand-Naimark}{gelfand}
+Jede $\C^\ast$-Algebra $\Af$ ist isometrisch $\ast$-isomorph zu einer $C^\ast$-Unteralgebra der beschränkten linearen Operatoren auf einem Hilbertraum $H$.
+\end{theorem}
+\subsection{Spektralsatz für beschränkte Operatoren}
+
+Nun können wir endlich den Spektralsatz vernünftig verstehen:
+\begin{theorem}{Spektralsatz - Stetiger Funktionalkalkül}{spekstet}
+Sei $H$ ein Hilbertraum und $T \in L(H)$ ein symmetrischer Operator. Dann gibt es einen unitalen $\ast$-Morphismus
+\[ \Phi: \cC(\sigma(T)) \to L(H) \] mit den Eigenschaften:
+\begin{enumerate}[({S}1)]
+\item Stetigkeit: $\exists C > 0: \ \| \Phi(f)\| \leq C \|f\|_\infty$.
+\item Unitalität: $\Phi(\id)=T$.
+\item $T \psi = \lambda \psi \implies \Phi(f) \psi = f(\lambda) \psi$. 
+\item $\sigma(\Phi(f)) = \{f(\lambda) \mid \lambda \in \sigma(T) \}$
+\item $f \geq 0 \implies \Phi(f) \geq 0$.
+\item (S1) wird zu $\| \Phi(f) \| = \| f\|_\infty$ verschärft.
+\end{enumerate}
+\end{theorem}
+Wenn man nun etwas schludrig $f(T)$ für $\Phi(f)$ schreibt, wird damit klar, dass wir nun eine Möglichkeit haben, Funktionen auf Operatoren darzustellen, so wird der Funktion $x \mapsto x^n$ beispielsweise der Operator $T^3$ zugeordnet. Einen völlig analogen Satz erhält man für einen beschränkten Funktionalkalkül, indem man die beschränkten Borelfunktionen auf $\R$ anstelle von $\cC$ betrachtet. Die allgemeine Idee eines Funktionalkalküls kennt ihr aus der Physik gut genug: Wenn der Hamiltonoperator $\widehat{H}$ eine Hilbertraumbasis aus Eigenvektoren $e_i$ mit Eigenwerten $\lambda_i$ hat, so wollen wir \[\Phi(f) = f(\widehat{H}) := \exp(-\frac{it\widehat{H}}{\hbar})\] definieren und sicherstellen, dass
+\[ f(\widehat{H})e_i = f(\lambda_i) e_i \] noch immer gilt. Genau das leistet ein Funktionalkalkül, erweitert die Idee aber auch auf kontinuierliche Spektren. Wir springen ein wenig, um noch ein sehr nützliches Resultat zu haben:
+\begin{theorem}{Spektralsatz - Spektrale Realisierung}{spektreal}
+Sei $T \in L(H)$ ein symmetrischer Operator auf einem Hilbertraum $H$. Dann existiert eine \textbf{spektrale Realisierung} von $H$, bestehend aus endlichen Maßen $(\mu_i)_{i \geq 1}$ auf $\sigma(T)$ und einem unitären Operator
+\[ U: H \to \bigoplus_{i=1}^n L^2(\R, d\mu_i) \] mit 
+\[ (UTU^{-1} f)_i (\lambda) = \lambda f_i(\lambda) \] für $f = (f_1, f_2, \dots) \in \oplus L^2$.
+\end{theorem}
+In der Tat lässt sich also jeder symmetrische Operator sozusagen als Multiplikationsoperator diagonalisieren.

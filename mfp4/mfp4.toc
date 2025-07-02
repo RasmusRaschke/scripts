@@ -1,17 +1,25 @@
 \babel@toc {german}{}\relax 
-\contentsline {section}{\numberline {1}Tutorium 10.04.25}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Organisatorisches}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Literaturempfehlungen}{2}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Tutorium 17.04.25}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Wiederholung - Komplexe Zahlen}{3}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Tutorium 24.04.25}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Atlanten, Orientierungen und der Satz von Stokes}{7}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Tutorium 08.05.25}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Funktionentheorie ist \textit {nicht} reelle Analysis in zwei Variablen}{9}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Tutorium 15.05.25}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Der Cauchysche Integralsatz}{11}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Die Cauchysche Integralformel und der Potenzreihenentwicklungssatz}{11}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Tutorium 18.06.2025}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Vektorräume und Basen}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Lineare Operatoren auf Hilberträumen}{15}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Spektren und Orthogonalprojektion}{16}{subsection.6.3}%
+\contentsline {section}{\numberline {1}Tutorium 10.04.25}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Organisatorisches}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Literaturempfehlungen}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Tutorium 17.04.25}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Wiederholung - Komplexe Zahlen}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Tutorium 24.04.25}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Atlanten, Orientierungen und der Satz von Stokes}{8}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Tutorium 08.05.25}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Funktionentheorie ist \textit {nicht} reelle Analysis in zwei Variablen}{10}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Tutorium 15.05.25}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Der Cauchysche Integralsatz}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Die Cauchysche Integralformel und der Potenzreihenentwicklungssatz}{12}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Tutorium 18.06.2025}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Vektorräume und Basen}{15}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Lineare Operatoren auf Hilberträumen}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Spektren und Orthogonalprojektion}{17}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Tutorium 26.06.25}{19}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Lineare Operatoren auf Hilberträumen}{19}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Basisdarstellung linearer Operatoren}{20}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Tutorium 03.07.25}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Endlich-Dimensionale Spektralsätze}{22}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Spektralsätze für kompakte Operatoren}{22}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Banach-Algebren und $\ast $-Algebren}{23}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Spektralsatz für beschränkte Operatoren}{25}{subsection.8.4}%

@@ -669,6 +669,9 @@ INPUT abschnitte/tutorium5.aux
 INPUT ./abschnitte/tutorium8.aux
 INPUT ./abschnitte/tutorium8.aux
 INPUT abschnitte/tutorium8.aux
+INPUT ./abschnitte/tutorium9.aux
+INPUT ./abschnitte/tutorium9.aux
+INPUT abschnitte/tutorium9.aux
 OUTPUT mfp4.aux
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -872,6 +875,12 @@ OUTPUT abschnitte/tutorium8.aux
 INPUT ./abschnitte/tutorium8.tex
 INPUT ./abschnitte/tutorium8.tex
 INPUT abschnitte/tutorium8.tex
+INPUT ./abschnitte/tutorium9.tex
+INPUT ./abschnitte/tutorium9.tex
+OUTPUT abschnitte/tutorium9.aux
+INPUT ./abschnitte/tutorium9.tex
+INPUT ./abschnitte/tutorium9.tex
+INPUT abschnitte/tutorium9.tex
 INPUT ./mfp4.ind
 INPUT ./mfp4.ind
 INPUT mfp4.ind
@@ -894,6 +903,9 @@ INPUT abschnitte/tutorium5.aux
 INPUT ./abschnitte/tutorium8.aux
 INPUT ./abschnitte/tutorium8.aux
 INPUT abschnitte/tutorium8.aux
+INPUT ./abschnitte/tutorium9.aux
+INPUT ./abschnitte/tutorium9.aux
+INPUT abschnitte/tutorium9.aux
 INPUT ./mfp4.out
 INPUT ./mfp4.out
 INPUT mfp4.run.xml
@@ -908,6 +920,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb
@@ -922,5 +935,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsso10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy5.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

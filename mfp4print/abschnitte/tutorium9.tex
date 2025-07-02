@@ -1,0 +1,141 @@
+\section{Tutorium 26.06.25}
+\label{tutorium26_06_25}
+
+Nachdem auf dem aktuellen Blatt die inzwischen hoffentlich gut etablierten beschränkten Operatoren auf Hilberträumen eine Rolle spielen, wollen wir uns diese ein bisschen näher ansehen.
+
+\subsection{Lineare Operatoren auf Hilberträumen}
+
+Nun wenden wir uns den gewohnten linearen Abbildungen zu, aber auf Hilberträumen. Um uns nicht zu sehr zu wiederholen, folgen wir vorerst dem Buch \textit{Kaballo: Grundkurs Funktionalanalysis} für eine inhaltlich identische, aber anders aufgearbeitete Version der Vorlesungsthemen.
+\begin{definition}{Lineare Operatoren}{linop}
+Seien $V,W$ $\K$-Vektorräume. Eine Abbildung
+\[
+T: V \to W
+\]
+heißt \textbf{linearer Operator}, falls für alle $u,v \in V$ und $\lambda \in \K$ gilt:
+\[
+T(\lambda u + v)= \lambda T(u)+T(v).
+\]
+Der \textbf{Kern} von $T$ ist der Unterraum
+\[
+\ker(T):= \{v \in V \mid T(v)=0\} \leq V.
+\]
+Das \textbf{Bild} von $T$ ist der Unterraum
+\[
+\im(T):= \{T(v) \mid v \in V\} \leq W.
+\]
+\end{definition}
+Nach der ganzen Mühe von wegen Analysis auf Vektorräumen führen wir sodann den Stetigkeitsbegriff für diese Abbildungen ein:
+\begin{definition}{Stetige Operatoren}{stetigeop}
+Seien $(V,\|\cdot\|_V)$ und $(W,\|\cdot\|_W)$ normierte Vektorräume\footnote{Die Norm unterdrücken wir künftig in der Notation.} und $T: V \to W$ ein linearer Operator. Dann sind äquivalent:
+\begin{enumerate}[({S}1)]
+	\item $T$ ist stetig in $v \in V$.
+	\item $T$ ist gleichmäßig stetig auf $V$.
+	\item $\exists C \geq 0: \forall v \in V: \|T(v)\| \leq C \|v\|$.
+	\item $\|T\| := \sup_{\|v\| \leq 1} \| T(v) \| < \infty.$
+\end{enumerate}
+Der in (S4) definierte Ausdruck heißt \textbf{Operatornorm} von $T$.
+\end{definition}
+Nachdem all diese Ausdrücke äquivalent sind, können wir jeden davon nutzen, um Stetigkeit zu definieren, und dann zeigen, dass die anderen Aussagen daraus folgen. Praktisch von Bedeutung ist insbesondere (S4) mit der Operatornorm, die uns sagt, dass $T$ genau dann stetig ist, wenn die Einheitskugel auf $V$, $\D_V$, auf eine beschränkte Teilmenge von $W$ abbildet. Dies rechtfertigt die Bezeichnung beschränkte lineare Operatoren für stetige lineare Operatoren. Damit erhalten wir ein paar neue Räume:
+\begin{definition}{Linearformen}{linearform}
+Seien $V,W$ normierte $\K$-Vektorräume.
+\begin{itemize}
+	\item Der Raum $L(V,W)$ mit der Operatornorm bezeichnet den \textit{normierten Vektorraum der stetigen linearen Operatoren} $T: V \to W$ und wir setzen $L(V,V)=:L(V)$.
+	\item Der Dualraum $V':=L(V, \K)$ heißt \textbf{Raum der linearen Funktionale} oder \textbf{Raum der Linearformen} von $V$ und ist ein Banachraum.
+\end{itemize}
+\end{definition}
+Aus der Vorlesung erinnern wir an den Darstellungssatz von Riesz, der garantiert, dass zu jedem $T \in V'$ genau ein $v \in V$ existiert, sodass
+\[
+\forall w \in H: T(w)=\langle w, v \rangle
+\]
+und $\|T\| = \|v\|$ gilt. Außerdem ist für ein $v \in H$ die Abbildung 
+\[
+v \mapsto \langle v, \cdot \rangle
+\]
+ein stetiges Funktional mit Norm $\|v\|$.
+\begin{beispiel}
+	Sei $K$ ein metrisches Kompaktum mit $x \in K$. Das \textbf{Dirac-Funktional} $\delta_x \in \cC(K)'$ ist definiert durch
+	\[
+		\forall f \in \cC(K): \delta_x[f] := f(x).
+	\]
+	Der Raum $\cC(K)$ wird, wie zuletzt erwähnt, mit der Supremumsnorm versehen. Wir haben also
+	\[
+		|\delta_x[f]| = |f(x)| \leq \|f\|_\infty
+	\]
+	nach Definition der Supremumsnorm, also auch $\| \delta_x \| \leq 1$. Für die konstante Funktion $c: t \mapsto 1$ haben wir offensichtlich $\|f\|_\infty = 1$ und $|\delta_x [f]| = 1$, also folgt
+	\[
+		\| \delta_x \| = \sup_{\|f\|_\infty \leq 1} | \delta_x[f] | = 1
+	\]
+	und $\delta_x$ ist eine stetige Linearform.\\
+	Nun fixieren wir $\lambda_i \in \K$ sowie $x_i \in K$ und definieren damit die Linearform
+	\[
+		L := \sum_{i=1}^n \lambda_i \delta_{x_i}.
+	\] 
+	Aus der Dreiecksungleichung folgt
+	\[
+		\|L\| = \sup_{\|f\|_\infty \leq 1} \left| \sum_i \lambda_i  f(x_i) \right| \leq \sup_{\|f\|_\infty \leq 1}  \sum_i |\lambda_i| |f(x_i)| \leq \sum_i|\lambda_i|. 
+	\]
+	Wir wählen ein $f \in \cC(K)$ mit $\|f\| = 1$ und $\lambda_i f(x_i) = |\lambda_i|$ (dies ist gerechtfertigt nach der Konstruktion der Testfunktionen in MfP3). Dann gilt $L[f] = \sum_i |\lambda_i|$ nach Konstruktion, sodass
+	\[
+		\|L\|= \sum_{i=1}^n |\lambda_i|.
+	\]
+\end{beispiel}
+
+Bevor wir zu Projektoren übergehen, wollen wir noch einen sehr wichtigen Satz hervorheben. Dazu erinnere man sich daran, dass eine Abbildung $f: X \to Y$ topologischer Räume offen heißt, wenn Bilder offener Mengen wieder offen sind.\footnote{Man erinnere sich, dass Stetigkeit anders herum funktioniert: Urbilder offener Mengen sind offen für stetige Abbildungen.}
+\begin{theorem}{Satz von der offenen Abbildung (Banach-Schauder)}{offenabb}
+Seien $V,W$ komplexe Banachräume und $T: V \to W$ ein komplex-linearer Operator. Dann gilt:
+\begin{enumerate}
+	\item Die Einschränkung $T|_{\im(T)}: V \to \im(T)$ ist genau dann offen, wenn $\im(T) \leq W$ abgeschlossen ist.
+	\item Jeder lineare, surjektive und stetige Operator ist offen.
+\end{enumerate}
+
+\end{theorem}
+
+Daraus folgt sofort ein weiterer wichtiger Satz:
+\begin{satz}{Satz vom stetigen Inversen}{stetinv}
+Seien $V,W$ komplexe Banachräume und $T \in L(V,W)$ eine bijektiver Operator. Dann ist die Inverse
+\[
+T^{-1}: W \to V
+\]
+auch stetig.
+\end{satz}
+
+\subsection{Basisdarstellung linearer Operatoren}
+
+In der endlich-dimensionalen linearen Algebra war es eine zentrale Technik, für eine lineare Transformation $A: V \to W$ von Vektorräumen den Isomorphismus $V \cong \R^n, W \cong \R^m$ zu nutzen und die euklidische ONB in beiden Räumen zu wählen, um $A$ als Matrix $\cM_{\R^n}^{\R^m} (A) \in \text{Mat}_\R(n,m)$ darzustellen. Offensichtlich wird das in den allgemein unendlich-dimensionalen Hilberträumen mit unserem endlichen Matrixbegriff kaum möglich sein, wir können aber dennoch hoffen, dass die Standard-Hilbertbasis in $\ell^2$ eine ähnliche Funktion erfüllt. Auf dem aktuellen Blatt wird dies stark illustriert, da ihr die Stetigkeit verschiedenster Operatoren auf $\ell^2$ mittels der Standardbasis nachrechnen werdet. \\
+\begin{bemerkung}
+    \begin{enumerate}[(a)]
+        \item Man betrachte also Hilberträume $H$ mit HB $(e_i)_{i \in I}$ und $G$ mit HB $(f_j)_{j \in J}$ sowie einen linearen Operator $T \in L(H,G)$. Da sich jedes $x \in H$ mittels seiner Fourierkoeffizienten $\alpha_i := \langle e_i, x \rangle$ in der Hilbertbasis als $x = \sum_{i \in I} \alpha_i e_i$ darstellen lässt, könen wir schreiben:
+    \begin{equation}
+        T(x) = T \left(\sum_{i \in I} \alpha_i e_i \right) = \sum_{i \in I} \alpha_i T(e_i) = \sum_{i \in I} \sum_{j \in J} \alpha_i \beta_{ij} f_j
+    \end{equation}
+wobei wir $\beta_{ij}:= \langle Te_i, f_j \rangle$ setzen. Die $\beta_{ij}$ können informell als die Einträge einer unendlich-dimensionalen Matrix aufgefasst werden.
+\item Die Bessel-Ungleichung für $x \in H$ zeigt, dass die Folge der Fourierkoeffizienten $(\alpha_i)_{i \in I}$ von $x$ ein Element in $\ell^2(I)$ definieren mit $\sum_{i \in I} |\alpha_i|^2 \leq \|x\|^2$. Dies rechtfertigt die Definition des \textbf{Fourier-Operators}
+    \begin{align}
+        \cF: H &\to \ell^2(I)\\
+        x &\mapsto (\alpha_i)_{i \in I}
+    \end{align}
+mit $\|\cF\|\leq 1$. Der Operator ist immer ein Epimorphismus und genau dann ein Monomorphismus, wenn das zugrundeliegende ONS auch maximal, also eine Hilbertbasis, ist. Da jeder Hilbertraum eine Hilbertbasis hat, vermittelt der Fourier-Operator den Isomorphismus $H \cong \ell^2(I)$.\footnote{Ist $H$ sogar separabel, so steigt der Fourier-Operator ab zu einem Isomorphismus $H \cong \ell^2_\C$, indem man $\N$ als Indexmenge zugrundelegt.} 
+\item Sei nun $T \in L(H)$ ein Endomorphismus. Mit dem Fourier-Operator können wir einen Operator $\cM(T):=\cF T \cF^{-1}$ definieren, der auf $\ell^2(I)$ wirkt und unitär äquivalent zu $T$ ist. Betrachtet man nun die Hilberträume $L^2(\Omega)$ für einen messbaren Raum $\Omega \sub \R^n$ und $\ell^2_\C$, so können wir auf diese Art unsere Observable im \textit{Schrödinger-Bild} als partielle Differential-Operatoren auf $L^2(\Omega)$ oder mittels des Fourier-Operators als Matrix-Operatoren im \textit{Heisenberg-Bild} auf $\ell^2_\C$ realisieren. Die Fragen bezüglich Beschränktheit dieser Operatoren sowie Spektrum und Resolvente sind hochgradig nicht-trivial und Gegenstand der letzen zwei Kapitel der Vorlesung.
+    \end{enumerate}
+\end{bemerkung}
+
+\begin{übung}
+    Wir betrachten den Operator $T: U \to \ell^2$, definiert auf der Stadard-Hilbertbasis $(e_i)_{i \in I}$ von $\ell^2$ durch $$T(e_i)=\frac{1}{i+1}\sum_{k \leq i} e_i,$$ wobei $U$ der Unterraum der Folgen mit endlichem Träger und $\sum_i |\alpha_i| \leq 1$ ist. Ist der Operator stetig? Beweise deine Behauptung. 
+\end{übung}
+
+\begin{lösung}
+    Der Operator ist stetig. Dazu sei $x \in U$ eine Folge mit Fourierkoeffizienten $\alpha_i$ und $\|x\|=1$. Wir schauen uns die Operatornorm von $T$ an:
+    \begin{align*}
+    \|T(x)\|^2 &= \| \sum_{i=0}^\infty \alpha_i T(e_i) \|^2 = \| \sum_{i=0}^\infty \frac{\alpha_i}{i+1} \sum_{k \leq i} e_k \|^2 = \| \sum_{i=0}^\infty \sum_{k=i}^\infty \frac{\alpha_k}{k+1} e_i \|^2 \\
+    \end{align*}
+    Die letzte Gleichheit sieht man ein, wenn man die Summe als Folge ausschreibt. Diese hat nämlich die Gestalt
+    \begin{equation}
+        \left( \alpha_0 + \frac{\alpha_1}{2} + \cdots, \frac{\alpha_1}{2} + \frac{\alpha_2}{3}+ \cdots, \dots \right).
+    \end{equation}
+Nun wenden wir noch die Dreiecksungleichung (für endliche Summen!) an und erinnern an das Basel-Problem:
+\begin{equation}
+    \|T(x)\|^2 = \sum_{i=0}^\infty \left| \sum_{k=i}^\infty \frac{\alpha_k}{k+1} \right|^2 \leq \sum_{i=0}^\infty \frac{1}{(1+i)^2} \underbrace{\left( \sum_{k=i}^\infty |\alpha_k|\right)^2}_{\leq 1} \leq \sum_{i=0}^\infty \frac{1}{(i+1)^2} \leq \frac{\pi^2}{6}
+\end{equation}
+Das liefert also $\|T\| \leq \frac{\pi}{\sqrt{6}}$ und damit die Behauptung.
+\qed
+\end{lösung}
