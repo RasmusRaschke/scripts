@@ -1,0 +1,38 @@
+\section{Zusatz}
+\label{sec:01_08_25}
+
+Wir wenden uns Aufgabe 4a) auf der ersten Aufgabensammlung zu:\\
+Sei $U \leq \ell^2$ der Unterraum der Folgen mit nur endlich vielen nicht-trivialen Folgengliedern. Wir definieren den Operator \[F: U \to \ell^2, \, e(i) \mapsto e(1)-e(0)\] und wollen auf Beschränktheit prüfen.\\
+Zunächst sei angemerkt, was der Raum $U$ bedeutet: Ein Element $x \in U$ ist eine Folge $(x_n)_{n \in \N},$ sodass ein $N \in \N$ mit $x_m = 0$ für alle $m > N$ existiert. Die Norm des Folgenraums ist definiert als
+\[
+\|x\| = \sqrt{\sum_{n=0}^\infty |x_n|^2},
+\]
+wir summieren also über die Betragsquadrate der einzelnen Folgenglieder. Wir schreiben eine generische Folge in $U$ als $\sum_{n=0}^\infty x_n e(n)$ und schauen uns die allgemeine Form von $F$ an:
+\begin{align*}
+(F(x))_{n \in \N} &= \left( F(x_0 e(0) + x_1 e(1) + \cdots) \right)_{n \in \N} = x_0 (F(e(0)))_{n \in \N} + x_1 (F(e(1)))_{n \in N} + \cdots \\
+&= x_0 (e(1)-e(0)) + x_1 (e(1)-e(0)) + \cdots = x_0 (-1,1, 0, \dots) + x_1 (-1,1,0, \dots) + \cdots \\
+&=\left(- \sum_{n=0}^\infty x_n,\sum_{n=0}^\infty x_n, 0, \dots \right) = \sum_{n=0}^\infty x_n (e(1)-e(0))
+\end{align*}
+Wir können natürlich die Summen in diesem Fall durch endliche ersetzen, aber es sei angemerkt, dass das nur geht, weil dieser Operator diese spezielle Form hat. Im Allgemeinen hat ein Operator $L: U \to \ell^2$ Bild in $\ell^2$, kann also eine endliche Folge unter Umständen auf eine unendliche abbilden!\\
+Da wir der Auffassung sind, dass unser Operator unstetig ist, betrachten wir nun ein Gegenbeispiel zur Beschränktheit. Sei dazu $x \in U$ mit \[ x_n := \begin{cases} \frac{1}{\sqrt{N+1}}, &n \leq N\\ 0 &n > N\end{cases} \] für ein \textbf{beliebiges} $N \in \N$. Wir fordern nur, dass die Folge irgendwann nur noch $0$ als Eintrag hat, aber ab welchem endlichen $N$ das geschieht, ist frei wählbar. Für die Norm erhalten wir:
+\[ \|x\| = \sqrt{\sum_{n=0}^N \left|\frac{1}{\sqrt{N+1}}\right|^2}  = \sqrt{(N+1) \cdot \frac{1}{N+1}} = 1.\]
+Was fordern wir von unserem Operator? Dieser soll beschränkt sein, also \[ \|F(x)\| \leq C \cdot \|x\|\] für ein \textbf{konstantes, also von $N$ unabhängiges} $C \in \R$. Kompakter schreibt man gerne \[\|F\| = \sup_{\|x\|=1} \|F(x)\| < \infty,\] was gut geeignet ist, um Beschränktheit zu beweisen, aber zum Widerlegen ist die gute alte Definition mit der Schranke in der Regel anschaulicher.\\
+Wir berechnen nun mit der oben hergeleiteten Vorschrift erst einmal $F(x)$:
+\[ F(x) = \sum_{n=0}^N \frac{1}{\sqrt{N+1}} e(1)-e(0)\]
+Man muss nun aber ein bisschen aufpassen: Die Folge hat nicht-triviale Glieder in Index $0$ und $1$, deren Koeffizienten ganze Summen über $n$ sind. Das korrekte Anwenden der Norm liefert:
+\begin{align*}
+\|F(x)\|^2 &= \underbrace{\left| -\sum_{n=0}^N \frac{1}{\sqrt{N+1}}\right|^2}_{-e(0)} + \underbrace{\left| \sum_{n=0}^N \frac{1}{\sqrt{N+1}}\right|^2}_{e(1)} = 2 \left| \sum_{n=0}^N \frac{1}{\sqrt{N+1}}\right|^2\\
+&=2 \left| \sqrt{N+1}\right|^2 = 2N+2
+\end{align*}
+Nach Wurzelziehen erhalten wir:
+\[\|F(x)\| = \sqrt{2} \sqrt{N+1}.\]
+Angenommen, es gäbe $C \in \R$ mit $\|F(x)\| \leq C \|x\| = C$. Die Norm von $F$ wächst allerdings monoton mit $N$, wählen wir also unsere ursprüngliche Folge so, dass diese erst bei genügend großem $M> N$ trivial wird, wächst die Norm von $F$ über $C$ hinaus, es kann also ein solches $C$ nicht geben.\footnote{Wer eine exakte Konstruktion braucht, rundet $C^2$ auf die nächsthöhere natürliche Zahl auf und wählt diese als $M$.} Das meinen wir, wenn wir notationell
+\[
+\|F(x)\| \overset{N \to \infty}\to \infty
+\]
+schreiben.\\
+Aber wo ist der Fehler in der Abschätzung der Norm, die Stetigkeit beweisen soll? Diese liegt in einer falschen Quadratzahlabschätzung, denn es gilt \textbf{nicht}:
+\[\left| \sum_{n} x_n \right|^2 \leq \sum_n |x_n|^2. \]
+Ein einfaches Gegenbeispiel ist $x_0=x_1=\frac{1}{2}$ und alle anderen $x_n =0$. Dann gilt:
+\[ \left| \frac{1}{2}+ \frac{1}{2} \right|^2 = 1 \geq \left| \frac{1}{2} \right|^2 + \left| \frac{1}{2} \right|^2 = \frac{1}{2} \]
+Für positive $x_n$ gilt die Ungleichung tatsächlich genau anders herum, wie man mit dem Binomialsatz oder Cauchy-Schwarz schnell einsieht.
