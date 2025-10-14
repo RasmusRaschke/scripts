@@ -1,4 +1,97 @@
 \chapter{Introduction}
 \setcounter{section}{-1}
-\section{Topological spaces}
+\section{Preliminaries}
+\subsection*{Modalities}
+\begin{itemize}
+    \item Oral exams, 10.02. or 24.03.; register online until 12.12. by katrin.kopp@uni-hamburg.de
+    \item Office hours on website
+    \item Exercises every second week; half of points needed; attendance on 5 or more exercise classes required; exercises have to be presented ; register in Moodle for exercises
+\end{itemize}
 
+\subsection*{Motivation}
+Given a function \[
+f: X \to \mathbb{R}
+\] such that $X$ is an (in general, infinite-dimensional) Banach space, we want to minimize $f(x)$ for $x \in X^\text{ad}$, the set of admissible values.
+\begin{eg}
+    There are plenty of real-world applications:
+    \begin{itemize}
+        \item modelling of elastic bodies, damage calculation
+        \item optimal design (buildings, ships, aircrafts,  \dots )
+        \item optimal control (trajectories of spacecrafts, \dots)
+        \item inverse problems (seismic tomography, MRT, \dots)
+    \end{itemize}
+\end{eg}
+\begin{theorem}
+    Let \[
+        f: X^\text{ad} \subseteq \mathbb{R}^n \to \mathbb{R}
+    \] be a continuous function and $X^\text{ad}$ be bounded and closed. Then, $\min_{x \in X^\text{ad}} f(x)$ is attained. 
+\end{theorem}
+\begin{proof}
+    Take a minimizing sequence $(x_k)_{k \in \mathbb{N}} \in X^\text{ad}$, i.e. a sequence with \[
+        f(x_k) \to \inf_{x \in X^\text{ad}} f(x)
+    .\] Since $(x_k)$ is bounded, there exists a convergent subsequence $(x_n) \to x$. Now $x$ is a solution of our problem since:
+    \begin{enumerate}
+    \item \[f(\lim_{k \to \infty} x_k) = \lim_{k \to \infty} f(x_k) = \inf_{x \in X^\text{ad}} f(x)\] since $f$ is continuous.
+    \item Since $X^\text{ad}$ is closed, $x \in X^\text{ad}.$  
+    \end{enumerate}
+\end{proof}
+
+\begin{eg}
+    Consider the optimization problem \[
+        \min \int_{-1}^1 (x(s)-x^d(s))^2 \, ds
+    \] s.t. $x \in \mathcal{C}([-1,1])$, $-1 \leq x(s) \leq 1 \, \forall s \in [-1,1]$ with \[
+    x^d(s) = \begin{cases} -1 &s<0\\ 1 &s \geq 0 \end{cases}
+    .\] 
+    \begin{enumerate}
+        \item \[
+            X^\text{ad} = {v \in \mathcal{C}([-1,1]) \mid -1 \leq v(s) \leq 1 \forall s \in [-1,1] }\]
+            \item $X^\text{ad}$ is closed: $v_k \to v$ in $\mathcal{C}$, so $v_k(s) \to v(s) \forall s \in [-1,1]$ since $v_k(s) \in [-1,1]$ is closed, so $v(s) \in [-1,1]$.
+            \item $f$ is continuous, so if $v_k \to v$ in $\mathcal{C}$, we have
+        \begin{align*}
+            |f(v_k) - f(v)| &= \int_{-1}^1 (v_k(s)^2 - 2v_k(s)x^d(s)+x^d(s)^2 - (v(s)^2-2v(s)x^d(s)+x^d(s)^2)) \, ds \\
+                            &= \left| \int_{-1}^1 v_k(s)^2 - v(s)^2 - 2(v_k(s)-v(s))x^d(s) \, ds \right| \\
+                            &= 2 \cdot 2 \max(v_k(s)-v(s)) + 4\|x^d\|_\infty \max |v_k(s)-v(s)| \to 0
+        \end{align*}
+        . However, there is no solution potential minimizing sequence \[
+            x_n(s) = \begin{cases} 1 &s > \frac{1}{n}\\ n \leq &-\frac{1}{n} \leq s \leq \frac{1}{n} \\ -1 &s<\frac{-1}{n} \end{cases}
+        .\] 
+    \item To see this, consider
+        \begin{align*}
+            0 &\leq f(x_n) = \int_{- \frac{1}{k}}^0 (ns +1)^2 \, ds + \int_0^{\frac{1}{n}} (ns-1)^2 \,ds \\
+              &=2 \cdot \int_0^{\frac{1}{n}} (ks-1)^2 \, ds \leq \frac{2}{n} \to 0
+        \end{align*}
+        but \[
+        f(x) = 0 \iff (x(s)-x^d(s))^2=0 \forall s \implies x=x^d \notin \mathcal{C}
+        .\] 
+    \end{enumerate}
+\end{eg}
+It can be even worse:
+\begin{eg}
+    The Lavrentier phenomenon is concerned with the functional 
+    \[
+        \mathcal{J}[u]=\int_0^1 (u(t)^3-t)^2 u'(t)^6 \, dt \to \min
+    \] s.t. $u(0)=0$ and $u(1)=1$.
+    \begin{enumerate}
+        \item $u \in \mathcal{C}^1((0,1))$ leads to $v(t)=\sqrt[3]{t}$ with $\mathcal{J}[v]=0$.
+        \item $u \in \mathcal{C}^{0,1}((0,1))$ but $\inf \mathcal{J}[v] \geq c >0$.
+    \end{enumerate}
+\end{eg}
+\section{Existence of Solutions}
+Consider a problem $(P)$ consisting of finding $\min f(x)$ s.t. $\sigma(x) \in K$ under the following assumptions $(A1)$:
+\begin{enumerate}
+    \item $f: X \to \mathbb{R}$, $X$ is Banach and $f$ is lower semi-continuous.
+    \item $\sigma: X \to Z$, $Z$ is Banach and $\sigma$ is continuous.
+    \item $K \subset Z$ closed and convex
+\end{enumerate}
+\subsection*{Existence by Compactness}
+\begin{theorem}[Existence by Compactness]
+    Assuming $(A1)$, assume also that there is $x^0 \in X^\text{ad}$ such that \[
+        \mathscr{L}_f(x^0) := \{x \in X^\text{ad} \mid f(x) \leq f(x^0)\} 
+    \] is compact and non-empty. Then, $(P)$ has a solution. 
+\end{theorem}
+\begin{proof}
+    Let $(x_k)_k \in X^\text{ad}$ be a minimizing sequence such that $f(x_k) \to \inf_{x \in X^\text{ad}} f(x)$. W.l.o.g., we can assume $x_k \in \mathscr{L}_f(x^0)$, so $x_k \to \overline{x} \in \mathscr{L}_f(x^0)$ since we have a convergent subsequence. Hence,
+    \[
+        f(\overline{x}) = f(\lim x_k) \leq \liminf_{k \to \infty} f(x_k) = \inf_{x \in X^\text{ad}} f(x)
+    ,\] and therefore $\overline{x} \in X^\text{ad}$ (lower subcontinuity).
+\end{proof}
