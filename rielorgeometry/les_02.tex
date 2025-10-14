@@ -1,0 +1,37 @@
+\chapter{Riemannian Geometry}
+In this chapter, we are concerned with Riemannian manifolds as metric spaces. The main goal is to prove the theorem of Hopf-Rinow.
+\begin{definition}[Regular Curve]
+   A piecewise $\mathcal{C}^1$-curve \[
+       \gamma: [a,b] \to M
+   \] is called \textbf{regular} if 
+   \[
+       \forall s \in [a,b]:\, \dot{\gamma}(s)\neq 0
+   \] and \[
+   \dot{\gamma}_{\pm}(t_i) \neq 0
+   \] at all $\mathcal{C}^1$-break-points.
+\end{definition} 
+\begin{definition}[Arc-length]
+    Let $(M,g)$ be a semi-Riemannian manifold and $\gamma: [a,b]\to M$ a (piecewise) $\mathcal{C}^1$-curve. The \textbf{arc-length} is defined to be the functional
+    \[
+        L[\gamma] = \int_a^b \sqrt{| g(\dot{\gamma}(t), \dot{\gamma}(t))|} \, dt
+    .\] 
+\end{definition}
+\begin{remark}
+   \begin{enumerate}
+      \item In the Riemannian case, the $| \cdot |$ is redundant.
+        \item In semi-Riemannian geometry, there are curves with $L[\gamma]=0$.
+        \item The arc-length functional is invariant under length parametrization.
+        \item If $\gamma$ is regular, there exists a strictly monotonous reparametrization \[
+            \phi: [\tilde{a}, \tilde{b}] \to [a,b] \] such that $\tau := \gamma \circ \phi$ satisfies $g(\dot{\tau}, \dot{\tau})=1$. This is a reparametrization by arc-length: \[
+            L[\tau_{[\tilde{a},s]}]=s-\tilde{a}
+        \] for all $s \in [\tilde{a}, \tilde{b}]$.
+   \end{enumerate} 
+\end{remark}
+
+\begin{theorem}[Gauß' Lemma]
+   The exponential map is a radial isometry: For any $p \in M$, $x \in \mathcal{D}_p$ and $v,w \in T_x(T_pM) \cong T_pM$ with $v = \alpha x$ for some $\alpha \in \mathbb{R}$, the equations \[
+       g_{\exp_p(x)}(d(\exp_p(v))_x, d(\exp_p(w))_x)=g_p(v,w)
+   \]  and \[
+   \dot{\gamma}(t)=\frac{d}{dt}\exp_p(tv)
+   \] hold.
+\end{theorem}

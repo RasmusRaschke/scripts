@@ -1,0 +1,88 @@
+\chapter{Introduction}
+\setcounter{section}{-1}
+\section{Review of important topics}
+\begin{definition}[Riemannian and Lorentzian Metrics]
+   Let $\nu \in \mathbb{N}$ with $0 \leq \nu \leq n$. A \textbf{semi-Riemannian metric} of \textbf{index} $\nu$ is a $(0,2)$-tensor field such that \[
+   g_p: T_pM \times T_pM \to \mathbb{R}
+   \] is a symmetric non-degenerate bilinear form on $T_pM$ with index $\nu$. We say:
+   \begin{itemize}
+       \item $\nu = 0$: $g$ is \textbf{Riemannian}.
+        \item $\nu =1$: $g$ is \textbf{Lorentzian}.
+   \end{itemize}
+\end{definition}
+In the Lorentzian case, we take the convention $(-,+,+,\dots)$.
+\begin{theorem}[Levi-Civita Connection]
+   Given a semi-Riemannian manifold $(M,g)$, there exists exactly one connection $\nabla^g$, called the \textbf{Levi-Civita connection}, such that:
+   \begin{itemize}
+       \item $\nabla^g$ is symmetric: $\nabla_X Y - \nabla_Y X = [X,Y]$
+       \item $\nabla^g$ is compatible with $g$: $Zg(X,Y)= g(\nabla_Z X, Y) + g(X, \nabla_Z Y)$
+        \item The Koszul identity is satisfied.
+   \end{itemize}
+\end{theorem}
+\begin{definition}[Geodesic]
+    A $\mathcal{C}^\infty$-curve $\gamma: (a,b) \to M$ is called a \textbf{geodesic} if $\dot{\gamma}$ is $\nabla^g-$\emph{parallel} along $\gamma$, i.e. \[
+        \ddot{\gamma}(t)= \nabla^g_{\frac{d}{dt}} \dot{\gamma}=0
+    .\]
+\end{definition}
+In local coordinates, one finds the \emph{geodesic equation}
+\[
+    0 = \frac{d^2}{dt^2} (x^i \circ \gamma) + (\Gamma_{kl}^i \circ \gamma) \frac{d}{dt}(x^k \circ \gamma) \frac{d}{dt} (x^l \circ \gamma)
+.\] 
+\begin{theorem}[Maximal Geodesic]
+    For all $v \in TM$, there is exactly one geodesic \[
+    \gamma_v: I_v \to M
+\] such that $\gamma_v(0)=\pi \|v\|$ and $\dot{\gamma}_v (0)=v$ and $I_v$ is maximal.
+\end{theorem}
+\subsection*{Exponential Map}
+\begin{definition}[Exponential Map]
+    Define the (Riemannian) \textbf{exponential map}
+    \[
+    \exp_p: \mathcal{D}_p \subseteq T_pM \to M
+    \] by
+    \[
+        (p,v) \mapsto \exp_p(v) := \gamma_v(1)
+    \] where $\gamma_v$ is the unique maximal geodesic.
+\end{definition}
+We always have \[
+    \mathcal{D}_p \supseteq \{tv \in T_pM \mid t \in [0,1]\} 
+.\] 
+We can consider $s \mapsto \gamma_v(st)$ for fixed $t \in \mathbb{R}$. Then, we have \[
+    \dot{\gamma}_v(st)=t\dot{\gamma}_v(0)=tv=\dot{\gamma}_{tv}(s)
+\] for all $s$, and therefore $\gamma_{tv}(s)=\gamma_v(ts)$. This yields the useful formula \[
+\exp_p(tv)=\gamma_{tv}(1)=\gamma_v(t)
+.\] 
+\begin{lemma}
+    For all $p \in M$, \[
+    d(\exp_p)_0: T_0(T_pM) \cong T_pM \to T_pM
+\] is the identity $d(\exp_p)_0 = \id$ under the identification $\id(v^i \partial_{u_i}|_0)=v^i \partial_{x_i}|_p$.
+\end{lemma}
+\begin{definition}[Normal Neighbourhood]
+    An open set $U \ni p$ is a \textbf{normal neighbourhood}  of $p$ if there exists an open set $\tilde{U} \ni o_p \subseteq \mathcal{D}_p$ which is star-shaped such that \[
+        \exp_p|_{\tilde{U}}: \tilde{U} \to U
+    \] is a diffeomorphism.
+\end{definition}
+\begin{theorem}[Existence of Normal Neighbourhoods]
+    For any $p \in M$, there is a normal neighbourhood around $p$. 
+\end{theorem}
+\begin{proof}
+    Inverse function theorem.
+\end{proof}
+\begin{definition}[Convex Neighbourhood]
+    $U$ is a \textbf{convex neighbourhood} if it is a normal neighbourhood for all $q \in U$.
+\end{definition}
+\begin{remark}
+    If $U$ is a normal neighbourhood of $p$, then for all $q \in U$ there is exactly one geodesic $\gamma_{pq}$ in $U$ from $p$ to $q$, called \textbf{radial geodesic}.
+\end{remark}
+\begin{theorem}[Normal Coordinate Lines]
+    For all $p \in M$ and a basis $\{v_1, \dots, v_n\}$ of $T_pM$ exists a chart $(U, (x^1, \dots, x^n))$ such that:
+    \begin{enumerate}
+        \item $U$ is a normal neighbourhood of $p$.
+        \item $\partial_i|_p = v$
+        \item $\Gamma_{ij}^k =0$ for all $i,j,k$.
+    \end{enumerate}
+If the basis $\{v_1, \dots, v_n \}$ is orthonormal, we also have \[
+    g_{ij}(p)=\epsilon_i \delta_{ij}
+\] and \[
+\partial_k g_{ij}(p)=0
+.\]  The chart $(U,(x^1, \dots, x^n))$ is called \textbf{normal coordinate chart}.
+\end{theorem}
