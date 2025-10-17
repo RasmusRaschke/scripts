@@ -1,0 +1,130 @@
+\chapter{Riemannian Geometry}
+In this chapter, we are concerned with Riemannian manifolds as metric spaces. The main goal is to prove the theorem of Hopf-Rinow.
+\begin{definition}[Regular Curve]
+   A piecewise $\mathcal{C}^1$-curve \[
+       \gamma: [a,b] \to M
+   \] is called \textbf{regular} if 
+   \[
+       \forall s \in [a,b]:\, \dot{\gamma}(s)\neq 0
+   \] and \[
+   \dot{\gamma}_{\pm}(t_i) \neq 0
+   \] at all $\mathcal{C}^1$-break-points.
+\end{definition} 
+\begin{definition}[Arc-length]
+    Let $(M,g)$ be a semi-Riemannian manifold and $\gamma: [a,b]\to M$ a (piecewise) $\mathcal{C}^1$-curve. The \textbf{arc-length} is defined to be the functional
+    \[
+        L[\gamma] = \int_a^b \sqrt{| g(\dot{\gamma}(t), \dot{\gamma}(t))|} \, dt
+    .\] 
+\end{definition}
+\begin{remark}
+   \begin{enumerate}
+      \item In the Riemannian case, the $| \cdot |$ is redundant.
+        \item In semi-Riemannian geometry, there are curves with $L[\gamma]=0$.
+        \item The arc-length functional is invariant under length parametrization.
+        \item If $\gamma$ is regular, there exists a strictly monotonous reparametrization \[
+            \phi: [\tilde{a}, \tilde{b}] \to [a,b] \] such that $\tau := \gamma \circ \phi$ satisfies $g(\dot{\tau}, \dot{\tau})=1$. This is a reparametrization by arc-length: \[
+            L[\tau_{[\tilde{a},s]}]=s-\tilde{a}
+        \] for all $s \in [\tilde{a}, \tilde{b}]$.
+   \end{enumerate} 
+\end{remark}
+
+\begin{theorem}[Gauß' Lemma]
+   The exponential map is a radial isometry: For any $p \in M$, $x \in \mathcal{D}_p$ and $v,w \in T_x(T_pM) \cong T_pM$ with $v = \alpha x$ for some $\alpha \in \mathbb{R}$, the equations \[
+       g_{\exp_p(x)}(d(\exp_p(v))_x, d(\exp_p(w))_x)=g_p(v,w)
+   \]  and \[
+   \dot{\gamma}(t)=\frac{d}{dt}\exp_p(tv)
+   \] hold.
+\end{theorem}
+
+\subsection{Lecture 17.10.2025}
+
+\begin{theorem}[Minimizing Geodesic]
+    Let $(M,g)$ be a Riemannian manifold and $U$ be a normal neighbourhood of $p \in M$. Then, $\gamma_{pq}$ is the shortest curve from $p$ tp $q$ unique up to monotonically increasing, piecewise $\mathcal{C}^1$ reparametrization.
+\end{theorem}
+\begin{proof}
+    Let $\omega: [a,b] \to M$ be a piecewise $\mathcal{C}^1$ curve in $U$ from $p$ to $q$. W.l.o.g., $a=0$, $b=1$ and $\omega([0,1]) \subseteq U \setminus \{p\}$. We can write \[
+    \omega(t)= \exp_p(R(t)v(t))
+\] with $R(t):=|\exp_p^{-1}(\omega(t))|_{g_p}$ and $v(t):= \frac{\exp_p^{-1}(\omega(t))}{|\exp_p^{-1}(\omega(t))|_{g_p}}$ such that $v \in \mathbb{S}^{m-1}_{g_p} \subseteq T_pM$. Both $R$ and $v$ are piecewise $\mathcal{C}^1$ and $R(t) \in (0, \infty)$ for $t > 0$, since $\omega(t)$ does not meet $p$ again. Away from the breakpoints, we have \[
+\dot{\omega}(t)= d_{R(t)v(t)}\exp_p([R(t)v(t)])=R(t) \underbrace{d_{R(t)v(t)}\exp_p(\dot{v}(t))}_{:=A} + \dot{R}(t)\underbrace{d_{R(t)v(t)}\exp_p(v(t))}_{:=B}
+.\]  With this, we can calculate \[
+g(\dot{\omega}(t),\dot{\omega}(t))=R^2(t)g(A,A)+R(t)\dot{R}(t)g(A,B)+ \dot{R}(t)g(B,B)
+\] and \[
+g(B,B)= g(d_{R(t)v(t)}\exp_p(v(t)),d_{R(t)v(t)}\exp_p(v(t))) = g_p(v(t),v(t))=1
+,\] where we used Gauß' Lemma.\\
+Turning our attention to the second term, we obtain 
+\begin{align*}
+    g(A,B) &= g(d_{R(t)v(t)}\exp(v(t)),d_{R(t)v(t)}\exp_p(\dot{v}(t))) \\
+           &= g_p(v(t),\dot{v}(t))=\frac{1}{2}\frac{d}{dt} g_p(v(t),v(t))=0.
+\end{align*}
+For the arc-length, this yields
+\begin{align}
+    L[\omega] &= \int_0^1 \sqrt{g(\dot{\omega}(t), \dot{\omega}(t))} \, dt \\
+              &\geq \int_0^1 \sqrt{\dot{R}^2(t)} \, dt \geq \int_0^1 \dot{R}(t) \, dt \\
+              &= R(1)-R(0) = |\exp_p^{-1}(q)|_{g_p} = L[\gamma_{pq}]
+\end{align} where the last equation is left as an exercise.
+\end{proof}
+\begin{remark}
+    We actually have equality if:
+    \begin{enumerate}
+        \item If $d_{R(t)v(t)}\exp_p(\dot{v}(t))=0$, we have $\dot{v}(t)=0$ and $v=\frac{\exp_p^{-1}(q)}{|\exp_p^{-1}(q)|_{g_p}}$, hence $\omega(t)=\exp_p \left(\frac{R(t)}{|\exp_p^{-1}(q)|_{g_p}}\exp_p^{-1}(q) \right)$.
+        \item If $\dot{R}(t)\geq 0$
+    \end{enumerate}
+\end{remark}
+With this result and the convex neighbourhood theorem, one obtains that any piecewise $\mathcal{C}^1$-curve minimizing $L$ from $p$ to $q$ must be a broken geodesic.
+\begin{theorem}[Normal Basis]
+    Let $(M,g)$ be a Riemannian manifold. Then, every point $p\in M$ has a basis of normal neighbourhoods $\{U_\epsilon\}$ of the form $U_\epsilon = \exp_p^{-1}(B_\epsilon(0))$ and such that for all $q \in U_\epsilon$, $\gamma_{pq}$ is the shortest curve from $p$ to $q$ in $M$.
+\end{theorem}
+\begin{proof}
+    Idea: Show that any piecewise $\mathcal{C}^1$ shortest curve starting from $o$ and leaving $U_\epsilon$ has $L \geq \epsilon$ ($\implies L < \epsilon$).
+\end{proof}
+\begin{definition}[Induced Metric]
+   Let $(M,g)$ be a Riemannian manifold. The \textbf{induced distance function} by $g$ is given by \[
+       d_g(p,q):=\inf \left\{ L_g[\gamma] \mid \gamma: [a,b] \to M \text{ pw. cont.,} \, \gamma(a)=p, \gamma(b)=q\right\}
+   \] for all $p,q \in M$. A piecewise $\mathcal{C}^1$-curve is \textbf{minimizing} if \[
+   d_g(p,q)=L[\gamma].
+   .\] 
+\end{definition}
+\begin{theorem}[Hopf-Rinow]
+    Let $(M,g)$ be a Riemannian manifold. The induced distance function \[d_g: M \times M \to \mathbb{R}\] is a distance function and the topology induced by $d_g$ conincides with the topology of $M$.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item For finiteness, let $\gamma$ be a $\mathcal{C}^1$ geodesic connecting $p$ and $q$. We can cover the image of $\gamma$ by a finite amount of sets and connect between the intersection points with geodesics. 
+        \item For $d(p,q) \geq 0$, we start by showing that $d(p,q)=0 \implies p=q$. If $p \neq q$, we can find a normal neighbourhood $U_\epsilon \ni p$ such that $q \notin U_\epsilon$ by the Hausdorff condition. Hence, $d(p,q)\geq \epsilon \neq 0$.
+        \item Next, we show symmetry. This is clear from the reparametrization invariance of $L$, using $t \mapsto \gamma(-t)$.
+        \item For the triangle equality, let $p,q,x \in M$. For any $\epsilon > 0$, choose $\gamma_1,\gamma_2$ such that
+        \begin{align*}
+            L[\gamma_1] &\leq d(p,x) + \frac{\epsilon}{2}\\
+            L[\gamma_2] &\leq d(x,q) + \frac{\epsilon}{2}.
+        \end{align*}
+        Joining $\gamma_1$ and $\gamma_2$, we have $\gamma = \gamma_1 \ast \gamma_2$ with \[
+            d(p,q)\leq L[\gamma] = L[\gamma_1]+L[\gamma_2] \leq d(p,x)+d(x,q)+ \epsilon
+        \] and $\epsilon > 0$ is arbitrary.
+    \item Lastly, we have to prove that the topologies agree. This means showing that \[
+            U_\epsilon = B_\epsilon^d(p):= \{q \in M \mid d(p,q)<\epsilon\}
+        \] for $U_\epsilon$ from theorem \ref{thm:normalBasis}. By the same theorem, $U_\epsilon$ is a basis, and by definition, so is $B_\epsilon^d(p)$. Now, we have:
+        \begin{itemize}
+            \item \[\forall q \in U_\epsilon \implies d(p,q)=L[\gamma_{pq}] < \epsilon \implies U_\epsilon \subseteq B_\epsilon^d(p) \]
+        \item $\forall q \in B_\epsilon^d(p)$ there is a curve such that $\gamma(a)=p$, $\gamma(b)=q$ and $L[\gamma]<\epsilon$. But any curve leaving $U_\epsilon$ has length $L \geq \epsilon$, so $B_\epsilon^d(p) \subseteq U_\epsilon$. 
+        \end{itemize}
+   \end{enumerate} 
+\end{proof}
+\begin{remark}
+    Any Riemannian manifold is metrizable.
+\end{remark}
+We will now consider another kind of length.
+\begin{definition}[Piecewise Arc-length]
+    Let $\gamma: [a,b] \to M$ be a $\mathcal{C}^0$ curve. The piecewise length is given by \[
+        L_d[\gamma]:=\sup_{N \in \mathbb{N}} \sup \left\{ \sum_{i=1}^N d(\gamma(t_i), \gamma(t_{i+1})) \mid a=t < \cdots < t_i <t_i+1 < \cdots < t_N=b\right\}.
+    .\]  
+\end{definition}
+\begin{theorem}[Piecewise Length]
+    If $\gamma$ is piecewise $\mathcal{C}^1$, then \[
+        L_d[\gamma]=L[\gamma]
+    .\] 
+\end{theorem}
+\begin{proof}
+    \[
+        \sum_{i=1}^N d(\gamma(t_i),\gamma(t_{i+1})) \leq L[\gamma|_{[t_i,t_{i+1}]}] \leq L[\gamma]
+    .\]  Taking the supremum, we have $L_d[\gamma]\leq L[\gamma]$.
+\end{proof}
