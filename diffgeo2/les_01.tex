@@ -1,7 +1,32 @@
 \chapter{Introduction}
 \setcounter{section}{-1}
 \section{Review of important topics}
-\subsection{Lecture 14.10.25}
+\subsection{\blue{Lecture 14.10.25}}
+\begin{definition}[Integral Curve]
+    Let $X \in \Gamma(TM)$ and $\gamma: I \to M$ be a smooth curve. We call $\gamma$ \textbf{integral curve} of $X$ if \[
+        \dot{\gamma}(t)=X_{\gamma(t)}
+    .\] Furthermore, $\gamma$ is maximal if for all other integral curves $\omega: J \to M$ with $I \cap J \neq \emptyset$ and $\omega|_{I \cap J}=\gamma|_{I \cap J}$ we have $J \subseteq I$.
+\end{definition}
+\begin{theorem}[Existence of Integral Curves]
+    Let $X \in \Gamma(TM)$. For all $p \in M$ exists a unique maximal integral curve $\gamma_p: I_p \to M$ of $X$ with $\gamma_p(0)=p$.
+\end{theorem}
+\begin{definition}[Local Flow]
+    Let $X \in \Gamma(TM)$. A \textbf{local flow} of $X$ is a smooth map \[
+    \Theta: I \times U \to M
+    \] where $I \subseteq \mathbb{R}$ is an open interval, $0 \in I$ and $U \subseteq M$ is open such that \[
+    \Theta(t,p)=\gamma_p(t)
+    ,\]  where $\gamma_p$ is the maximal integral curve of $X$ with $\gamma_p(0)=p$ for all $(t,p) \in I \times U$.
+\end{definition}
+\begin{note}
+    Similarly, a maximal flow for $X \in \Gamma(TM)$ is a smooth map $\Theta: \mathcal{D} \to M$ with \[
+        \mathcal{D}:=\bigcup_{p \in M} I_p \times \{p\} \subseteq \mathbb{R} \times M
+    \] being open. We call $\mathcal{D}$ the \textbf{maximal domain}. It always containes $\{0\} \times M$. A \textbf{global flow} is then a unique maximal flow with $\mathcal{D}=\mathbb{R} \times M$.
+\end{note}
+\begin{notation}
+    To emphasize that $\Theta$ depends on $X$, we write $\Theta_X$ and $\mathcal{D}^X$. Fixing $t \in \mathcal{D}$, we write \[
+        \theta_t: \mathcal{D} \cap (\{t\} \times M) \to M
+    \] with $\theta_t(p):=\Theta(t,p)$ .
+\end{notation}
 \begin{definition}[Riemannian and Lorentzian Metrics]
    Let $\nu \in \mathbb{N}$ with $0 \leq \nu \leq n$. A \textbf{semi-Riemannian metric} of \textbf{index} $\nu$ is a $(0,2)$-tensor field such that \[
    g_p: T_pM \times T_pM \to \mathbb{R}
@@ -13,13 +38,31 @@
 \end{definition}
 In the Lorentzian case, we take the convention $(-,+,+,\dots)$.
 \begin{theorem}[Levi-Civita Connection]
-   Given a semi-Riemannian manifold $(M,g)$, there exists exactly one connection $\nabla^g$, called the \textbf{Levi-Civita connection}, such that:
+   Given a semi-Riemannian manifold $(M,g)$, there exists exactly one connection \[
+   \nabla: \mathfrak{X}(M) \times \mathfrak{X}(M) \to \mathfrak{X}(M)
+   \] , called the \textbf{Levi-Civita connection}, such that:
    \begin{itemize}
-       \item $\nabla^g$ is symmetric: $\nabla_X Y - \nabla_Y X = [X,Y]$
+       \item $\nabla^g$ is torsion-free: $\nabla_X Y - \nabla_Y X = [X,Y]$
        \item $\nabla^g$ is compatible with $g$: $Zg(X,Y)= g(\nabla_Z X, Y) + g(X, \nabla_Z Y)$
-        \item The Koszul identity is satisfied.
+        \item The Koszul identity is satisfied:
+            \begin{align*}
+                2g(\nabla_XY,Z) = &X(g(Y,Z))+Y(g(X,Z)) - Z(g(X,Y)) \\
+                                  &-g (X, [Y,Z])-g(Y,[X,Z])+g(Z,[X,Y])
+            \end{align*}.
    \end{itemize}
 \end{theorem}
+\begin{definition}[Riemann Curvature Tensor]
+    The \textbf{Riemann Curvature Tensor} is the $(1,3)$-tensor field 
+    \begin{align*}
+    R: \mathfrak{X}(M)^3 \to \mathfrak{X}(M)
+    \end{align*}
+    given by $R(X,Y)Z=\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z$.
+\end{definition}
+\begin{remark}
+    In local coordinates $(x^i)$, we have \[
+        R_{ijk}^l := (R(\partial_i,\partial_j)\partial_k)^l = \partial_i \Gamma_{jk}^l-\partial_j \Gamma_{ik}^l + \Gamma_{is}^l \Gamma_{jk}^s - \Gamma_{js}^l\Gamma_{ik}^s
+    .\] 
+\end{remark}
 \begin{definition}[Geodesic]
     A $\mathcal{C}^\infty$-curve $\gamma: (a,b) \to M$ is called a \textbf{geodesic} if $\dot{\gamma}$ is $\nabla^g-$\emph{parallel} along $\gamma$, i.e. \[
         \ddot{\gamma}(t)= \nabla^g_{\frac{d}{dt}} \dot{\gamma}=0
