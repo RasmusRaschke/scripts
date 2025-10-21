@@ -1,5 +1,6 @@
 \chapter{Riemannian Geometry}
 In this chapter, we are concerned with Riemannian manifolds as metric spaces. The main goal is to prove the theorem of Hopf-Rinow.
+\section{Riemannian Manifolds as Metric Spaces}
 \begin{definition}[Regular Curve]
    A piecewise $\mathcal{C}^1$-curve \[
        \gamma: [a,b] \to M
@@ -84,7 +85,7 @@ With this result and the convex neighbourhood theorem, one obtains that any piec
    d_g(p,q)=L[\gamma].
    .\] 
 \end{definition}
-\begin{theorem}[Hopf-Rinow]
+\begin{theorem}[Manifolds as Metric Spaces]
     Let $(M,g)$ be a Riemannian manifold. The induced distance function \[d_g: M \times M \to \mathbb{R}\] is a distance function and the topology induced by $d_g$ conincides with the topology of $M$.
 \end{theorem}
 \begin{proof}
@@ -113,18 +114,74 @@ With this result and the convex neighbourhood theorem, one obtains that any piec
     Any Riemannian manifold is metrizable.
 \end{remark}
 We will now consider another kind of length.
-\begin{definition}[Piecewise Arc-length]
-    Let $\gamma: [a,b] \to M$ be a $\mathcal{C}^0$ curve. The piecewise length is given by \[
-        L_d[\gamma]:=\sup_{N \in \mathbb{N}} \sup \left\{ \sum_{i=1}^N d(\gamma(t_i), \gamma(t_{i+1})) \mid a=t < \cdots < t_i <t_i+1 < \cdots < t_N=b\right\}.
-    .\]  
+\begin{definition}[Metric Arc-length]
+    Let $(M,g)$ be a Riemannian manifold and $\gamma: [a,b] \to M$ be a $\mathcal{C}^0$ curve. The metric length is given by \[
+        L_d[\gamma]:=\sup_{N \in \mathbb{N}} \sup \left\{ \sum_{i=1}^N d(\gamma(t_i), \gamma(t_{i+1})) \mid a=t < \cdots < t_i <t_{i+1} < \cdots < t_N=b\right\}.
+    \]  
 \end{definition}
-\begin{theorem}[Piecewise Length]
-    If $\gamma$ is piecewise $\mathcal{C}^1$, then \[
+\begin{theorem}[Geodesic equals Metric Length]
+    If $(M,g)$ is a Riemannian manifold and $\gamma: [a,b] \to M$ is piecewise $\mathcal{C}^1$, then \[
         L_d[\gamma]=L[\gamma]
     .\] 
 \end{theorem}
 \begin{proof}
     \[
         \sum_{i=1}^N d(\gamma(t_i),\gamma(t_{i+1})) \leq L[\gamma|_{[t_i,t_{i+1}]}] \leq L[\gamma]
-    .\]  Taking the supremum, we have $L_d[\gamma]\leq L[\gamma]$.
+    .\]  Taking the supremum, we have $L_d[\gamma]\leq L[\gamma]$. Now, we show that $L_d[\gamma]\geq L[\gamma]$. For this, we want to show that $t \mapsto L_d[\gamma|_{[0,t]}]$ is differentiable away from breakpoints with derivative $\|\dot{\gamma}(t)\|_g = \frac{d}{dt} L[\gamma|_{[0,t]}]$. So let $\delta > 0$ and consider \[
+    \frac{1}{\delta} d(\gamma(t),\gamma(t+\delta)) \leq \frac{1}{\delta} L_d[\gamma|_{[t,t+\delta]}] \leq \frac{1}{\delta} L[\gamma|_{[t,t+\delta]}] \overset{\delta \to 0}\longrightarrow \|\dot{\gamma}\|
+.\] It remains to show that $\frac{1}{\delta} d(\gamma(t),\gamma(t+\delta)) \to \|\dot{\gamma}(t)\|_g$. Let $\epsilon > 0$ and $U$ be a normal neighbourhood of $\gamma(t)$. For $\delta$ small enough, $\gamma(t+\delta)\in U$ and $d(\gamma(t),\gamma(t+\delta)) = \|\exp^{-1}_{\gamma(t)}(\gamma(t+\delta)) \|_g$. So
+\begin{align*}
+    \lim_{\delta \to 0^+} \frac{1}{\delta} d(\gamma(t),\gamma(t+\delta)) &= \lim_{\delta \to 0^+} \frac{1}{\delta} \| \exp^{-1}_{\gamma(t)}(\gamma(t+\delta))\|_g\\
+                                                                         &= \| \lim_{\delta \to 0^+} \frac{1}{\delta} \left( \exp^{-1}_{\gamma(t)} (\gamma(t + \delta))-\exp^{-1}_{\gamma(t)}(\gamma(1))\right) \|_g = \| \left.\frac{d}{ds}\right|_{s=t} \exp^{-1}_{\gamma(t)}(\gamma(s)) \|_g \\
+                                                                         &= \| \underbrace{d_{\gamma(t)}(\exp^{-1}_{\gamma(t)})}_{=(d_0\exp_{\gamma(t)})^{-1}=\id}(\dot{\gamma}(t))\|_g = \|\dot{\gamma}(t)\|_g 
+\end{align*}
 \end{proof}
+\subsection{\textcolor{blue}{Lecture 21.10.25}}
+\begin{lemma}
+    If $\gamma: [a,b] \to M$ is continuous from $p \in M$ to $q \in M$ and $L_d[\gamma]=d(p,q)$, then there exists an unbroken geodesic $\omega$ from $p$ to $q$ with the same image as $\gamma$ and $L[\omega]=d(p,q)$.
+\end{lemma}
+\begin{ex}
+   Prove the preceeding lemma. 
+\end{ex}
+\subsection*{Interlude: Extendibility of Geodesics}
+\begin{note}
+   In this interlude, we allow $g$ to be semi-Riemannian. 
+\end{note}
+\begin{definition}[Continuously Extendibility]
+    A curve $\gamma: [a,b) \to M$ is \textbf{continuously extendible} if there is some $q \in M$ with \[
+        q = \lim_{t \to b} \gamma(t).
+    .\] 
+\end{definition}
+\begin{lemma}
+    A geodesic $\gamma: [a,b) \to M$ in a semi-Riemannian manifold $(M,g)$ is \emph{continuously extendible} if and only if it is extendible as a geodesic, i.e. there exists a geodesic $\overline{\gamma}: [a,b+\epsilon) \to M$ with $\overline{\gamma}|_{[a,b)} = \gamma$.  
+\end{lemma}
+\begin{proof}
+    Assume $q = \lim_{t \to b} \gamma(t)$. There exists a convex neighbourhood $U$ of $q$. We can find $\epsilon$ such that $\gamma([b-\epsilon,b)) \subseteq U$. Let $\overline{\gamma}: I \to M$ be the unique maximal geodesic with initial data $\overline{\gamma}(0)=\gamma(b-\epsilon)$ and $\dot{\overline{\gamma} }(0)=\exp^{-1}_{\gamma(b-\epsilon)}(q)\in T_{\gamma(b-\epsilon)}M.$ Since $\overline{\gamma}(1)=q$, we can affinely reparametrize $\overline{\gamma}$ to obtain a geodesic $\omega: J \to M$ with $[a,b] \subseteq J$ and $\omega(b-\epsilon) = \gamma(b-\epsilon)$ and $\omega(b)=q$. The reparametrization is given by $\omega(t)=\overline{\gamma}(\frac{t-(b-\epsilon)}{\epsilon}).$ So we have found a geodesic extending $\gamma$.     
+\end{proof}
+\begin{note}
+    We can choose such $\overline{\gamma}$ since $\exp^{-1}_p$ is defined on a normal neighbourhood $U$ of $p$ and is a map $U \to T_pM$. Applying this to $p=\gamma(b-\epsilon)$, one gets a vector $v:=\exp_p^{-1}(q)\in T_pM$. Then, let $\overline{\gamma}$ be the geodesic starting in $p$ with initial velocity $v$. We have $\overline{\gamma}(1)=q$ since $\exp_p(v):=\overline{\gamma}_v(1)$ and \[
+    \overline{\gamma}_v(1)=\exp_p(v)=\exp_p(\exp^{-1}(q))=q 
+    .\]     
+\end{note}
+\section{The Theorem of Hopf-Rinow}
+\begin{theorem}[Hopf-Rinow]
+   Let $(M,g)$ be a Riemannian manifold. Then the following are equivalent:
+   \begin{enumerate}
+       \item The metric space $(M,d_g)$ is complete.
+        \item $(M,g)$ is geodesically complete.
+        \item There exists some $p \in M$ such that $\exp_p$ is defined on all of $T_pM$.\footnote{This is equivalent to all geodesics starting at $p$ being complete.}
+        \item The Heine-Borel property holds, i.e. a subset $A \subseteq M$ is compact if and only if it is bounded\footnote{In this case, this means that there is $C > 0$ such that $d(x,y) \leq C$ for all $x,y \in A$.} and closed.
+   \end{enumerate}
+   Each of these properties implies in addition: For all $p,q \in M$ there exists a \emph{minimizing geodesic} $\gamma$ from $p$ to $q$ with $L[\gamma] = d(p,q)$.
+\end{theorem}
+\begin{lemma}
+    Let $p \in M$, $q \in B_r(p)=\{x \in M \mid d(x,p)<r\}$. If $\overline{B_r(p)}$ is compact, then there exists a continuous curve $\gamma$ from $p$ to $q$ with $L_d[\gamma]=d(p,q)$. 
+\end{lemma}
+\begin{ex}
+    Show that the lemma implies that there is a minimizing geodesic from $p$ to $q$.
+\end{ex}
+\begin{intuition}
+The idea is to take a piecewise $\mathcal{C}^1$ family of curves $\gamma_n$ with $L[\gamma_n] \to d(p,q)$ which yields that there exists a subsequence of $\gamma_n$ converging nicely enough to some curve $\gamma$ such that $\gamma$ is continuous (Arzela-Ascoli) and such that \[
+L_d[\gamma] \leq \liminf_{n \to \infty} L[\gamma_n]=d(p,q)
+.\] 
+\end{intuition}

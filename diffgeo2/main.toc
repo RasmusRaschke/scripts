@@ -2,4 +2,7 @@
 \contentsline {section}{\numberline {1.0}Review of important topics}{2}{}%
 \contentsline {subsection}{\numberline {1.0.1}\textcolor {blue}{Lecture 14.10.25}}{2}{}%
 \contentsline {chapter}{\numberline {2}Riemannian Geometry}{6}{}%
-\contentsline {subsection}{\numberline {2.0.1}Lecture 17.10.2025}{7}{}%
+\contentsline {section}{\numberline {2.1}Riemannian Manifolds as Metric Spaces}{6}{}%
+\contentsline {subsection}{\numberline {2.1.1}Lecture 17.10.2025}{7}{}%
+\contentsline {subsection}{\numberline {2.1.2}\textcolor {blue}{Lecture 21.10.25}}{10}{}%
+\contentsline {section}{\numberline {2.2}The Theorem of Hopf-Rinow}{11}{}%
