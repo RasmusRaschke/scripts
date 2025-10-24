@@ -281,3 +281,164 @@ If $M$ is a left $R$-module, the annihilator of some $U \subseteq M$ is a left i
 \{ G-\text{representations}\} \cong \{ K[G]-\text{modules}\}
 .\] 
 \end{remark}
+\subsection{\textcolor{blue}{Lecture 24.10.25}}
+\subsection*{Direct Products and Sums}
+\begin{ex}
+    Let $M,N$ be $R$-modules.
+   \begin{enumerate}
+       \item Show that $\Hom_R(M,N)$ forms an abelian group.
+        \item Show that any $R$-module $M$ is isomorphic to $\Hom_R(R,M)$ as $R$-modules.
+   \end{enumerate} 
+\end{ex}
+\begin{definition}[Direct Product in $\AGrp$]
+    Let $(A_i)_{i \in I}$ be a family of abelian groups. The \textbf{direct product} \[
+        \prod_{i \in I} A_i
+    \] is an abelian group with the induced group structure \[
+    (a_i)_{i \in I} + (b_i)_{i \in I} := (a_i + b_i)_{i \in I}
+    .\]  
+\end{definition}
+\begin{definition}[Direct Product and Sum in $R-\Mod$]
+    Let $(M_i)_{i \in I}$ be a family of $R$-modules.
+    \begin{itemize}
+        \item The \textbf{direct product} \[
+                \prod_{i \in I}M_i
+            \] of $(M_i)_{i \in I}$ is the abelian group $(\prod_{i \in I}M_i,+) $ together with the $R$-module structure \[
+            r \cdot (m_i)_{i \in I} := (rm_i)_{i \in I}
+            .\] 
+        \item The \textbf{direct sum} \[
+                \bigoplus_{i \in I} M_i
+            \] of the family $(M_i)_{i \in I}$ is the submodule of $\prod_iM_i$ given by \[
+            \bigoplus_{i \in I} M_i:= \left\{(m_i)_{i \in I} \mid \text{only finitely many } m_i \neq 0\right\} \subseteq \prod_{i \in I} M_i 
+            .\] 
+    \end{itemize}
+\end{definition}
+\begin{remark}
+   For a finite index set $I$, these notions coincide. The direct product comes with \textbf{canonical projections}
+   \begin{align*}
+       \pi_j: \prod_{i \in I} M_i &\to M_j\\ 
+       (m_i)_{i \in I} &\mapsto m_j,
+   \end{align*}
+   and \textbf{canonical injections}
+   \begin{align*}
+       \iota_j: M_j &\to  \prod_{i \in I} M_i\\
+       m &\mapsto (0,\dots,m ,\dots,0).
+   \end{align*}
+\end{remark}
+\begin{theorem}[Universal Property of Products and Sums]
+    Let $(M_i)_{i \in I}$ be a family of $R$-modules.
+    \begin{itemize}
+    \item The direct product has the following universal property: For each family of $R$-module homomorphisms $(f_i: N \to M_i)_{i \in I}$, there exists a unique $R$-module homomorphism \[
+        f: N \to \prod M_i
+        \]  such that for all $j \in I$,
+        \begin{figure}[H]
+           \centering 
+           \begin{tikzcd}
+               N \ar[d, "f_j"] \ar[r, "\exists ! f", dashed] & \prod M_i \ar[dl, "\pi_j"]\\
+               M_j
+           \end{tikzcd}
+        \end{figure}
+        commutes.
+    \item The direct sum has the following universal property: For each family $(g_i: M_i \to N)_{i \in I}$ of $R$-module homomorphisms there is a unique $R$-module homomorphism \[
+    g: \bigoplus M_i \to N
+    \] such that for all $j \in I$,
+    \begin{figure}[H]
+        \centering
+        \begin{tikzcd}
+            & M_j \ar[dl, "\iota_j"'] \ar[d, "g_j"]\\
+            \bigoplus M_i \ar[r, "\exists ! g", dashed] & N
+        \end{tikzcd}
+    \end{figure}
+    commutes.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+   \begin{enumerate}
+       \item We define $f: N \to \prod M_i$ by \[
+       f(x):=(f_1(x),f_2(x),\dots)
+       \] and check that it satisfies all needed properties.
+        \begin{figure}[H]
+           \centering 
+           \begin{tikzcd}
+               & & M_1\\
+               N \ar[r, dashed, "\exists ! f"] \ar[urr, "f_1"] \ar[drr, "f_2"] & M_1 \oplus M_2 \ar[ur, "\pi_1"]\ar[dr, "\pi_2"']& \\
+                 & & M_2
+           \end{tikzcd}
+        \end{figure}
+        \red{Add commutative diagram, correct upper one}
+   \item We define $g: \bigoplus M_i \to N$ by \[
+g((m_1, \dots, m_n))=g_1(m_1)+\cdots+g_n(m_n)
+   .\] 
+   \end{enumerate} 
+\end{proof} 
+\begin{theorem}[Isomorphism of $\Hom$-Products and -Sums]
+    Let $(M_i)_{i \in I}$ be a family of $R$-modules and $N$ be an $R$-module. Then, the maps
+    \begin{align*}
+        \Hom_R(N, \prod_{i \in I} M_i) &\to \prod_{i \in I} \Hom_R(N,M_i)\\
+        f &\mapsto (\pi_i f)_{i \in I}\\
+        \Hom_R(\bigoplus_{i \in I} M_i, N) &\to \bigoplus_{i \in I} \Hom_R(M_i, N)\\
+        g &\mapsto (g \iota_i)_{i \in I}
+    \end{align*}
+    are isomorphisms of \emph{abelian groups}.
+\end{theorem}
+\begin{ex}
+   Prove or disprove:
+   \begin{enumerate}
+       \item If $M \neq \{0\}$ is an $R$-module, then $M \ncong M \oplus M$. 
+        \item Let $R$ be a ring, $_R M$ an $R$-module and $p:\, _RM \to \, _RM$ an $R$-module homomorphism satisfying $p^2=p$. Then \[
+        M \cong \ker(p) \oplus \im(p)
+        .\] 
+   \end{enumerate}
+\end{ex}
+\subsection*{Tensor Products}
+\begin{definition}[Balanced Maps]
+   Let $R$ be a ring, $M_R$ and $_RN$ be $R$-modules and $A$ be an abelian group. A map \[
+   \beta: M \times N \to A
+   \] is called $R$\textbf{-balanced} if it satisfies:
+   \begin{enumerate}
+       \item $\mathbb{Z}$-bilinearity:
+           \begin{align*}
+               \beta(m+m',n)&=\beta(m,n)+\beta(m',n)\\
+               \beta(m,n+n')&=\beta(m,n)+\beta(m,n')
+           \end{align*}
+        \item Invariance: $\beta(m\cdot r, n)=\beta(m,r \cdot n)$
+   \end{enumerate}
+\end{definition}
+\begin{definition}[Tensor Product of $R$-mods]
+    Let $R$ be a ring and $M_R, {_RN}$ be $R$-modules. The \textbf{tensor product over $R$} is the abelian group $(M \otimes_R N)$ generated by pairs $m \otimes n$ for $m \in M, n \in N$ such that:
+    \begin{enumerate}
+        \item $0 \otimes n = m \otimes 0 =0$
+        \item It is $\mathbb{Z}$-bilinear.
+        \item Invariance: $(m \cdot r) \otimes_R n =m \otimes_R (r \cdot n)$
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    Let $R$ be a ring and $M_R,(M_i)_R, {_RN}$ be (a family of) $R$-modules. Then, there are distinguished isomorphisms:
+    \begin{enumerate}
+        \item $\{0\}$ be the trivial module. Then, \[
+                \{0\} \otimes_R N \cong M \otimes_R \{0\} \cong \{0\}
+        .\] 
+    \item $R \otimes_R N \cong N$ and $M \otimes_R R \cong M$ as abelian groups.
+    \item \[
+            \bigoplus_{i \in I} (M_i \otimes_R N_i) \cong \left( \bigoplus_{i \in I} M_i \otimes N \right)
+    \] and equivalently in the second argument.
+    \item Suppose $R,S$ are rings and ${_SQ}, {_RP_S}$ are modules. Then:
+        \begin{enumerate}
+            \item $M \otimes_R P$ is a right $S$-module.
+            \item $P \otimes_S Q$ is a left $R$-module.
+            \item $(M \otimes_R P)\otimes_S Q \cong M \otimes_R (P \otimes_S Q)$ as abelian groups.
+        \end{enumerate}
+    \end{enumerate}
+\end{lemma}
+\begin{eg}
+   \begin{enumerate}
+   \item Let $R$ be a commutative ring. Then, $R[x] \otimes R[y] \cong R[x,y]$ as abelian groups. 
+    \item $\mathbb{Z} / n \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / m \mathbb{Z} \cong \mathbb{Z} / \gcd(m,n) \mathbb{Z}$.
+   \end{enumerate} 
+\end{eg}
+If $R$ is a commutative ring, we can define the tensor product of ${_RM}$ and ${_RN}$ by first considering $_RM$ as a right module (or, in fact, a bimodule).
+\begin{prop}
+    If $R$ is a commutative ring and ${_RM},{_RN}$ are as above, then \[
+    r \cdot (m \otimes n):= (r \cdot m) \otimes n = m \otimes (r \cdot n)
+    \]  defines an $R$-mod structure on $M \otimes_R N$.
+\end{prop}
+If $R$ is commutative, $(M \otimes N) \times P \cong M \otimes_R (N \otimes_R P)$ as left $R$-modules.
