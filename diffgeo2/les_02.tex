@@ -1,4 +1,4 @@
-\chapter{Riemannian Geometry}
+\chapter{Riemannian and Lorentzian Geometry}
 In this chapter, we are concerned with Riemannian manifolds as metric spaces. The main goal is to prove the theorem of Hopf-Rinow.
 \section{Riemannian Manifolds as Metric Spaces}
 \begin{definition}[Regular Curve]
@@ -185,3 +185,73 @@ The idea is to take a piecewise $\mathcal{C}^1$ family of curves $\gamma_n$ with
 L_d[\gamma] \leq \liminf_{n \to \infty} L[\gamma_n]=d(p,q)
 .\] 
 \end{intuition}
+\subsection{\textcolor{blue}{Lecture 24.10.25}}
+\begin{proof}
+    Let $\gamma_n$ be a sequence of piecewise geodesics from $p$ to $q$, parametrized on $[0,d(p,q)]$ with $L[\gamma_n] \to d(p,q)$. Additionally, the parametrization should satisfy $\|\dot{\gamma}_n\|=C_n \in \mathbb{R}$ for all $t$. We have:
+    \begin{itemize}
+        \item $L[\gamma_n]=\int_0^{d(p,q)}C_n \, dt = d(p,q) \cdot C_n$ $\implies$ $C_n \to 1$ so the $C_n$ are uniformly bounded.
+        \item $d(p,\gamma_n(t)) \leq L[\gamma_n|_{[0,t]}] \leq L[\gamma_n] < R$ for $n$ large enough
+    \end{itemize}
+    Hence, we can conclude $\im(\gamma_n) \subseteq \overline{B_r(p)}$ and \emph{Arzela-Ascoli} yields that there exists a subsequence converging uniformly to a continuous curve \[
+        \gamma: [0, d(p,q)] \to \overline{B_r(p)}  \subseteq M
+    .\] That $L_d[\gamma]=d(p,q)$ holds, follows from the claim that $L_d$ is lower semi-continuous, i.e. if \[
+    \omega, \omega_n: [a,b] \to M
+    \] is a sequence of continuous curves with $\omega_n \to \omega$ pointwise, then \[
+    L_d[\omega] \leq \liminf_{n \to \infty} L_d[\gamma_n]
+.\] To show this, take some partition $(t_i)_{1 \leq i \leq N}$ of $[a,b]$. Then:  \[
+L_d[\omega_n] \geq \sum_{i=1}^N d(\omega_n(t_i),\omega_{n}(t_{i+1}))\to \sum_{i=1}^N d(\omega(t_i), \omega(t_{i+1}))
+\] since $d$ is continuous. This holds for an arbitrary partition, so we can conclude \[
+\liminf_{n \to \infty} L_d[\omega_n] \geq L_d[\omega]
+.\] 
+\end{proof} 
+\begin{lemma}
+Let $(M,g)$ be an Riemannian manifold. If there is some $p\in M$ such that $\exp_p$ is defined on all of $T_pM$, then every closed and bounded subset is compact and for all $q \in M$ exists a geodesic $\gamma$ with $L[\gamma]=d(p,q)$. 
+\end{lemma}
+\begin{proof}
+   It suffices to show that $\overline{B_r(p)}$ is compact for all $r>0$ since closed subsets of compact sets are compact. Then, we can use the preceeding lemma to obtain the statement.\\
+   Define \[
+       R:= \sup \left\{r>0 \mid \overline{B_r(p)} \, \text{is compact} \right\} 
+   .\]  We have $R>0$ since $M$ is locally compact and want $R=\infty$. Assume $R < \infty$. We claim that $\overline{B_R(p)}$ is compact ($\iff B_R(p)$ is relatively compact). Let $(q_n)$ be a sequence in $B_R(p)$ and set $r_n:=d(p,q_n) < R$. By the preceeding lemma, there exists a geodesic $\gamma_n$ parametrized to unit speed from $p$ to $q_n$ with $L[\gamma_n]=d(p,q_n)=r_n$. W.l.o.g., let $r_n \to r_0$ for some $r_o \leq R$. Set $v_n:=\dot{\gamma}_n(0) \in T_pM$. We have $g_p(v_n,v_n)=1$. This implies that \[
+   \left\{v_n \mid n \in \mathbb{N}\right\} \subseteq \underbrace{\left\{v \in T_pM \mid g_p(v,v)=1\right\}}_\text{compact} \subseteq T_pM
+   .\] Hence, there exists a subsequence $(v_{n_k})$ converging to some $v \in T_pM$ with $g_p(v,v)=1$. By assumption, the maximal geodesic $\gamma_v$ with $\gamma_v(0)=p$ and $\dot{\gamma}_v(0)=v$ is defined on all of $\mathbb{R}$. Set \[
+q:= \gamma_v(r_0)
+.\]  Then, \[
+q_{n_k} = \gamma_{v_{n_k}} (r_{n_k})=\exp_p\left(\frac{v_{n_k}}{r_{n_k}}\right) \to  \exp_p\left(\frac{v}{r_0} \right)=\gamma_v(r_0)=q
+\] by definition of $q$.\\
+Now, we claim that if $\overline{B_R(p)}$ is compact, then there exists $\epsilon >0$ such that $\overline{B_{R+\epsilon}(p)}$ is still compact. For all $q \in \overline{B_r(p)}$, there exists an $\epsilon_q$ such that $\overline{B_{\epsilon_q}(q)}$ is compact. Clearly, \[
+    \bigcup_{q \in \overline{B_R(p)} } B_{\epsilon_q}(q) = \overline{B_R(p)} 
+.\] Set $U := \cup_{1 \leq i \leq N} B_{\epsilon_{q_i}}(q_i)$. This is open and $\overline{U}$ is compact since the union is finite. Consider \[
+\inf \left\{d(x,M \setminus U) \mid x \in \overline{B_R(p)} \right\}  = \min \left\{d(x,M \setminus U) \mid x \in \overline{B_R(p)} \right\} \geq \epsilon_0 >0
+\] since $M \setminus U$ is closed, so $d(\cdot, M \setminus U)$ attains a minimum as a continuous function. \\
+It remains to show that $B_{R + \epsilon}(p) \subseteq U$. Let $y \in B_{R + \epsilon}(p)$. Then there exists a piecewise $\mathcal{C}^1$ curve $\omega$ from $p$ to $y$ with $L[\omega]<R+\epsilon$. Find a parametrization of $\omega$ such that $L[\omega|_{[0,t_0]}] < R$ and $L[\omega|_{[t_0,1]}] \leq \epsilon$. Then, $x:=\omega(t_0)$ satisfies $x \in B_R(p)$ and $d(x,y)<\epsilon_0$ (since $d$ is the infimum of lengths). This implies that $y$ cannot lie in $M \setminus U$, since that would contradict $d(x,y) \geq \epsilon_0$ for all $x \in \overline{B_R(p)}$ and $y \in M \setminus U$. Hence, $y \in U$. So we indeed have $B_{R+\epsilon_0}(p)\subseteq U$, therefore $\overline{B_{R+\epsilon_0}(p)} \subseteq \overline{U} $. Since $\overline{U}$ is compact, we are done. 
+\end{proof}
+Now, we are able to prove the theorem of Hopf-Rinow.
+\begin{proof}
+    $(1 \implies 2)$: We know that a geodesic $\gamma: [a,b) \to M$ is extendable as a geodesic if and only if it extends continuously to $b$. Let $\gamma: I \to M$ be a geodesic with $I \neq \mathbb{R}$. W.l.o.g., $I = (a,b)$ with $b<\infty$. Set $C:=\|\dot{\gamma}(t)\| \in \mathbb{R}$ by definition of a geodesic. We have \[
+    d(\gamma(t),\gamma(s)) \leq C \cdot |t-s| = L[\gamma|_{[\gamma(t),\gamma(s)]}]
+.\] Hence, the sequence $q_n := \gamma(b-\frac{1}{n})$ is a Cauchy sequence. By metric completeness, there is some $q=\lim q_n$. We have to show that $\lim_{s \to b} \gamma(s)=q$. We can estimate \[
+d(\gamma(s),q) \leq d(\gamma(s),\gamma(b-\frac{1}{n}))+d(\gamma(b-\frac{1}{n}), q) \leq C \cdot \left|s-(b-\frac{1}{n})\right| \overset{n \to \infty}\to |s-b|
+.\]  for arbitrary $n$. Therefore, $d(\gamma(s),q) \leq C \cdot |s-b|$, which goes to $0$ as $s \to b$.\\
+$(2 \implies 3)$ is trivial.\\
+$(3 \implies 4)$ was proven in the preceeding lemma.\\
+$(4 \implies 1)$: Let $(x_n)$ be a Cauchy sequence. Then 
+$\left\{x_n \mid n \in \mathbb{N}\right\} $
+ is bounded with \[
+d(x,y) \leq \max \left\{\frac{1}{\epsilon}, d(x_i,x_j)+\frac{1}{\epsilon} \mid i,j \leq N_\epsilon \right\} 
+.\] By the Heine-Borel property, the closure is compact. Hence, there exists a subsequence converging to some $x \in M$. Since $(x_n)$ is Cauchy, all of $x_n \to x$.
+\end{proof}
+\section{Lorentzian Geometry}
+\begin{definition}[Lorentzian Manifold]
+    A Lorentzian manifold is a pair $(M, \eta)$ where $M$ is a smooth $m$-manifold and $\eta$ is a non-degenerate, symmetric bilinear form with index $\nu = 1$.
+\end{definition}
+\begin{definition}[Types of Curves]
+    A piecewise $\mathcal{C}^1$-curve \[
+        \gamma: [a,b] \to M
+    \]  in a Lorentzian manifold $M$ is called:
+    \begin{itemize}
+        \item \textbf{timelike} if $\dot{\gamma}(s)$ is timelike, i.e. $\eta_{\gamma(s)}(\dot{\gamma}(s),\dot{\gamma}(s)) < 0$ for all $s$ and at all breakpoints $t_i$ we have $\eta_{\gamma(t_i)}(\dot{\gamma}_+(t_i),\dot{\gamma}_-(t_i)) < 0$.\footnote{This means $\dot{\gamma}_\pm$ lie in the same connected component.}
+        \item \textbf{null} if $\dot{\gamma}(s)$ is null, i.e. $\eta(\dot{\gamma}(s),\dot{\gamma}(s))=0$ and $\dot{\gamma}\neq 0$.
+        \item \textbf{spacelike} if $\dot{\gamma}(s)$ is spacelike, i.e. $\eta(\dot{\gamma}(s),\dot{\gamma}(s))> 0$ or $\dot{\gamma}=0$.
+        \item \textbf{causal} if $\dot{\gamma}(t)$ is causal, i.e. timelike or null for all $s$.
+    \end{itemize}
+\end{definition}
