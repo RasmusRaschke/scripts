@@ -1,6 +1,5 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{textcomp}
 
 \usepackage{url}
 
@@ -42,6 +41,7 @@
 \let\impliedby\Leftarrow
 \let\iff\Leftrightarrow
 \let\epsilon\varepsilon
+\let\phi\varphi
 
 \usepackage{tikz}
 \usepackage{tikz-cd}
@@ -56,23 +56,35 @@
 
 \makeatletter
 
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmgreenbox}
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmredbox}
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={
+        linewidth=.75pt,
+        linecolor=RawSienna, backgroundcolor=RawSienna!0,
+    } ]{thmredbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={
+        linewidth=.75pt, 
+        linecolor=RoyalBlue, backgroundcolor=NavyBlue!0
+    } ]{thmbluebox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ linewidth=.75pt
+    } ]{thmblackbox}
 \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont,   mdframed={
+        linewidth=.75pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!0,
+    }]{thmredline}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={linewidth=.75pt, rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
 \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
 
 \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
 
 
-\declaretheorem[numberwithin=chapter, style=thmgreenbox, name=Definition]{definition}
-\declaretheorem[sibling=definition, style=thmredbox, name=Corollary]{corollary}
-\declaretheorem[sibling=definition, style=thmredbox, name=Proposition]{prop}
-\declaretheorem[sibling=definition, style=thmredbox, name=Theorem]{theorem}
-\declaretheorem[sibling=definition, style=thmredbox, name=Lemma]{lemma}
-\declaretheorem[sibling=definition, style=thmbluebox,  name=Example]{eg}
-\declaretheorem[sibling=definition, style=thmbluebox,  name=Nonexample]{noneg}
+\declaretheorem[numberwithin=chapter, style=thmredbox, name=Definition]{definition}
+\declaretheorem[sibling=definition, style=thmblackbox, name=Corollary]{corollary}
+\declaretheorem[sibling=definition, style=thmblackbox, name=Proposition]{prop}
+\declaretheorem[sibling=definition, style=thmbluebox, name=Theorem]{theorem}
+\declaretheorem[sibling=definition, style=thmblackbox, name=Lemma]{lemma}
+\declaretheorem[sibling=definition, style=thmblueline,  name=Example]{eg}
+\declaretheorem[sibling=definition, style=thmblueline,  name=Nonexample]{noneg}
 \declaretheorem[sibling=definition, style=thmblueline, name=Remark]{remark}
 
 
@@ -80,15 +92,15 @@
 
 \declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
 \declaretheorem[numbered=no, style=thmproofbox, name=Proof]{replacementproof}
-\declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
+\declaretheorem[style=thmblueline,  numbered=no, name=Exercise]{ex}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+\declaretheorem[style=thmredline, numbered=no, name=Notation]{notation}
 
 % \renewenvironment{proof}[1][\proofname]{\begin{replacementproof}}{\end{replacementproof}}
 
 % \AtEndEnvironment{eg}{\null\hfill$\diamond$}%
 
 \newtheorem*{uovt}{UOVT}
-\newtheorem*{notation}{Notation}
 \newtheorem*{previouslyseen}{As previously seen}
 \newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
@@ -161,7 +173,7 @@
 \newcommand\todo[1]{\ifworking {{\color{red}{#1}}} \else {}\fi}
 \newcommand\charlotte[1]{\ifworking {{\color{blue}{#1}}} \else {}\fi}
 
-\author{Gilles Castel}
+\author{Rasmus Raschke}
 
 
 
