@@ -1,0 +1,13 @@
+# Fdb version 4
+["pdflatex"] 1766009904.3601 "main.tex" "main.pdf" "main" 1766009904.48712 2
+  "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
+  "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749797535 3599565 9654882f00888f2602bca2b12f0df0df ""
+  "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "main.aux" 1766009904.3582 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1758304097.89383 1611 925796607b9c78640cdd4c37d4a1c628 ""
+  "tuftebook.cls" 0 -1 0 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)
