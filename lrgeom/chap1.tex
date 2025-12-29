@@ -7,5 +7,331 @@
 
 We start by listing some results that should already be known by the reader. In the following, we assume a basic understanding of smooth manifolds and Riemannian geometry.
 
-
-
+\section{Vector Fields and Flows}
+\label{sec:1vecflow}
+On a smooth manifold $M$, we consider vector fields as sections of the tangent projection $\pi: TM \to M$, i.e. a map \[
+X: M \to TM
+\] with $\pi \circ X = \id_M.$
+\begin{notation}
+    We write a vector field $X$ at $p \in M$ as $X_p$, while $X_p(f)$ is the vector field at $p$ applied to a function $f$. We denote the space of sections of the tangent projection by $\Gamma(TM)$, and the space of smooth vector fields by $\mathfrak{X}(M)$. General $(k,l)$-tensor fields are denoted as $\mathcal{T}^k_l = \Gamma(T^{(k,l)}TM).$
+\end{notation}
+\begin{definition}[Integral Curve]
+   Given a manifold $M$ and $V \in \mathfrak{X}(M)$, an \textbf{integral curve} of $V$ is a smooth curve \[
+   \gamma: I \to M
+   \] such that for all $t \in I$, \[
+   \dot{\gamma}(t)=V_{\gamma(t)}
+   \] holds
+\end{definition}
+\begin{eg}
+    Consider the Euclidean plane $\mathbb{R}^2$ with standard coordinates.
+    \begin{itemize}
+        \item The coodinate vector field $\partial_1$ has straight lines \[
+        \gamma(t)=(a+t,b)
+        \] as integral curves for some $a,b \in \mathbb{R}$.
+    \item The curl field $x^1 \partial_2 - x^2 \partial_1$ has counterclockwise traversed circles \[
+    \gamma(t)=(a \cos t - b \sin t, a \sin t + b \cos t)
+    \] as integral curves.
+    \end{itemize}
+\end{eg}
+\begin{prop}
+    Let $M$ be a manifold, $V \in \mathfrak{X}(M)$. For all $p \in M$ exists a unique maximal integral curve \[
+    \gamma_p: I_p \to M
+    \] of $V$ with $\gamma_p(0)=p$.
+\end{prop}
+Given a manifold $M$, we define a \textbf{flow domain} on $M$ to be an open subset $\mathcal{D} \subseteq \mathbb{R} \times M$ such that for each $p \in M$, \[
+    \mathcal{D}^{(p)} = \{t \in \mathbb{R} \mid (t,p) \in \mathcal{D}\}
+\] is an open interval.
+\begin{definition}[Flow]
+   A \textbf{(local) flow} on $M$ is a continuous local one-parameter group action \[
+   \theta: \mathcal{D} \to M
+   \] such that for all $p \in M$:
+   \begin{enumerate}
+       \item $\theta(0,p):=\theta_0(p)=\id_M(p)=p$, and
+       \item if $s \in \mathcal{D}^{(p)}$, $t+s \in \mathcal{D}^{(\theta_s(p))}$: $\theta_t\circ \theta_s(p)=\theta_{t+s}(p)$ holds.
+   \end{enumerate}
+\end{definition}
+A flow gives rise to a family of curves \[
+    \theta^{(p)}: \mathcal{D}^{(p)} \to M
+\] defined by $\theta^{(p)}(t)=\theta_t(p)$. An \textbf{infinitesimal generator} of a flow $\theta$ is then a vector field $V \in \mathfrak{X}(M)$ with \[
+V_p = \left.\frac{d}{dt}\right|_{t=0}\theta^{(p)}(t)
+\] for all $p$ in the domain of $\theta$. On the other hand, the $\theta^{(p)}$-curves are integral curves of $V$.
+We call a flow $\theta$ \textbf{maximal} if the flow domain $\mathcal{D}$ of $\theta$ is maximal. We call a flow \textbf{global} if $\mathcal{D} = \mathbb{R} \times M$.
+\begin{theorem}[Fundamental Theorem of Flows]
+    Let $M$ be a smooth manifold and $V \in \mathfrak{X}(M)$. Then there exists a unique maximal flow \[
+    \Theta: \mathcal{D} \to M
+    \] with infinitesimal generator $V$ and the following properties:
+    \begin{enumerate}
+        \item For all $p \in M$, $\Theta^{(p)}$ is the unique maximal integral curve of $V$ starting at $p$.
+        \item For $s \in \mathcal{D}^{(p)}$, we have $\mathcal{D}^{(\theta_s(p))}=\{t-s\mid t \in  \mathcal{D}^{(p)} \}.$
+        \item For each $t \in \mathbb{R}$, the set $M_t:=\{p \in M \mid (t,p) \in \mathcal{D}\}$ is open in $M$, and $\Theta_t: M_t \to M_{-t}$ is a diffeomorphism with inverse $\Theta_{-t}$.
+    \end{enumerate}
+\end{theorem}
+The flow of this theorem is called \textbf{flow of V}.
+\section{(Semi-)Riemannian Metrics}
+\label{sec:1semiriem}
+\subsection{Linear Algebra}
+\label{subsec:linalg}
+\begin{definition}[Pseudo-Euclidean Scalar Product]
+   Let $V$ be a finite-dimensional real vector space. A \textbf{pseudo-Euclidean scalar product} on $V$ is a map \[
+   \langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}
+    \] which is:
+    \begin{enumerate}
+        \item Symmetric: $\langle u, v \rangle = \langle v, u \rangle$
+        \item Bilinear: $\langle \lambda u + v, w \rangle =\lambda \langle u, w \rangle + \langle v, w \rangle$
+        \item \marginnote{We call this iso \textbf{musical isomorphism}.}Non-degenerate: $v \mapsto \langle v, \cdot \rangle$ is an isomorphism $V \cong V^\ast$.
+    \end{enumerate}
+    \marginnote{The index can be easily calculated by choosing a basis $(e_i)$, defining a matrix $A_{ij}:=\langle e_i, e_j\rangle,$ and determining the negative eigenvalues of $A$. This will be the index of $V$.}
+    The \textbf{index} $s$ of $V$ is the number \[
+    s := \max\{\dim (W) \mid W \leq V: \langle \cdot,\cdot  \rangle |_W \text{ negative definite}\}
+    .\] The pair $(V, \langle \cdot,\cdot  \rangle )$ is called \textbf{pseudo-Euclidean vector space}.
+\end{definition}
+\begin{eg}
+    The standard pseudo-Euclidean vector space is the $n-$dimensional space $\mathbb{R}^{n-s,s}$, which consists of the vector space $\mathbb{R}^n$ with scalar product \[
+        g_{ij} := \mathop{diag}\{\underbrace{-1, \cdots, -1}_{s \text{ times}}, \underbrace{1, \cdots, 1}_{n-s \text{ times}}\} 
+    .\] We call $\mathbb{R}^{n,1}$ the $(n+1)-$dimensional \textbf{Minkowski space}.
+\end{eg}
+\begin{remark}
+    Sylvester's theorem of inertia tells us that the important invariants for pseudo-Euclidean vector spaces are dimension and index. Every finite-dimensional vector space of dimension $n$ and index $s$ is isomorphic to $\mathbb{R}^{n-s,s}$.
+\end{remark}
+\begin{prop}
+    Let $V$ be a pseudo-Euclidean vector space and $W \leq V$. Then the following are equivalent:
+    \begin{enumerate}
+        \item $(W^\perp)^\perp=W$ and $V=W \oplus W^\perp$
+        \item $W \cap W^\perp = \{0\}$
+        \item $\langle \cdot,\cdot  \rangle|_{W \times W}$ is non-degenerate. 
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Corollary of the dimension formula.
+\end{proof}
+\begin{prop}[Parallelogram Law]
+   If $\langle \cdot,\cdot  \rangle$ is a pseudo-Euclidean scalar product, the \textbf{parallelogram law} \[
+   \langle v, w \rangle = \frac{1}{2} (\|v+w\|^2 -\|v\|^2-\|w\|^2 )
+   \]  holds.
+\end{prop}
+\begin{definition}[Causality in Lorentzian Geometry]
+    If $(V, \langle \cdot,\cdot  \rangle )$ is a Lorentzian vector space, we define:
+    \begin{enumerate}
+        \item $v \in V$ is \textbf{timelike} if $\|v\|^2 < 0$.
+        \item $v \in V$ is \textbf{spacelike} if $\|v\|^2 > 0$.
+        \item $v \in V$ is \textbf{null} or \textbf{lightlike} if $\|v\|^2=0$.
+        \item $v \in V$ is \textbf{causal} if it is time- or lightlike.
+        \item The zero vector is spacelike by definition.
+    \end{enumerate}
+    We denote the space of timelike vectors by $V^\text{tl}$, the space of spacelike vectors by $V^\text{sl}$, the space of lightlike vectors by $V^\text{null}$, and the space of causal vectors by $V^\text{causal}$.
+\end{definition}
+\begin{prop}
+    Consider $\mathbb{R}^{n,1}$. Then:
+    \begin{enumerate}
+        \item The subspace of timelike vectors has two connected components.
+        \item Let $v,w$ be lightlike. Then $\langle v,w  \rangle = 0$ if and only if there is some $\lambda \in \mathbb{R}^\ast$ such that $v = \lambda w$.
+        \item If $v,w$ are timelike with $\langle v, w \rangle < 0$, we have \textbf{reverse Cauchy-Schwarz}: \[
+        | \langle v, w \rangle | \geq \|v\| \|w\| 
+        \] and \textbf{reverse triangle} identities: \[
+        \|v+w\| \geq \|v\|+\|w\|
+        .\] 
+    \end{enumerate}
+\end{prop}
+\subsection{Semi-Riemannian Manifolds}
+\label{subsec:smmfn}
+\begin{definition}[Semi-Riemannian Manifold]
+   A \textbf{semi-Riemannian metric} on a smooth manifold $M$ is a smooth, covariant $2$-tensor field $g \in T^2(M)$ such that for each $p \in M$ and all $U,V,W \in T_pM$, $\lambda, \mu \in \mathbb{R}$, the following is satisfied:
+   \begin{enumerate}
+       \item $g$ has global signature $(r,s)$.
+       \item $g_p(U,V)=g_p(V,U)$
+        \item $g_p(\lambda U + \mu V, W) = \lambda g_p(U,W) + \mu g_p(V,W) = g_p(W, \lambda U + \mu V)$
+        \item $g_p(U,U) = 0$ if and only if $U=0$.
+   \end{enumerate}
+   \marginnote{For convenience of notation, we will sometimes supress $p$ and write $\langle \cdot, \cdot \rangle$ for $g_p(\cdot,\cdot)$.}
+   Hence, $g_p$ is an inner product on each $T_pM$. The pair $(M,g)$ is called \textbf{semi-Riemannian manifold} and $s$ is the \textbf{index} of $g$.
+   If $s=0$, we call $(M,g)$ \textbf{Riemannian}. If $s=1$, we call it \textbf{Lorentzian}.
+\end{definition}
+\begin{notation}
+    Given local coordinates $(U,x^i)$ on some neighbourhood $U$, $g$ can be written as \[
+        g = g_{ij} dx^i \otimes dx^j
+,\] where the $g_{ij}$ are $(\dim M)^2$ smooth component functions given by $g_{ij}(p)=g_p(\partial_i|_p, \partial_j|_p).$ Interpreting these components as matrix components, one obtains a symmetric, non-singular matrix.
+\end{notation}
+\begin{eg}
+    The standard model for a semi-Riemannian manifold with index $s$ is the space $\mathbb{R}^{r,s} = \mathbb{R}^{r+s}$. Given coordinates $(\xi^1, \dots, \xi^r, \tau^1, \dots, \tau^s)$, we define the semi-Riemannian standard metric to be \[
+        g^{(r,s)}=d \xi^1 \otimes d \xi^1 + \cdots + d \xi^r \otimes d \xi^r + d \tau^1 \otimes d \tau^1 + \cdots + d\tau^s \otimes d\tau^s
+    .\] For $s=0$, we recover the \textbf{canonical Euclidean metric} \[
+    g_\text{st} = dx^1 \otimes dx^1 + \cdots + dx^r \otimes dx^r = \delta_{ij} dx^i \otimes dx^j
+    .\] For $s=1$, we obtain $r+1$-dimensional \textbf{Minkowski space} with the \textbf{Minkowski metric} \[
+    \eta = -dt \otimes dt + dx^1 \otimes dx^1 + \cdots + dx^r \otimes dx^r
+    .\] 
+\end{eg}
+\begin{eg}
+    Given Minkowski space $\mathbb{R}^{2,1}$ and $c \neq 0$, we define the smooth submanifold \[
+        S_c^\eta := \{(t,x) \in \mathbb{R}^{2,1} \mid \eta((t,x),(t,x))=c\}
+    .\] The restriction of $\eta$ induces a semi-Riemannian metric on $S_c^\eta$, turning it into a semi-Riemannian submanifold. For $c>0$, we call $S_c^\eta = dS_{3}$ ($3$-dimensional) \textbf{de Sitter space}, and for $c<0$, we call $S_c^\eta = AdS_{3}$ \textbf{anti-de Sitter space}. Anti-de Sitter space $AdS_3$ has two connected components which are model hyperbolic spaces.
+\end{eg}
+Every smooth manifold can be endowed with a Riemannian metric:
+\begin{prop}
+    Every smooth manifold $M$ is a Riemannian manifold.
+\end{prop}
+\begin{proof}
+    \marginnote{This does not work in the semi-Riemannian case: Pulling back the standard semi-Riemannian metric of $\mathbb{R}^n$ can lead to a vanishing sum because the chart-wise metrics possibly attain negative values.}
+    Given a smooth manifold $M$, we can choose an atlas $(\phi_i, U_i)$ of $M$ and a smooth partition of unity $(\varrho_i)$ subordinate to the covering $\cup U_i = M$. On each coordinate patch $U_i$, we can use the euclidean metric $g_\text{st}$ and define a metric \[
+        g_p := \sum_{i \in I} \varrho_i(p) \phi_i^\ast g_\text{st}
+    .\] 
+    This metric is clearly symmetric and bilinear. Furthermore, the sum is finite since $\varrho_i$ is a partition of unity, and non-degenerate as $g_\text{st}$ is non-degenerate.
+\end{proof}
+\begin{definition}[Connection]
+    Given a smooth manifold $M$ and a vector bundle $E \to M$, a \textbf{connection} or \textbf{covariant derivative} is a map \[
+    \nabla: \mathfrak{X}(M) \times \Gamma(E) \to \Gamma(E)
+    \] such that:
+    \begin{enumerate}
+        \item For all $f_1,f_2 \in \mathcal{C}^\infty$, $X_1,X_2 \in \mathfrak{X}(M)$: \[
+                \nabla_{f_1X_1+f_2X_2}Y=f_1\nabla_{X_1}Y+f_2\nabla_{X_2}Y
+        .\] 
+    \item For all $\lambda_1, \lambda_2 \in \mathbb{R}$ and $Y_1, Y_2 \in \Gamma(E)$: \[
+        \nabla_X(\lambda_1 Y_1 + \lambda_2 Y_2)=\lambda_1 \nabla_X(Y_1)+\lambda_2 \nabla_X Y_2. \]
+        \item For all $f \in \mathcal{C}^\infty(M)$: \[
+        \nabla_X(fY)=f\nabla_XY + (Xf)Y
+        .\] 
+    \end{enumerate}
+\end{definition}
+\begin{theorem}[Fundamental Theorem of Riemannian Geometry]
+    Let $(M,g)$ be a (semi)-Riemannian manifold. Then there exists a unique connection \[
+    \nabla: \mathfrak{X}(M) \times \Gamma(TM) \to \Gamma(TM)
+    \] which is:
+    \begin{enumerate}
+        \item metric with respect to $g$: \[
+            \nabla_X g_p(Y, Z) = g_p(\nabla_X Y, Z) + g_p(Y, \nabla_X Z)\]
+        \item \marginnote{Note that symmetry implies that $\nabla$ is torsion-free since the torsion tensor is given by $T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$}symmetric:
+        \[
+            \nabla_X Y - \nabla_Y X = [X,Y]
+    .\] 
+    \end{enumerate}
+    We call $\nabla$ the \textbf{Levi-Civita-Connection}.
+\end{theorem}
+\begin{prop}
+    The Levi-Civita-Connection admits the following forms:
+    \begin{enumerate}
+        \item \textbf{Koszul's formula}:
+\begin{align}
+            2 \langle \nabla_X Y, Z \rangle = &X \langle Y,  Z \rangle + Y \langle Z, X \rangle - Z \langle X,Y  \rangle \\
+                                              &-\langle Y, [X,Z]  \rangle - \langle Z, [Y,X] \rangle + \langle X, [Z,Y] \rangle 
+        \end{align}
+    \item The coefficients in local coordinates are the \textbf{Christoffel symbols}: \[
+            (\nabla_{\partial_i}\partial_j)^k = \Gamma_{ij}^k = \frac{g_{kl}}{2} (\partial_i g_{jl} + \partial_jg_{il}-\partial_l g_{ij})
+    .\] 
+\item Given a smooth local frame $(E_i)$ and functions $\epsilon_{ij}^k E_k$ given by $[E_i,E_j]=\epsilon_{ij}^k E_k$, one has: \[
+        \Gamma_{ij}^k = \frac{g^{kl}}{2}(E_i g_{jl} + E_j g_{il} - E_l g_{ij} - g_{jm} \epsilon_{il}^m - g_{lm}\epsilon_{ji}^m + g_{im} \epsilon_{lj}^m)
+.\] 
+If $(E_i)$ is an orthonormal frame, this reduces to: \[
+    \Gamma_{ij}^k = \frac{1}{2} (\epsilon_{ij}^k - \epsilon_{ik}^l-\epsilon_{jk}^l)
+.\] 
+    \end{enumerate}
+\end{prop}
+\section{Curvature and Geodesics}
+\label{sec:curvandgeod}
+Given a smooth curve \[
+\gamma: I \to M 
+,\] we call a vector field $V: I \to TM$ a \textbf{vector field along $\gamma$} if $V(t) \in T_{\gamma(t)}M$ for all $t \in I$. We denote the space of vector fields along $\gamma$ by $\mathfrak{X}(\gamma)$.
+\begin{definition}[Geodesic]
+    Let $M$ be a smooth manifold and $\nabla$ be a connection on $TM$. A smooth curve $\gamma: I \to M$ is called a \textbf{geodesic} if the acceleration $\nabla_{\frac{d}{dt}} \dot{\gamma}(t)$ vanishes for all $t \in I$. This is equivalent to the local \textbf{geodesic equation} \[
+        \ddot{x}^k(t)+\dot{x}^i(t)\dot{x}^j(t)\Gamma_{ij}^k(x(t))=0,
+    \] where $x^i$ are the components of $\gamma$ in some local coordinates. 
+\end{definition}
+\begin{theorem}[Uniqueness and Maximality of Geodesics]
+    Let $M$ be a smooth manifold and $\nabla$ be a connection on $TM$. For each $p \in M$ and $v \in T_pM$, there exists a unique maximal geodesic \[
+    \gamma_v: I_v \to M
+\]  with $\gamma(0)=p$ and $\dot{\gamma}(0)=v$, defined on some open interval $I \ni 0$.
+\end{theorem}
+\begin{remark}
+    Some similarities to the fundamental theorem of flows emerge: Considering the open flow domain $\mathcal{D} := \cup_{v \in TM} I_v \times \{v\}$, we obtain a one-parameter group action \[
+    \vartheta: I \subseteq \mathbb{R} \times TM \to TM
+\] given by $\vartheta_t(v):=\dot{\gamma_v}(t)$. This is called the \textbf{geodesic flow}. The geodesic flow is the maximal flow of the \textbf{geodesic spray}: Thinking of the tangent bundle $TM$ as a manifold on its own, we can consider curves \[
+\tilde{\gamma}_(p,v): I \to TM
+\] given by $\tilde{\gamma}_{(p,v)}:=(\gamma_v,\dot{\gamma}(v))$, where $\gamma_v: I \to M$ is a geodesic in $M$ with initial data $(p,v)$. Then the geodesic spray is a vector field \[
+G(t):= \nabla_\frac{d}{dt}\tilde{\gamma}_{(p,v)}
+.\] 
+\end{remark}
+Given a smooth manifold $M$ and some $V \in \mathfrak{X}(\gamma)$ for some smooth curve $\gamma$, we call $V$ \textbf{parallel along $\gamma$} if $\nabla_\frac{d}{dt}V \equiv 0$. In local coodinates, this reads as \[
+    \dot{V}^k(t)=-V^j(t)\dot{\gamma}^i(t)\Gamma_{ij}^k(\gamma(t))
+.\] 
+\begin{theorem}[Existence and Uniqueness of Parallel Transport]
+    Given a smooth manifold $M$, a connection $\nabla$ on $TM$, a smooth curve $\gamma: I \to M$ with $t_0 \in I$, and a vector $v \in T_{\gamma(t_0)}M$, there exists a unique parallel vector field $V \in \mathfrak{X}(\gamma)$ with $V(t_0)=v$. We call $V$ the parallel transport of $v$ along $\gamma$ and define for each $t_0, t_1 \in I$ the \textbf{parallel transport isomorphism}
+    \[
+    P_{t_0t_1}^\gamma: T_{\gamma(t_0)} M \to T_{\gamma(t_1)}M
+    .\] 
+\end{theorem}
+\begin{definition}[Geodesic Completeness]
+    A geodesic $\gamma: I \to \mathbb{R}$ is called \textbf{complete} if $I = \mathbb{R}$. We call $M$ \textbf{geodesically complete} if all geodesics for the Levi-Civita-Connection are complete.
+\end{definition}
+\begin{lemma}[Rescaling Lemma]
+    \marginnote{We also have that if $\gamma_v:I \to M$ is a geodesic and $h:J \to I$ is a smooth reparametrization, then $\gamma_v \circ h$ is a geodesic if and only if $h$ is affine.}
+    Let \[
+    \gamma_v: (a_v, b_v) \to M
+    \] be a geodesic and $C \neq 0, t_0 \in \mathbb{R}$. Then, \[
+\tilde{\gamma}: \left(\frac{a_v}{C}-t_0, \frac{b_v}{C}-t_0 \right) \to M
+\] given by $\tilde{\gamma}(t):=\gamma_v(Ct+t_0)$ is also a geodesic.
+\end{lemma}
+\section{The Exponential Map}
+\label{sec:expmap}
+The \textbf{domain of the exponential map} is a subset $\mathcal{E}  \subseteq TM$ given by \[
+\mathcal{E}:= \{v \in TM \mid \gamma_v \text{ defined on interval containing } [0,1]\}
+.\] 
+\begin{definition}[Exponential Map]
+    \marginnote{Sometimes we restrict the map to $\mathcal{E}_p := \mathcal{E} \cap T_pM$ and write $\exp_p$.}
+    If $M$ is a smooth manifold and $\mathcal{E}$ is an exponential domain, the \textbf{exponential map} $\exp: \mathcal{E} \to M$ is given by \[
+    \exp(v):=\gamma_v(t)
+    .\] 
+\end{definition}
+\begin{prop}
+    The exponential map has the following properties:
+    \begin{enumerate}
+        \item $\mathcal{E} \subseteq TM$ is open, contains the image of the zero section, and each $\mathcal{E}_p$ is star-shaped at $0$.
+        \item For each $v \in TM$, $\gamma_v(t)=\exp(tv)$ as long as one side is defined.
+        \item $\exp$ is smooth.
+        \item For all $p \in M$, the differential \[
+            (\exp_p)_{0,\ast}: T_0(T_pM) \cong T_pM \to T_pM
+        \] is the identity at $0$.
+    \end{enumerate}
+\end{prop}
+\begin{prop}[Normal Neighbourhood]
+    Let $(M,g)$ be a semi-Riemannian manifold. For all $p \in M$, there is an open neighbourhood $U$ of $p$ and a neighbourhood $V$ of $0 \in TM$ such that $\exp_p: V \to U$ is an isomorphism. We call $U$ a \textbf{normal coodinate neighbourhood}.
+\end{prop}
+Normal neighbourhoods have very nice properties:
+\begin{enumerate}
+    \item Normal charts around $p$ are centered at $p$.
+    \item The metric coefficients at $p$ are $\delta_{ij}$ in the Riemannian and $\pm \delta_{ij}$ in the semi-Riemannian case.e
+    \item Given $v=v^i\partial_i \in T_pM$, the geodesic with initial data $(p,v)$ is given by $\gamma_v(t)=(tv^1, \dots, tv^n).$
+    \item All christoffel symbols vanish at $p$.
+\end{enumerate}
+\begin{theorem}[Existence of Convex Neighbourhoods]
+    Given a semi-Riemannian manifold $M$, \textbf{convex neighbourhoods}, i.e. neighbourhoods which are normal for all points contained in them, form a neighbourhood basis for all $p \in M$.
+\end{theorem}
+\begin{corollary}
+    Given a convex neighbourhood $U$, all $p,q \in U$ are connected by a unique geodesic $\gamma: [0,1] \to M$ with $\gamma(0)=p$, $\gamma(1)=q$ and $\gamma=\gamma_{\exp^{-1}_p(q\exp^{-1}_p(q))}$.
+\end{corollary}
+\begin{theorem}[Gauß' Lemma]
+Let $M$ be a semi-Riemannian manifold. For any $p \in M$, $x \in \mathcal{E}_p$ and $v,w \in T_pM$ such that $v = \lambda w$ for $\lambda \in \mathbb{R}$, we have \[
+    \langle (\exp_p(v))_{x, \ast}, (\exp_p(w))_{x,\ast}  \rangle = \langle v, w \rangle 
+.\] 
+\end{theorem}
+\section{Curvature}
+\label{sec:curvature}
+\begin{definition}[Riemann Curvature Tensor]
+    Let $M$ be a semi-Riemannian manifold and $X,Y,Z \in TM$. The \textbf{Curvature Tensor} is the $(1,3)$-tensor field \[
+    R: \mathfrak{X}(M)^3 \to \mathfrak{X}(M)
+    \] given by \[
+    R(X,Y)Z:= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z
+    .\] 
+\end{definition}
+\begin{notation}
+   There are many tensors derived from the curvature tensor:
+   \begin{enumerate}
+       \item The Riemann tensor itself has local form \[
+               R_{ijk}^l = \partial_i \Gamma_{jk}^l - \partial_j \Gamma_{ik}^l - \Gamma_{jk}^m\Gamma_{im}^l - \Gamma_{ik}^m\Gamma_{jm}^l
+       .\] The map $Z \mapsto R(X,Y)Z$ is the \textbf{curvature endomorphism}.
+   \item The \textbf{Riemann tensor} is a $(0,4)-$tensor field defined by $\mathop{Riem}:= R^\flat=\langle R(X,Y)Z,W  \rangle $.
+    \item The \textbf{Ricci curvature} is a $(0,2)$-tensor field given by \[
+            \mathop{Rc}(X,Y)=\mathop{tr}(Z \mapsto R(Z,X)Y)
+    \] with local form $R_{ij}=g^{km}R_{kijm}$.
+\item The \textbf{scalar curvature} is given by \[
+        \kappa = \mathop{tr}\mathop{Rc}=g^{ij}R_{ij}
+.\] 
+   \end{enumerate}
+\end{notation}

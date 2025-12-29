@@ -1,3 +1,10 @@
 \contentsline {chapter}{\nameref {ch:preface}}{i}{chapter*.1}%
-\contentsline {chapter}{\numberline {1}Preamble}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Repetition}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Vector Fields and Flows}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}(Semi-)Riemannian Metrics}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Linear Algebra}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Semi-Riemannian Manifolds}{4}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Curvature and Geodesics}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}The Exponential Map}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Curvature}{9}{section.1.5}%
 \contentsfinish 
