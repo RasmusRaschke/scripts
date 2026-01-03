@@ -1,12 +1,11 @@
 # Fdb version 4
-["biber main"] 1767042919.19016 "main.bcf" "main.bbl" "main" 1767049595.94921 2
-  "bibliography.bib" 1766739047.19976 1879 5b07853d96bb1ce20cf82c857d308580 ""
-  "main.bcf" 1767049595.8267 108492 0f75e84867bd23a9a36c4b1bd7a32ec9 "pdflatex"
+["biber main"] 1767482930.7731 "main.bcf" "main.bbl" "main" 1767483675.70416 2
+  "main.bcf" 1767483675.57554 108492 0f75e84867bd23a9a36c4b1bd7a32ec9 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1767049594.4009 "main.tex" "main.pdf" "main" 1767049595.94949 0
+["pdflatex"] 1767483674.01526 "main.tex" "main.pdf" "main" 1767483675.70443 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -308,21 +307,23 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-abspage.sty" 1749415731 2269 2de6c7a5fd634dfef00a960544463a38 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-base.sty" 1749415731 20785 198a9cb2e04238d92c320d0d9edbd76a ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749731695 5523539 cbe340ff87ac4cfddcdc6361a84e52ac ""
-  "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749731841 3599571 82e61a0d73d616a75eced79f48d5ff0b ""
-  "/usr/local/texlive/2025/texmf.cnf" 1749731691.3213 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "chap1.tex" 1767049591.56375 21321 c1481d13866be668641f85fdeff4a850 ""
-  "main.aux" 1767049595.82386 13562 401474ceac23a46f0ac96a28c90044dc "pdflatex"
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749797494 5523539 cbe340ff87ac4cfddcdc6361a84e52ac ""
+  "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749797535 3599565 9654882f00888f2602bca2b12f0df0df ""
+  "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "chap1.tex" 1767394426.43686 21312 9228849b58c89c871205915533b25c8b ""
+  "chap2.tex" 1767395170.79651 158 0a086f26c320c48ad869521ea9cdd008 ""
+  "chap3.tex" 1767483671.27254 10570 6ab28f05fdb24a4a35e8f23c07ed2a36 ""
+  "main.aux" 1767483675.57254 17378 74e4e044855eac6582c4738b8eed79d6 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1767049595.8247 1290 d0a3786ed7d486d12ae91c9a49f10dba "pdflatex"
-  "main.run.xml" 1767049595.82787 2313 bf3e4322c3614feb21562dbefc98a9cd "pdflatex"
-  "main.tex" 1766739047.20176 1587 0be45c803581d72c0dc33440e83555da ""
-  "main.toc" 1767049595.82787 724 642f6f735802684f8fdff050feb06101 "pdflatex"
-  "marginfix.sty" 1766739047.20176 13634 1adff3b3f20a436e0dc24761eed9d07b ""
-  "preamble.tex" 1766739047.20176 5939 c46f6d30492abc6cd1b34a191f7ba030 ""
-  "preface.tex" 1766739228.50148 1143 1623c4259016e3ab544196c2231ae11f ""
-  "symbols.tex" 1766871435.08118 2031 74cdeb2386aa8de17942464b9738af55 ""
-  "tuftebook.cls" 1766739047.20276 5939 9621f865dee56dd007dd5cdedf790b8e ""
+  "main.out" 1767483675.57446 2074 4c918bb644379b03c4861400a7a28c49 "pdflatex"
+  "main.run.xml" 1767483675.57727 2313 bf3e4322c3614feb21562dbefc98a9cd "pdflatex"
+  "main.tex" 1767394268.47985 1629 9921505024d590a3e2218b169e86e273 ""
+  "main.toc" 1767483675.57727 1070 2d63b222b34f1fce02bb908bfec60c49 "pdflatex"
+  "marginfix.sty" 1766510793.38437 13634 1adff3b3f20a436e0dc24761eed9d07b ""
+  "preamble.tex" 1766510793.38455 5939 c46f6d30492abc6cd1b34a191f7ba030 ""
+  "preface.tex" 1767266582.73028 1143 1623c4259016e3ab544196c2231ae11f ""
+  "symbols.tex" 1767266582.73028 2031 74cdeb2386aa8de17942464b9738af55 ""
+  "tuftebook.cls" 1766510793.38521 5939 9621f865dee56dd007dd5cdedf790b8e ""
   (generated)
   "main.aux"
   "main.bcf"

@@ -1,0 +1,131 @@
+\chapter{Jacobi Fields}
+\label{chap:jacobi}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{3}{}
+
+\section{The Jacobi Equation}
+\label{sec:jacobieq}
+In this section we focus on semi-Riemannian manifolds.
+\begin{definition}[Variation through Geodesics]
+    Let $(M,g)$ be semi-Riemannian and $\gamma: I \to M$ be a geodesic. If $K$ is another interval and \[
+    \Gamma: K \times I \to M
+    \] is a variation of $\gamma$ such that $\gamma_s: I \to M$ is a geodesic for all $s \in K$, we call $\Gamma$ a \textbf{variation through geodesics}. 
+\end{definition}
+
+Variation through geodesics give rise to several particular vector fields: The \emph{variational field} of $\Gamma$ is a vector field $J \in \mathfrak{X}(\Gamma)$ defined as \[
+    J(t):=\left.\frac{\partial}{\partial s}\right|_{s=0} \Gamma (s,t)
+.\] Furthermore, we define two accessory vector fields 
+\[    T(s,t) := \frac{\partial \Gamma}{\partial t} \]
+\[S(s,t)  := \frac{\partial \Gamma}{\partial s} \]
+which will be useful.
+\begin{lemma}[Symmetry Lemma]
+    Let $\Gamma: K \times I \to M$ be a smooth family of curves. Then we have \[
+        \nabla_{\frac{d}{ds}} T = \nabla_{\frac{d}{dt}}S
+    .\] 
+\end{lemma}
+\begin{proof}
+    Take local coordinates $(x^i)$ on some coordinate neighbourhood and write $\Gamma(s,t)=(\gamma^1(s,t), \dots, \gamma^n(s,t))$. We have $S = \frac{\partial \gamma^k}{\partial s} \partial_k$ and $T= \frac{\partial \gamma^k}{\partial t} \partial_k$. Calculating the left side directly yields:
+    \begin{align*}
+\nabla_{\frac{d}{ds}} T &= \nabla_{\frac{d}{ds}}\left( \frac{\partial \gamma^k}{\partial s} \partial_k \right) = \frac{\partial^2 \gamma^k}{\partial t \partial s} \partial_k + \frac{\partial \gamma^i}{\partial t} \frac{\partial \gamma^j}{\partial s} \nabla_{\partial_j}\partial_i \\
+                        &= \left(  \frac{\partial^2 \gamma^k}{\partial t \partial s} + \frac{\partial \gamma^i}{\partial t} \frac{\partial \gamma^j}{\partial s} \Gamma_{ji}^k \right) \partial_k
+    \end{align*}
+    Exchanging $i \leftrightarrow j$ and using the symmetry $\Gamma_{ij}^k=\Gamma_{ji}^k$ yields the desired identity.
+\end{proof}
+\begin{lemma}[Curvature Lemma]
+    Let $(M,g)$ be semi-Riemannian and $\Gamma: K \times I \to M$ be a smooth family of curves. Then for any $V \in \mathfrak{X}(\Gamma)$, we have \[
+        \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} V - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} = R(S, T)V
+    .\] 
+\end{lemma}
+\begin{proof}
+    Take local coodinates $(x^i)$ and write $\Gamma(s,t)=(\gamma^1(s,t), \dots, \gamma^n(s,t))$ as well as $V=V^i\partial_i$. We calculate the two left derivatives explicitly:
+    \[
+        \nabla_{\frac{d}{dt}}V=\frac{\partial V^i}{dt}\partial_i + V^i \nabla_{\frac{d}{dt}} \partial_i
+    \] and \[
+    \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} V= \left( \frac{\partial^2 V^i}{\partial s \partial t} + \frac{\partial V^i}{\partial t} \nabla_{\frac{d}{ds}} + \frac{\partial V^i}{\partial s} \nabla_{\frac{d}{dt}} + V^i \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} \right) \partial_i
+    .\] 
+Exchanging $s \leftrightarrow t$ yields $\nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} V$ and we see immediately that after subtraction, only the rightmost term remains: \[
+\left( \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}}\right) V = V^i \left(\nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} \right) \partial_i
+.\] 
+Extending $\partial_i$ and the covariant derivative, we can calculate:
+\[
+    \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} \partial_i = \nabla_{\frac{d}{ds}} \left(  \frac{\partial \gamma^j}{\partial t} \nabla_{\partial_j}\partial_i\right)= \frac{\partial^2 \gamma^j}{\partial s \partial t} \nabla_{\partial_j} \partial_i + \frac{\partial \gamma^j}{\partial t} \frac{\partial \gamma^k}{\partial s} \nabla_{\partial_k} \nabla_{\partial_j}\partial_i
+\] and analogously \[
+    \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} \partial_i = \frac{\partial^2 \gamma^j}{\partial t \partial s} \nabla_{\partial_j} \partial_i + \frac{\partial \gamma^j}{\partial s} \frac{\partial \gamma^k}{\partial t} \nabla_{\partial_k} \nabla_{\partial_j}\partial_i
+.\] 
+Exchanging $j \leftrightarrow k$ and subtracting cancels out the left term and we obtain: \[
+    \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} \partial_i -     \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} \partial_i \partial_i = \frac{\partial \gamma^j}{\partial t} \frac{\partial \gamma^k}{\partial s} (\nabla_{\partial_k} \nabla_{\partial_j}-\nabla_{\partial_j}\nabla_{\partial_k}) \partial_i = R(S,T)\partial_i
+.\] 
+\end{proof}
+We are now ready to consider the main theorem of this section:
+\begin{theorem}[Jacobi Equation]
+    Let $(M,g)$ be semi-Riemannian, $\gamma: I \to M$ be a geodesic and $\Gamma: K \times I \to M$ be a variation of $\gamma$ through geodesics with variational field $J$. Then $J$ satisfies the \textbf{Jacobi Equation}: 
+    \begin{equation}
+        \nabla_{\frac{d}{dt}}^2 J + R(J,\dot{\gamma})\dot{\gamma}=0.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    The fact that $\Gamma$ is a variation through geodesics tells us that $\nabla_{\frac{d}{dt}}T \equiv 0$. Dervating once more yields $\nabla_{\frac{d}{ds}}\nabla_{\frac{d}{dt}}\equiv 0$. By the curvature and the symmetry lemma, we have \[
+        \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} T = \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} T + R(S,T)T = \nabla_{\frac{d}{dt}}^2 S + R(S,T)T
+    .\] 
+At $s=0$, we have $S(0,t)=\partial_s \Gamma_s(t)= J(t)$ and $T(0,t)=\partial_t \Gamma_0 (t)=\dot{\gamma}(t)$ as claimed.
+\end{proof}
+\begin{prop}[Existence and Uniqueness]
+Let $(M,g)$ be a SRMF, $\gamma: I \to M$ be a geodesic, $t_0 \in I$ and $p:=\gamma(t_0)$. For all $v,w \in T_pM$, there is a unique Jacobi field $J$ along $\gamma$ satisfying the initial data \[
+        J(t_0) = v, \, \nabla_{\frac{d}{dt}} J(t_0)=w
+    .\] 
+\end{prop}
+\begin{proof}
+    Take $J \in \mathfrak{X}(\gamma)$ and choose a parallel ONF $(E_i)$. We write $v = v^iE_i(t_0)$, $w = w^iE_i(t_0)$, $\dot{\gamma}(t)=\gamma^i(t)E_i(t)$ and $J=J^i(t)E_i(t)$. The Jacobi equation holds if and only if the following equation is satisfied:
+    \marginnote{Note that all terms of the form $\nabla_{\frac{d}{dt}} E_i$ in the left term vanish as the ONF is parallel w.r.t. $\nabla$.}
+    \begin{align*}
+        0 &= \nabla_{\frac{d}{dt}}^2 J + R(J, \dot{\gamma})\dot{\gamma} = \nabla_{\frac{d}{dt}}^2 (J^iE_i)  + R(J^j E_j, \dot{\gamma}^kE_k)\dot{\gamma}^lE_l\\
+          &= \ddot{J}^iE_i + J^j \dot{\gamma}^k \dot{\gamma}^l R(E_j,E_k)E_l 
+    \end{align*}
+    This yields a second-order system of $n$ equations \[
+        \frac{d^2 J^i(t)}{dt^2} = - \dot{J}^j  (t) \dot{\gamma}^k(t)\dot{\gamma}^l(t) R^i_{jkl}
+    .\] Substituting $W^i(t):=\dot{J}^i(t)$, this reduces to $2n$ first-order equations. The existence and uniqueness theorem of ODEs on manifolds thus guarantees that the claim holds.
+\end{proof}
+\begin{definition}[Jacobi Field]
+    Let $(M,g)$ be a SRMF and $\gamma: I \to M$ be a geodesic. We call a vector field $J \in \mathfrak{X}(\gamma)$ a \textbf{Jacobi field} if it satiesfies the Jacobi equation. The space $\mathfrak{J}(\gamma) \subseteq \mathfrak{X}(\gamma)$ denotes the space of all Jacobi fields along $\gamma$.
+\end{definition}
+\begin{corollary}
+   Let $(M,g)$ be an $n$-dimensional SRMF and $\gamma: I \to M$ be any geodesic. Then $\mathfrak{J}(\gamma)$ is a $2n$-dimensional linear subspace of $\mathfrak{X}(\gamma)$.
+\end{corollary}
+\begin{proof}
+    Linearity of the Jacobi equation guarantees that $\mathfrak{J}(\gamma)$ is linear. Fixing some $p=\gamma(t_0)$, we have an isomorphism $\mathfrak{J}(\gamma) \cong T_p M \oplus T_p M$ given by the previous preposition as $J \mapsto (J(t_0), \nabla_{\frac{d}{dt}} J(t_0))$.
+\end{proof}
+\begin{prop}
+    Let $(M,g)$ be a SRMF and $\gamma: I \to M$ be a geodesic. If either 
+    \begin{enumerate}[(i)]
+        \item $M$ is complete, or
+        \item $I$ is compact
+    \end{enumerate}
+    then every Jacobi field along $\gamma$ is the variation field of some variation of $\gamma$ though geodesics.
+\end{prop}
+\begin{proof}
+    \marginnote{The idea is the following: We define a small curve through a starting point on $\gamma$ and use the assumptions to guarantee that (after eventually contracting the domain) $\exp$ can be used to define a variation through geodesics. After that, we use uniqueness of Jacobi fields to show that the variational vector field of this constructed variation has to agree with $J$.}
+    Let $J \in \mathfrak{J}(\gamma)$. By translating, we can assume $0 \in I$ and set $p:=\gamma(0)$, $v:=\dot{\gamma}(0)$. This means we can write $\gamma(t)=\exp_p(tv)$ for all $t \in I$. By construction of the tangent space, there is a small open interval $(-\epsilon, \epsilon)$ and a smooth curve $\sigma: (- \epsilon, \epsilon) \to M$ satisfying \[
+        \sigma(0)=p, \, \dot{\sigma}(0)=J(0)
+    .\] Choose a vector field $V \in \mathfrak{X}(\sigma)$ with data \[
+    V(0)=w \, \nabla_{\frac{d}{ds}}V(0)=\nabla_{\frac{d}{dt}}J(0)
+    .\] We want to define a variation through geodesics by 
+    \begin{equation}
+        \Gamma(s,t):=\exp_{\sigma(s)}(tV(s)).
+    \end{equation}
+    If $M$ is geodesically complete, we can always define $\Gamma$ on $(-\epsilon, \epsilon) \times I$. If $I$ is compact, we can use that $\mathcal{E}_p$ is open and contains the compactum $\{(p,tv)\in TM \mid t\in I\}$. Therefore, we find some $\delta >0$ such that $\Gamma$ is definable on $(-\delta, \delta) \times M$. \\
+Evaluating at $s=0$ yields \[
+    \Gamma_0(t)= \exp_{\sigma(0)}(tV(0))=\exp_p(tv)=\gamma(t),
+\] which tells us that $\Gamma$ is indeed a variation of $\gamma$: By definition of $\exp$, it is also a variation thorugh geodesics with variational field $W(t):=\frac{\partial \Gamma}{\partial s}(0,t) \in \mathfrak{J}(\gamma)$. \\
+Now we match initial data:
+\begin{enumerate}
+    \item $W(0)=\frac{\partial}{\partial s} \Gamma(0,0) = \dot{\sigma}(0)=J(0)$
+    \item We have $\frac{\partial}{\partial t}\Gamma_s(0) = V(s)\exp(0)=V(s)$. By applying the symmetry lemma, we obtain: \[
+            \nabla_{\frac{d}{dt}}W(0)=\nabla_{\frac{d}{dt}} \frac{\partial}{\partial s} \Gamma(0,0) = \nabla_{\frac{d}{ds}} \frac{\partial}{\partial t}\Gamma(0,0) = \nabla_{\frac{d}{ds}}V(0)=\nabla_{\frac{d}{dt}}J(0)
+    .\] Since $J$ and $W$ have the same initial data, we can conclude by uniqueness that $J \equiv W$.
+\end{enumerate}
+\end{proof}
+
+\section{Jacobi Fields vanishing at a point}
+\label{sec:jacobipoint}

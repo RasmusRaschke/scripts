@@ -1,4 +1,4 @@
-PWD /home/rasmus/Documents/scripts/lrgeom
+PWD /home/lyserg/Documents/scripts/lrgeom
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -544,6 +544,12 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
+INPUT ./chap2.tex
+INPUT ./chap2.tex
+INPUT chap2.tex
+INPUT ./chap3.tex
+INPUT ./chap3.tex
+INPUT chap3.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
