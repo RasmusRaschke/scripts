@@ -11,4 +11,6 @@
 \contentsline {chapter}{\numberline {3}Jacobi Fields}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The Jacobi Equation}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Jacobi Fields vanishing at a point}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Normal and Tangential Jacobi Fields}{17}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Comparision Geometry}{19}{chapter.4}%
 \contentsfinish 

@@ -1,0 +1,61 @@
+\chapter{Comparision Geometry}
+\label{chap:comparision}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{4}{}
+
+As a preliminary, we construct a special function on normal neighbourhoods: 
+\marginnote{
+    Given a time-oriented Lorentzian manifold, we define the radial distance function by the proper time $\tau: I^U(p) \to \mathbb{R}$ with $\tau(q):=\tau_U(p,q)>0$.
+}
+Given a Riemannian manifold $(M,g)$ and a normal chart $(U, x^i)$ around some $p \in M$. Define the \textbf{radial distance function} $r: U \to \mathbb{R}$ by $r(q)=d(p,q) >0$. If the coodinates are centered at $p$, we have the explicit form \[
+    r(x)=\sqrt{(x^1)^2 + \cdots + (x^n)^2}
+,\] and on $U \setminus \{p\}$ we get the \textbf{radial vector field} \[
+\partial_r = \frac{x^i}{r(x)} \partial_i
+.\]  This is smooth on $U \setminus \{p\}$ and independent of choice of charts.
+\begin{definition}[Hessian]
+    \marginnote{In local coordinates $(x^i)$, the Hessian has the (familiar) form \[
+            \Hess_u = (\partial_j \partial_i u - \Gamma_{ij}^k \partial_k u) \, dx^i \otimes dx^j
+    .\] }
+    Let $(M,g)$ be a SRMF and $u: M \to \mathbb{R}$ smooth. The \textbf{covariant Hessian} is the $(0,2)$-tensor \[
+        \Hess_u(X,Y):=(\nabla^2 u)(X,Y) = \nabla_X(\nabla_Y u) - \nabla_{\nabla_X Y}u
+    .\]  The \textbf{Hessian operator} is the $(1,1)$-tensor \[
+    \mathcal{H}_u := \Hess_u^\sharp
+    .\] 
+\end{definition}
+\begin{remark}
+   The Hessian is symmetric if $\nabla$ is the Levi-Civita-Connection (or, more generally, if and only if $\nabla$ is torsion-free):
+   \begin{align*}
+       \Hess_u(X,Y) &= Y(X(u)) - du(\nabla_YX) = (XY-[X,Y])u - du(\nabla_YX) \\
+                    &= X(Y(u))-du(\nabla_YX+[X,Y])\\
+                    &= X(Y(u))- du(\nabla_X Y-T(X,Y))\\
+                    &= \Hess_u(Y,X) + T(X,Y)(u)
+   \end{align*}
+   Unraveling the definition of $\mathcal{H}_u$, we get \[
+   g(\mathcal{H}_u(X), Y) = \Hess_u(X,Y) = \Hess_u(Y,X)=g(X,\mathcal{H}_u(Y))
+   ,\] and hence $\mathcal{H}_u$ is self-adjoint.
+\end{remark}
+With the radial distance function defined above, we obtain the Hessian operator $\mathcal{H}_r$ associated to that function.
+\begin{notation}
+    Given a normal neighbourhood $U$, we denote the geodesic spheres of radius $r_0$ and proper time $\tau_0$, respectively, by \[
+        \mathbb{S}_{r_0}:=\left\{x \in U \mid r(x)=r_0\right\} 
+    \] and \[
+    \mathbb{S}_{\tau_0} := \left\{x \in U \mid \tau (x)=\tau_0 \right\} 
+    .\] 
+        The Gauß' Lemma immediately tells us that $T_q\mathbb{S}_{r(q)}=\partial_r|_q^\perp \subseteq T_qM$ and similarly for $\tau$. Denote the projection on the radial tangent by \[
+            \pi_q^r: T_qM \to T_q\mathbb{S}_{r(q)}
+        .\] 
+\end{notation}
+\begin{lemma}
+    Let $(M,g)$ be a Riemannian or time-oriented Lorentzian manifold, $(U,x^i)$ be a normal chart around $p \in M$ $r$ be the radial distance function. Then we have for all $q \in U \setminus \{p\}$:
+    \begin{enumerate}
+        \item $\mathcal{H}_r(\partial_r|_q)=0$ and $\mathcal{H}_\tau(\partial_\tau|_q)=0$
+        \item For all $X \in T_qM$ with $X \perp \partial_r|_q$: \[
+        \mathcal{H}_r(X)=\pi_q(\nabla_X(\grad r))
+        ,\] and similarly for $X \perp \partial_\tau|_q$:
+        \[
+        \mathcal{H}_\tau(X)=\pi_q(\nabla_X(\grad \tau))
+        .\] 
+    \end{enumerate}
+\end{lemma}

@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1767482930.7731 "main.bcf" "main.bbl" "main" 1767483675.70416 2
-  "main.bcf" 1767483675.57554 108492 0f75e84867bd23a9a36c4b1bd7a32ec9 "pdflatex"
+["biber main"] 1767615575.22737 "main.bcf" "main.bbl" "main" 1767616216.49135 2
+  "main.bcf" 1767616216.33225 108492 0f75e84867bd23a9a36c4b1bd7a32ec9 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1767483674.01526 "main.tex" "main.pdf" "main" 1767483675.70443 0
+["pdflatex"] 1767616214.68782 "main.tex" "main.pdf" "main" 1767616216.49161 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -312,17 +312,18 @@
   "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "chap1.tex" 1767394426.43686 21312 9228849b58c89c871205915533b25c8b ""
   "chap2.tex" 1767395170.79651 158 0a086f26c320c48ad869521ea9cdd008 ""
-  "chap3.tex" 1767483671.27254 10570 6ab28f05fdb24a4a35e8f23c07ed2a36 ""
-  "main.aux" 1767483675.57254 17378 74e4e044855eac6582c4738b8eed79d6 "pdflatex"
+  "chap3.tex" 1767610150.60255 13603 260ea2e289848173d605aa5a9af86881 ""
+  "chap4.tex" 1767616212.05125 3356 8fa5671cf86f2894d2013e892bc39703 ""
+  "main.aux" 1767616216.32825 20509 22ea64ec5a1963023bbd894071340607 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1767483675.57446 2074 4c918bb644379b03c4861400a7a28c49 "pdflatex"
-  "main.run.xml" 1767483675.57727 2313 bf3e4322c3614feb21562dbefc98a9cd "pdflatex"
-  "main.tex" 1767394268.47985 1629 9921505024d590a3e2218b169e86e273 ""
-  "main.toc" 1767483675.57727 1070 2d63b222b34f1fce02bb908bfec60c49 "pdflatex"
+  "main.out" 1767616216.33025 2463 736e18a2ae6129c46afb46adb16e934f "pdflatex"
+  "main.run.xml" 1767616216.33349 2313 bf3e4322c3614feb21562dbefc98a9cd "pdflatex"
+  "main.tex" 1767613559.13694 1651 efcaa212fb4ed814298363a981cf7c4e ""
+  "main.toc" 1767616216.33349 1243 a68e224f6c2dd354ccfc3358b7265ceb "pdflatex"
   "marginfix.sty" 1766510793.38437 13634 1adff3b3f20a436e0dc24761eed9d07b ""
-  "preamble.tex" 1766510793.38455 5939 c46f6d30492abc6cd1b34a191f7ba030 ""
+  "preamble.tex" 1767614158.75501 5822 fb316d50a06472485f48b58fa399030d ""
   "preface.tex" 1767266582.73028 1143 1623c4259016e3ab544196c2231ae11f ""
-  "symbols.tex" 1767266582.73028 2031 74cdeb2386aa8de17942464b9738af55 ""
+  "symbols.tex" 1767615544.78417 2098 bbb34970e01dae2922a1eb0939a9cc90 ""
   "tuftebook.cls" 1766510793.38521 5939 9621f865dee56dd007dd5cdedf790b8e ""
   (generated)
   "main.aux"

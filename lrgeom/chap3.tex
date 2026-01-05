@@ -112,6 +112,7 @@ Let $(M,g)$ be a SRMF, $\gamma: I \to M$ be a geodesic, $t_0 \in I$ and $p:=\gam
     V(0)=w \, \nabla_{\frac{d}{ds}}V(0)=\nabla_{\frac{d}{dt}}J(0)
     .\] We want to define a variation through geodesics by 
     \begin{equation}
+    \label{eq:jacobivar}
         \Gamma(s,t):=\exp_{\sigma(s)}(tV(s)).
     \end{equation}
     If $M$ is geodesically complete, we can always define $\Gamma$ on $(-\epsilon, \epsilon) \times I$. If $I$ is compact, we can use that $\mathcal{E}_p$ is open and contains the compactum $\{(p,tv)\in TM \mid t\in I\}$. Therefore, we find some $\delta >0$ such that $\Gamma$ is definable on $(-\delta, \delta) \times M$. \\
@@ -129,3 +130,54 @@ Now we match initial data:
 
 \section{Jacobi Fields vanishing at a point}
 \label{sec:jacobipoint}
+We turn our attention to Jacobi fields which vanish at some point $p \in M$.
+\begin{lemma}
+    Let $(M,g)$ be a SRMF, $I \ni 0$ an interval, $\gamma: I \to M$ be a geodesic, and $J \in \mathfrak{J}(\gamma)$ such that $J(0)=0$. 
+    If $M$ is geodesically complete or $I$ is compact, $J$ is the variation field of the geodesic variation
+    \begin{equation}
+    \label{eq:explicitpointjacobi}
+    \Gamma (s,t):=\exp_p(t(v+sw))
+\end{equation}
+ with $p = \gamma(0)$, $v = \dot{\gamma}(0)$, and $w=\nabla_{\frac{d}{dt}} J(0)$.
+\end{lemma}
+\begin{proof}
+    This follows directly from equation \ref{eq:jacobivar} by taking $\sigma(s)\equiv p$, and $V(s)=v+sw$.
+\end{proof}
+\begin{prop}[Jacobi Fields Vanishing at a Point]
+    Let $(M,g)$ be a SRMF, $p \in M$, $\gamma: I \to M$ be a geodesic with $0 \in I$ and $\gamma(0)=p$.
+    \begin{enumerate}
+        \item For every $w \in T_pM$, the Jacobi field with initial data $J(0)=0$ and $\nabla_{\frac{d}{dt}}J (0)=w$ is given by
+        \begin{equation}
+            \label{eq:jacobipoint}
+            J(t)=(\exp_p)_{\ast, tv} (tw)
+        \end{equation}
+        with $v = \dot{\gamma}(0)$ and $tw \in T_{tv}(T_pM) \cong T_pM$.
+    \item If $(x^i)$ are normal coordinates on a normal neighbourhood completely containing $\im \gamma$ with $w = w^i \partial_i|_0$, $J$ admits the form
+        \begin{equation}
+            J(t)=t w^i\partial_i|_{\gamma(t)}.
+        \end{equation}
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    \begin{enumerate}
+        \item Restricting to a compact subinterval of $I$, we can use equation \ref{eq:explicitpointjacobi} and calculate the pushforward: \[
+            \frac{\partial}{\partial s} \Gamma(0,t)=\left( \exp_p(t(v+sw)) \right)_{\ast, s=0} = (\exp_p)_{\ast, tv} \circ (tw)=(\exp_p)_{\ast, tv} (tw)
+    .\] As all $t \in I$ are contained in such compact subintervals, this holds for all $t$.
+    \item Given normal coordinates $(U,x^i)$, the exponential map is the identity in coordinates, so we get $\Gamma(s,t)=t(v^i+sw^i)\partial_i$. We can calculate directly:
+        \[
+            \frac{\partial}{\partial s} \Gamma(0,t) = tw^i \partial_i|_{\gamma(t)}
+        .\] 
+    \end{enumerate}
+\end{proof}
+This makes it possible to reach all vectors in a normal neighbourhood with Jacobi fields:
+\begin{corollary}
+    Let $(M,g)$ be a SRMF, $p \in M$ and $U$ be a normal neighbourhood centered at $p$. For any $q \in U \setminus \{p\}$, every vector $v \in T_qM$ is the value of a Jacobi field $J$ vanishing at $p$ along a radial geodesic.
+\end{corollary}
+\begin{proof}
+    Take normal coordinates $(U, x^i)$ and $q  = (q^1, \dots, q^n) \in U \setminus \{p\}$ as well as $w = w^i \partial_i|_q \in T_qM$. The radial geodesic $\gamma(t):=(tq^1, \dots, tq^n)$ has endpoints $\gamma(0)=p$ and $\gamma(1)=q$. By the previous preposition, \[
+        J(t):=tw^i\partial_i |_{\gamma(t)}
+    \] is a Jacobi field satisfying $J(0)=0$ adn $J(1)=w$. 
+\end{proof}
+
+\section{Normal and Tangential Jacobi Fields}
+\label{sec:normaltangential}
