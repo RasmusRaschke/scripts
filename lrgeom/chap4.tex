@@ -48,14 +48,93 @@ With the radial distance function defined above, we obtain the Hessian operator 
         .\] 
 \end{notation}
 \begin{lemma}
-    Let $(M,g)$ be a Riemannian or time-oriented Lorentzian manifold, $(U,x^i)$ be a normal chart around $p \in M$ $r$ be the radial distance function. Then we have for all $q \in U \setminus \{p\}$:
+    Let $(M,g)$ be a Riemannian or time-oriented Lorentzian manifold, $(U,x^i)$ be a normal chart around $p \in M$ and let $r$ be the radial distance function. Then we have for all $q \in U \setminus \{p\}$:
     \begin{enumerate}
         \item $\mathcal{H}_r(\partial_r|_q)=0$ and $\mathcal{H}_\tau(\partial_\tau|_q)=0$
         \item For all $X \in T_qM$ with $X \perp \partial_r|_q$: \[
         \mathcal{H}_r(X)=\pi_q(\nabla_X(\grad r))
         ,\] and similarly for $X \perp \partial_\tau|_q$:
         \[
-        \mathcal{H}_\tau(X)=\pi_q(\nabla_X(\grad \tau))
-        .\] 
+        \mathcal{H}_\tau(X)=\pi_q(\nabla_X(\grad \tau)) = \pi_q^\mathbb{H} ( \nabla_X \grad(\tau))
+    ,\] where $\pi_q^\mathbb{H}: T_qM \to \partial_\tau|_q^\perp \cong T\mathbb{H}^{n-1}$ denotes the orthogonal projection \[
+    \pi_q^\mathbb{H}(Y) = Y + g(Y, \partial_\tau)\partial_\tau
+    .\] 
     \end{enumerate}
 \end{lemma}
+\begin{proof}
+    We proof the Lorentzian case:
+    \begin{enumerate}
+        \item Let $Y \in T_qM$ be arbitrary. We have:
+            \begin{align*}
+                g(\mathcal{H}_\tau(\partial_\tau|_q), Y) &= g(\partial_\tau|_q, \mathcal{H}_\tau(Y)) = g(\partial_\tau|_q, - \nabla_Y \grad(\tau)) \\
+                                                         &= g(\nabla_Y\partial_\tau, \partial_\tau|_q) = \frac{1}{2} Y_q(g(\partial_\tau, \partial_\tau)) =0,
+            \end{align*}
+            where we used symmetry of $g$ and the fact that $- \grad (\tau)=\partial_\tau$ since the metric is $-d\tau^2+\tilde{g}$.
+        \item This follows since the previous remark showed $\mathcal{H}_\tau(X)= \nabla_X \grad (\tau)$ and $\mathcal{H}_\tau (X) \perp \partial_\tau$ follows from the upper equation.
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    \marginnote{
+        Note that $g|_{TH_{\tau_0} \times TH_{\tau_0}}$ is Riemannian, so the restriction is self-adjoint for a positive-definite inner product even in the Lorentzian case.
+    }
+    For any $\tau_0$ such that \[
+        H_{\tau_0} := \left\{q \in I^+_U(p)  \mid \tau_U(p,q)=\tau_0\right\} \neq \emptyset,
+    \] $\mathcal{H}_\tau$ restricts to a self-adjoint linear operator \[
+    \mathcal{H}_\tau: TH_{\tau_0} \to TH_{\tau_0}
+\] and is given by the Weingarten map $\mathcal{H}_\tau(X) = -\nabla_X N$ where $N=\partial_\tau$ is the future-pointing unit normal to $H_{\tau_0}$.
+\end{remark}
+\begin{prop}[The Hessian and Jacobi Fields]
+    Let $(\mathcal{L},g)$ be a LMF, $p \in \mathcal{L}$ and $U \subseteq \mathcal{L}$ be a normal neighbourhood around $p$. Set $\tau := \tau_U(p, \cdot)$. Let $\gamma: [0,b] \to U$ be a future-directed timelike unit-speed geodesic starting at $p$ and let $J \in \mathfrak{J}^\perp(\gamma)$ such that $J(0)=0$. Then \[
+        \nabla_{\frac{d}{dt}}J(\tau_0)=-\mathcal{H}_\tau(J(\tau_0))
+    \] for all $\tau_0 \in (0,b]$.
+\end{prop}
+\begin{proof}
+    Let $v:=\dot{\gamma}(0)$ and $w:= \nabla_{\frac{d}{dt}}J(0)$. By equation \ref{eq:explicitpointjacobi}, we have a variation through geodesics \[
+        \Gamma_s(t)=\exp_ {\sigma(s)}(tU(s))
+        \]  where $\sigma(s)$ is any curve with $\sigma(0)=p$ and $\dot{\sigma}(0)=J(0)$. The vector field $U$ satisfies $U(0)=0$ and $\nabla_{\frac{d}{ds}}U(0)=w$ and the variational field of $\Gamma$ is $\left. \frac{\partial}{\partial s}\right|_{s=0} = J$. Since $J(0)=0$, choose $\sigma(s)\equiv p$. Since $w \perp v$ ($J$ is normal), we have \marginnote{Note that $g_p \cong \eta_p$.} \[
+    v \in H := \left\{X \in T_p \mathcal{L} \mid g_p(X,X)=-1 \right\} 
+.\] Hence, $w \in T_vH$. Since $U: I \to T_pM = T_{\sigma (s)}M$ with $\nabla_{\frac{d}{ds}}U(0) \in T_vH$ and $U(0)=v \in H$, we can choose $U$ such that $U(s) \in H$ for all $s$. Therefore, each curve $t \mapsto \Gamma_s(t)$ is a future-directed timelike unit-speed geodesic starting at $p$, implying 
+\begin{equation}
+    \label{eq:helper1}
+\partial_t \Gamma_{s_0}(t_0)=\partial_\tau|_{\Gamma (s_0,t_0)}
+\end{equation}
+Now we compute:
+\[
+    \nabla_{\frac{d}{dt}}J = \nabla_{\frac{d}{dt}} \left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma = \nabla_{\frac{d}{ds}} \left( \frac{\partial}{\partial t} \Gamma \right)(0,t)=\nabla_{\frac{d}{ds}} \left( \partial_\tau \circ \Gamma \right)(0,t)
+    ,\] where we used equation \ref{eq:helper1}. Since $\partial_\tau$ is a smooth vector field on $I_U^+(p)$ (which is an open neighbourhood of $\Gamma_0(\tau_0)$ for any $\tau_0 \in (0,b]$). This implies \[
+    \nabla_{\frac{d}{ds}} \left( \partial_\tau \circ \Gamma \right)(0,t) = \nabla_{\partial_s \Gamma|_{s=0}} \partial_\tau = \nabla_J \partial_\tau = - \nabla_J \grad (\tau) = \mathcal{H}_\tau (J)
+\] using $J \perp \dot{\gamma} = \partial_\tau$.  
+\end{proof} 
+Recall the previously defined function 
+\begin{equation}
+    \label{eq:concurfunc}
+    s_c(t):= 
+    \begin{cases}
+        R \sinh ( \frac{t}{R}) &c<0, \, R:= \frac{1}{\sqrt{c}}\\
+        t &c=0\\
+        R \sin (\frac{t}{R}) &c>0, \, R:=\frac{1}{\sqrt{c}}.
+    \end{cases}
+\end{equation}
+\begin{prop}[Sectional Curvature and Hessian]
+    Let $(\mathcal{L}, g)$ be a LMF, $p \in \mathcal{L}$ and $U$ be a normal neighbourhood of $p$. Then $(\mathcal{L}, g)$ has constant sectional curvature $c$ on $I^+_U(p)$ if and only if \[
+        \mathcal{H}_\tau = - \frac{s_{-c}' \circ \tau}{s_{-c} \circ \tau} \cdot \pi^H
+    \] on $I^+_U(p)$.
+\end{prop}
+\begin{proof}
+    $(\Rightarrow):$ Let $q \in I_U^+(p)$, $\gamma: [0,b] \to M$ be the future-directed timelike unit-speed geodesic from $p$ to $q$, and let $\{E_1=\dot{\gamma}, E_2, \dots, E_n\}$ be an ONF along $\gamma$. The proposition about Jacobi fields in constant curvature spaces tells us that \[
+        J_i := s_{-c}E_i \, i\geq 2
+    \] are normal Jacobi fields along $\gamma$ with $J_i(0)=0$. Compute \[
+    s_{-c}' E_i = \nabla_{\frac{d}{dt}} J_i = - \mathcal{H}_\tau (J_i) = -s_{-c} \mathcal{H}_\tau(E_i)
+,\] where we used proposition $3.5$. Evaluation at $t=b$ and $s_{-c}(b)^{-1}$ noting $s_{-c}(b)\neq 0$ because $\gamma(b)=q \in U$, which is normal. Hence $q$ is not conjugate to $p$ implying $J_i(b)\neq 0$. This yields \[
+\mathcal{H}_\tau (E_i(b))=- \frac{s_{-c}'(b)}{s_{-c}(b)} E_i (b)
+,\] but $E_i(b)=\pi^H(E_i(b))$ because it is already orthogonal to $\dot{\gamma}(b)$. For $i=1$, we have \[
+0=\mathcal{H}_\tau (E_1(b))=\pi^H (E_1(b))
+\] because $E_1(b)=\dot{\gamma}(b)$.\par
+$(\Leftarrow):$ Let $q \in I_U^+(p)$ and $\gamma: [0,b) \to U$ be the corresponding geodesic. From theorem 2.23, we know that \[
+    \phi: I_U^+(p) \to \mathbb{R}_+ \times \mathbb{H}^{n-1}
+\] given by $\phi(q)=(\tau(q), \xi(q))$ is a diffeomorpism onto its image. If we can show that it is an isometry between $g$ and $g_c := -d\tau^2 + s_{-c}(\tau)^2g_{\mathbb{H}^{n-1}}$, then $g$ has constant sectional curvature. Following the proof of 2.23, we immediately get 1 and 2a. In 2b, the constant curvature assumption only entered via Jacobi fields, more precisely via 2.20 yielding: Any $J \in \mathfrak{J}^\perp(\gamma)$ with $J(0)=0$ is given by \[
+J(t)=ks_{-c}(t)E(t)
+\] for some $k \in \mathbb{R}$ and $E \perp \dot{\gamma}$ as well as parallel. It only remains to show this in our setting. Let $J \in \mathfrak{J}^\perp(\gamma)$. We have \[
+\nabla_{\frac{d}{dt}}J=\frac{s_{-c}'}{s_{-c}}J
+\] on $(0,b]$. By the product rule, $\frac{1}{s_{-c}}J$ is parallel along $\gamma$ on $(0,b]$. Define $\tilde{E}(t):=\frac{1}{s_{-c}}J$ and let $E= \frac{\tilde{E}}{\|\tilde{E}\|}$. Then $E$ is a parallel unit VF orthogonal $\dot{\gamma}$ and $J=\|\tilde{E}\|  s_{-c} E$. Set $k:=\|\tilde{E}\|$, which is constant since $\tilde{E$ was parallel. It suffices to have this for $t \in (0,b]$ since this still gives $k=\|\nabla_{\frac{d}{dt}} J(0)\|$ by $k$ constant.
+\end{proof}
