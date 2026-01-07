@@ -122,7 +122,7 @@ Recall the previously defined function
 \end{prop}
 \begin{proof}
     $(\Rightarrow):$ Let $q \in I_U^+(p)$, $\gamma: [0,b] \to M$ be the future-directed timelike unit-speed geodesic from $p$ to $q$, and let $\{E_1=\dot{\gamma}, E_2, \dots, E_n\}$ be an ONF along $\gamma$. The proposition about Jacobi fields in constant curvature spaces tells us that \[
-        J_i := s_{-c}E_i \, i\geq 2
+        J_i := s_{-c}E_i, \, i\geq 2
     \] are normal Jacobi fields along $\gamma$ with $J_i(0)=0$. Compute \[
     s_{-c}' E_i = \nabla_{\frac{d}{dt}} J_i = - \mathcal{H}_\tau (J_i) = -s_{-c} \mathcal{H}_\tau(E_i)
 ,\] where we used proposition $3.5$. Evaluation at $t=b$ and $s_{-c}(b)^{-1}$ noting $s_{-c}(b)\neq 0$ because $\gamma(b)=q \in U$, which is normal. Hence $q$ is not conjugate to $p$ implying $J_i(b)\neq 0$. This yields \[
@@ -136,5 +136,5 @@ $(\Leftarrow):$ Let $q \in I_U^+(p)$ and $\gamma: [0,b) \to U$ be the correspond
 J(t)=ks_{-c}(t)E(t)
 \] for some $k \in \mathbb{R}$ and $E \perp \dot{\gamma}$ as well as parallel. It only remains to show this in our setting. Let $J \in \mathfrak{J}^\perp(\gamma)$. We have \[
 \nabla_{\frac{d}{dt}}J=\frac{s_{-c}'}{s_{-c}}J
-\] on $(0,b]$. By the product rule, $\frac{1}{s_{-c}}J$ is parallel along $\gamma$ on $(0,b]$. Define $\tilde{E}(t):=\frac{1}{s_{-c}}J$ and let $E= \frac{\tilde{E}}{\|\tilde{E}\|}$. Then $E$ is a parallel unit VF orthogonal $\dot{\gamma}$ and $J=\|\tilde{E}\|  s_{-c} E$. Set $k:=\|\tilde{E}\|$, which is constant since $\tilde{E$ was parallel. It suffices to have this for $t \in (0,b]$ since this still gives $k=\|\nabla_{\frac{d}{dt}} J(0)\|$ by $k$ constant.
+\] on $(0,b]$. By the product rule, $\frac{1}{s_{-c}}J$ is parallel along $\gamma$ on $(0,b]$. Define $\tilde{E}(t):=\frac{1}{s_{-c}}J$ and let $E= \frac{\tilde{E}}{\|\tilde{E}\|}$. Then $E$ is a parallel unit VF orthogonal $\dot{\gamma}$ and $J=\|\tilde{E}\|  s_{-c} E$. Set $k:=\|\tilde{E}\|$, which is constant since $\tilde{E}$ was parallel. It suffices to have this for $t \in (0,b]$ since this still gives $k=\|\nabla_{\frac{d}{dt}} J(0)\|$ by $k$ constant.
 \end{proof}
