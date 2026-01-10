@@ -31,23 +31,40 @@
 \usepackage{mathrsfs}
 \usepackage{cancel}
 
+\usepackage{annotate-equations}
 \renewcommand\O{\ensuremath{\emptyset}}
-\newcommand\Q{\ensuremath{\mathbb{Q}}}
-\newcommand\C{\ensuremath{\mathbb{C}}}
 \let\implies\Rightarrow
 \let\impliedby\Leftarrow
 \let\iff\Leftrightarrow
 \let\epsilon\varepsilon
 \let\phi\varphi
 
+\newcommand{\lecture}[1]{%
+  \par\noindent
+  \hrulefill\quad\textbf{#1}\quad\hrulefill
+  \par
+}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 % theorems
 \usepackage{thmtools}
 \usepackage{thm-restate}
 \usepackage[framemethod=TikZ]{mdframed}
 \mdfsetup{skipabove=1em,skipbelow=0em, innertopmargin=12pt, innerbottommargin=8pt}
+
+\usepackage{adjustbox}
+\usepackage{accents}
+
+\newcommand{\halfcirc}{%
+  \adjustbox{trim=0 0 0 .4\height,clip}{$\circ$}%
+}
+\newcommand{\hcirc}[1]{%
+  \accentset{\halfcirc}{#1}%
+}
 
 \theoremstyle{definition}
 

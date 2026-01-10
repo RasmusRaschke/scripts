@@ -87,7 +87,7 @@ The flow of this theorem is called \textbf{flow of V}.
 \end{definition}
 \begin{eg}
     The standard pseudo-Euclidean vector space is the $n-$dimensional space $\mathbb{R}^{n-s,s}$, which consists of the vector space $\mathbb{R}^n$ with scalar product \[
-        g_{ij} := \mathop{diag}\{\underbrace{-1, \cdots, -1}_{s \text{ times}}, \underbrace{1, \cdots, 1}_{n-s \text{ times}}\} 
+        g_{ij} := \diag\{\underbrace{-1, \cdots, -1}_{s \text{ times}}, \underbrace{1, \cdots, 1}_{n-s \text{ times}}\} 
     .\] We call $\mathbb{R}^{n,1}$ the $(n+1)-$dimensional \textbf{Minkowski space}.
 \end{eg}
 \begin{remark}
@@ -209,10 +209,10 @@ Every smooth manifold can be endowed with a Riemannian metric:
     The Levi-Civita-Connection admits the following forms:
     \begin{enumerate}
         \item \textbf{Koszul's formula}:
-\begin{align}
+\begin{align*}
             2 \langle \nabla_X Y, Z \rangle = &X \langle Y,  Z \rangle + Y \langle Z, X \rangle - Z \langle X,Y  \rangle \\
                                               &-\langle Y, [X,Z]  \rangle - \langle Z, [Y,X] \rangle + \langle X, [Z,Y] \rangle 
-        \end{align}
+        \end{align*}
     \item The coefficients in local coordinates are the \textbf{Christoffel symbols}: \[
             (\nabla_{\partial_i}\partial_j)^k = \Gamma_{ij}^k = \frac{g_{kl}}{2} (\partial_i g_{jl} + \partial_jg_{il}-\partial_l g_{ij})
     .\] 
@@ -296,9 +296,9 @@ The \textbf{domain of the exponential map} is a subset $\mathcal{E}  \subseteq T
 Normal neighbourhoods have very nice properties:
 \begin{enumerate}
     \item Normal charts around $p$ are centered at $p$.
-    \item The metric coefficients at $p$ are $\delta_{ij}$ in the Riemannian and $\pm \delta_{ij}$ in the semi-Riemannian case.e
+    \item The metric coefficients at $p$ are $\delta_{ij}$ in the Riemannian and $\pm \delta_{ij}$ in the semi-Riemannian case.
     \item Given $v=v^i\partial_i \in T_pM$, the geodesic with initial data $(p,v)$ is given by $\gamma_v(t)=(tv^1, \dots, tv^n).$
-    \item All christoffel symbols vanish at $p$.
+    \item All Christoffel symbols vanish at $p$.
 \end{enumerate}
 \begin{theorem}[Existence of Convex Neighbourhoods]
     Given a semi-Riemannian manifold $M$, \textbf{convex neighbourhoods}, i.e. neighbourhoods which are normal for all points contained in them, form a neighbourhood basis for all $p \in M$.
@@ -324,14 +324,14 @@ Let $M$ be a semi-Riemannian manifold. For any $p \in M$, $x \in \mathcal{E}_p$ 
    There are many tensors derived from the curvature tensor:
    \begin{enumerate}
        \item The Riemann tensor itself has local form \[
-               R_{ijk}^l = \partial_i \Gamma_{jk}^l - \partial_j \Gamma_{ik}^l - \Gamma_{jk}^m\Gamma_{im}^l - \Gamma_{ik}^m\Gamma_{jm}^l
+               \R_{ijk}^l = \partial_i \Gamma_{jk}^l - \partial_j \Gamma_{ik}^l - \Gamma_{jk}^m\Gamma_{im}^l - \Gamma_{ik}^m\Gamma_{jm}^l
        .\] The map $Z \mapsto R(X,Y)Z$ is the \textbf{curvature endomorphism}.
-   \item The \textbf{Riemann tensor} is a $(0,4)-$tensor field defined by $\mathop{Riem}:= R^\flat=\langle R(X,Y)Z,W  \rangle $.
+   \item The \textbf{Riemann tensor} is a $(0,4)-$tensor field defined by $\Rm:= \R^\flat=\langle \R(X,Y)Z,W  \rangle $.
     \item The \textbf{Ricci curvature} is a $(0,2)$-tensor field given by \[
-            \mathop{Rc}(X,Y)=\mathop{tr}(Z \mapsto R(Z,X)Y)
-    \] with local form $R_{ij}=g^{km}R_{kijm}$.
+            \Ric(X,Y)=\tr(Z \mapsto \R(Z,X)Y)
+    \] with local form $\R_{ij}=g^{km}\R_{kijm}$.
 \item The \textbf{scalar curvature} is given by \[
-        \kappa = \mathop{tr}\mathop{Rc}=g^{ij}R_{ij}
+        \scal = \tr \Ric=g^{ij}\R_{ij}
 .\] 
    \end{enumerate}
 \end{notation}

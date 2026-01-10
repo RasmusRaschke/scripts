@@ -91,6 +91,7 @@ Let $(M,g)$ be a SRMF, $\gamma: I \to M$ be a geodesic, $t_0 \in I$ and $p:=\gam
     Let $(M,g)$ be a SRMF and $\gamma: I \to M$ be a geodesic. We call a vector field $J \in \mathfrak{X}(\gamma)$ a \textbf{Jacobi field} if it satiesfies the Jacobi equation. The space $\mathfrak{J}(\gamma) \subseteq \mathfrak{X}(\gamma)$ denotes the space of all Jacobi fields along $\gamma$.
 \end{definition}
 \begin{corollary}
+    \label{cor:jsubspace}
    Let $(M,g)$ be an $n$-dimensional SRMF and $\gamma: I \to M$ be any geodesic. Then $\mathfrak{J}(\gamma)$ is a $2n$-dimensional linear subspace of $\mathfrak{X}(\gamma)$.
 \end{corollary}
 \begin{proof}
@@ -171,6 +172,7 @@ We turn our attention to Jacobi fields which vanish at some point $p \in M$.
 \end{proof}
 This makes it possible to reach all vectors in a normal neighbourhood with Jacobi fields:
 \begin{corollary}
+    \label{cor:jacobibvp}
     Let $(M,g)$ be a SRMF, $p \in M$ and $U$ be a normal neighbourhood centered at $p$. For any $q \in U \setminus \{p\}$, every vector $v \in T_qM$ is the value of a Jacobi field $J$ vanishing at $p$ along a radial geodesic.
 \end{corollary}
 \begin{proof}
@@ -181,3 +183,170 @@ This makes it possible to reach all vectors in a normal neighbourhood with Jacob
 
 \section{Normal and Tangential Jacobi Fields}
 \label{sec:normaltangential}
+We make the following observation: Given any SRMF and geodesic $\gamma: I \to M$, there are always geodesic variations of the form $$\Gamma_s(t):=\gamma(\alpha(t)t)$$ for $\alpha: I \to \mathbb{R}$ affine, e.g. $\Gamma_s(t)=\gamma((1+s)t)$ and $\Gamma'_s(t)=\gamma(s+t)$. They give rise to Jacobi fields if $I$ is compact or $M$ is complete: 
+\begin{equation}
+    \label{eq:boringjacobi1}
+    \left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma_s(t)=t\dot{\gamma}(t)=:J_0
+\end{equation}
+and
+\begin{equation}
+    \label{eq:boringjacobi2}
+    \left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma'_s(t)=\dot{\gamma(t)} =:J_1.
+\end{equation}
+Those Jacobi fields are uninteresting, so we desire a splitting $$\mathfrak{J}(\gamma)\cong \mathfrak{J}(\gamma)^\top \oplus \mathfrak{J}(\gamma)^\perp.$$
+Given a vector field $V \in \mathfrak{X}(\gamma)$ along some curve $\gamma$, we call it \textbf{tangential} if $V(t) \in T_{\gamma(t)}M^\top$ at all $t \in I$ and \textbf{normal} if $V(t) \in T_{\gamma(t)}M^\perp$ for all $t \in I$.
+
+\begin{definition}[Tangential and Normal Jacobi Fields]
+    Let $(M,g)$ be a SRMF and $\gamma: I \to M$ a geodesic. We call $J \in \mathfrak{J}(\gamma)$:
+    \begin{enumerate}
+        \item \textbf{tangential} if $J(t)\in T_{\gamma(t)}M^\top$ for all $t \in I$, i.e. $J(t)=f(t)\gamma(t)$ for some smooth $f: I \to \mathbb{R}$.
+        \item \textbf{normal} if $J(t) \in T_{\gamma(t)}M^\perp$ for all $i \in I$, i.e. $g_{\gamma(t)}(J(t),\dot{\gamma}(t))=0$.
+    \end{enumerate}
+    We denote the space of tangential Jacobi fields by $\mathfrak{J}^\top(\gamma)$ and the space of normal Jacobi fields by $\mathfrak{J}^\perp(\gamma)$.
+\end{definition}
+\begin{lemma}[Tangential Jacobis are Uninteresting]
+    \label{lem:boringjacobi}
+    A smooth vector field $V \in \mathfrak{X}(\gamma)^\top$ along and tangential to a geodesic $\gamma$ is a Jacobi field if and only if $J(t)=(at+b)\dot{\gamma}(t)$, i.e. $f(t)=at+b$ for some $a,b \in \mathbb{R}$.
+\end{lemma}
+\begin{proof}
+    Write $V(t)=f(t)\dot{\gamma}(t)$ and calculate: \[
+        \nabla_{\frac{\mathop{d}}{\mathop{dt}}} V(t)=\dot{f}(t)\dot{\gamma}(t) + f(t) \eqnmark[red]{node1}{\cancel{\nabla_{\frac{\mathop{d}}{\mathop{dt}}} \dot{\gamma}(t)}} = \dot{f}(t)\dot{\gamma}(t)
+    \] 
+    \annotate[yshift=1em]{}{node1}{geodesic}
+    and
+    \[
+        \nabla_{\frac{\mathop{d}}{\mathop{dt}}}^2 V(t)=\ddot{f}(t)\dot{\gamma}(t) 
+    .\] The Riemann tensor vanishes: \[
+    R(V, \dot{\gamma})\dot{\gamma} = f(t) R(\dot{\gamma}, \dot{\gamma})\dot{\gamma} = 0
+.\] Hence, the Jacobi equation is satisfied if and only if $$\ddot{f}(t)=0,$$ so by basic ODE theory, $f(t)=at+b$ for some $a,b \in \mathbb{R}$ if and only if $V$ is a tangential Jacobi field.
+\end{proof}
+
+\begin{prop}[Normality Criterion]
+    \label{prop:normaljacobi}
+    Let $(M,g)$ be a SRMF, $\gamma: I \to M$ be a geodesic and $J \in \mathfrak{J}(\gamma)$. Then the following are equivalent:
+    \begin{enumerate}[(a)]
+        \item $J \in \mathfrak{J}(\gamma)^\perp$.
+        \item $J$ is orthogonal to $\dot{\gamma}$ at two distinct points $t_1,t_2 \in I$.
+        \item $J$ and $\nabla_{\frac{\mathop{d}}{\mathop{dt}}} J$ are orthogonal to $\dot{\gamma}$ at one point $t_0 \in I$. 
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Define the auxilliary function $$f(t):=g_{\gamma(t)}(J(t), \dot{\gamma}(t))$$ expressing the tangential part of $J$.
+    We have: \[
+        \dot{f}(t)=g_{\gamma(t)}(\nabla_{\frac{\mathop{d}}{\mathop{dt}}} J, \dot{\gamma} )
+    ,\] where the second term vanishes again as $\gamma$ is a geodesic. Then, we have
+    \[
+        \ddot{f}(t)=g_{\gamma(t)}(\nabla_{\frac{\mathop{d}}{\mathop{dt}}}J, \dot{\gamma} )=-g_{\gamma(t)}(R(J,\dot{\gamma})\dot{\gamma},\dot{\gamma})=g_{\gamma(t)}(R(\dot{\gamma},\dot{\gamma})\dot{\gamma},J)=0
+    \] by the symmetries of $R$. Thus, $f(t)=at+b$ for some $a,b \in \mathbb{R}$.
+    We see that (a) holds if and only if $f \equiv 0$. In that case, (b) and (c) hold, since $\nabla_{\frac{\mathop{d}}{\mathop{dt}}} J(t_0) \perp \gamma(t_0)$ is equivalent to $\dot{f}(t_0)=0$. If (b) holds, we have $at_1+b=0$, so $b=-at_1$. We also have $at_2+b=a(t_2-t_1)=0$, so $a=0$ and hence $b=0$, yielding $f \equiv 0$. If (c) holds, we have $\dot{f}(t_0)=a=0$ and $f(t_0)=b=0$, so again $f \equiv 0$.
+\end{proof}
+
+\begin{corollary}[Orthogonal Decomposition]
+    Let $(M,g)$ be a SRMF and $\gamma: I \to M$ be a non-null geodesic. Then:
+    \begin{itemize}
+        \item $\mathfrak{J}(\gamma)^\top$ is a $2$-dimensional linear subspace of $\mathfrak{J}(\gamma)$.
+        \item $\mathfrak{J}(\gamma)^\perp$ is a $(2n-2)$-dimensional linear subspace of $\mathfrak{J}(\gamma)$.
+    \end{itemize}
+    In addition, there is an orthogonal decomposition \[
+    \mathfrak{J}(\gamma) \cong \mathfrak{J}(\gamma)^\top \oplus \mathfrak{J}(\gamma)^\perp
+    .\] 
+\end{corollary}
+\begin{proof}
+    In corollary \ref{cor:jsubspace}, we have already seen the isomorphism $\mathfrak{J}(\gamma) \cong T_{\gamma(t_0)}M \oplus T_{\gamma(t_0)}M$ at each $t_0 \in I$. The space $\mathfrak{J}(\gamma)^\top$ is by proposition \ref{prop:normaljacobi} a preimage of the subspace \[
+        \left\{v, w \in T_{\gamma(t_0)}M \mid v, w \perp \dot{\gamma(t_0)}\right\} \subseteq T_{\gamma(t_0)}M \oplus T_{\gamma(t_0)}M
+    .\] Since this subspace has dimension $2n-2$, this also holds for $\mathbb{J}(\gamma)^\top$.
+    \marginnote{So even in the semi-Riemannian case, we have a splitting $J=J^\top + J^\perp$ as long as $\gamma$ is not lightlike/null. In that lightlike case, the identity $\mathfrak{J}^\top \cap \mathfrak{J}^\perp = \{0\}$ does not hold.}
+    By lemma \ref{lem:boringjacobi}, we have the two Jacobi fields $J_0$ and $J_1$ from equations \ref{eq:boringjacobi1} and \ref{eq:boringjacobi2} which evidently are linearly independent for all $t$. Hence $\dim \mathfrak{J}(\gamma)^\perp \geq 2$. Since $\gamma$ is non-null, we have $\mathfrak{J}(\gamma)^\top \cap \mathfrak{J}(\gamma)^\perp = \{0\}$ and hence $\dim \mathfrak{J}^\perp \leq 2$, so we conclude $\dim \mathfrak{J}(\gamma)^\perp = 2$. This yields the desired decomposition.
+\end{proof}
+
+\section{Jacobi Fields in Constant Curvature Spaces}
+\label{sec:jacobiconstcurv}
+Our goal is to find a general formula of Jacobi fields in constant curvature spaces and use that to derive general results about the metric of such manifolds.
+\begin{lemma}
+    A SRMF $(M,g)$ having constant sectional curvature $c \equiv 1$ is equivalent to each of the following conditions:
+    \begin{enumerate}
+        \item For all $p \in M$ and $u,v \in T_pM$ such that $\spn\{u,v\}$ is non-degenerate: \[
+        c = \frac{\Rm(u,v,v,u) }{\langle u, u \rangle \langle v,v  \rangle-\langle u, v \rangle^2   } 
+        .\] 
+    \item For all $p \in M$ and all $u,v \in T_pM$: \[ \Rm(u,v,v,u)=c(\langle u, u \rangle \langle v, v \rangle -\langle u, v \rangle ^2)
+    .\] 
+\item For all $p \in M$ and orthonormal $e_1,e_2 \in T_pM$: \[
+        \Rm(e_1,e_2,e_2,e_1)=c\epsilon_1 \epsilon_2
+\] with $\epsilon_i := \langle e_i, e_i \rangle .$   
+\item For all $p \in M$ and $u,v,w \in T_pM$:
+    \begin{equation}
+        \label{eq:constcurvriem}
+        \R(u,v)w=c(\langle v, w \rangle u- \langle u, w \rangle v).
+    \end{equation}
+    \end{enumerate}
+\end{lemma}
+\begin{marginfigure}
+    \centering
+    \begin{tikzpicture}[scale=.7]
+        \begin{axis}[
+            xlabel=$t$,
+            ylabel=$s_c(t)$,
+            samples=200,
+            axis x line=bottom,
+            axis y line=left,
+            xtick=\empty,
+            ytick=\empty,
+            xlabel near ticks,
+            ylabel near ticks,
+            xmin=0, xmax=3.1,
+        ]
+            \addplot[domain=0:3] {x}
+                node[pos=0.8, above] {$s_0(t)$};
+            \addplot[domain=0:3, blue] {sinh(x)}
+                node[pos=0.8, left, blue] {$s_{<0}(t)$};
+            \addplot[domain=0:3, red] {sin(180 / 3 *x)}
+                node[pos=0.8, above, red]{$s_{>0}(t)$};
+        \end{axis}
+    \end{tikzpicture}
+\end{marginfigure}
+Given $c \in \mathbb{R}$, consider the following function \[
+s_c: \mathbb{R} \to \mathbb{R}
+\] defined as 
+\begin{equation}
+    \label{eq:curvfunc}
+    s_c(t):=
+    \begin{cases}
+        \frac{1}{\sqrt{c}}\sin(\sqrt{c}t) & c > 0\\
+        t &c=0\\
+        \frac{1}{\sqrt{-c}} \sinh(\sqrt{-c}t) &c<0 
+    \end{cases}
+\end{equation}
+\begin{eg}
+    Let us consider several model manifolds for constant sectional curvature.
+    \begin{enumerate}
+        \item The $n$-dimensional Euclidean space $(\mathbb{R}^n, g_\text{st})$ with the Euclidean metric and the $n$-dimensional Minkowski space $(\mathbb{R}^{1,n-1}, \eta)$ with the Minkowski metric have $c \equiv 0$. In polar coordinates, we have \[
+                g_\text{st}=dr^2 + r^2 \mathring{g}_{n-1}=dr^2 + s_{0}(r)^2 \mathring{g}_{n-1}
+        \] and \[
+        \eta = -d\tau^2 + \tau^2 \hcirc{g}=-d\tau^2 + s_0(\tau)^2 \hcirc{g}_{n-1}
+        .\] 
+    \item The $n$-sphere $(\mathbb{S}^n, \mathring{g}_n)$ with the round metric has $c \equiv 1$. In polar coordinates, we have \[
+            \mathring{g}_n=d\theta^2 + \sin^2(\theta) d\phi^2 = d\theta^2+s_1(\theta)^2d\phi^2
+    .\]  
+\item The hyperbolic $n$-space $(\mathbb{H}^n, \hcirc{g}_n)$ with the hyperbolic metric has $c \equiv -1$. In polar coordinates, we get \[
+        \hcirc{g}_n= d\xi^2 + \sinh(\xi)^2 \mathring{g}_{n-1}=d\xi^2+s_{-1}(\xi)^2 \mathring{g}_{n-1}
+.\] 
+    \end{enumerate}
+\end{eg}
+\begin{prop}[Jacobi Fields in Constant Curvature Spaces]
+    \label{prop:jacobiinconst}
+    Let $(M,g)$ be a SRMF with constant sectional curvature $c \in \mathbb{R}$ and let $\gamma: I \to \mathbb{R}$ be a unit-speed geodesic with $0 \in I$. Then some $J \in \mathfrak{X}(\gamma)^\perp$ with $J(0)=0$ and $\nabla_{\frac{\d}{\d t}} J(0) \neq 0$ satisfies $J \in \mathfrak{J}(\gamma)$ if and only if
+    \begin{equation}
+        \label{eq:jacobiconcur}
+        J(t)=k \cdot s_{\epsilon c}(t) \cdot E(t)
+    \end{equation} for some $k \in \mathbb{R}$, $\epsilon := \langle \dot{\gamma},\dot{\gamma}  \rangle$ and parallel $E \in \mathfrak{X}(\gamma)^\perp$ with $\|E\|^2=1$.   
+\end{prop}
+
+We will now need the notion of a radial distance function and the associated vector field.
+\marginnote{
+    Given a time-oriented Lorentzian manifold, we define the radial distance function by the proper time $\tau: I^U(p) \to \mathbb{R}$ with $\tau(q):=\tau_U(p,q)>0$. This yields a field $\partial_\tau$.
+}
+Given a Riemannian manifold $(M,g)$ and a normal chart $(U, x^i)$ around some $p \in M$. Define the \textbf{radial distance function} $r: U \to \mathbb{R}$ by $r(q)=d(p,q) >0$. If the coodinates are centered at $p$, we have the explicit form \[
+    r(x)=\sqrt{(x^1)^2 + \cdots + (x^n)^2}
+,\] and on $U \setminus \{p\}$ we get the \textbf{radial vector field} \[
+\partial_r = \frac{x^i}{r(x)} \partial_i
+.\]  This is smooth on $U \setminus \{p\}$ and independent of choice of charts.

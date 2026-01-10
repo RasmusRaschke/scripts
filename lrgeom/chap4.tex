@@ -4,16 +4,8 @@
 
 % \startcontents[chapters]
 % \printcontents[chapters]{}{4}{}
-
-As a preliminary, we construct a special function on normal neighbourhoods: 
-\marginnote{
-    Given a time-oriented Lorentzian manifold, we define the radial distance function by the proper time $\tau: I^U(p) \to \mathbb{R}$ with $\tau(q):=\tau_U(p,q)>0$.
-}
-Given a Riemannian manifold $(M,g)$ and a normal chart $(U, x^i)$ around some $p \in M$. Define the \textbf{radial distance function} $r: U \to \mathbb{R}$ by $r(q)=d(p,q) >0$. If the coodinates are centered at $p$, we have the explicit form \[
-    r(x)=\sqrt{(x^1)^2 + \cdots + (x^n)^2}
-,\] and on $U \setminus \{p\}$ we get the \textbf{radial vector field} \[
-\partial_r = \frac{x^i}{r(x)} \partial_i
-.\]  This is smooth on $U \setminus \{p\}$ and independent of choice of charts.
+\section{Hessian Operators and the Riccati Equation}
+\label{sec:hessricc}
 \begin{definition}[Hessian]
     \marginnote{In local coordinates $(x^i)$, the Hessian has the (familiar) form \[
             \Hess_u = (\partial_j \partial_i u - \Gamma_{ij}^k \partial_k u) \, dx^i \otimes dx^j
@@ -39,12 +31,12 @@ Given a Riemannian manifold $(M,g)$ and a normal chart $(U, x^i)$ around some $p
 With the radial distance function defined above, we obtain the Hessian operator $\mathcal{H}_r$ associated to that function.
 \begin{notation}
     Given a normal neighbourhood $U$, we denote the geodesic spheres of radius $r_0$ and proper time $\tau_0$, respectively, by \[
-        \mathbb{S}_{r_0}:=\left\{x \in U \mid r(x)=r_0\right\} 
+        S_{r_0}:=\left\{x \in U \mid r(x)=r_0\right\} 
     \] and \[
-    \mathbb{S}_{\tau_0} := \left\{x \in U \mid \tau (x)=\tau_0 \right\} 
+    H_{\tau_0} := \left\{x \in I_U^+(p) \mid \tau (x)=\tau_0 \right\} 
     .\] 
         The Gauß' Lemma immediately tells us that $T_q\mathbb{S}_{r(q)}=\partial_r|_q^\perp \subseteq T_qM$ and similarly for $\tau$. Denote the projection on the radial tangent by \[
-            \pi_q^r: T_qM \to T_q\mathbb{S}_{r(q)}
+            \pi_q^r: T_qM \to T_qS_{r(q)}
         .\] 
 \end{notation}
 \begin{lemma}
@@ -77,15 +69,16 @@ With the radial distance function defined above, we obtain the Hessian operator 
     \marginnote{
         Note that $g|_{TH_{\tau_0} \times TH_{\tau_0}}$ is Riemannian, so the restriction is self-adjoint for a positive-definite inner product even in the Lorentzian case.
     }
-    For any $\tau_0$ such that \[
-        H_{\tau_0} := \left\{q \in I^+_U(p)  \mid \tau_U(p,q)=\tau_0\right\} \neq \emptyset,
-    \] $\mathcal{H}_\tau$ restricts to a self-adjoint linear operator \[
+    For any $\tau_0$ such that $H_{\tau_0} \neq \emptyset,$ $\mathcal{H}_\tau$ restricts to a self-adjoint linear operator \[
     \mathcal{H}_\tau: TH_{\tau_0} \to TH_{\tau_0}
 \] and is given by the Weingarten map $\mathcal{H}_\tau(X) = -\nabla_X N$ where $N=\partial_\tau$ is the future-pointing unit normal to $H_{\tau_0}$.
 \end{remark}
 \begin{prop}[The Hessian and Jacobi Fields]
-    Let $(\mathcal{L},g)$ be a LMF, $p \in \mathcal{L}$ and $U \subseteq \mathcal{L}$ be a normal neighbourhood around $p$. Set $\tau := \tau_U(p, \cdot)$. Let $\gamma: [0,b] \to U$ be a future-directed timelike unit-speed geodesic starting at $p$ and let $J \in \mathfrak{J}^\perp(\gamma)$ such that $J(0)=0$. Then \[
-        \nabla_{\frac{d}{dt}}J(\tau_0)=-\mathcal{H}_\tau(J(\tau_0))
+    \label{prop:hessjacobi}
+    Let $(\mathcal{L},g)$ be a LMF, $p \in \mathcal{L}$ and $U \subseteq \mathcal{L}$ be a normal neighbourhood around $p$. Set $\tau := \tau_U(p, \cdot)$. Let $\gamma: [0,b] \to U$ be a future-directed timelike unit-speed geodesic starting at $p$ and let $J \in \mathfrak{J}^\perp(\gamma)$ such that $J(0)=0$.\marginnote{In the Riemannian case, we have \[
+    \nabla_{\frac{d}{d t}} J(t)=\mathcal{H}_r(J(t))
+    .\] } Then \[
+        \nabla_{\frac{d}{dt}}J(t)=-\mathcal{H}_\tau(J(t))
     \] for all $\tau_0 \in (0,b]$.
 \end{prop}
 \begin{proof}
@@ -105,36 +98,176 @@ Now we compute:
     \nabla_{\frac{d}{ds}} \left( \partial_\tau \circ \Gamma \right)(0,t) = \nabla_{\partial_s \Gamma|_{s=0}} \partial_\tau = \nabla_J \partial_\tau = - \nabla_J \grad (\tau) = \mathcal{H}_\tau (J)
 \] using $J \perp \dot{\gamma} = \partial_\tau$.  
 \end{proof} 
-Recall the previously defined function 
-\begin{equation}
-    \label{eq:concurfunc}
-    s_c(t):= 
-    \begin{cases}
-        R \sinh ( \frac{t}{R}) &c<0, \, R:= \frac{1}{\sqrt{c}}\\
-        t &c=0\\
-        R \sin (\frac{t}{R}) &c>0, \, R:=\frac{1}{\sqrt{c}}.
-    \end{cases}
-\end{equation}
+Recall the previously defined function \ref{eq:curvfunc}.
 \begin{prop}[Sectional Curvature and Hessian]
     Let $(\mathcal{L}, g)$ be a LMF, $p \in \mathcal{L}$ and $U$ be a normal neighbourhood of $p$. Then $(\mathcal{L}, g)$ has constant sectional curvature $c$ on $I^+_U(p)$ if and only if \[
         \mathcal{H}_\tau = - \frac{s_{-c}' \circ \tau}{s_{-c} \circ \tau} \cdot \pi^H
     \] on $I^+_U(p)$.
 \end{prop}
 \begin{proof}
-    $(\Rightarrow):$ Let $q \in I_U^+(p)$, $\gamma: [0,b] \to M$ be the future-directed timelike unit-speed geodesic from $p$ to $q$, and let $\{E_1=\dot{\gamma}, E_2, \dots, E_n\}$ be an ONF along $\gamma$. The proposition about Jacobi fields in constant curvature spaces tells us that \[
+    $(\Rightarrow):$ Let $q \in I_U^+(p)$, $\gamma: [0,b] \to M$ be the future-directed timelike unit-speed geodesic from $p$ to $q$, and let $\{E_1=\dot{\gamma}, E_2, \dots, E_n\}$ be an ONF along $\gamma$. Proposition \ref{prop:jacobiinconst} tells us that \[
         J_i := s_{-c}E_i, \, i\geq 2
     \] are normal Jacobi fields along $\gamma$ with $J_i(0)=0$. Compute \[
     s_{-c}' E_i = \nabla_{\frac{d}{dt}} J_i = - \mathcal{H}_\tau (J_i) = -s_{-c} \mathcal{H}_\tau(E_i)
-,\] where we used proposition $3.5$. Evaluation at $t=b$ and $s_{-c}(b)^{-1}$ noting $s_{-c}(b)\neq 0$ because $\gamma(b)=q \in U$, which is normal. Hence $q$ is not conjugate to $p$ implying $J_i(b)\neq 0$. This yields \[
+    ,\] where we used proposition \ref{prop:hessjacobi} evaluating at $t=b$ and $s_{-c}(b)^{-1}$ noting $s_{-c}(b)\neq 0$ because $\gamma(b)=q \in U$, which is normal. Hence $q$ is not conjugate to $p$, implying $J_i(b)\neq 0$. This yields \[
 \mathcal{H}_\tau (E_i(b))=- \frac{s_{-c}'(b)}{s_{-c}(b)} E_i (b)
 ,\] but $E_i(b)=\pi^H(E_i(b))$ because it is already orthogonal to $\dot{\gamma}(b)$. For $i=1$, we have \[
 0=\mathcal{H}_\tau (E_1(b))=\pi^H (E_1(b))
 \] because $E_1(b)=\dot{\gamma}(b)$.\par
-$(\Leftarrow):$ Let $q \in I_U^+(p)$ and $\gamma: [0,b) \to U$ be the corresponding geodesic. From theorem 2.23, we know that \[
+$(\Leftarrow):$ Let $q \in I_U^+(p)$ and $\gamma: [0,b) \to U$ be the corresponding geodesic. From theorem \ref{thm:constcurvmet}, we know that \[
     \phi: I_U^+(p) \to \mathbb{R}_+ \times \mathbb{H}^{n-1}
-\] given by $\phi(q)=(\tau(q), \xi(q))$ is a diffeomorpism onto its image. If we can show that it is an isometry between $g$ and $g_c := -d\tau^2 + s_{-c}(\tau)^2g_{\mathbb{H}^{n-1}}$, then $g$ has constant sectional curvature. Following the proof of 2.23, we immediately get 1 and 2a. In 2b, the constant curvature assumption only entered via Jacobi fields, more precisely via 2.20 yielding: Any $J \in \mathfrak{J}^\perp(\gamma)$ with $J(0)=0$ is given by \[
+    \] given by $\phi(q)=(\tau(q), \xi(q))$ is a diffeomorpism onto its image. If we can show that it is an isometry between $g$ and $g_c := -d\tau^2 + s_{-c}(\tau)^2g_{\mathbb{H}^{n-1}}$, then $g$ has constant sectional curvature. Following the proof of theorem \ref{thm:constcurvmet}, we immediately get 1 and 2. In 3, the constant curvature assumption only entered via Jacobi fields, more precisely via proposition \ref{prop:jacobiinconst} yielding: Any $J \in \mathfrak{J}^\perp(\gamma)$ with $J(0)=0$ is given by \[
 J(t)=ks_{-c}(t)E(t)
 \] for some $k \in \mathbb{R}$ and $E \perp \dot{\gamma}$ as well as parallel. It only remains to show this in our setting. Let $J \in \mathfrak{J}^\perp(\gamma)$. We have \[
 \nabla_{\frac{d}{dt}}J=\frac{s_{-c}'}{s_{-c}}J
 \] on $(0,b]$. By the product rule, $\frac{1}{s_{-c}}J$ is parallel along $\gamma$ on $(0,b]$. Define $\tilde{E}(t):=\frac{1}{s_{-c}}J$ and let $E= \frac{\tilde{E}}{\|\tilde{E}\|}$. Then $E$ is a parallel unit VF orthogonal $\dot{\gamma}$ and $J=\|\tilde{E}\|  s_{-c} E$. Set $k:=\|\tilde{E}\|$, which is constant since $\tilde{E}$ was parallel. It suffices to have this for $t \in (0,b]$ since this still gives $k=\|\nabla_{\frac{d}{dt}} J(0)\|$ by $k$ constant.
 \end{proof}
+\lecture{09.01.26}
+Consider a LMF $(\mathcal{L}, g)$ with a normal neighbourhood $U$. The radial distance function $\tau := \tau_U(p, \cdot)$ is smooth on $I_U^+(p)$. Let $\gamma: [0,b]\to U$ be a timelike future-directed unit-speed geodesic starting at $p$. In this case, the Hessian operator restricts to \[
+\mathcal{H}_\tau: \mathfrak{X}(\gamma) \to \mathfrak{X}(\gamma)
+,\] which is a $(1,1)$-tensor field along $\gamma$ and $\mathcal{C}^\infty (I)$-linear. Therefore, we also get another $\mathcal{C}^\infty (I)$-linear $(1,1)$-tensor field 
+\begin{equation}
+    \label{eq:nablahess}
+    \nabla_{\frac{d}{dt}}\mathcal{H}_\tau (X):=\nabla_{\frac{d}{dt}} \left( \mathcal{H}_\tau(X)\right) - \mathcal{H}_\tau \left( \nabla_{\frac{d}{dt}} X\right).
+\end{equation}
+\begin{definition}[Tidal Force Operator]
+Let $(M,g)$ be a RMF or a \red{LMF} and let $\gamma: [0,b]\to M$ be a \red{(timelike)} geodesic.\marginnote{One sees that this is indeed $\mathcal{C}^\infty (I)$-linear, self-adjoint and $\tr \R_{\dot{\gamma}}=-\Ric (\dot{\gamma},\dot{\gamma})$. Comparing with the Jacobi equation also shows that \[
+        \R_{\dot{\gamma}}(J)=\nabla_{\frac{d}{dt}}^2 J
+.\] } The \textbf{tidal force operator} is defined by
+    \begin{align*}
+        \R_{\dot{\gamma}}: \mathfrak{X}(\gamma) &\to \mathfrak{X}(\gamma)\\
+        X &\mapsto \R_{\dot{\gamma}}(X):=- \R(X,\dot{\gamma})\dot{\gamma}.
+    \end{align*}
+\end{definition}
+\begin{remark}
+    The tidal force operator restricts to a well-defined $\mathcal{C}^\infty (I)$-linear operator $\mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp$ and the trace of that restriction still yields $-\Ric(\dot{\gamma}, \dot{\gamma})$ since $R_{\dot{\gamma}}(\dot{\gamma})=0$. This restriction is still self-adjoint with respect to $g|_{\mathfrak{X}(\gamma)^\perp \times \mathfrak{X}(\gamma)^\perp}$. This metric restriction is Riemannian even if the original $g$ is Lorentzian.
+\end{remark}
+\begin{theorem}[Riccati Equation]
+    \label{thm:riccatieqn}
+    Let $(M,g)$ be a RMF or a \red{LMF}, $U$ be a normal neighbourhood of some $p \in M$ and $\gamma: [0,b] \to U$ be a \red{timelike future-directed} radial unit-speed geodesic starting at $p$. Let $r$ \red{($\tau$)} be the radial distance function on $U$ \red{($I^+_U(p)$)}. Then, the Hessian operator satisfies the \textbf{Riccati equation} (REQ):\marginnote{One can compare this with the classical scalar Riccati equation: Let $f: I \to \mathbb{R}$ and $\sigma: I \to \mathbb{R}$. Then the classical RQN is given by \[
+    f' + f^2 + \sigma = 0
+    .\] }
+\begin{equation}
+    \label{eq:riccatiriem}
+    \nabla_{\frac{d}{dt}} \mathcal{H}_r + \mathcal{H}_r^2 - \R_{\dot{\gamma}} = 0
+\end{equation}
+\begin{equation}
+    \label{eq:riccatilor}
+\red{\nabla_{\frac{d}{dt}} \widehat{\mathcal{H}} + \widehat{\mathcal{H}}^2 - \R_{\dot{\gamma}}=0},
+\end{equation}
+\marginnote{Note that this can only apply on the half-open interval $(0,b]$ since $r$ and $\tau$ are undefined at $0$.}
+with $\widehat{\mathcal{H}}:=-\mathcal{H}_\tau$ in the Lorentzian case, on $\gamma|_{(0,b]}.$
+\end{theorem}
+\begin{proof}
+    We prove the Lorentzian case, the Riemannian case can be found in \cite{LeeRM}. Fix $\tau_0 \in (0,b]$. It suffices to check the (REQ) for $\partial_\tau|_{\tau_0}$ and $X \in T_{\gamma(\tau_0)}H_{\tau_0}$, i.e. $X \perp \partial_\tau|_{\tau_0}$.
+    For $\partial_\tau$, we already know $\mathcal{H}_\tau (\partial_\tau)=0$, so $\mathcal{H}^2_\tau(\partial_\tau)=0$. Furthermore, $\partial_\tau|_{\tau_0}=\dot{\gamma}(\tau_0)$, and hence $\R_{\dot{\gamma}}(\partial_\tau)=0$. Lastly, we have \[
+        \nabla_{\frac{d}{dt}}\mathcal{H}_\tau (\partial_\tau) = \nabla_{\frac{d}{dt}} \left( \eqnmark[blue]{node2}{\cancel{\mathcal{H}_\tau (\partial_\tau)}} \right) - \mathcal{H}_\tau \left( \eqnmark[blue]{node1}{\cancel{\nabla_{\frac{d}{dt}} \dot{\gamma}}} \right) = 0
+    ,\] 
+    \annotate[yshift=0.5em]{above, label above}{node1}{geodesic}
+    \annotate[yshift=0.5em]{above, label above}{node2}{vanishes on $(0,b]$}
+    and thus the REQ holds in this case.
+    Now, let $X \perp \dot{\gamma}(\tau_0)$. By \ref{cor:jacobibvp}, we find $J \in \mathfrak{J}(\gamma)^\perp$ with $J(\tau_0)=X$ and $J(0)=0$. This yields:
+    \begin{align*}
+        \nabla_{\frac{d}{dt}}\mathcal{H}_\tau (X) &= \left.\left( \nabla_{\frac{d}{dt}}\left(\mathcal{H}_\tau (J) \right) - \mathcal{H}_\tau (\nabla_{\frac{d}{dt}} J)  \right)\right|_{t=\tau_0} \\
+                                                  &\eqnmark[blue]{node3}{=} \left.\left( \nabla_{\frac{d}{dt}}\left(\red{-} \nabla_{\frac{d}{dt}}J \right) - \mathcal{H}_\tau (\red{-} \mathcal{H}_\tau(J))  \right)\right|_{t=\tau_0} \\
+                                                  &= - \nabla_{\frac{d}{dt}}^2 J(\tau_0) + \mathcal{H}^2_\tau (X) = -\R_{\dot{\gamma}}(J(\tau_0)) + \mathcal{H}_\tau^2(X).
+    \end{align*}
+    \annotate[yshift=-0.7em]{left, label below}{node3}{Proposition \ref{prop:hessjacobi}}
+\end{proof}
+\begin{theorem}[Matrix Riccati Comparision]
+    \label{thm:matrixriccaticomp}
+    Let $\Sym_\mathbb{R}(n) \subseteq \Mat_\mathbb{R}(n)$ be the space of symmetric real $n \times n$-matrices identified with self-adjoint endomorphisms of Euclidean $\mathbb{R}^n$. Let $H,\widetilde{H}: (a,b] \to \Sym_\mathbb{R}(n)$ be smooth such that the \textbf{matrix Riccati equations} \[
+    H' + H^2 + S = 0
+    \] and\marginnote{We use the notion $$A \geq B : \iff A - B \geq 0 \iff \langle (A-B)x,x  \rangle $$ for all $x \in \mathbb{R}^n$. This means all eigenvalues of $A-B$ are non-negative.}
+    \[
+        \widetilde{H}' + \widetilde{H}^2 + \widetilde{S} = 0
+    \] are satisfied for some continuous $S, \widetilde{S}: [a,b] \to \Sym_\mathbb{R}(n)$ which are smooth on $(a,b]$. If \[
+    \widetilde{S}\geq S
+\]  on $[a,b]$ and \[
+\lim_{t \searrow 0} \widetilde{H}(t)-H(t)\leq 0
+\] (meaning the limit also exists in the first place), then \[
+\widetilde{H} \leq H
+\] on $(a,b]$.
+\end{theorem}
+\begin{proof}
+    See \cite{LeeRM}.
+\end{proof}
+\begin{theorem}[Riccati Manifold Comparision]
+    \label{thm:riccatimfncomp}
+    Let $(M,g)$ be a RMF or a \red{LMF} and $\gamma:[a,b] \to M$ be a \red{timelike} unit-speed geodesic segment. Suppose \[
+        \eta, \widetilde{eta}: \mathfrak{X}(\gamma|_{(a,b]})^\perp \to \mathfrak{X}(\gamma|_{(a,b]})
+    \] are $\mathcal{C}^\infty (I)$-linear, self-adjoint with respect to the restricted metric and satisfy the RQNs \[
+    \nabla_{\frac{d}{dt}} \eta + \eta^2 + \sigma = 0
+    \] and \[
+    \nabla_{\frac{d}{dt}} \widetilde{\eta} + \widetilde{\eta}^2 + \widetilde{\sigma} =0
+    \] for some self-adjoint, $\mathcal{C}^\infty (I)$-linear $\sigma, \widetilde{\sigma}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp$. \marginnote{This roughly means that a comparision of RQNs and initial values leads to a comparision of solutions.}If \[
+\forall t \in [a,b]: \widetilde{\sigma}(t)\geq \sigma(t)
+\]  and \[
+\lim_{t \searrow a} \widetilde{\eta}(t)-\eta(t) \leq 0
+\] holds, then \[
+\forall t \in [a,b]: \widetilde{\eta}(t)\leq \eta(t)
+.\] 
+\end{theorem}
+\begin{proof}
+    The goal is to utilize theorem \ref{thm:matrixriccaticomp}.
+    To this end, take a parallel ONF $(E_i) \cup \{\dot{\gamma}\}$ with $1 \leq i \leq n-1$ along $\gamma$. In this frame, we represent $\eta, \widetilde{\eta}, \sigma, \widetilde{\sigma}$ by symmetric, matrix valued maps \[
+        H, \widetilde{H}: [a,b] \to \Sym_\mathbb{R}(n-1)
+    \] and \[
+    S, \widetilde{S}: [a,b] \to \Sym_\mathbb{R}(n-1)
+    \] with components $\eta(t)(E_i)=H_i^j(t)E_j$ and analogously for the other operators. We have:
+    \begin{align*}
+        \nabla_{\frac{d}{dt}}\left(\eta(E_i)\right) &= \nabla_{\frac{d}{dt}}\eta (E_i) + \eta \left( \nabla_{\frac{d}{dt}} E_i \right) = -\eta^2(E_i)-\sigma(E_i)\\
+                                                    &=-\eta(H_i^jE_j)-S_i^kE_k = -H_i^j\eta(E_j)-S_i^kE_k \\
+                                                    &=-H_i^j H_j^k E_k - S_i^k E_k
+    \end{align*}
+    Without expanding, we obtain:
+    \begin{align*}
+        \nabla_{\frac{d}{dt}}\left( \eta(E_i)\right) &= \nabla_{\frac{d}{dt}}(H_i^k E_k)\\
+                                                     &=(H^k_i)'E_k+H^k_i \cancel{\nabla_{\frac{d}{dt}}E_k} = (H^k_i)'E_k.
+    \end{align*}
+    Therefore, \[
+    H' + H^2 + S =0
+\] holds, with similar calculations estabilishing the same for $\widetilde{H}$ and $\widetilde{S}$. Clearly, $\widetilde{\sigma} \geq \sigma$ is equivalent to $\widetilde{S} \geq S$ and similar for the other condition. Theorem \ref{thm:matrixriccaticomp} is thus applicable and we conclude \[
+\widetilde{H} \leq H \iff \widetilde{\eta} \leq  \eta
+.\] 
+\end{proof}
+\begin{remark}
+    In the Riemannian case, we can do the same for \[
+        \eta, \widetilde{\eta}: \mathfrak{X}(\gamma) \to \mathfrak{X}(\gamma)
+    .\] However, we mainly consider $\eta = \mathcal{H}_r$ and $\widetilde{\eta} \propto \pi^S$. Splitting $\mathfrak{X}(\gamma) \cong \spn\{\dot{\gamma}\} \oplus \mathfrak{X}(\gamma)^\perp$, then we obtain the following matrix forms of $\mathcal{H}_r$ and $\pi^S$:
+    \[
+    \begin{pmatrix}
+        0 & 0\\
+        0 & \mathcal{H}_r|_{\mathfrak{X}(\gamma)^\perp}
+    \end{pmatrix}
+    \] 
+    and \[
+    \begin{pmatrix}
+        0 & 0\\
+        0 & \id
+    \end{pmatrix}
+    .\] Therefore, the restriction to $\mathfrak{X}(\gamma)^\perp$ does not discard any information.
+\end{remark}
+\section{Hessian Comparision}
+\label{sec:hessiancomp}
+In this section, we attempt to compare $\mathcal{H}_r$ with $\frac{s_c' \circ r}{s_c \circ r} \pi^S$ and $\mathcal{H}_\tau$ with $- \frac{s_{-c}'\circ \tau}{s_{-c}\circ \tau}\pi^H$.
+In the following, any inequalities for $\mathcal{H}_\tau$ in the Lorentzian case are to be understood for the restriction \[
+    \mathcal{H}_\tau|_{\mathfrak{X}(\gamma)^\perp}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp
+.\] 
+\begin{theorem}[Hessian Comparision]
+    Let $(M,g)$ be a RMF, $p \in M$, $U$ be a normal neighbourhood of $p$ and $r: U \to [0,\infty)$ be the radial distance function at $p$. Let $c \in \mathbb{R}$.
+    \begin{enumerate}[(a)]
+        \item If all sectional curvatures of $M$ are less or equal $c$, then \[
+        \mathcal{H}_r(q)\geq \frac{s_c'(r(q))}{s_c(r(q))} \pi_q^S
+        \] for \[
+        \begin{cases}
+            \forall q \in U \setminus \{p\} &c \leq 0\\
+            \forall q \in U \setminus \{p\}: r(q)<\pi R &c>0
+        \end{cases}
+    \] with $R:=\frac{1}{\sqrt{c}}$.
+\item If all sectional curvatures of $M$ are greater or equal $c$, then \[
+\mathcal{H}_r|_q \leq \frac{s_c'(r(q))}{s_c(r(q))}\pi^S_q
+\] for all $q \in U \setminus \{p\}$.
+    \end{enumerate}
+\end{theorem}
+\lecture{13.01.26}

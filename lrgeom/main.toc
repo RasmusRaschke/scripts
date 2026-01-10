@@ -12,5 +12,8 @@
 \contentsline {section}{\numberline {3.1}The Jacobi Equation}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Jacobi Fields vanishing at a point}{16}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Normal and Tangential Jacobi Fields}{17}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Comparision Geometry}{19}{chapter.4}%
+\contentsline {section}{\numberline {3.4}Jacobi Fields in Constant Curvature Spaces}{19}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Comparision Geometry}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Hessian Operators and the Riccati Equation}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Hessian Comparision}{29}{section.4.2}%
 \contentsfinish 
