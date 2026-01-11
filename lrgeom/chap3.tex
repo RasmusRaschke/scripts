@@ -263,6 +263,7 @@ Given a vector field $V \in \mathfrak{X}(\gamma)$ along some curve $\gamma$, we 
 \label{sec:jacobiconstcurv}
 Our goal is to find a general formula of Jacobi fields in constant curvature spaces and use that to derive general results about the metric of such manifolds.
 \begin{lemma}
+    \label{lem:concurveq}
     A SRMF $(M,g)$ having constant sectional curvature $c \equiv 1$ is equivalent to each of the following conditions:
     \begin{enumerate}
         \item For all $p \in M$ and $u,v \in T_pM$ such that $\spn\{u,v\}$ is non-degenerate: \[
@@ -341,7 +342,44 @@ s_c: \mathbb{R} \to \mathbb{R}
     \end{equation} for some $k \in \mathbb{R}$, $\epsilon := \langle \dot{\gamma},\dot{\gamma}  \rangle$ and parallel $E \in \mathfrak{X}(\gamma)^\perp$ with $\|E\|^2=1$.   
 \end{prop}
 
-We will now need the notion of a radial distance function and the associated vector field.
+\begin{proof}
+$(\Leftarrow)$: We do one auxilliary computation beforehand: The second derivative of $s_\alpha (t)$ for some parameter $\alpha \in \mathbb{R}$ is:
+\[
+    \ddot{s}_\alpha (t)=
+    \begin{cases}
+        \frac{d}{dt} \cos(\sqrt{\alpha}t) = - \sqrt{\alpha} \sin(\sqrt{\alpha}t)&\alpha > 0\\
+        \frac{d}{dt} 1 =0&\alpha = 0\\
+        \frac{d}{dt} \cosh(\sqrt{-\alpha}t)=\sqrt{-\alpha} \sinh(\sqrt{-\alpha}t) &\alpha<0
+    \end{cases} = - \alpha s_\alpha (t).\]\marginnote{Note that in the $\alpha < 0$-case, we multiply with negative $\alpha$ in the end, so the sign switch is intentional and correct.}
+    Directly calculating the Jacobi equation yields:
+    \begin{align*}
+        \nabla_{\frac{d}{dt}}^2 J(t)-R(J,\dot{\gamma})\dot{\gamma}&= \nabla_{\frac{d}{dt}}^2 (k s_{\epsilon c}(t)E(t))+ks_{\epsilon c}(t)R(E,\dot{\gamma})\dot{\gamma}\\
+                                                                  &\eqnmark[blue]{node4}{=} k \ddot{s}_{\epsilon c}(t)E(t) + ks_{\epsilon c}(t)\nabla_{\frac{d}{dt}}(\cancel{\nabla_{\frac{d}{dt}} E(t)}) \\
+                                                                  & \, \, + ks_{\epsilon c} c(\|\dot{\gamma}\|^2 E(t)- \cancel{\langle E,\dot{\gamma}  \rangle} \dot{\gamma} ) \\
+                                                                  &=-kc\epsilon s_{\epsilon c}(t)E(t)+kc\epsilon s_{\epsilon c}(t)E(t)=0,
+    \end{align*}
+    \annotate[yshift=0.6em]{below, left}{node4}{Lemma \ref{lem:concurveq}}
+    where we used that $E$ is parallel and normal and $\gamma$ is unit-speed.
+    $(\Leftarrow):$ The goal is to find $k$ and $E$ such that $J(0)=J_{k,E}(0)$ and $\nabla_{\frac{d}{dt}}J(0)=\nabla_{\frac{d}{dt}}J_{k,E}(0)$. Then we can apply uniqueness of Jacobi fields to obtain the claim.
+    \begin{enumerate}
+        \item $J(0)=J_{k,E}$ holds by assumption.
+        \item We have \[
+                \nabla_{\frac{d}{dt}}J(0)=k\dot{s}_{\epsilon c}(0)E(0)=kE(0) 
+            .\] 
+            This agrees with our vector field if we choose $k:=\|\nabla_{\frac{d}{dt}} J(0)\|$ and $E(0):=\frac{1}{k}\nabla_{\frac{d}{dt}}J(0)$ which is well-defined since $k \neq 0$ by assumption. We extend this by using the parallel transport 
+            $P_{\gamma(t)}$ along $\gamma$ to define $E(t):=P_{\gamma(t)}E(0)$. We have already seen that \[
+                E(t) \perp \dot{\gamma}(t) \iff E(0) \perp \dot{\gamma}(0) \iff \nabla_{\frac{d}{dt}}J(0) \perp \dot{\gamma}(0) 
+            ,\] and the last statement is part of our assumption.
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    \begin{enumerate}
+        \item If $(M,g)$ is Riemannian (or Lorentzian and $\gamma$ timelike), $J \in \mathfrak{J}(\gamma)^\perp$ already implies $\nabla_{\frac{d}{dt}}J(0)\perp \dot{\gamma}(0)$ and $\dot{\gamma}(0)^\perp \subseteq T_{\gamma(0)}M$ spacelike, so $\nabla_{\frac{d}{dt}}J(0)\neq 0$.  
+        \item In constant curvature spaces, we have now two forms for Jacobi fields, $J(t)=tw^i\partial_i|_{\gamma(t)}$ and $J(t)=ks_{\epsilon c}(t)E(t)$.
+    \end{enumerate}
+\end{remark}
+Our goal is now to obtain the first general result with help of Jacobi fields.
+We will need the notion of a radial distance function and the associated vector field.
 \marginnote{
     Given a time-oriented Lorentzian manifold, we define the radial distance function by the proper time $\tau: I^U(p) \to \mathbb{R}$ with $\tau(q):=\tau_U(p,q)>0$. This yields a field $\partial_\tau$.
 }
@@ -350,3 +388,80 @@ Given a Riemannian manifold $(M,g)$ and a normal chart $(U, x^i)$ around some $p
 ,\] and on $U \setminus \{p\}$ we get the \textbf{radial vector field} \[
 \partial_r = \frac{x^i}{r(x)} \partial_i
 .\]  This is smooth on $U \setminus \{p\}$ and independent of choice of charts.
+\begin{definition}[Polar Coordinates]
+    In the following, $\mathring{g}$ is the round metric and $\hcirc{g}$ is the hyperbolic metric.
+    \begin{enumerate}
+        \item \textbf{Riemannian polar coordinates} are given by the map
+        \begin{align*}
+            \Phi_R: (\mathbb{R}_+ \times \mathbb{S}^{n-1}, dr^2+r^2 \mathring{g}_{n-1}) &\to (\mathbb{R}^n \setminus \{0\}, g_\text{st})\\
+            (r,\theta)&\mapsto r \iota_{\mathbb{S}^{n-1}}(\theta),
+        \end{align*}
+        where $\iota: \mathbb{S}^{n-1} \hookrightarrow (\mathbb{R}^n, g_\text{st})$ is any isometric embedding with $\im \iota_{\mathbb{S}^{n-1}}=\left\{x \in \mathbb{R}^n \mid \|x\|=1\right\}$.
+    \item \textbf{Lorentian polar coordinates} are the map
+        \begin{align*}
+            \Phi_L: (\mathbb{R}_+ \times \mathbb{H}^{n-1}, -d\tau^2+\tau^2 \hcirc{g}_{n-1}) &\to (I^+(0), \eta)\\
+            (\tau, \xi)&\mapsto \tau \iota_{\mathbb{H}^{n-1}}(\xi),
+        \end{align*}
+        where $\iota: \mathbb{H}^{n-1} \hookrightarrow (\mathbb{R}^{1,n-1}, \eta)$ is any isometric embedding with $\im \iota_{\mathbb{H}^{n-1}}=\left\{x \in \mathbb{R}^{1,n-1} \mid \eta(x,x)=-1\right\}$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}[Constant-Curvature Metrics in Normal Coordinates]
+    \label{thm:constcurvmet}
+Let $(M,g)$ be a RMF or a \red{LMF} with constant curvature $c \in \mathbb{R}$. Let $U$ be a normal neighbourhood of $p \in M$ and $\psi=(x^i)$ be normal coordinates such that $\psi_\ast g_p=g_\text{st}$. Let $r(q)=\|\exp_p^{-1}(q)\|$ resp. \red{$\tau(q)=\|\exp_p^{-1}(q)\|$} be the radial distance function. Define angle functions $\theta(q):=\iota^{-1}_\mathbb{S} \left(\frac{\exp_p^{-1}(q)}{r(q)}\right)$ and $\red{ \xi(q) := \iota^{-1}_\mathbb{H} \left(\frac{\exp_p^{-1}(q)}{\tau(q)}\right)}$. Then we have isometries 
+    \begin{align*}
+        \phi:=\Psi_R^{-1}\circ \psi: U \setminus \{p\} &\to \mathbb{R}_+ \times \mathbb{S}^{n-1}\\
+        q &\mapsto (r(q),\theta(q))\\
+    \red{\phi_L:=\Phi^{-1}_L \circ \psi: I_U^+(p)} \, &\red{\to \mathbb{R}_+ \times \mathbb{H}^{n-1}}\\
+        \red{q} \, &\red{\mapsto (\tau(q),\xi(q))}
+    \end{align*}
+    onto their image between $g$ and \[
+        g^c = dr^2 + s_c(r)^2 \mathring{g}_{n-1}
+    \] or \[
+    \red{g^c = -d\tau^2 + s_c(\tau)^2 \hcirc{g}_{n-1}}
+    ,\] respectively.
+\end{theorem}
+\begin{proof}
+    Our goal is to show that for all $q \in U \setminus \{p\}$ and all $w_1,w_2 \in T_{\phi(q)}(\mathbb{R}_+ \times \mathbb{S}^{n-1})$, \[
+        g_q(\phi^\ast (w_1),\phi^\ast (w_2))=g^c_{\phi(q)}(w_1,w_2)
+    \] holds. We show this only for $w_1=w_2=:w$, since the general case follows by polarization. In the following, denote the Euclidean metric by $\langle \cdot,\cdot  \rangle$. We split \[
+    T_{\phi(q)}(\mathbb{R}_+ \times \mathbb{S}^{n-1}) \cong \spn \{\partial_r|_{r(q)}\} \oplus T_{\theta(q)}\mathbb{S}^{n-1}
+    \] and prove the claim in three parts:
+    \begin{enumerate}
+        \item $g_q(\phi^\ast(\partial_r|_{r(q)}), \phi^\ast(\partial_r|_{r(q)})) = g_{\phi(q)}^c (\partial_r|_{r(q)}, \partial_r|_{r(q)}) =1$
+        \item $\forall w \in T_{\theta(q)}\mathbb{S}^{n-1}: g_q(\phi^\ast(\partial_r|_{\phi(r)}), \phi^\ast(w))=0$
+        \item $\forall w \in T_{\theta(q)}\mathbb{S}^{n-1}: g_q(\phi^\ast(w),\phi^\ast(w))=g_{\phi(q)}^c (q)(w,w)=s_c(r(q))^2 \mathring{g}_{n-1}|_{\theta(q)}(w,w) $
+    \end{enumerate}
+    For 1. and 2., note that \[
+        (\Phi_R)_{\ast, (r(q),\theta(q))}(\partial_r)=(\Phi_R^{-1})^\ast(\partial_r|_{\phi(q)}) = \iota(\theta(q)) \in T_{\psi(q)}\mathbb{R}^n
+    .\] Since $\psi(q)=r(q)\iota(\theta(q))$, this is radial, hence the Gauß lemma applies. Defining $v:=(\Phi_R^{-1})^\ast(w)$, we get:
+    \begin{align*}
+        g_q(\phi^\ast(\partial_r|_{\phi(q)}), \phi^\ast(w))&=g_q((\exp_p)_{\ast, \psi(q)} (\iota(\theta(q))), (\exp_p)_{\ast, \psi(q)}(v))\\
+                                                           &=g_p(\iota(\theta(q)),v)=\langle \iota(\theta(q)),v  \rangle \\
+                                                           &=
+                                                           \begin{cases}
+                                                               1 &v=\iota(\theta(q)) \iff w = \partial_r|_{\phi(q)}\\
+                                                               0 &v \perp \iota(\theta(q)) \eqnmark[blue]{node2}{\iff} w \in T_{\theta(q)}\mathbb{S}^{n-1}
+                                                           \end{cases}.
+    \end{align*}
+    \annotate[yshift=-1em]{below, label below}{node2}{$\Phi_R$ is isometry $g^c \leftrightarrow \langle \cdot,\cdot  \rangle$ }
+    This proves 1. and 2. simultaneously.
+    \marginnote{Note that we have not used our constant curvature assumption so far. This will become important in chapter \ref{chap:comparision}.}\newline
+    Now we turn our attention to 3.: Let $w \in T_{\theta(q)}\mathbb{S}^{n-1}$ and set $v:=(\Phi_R^{-1})^\ast (w) \in T_{\psi(q)}\mathbb{R}^n$. We have by definition \[
+        g^c_{\phi(q)}(w,w)=s_c(r(q))^2 \mathring{g}_{n-1}|_{\theta(q)}(w,w)=\frac{s_c(r(q))^2}{r(q)^2}\langle v, v \rangle 
+    .\] Let $J$ be the unique Jacobi field along the unit-speed radial geodesic $\gamma: [0,b] \to U$ from $p$ to $q$ ($b=r(q)$) with $J(0)=0$ and $J(b)=\phi^\ast(w) \in T_qM$. We have $\dot{\gamma}(b) \propto \phi^\ast_{r(q),\theta(q)}(\partial_r)\perp \phi^\ast(w)$, so $J \in \mathfrak{J}(\gamma)^\perp$. This means we can write \[
+    J(t)=ks_c(t)E(t)
+    \] with $E(b) \propto \phi^\ast(w)$. We calculate explicitly:
+    \[
+        k^2 = g_p(\nabla_{\frac{d}{dt}}J(0), \nabla_{\frac{d}{dt}}J(0))
+    \]
+    and obtain \[
+        \|\phi^\ast(w)\|^2_{g_q} = \|J(b)\|^2_{g_q} = k^2 s_c(b)^2=s_c(r(q))^2 \|\nabla_{\frac{d}{dt}}J\|^2_{g_p}
+    .\] Now rescale $\gamma$ to $[0,1] \to M$ and use $\phi^\ast(w)=\psi^\ast(v)=v^i\partial_i|_q \in T_qM$ to get $J(t)=\frac{t}{b}v^i\partial_i|_{\gamma(t)}$. With this, we calculate \[
+    \|\nabla_{\frac{d}{dt}}J(0) \|^2_{g_p} = \|\frac{1}{b}v^i\partial_i|_{\gamma(0)}\|^2_{g_p}=\frac{1}{b^2}\langle v,v  \rangle 
+    .\] With this, claim 3 follows.
+\end{proof}
+\begin{corollary}
+    Let $(M,g)$ be a RMF, $p \in M$ and $U$ a normal neighbourhood with normal coodinates $\psi$ such that $\psi_\ast g_p = g_\text{st}$. Let $\epsilon >0$ such that $B_\epsilon(0) \subseteq \psi(U)$. Then we find a family $\left\{h(r) \mid r \in (0, \epsilon)\right\}$ of Riemannian metrics on $\mathbb{S}^{n-1}$ such that \[
+        \phi: \Phi_R^{-1} \circ \psi: B_\epsilon^{d_g}(p)\setminus \{p\} \to (0,\epsilon) \times \mathbb{S}^{n-1}
+    \] given again by $\phi(q):=(r(q),\theta(q))$ is a bijective isometry between $g$ and $dr^2+h(r)$.
+\end{corollary}
