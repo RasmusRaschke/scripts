@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  11 JAN 2026 01:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  11 JAN 2026 14:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2057,12 +2057,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [22]
-Overfull \hbox (42.07892pt too wide) in paragraph at lines 432--433
-[]$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 T[]\U/msb/m/n/10 S[] \OT1/cmr/m/n/10 (-20) : \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 (-20) )\OML/cmm/m/it/10 ; '[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 (-20) )) = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (-20) )(\OML/cmm/m/it/10 w; w\OT1/cmr/m/n/10 (-20) ) = \OML/cmm/m/it/10 s[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 r\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (-20) ))[][]\OML/cmm/m/it/10 g[]\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w; w\OT1/cmr/m/n/10 (-20) )$ 
+Package marginnote Info: Margin note 31.1 is on absolute page 31 on input line 429.
+Package marginnote Info: xpos seems to be 101.32195pt on input line 429.
+
+Overfull \hbox (0.82172pt too wide) in paragraph at lines 429--429
+[][]$  
  []
 
-Package marginnote Info: Margin note 31.1 is on absolute page 31 on input line 448.
-Package marginnote Info: xpos seems to be 223.87225pt on input line 448.
+Package marginnote Info: Margin note 31.2 is on absolute page 31 on input line 432.
+Package marginnote Info: xpos seems to be 67.00003pt on input line 432.
+Package marginnote Info: Margin note 31.3 is on absolute page 31 on input line 437.
+Package marginnote Info: xpos seems to be 67.00003pt on input line 437.
+
+Overfull \hbox (42.07892pt too wide) in paragraph at lines 434--437
+[]$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 T[]\U/msb/m/n/10 S[] \OT1/cmr/m/n/10 (-20) : \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 (-20) )\OML/cmm/m/it/10 ; '[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 (-20) )) = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (-20) )(\OML/cmm/m/it/10 w; w\OT1/cmr/m/n/10 (-20) ) = \OML/cmm/m/it/10 s[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 r\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (-20) ))[][]\OML/cmm/m/it/10 g[]\OMS/cmsy/m/n/10 j[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 w; w\OT1/cmr/m/n/10 (-20) )$
+ []
+
+Package marginnote Info: Margin note 31.4 is on absolute page 31 on input line 452.
+Package marginnote Info: xpos seems to be 216.09637pt on input line 452.
+Package marginnote Info: Margin note 31.5 is on absolute page 31 on input line 459.
+Package marginnote Info: xpos seems to be 42.0pt on input line 459.
 
 
 
@@ -2073,10 +2087,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [23]
-Package mdframed Info: mdframed works in twoside mode on input line 464.
+Package mdframed Info: mdframed works in twoside mode on input line 472.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 464.
+(mdframed)              on input line 472.
+Package marginnote Info: Margin note 32.1 is on absolute page 32 on input line 473.
+Package marginnote Info: xpos seems to be 316.02844pt on input line 473.
+
+
+LaTeX Warning: Reference `thm:metrizationriem' on page 24 undefined on input line 478.
+
+Package mdframed Info: mdframed works in twoside mode on input line 483.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 483.
+Package marginnote Info: Margin note 32.2 is on absolute page 32 on input line 488.
+Package marginnote Info: xpos seems to be 266.83473pt on input line 488.
 ) (./chap4.tex
 
 
@@ -2263,11 +2289,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [32]
-Overfull \hbox (20.20802pt too wide) in paragraph at lines 58--58
-\T1/cmr/m/n/10 (-20) tion. Springer-Link. Cham: Springer, 2018. 437 pp. \T1/cmr/m/sc/10 (-20) isbn\T1/cmr/m/n/10 (-20) : 9783319917559. 
- []
-
-
 
 [33
 
@@ -2276,6 +2297,10 @@ Overfull \hbox (20.20802pt too wide) in paragraph at lines 58--58
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2D615E67C538441DA9D875B89E53F290;3176.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -2283,19 +2308,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56485 strings out of 467886
- 1263304 string characters out of 5434045
- 2317910 words of memory out of 5000000
- 83424 multiletter control sequences out of 15000+600000
- 666398 words of font info for 301 fonts, out of 8000000 for 9000
+ 56511 strings out of 467886
+ 1263779 string characters out of 5434045
+ 2318143 words of memory out of 5000000
+ 83439 multiletter control sequences out of 15000+600000
+ 666678 words of font info for 305 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,25n,109p,1193b,2523s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
-ype1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (40 pages, 613918 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on main.pdf (40 pages, 632901 bytes).
 PDF statistics:
- 771 PDF objects out of 1000 (max. 8388607)
- 651 compressed objects within 7 object streams
- 286 named destinations out of 1000 (max. 500000)
+ 783 PDF objects out of 1000 (max. 8388607)
+ 661 compressed objects within 7 object streams
+ 289 named destinations out of 1000 (max. 500000)
  61597 words of extra memory for PDF output out of 61914 (max. 10000000)
 

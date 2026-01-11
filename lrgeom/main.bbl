@@ -91,6 +91,42 @@
       \field{title}{Introduction to Riemannian manifolds}
       \field{year}{2018}
     \endentry
+    \entry{ONeill10}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=0942bea3c19d7664ab502201b97f79ce}{%
+           family={O'Neill},
+           familyi={O\bibinitperiod},
+           given={Barrett},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Diego [u.a.]}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{fullhash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{fullhashraw}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{bibnamehash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{authorbibnamehash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{authornamehash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{authorfullhash}{0942bea3c19d7664ab502201b97f79ce}
+      \strng{authorfullhashraw}{0942bea3c19d7664ab502201b97f79ce}
+      \field{labelalpha}{ONe10}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780125267403}
+      \field{note}{Literaturverz. S. 456 - 457}
+      \field{number}{103}
+      \field{pagetotal}{468}
+      \field{series}{Pure and applied mathematics}
+      \field{subtitle}{With applications to relativity}
+      \field{title}{Semi-Riemannian geometry}
+      \field{year}{2010}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

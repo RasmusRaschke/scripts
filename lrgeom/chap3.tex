@@ -423,15 +423,19 @@ Let $(M,g)$ be a RMF or a \red{LMF} with constant curvature $c \in \mathbb{R}$. 
 \begin{proof}
     Our goal is to show that for all $q \in U \setminus \{p\}$ and all $w_1,w_2 \in T_{\phi(q)}(\mathbb{R}_+ \times \mathbb{S}^{n-1})$, \[
         g_q(\phi^\ast (w_1),\phi^\ast (w_2))=g^c_{\phi(q)}(w_1,w_2)
-    \] holds. We show this only for $w_1=w_2=:w$, since the general case follows by polarization. In the following, denote the Euclidean metric by $\langle \cdot,\cdot  \rangle$. We split \[
+        \] holds. We show this only for $w_1=w_2=:w$, since the general case follows by polarization. In the following, denote the Euclidean metric by $\langle \cdot,\cdot  \rangle$. We split \[
+\marginnote{$\red{    T_{\phi(q)}(\mathbb{R}_+ \times \mathbb{H}^{n-1}) \cong \spn \{\partial_\tau|_{\tau(q)}\} \oplus T_{\xi(q)}\mathbb{H}^{n-1}
+}$}
     T_{\phi(q)}(\mathbb{R}_+ \times \mathbb{S}^{n-1}) \cong \spn \{\partial_r|_{r(q)}\} \oplus T_{\theta(q)}\mathbb{S}^{n-1}
     \] and prove the claim in three parts:
     \begin{enumerate}
-        \item $g_q(\phi^\ast(\partial_r|_{r(q)}), \phi^\ast(\partial_r|_{r(q)})) = g_{\phi(q)}^c (\partial_r|_{r(q)}, \partial_r|_{r(q)}) =1$
+        \item  $\marginnote{$\red{g_q(\phi^\ast(\partial_\tau|_{\tau(q)}), \phi^\ast(\partial_\tau|_{\tau(q)})) =-1}$} g_q(\phi^\ast(\partial_r|_{r(q)}), \phi^\ast(\partial_r|_{r(q)})) = g_{\phi(q)}^c (\partial_r|_{r(q)}, \partial_r|_{r(q)}) =1$
         \item $\forall w \in T_{\theta(q)}\mathbb{S}^{n-1}: g_q(\phi^\ast(\partial_r|_{\phi(r)}), \phi^\ast(w))=0$
-        \item $\forall w \in T_{\theta(q)}\mathbb{S}^{n-1}: g_q(\phi^\ast(w),\phi^\ast(w))=g_{\phi(q)}^c (q)(w,w)=s_c(r(q))^2 \mathring{g}_{n-1}|_{\theta(q)}(w,w) $
+        \item $
+            \forall w \in T_{\theta(q)}\mathbb{S}^{n-1}: g_q(\phi^\ast(w),\phi^\ast(w))=g_{\phi(q)}^c (q)(w,w)=s_c(r(q))^2 \mathring{g}_{n-1}|_{\theta(q)}(w,w) $
+\marginnote{\red{$g_q(\phi^\ast(w),\phi^\ast(w))=s_{-c}(\tau(q))^2 \hcirc{g}_{n-1}|_{\xi(q)}(w,w)$}}
     \end{enumerate}
-    For 1. and 2., note that \[
+    For 1 and 2, note that \[
         (\Phi_R)_{\ast, (r(q),\theta(q))}(\partial_r)=(\Phi_R^{-1})^\ast(\partial_r|_{\phi(q)}) = \iota(\theta(q)) \in T_{\psi(q)}\mathbb{R}^n
     .\] Since $\psi(q)=r(q)\iota(\theta(q))$, this is radial, hence the Gauß lemma applies. Defining $v:=(\Phi_R^{-1})^\ast(w)$, we get:
     \begin{align*}
@@ -444,11 +448,15 @@ Let $(M,g)$ be a RMF or a \red{LMF} with constant curvature $c \in \mathbb{R}$. 
                                                            \end{cases}.
     \end{align*}
     \annotate[yshift=-1em]{below, label below}{node2}{$\Phi_R$ is isometry $g^c \leftrightarrow \langle \cdot,\cdot  \rangle$ }
-    This proves 1. and 2. simultaneously.
+    This proves 1 and 2 simultaneously.
     \marginnote{Note that we have not used our constant curvature assumption so far. This will become important in chapter \ref{chap:comparision}.}\newline
-    Now we turn our attention to 3.: Let $w \in T_{\theta(q)}\mathbb{S}^{n-1}$ and set $v:=(\Phi_R^{-1})^\ast (w) \in T_{\psi(q)}\mathbb{R}^n$. We have by definition \[
+    Now we turn our attention to 3.: Let $w \in T_{\theta(q)}\mathbb{S}^{n-1}$ and set $v:=(\Phi_R^{-1})^\ast (w) \in T_{\psi(q)}\mathbb{R}^n$.
+    We have by definition \[
         g^c_{\phi(q)}(w,w)=s_c(r(q))^2 \mathring{g}_{n-1}|_{\theta(q)}(w,w)=\frac{s_c(r(q))^2}{r(q)^2}\langle v, v \rangle 
-    .\] Let $J$ be the unique Jacobi field along the unit-speed radial geodesic $\gamma: [0,b] \to U$ from $p$ to $q$ ($b=r(q)$) with $J(0)=0$ and $J(b)=\phi^\ast(w) \in T_qM$. We have $\dot{\gamma}(b) \propto \phi^\ast_{r(q),\theta(q)}(\partial_r)\perp \phi^\ast(w)$, so $J \in \mathfrak{J}(\gamma)^\perp$. This means we can write \[
+    .\]
+
+    \marginnote{\red{This largely goes through for the Lorentzian case, just switch $\Phi_R$ for $\Phi_L$ and use $s_{-c}(t)$. Note that $J$ is normal to a timelike geodesic, so the sign is still positive.}}
+    Let $J$ be the unique Jacobi field along the unit-speed radial geodesic $\gamma: [0,b] \to U$ from $p$ to $q$ ($b=r(q)$) with $J(0)=0$ and $J(b)=\phi^\ast(w) \in T_qM$. We have $\dot{\gamma}(b) \propto \phi^\ast_{r(q),\theta(q)}(\partial_r)\perp \phi^\ast(w)$, so $J \in \mathfrak{J}(\gamma)^\perp$. This means we can write \[
     J(t)=ks_c(t)E(t)
     \] with $E(b) \propto \phi^\ast(w)$. We calculate explicitly:
     \[
@@ -458,10 +466,30 @@ Let $(M,g)$ be a RMF or a \red{LMF} with constant curvature $c \in \mathbb{R}$. 
         \|\phi^\ast(w)\|^2_{g_q} = \|J(b)\|^2_{g_q} = k^2 s_c(b)^2=s_c(r(q))^2 \|\nabla_{\frac{d}{dt}}J\|^2_{g_p}
     .\] Now rescale $\gamma$ to $[0,1] \to M$ and use $\phi^\ast(w)=\psi^\ast(v)=v^i\partial_i|_q \in T_qM$ to get $J(t)=\frac{t}{b}v^i\partial_i|_{\gamma(t)}$. With this, we calculate \[
     \|\nabla_{\frac{d}{dt}}J(0) \|^2_{g_p} = \|\frac{1}{b}v^i\partial_i|_{\gamma(0)}\|^2_{g_p}=\frac{1}{b^2}\langle v,v  \rangle 
-    .\] With this, claim 3 follows.
+    \] With this, claim 3 follows.
 \end{proof}
 \begin{corollary}
+    \marginnote{\red{The Lorentzian case is a bit harder to phrase, but the idea still holds. The problem is that families of Riemannian metrics on $\mathbb{H}^{n-1}$ are generally not globally definable on $\mathbb{H}^{n-1}$ as $\psi(I_U^+(p))$ does not contain an entire $\mathbb{H}^{n-1}_\tau$, no matter how small $\tau$ is.}}
     Let $(M,g)$ be a RMF, $p \in M$ and $U$ a normal neighbourhood with normal coodinates $\psi$ such that $\psi_\ast g_p = g_\text{st}$. Let $\epsilon >0$ such that $B_\epsilon(0) \subseteq \psi(U)$. Then we find a family $\left\{h(r) \mid r \in (0, \epsilon)\right\}$ of Riemannian metrics on $\mathbb{S}^{n-1}$ such that \[
         \phi: \Phi_R^{-1} \circ \psi: B_\epsilon^{d_g}(p)\setminus \{p\} \to (0,\epsilon) \times \mathbb{S}^{n-1}
     \] given again by $\phi(q):=(r(q),\theta(q))$ is a bijective isometry between $g$ and $dr^2+h(r)$.
 \end{corollary}
+\begin{proof}
+    We know that $B_\epsilon^{d_g}(p)=\psi^{-1}(B_\epsilon(0))$ by theorem \ref{thm:metrizationriem}. Let $r \in (0,\epsilon)$, $\theta \in \mathbb{S}^{n-1}$ and $w_1,w_2 \in T_\theta \mathbb{S}^{n-1}$. We define \[
+        h(r)(w_1,w_2):=g_{\phi^{-1}(r,\theta)}(\phi^{-1}_{\ast, (r,\theta)}(0 \partial_r+w_1), \phi^{-1}_{\ast,(r,\theta)}(0 \partial_r + w_2))
+    .\] This is a smooth, symmetric, non-degenerate $(0,2)$-tensor field on $\mathbb{S}^{n-1}$. $\phi$ being an isometry follows from the definition of $h(r)$, 1, and 2 of the previous proof.
+    
+\end{proof}
+\begin{corollary}[Constant Curvature implies local Isometry]
+   All Riemannian and Lorentzian manifolds of constant curvature are locally isometric. 
+\end{corollary}
+\begin{proof}
+    \marginnote{The Riemannian case is easier and can be found in \cite{LeeRM}. The theorem also holds for the semi-Riemannian case in general with a different proof, found in \cite{ONeill10}.}
+    We do the Lorentzian case. Given LMFs $(M_1,g_1)$ and $(M_2,g_2)$ with $p_i \in M_i$, we want to show that there are open neighbourhoods $U_i \subseteq M_i$ and a local isometry $\phi: (U_1,g_1) \overset{\cong}\to (U_2,g_2)$. So let $\widetilde{U}_i$ be convex neighbourhoods of $p_i$, $p_i^- \ll_{\widetilde{U}_i} p_i$ and $\tau_{\widetilde{U}_1}(p_1^-,p_1)=\tau_{\widetilde{U}_2}(p_2^-,p_2)=\epsilon$. Choose normal coordinates at $p_i^-$ such that $\psi_i(p_i)=(\epsilon,0,\dots,0)$. Consider polar-normal coordinates \[
+        \phi_i: \widetilde{U}_i \to V_i \subseteq (0,\infty) \times \mathbb{H}^{n-1}
+    .\] They satisfy \[
+    \phi_1(p_1)=\phi_2(p_2)=:(\epsilon, \xi_0) \in V_1 \cap V_2,
+\] so $V_1 \cap V_2$ is an open neighbourhood of $(\epsilon, \xi_0)$. Setting $U_i := \phi_i^{-1}(V_1 \cap V_2)$, we obtain the desired isometry \[
+\phi := \phi_2^{-1} \circ \phi_1: U_1 \overset{\cong}\to U_2
+.\]  
+\end{proof}
