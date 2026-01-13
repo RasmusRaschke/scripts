@@ -248,13 +248,13 @@ with $\widehat{\mathcal{H}}:=-\mathcal{H}_\tau$ in the Lorentzian case, on $\gam
     \end{pmatrix}
     .\] Therefore, the restriction to $\mathfrak{X}(\gamma)^\perp$ does not discard any information.
 \end{remark}
-\section{Hessian Comparision}
+\section{Hessian Comparison}
 \label{sec:hessiancomp}
 In this section, we attempt to compare $\mathcal{H}_r$ with $\frac{s_c' \circ r}{s_c \circ r} \pi^S$ and $\mathcal{H}_\tau$ with $- \frac{s_{-c}'\circ \tau}{s_{-c}\circ \tau}\pi^H$.
 In the following, any inequalities for $\mathcal{H}_\tau$ in the Lorentzian case are to be understood for the restriction \[
     \mathcal{H}_\tau|_{\mathfrak{X}(\gamma)^\perp}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp
 .\] 
-\begin{theorem}[Hessian Comparision]
+\begin{theorem}[Hessian Comparison]
     Let $(M,g)$ be a RMF, $p \in M$, $U$ be a normal neighbourhood of $p$ and $r: U \to [0,\infty)$ be the radial distance function at $p$. Let $c \in \mathbb{R}$.
     \begin{enumerate}[(a)]
         \item If all sectional curvatures of $M$ are less or equal $c$, then \[
@@ -271,3 +271,50 @@ In the following, any inequalities for $\mathcal{H}_\tau$ in the Lorentzian case
     \end{enumerate}
 \end{theorem}
 \lecture{13.01.26}
+\begin{TODO}
+    Add first part of lecture.
+\end{TODO}
+\begin{theorem}[Lorentzian Jacobi Field Comparison]
+    Let $(M,g)$ be a LMF, $\gamma: [0,b] \to M$ be a unit-speed timelike geodesic, and $J \in \mathfrak{J}(\gamma)^\perp$ with $J(0)=0$.
+    \begin{enumerate}
+        \item If all timelike sectional curvatures are non-positive, then \[
+                \|J(t)\|_g \leq s_{-c}(t) \cdot \|\nabla_{\frac{d}{d t}} J(0)\|_g 
+            \] for all $t \in [0,b_1]$ where $$b_1 := \sup \{t \in [0,b] \mid \gamma(t) \text{ is not conjugate to } \gamma(0) \text{ along } \gamma\}.$$
+        \item If all timelike sectional curvatures are non-negative, then \[
+                \|J(t)\| \geq s_{-c}(t) \| \nabla_{\frac{d}{d t}} J(0)\|
+            \] for all $t \in [0,b_2]$ where \[
+            b_2 := 
+            \begin{cases}
+                b &c\leq 0\\
+                \min \{b , R \pi \} &c>0
+            \end{cases}
+            .\] 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $J$ be such a Jacobi field which is not the zero field.
+    \begin{enumerate}[1. {Step:}]
+        \item We show monotonicity. Let $b_0 := \min\{b_0,b_1\}$ and define \[
+        f: (0,b_0) \to \mathbb{R}
+    \] by $$f(t):=\log (s_{-c}(t)^{-1} \|J(t)\|)=\log(\|J(t)\|)-\log(s_{-c}(t)).$$ Define $\widetilde{f}(t):=s_{-c}(t)^{-1}\|J(t)\|$, which is strictly positive on $(0,b_0)$ since $s_{-c}(t)$ and $J(t)$ are not zero by choice of $b_0$ and spacelike character of $J(t)$ (which is normal). Note that $f$ is non-increasing resp. non-decreasing if and only if $\widetilde{f}$ is by monotonicity of $\log$.
+    Now compute \[
+        \dot{f}(t)=\frac{1}{\|J\|^2} g(\nabla_{\frac{d}{dt}}J,J )- \frac{\dot{s}_{-c}}{s_{-c}}
+    .\] Assume for now that $\gamma: [0,b_0] \to M$ is contained in a normal neighbourhood of $p:=\gamma(0)$. Using $\widetilde{\mathcal{H}}(J)=\nabla_{\frac{d}{dt}} J$ (prop. 3.5) and Hessian comparison, we get \[
+\dot{f}(t)=\frac{1}{\|J\|^2} (g(\widetile{\mathcal{H}}(J), J) - g(\underbrace{\frac{\dot{s}_{-c}}{s_{-c}}J}_{=\widehat{\mathcal{H}}^c(J)},J)) = 
+    \begin{cases}
+        \leq 0 &\text{Case 1}\\
+        \geq 0 &\text{Case 2}
+    \end{cases}
+    .\] 
+\item Now we treat the initial condition. We want to show that \[
+        \lim_{t \searrow 0} \frac{\|J(t)\|}{s_{-c}(t)}=\|\nabla_{\frac{d}{dt}}J(0)\| 
+,\] which is equivalent to \[
+\lim_{t \searrow 0} \frac{\|J\|}{s_{-c}(t)} = \|\nabla_{\frac{d}{dt}}J(0)\| >0 
+.\] The last inequality holds as $J$ is normal. Applying l'Hospital's rule twice yields 
+\begin{align*}
+    \lim_{t \searrow 0} \frac{1}{s_{-c}^2} \|J\| &= \lim_{t \searrow 0} \frac{2g(\nabla_{\frac{d}{dt}}J,J )}{2 s_{-c} \dot{s}_{-c}} \\
+                                                 &= \lim_{t \searrow 0} \frac{\| \nabla_{\frac{d}{dt}} J \| +  }{\dot{s}}
+\end{align*}
+    \end{enumerate}
+    
+\end{proof}
