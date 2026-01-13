@@ -21,6 +21,7 @@ Variation through geodesics give rise to several particular vector fields: The \
 \[S(s,t)  := \frac{\partial \Gamma}{\partial s} \]
 which will be useful.
 \begin{lemma}[Symmetry Lemma]
+    \label{lem:symmlemm}
     Let $\Gamma: K \times I \to M$ be a smooth family of curves. Then we have \[
         \nabla_{\frac{d}{ds}} T = \nabla_{\frac{d}{dt}}S
     .\] 
@@ -34,6 +35,7 @@ which will be useful.
     Exchanging $i \leftrightarrow j$ and using the symmetry $\Gamma_{ij}^k=\Gamma_{ji}^k$ yields the desired identity.
 \end{proof}
 \begin{lemma}[Curvature Lemma]
+    \label{lem:curvlem}
     Let $(M,g)$ be semi-Riemannian and $\Gamma: K \times I \to M$ be a smooth family of curves. Then for any $V \in \mathfrak{X}(\Gamma)$, we have \[
         \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} V - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} = R(S, T)V
     .\] 
@@ -133,6 +135,7 @@ Now we match initial data:
 \label{sec:jacobipoint}
 We turn our attention to Jacobi fields which vanish at some point $p \in M$.
 \begin{lemma}
+    \label{lem:jacobigeodvar}
     Let $(M,g)$ be a SRMF, $I \ni 0$ an interval, $\gamma: I \to M$ be a geodesic, and $J \in \mathfrak{J}(\gamma)$ such that $J(0)=0$. 
     If $M$ is geodesically complete or $I$ is compact, $J$ is the variation field of the geodesic variation
     \begin{equation}
@@ -493,3 +496,164 @@ Let $(M,g)$ be a RMF or a \red{LMF} with constant curvature $c \in \mathbb{R}$. 
 \phi := \phi_2^{-1} \circ \phi_1: U_1 \overset{\cong}\to U_2
 .\]  
 \end{proof}
+\section{Conjugate Points}
+\label{sec:conjpoints}
+
+\begin{definition}[Regular and Critical Points]
+    Let $M,N$ be smooth manifolds and $F: M \to N$ be a smooth map. We call $p \in M$ a \textbf{regular point} of $F$ if $F_{\ast, p}:T_pM \to T_{F(p)}N$ is surjective. Otherwise, we call $p$ a \textbf{critical point}. We denote the critical points by $\crit F$.
+\end{definition}
+
+Consider the exponential map $$\exp_p: T_pM \to M$$. The inverse function theorem guarantees that locally around all regular points, $\exp_p$ is a diffeomorphism. What happens at critical points?
+\begin{ex}
+    Consider $\mathbb{S}^2$. Given the unit circle $S_0 := \left\{v \in T_p\mathbb{S}^2 \mid \|v\|=\pi \right\} \subseteq T_p\mathbb{S}^2$, the image, which is the antipodal point to $p$, consists only of critial points of $\exp_p$. At that point, several things happen:
+    \begin{enumerate}
+        \item Jacobi fields admit zeros: Given $J(t)=k s_1(t)E(t)=k\sin(t)E(t)$, we have $J(0)=J(\pi)=0$.
+        \item All unit-speed geodesics originating at $p$ meet at the antipodal point at $t=\pi$.
+        \item All these geodesics stop being minimizing after $t=\pi$.
+    \end{enumerate}
+    The question is, which of these hold generally?
+\end{ex}
+\begin{definition}[Conjugate Points]
+    Let $(M,g)$ be a SRMF, $\gamma:I \to M$ be a geodesic, $a,b \in I$, and $\gamma(a):=p$, $\gamma(b):=q$. We call $p$ \textbf{conjugate} to $q$ along $\gamma$ if there exists a non-zero Jacobi field $J \in \mathfrak{J}(\gamma)$ with $J(a)=J(b)=0$. We call the dimension of the subspace of Jacobi fields vanishing at $a$ and $b$ the \textbf{order} or \textbf{multiplicity} of conjugacy.
+\end{definition}
+\begin{remark}
+    Let $\gamma$ be a timelike or spacelike geodesic. If there is a Jacobi field witnessing conjugacy, we can always choose a normal one satisfying the same condition since \[
+        J^\top = (kt+d)\dot{\gamma}(t)
+    ,\] which vanishes at most at one point. Hence the order of conjugacy is always $\leq \dim M -1$.
+\end{remark}
+\begin{prop}[Conjugacy and Critical Points]
+    Let $(M,g)$ be a SRMF, $p \in M$, $v \in \mathcal{E}_p$, and let $\gamma=\gamma_v: [0,1] \to M$ be the unique geodesic with $\gamma(0)=p$ and $\dot{\gamma}(0)=v$. Set $q := \gamma_v(1)=\exp_p(v)$.
+    Then $p$ is conjugate to $q$ along $\gamma$ if and only if $v \in \crit(\exp_p)$.
+\end{prop}
+\begin{proof}
+    $(\Leftarrow):$ Let $v \in \crit(\exp_p)$. We find $w \in T_pM$ such that $(\exp_p)_{\ast, v}(w)=0$ but $w \neq 0$. Take a Jacobi field with initial data $J(0)=0$ and $\nabla_{\frac{d}{dt}}J(0)=w$. By lemma \ref{lem:jacobigeodvar}, we can write $J$ as variation field of the geodesic variation \[
+        \Gamma (s,t):=\exp_p (t(v+sw))
+    .\] We have \[
+    J(1) = \left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma(s,1)= \left. \frac{\partial}{\partial s}\right|_{s=0} \exp_p(v+sw)=(\exp_p)_{\ast, v}(w)=0
+    .\] 
+$(\Rightarrow):$ Let $J$ be a non-zero Jacobi field along $\gamma$ with $J(0)=J(1)=0$. Writing $w:=\nabla_{\frac{d}{dt}}J(0) \neq 0$ and again $J$ as variation field of \[
+\Gamma (s,t)=\exp_p(t(v+uw))
+\] yields $J(1)=0=(\exp_p)_{\ast,v}(w)$, so $(\exp_p)_{\ast, v}$ fails to be injective.  
+\end{proof}
+If $(M,g)$ is a SRMF and $\gamma: I \to M$ is a geodesic, the \textbf{two-point boundary value problem} asks whether it is always possible to find a Jacobi field along $\gamma$ with two prescribed boundary values $J(0)=v \in T_{\gamma(0)}M$ and $J(1)=w \in T_{\gamma(1)}M$.
+\begin{prop}[The two-point Boundary Value Problem]
+    Let $(M,g)$ be a SRMF and $\gamma: [a,b] \to M$ be a geodesic segment. The two-point boundary value problem is solvable if and only if $\gamma(a)$ is not conjugate to $\gamma(b)$.
+\end{prop}
+\begin{ex}
+    Prove the preceeding proposition.
+\end{ex}
+\begin{prop}[Conjugacy and Sectional Curvature]
+    Let $(M,g)$ be a RMF with non-positive sectional curvature. For any $p \in M$ and any geodesic $\gamma: [0,b] \to M$ originating at $p$, there are no points conjugate to $p$ along $\gamma$.
+\end{prop}
+\begin{ex}
+    Prove the preceeding proposition.
+\end{ex}
+\section{The Second Variation Formula for Arc-Length}
+\label{sec:secondvar}
+\begin{theorem}[Second Variation Formula for Arc-Length]
+    Let $(M,\langle \cdot,\cdot  \rangle )$ be a SRMF, $\gamma: [a,b]\to M$ be a unit-speed geodesic segment, and let \[
+        \Gamma: (-\delta, \delta) \times [a,b] \to M
+    \] be a continuous, fixed-endpoint variation of $\gamma$ such that all curves $t \mapsto \Gamma_s(t)$ have the same causal character. Additionally, let there be a partition $\{t_i\}_{1\leq i \leq n}$ of $[a,b]$ such that $\Gamma|_{[t_i,t_{i+1}]}$ is smooth with $t_1=a$ and $t_n=b$.
+    Then the \textbf{second variation of arc-length} is given by 
+    \begin{equation}
+        \label{eq:secvar}
+        \marginnote{Note that the sign change in \cite{LeeRM} originates from switching the second and third entry of the Riemann tensor.}
+        \left.\frac{d^2}{ds^2}\right|_{s=0}L[\Gamma_s] = \epsilon \int_a^b \left(\Rm(V^\perp, \dot{\gamma}, V^\perp, \dot{\gamma})+\langle \nabla_{\frac{d}{d t}} V^\perp, \nabla_{\frac{d}{d t}}V^\perp  \rangle \right)dt
+    \end{equation}
+    where $\epsilon = \langle \dot{\gamma},\dot{\gamma}  \rangle$, $V= \left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma$, and $V^\perp = V - \epsilon \langle \dot{\gamma}, \dot{\gamma} \rangle \dot{\gamma}$.
+\end{theorem}
+\begin{proof}
+    The proof is done by direct calculation. We set $\left. \frac{\partial}{\partial s}\right|_{s=0} \Gamma =:S(s,t)$ and $\left. \frac{\partial}{\partial t}\right|_{t=0} \Gamma := T(s,t)$. We have 
+            \begin{align*}
+                \frac{d^2}{ds^2} L[\Gamma_s]&=\frac{d}{ds} \int_{t_i}^{t_{i+1}} \frac{\partial}{\partial s} \langle \dot{\Gamma}_s,\dot{\Gamma}_s  \rangle dt =   \frac{d}{ds} \int_{t_i}^{t_{i+1}} \frac{\epsilon \langle \nabla_{\frac{d}{d s}}  T, T  \rangle }{\sqrt{\epsilon \langle T,T  \rangle }}dt\\
+                                            &= \epsilon \int_{t_i}^{t_{i+1}} \frac{\partial}{\partial s} \frac{\langle \nabla_{\frac{d}{d s}} S, T \rangle}{\sqrt{\epsilon \langle T,T  \rangle }} dt \\
+                                            &= \epsilon \int_{t_i}^{t_{i+1}} \left[ \frac{\langle \nabla_{\frac{d}{d s}} \nabla_{\frac{d}{d t}} S,T  \rangle + \langle \nabla_{\frac{d}{d t}} S, \nabla_{\frac{d}{d s}} T  \rangle  }{\sqrt{\epsilon \langle T,T  \rangle }} - \frac{\langle \nabla_{\frac{d}{d t}} S,T  \rangle \langle \nabla_{\frac{d}{d s}} T,T  \rangle  }{(\epsilon \langle T,T  \rangle )^{\frac{3}{2}}} \right] dt \\
+                                            &= \epsilon \int_{t_i}^{t_{i+1}} \left[ \frac{\langle \nabla_{\frac{d}{d s}} \nabla_{\frac{d}{d t}} S,T  \rangle + \langle \nabla_{\frac{d}{d t}} S, \nabla_{\frac{d}{d t}} S  \rangle  }{\sqrt{\epsilon \langle T,T  \rangle }} - \frac{\langle \nabla_{\frac{d}{d t}} S,T  \rangle \langle \nabla_{\frac{d}{d t}} S,T  \rangle  }{(\epsilon \langle T,T  \rangle )^{\frac{3}{2}}} \right] dt 
+            \end{align*}
+
+            Evaluating at $s=0$ yields $\frac{\partial}{\partial t} \Gamma(0,t)=\dot{\gamma}(t)$ and hence $\langle T ,T  \rangle = \epsilon$. Also, we obtain $\nabla_{\frac{d}{d s}} S (0,t)=\nabla_{\frac{d}{d t}} V$. This yields 
+            \[
+                \left. \frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_s] = \epsilon \int_{t_i}^{t_{i+1}} \left[ \underbrace{\langle \nabla_{\frac{d}{d s}} \nabla_{\frac{d}{d t}} S,\dot{\gamma}  \rangle}_{=:A}  + \underbrace{\langle \nabla_{\frac{d}{d t}} V, \nabla_{\frac{d}{d t}} V \rangle}_{=:B} - \underbrace{\epsilon \langle \nabla_{\frac{d}{d t}} V, \dot{\gamma}  \rangle^2}_{=:C}  \right] dt
+            .\] 
+            Term $A$ can be simplified by lemma \ref{lem:curvlem} to:
+            \begin{align*}
+                A|_{s=0} &= \langle \nabla_{\frac{d}{d t}} \nabla_{\frac{d}{d s}} S (0,t),\dot{\gamma}  \rangle + \langle \R(S(0,t),T(0,t))S(0,t), \dot{\gamma} \rangle\\ 
+                         &= \langle \nabla_{\frac{d}{d t}} \nabla_{\frac{d}{d s}}  S(0,t),\dot{\gamma}  \rangle + \langle R(V,\dot{\gamma})V,  \dot{\gamma}\rangle   \\
+                         \marginnote{That the only contribution is from the normal part follows either by direct calculation or by using the symmetry $Rm(\cdot, \cdot, v, v)=\Rm(v,v,\cdot,\cdot)=0$.}
+                         &= \Rm(V^\perp, \dot{\gamma}, V^\perp, \dot{\gamma})+\langle \nabla_{\frac{d}{d t}} \nabla_{\frac{d}{d s}} S(0,t),\dot{\gamma}  \rangle 
+            \end{align*}
+            Term $B$ can be written as \[
+                \langle \nabla_{\frac{d}{d t}} V,\nabla_{\frac{d}{d t}} V  \rangle = \langle (\nabla_{\frac{d}{d t}} V)^\perp, (\nabla_{\frac{d}{d t}} V)^\perp  \rangle + \langle \nabla_{\frac{d}{d t}} V, \dot{\gamma} \rangle ^2 \epsilon
+            .\] A direct calculation shows that taking the normal part commutes with the covariant derivative: \[
+            \marginnote{All other Leibniz rule terms vanish since $\gamma$ is a geodesic segment.}
+            \nabla_{\frac{d}{d t}} V^\perp = \nabla_{\frac{d}{d t}}V-\epsilon \nabla_{\frac{d}{d t}} \langle V,\dot{\gamma}  \rangle \dot{\gamma} = \nabla_{\frac{d}{d t}} V - \epsilon \langle \nabla_{\frac{d}{d t}} V, \dot{\gamma} \rangle \dot{\gamma} = (\nabla_{\frac{d}{d t}} V)^\perp 
+            .\] This yields \[
+            \langle \nabla_{\frac{d}{d t}} V, \nabla_{\frac{d}{d t}} V \rangle = \langle \nabla_{\frac{d}{d t}} V^\perp, \nabla_{\frac{d}{d t}} V^\perp \rangle + \langle \nabla_{\frac{d}{d t}} V, \dot{\gamma} \rangle^2   
+            .\] However, the rightmost term cancels with $C$. 
+            It remains to show that \[
+                \epsilon \int_{t_i}^{t_{i+1}} \langle \nabla_{\frac{d}{d t}} \nabla_{\frac{d}{d s}} S(0,t),\dot{\gamma}  \rangle dt 
+            \] vanishes when summing over $i$.
+We have: 
+\begin{align*}
+    \sum_{i=1}^n\int_{t_i}^{t_{i+1}} \langle \nabla_{\frac{d}{d t}} \nabla_{\frac{d}{d s}} S(0,t),\dot{\gamma}  \rangle dt &= \sum_{i=1}^n\int_{t_i}^{t_{i+1}} \frac{d}{dt} \langle \nabla_{\frac{d}{d s}} S(0,t),\dot{\gamma}  \rangle dt \\
+                                                                                                                           &=  \sum_{i=1}^n \left( \langle \nabla_{\frac{d}{d s}} S(0,t_{i+1}),\dot{\gamma}(t_{i+1})  \rangle - \langle \nabla_{\frac{d}{d s}} S(0,t_i),\dot{\gamma}(t_i)  \rangle  \right)\\  
+                                                                                                                           &= \langle \nabla_{\frac{d}{d s}} S(0,b), \dot{\gamma}(b)  \rangle - \langle \nabla_{\frac{d}{d s}} S(0,s),\dot{\gamma}(a)  \rangle = 0 ,
+\end{align*} 
+where we used that $\Gamma$ is a variation with fixed endpoints in the last step.
+\end{proof}
+There is also a slightly different version:
+\begin{prop}[Second Variation for Submanifolds]
+    Let $(M,g)$ be a RMF or LMF and $\Sigma_1,\Sigma_2$ be two \red{spacelike} submanifolds. Let $\gamma: [a,b]\to M$ be a \red{timelike} unit-speed geodesic segment meeting $\Sigma_1$ orthogonally at $t=a$ and $\Sigma_2$ orthogonally at $t=b$. Let $\Gamma$ be a continuous variation of $\gamma$ which is smooth on some partition of $[a,b]$, and with $\Gamma(s,a) \in \Sigma_1$ and $\Gamma(s,b)\in \Sigma_2$ for all $s$. Let $\sff_i$ be the second fundamental form of $\Sigma_i$, and let $\epsilon = \langle \dot{\gamma}, \dot{\gamma} \rangle$. Then the second variation of arc-length is given by
+    \begin{align*}
+        \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_s] = \int_a^b &\left[ \langle \nabla_{\frac{d}{d t}} V^\perp,\nabla_{\frac{d}{d t}} V^\perp  \rangle + \Rm(V^\perp, \dot{\gamma}, \dot{\gamma}, V^\perp) \right] dt \\
+                                                                   &+ \langle \sff_2(V(b),V(b)),\dot{\gamma}(b)  \rangle - \langle \sff_1(V(a),V(a)),\dot{\gamma}(a)  \rangle 
+    \end{align*}
+\end{prop}
+\begin{ex}
+    Prove the preceeding proposition.
+\end{ex}
+The second variation behaves a bit like the Hessian in real analysis on $\mathbb{R}^n$: It tells us something about the maxima and minima of the length functional. We use this to define something akin to a Hessian for vector fields.
+\begin{notation}
+    We denote the space of piecewise smooth vector fields along a curve $\gamma$ by $\overline{\mathfrak{X}}$. If $\gamma: [a,b] \to M$, we denote the space of vector fields with $X(a)=X(b)=0$ by $\mathfrak{X}_0$.
+\end{notation}
+\begin{definition}[Index Form]
+    Let $(M,\langle \cdot,\cdot  \rangle )$ be a SRMF and $\gamma:[a,b] \to M$ be a unit-speed geodesic segment. We define the \textbf{index form} to be a map \[
+    I: \overline{\mathfrak{X}}(\gamma)^\perp \times \overline{\mathfrak{X}}(\gamma)^\perp \to \mathbb{R}
+    \]  given by \[
+    I(X,Y):= \epsilon \int_a^b (\langle \nabla_{\frac{d}{d t}} X,\nabla_{\frac{d}{d t}} Y  \rangle + \Rm(X,\dot{\gamma},Y, \dot{\gamma})) dt 
+    .\] 
+\end{definition}
+\begin{corollary}[Index Form and Extremizing Behaviour]
+    \marginnote{\red{
+        Let $(\mathcal{L},g)$ be a time-oriented LMF and $\gamma: [a,b] \to \mathcal{L}$ be a unit-speed future-directed timelike geodesic segment. If there exists a non-zero $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ such that} \[
+        \red{I(V,V)>0
+,}\] \red{then $\gamma$ cannot maximize the distance from $\gamma(a)$ to $\gamma(b)$.}}
+    Let $(M,g)$ be a RMF and $\gamma: [a,b] \to M$ be a unit-speed geodesic segment. If there exists $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ such that \[
+    I(V,V)<0
+    ,\] then $\gamma$ cannot minimize the distance from $\gamma(a)$ to $\gamma(b)$.
+\end{corollary}
+\begin{remark}
+    \marginnote{\red{In the Lorentzian case, maximizing $\gamma$ implies negative semi-definity.}}
+    We can also phrase this as if $\gamma$ is minimizing from $\gamma(a)$ to $\gamma(b)$, then $I|_{  \overline{\mathfrak{X}}_0(\gamma)^\perp \times \overline{\mathfrak{X}}_0(\gamma)^\perp}$ is positive semi-definite.
+\end{remark}
+\begin{corollary}[Sectional Curvature and Submanifolds]
+    Let $(M,g)$ be a connected, complete RMF with positive sectional curvature. If $\Sigma_1, \Sigma_2$ are compact, totally geodesic submanifolds such that \[
+    \dim \Sigma_1 + \dim \Sigma_2 \geq \dim M
+    ,\] then $\Sigma_1 \cap \Sigma_2 \neq \emptyset$.
+\end{corollary}
+\begin{ex}
+   Prove the preceeding corollary. 
+\end{ex}
+\section{The Theorems of Bonnet-Myers and Hawking}
+\label{sec:bonnmyhaw}
+\subsection*{The Theorem of Bonnet-Myers}
+\label{subsec:bonnmys}
+
+\subsection*{Hawking's Singularity Theorem}
+\label{subsec:hawking}
+
+\section{The Min/Max-Behaviour of Geodesics}
+\label{sec:minmax}
+
+\section{The Riemannian Cut Locus}
+\label{sec:rmcut}
