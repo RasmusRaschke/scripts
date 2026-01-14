@@ -648,10 +648,55 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 \label{sec:bonnmyhaw}
 \subsection*{The Theorem of Bonnet-Myers}
 \label{subsec:bonnmys}
-
 \subsection*{Hawking's Singularity Theorem}
-\label{subsec:hawking}
 
+\lecture{Exercise Class 14.01.2026}
+\label{subsec:hawking}
+\begin{theorem}[Hawking's Singularity Theorem]
+    Let $(\mathcal{L},\langle \cdot,\cdot  \rangle )$ be a globally hyperbolic Lorentzian $n$-manifold with $\Ric(X,X)\geq 0$ for all $X \in T_pM^\text{t.l.}$ and $p \in M$. If there exists a spacelike hypersurface $\Sigma$ such that:
+    \begin{enumerate}[(a)]
+        \item $J_-(\Sigma)\cap J_+(q)$ is compact for all $q \in J_-(\Sigma)$.
+        \item There exists $\beta > 0$ such that $\langle H_p,N_p  \rangle \geq \beta >0$ for all $p \in \Sigma$, where $N$ is the past-pointing timelike unit normal vector field to $\Sigma$ and $H_p$ is the mean curvature vector, i.e. $$H_p := \frac{1}{n-1}\tr_\Sigma \sff_p = \frac{1}{n-1} \sum_{i=i}^{n-1} \sff_p(E_i,E_i)$$ for any orthonormal frame $E_i$ of $T_p \mathcal{L}|_\Sigma$.
+    \end{enumerate}
+    Then \[
+    \tau_\Sigma (q) =\sup \left\{\tau(q,x) \mid x \in \Sigma \right\} \leq \frac{1}{\beta}
+    .\] 
+\end{theorem}
+\begin{proof}
+      Let $q \in J^-(\Sigma)$. By assumption (a) and strong causality, which follows from global hyperbolicity by a previous exercise, there exists a future-directed timelike unit-speed geodesic $\gamma: [0,b] \to \mathcal{L}$ from $q$ to $\Sigma$ with $\dot{\gamma}(b) \perp T_{\gamma(b)}\Sigma$ and $b=L[\gamma]=\tau_\Sigma(q)$. Let $(E_i)_{1 \leq i \leq n-1}$ be a parallel ONF for $\dot{\gamma}^\perp$ along $\gamma$. Consider vector fields $V_i := fE_i$ for some $f$ with $f(0)=0$ and $f(b)=1$. Let $\Gamma_i$ be a variation of $\gamma$ with variational vector field $V_i$, and such that $\Gamma_i(s,0)=q$ as well as $\Gamma_i(s,b) \in \Sigma$ for all $s$. This is possible since $V_i(0)=0$ and $V_i(b) \in T_{\gamma(b)} \Sigma$. Since $L[\gamma]=\tau_\Sigma(q)$, proposition \ref{prop:secvarumf} yields \[
+               0 \leq \left. \frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_{i,s}]
+       \] for all $i$. We sum over $i$ to obtain:
+       \begin{align*}
+           0 &\geq \sum_{i=1}^{n-1} \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_{i,s}]\\
+             &= \epsilon \left[ \int_0^b \dot{f}^2 (n-1) - \sum_{i=1}^{n-1} \Rm(fE_i, \dot{\gamma},\dot{\gamma},fE_i) \right] dt + \sum_{i=1}^{n-1} \langle \sff(E_i,E_i),\dot{\gamma}(b)  \rangle \\
+             &=-\int_0^b \dot{f}^2 dt + \sum_0^b \Ric(\dot{\gamma},\dot{\gamma}) \cdot f^2 dt + \langle \underbrace{\sigma_{i=1}^{n-1} \sff (E_i,E_i)}_{=(n-1)H},\underbrace{-\dot{\gamma}(b)}_{=N_{\gamma(b)}}  \rangle \\
+             \marginnote{Here we see that $f(t)=\frac{t}{b}$ is a good choice.}
+             &\geq  -(n-1) \int_0^b (\dot{f}^2 + 0 + (n-1)\beta) dt = (n-1)\left(-\frac{1}{b} + \beta \right)
+       \end{align*}
+       Therefore, we get $0 \geq -\frac{1}{b}+\beta$, so $$\frac{1}{\beta} \geq b = \tau_\Sigma (q)$$.
+\end{proof}
+\begin{ex}
+   An interesting example is $\mathcal{L}=(I^+(0), \eta)$ in Minkowski space where $\Sigma$ is a hyperboloid. 
+\end{ex}
+\begin{remark}
+    The Riemannian version is a bit more difficult to phrase. If $(M,g)$ is a RMF with boundary $\partial M$, this implies the existence of an inward-pointing smooth unit-normal vector field $N$ along $\partial M$. Assume:
+    \begin{enumerate}
+        \item $M$ is (metrically) complete. 
+        \item $\Ric \geq 0$
+        \item $\langle H, N \rangle < \beta \leq 0$ on $\partial M$. 
+    \end{enumerate}
+    Then \[
+        d_{\partial M}(p)\leq \frac{1}{\beta}
+    \] for all $p \in M$. We can prove this as follows:
+    \begin{enumerate}
+        \item Show there exists a geodesic $\gamma: [0,b] \to M$ orthogonal to $\partial M$ such that $\gamma(0)=p$ and $\gamma(b)\in \partial M$, so $L[\gamma]=d_{\partial M}(p)$.
+        \item For any $q \in \partial M$, there exists $\gamma_q$ with $L[\gamma_q]=d(p,q)$. Hopf-Rinow tells us that if $\partial M$ is compact, then \[
+                d_{\partial M}(p)=\inf \left\{d(p,q) \mid q \in \partial M\right\}  = d(p,q_0)
+            \] for some $q_0 \in \partial M$. Take $\gamma = \gamma_{q_0}$. If $\partial M$ is non-compact, consider $B_R(p)$. Then for all $q' \in \partial M \setminus B_R(p)$ we have $d(p,q')>R$. This yields \[
+            d_{\partial M}(p)=\left\{ d(p,\tilde{q})\mid q \in \partial M \cap \overline{B_R(p)} \right\}
+        .\] However, $\partial M \cap \overline{B_R(0)}$ is compact by completeness and Hopf-Rinow.
+    \end{enumerate}
+\end{remark}
 \section{The Min/Max-Behaviour of Geodesics}
 \label{sec:minmax}
 

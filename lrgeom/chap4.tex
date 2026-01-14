@@ -196,11 +196,11 @@ with $\widehat{\mathcal{H}}:=-\mathcal{H}_\tau$ in the Lorentzian case, on $\gam
     \label{thm:riccatimfncomp}
     Let $(M,g)$ be a RMF or a \red{LMF} and $\gamma:[a,b] \to M$ be a \red{timelike} unit-speed geodesic segment. Suppose \[
         \eta, \widetilde{\eta}: \mathfrak{X}(\gamma|_{(a,b]})^\perp \to \mathfrak{X}(\gamma|_{(a,b]})
-    \] are $\mathcal{C}^\infty (I)$-linear, self-adjoint with respect to the restricted metric and satisfy the RQNs \[
+    \] are $\mathcal{C}^\infty (I)$-linear, self-adjoint with respect to the restricted metric and satisfy the REQs \[
     \nabla_{\frac{d}{dt}} \eta + \eta^2 + \sigma = 0
     \] and \[
     \nabla_{\frac{d}{dt}} \widetilde{\eta} + \widetilde{\eta}^2 + \widetilde{\sigma} =0
-    \] for some self-adjoint, $\mathcal{C}^\infty (I)$-linear $\sigma, \widetilde{\sigma}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp$. \marginnote{This roughly means that a comparision of RQNs and initial values leads to a comparision of solutions.}If \[
+    \] for some self-adjoint, $\mathcal{C}^\infty (I)$-linear $\sigma, \widetilde{\sigma}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp$. \marginnote{This roughly means that a comparision of RQNs and initial values leads to a comparison of solutions.}If \[
 \forall t \in [a,b]: \widetilde{\sigma}(t)\geq \sigma(t)
 \]  and \[
 \lim_{t \searrow a} \widetilde{\eta}(t)-\eta(t) \leq 0
@@ -255,25 +255,32 @@ In the following, any inequalities for $\mathcal{H}_\tau$ in the Lorentzian case
     \mathcal{H}_\tau|_{\mathfrak{X}(\gamma)^\perp}: \mathfrak{X}(\gamma)^\perp \to \mathfrak{X}(\gamma)^\perp
 .\] 
 \begin{theorem}[Hessian Comparison]
-    Let $(M,g)$ be a RMF, $p \in M$, $U$ be a normal neighbourhood of $p$ and $r: U \to [0,\infty)$ be the radial distance function at $p$. Let $c \in \mathbb{R}$.
+    Let $(M,g)$ be a RMF or a \red{LMF}, $p \in M$, $U$ be a normal neighbourhood of $p$ and $r: U \to [0,\infty)$ (\red{$\tau=\tau|_U(p,\cdot)$}) be the radial distance function at $p$. Let $c \in \mathbb{R}$.
     \begin{enumerate}[(a)]
-        \item If all sectional curvatures of $M$ are less or equal $c$, then \[
-        \mathcal{H}_r(q)\geq \frac{s_c'(r(q))}{s_c(r(q))} \pi_q^S
+        \item If all \red{timelike} sectional curvatures of $M$ are less or equal $c$, then \[
+                \marginnote{\red{
+                        $
+                    \mathcal{H}_\tau|_q \geq - \frac{\dot{s}_{-c}(\tau(q))}{s_{-c}(\tau(q))} \pi_q^H$ \newline
+                    Note this is equal to $\phi^\ast(\mathcal{H}_\tau^c|_{\widetilde{q}})$ for $\widetilde{q}=\phi(q)\in \mathbb{R} \times \mathbb{H}^{n-1}$ with metric $g^c$. 
+                }}
+                \mathcal{H}_r(q)\geq \frac{\dot{s}_c(r(q))}{s_c(r(q))} \pi_q^S
         \] for \[
+        \marginnote{\red{for all $q \in I^+_U(p)$}}
         \begin{cases}
             \forall q \in U \setminus \{p\} &c \leq 0\\
             \forall q \in U \setminus \{p\}: r(q)<\pi R &c>0
         \end{cases}
     \] with $R:=\frac{1}{\sqrt{c}}$.
 \item If all sectional curvatures of $M$ are greater or equal $c$, then \[
+        \marginnote{\red{
+                $\mathcal{H}_\tau|_q \leq - \frac{\dot{s}_{-c}(\tau(q))}{s_{-c}(\tau(q))}\pi^H_q$
+        }}
 \mathcal{H}_r|_q \leq \frac{s_c'(r(q))}{s_c(r(q))}\pi^S_q
 \] for all $q \in U \setminus \{p\}$.
     \end{enumerate}
 \end{theorem}
 \lecture{13.01.26}
-\begin{TODO}
-    Add first part of lecture.
-\end{TODO}
+
 \begin{theorem}[Lorentzian Jacobi Field Comparison]
     Let $(M,g)$ be a LMF, $\gamma: [0,b] \to M$ be a unit-speed timelike geodesic, and $J \in \mathfrak{J}(\gamma)^\perp$ with $J(0)=0$.
     \begin{enumerate}

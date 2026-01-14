@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  14 JAN 2026 00:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.12)  14 JAN 2026 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2276,7 +2276,17 @@ Overfull \hbox (1.9099pt too wide) in paragraph at lines 647--647
 |[]\T1/cmr/bx/n/14.4 (-20) The The-o-rems of Bonnet-Myers and Hawk-
  []
 
-) (./chap4.tex
+Package mdframed Info: mdframed works in twoside mode on input line 655.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 655.
+
+LaTeX Warning: Reference `prop:secvarumf' on page 29 undefined on input line 666.
+
+
+Underfull \vbox (badness 4132) has occurred while \output is active []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2286,8 +2296,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [29]
+Package marginnote Info: Suggest that margin note 38.1 will be on
+(marginnote)             absolute page 38.
+(marginnote)             This may be wrong on input line 675.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 675.
+Package marginnote Info: Margin note 38.2 is on absolute page 38 on input line 675.
+Package marginnote Info: xpos seems to be 244.8633pt on input line 675.
 
-[30
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[30]) (./chap4.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[31]
+
+[32
 
 ]
 Chapter 4.
@@ -2301,7 +2336,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{definition.1})
                    \relax 
 l.9 \begin{definition}[Hessian]
                                
-Package marginnote Info: Margin note 39.1 is on absolute page 39 on input line 13.
+Package marginnote Info: Margin note 41.1 is on absolute page 41 on input line 13.
 Package marginnote Info: xpos seems to be 168.59251pt on input line 13.
 Package mdframed Info: mdframed works in twoside mode on input line 33.
 Package mdframed Info: mdframed detected package amsthm 
@@ -2309,7 +2344,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 33.
 
 
-[31]
+[33]
 Package mdframed Info: mdframed works in twoside mode on input line 43.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2320,7 +2355,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{lemma.3}) has 
                    \relax 
 l.43     L
           et $(M,g)$ be a Riemannian or time-oriented Lorentzian manifold, $...
-Package marginnote Info: Margin note 40.1 is on absolute page 40 on input line 72.
+Package marginnote Info: Margin note 42.1 is on absolute page 42 on input line 72.
 Package marginnote Info: xpos seems to be 295.1659pt on input line 72.
 Package mdframed Info: mdframed works in twoside mode on input line 76.
 Package mdframed Info: mdframed detected package amsthm 
@@ -2332,7 +2367,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{prop.5}) has b
                    \relax 
 l.76 \begin{prop}[The Hessian and Jacobi Fields]
                                                 
-Package marginnote Info: Margin note 40.2 is on absolute page 40 on input line 80.
+Package marginnote Info: Margin note 42.2 is on absolute page 42 on input line 80.
 Package marginnote Info: xpos seems to be 246.25787pt on input line 80.
 
 
@@ -2343,8 +2378,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[32]
-Package marginnote Info: Margin note 41.1 is on absolute page 41 on input line 87.
+[34]
+Package marginnote Info: Margin note 43.1 is on absolute page 43 on input line 87.
 Package marginnote Info: xpos seems to be 79.40865pt on input line 87.
 Package mdframed Info: mdframed works in twoside mode on input line 102.
 Package mdframed Info: mdframed detected package amsthm 
@@ -2359,12 +2394,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[33]
+[35]
 Package mdframed Info: mdframed works in twoside mode on input line 133.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 133.
-Package marginnote Info: Margin note 42.1 is on absolute page 42 on input line 136.
+Package marginnote Info: Margin note 44.1 is on absolute page 44 on input line 136.
 Package marginnote Info: xpos seems to be 470.01895pt on input line 136.
 
 
@@ -2386,7 +2421,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[34]
+[36]
 
 Package mdframed Warning: You got a bad break
 (mdframed)                because the last split box is empty
@@ -2402,15 +2437,15 @@ Package mdframed Info: mdframed works in twoside mode on input line 145.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 145.
-Package marginnote Info: Margin note 43.1 is on absolute page 43 on input line 150.
+Package marginnote Info: Margin note 45.1 is on absolute page 45 on input line 150.
 Package marginnote Info: xpos seems to be 268.50981pt on input line 150.
-Package marginnote Info: Margin note 43.2 is on absolute page 43 on input line 159.
+Package marginnote Info: Margin note 45.2 is on absolute page 45 on input line 159.
 Package marginnote Info: xpos seems to be 56.08252pt on input line 159.
 Package mdframed Info: mdframed works in twoside mode on input line 177.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 177.
-Package marginnote Info: Margin note 43.3 is on absolute page 43 on input line 182.
+Package marginnote Info: Margin note 45.3 is on absolute page 45 on input line 182.
 Package marginnote Info: xpos seems to be 72.1897pt on input line 182.
 
 
@@ -2421,12 +2456,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[35]
+[37]
 Package mdframed Info: mdframed works in twoside mode on input line 195.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 195.
-Package marginnote Info: Margin note 44.1 is on absolute page 44 on input line 203.
+Package marginnote Info: Margin note 46.1 is on absolute page 46 on input line 203.
 Package marginnote Info: xpos seems to be 501.27823pt on input line 203.
 
 
@@ -2437,43 +2472,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[36]
+[38]
 Package mdframed Info: mdframed works in twoside mode on input line 257.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 257.
+Package marginnote Info: Margin note 47.1 is on absolute page 47 on input line 266.
+Package marginnote Info: xpos seems to be 171.00572pt on input line 266.
+Package marginnote Info: Margin note 47.2 is on absolute page 47 on input line 269.
+Package marginnote Info: xpos seems to be 138.81975pt on input line 269.
+Package marginnote Info: Margin note 47.3 is on absolute page 47 on input line 278.
+Package marginnote Info: xpos seems to be 173.70901pt on input line 278.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 272.
+(mdframed)              on input line 281.
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.0pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
-
-[37]
-Package mdframed Info: mdframed works in twoside mode on input line 275.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 275.
-Package hyperref Info: bookmark level for unknown TODO defaults to 0 on input line 275.
-Package mdframed Info: mdframed works in twoside mode on input line 277.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 277.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.0pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
-
-[38])
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2483,12 +2496,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [39]
+Package mdframed Info: mdframed works in twoside mode on input line 284.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 284.
 
-[40
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[40])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[41]
+
+[42
 
 ]
 
-[41] (./main.aux)
+[43] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -2504,19 +2540,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56675 strings out of 467886
- 1266826 string characters out of 5434045
- 2322266 words of memory out of 5000000
+ 56690 strings out of 467886
+ 1266952 string characters out of 5434045
+ 2322335 words of memory out of 5000000
  83551 multiletter control sequences out of 15000+600000
- 666712 words of font info for 306 fonts, out of 8000000 for 9000
+ 666770 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,25n,109p,1193b,2523s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fo
-nts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (48 pages, 674783 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2025/texmf-di
+st/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on main.pdf (50 pages, 693659 bytes).
 PDF statistics:
- 891 PDF objects out of 1000 (max. 8388607)
- 760 compressed objects within 8 object streams
- 339 named destinations out of 1000 (max. 500000)
+ 918 PDF objects out of 1000 (max. 8388607)
+ 783 compressed objects within 8 object streams
+ 352 named destinations out of 1000 (max. 500000)
  61637 words of extra memory for PDF output out of 61914 (max. 10000000)
 
