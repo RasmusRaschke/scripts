@@ -100,6 +100,7 @@ Now we compute:
 \end{proof} 
 Recall the previously defined function \ref{eq:curvfunc}.
 \begin{prop}[Sectional Curvature and Hessian]
+    \label{prop:hessconstcurv}
     Let $(\mathcal{L}, g)$ be a LMF, $p \in \mathcal{L}$ and $U$ be a normal neighbourhood of $p$. Then $(\mathcal{L}, g)$ has constant sectional curvature $c$ on $I^+_U(p)$ if and only if \[
         \mathcal{H}_\tau = - \frac{s_{-c}' \circ \tau}{s_{-c} \circ \tau} \cdot \pi^H
     \] on $I^+_U(p)$.
@@ -273,12 +274,75 @@ In the following, any inequalities for $\mathcal{H}_\tau$ in the Lorentzian case
     \] with $R:=\frac{1}{\sqrt{c}}$.
 \item If all sectional curvatures of $M$ are greater or equal $c$, then \[
         \marginnote{\red{
-                $\mathcal{H}_\tau|_q \leq - \frac{\dot{s}_{-c}(\tau(q))}{s_{-c}(\tau(q))}\pi^H_q$
-        }}
+                $$\mathcal{H}_\tau|_q \leq - \frac{\dot{s}_{-c}(\tau(q))}{s_{-c}(\tau(q))}\pi^H_q$$ for}
+    \[
+        \begin{cases}
+            \red{\forall q \in I^+_U(p)} &\red{c \geq 0}\\
+            \red{\forall q \in I^+_U(p):\tau(q)\leq \pi R} &\red{c<0}
+        \end{cases}
+.\]}
 \mathcal{H}_r|_q \leq \frac{s_c'(r(q))}{s_c(r(q))}\pi^S_q
-\] for all $q \in U \setminus \{p\}$.
+\] 
+for all $q \in U \setminus \{p\}$.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    \red{We prove the Lorentzian version.} 
+    Let $q \in I_U^+(p)$ (with $\tau(q)<\pi R$ in case (b) if $c<0$) and $\gamma: [0,b] \to U$ be the unit-speed timelike geodesic from $p$ to $q$. Set $\xi(q):=\dot{\gamma}(0)\in \mathbb{H}^{n-1} \subseteq T_pM$. We want to apply Theorem \ref{thm:riccatimfncomp} along $\gamma$ to $\widehat{\mathcal{H}}:=- \mathcal{H}_\tau \circ \gamma$, comparing it with $\widehat{\mathcal{H}}^c(t):=\frac{\dot{s}_{-c}(t)}{s_{-c}(t)} \pi_q^H=- \mathcal{H}_\tau^c((t,\xi(q)))$. Case (a) turns into $\widehat{\mathcal{H}}^c \geq \widehat{\mathcal{H}}$ while case (b) becomes $\widehat{\mathcal{H}}^c \leq \widehat{\mathcal{H}}.$ We divide the proof in four steps:
+    \begin{enumerate}[1. {Step:}]
+        \item We show that, wherever defined, $\widehat{\mathcal{H}}^c$ satisfies the Riccati equation \[
+                \nabla_{\frac{d}{d t}} \widehat{\mathcal{H}}^c + (\widehat{\mathcal{H}}^c)^2 - R^c = 0
+            \] on $(0,b]$ for $R^c(t):=c \pi^H_{\gamma(t)}$. This follows directly by computation or by using the fact that $\widehat{\mathcal{H}}^c$ and $R^c$ are pullbacks of the Hessian and the tidal force operator, respectively, in constant curvature spaces along a radial geodesic. This in turn follows from Proposition \ref{prop:hessconstcurv}.
+        \item We have $-R^c \leq -\R_{\dot{\gamma}}$ on $(0,b]$ in case (a) and $-R^c \geq - \R_{\dot{\gamma}}$ in case (b). To see this, let $t \in (0,b]$ and $w \in T_{\gamma(t)}H_t$. Then $w$ is spacelike, so $\{\dot{\gamma}, w\}$ spans a timelike plane, implying \[
+                g(-\R_{\dot{\gamma}}(w),w) = \sec(\dot{\gamma}(t),w)g(w,w)(-1)=-\sec(\dot{\gamma},w)g(w,w) 
+        .\] Therefore, we have \[
+        g(-\R_{\dot{\gamma}}(w),w) = 
+        \begin{cases}
+            \geq -cg( w,w ) = g( -R^c(w),w) &\text{(a)}\\
+            \leq -cg (w,w)=g(-R^c(w), w ) &\text{(b)}
+        \end{cases}
+        .\] 
+    \item We continue by showing that $\lim_{t \to 0} \widehat{\mathcal{H}}^c(t)- \widehat{\mathcal{H}}(t)$ exists and is either non-negative in case (a) or non-positive in case (b). Direct computation shows $\widehat{\mathcal{H}}^c(t)=\frac{1}{t}\pi^H_{\gamma(t)} + \mathcal{O}$.
+        \marginnote{
+            Note that \[
+                \pi^H_{\gamma(t)}=0 \oplus \id: \spn\{\dot{\gamma}(t)\} \oplus \dot{\gamma}(t)^\perp \to \spn\{\dot{\gamma}(t)\} \oplus \dot{\gamma}(t)^\perp 
+            \] extends continuously at $t=0$ to
+            \[ 
+                0 \oplus \id: \spn\{\dot{\gamma}(0)\} \oplus \dot{\gamma}(0)^\perp \to \spn\{\dot{\gamma}(0)\} \oplus \dot{\gamma}(0)^\perp 
+            .\] 
+        }
+        Therefore, it suffices to show that also $\widehat{\mathcal{H}}(t)=\frac{1}{t}\pi_{\gamma(t)}^H + \mathcal{O}(t)$. Choose normal coodinates around $p$ such that $\gamma(t)=(t,0,\dots,0)$. In these coordinates, we have \[
+            \tau(x)=\sqrt{-\eta(x,x)}=\sqrt{x_0^2-\sum_{i=1}^{n-1}x_i^2}
+        ,\] \[
+        g_{ij}(\gamma(t))=\eta_{ij}+\mathcal{O}(t^2)
+        ,\] and \[
+        \Gamma_{jk}^m(\gamma(t))=0+\mathcal{O}(t)
+        .\] Calculating \[
+        \partial_m \tau = \frac{-\epsilon_mx_m}{\tau}=
+        \begin{cases}
+            \frac{x_0}{\tau} &m=0\\
+            - \frac{x_m}{\tau} &1 \leq m \leq n-1
+        \end{cases}
+    ,\] we see that $\partial_m$ remains bounded as $t \to 0$ along $\gamma$ since $\partial_m\tau_{\gamma(t)}=-1$ for $m=0$ and otherwise, it vanishes. Furthermore, we get \[
+    \partial_j \partial_k \tau = -\epsilon_j \epsilon_k \frac{x_jx_k}{\tau^3}-\frac{\eta_{jk}}{\tau}
+    ,\] yielding \[
+    \partial_j \partial_k \tau|_{\gamma(t)} =- \frac{\delta_{j0}\delta_{k0}+\eta_{jk}}{t} = \mathcal{O}\left(\frac{1}{t}\right)
+    .\]  Putting everything together, we obtain 
+    \begin{align*}
+        -\left( \mathcal{H}_\tau|_{\gamma(t)} \right)^i_k &= -g^{ij}(\partial_j \partial_k \tau - \Gamma_{jk}^m \partial_m \tau) \\
+                                                          &= -\eta^{ij}(\partial_j \partial_k \tau|_{\gamma} - \mathcal{O}(t))+ \mathcal{O}(t^2)\mathcal{O}\left(\frac{1}{t}\right)\\
+                                                          &= 
+                                                          \begin{cases}
+                                                              0 &i=0 \text{ or } k=0\\
+                                                              \frac{\delta^i_k}{t} + \mathcal{O}(t) &\text{else}
+                                                          \end{cases} 
+    \end{align*}
+So on $\dot{\gamma}(t)^\perp$, we have $\widehat{\mathcal{H}}(t)=\frac{1}{t} \id + \mathcal{O}(t)$. Now, Theorem \ref{thm:riccatimfncomp} guarantees $\widehat{\mathcal{H}}^c \geq \widehat{\mathcal{H}}$ in case (a) and $\widehat{\mathcal{H}}^c \leq \widehat{\mathcal{H}}$ in case (b) for all $t \in (0,b]$, eventually with the restriction $t < \pi R$.
+\item In case (a), we still have to show that $-c >0$ already forces $\tau(q)<\pi R$ for any $q \in I^+_U(p)$ to guarantee that $\widehat{\mathcal{H}}^c$ is well-defined along $\gamma$. We show that $b < \pi R$ automatically holds in this case. Since $\widehat{\mathcal{H}}$ is well-defined on $(0,b]$, the eigenvalues are bounded on this interval. But the inequality \[
+        \widehat{\mathcal{H}}(t)\leq \widehat{\mathcal{H}}^c(t)=\frac{\dot{s}_{-c}(t)}{s_{-c}(t)}\pi^H_{\gamma(t)}=\frac{1}{R}\frac{\cos(\frac{t}{R})}{\sin(\frac{t}{R})}\pi_{\gamma(t)}^H \overset{t\to \pi R}\to - \infty
+\] forces the eigenvalues to diverge as $t \to \pi R$, so $b<\pi R$.
+    \end{enumerate}
+\end{proof}
 \lecture{13.01.26}
 
 \begin{theorem}[Lorentzian Jacobi Field Comparison]
