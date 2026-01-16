@@ -370,7 +370,7 @@ So on $\dot{\gamma}(t)^\perp$, we have $\widehat{\mathcal{H}}(t)=\frac{1}{t} \id
     \] by $$f(t):=\log (s_{-c}(t)^{-1} \|J(t)\|)=\log(\|J(t)\|)-\log(s_{-c}(t)).$$ Define $\widetilde{f}(t):=s_{-c}(t)^{-1}\|J(t)\|$, which is strictly positive on $(0,b_0)$ since $s_{-c}(t)$ and $J(t)$ are not zero by choice of $b_0$ and spacelike character of $J(t)$ (which is normal). Note that $f$ is non-increasing resp. non-decreasing if and only if $\widetilde{f}$ is by monotonicity of $\log$.
     Now compute \[
         \dot{f}(t)=\frac{1}{\|J\|^2} g(\nabla_{\frac{d}{dt}}J,J )- \frac{\dot{s}_{-c}}{s_{-c}}
-    .\] Assume for now that $\gamma: [0,b_0] \to M$ is contained in a normal neighbourhood of $p:=\gamma(0)$. Using $\widetilde{\mathcal{H}}(J)=\nabla_{\frac{d}{dt}} J$ (prop. 3.5) and Hessian comparison, we get \[
+    .\] Assume for now that $\gamma: [0,b_0] \to M$ is contained in a normal neighbourhood of $p:=\gamma(0)$. Using $\widehat{\mathcal{H}}(J)=\nabla_{\frac{d}{dt}} J$ (prop. 3.5) and Hessian comparison, we get \[
 \dot{f}(t)=\frac{1}{\|J\|^2} (g(\widetilde{\mathcal{H}}(J), J) - g(\underbrace{\frac{\dot{s}_{-c}}{s_{-c}}J}_{=\widehat{\mathcal{H}}^c(J)},J)) = 
     \begin{cases}
         \leq 0 &\text{Case 1}\\
@@ -384,8 +384,128 @@ So on $\dot{\gamma}(t)^\perp$, we have $\widehat{\mathcal{H}}(t)=\frac{1}{t} \id
 .\] The last inequality holds as $J$ is normal. Applying l'Hospital's rule twice yields 
 \begin{align*}
     \lim_{t \searrow 0} \frac{1}{s_{-c}^2} \|J\| &= \lim_{t \searrow 0} \frac{2g(\nabla_{\frac{d}{dt}}J,J )}{2 s_{-c} \dot{s}_{-c}} \\
-                                                 &= \lim_{t \searrow 0} \frac{\| \nabla_{\frac{d}{dt}} J \| +  }{\dot{s}}
+                                                 &= \lim_{t \searrow 0} \frac{\| \nabla_{\frac{d}{dt}} J \| +  }{\dot{s}}.
 \end{align*}
+\lecture{16.01.2026}
+\item It remains to show that the image of $\gamma$ does not need to be contained in a normal neighbourhood. Let $t \in [0,b_0)$. We know that $\gamma(t)$ is not conjugated to $\gamma(0)$. This means we find a neighbourhood $W_+ \subseteq T_pM$ of $t \dot{\gamma}(0)$ such that $$\exp_p: W_+ \to \exp_p(W_+)=:V_+$$ is a diffeomorphism. Eventually by shrinking, we find a convex neighbourhood $W \subseteq T_pM$ of the ray $\{t\dot{\gamma}(0)\mid t \in [0,b_0)\}$ such that \[
+\phi:= \exp_p: W \to M 
+\] is a local diffeomorphism. Pulling back, we get a metric $\widetilde{g}:=\phi^\ast(g)$ on $W$. Hence $\phi$ is a local isometry. By Gauß' Lemma, radial lines in $W$ are exactly the radial $\widetilde{g}$-geodesics. Therefore, $\widetilde{\gamma}(t):=t\dot{\gamma}(0)$ is a $\widetilde{g}$-geodesic with $\phi \circ \widetilde{\gamma}=\gamma$, and $W$ is a nromal neighbourhood for $\widetilde{\gamma}$.
+Define \[
+    \widetilde{J}(t):=(\phi)_{\ast, t\dot{\gamma(0)}}^{-1}J(t)
+.\] This is a vector field along $\widetilde{\gamma}$ which is $\widetilde{g}$-normal to $\dot{\widetilde{\gamma}}$ with $\widetilde{J}(0)=0$. By exercise 1 of sheet 7, $\widetilde{J}$ is a $\widetilde{g}$-Jacobi field along $\widetilde{\gamma}$. As $\widetilde{g}$ has the same curvature bounds as $g$, we can apply the first two steps to arrive at \[
+\|J(t)\|_g=\|\widetilde{J}(t)\|_{\widetilde{g}}=
+\begin{cases}
+    \leq s_{-c}(t)\|\widetilde{\nabla}_{\frac{\d}{\d t}}\widetilde{J}(0)\|_{\widetilde{g}}=s_{-c}(t)\|\nabla_{\frac{\d}{\d t}} J(0)\|_g  &\text{Case 1}\\
+    \geq s_{-c}(t)\|\widetilde{\nabla}_{\frac{\d}{\d t}}\widetilde{J}(0)\|_{\widetilde{g}}=s_{-c}(t)\|\nabla_{\frac{\d}{\d t}} J(0)\|_g  &\text{Case 2}
+\end{cases}
+.\] 
+\item It suffices to show that $b_2 \geq b_1$ in case 1 and $b_1 \geq b_2$ in case 2. We show 1. By the inequality for $t<b_0$, we get \[
+        s_{-c}(t)\|\nabla_{\frac{\d}{\d t}} J(0)\| \geq \|J(t)\|>0
+    \] for $t<b_1$. Hence for all $t < \min (b_1,b_0)$, we have $s_{-c}(t)>0$, and thus $b_2 \geq \min (b_1,b_0)=\min(b_1,b_2)$.
+    Now case 2: By the inequality, we obtain \[
+        \|J(t)\| \geq s_{-c}(t)\|\nabla_{\frac{\d}{\d t}} J(0)\| >0
+    \] on $(0, \min(b_0,b_2))$. Therefore, $\gamma(t)$ cannot be conjugated to $\gamma(0)$ for $t < \min (b_0,b_2)=\min(b_1,b_2)$, so $b_1 \geq \min(b_1,b_2)$.
     \end{enumerate}
-    
 \end{proof}
+\section{Geodesic Consequences of Jacobi Field Comparison}
+\label{sec:geodconseq}
+\subsection*{Metric Comparison}
+\begin{theorem}[Metric Comparison]
+    Let $(M,g)$ be a RMF \red{(LMF)}, $U$ be a normal neighbourhood of $M$ with normal coodinates $(x^i)$, and let $$\marginnote{ $\red{
+        \phi_L: I_U^+(p) \to (0,\infty)\times \mathbb{H}^{n-1}
+}$}\phi:U \setminus \{p\} \to (0,\infty)\times \mathbb{S}^{n-1}$$  be Riemannian \red{(Lorentzian)} polar coordinates. Let $$\marginnote{ $ \red{
+        g^c=-d\tau^2 + s_{-c}(\tau)^2 \hcirc{g}_{n-1}
+    }$ }g^c=dr^2+s_c(r)^2 \mathring{g}_{n-1}$$ denote the constant curvature metric on \[
+        \marginnote{$
+            \red{\widetilde{M}:=}
+        \begin{cases}
+            \red{(0,\infty) \times \mathbb{H}^{n-1}} &\red{c\leq 0}\\
+            \red{(0,\pi R) \times \mathbb{H}^{n-1}} &\red{c>0}
+        \end{cases}
+       $ }
+        \widetilde{M}:=
+        \begin{cases}
+            (0,\infty) \times \mathbb{S}^{n-1} &c\leq 0\\
+            (0,\pi R) \times \mathbb{S}^{n-1} &c>0
+        \end{cases}
+    .\]  Then:
+    \begin{enumerate}[(a)]
+        \item If the \red{timelike} sectional curvature of $(M,g)$ is non-positive, then \[
+                \marginnote{\red{
+                        $
+                ((\phi_L)_\ast g)|_{\phi(q)}(w,w) \leq g^c|_{\phi(q)}(w,w)
+                        $
+                }}
+                (\phi_\ast g)|_{\phi(q)}(w,w) \geq g^c|_{\phi(q)}(w,w)
+            \] for all $w \in T_q \widetilde{M}$ and all $q \in U \setminus \{p\}$ \red($q \in I^+_U(p)$) with $d_g(p,q)\leq \pi R$ if $c>0$.
+        \item If the sectional curvature is non-negative, then \[
+                \marginnote{\red{
+                        $ 
+                        ((\phi_L)_\ast g)|_{\phi(q)}(w,w)\geq g^c|_{\phi(q)}(w,w)$
+                }}
+                (\phi_\ast g)|_{\phi(q)}(w,w)\leq g^c|_{\phi(q)}(w,w)
+            \] for all $w \in T_q \widetilde{M}$ and all $q \in U \setminus \{p\}$ (implying $d(p,q)<\pi R$ for $c>0$) \red{(all $q \in I_U^+(p)$ with $\tau_U(p,q)<\pi R$ for $c<0$)}.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \red{We prove the Lorentzian case.} By corollary 2.24/theorem 2.23: Set $\widetilde{q}:=\phi(p)$. In cases (a) and (1b), we have \[
+        ((\phi_L)_\ast g)_{\widetilde{q}}=-d\tau^2 + h_{\widetilde{q}}
+    \] for a family $h_\tau$ of \emph{Riemannian} metrics with $h_{\widetilde{q}}(\partial_\tau, \cdot)=0$. Therefore it suffices to consider $w \in T_{\widetilde{q}}\widetilde{M}$ with $w$ tangent to $\mathbb{H}^{n-1}$, i.e. $w \perp \partial_\tau$. Let $q \in I_U^+(p)$ and $\gamma: [0,b] \to M$ be the radial geodesic from $p$ to $q$ on $U$. Let $J$ be the unique normal Jacobi field along $\gamma$ with $J(0)=0$ and $J(b)=\phi^\ast(w)$. By Jacobi field comparison, \[
+    g(\phi_L^\ast(w),\phi_L^\ast(w))=\|J(b)\|^2_g
+    \begin{cases}
+        \leq s_{-c}(b)^2 \|\nabla_{\frac{\d}{\d t}} J(0)\|^2_g &\text{Case 1}\\
+        \geq s_{-c}(b)^2 \|\nabla_{\frac{\d}{\d t}} J(0)\|^2_g &\text{Case 2}
+    \end{cases}
+    \] since $b_1=b$ for normal neighbourhoods.
+    Set $\phi^\ast_L(w)=v^i \partial_i|_{\gamma(t)}$, so $J(t)=\frac{t}{b}v^i\partial_i|_{\gamma(t)}$. Hence \[
+    \nabla_{\frac{\d}{\d t}} J(0)=\frac{v^i}{b}\partial_i|_p
+    .\]  We obtain $\|\nabla_{\frac{\d}{\d t}} J(0)\|^2_g=\frac{1}{b^2}\|(v^1, \dots, v^n)\|_\eta$. This yields \[
+    \marginnote{The last equality demands a kind of longish calculation.}
+    (\phi_L)_\ast g (w,w)
+    \begin{cases}
+        \leq  \frac{s_{-c}(b)^2}{b^2}\|(v^1,\dots, v^n)\|_\eta = g^c_{\widetilde{q}}(w,w) &\text{Case (a)}\\
+        \geq \frac{s_{-c}(b)^2}{b^2} \|(v^1, \dots, v^n)\|_\eta = g^c_{\widetilde{q}}(w,w) &\text{Case (b)}
+    \end{cases}
+    .\] 
+\end{proof}
+\begin{corollary}[Area Comparison]
+   In the Riemannian case, we get for any $t$ such that $S_t(p)$ is completely contained in a normal neighbourhood:
+   \begin{enumerate}[(a)]
+       \item If the sectional curvature is non-positive: \[
+               \area_g(S_t)\geq \area_{g^c}(S_t^c)
+       \]  as long as $t < \pi R$ if $c>0$.
+   \item If the sectional curvature is non-negative: \[
+           \area_g(S_t) \leq \area_{g^c}(S_t^c)
+   .\]  
+   \end{enumerate}
+   \red{In the Lorentzian case, we get similar inequalities for the area/volume elements.}
+\end{corollary}
+\subsection*{Laplace-d'Alembertian Comparison}
+\begin{definition}[Laplacian \red{(d'Alembertian)} Operators]
+    Let $u: M \to \mathbb{R}$ be a smooth function on a smooth Riemannian \red{(Lorentzian)} manifold $M$. The \textbf{Laplacian}  is given by \[
+    \Delta u = \tr_g \Hess_u = \tr (\mathcal{H}_u)
+    .\] 
+\end{definition}
+\begin{theorem}[Laplacian \red{(d'Alembertian)} Comparison]
+    Let $(M,g)$ be a RMF \red{(LMF)} and $U$ be a normal neighbourhood of $M$. Then:
+    \begin{enumerate}[(a)]
+        \item If the \red{(timelike)} sectional curvature is non-positive, we get \[
+                \marginnote{\red{
+                        $\Box \tau \leq (n-1) \frac{\dot{s}_{-c}(\tau)}{s_{-c}(\tau)}$
+                }}
+                \Delta r \geq (n-1) \frac{\dot{s}_c(r)}{s_c(r)}
+            \] on $U \setminus \{p\}$.
+        \item If the \red{(timelike)} sectional curvature is non-negative, we get \[
+                \marginnote{\red{
+                        $\Box \tau \geq (n-1) \frac{\dot{s}_{-c}(\tau)}{s_{-c}(\tau)}$
+                }}
+                \Delta r \leq (n-1) \frac{\dot{s}_c(r)}{s_c(r)}
+            \] on $U \setminus \{p\}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+   Take the trace in the Hessian comparison. 
+\end{proof}
+\begin{remark}
+    The conclusions of case (b) also hold under the weaker assumption of $\Ric \geq (n-1)cg$ in the Riemannian case and $\Ric(X,X)\geq (n-1)c|g(X,X)|$ for timelike $X$ in the Lorentzian case. The idea to prove this is to take the trace of the Riccati equation since $\tr \nabla_{\frac{\d}{\d t}}  \mathcal{H}=\nabla_{\frac{\d}{\d t}} \tr \mathcal{H}$ and $\tr \R_{\dot{\gamma}}=-\Ric(\dot{\gamma},\dot{\gamma})$.$.
+\end{remark}

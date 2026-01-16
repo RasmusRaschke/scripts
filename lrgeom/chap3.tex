@@ -605,7 +605,7 @@ There is also a slightly different version:
 \begin{prop}[Second Variation for Submanifolds]
     Let $(M,g)$ be a RMF or LMF and $\Sigma_1,\Sigma_2$ be two \red{spacelike} submanifolds. Let $\gamma: [a,b]\to M$ be a \red{timelike} unit-speed geodesic segment meeting $\Sigma_1$ orthogonally at $t=a$ and $\Sigma_2$ orthogonally at $t=b$. Let $\Gamma$ be a continuous variation of $\gamma$ which is smooth on some partition of $[a,b]$, and with $\Gamma(s,a) \in \Sigma_1$ and $\Gamma(s,b)\in \Sigma_2$ for all $s$. Let $\sff_i$ be the second fundamental form of $\Sigma_i$, and let $\epsilon = \langle \dot{\gamma}, \dot{\gamma} \rangle$. Then the second variation of arc-length is given by
     \begin{align*}
-        \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_s] = \int_a^b &\left[ \langle \nabla_{\frac{d}{d t}} V^\perp,\nabla_{\frac{d}{d t}} V^\perp  \rangle + \Rm(V^\perp, \dot{\gamma}, \dot{\gamma}, V^\perp) \right] dt \\
+        \epsilon \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_s] = \int_a^b &\left[ \langle \nabla_{\frac{d}{d t}} V^\perp,\nabla_{\frac{d}{d t}} V^\perp  \rangle + \Rm(V^\perp, \dot{\gamma}, V^\perp, \dot{\gamma}) \right] dt \\
                                                                    &+ \langle \sff_2(V(b),V(b)),\dot{\gamma}(b)  \rangle - \langle \sff_1(V(a),V(a)),\dot{\gamma}(a)  \rangle 
     \end{align*}
 \end{prop}
