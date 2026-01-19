@@ -603,6 +603,7 @@ where we used that $\Gamma$ is a variation with fixed endpoints in the last step
 \end{proof}
 There is also a slightly different version:
 \begin{prop}[Second Variation for Submanifolds]
+    \label{prop:secvarumf}
     Let $(M,g)$ be a RMF or LMF and $\Sigma_1,\Sigma_2$ be two \red{spacelike} submanifolds. Let $\gamma: [a,b]\to M$ be a \red{timelike} unit-speed geodesic segment meeting $\Sigma_1$ orthogonally at $t=a$ and $\Sigma_2$ orthogonally at $t=b$. Let $\Gamma$ be a continuous variation of $\gamma$ which is smooth on some partition of $[a,b]$, and with $\Gamma(s,a) \in \Sigma_1$ and $\Gamma(s,b)\in \Sigma_2$ for all $s$. Let $\sff_i$ be the second fundamental form of $\Sigma_i$, and let $\epsilon = \langle \dot{\gamma}, \dot{\gamma} \rangle$. Then the second variation of arc-length is given by
     \begin{align*}
         \epsilon \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_s] = \int_a^b &\left[ \langle \nabla_{\frac{d}{d t}} V^\perp,\nabla_{\frac{d}{d t}} V^\perp  \rangle + \Rm(V^\perp, \dot{\gamma}, V^\perp, \dot{\gamma}) \right] dt \\
@@ -664,16 +665,16 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 \end{theorem}
 \begin{proof}
       Let $q \in J^-(\Sigma)$. By assumption (a) and strong causality, which follows from global hyperbolicity by a previous exercise, there exists a future-directed timelike unit-speed geodesic $\gamma: [0,b] \to \mathcal{L}$ from $q$ to $\Sigma$ with $\dot{\gamma}(b) \perp T_{\gamma(b)}\Sigma$ and $b=L[\gamma]=\tau_\Sigma(q)$. Let $(E_i)_{1 \leq i \leq n-1}$ be a parallel ONF for $\dot{\gamma}^\perp$ along $\gamma$. Consider vector fields $V_i := fE_i$ for some $f$ with $f(0)=0$ and $f(b)=1$. Let $\Gamma_i$ be a variation of $\gamma$ with variational vector field $V_i$, and such that $\Gamma_i(s,0)=q$ as well as $\Gamma_i(s,b) \in \Sigma$ for all $s$. This is possible since $V_i(0)=0$ and $V_i(b) \in T_{\gamma(b)} \Sigma$. Since $L[\gamma]=\tau_\Sigma(q)$, proposition \ref{prop:secvarumf} yields \[
-               0 \leq \left. \frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_{i,s}]
+               0 \geq \left. \frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_{i,s}]
        \] for all $i$. We sum over $i$ to obtain:
        \begin{align*}
            0 &\geq \sum_{i=1}^{n-1} \left.\frac{d^2}{ds^2}\right|_{s=0} L[\Gamma_{i,s}]\\
              &= \epsilon \left[ \int_0^b \dot{f}^2 (n-1) - \sum_{i=1}^{n-1} \Rm(fE_i, \dot{\gamma},\dot{\gamma},fE_i) \right] dt + \sum_{i=1}^{n-1} \langle \sff(E_i,E_i),\dot{\gamma}(b)  \rangle \\
-             &=-\int_0^b \dot{f}^2 dt + \sum_0^b \Ric(\dot{\gamma},\dot{\gamma}) \cdot f^2 dt + \langle \underbrace{\sigma_{i=1}^{n-1} \sff (E_i,E_i)}_{=(n-1)H},\underbrace{-\dot{\gamma}(b)}_{=N_{\gamma(b)}}  \rangle \\
+             &=-(n-1)\int_0^b \dot{f}^2 dt + \int_0^b f^2 \cdot \underbrace{\Ric(\dot{\gamma},\dot{\gamma})}_{\geq 0} dt + \langle \underbrace{\sum_{i=1}^{n-1} \sff (E_i,E_i)}_{=(n-1)H},\underbrace{\dot{\gamma}(b)}_{=-N_{\gamma(b)}}  \rangle \\
              \marginnote{Here we see that $f(t)=\frac{t}{b}$ is a good choice.}
-             &\geq  -(n-1) \int_0^b (\dot{f}^2 + 0 + (n-1)\beta) dt = (n-1)\left(-\frac{1}{b} + \beta \right)
+             &\geq  -(n-1) \int_0^b \dot{f}^2 dt + (n-1) \beta = (n-1)\left(-\frac{1}{b} + \beta \right)
        \end{align*}
-       Therefore, we get $0 \geq -\frac{1}{b}+\beta$, so $$\frac{1}{\beta} \geq b = \tau_\Sigma (q)$$.
+       Therefore, we get $0 \geq -\frac{1}{b}+\beta$, so $$\frac{1}{\beta} \geq b = \tau_\Sigma (q).$$
 \end{proof}
 \begin{ex}
    An interesting example is $\mathcal{L}=(I^+(0), \eta)$ in Minkowski space where $\Sigma$ is a hyperboloid. 
@@ -702,3 +703,4 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 
 \section{The Riemannian Cut Locus}
 \label{sec:rmcut}
+\lecture{20.01.25}

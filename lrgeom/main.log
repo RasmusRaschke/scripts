@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.12)  16 JAN 2026 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  19 JAN 2026 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2229,31 +2229,31 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 605.
 
-Overfull \hbox (7.94696pt too wide) detected at line 610
+Overfull \hbox (7.94696pt too wide) detected at line 611
 []
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 617.
+Package mdframed Info: mdframed works in twoside mode on input line 618.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 617.
-Package mdframed Info: mdframed works in twoside mode on input line 619.
+(mdframed)              on input line 618.
+Package mdframed Info: mdframed works in twoside mode on input line 620.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 619.
+(mdframed)              on input line 620.
 
 pdfTeX warning (ext4): destination with the same identifier (name{definition.32}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.619 \begin{definition}[Index Form]
+l.620 \begin{definition}[Index Form]
                                     
-Package mdframed Info: mdframed works in twoside mode on input line 626.
+Package mdframed Info: mdframed works in twoside mode on input line 627.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 626.
-Package marginnote Info: Margin note 36.1 is on absolute page 37 on input line 631.
-Package marginnote Info: xpos seems to be 292.7898pt on input line 631.
-Package mdframed Info: Not enough space on this page on input line 634.
+(mdframed)              on input line 627.
+Package marginnote Info: Margin note 36.1 is on absolute page 37 on input line 632.
+Package marginnote Info: xpos seems to be 292.7898pt on input line 632.
+Package mdframed Info: Not enough space on this page on input line 635.
 
 
 
@@ -2264,25 +2264,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [28]
-Package mdframed Info: Not enough space on this page on input line 634.
-Package marginnote Info: Margin note 37.1 is on absolute page 37 on input line 637.
-Package marginnote Info: xpos seems to be 106.82518pt on input line 637.
-Package mdframed Info: mdframed works in twoside mode on input line 639.
+Package mdframed Info: Not enough space on this page on input line 635.
+Package marginnote Info: Margin note 37.1 is on absolute page 37 on input line 638.
+Package marginnote Info: xpos seems to be 106.82518pt on input line 638.
+Package mdframed Info: mdframed works in twoside mode on input line 640.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 639.
+(mdframed)              on input line 640.
 
-Overfull \hbox (1.9099pt too wide) in paragraph at lines 647--647
+Overfull \hbox (1.9099pt too wide) in paragraph at lines 648--648
 |[]\T1/cmr/bx/n/14.4 (-20) The The-o-rems of Bonnet-Myers and Hawk-
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 655.
+Package mdframed Info: mdframed works in twoside mode on input line 656.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 655.
-
-LaTeX Warning: Reference `prop:secvarumf' on page 29 undefined on input line 666.
-
+(mdframed)              on input line 656.
 
 Underfull \vbox (badness 4132) has occurred while \output is active []
 
@@ -2298,10 +2295,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [29]
 Package marginnote Info: Suggest that margin note 38.1 will be on
 (marginnote)             absolute page 38.
-(marginnote)             This may be wrong on input line 675.
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 675.
-Package marginnote Info: Margin note 38.2 is on absolute page 38 on input line 675.
-Package marginnote Info: xpos seems to be 244.8633pt on input line 675.
+(marginnote)             This may be wrong on input line 676.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 676.
+Package marginnote Info: Margin note 38.2 is on absolute page 38 on input line 676.
+Package marginnote Info: xpos seems to be 244.8633pt on input line 676.
 
 
 
@@ -2596,47 +2593,28 @@ pdfTeX warning (ext4): destination with the same identifier (name{definition.17}
                    \relax 
 l.484 ...aplacian \red{(d'Alembertian)} Operators]
                                                   
-Package mdframed Info: mdframed works in twoside mode on input line 489.
+Package marginnote Info: Margin note 53.1 is on absolute page 53 on input line 488.
+Package marginnote Info: xpos seems to be 146.02759pt on input line 488.
+Package mdframed Info: mdframed works in twoside mode on input line 491.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 489.
+(mdframed)              on input line 491.
 
 pdfTeX warning (ext4): destination with the same identifier (name{theorem.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.489 ...placian \red{(d'Alembertian)} Comparison]
+l.491 ...placian \red{(d'Alembertian)} Comparison]
                                                   
-Package marginnote Info: Margin note 53.1 is on absolute page 53 on input line 496.
-Package marginnote Info: xpos seems to be 173.9067pt on input line 496.
-Package marginnote Info: Margin note 53.2 is on absolute page 53 on input line 502.
-Package marginnote Info: xpos seems to be 173.9067pt on input line 502.
+Package marginnote Info: Margin note 53.2 is on absolute page 53 on input line 498.
+Package marginnote Info: xpos seems to be 173.9067pt on input line 498.
+Package marginnote Info: Margin note 53.3 is on absolute page 53 on input line 504.
+Package marginnote Info: xpos seems to be 173.9067pt on input line 504.
 
 pdfTeX warning (ext4): destination with the same identifier (name{remark.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.510     T
-           he conclusions of case (b) also hold under the weaker assumption ...
-
-./chap4.tex:511: LaTeX Error: Command \end{remark} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.511 \end{remark}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./chap4.tex:511: Missing $ inserted.
-<inserted text> 
-                $
-l.511 \end{remark}
-                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-)
+l.512     T
+           he conclusions of case (b) also hold under the weaker assumption ...)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2667,19 +2645,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56767 strings out of 467886
- 1268173 string characters out of 5434045
- 2323298 words of memory out of 5000000
- 83594 multiletter control sequences out of 15000+600000
+ 56769 strings out of 467886
+ 1268206 string characters out of 5434045
+ 2323413 words of memory out of 5000000
+ 83596 multiletter control sequences out of 15000+600000
  667082 words of font info for 312 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,25n,109p,1193b,2523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2025/texmf-di
 st/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (54 pages, 719993 bytes).
+Output written on main.pdf (54 pages, 722682 bytes).
 PDF statistics:
- 967 PDF objects out of 1000 (max. 8388607)
- 827 compressed objects within 9 object streams
+ 968 PDF objects out of 1000 (max. 8388607)
+ 828 compressed objects within 9 object streams
  376 named destinations out of 1000 (max. 500000)
  61645 words of extra memory for PDF output out of 61914 (max. 10000000)
 

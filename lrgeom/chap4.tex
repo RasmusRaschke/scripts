@@ -482,7 +482,9 @@ Define \[
 \end{corollary}
 \subsection*{Laplace-d'Alembertian Comparison}
 \begin{definition}[Laplacian \red{(d'Alembertian)} Operators]
-    Let $u: M \to \mathbb{R}$ be a smooth function on a smooth Riemannian \red{(Lorentzian)} manifold $M$. The \textbf{Laplacian}  is given by \[
+    Let $u: M \to \mathbb{R}$ be a smooth function on a smooth Riemannian \red{(Lorentzian)} manifold $M$. The \textbf{Laplacian}  is given by \[\marginnote{\red{The \textbf{d'Alembertian} is given by \[
+    \Box u = \tr_g \Hess_u = \tr(\mathcal{H}_u)
+    .\] }}
     \Delta u = \tr_g \Hess_u = \tr (\mathcal{H}_u)
     .\] 
 \end{definition}
@@ -507,5 +509,6 @@ Define \[
    Take the trace in the Hessian comparison. 
 \end{proof}
 \begin{remark}
-    The conclusions of case (b) also hold under the weaker assumption of $\Ric \geq (n-1)cg$ in the Riemannian case and $\Ric(X,X)\geq (n-1)c|g(X,X)|$ for timelike $X$ in the Lorentzian case. The idea to prove this is to take the trace of the Riccati equation since $\tr \nabla_{\frac{\d}{\d t}}  \mathcal{H}=\nabla_{\frac{\d}{\d t}} \tr \mathcal{H}$ and $\tr \R_{\dot{\gamma}}=-\Ric(\dot{\gamma},\dot{\gamma})$.$.
+    The conclusions of case (b) also hold under the weaker assumption of $\Ric \geq (n-1)cg$ in the Riemannian case and $\Ric(X,X)\geq (n-1)c|g(X,X)|$ for timelike $X$ in the Lorentzian case. The idea to prove this is to take the trace of the Riccati equation since $\tr \nabla_{\frac{\d}{\d t}}  \mathcal{H}=\nabla_{\frac{\d}{\d t}} \tr \mathcal{H}$ and $\tr \R_{\dot{\gamma}}=-\Ric(\dot{\gamma},\dot{\gamma})$.
 \end{remark}
+\lecture{20.01.25}
