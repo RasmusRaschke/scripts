@@ -509,6 +509,93 @@ Define \[
    Take the trace in the Hessian comparison. 
 \end{proof}
 \begin{remark}
-    The conclusions of case (b) also hold under the weaker assumption of $\Ric \geq (n-1)cg$ in the Riemannian case and $\Ric(X,X)\geq (n-1)c|g(X,X)|$ for timelike $X$ in the Lorentzian case. The idea to prove this is to take the trace of the Riccati equation since $\tr \nabla_{\frac{\d}{\d t}}  \mathcal{H}=\nabla_{\frac{\d}{\d t}} \tr \mathcal{H}$ and $\tr \R_{\dot{\gamma}}=-\Ric(\dot{\gamma},\dot{\gamma})$.
+    The conclusions of case (b) also hold under the weaker assumption of $\Ric \geq (n-1)cg$ in the Riemannian case and $\Ric(X,X)\geq (n-1)c|g(X,X)|$ for timelike $X$ in the Lorentzian case. The idea to prove this is to take the trace of the Riccati equation since $\tr \nabla_{\frac{d}{d t}}  \mathcal{H}=\nabla_{\frac{d}{d t}} \tr \mathcal{H}$ and $\tr \R_{\dot{\gamma}}=-\Ric(\dot{\gamma},\dot{\gamma})$.
 \end{remark}
 \lecture{20.01.25}
+
+\begin{theorem}[Günther's Volume Comparison]
+   Let $(M,g)$ be a RMF with $\sec \leq c$ for some $c \in \mathbb{R}$ and let $p \in M$.
+   Set 
+   \[
+    \marginnote{\red{The Lorentzian case is considerably more difficult: There are versions of the theorem, but one has to be very careful with the regions one chooses. Taking Minkowski space, one can only compare certain "wedges" before the volume diverges.}}
+       \delta_0:=
+   \begin{cases}
+       \inj(p) &c\leq 0\\
+       \min \left\{\inj(p), \pi R \right\} &c>0
+   \end{cases}
+\] where $\pi R=\inj^c(\tilde{p})$. For $0 \leq \delta \leq \delta_0$, let \[
+v_g(\delta):= \vol_g(B_\delta^{d_g}(p))
+\] and 
+\[
+   \marginnote{
+       Depending on the sign of $c$, $M^c$ is one of the model spaces $\mathbb{S}^n_R$, $\mathbb{R}^n$, or $\mathbb{H}^{n}_R$.}
+v_c(\delta):=\vol_{g^c}(B_\delta^{d_{g^c}}(\tilde{p}))
+\]  for arbitrary $\tilde{p} \in (M^c, g^c)$. Then:
+\begin{enumerate}[(1)]
+    \item  $v_g(\delta) \geq v_c(\delta)$ for all $\delta \in [0,\delta_0]$.
+    \item $\delta \mapsto \frac{v_g(\delta)}{v_c(\delta)}$ is non-decreasing on $(0,\delta_0]$ and converges to $1$ as $\delta \to 0$.
+    \item If $v_g(\delta)=v_c(\delta)$ for some $\delta \in (0,\delta_0]$, then $g$ has constant sectional curvature $c$ on $B_\delta^{d_g}(p)$.
+\end{enumerate}
+\end{theorem}
+\begin{remark}
+    \begin{itemize}
+        \item Statement $(1)$ would already follow from metric comparison.
+        \item Analogous results are avaliable for $\sec \geq c$, but a stronger result only exists for $\Ric \geq (n-1)c$.
+    \end{itemize}
+\end{remark}
+\begin{lemma}
+    The Laplacian has the following form in normal coordinates:
+    \begin{equation}
+        \label{eq:laplacecoord} 
+        \Delta r = \partial_r \log \left( r^{n-1} \sqrt{\det g_{ij}}\right).
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    See \cite{LeeRM}. 
+\end{proof}
+\begin{proof}
+    Let $(x^i)$ be normal coordinates on $B_{\delta_0}(p)$. Laplacian comparison yields \[
+        \partial_r \left( \log(r^{n-1}\sqrt{\det g})\right) = \Delta r \geq (n-1) \frac{\dot{s}_c(r)}{s_c(r)} = \Delta^c r^c= \partial_r(\log(s_c(r)^{n-1}))
+    .\]  
+    Define \[
+    f: (0,\delta) \times \mathbb{S}^{n-1} \to \mathbb{R}
+    \] by \[
+    \marginnote{
+        Why did we choose this $f$? Writing $g^c$ in polar coordinates, we get $g^c = dr^2 + s_c(r)^2 \mathring{g}_{n-1}$. Therefore \[
+            \d \vol_{g^c} = s_c(r)^{n-1} dr \wedge \d vol_{\mathring{g}_{n-1}}
+        .\] 
+For $g$, we have \[
+\d \vol_g = \sqrt{\det g_{ij}} \underbrace{dx^1 \wedge \cdots \wedge dx^n}_{=r^{n-1} dr \wedge \d vol_{\mathbb{S}^{n-1}}}
+.\] Therefore, $f(r,\theta)$ is the quotient of the coefficient functions of the volume elements. But note that $\int \frac{\alpha}{\beta}\neq \frac{\int \alpha}{\int \beta}$ in general.}
+    f(r,\theta):=\frac{r^{n-1}\sqrt{\det g(x^1 (r,\theta),\dots, x^n(r,\theta)) }}{s_c(r)^{n-1}}
+.\] For any fixed $\theta$, this is non-decreasing in $r$ since $\partial_r \log f \geq 0$ and $\lim_{r \to 0} f(r,\theta)=1$ since $g_{ij}=\delta_{ij}+\mathcal{O}(r^2)$ and $s_c(r)=r+\mathcal{O}(r^3)$. Now look at 
+\begin{align*}
+    \frac{v_g(\delta)}{v_c(\delta)}&=\frac{\int_0^\delta \int_{\mathbb{S}^{n-1}} r^{n-1} \sqrt{\det g(x(r,\theta))} \d \vol_{\mathbb{S}^{n-1}}dr}{
+        \int_0^\delta \int_{\mathbb{S}^{n-1}} s_c(r)^{n-1} \d \vol_{\mathbb{S}^{n-1}}dr
+    }\\
+    &= \frac{1}{\vol(\mathbb{S}^{n-1})} \int_{\mathbb{S}^{n-1}} \underbrace{\frac{\int_0^\delta \sqrt{\det g(x(r,\theta))}r^{n-1} dr}{\int_0^\delta s_c(r)^{n-1}dr}}_{=: Q(\delta, \theta)}d \vol_{\mathbb{S}^{n-1}}
+\end{align*}
+We know:
+\begin{enumerate}[(a)]
+    \item $Q(\delta, \theta)\to 1$ as $\delta \to 0$, and this convergence is uniform in $\theta$: We see this by integration. Hence $Q(\delta, \theta) \sim \frac{\delta^n}{\delta^n}.$
+    \item $Q(\delta, \theta)$ is non-decreasing in $\delta$: Let $0<\delta_1<\delta_2 \leq \delta_0$. We estimate:
+    \begin{align*}
+        \int_0^{\delta_1} f(r,\theta) s_c(r)^{n-1} dr \cdot \int_{\delta_1}^{\delta_2} s_c(r)^{n-1} dr &\leq f(\delta_1,\theta) \int_0^{\delta_1} s_c(r)^{n-1}dr \int_{\delta_1}^{\delta_2}\cdots dr\\
+                                                                                                       &\leq \int_{0}^{\delta_1}\cdots dr \int_{\delta_1}^{\delta^2} f(r,\theta)s_c(r)^{n-1}dr
+        \end{align*}
+    This works since $f$ is non-decreasing. We estimate further:
+    \begin{align*}
+\int_0^{\delta_1} f s_c^{n-1}dr \int_{0}^{\delta_2} s_c^{n-1} dr &\leq \int_0^{\delta_1}  f s_c^{n-1}dr + \int_{\delta_1}^{\delta_2} s_c^{n-1} dr\\
+                                                                 &\leq \int_{0}^{\delta_1} f s_c^{n-1} dr \int_0^{\delta_1}s_c^{n-1} dr + \int_0^{\delta_1} s_c^{n-1} dr \int_{\delta_1}^{\delta_2} f s_c^{n-1} dr\\
+                                                                 &= \int_0^\delta s_c(r)^{n-1}dr \int_0^{\delta_2} f s_c^{n-1}dr.
+    \end{align*}
+    This is fully equivalent to $Q(\delta_1, \theta) \leq Q(\delta_2, \theta)$. This proves claim (2). Since (2) implies (1), only (3) remains.
+\item If $v_g(\overline{\delta})=v_c(\overline{\delta})$, we have $Q(\delta, \theta) = 1$ for all $\delta$ and $\theta$. This implies \[
+        \Delta r = (n-1) \frac{\dot{s}_c(r)}{s_c(r)}
+    \] on $B_{\overline{\delta}}(p)$. In turn, this implies \[
+    \tr \left(\underbrace{ \mathcal{H}_r - \frac{\dot{s}_c(r)}{s_c(r)}\pi^S}_\text{pos. semi-def. by Hessian comparison}\right)=0
+    .\] Therefore, vanishing trace implies that the operator vanishes as a whole. We obtain \[
+    \mathcal{H}_r = \frac{\dot{s}_c(r)}{s_c(r)} \pi^S
+\] on $B_{\overline{\delta}}(p)$. The "only if"-part of Theorem (Hessian in Constant Curvature) now implies that $(B_{\overline{\delta}}(p),g)$ has constant curvature $c$.
+\end{enumerate}
+\end{proof}

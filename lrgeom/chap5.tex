@@ -1,0 +1,35 @@
+\chapter{Global Results for Riemannian Manifolds}
+\label{chap:global}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{4}{}
+\section{The Theorem of Killing-Hopf}
+\label{sec:killinghopp}
+For some constant $c$, one considers the \textbf{model spaces} of constant curvature $c$.
+\[M^c=
+\begin{cases}
+    \mathbb{S}^n_R &c>0, R=\frac{1}{\sqrt{c}}\\
+    \mathbb{R}^n &c=0\\
+    \mathbb{H}^n_R &c<0, R=\frac{1}{\sqrt{-c}}
+\end{cases}
+.\] 
+\begin{theorem}[Killing-Hopf]
+   Let $(M,g)$ be a complete, simply connected RMF of $\dim M \geq 2$ with constant sectional curvature $c$. Then $(M,g)$ is globally isometric to the model space of constant curvature $c$.
+\end{theorem}
+The tools we need to prove this theorem are twofold:
+\begin{enumerate}[(a)]
+    \item Local isometries are uniquely determined by the volume and tangent map at a single point.
+    \item Some results about isometries of model spaces.
+\end{enumerate}
+\begin{prop}
+    \begin{enumerate}[(a)]
+    \item Any isometry
+        \begin{enumerate}[(i)]
+            \item $\phi: \mathbb{R}^n \to \mathbb{R}^n$ is given by $\phi(x)=Ax+y$ for some orthogonal matrix $A$ and $a \in \mathbb{R}^n$.
+            \item $\phi: \mathbb{S}^n \to \mathbb{S}^n$ is given by $\phi=\Phi|_{\mathbb{S}^n}$ where $\Phi: \mathbb{R}^{n+1}\to \mathbb{R}^{n+1}$ is given by $Ax=\Phi(x)$ for some orthogonal $(n+1)$-matrix $A$.
+            \item $\phi: \mathbb{H}^n \to \mathbb{H}^n$ is given by $\Psi|_{\mathbb{H}^n}$ where $\Psi$ is an isometry of $(\mathbb{R}^{1,n},\eta)$ leaving $\mathbb{H}^{n}$ invariant.
+        \end{enumerate}
+    \item Any local isometry of a model space is also of this form (in particular automatically global).
+   \end{enumerate} 
+\end{prop}

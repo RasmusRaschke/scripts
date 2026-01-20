@@ -37,7 +37,7 @@ which will be useful.
 \begin{lemma}[Curvature Lemma]
     \label{lem:curvlem}
     Let $(M,g)$ be semi-Riemannian and $\Gamma: K \times I \to M$ be a smooth family of curves. Then for any $V \in \mathfrak{X}(\Gamma)$, we have \[
-        \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} V - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}} = R(S, T)V
+        \nabla_{\frac{d}{ds}} \nabla_{\frac{d}{dt}} V - \nabla_{\frac{d}{dt}} \nabla_{\frac{d}{ds}}V = R(S, T)V
     .\] 
 \end{lemma}
 \begin{proof}
@@ -625,6 +625,7 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
     .\] 
 \end{definition}
 \begin{corollary}[Index Form and Extremizing Behaviour]
+    \label{cor:indexform}
     \marginnote{\red{
         Let $(\mathcal{L},g)$ be a time-oriented LMF and $\gamma: [a,b] \to \mathcal{L}$ be a unit-speed future-directed timelike geodesic segment. If there exists a non-zero $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ such that} \[
         \red{I(V,V)>0
@@ -647,8 +648,28 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 \end{ex}
 \section{The Theorems of Bonnet-Myers and Hawking}
 \label{sec:bonnmyhaw}
+Our goal in this section is to control the diameter of certain Riemannian and Lorentzian manifolds. Given a Riemannian manifold $(M,g)$, we define its \textbf{diameter} by 
+\[
+    \marginnote{\red{Note that in the Lorentzian case, $d_g=\tau$.}}
+    \diam_g(M)=\sup_{p,q \in M} d_g(p,q)
+.\] 
 \subsection*{The Theorem of Bonnet-Myers}
 \label{subsec:bonnmys}
+\begin{theorem}[Bonnet-Myers]
+    Let $(M,g)$ be a complete Riemannian $n$-manifold such that there exists a constant $c \in \mathbb{R}$ with $\Ric_g \geq c>0$ on all of $M$. Then \[
+        \diam_g(M) \leq \pi \sqrt{\frac{n-1}{c}}
+    .\] 
+\end{theorem}
+\begin{proof}
+    Let $p,q \in M$ be arbitrary. Since $M$ is complete, there is a unit-speed minimizing geodesic $\gamma: [0,b] \to M$ such that $b=L[\gamma]=d_g(p,q)$. Let $f: [0,b] \to M$ be a smooth function with $f(0)=f(b)=0$. Let $(E_i)_{1\leq i \leq n-1}$ be a parallel ONF for $\dot{\gamma}^\perp$. Define vector fields $V_i(t):=f(t)E_i(t)$ along $\gamma$, so $V_i \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ for all $i$. Since $\gamma$ is minimizing, Corollary \ref{cor:indexform} tells us that the index form has to be positive on $V_i$, yielding:
+    \begin{align*}
+        I(V_i,V_i)&=\int_0^b \left[ \|\nabla_{\frac{d}{dt}} V_i\|^2 - \Rm(V_i, \dot{\gamma}, \dot{\gamma}, V_i)\right] dt\\
+                  &= \int_0^b \left[\|\nabla_{\frac{d}{dt}} (fE_i)\|^2 - \Rm(fE_i,\dot{\gamma},\dot{\gamma}, E_i)\right] dt\\
+                  &\eqnmark[blue]{node}{=}\int_0^b \left[\dot{f}^2-f^2 \Rm(E_i,\dot{\gamma},\dot{\gamma},E_i)\right] dt.
+    \end{align*}
+    \annotate[yshift=.1em]{left, label below}{node}{$E_i$ parallel}
+    Now we sum over $1 \leq i \leq n-1$:
+\end{proof}
 \subsection*{Hawking's Singularity Theorem}
 
 \lecture{Exercise Class 14.01.2026}
@@ -704,3 +725,8 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 \section{The Riemannian Cut Locus}
 \label{sec:rmcut}
 \lecture{20.01.25}
+\begin{definition}[Injectivity Radius]
+   Let $(M,g)$ be a RMF. For $p \in M$, we define the \textbf{injectivity radius} at $p$ as \[
+       \inj(p):= \sup \left\{r > 0 \mid \exp_p: B_r^{g_\text{st}}(0) \to M \, \text{diffeomorphic on its image}\right\} 
+   .\]  
+\end{definition}
