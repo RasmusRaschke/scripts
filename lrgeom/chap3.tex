@@ -655,6 +655,7 @@ Our goal in this section is to control the diameter of certain Riemannian and Lo
 .\] 
 \subsection*{The Theorem of Bonnet-Myers}
 \label{subsec:bonnmys}
+We first try to control the diameter by controlling the Ricci curvature of a given manifold.
 \begin{theorem}[Bonnet-Myers]
     Let $(M,g)$ be a complete Riemannian $n$-manifold such that there exists a constant $c \in \mathbb{R}$ with $\Ric_g \geq c>0$ on all of $M$. Then \[
         \diam_g(M) \leq \pi \sqrt{\frac{n-1}{c}}
@@ -663,12 +664,20 @@ Our goal in this section is to control the diameter of certain Riemannian and Lo
 \begin{proof}
     Let $p,q \in M$ be arbitrary. Since $M$ is complete, there is a unit-speed minimizing geodesic $\gamma: [0,b] \to M$ such that $b=L[\gamma]=d_g(p,q)$. Let $f: [0,b] \to M$ be a smooth function with $f(0)=f(b)=0$. Let $(E_i)_{1\leq i \leq n-1}$ be a parallel ONF for $\dot{\gamma}^\perp$. Define vector fields $V_i(t):=f(t)E_i(t)$ along $\gamma$, so $V_i \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ for all $i$. Since $\gamma$ is minimizing, Corollary \ref{cor:indexform} tells us that the index form has to be positive on $V_i$, yielding:
     \begin{align*}
-        I(V_i,V_i)&=\int_0^b \left[ \|\nabla_{\frac{d}{dt}} V_i\|^2 - \Rm(V_i, \dot{\gamma}, \dot{\gamma}, V_i)\right] dt\\
-                  &= \int_0^b \left[\|\nabla_{\frac{d}{dt}} (fE_i)\|^2 - \Rm(fE_i,\dot{\gamma},\dot{\gamma}, E_i)\right] dt\\
-                  &\eqnmark[blue]{node}{=}\int_0^b \left[\dot{f}^2-f^2 \Rm(E_i,\dot{\gamma},\dot{\gamma},E_i)\right] dt.
+        0 \leq  I(V_i,V_i)&=\int_0^b \left[ \|\nabla_{\frac{d}{dt}} V_i\|^2 - \Rm(\dot{\gamma},V_i, V_i, \dot{\gamma})\right] dt\\
+                  &= \int_0^b \left[\|\nabla_{\frac{d}{dt}} (fE_i)\|^2 - \Rm(\dot{\gamma},fE_i, fE_i,\dot{\gamma}\right] dt\\
+                  &\eqnmark[blue]{node}{=}\int_0^b \left[\dot{f}^2-f^2 \Rm(\dot{\gamma},E_i,E_i,\dot{\gamma})\right] dt.
     \end{align*}
     \annotate[yshift=.1em]{left, label below}{node}{$E_i$ parallel}
     Now we sum over $1 \leq i \leq n-1$:
+    \begin{align*}
+        \marginnote{This calculation uses the explicit form of the Ricci tensor: Given an ONB $(e_i)_{1\leq i\leq n}$ and a vector $v$, the trace of the Riemann tensor is given by \[
+                \Ric (v,v)=\sum_{i=1}^n \langle \R(v,e_i)e_i,v  \rangle 
+        .\] In our case, the tangent space is spanned by $(E_i) \cup \dot{\gamma}$, so the $n$-th term of the sum in the Ricci tensor evaluated at $\dot{\gamma}$ is $\langle \R(\dot{\gamma}, \dot{\gamma})\dot{\gamma},\dot{\gamma}  \rangle$, which vanishes anyway. Hence, discarding the $n$-th term of the Ricci tensor changes nothing.}
+        0 \leq \sum_{i=1}^{n-1} I(V_i,V_i)&=\int_0^b \left[ (n-1)\dot{f}^2 - f^2 \sum_{i=1}^{n-1} \Rm(E_i, \dot{\gamma},\dot{\gamma},E_i) \right] dt\\
+                                          &= (n-1)\int_0^b \dot{f}^2 dt - \int_0^b f^2 \Ric(\dot{\gamma},\dot{\gamma}) dt
+    \end{align*}
+    We can now use that 
 \end{proof}
 \subsection*{Hawking's Singularity Theorem}
 
