@@ -653,10 +653,11 @@ Our goal in this section is to control the diameter of certain Riemannian and Lo
     \marginnote{\red{Note that in the Lorentzian case, $d_g=\tau$.}}
     \diam_g(M)=\sup_{p,q \in M} d_g(p,q)
 .\] 
-\subsection*{The Theorem of Bonnet-Myers}
+\subsection{The Theorem of Bonnet-Myers}
 \label{subsec:bonnmys}
 We first try to control the diameter by controlling the Ricci curvature of a given manifold.
 \begin{theorem}[Bonnet-Myers]
+    \label{thm:bonnetmyers}
     Let $(M,g)$ be a complete Riemannian $n$-manifold such that there exists a constant $c \in \mathbb{R}$ with $\Ric_g \geq c>0$ on all of $M$. Then \[
         \diam_g(M) \leq \pi \sqrt{\frac{n-1}{c}}
     .\] 
@@ -675,12 +676,60 @@ We first try to control the diameter by controlling the Ricci curvature of a giv
                 \Ric (v,v)=\sum_{i=1}^n \langle \R(v,e_i)e_i,v  \rangle 
         .\] In our case, the tangent space is spanned by $(E_i) \cup \dot{\gamma}$, so the $n$-th term of the sum in the Ricci tensor evaluated at $\dot{\gamma}$ is $\langle \R(\dot{\gamma}, \dot{\gamma})\dot{\gamma},\dot{\gamma}  \rangle$, which vanishes anyway. Hence, discarding the $n$-th term of the Ricci tensor changes nothing.}
         0 \leq \sum_{i=1}^{n-1} I(V_i,V_i)&=\int_0^b \left[ (n-1)\dot{f}^2 - f^2 \sum_{i=1}^{n-1} \Rm(E_i, \dot{\gamma},\dot{\gamma},E_i) \right] dt\\
-                                          &= (n-1)\int_0^b \dot{f}^2 dt - \int_0^b f^2 \Ric(\dot{\gamma},\dot{\gamma}) dt
+                                          &= (n-1)\int_0^b \dot{f}^2 dt - \int_0^b f^2 \Ric(\dot{\gamma},\dot{\gamma}) dt\\
+                                          &\leq (n-1) \int_0^b \dot{f}^2 \, dt - c \int_0^b f^2 \, dt
     \end{align*}
-    We can now use that 
+    At this point, the choice $f(t)=sin\left(\pi\frac{t}{b}\right)$ is most useful. We have $f^2=\sin^2\left(\pi \frac{t}{b}\right)$ and $\dot{f}^2=\frac{\pi^2}{b^2}\cos^2 \left( \pi \frac{t}{b}\right)$. Note that \[\int_0^b \cos^2\left(\pi\frac{t}{b}\right)dt = \frac{b}{2} = \int_0^b \sin^2\left(\pi \frac{t}{b}\right)dt.\] We obtain:
+    \[
+    0 \leq \left(\frac{\pi^2(n-1)}{b^2}-c\right)\frac{1}{b}
+.\] Since $b>0$, we need $b \leq \pi \sqrt{\frac{n-1}{c}}$, and the claim follows with $b=d_g(p,q)$.
 \end{proof}
-\subsection*{Hawking's Singularity Theorem}
+\begin{remark}
+    \begin{enumerate}
+        \item The $n$-sphere $\mathbb{S}^n_R$ for $R=\frac{1}{\sqrt{c}}$ shows that the bound is sharp: We have $\Ric=\frac{n-1}{R^2}g=(n-1)cg=:\tilde{c}g$ and hence \[
+                \diam (\mathbb{S}^n_R)=\frac{\pi}{R}=\pi \sqrt{\frac{n-1}{\tilde{c}}}
+        .\] 
+    \item The condition cannot be relaxed: For $\Ric \geq 0$, $\mathbb{R}^n$ is an immeadiate counterexample. Also for $\Ric > 0$ without global lower bound the theorem fails as one can take the paraboloid in $\mathbb{R}^3$ with infinite diameter.
+    \item It is also not sufficient to control the scalar curvature: For $\scal \geq c>0$, one can take $\mathbb{S}^n \times \mathbb{H}^n$, which is a counterexample for appropriate choices of radii.
+    \item It is, however, possible to obtain the statement by controlling sectional curvature, cf. sheet 12.
+    \end{enumerate}
+\end{remark}
+\begin{lemma}
+    \label{lem:univcovercard}
+    Let $M$ be a smooth manifold with universal covering $p: \widetilde{M} \to M$. Then each fiber $p^{-1}(x)$ has the same cardinality as $\pi_1M$.
+\end{lemma}
+\begin{proof}
+    See \cite{LeeTM}.
+\end{proof}
+\begin{corollary}
+    If $(M,g)$ is a complete RMF with $\Ric \geq c >0$ for some $c \in \mathbb{R}$, $M$ is compact and $\pi_1M$ is finite.
+\end{corollary}
+\begin{proof}
+    $M$ being compact follows directly by the diameter bound and completeness with Hopf-Rinow. If $p: \widetilde{M} \to M$ is the universal covering of $M$, the Ricci cuvature bound applies also to $\widetilde{M}$ since $g$ and $\pi^\ast g$ are locally isometric. Geodesic completeness of $\widetilde{M}$ follows since every geodesic in $\widetilde{M}$ arises as lift of a geodesic in $M$. Hence $\widetilde{M}$ is compact, and discrete by definition. Using Lemma \ref{lem:univcovercard}, the claim follows since each fiber is finite.
+\end{proof}
+One can actually show (but we will not do that):
+\begin{theorem}[Cheng's Maximal Diameter Rigidity]
+    Let $(M,g)$ be a complete Riemannian n-manifold such that there is a constant $c \in \mathbb{R}$ with $\Ric \geq c>0$ and $\diam (M)=\pi \sqrt{\frac{n-1}{c}}$. Then $(M,g)$ is isometric to $(\mathbb{S}^n_R, \mathring{g}_n)$.
+\end{theorem}
 
+\subsection{Hawking's Singularity Theorem}
+We now turn our attention towards the Lorentzian case, which is a bit different in terms of conditions. Also, it is (especially physically) hardly as useful as it seems. However, Hawking's Theorem provides a more useful alternative with one trade-off.
+\begin{theorem}[Variant of Hawking's Theorem]
+    Let $(\mathcal{L},g)$  be a time-oriented globally hyperbolic Lorentzian manifold. If there exists a constant $c \in \mathbb{R}$ such that at all $p \in \mathcal{L}$ we have $\Ric(v,v)\geq c>0$ for all $v \in T_p\mathcal{L}^\text{t.l.}$, then \[
+        \diam_g (p,q) = \sup_{p,q \in \mathcal{L}} \tau(p,q)
+    .\] 
+\end{theorem}
+\begin{proof}
+    The proof is essentially the same as in Theorem \ref{thm:bonnetmyers}, but we consider $p\ll q$. Theorem \ref{thm:lorhopfrinow} yields a unit-speed causal future-directed geodesic connecting $p$ and $q$ which is now maximizing instead of minimizing. Furthermore, the ONF $(E_i)$ is now completely spacelike. Since $\gamma$ maximizes, the index form will be negative semi-definite, reversing all inequalities. Furthermore, we have to introduce $\epsilon = g(\dot{\gamma},\dot{\gamma})=-1$ in the index form, reversing all signs. Therefore, we obtain the same inequality in the end.
+\end{proof}
+\begin{remark}
+    Given a timelike observer $\gamma:I \to \mathcal{L}$ parametrized by proper time, i.e. $\tau(\gamma(0),\gamma(t))\leq \pi \sqrt{\frac{n-1}{c}}$, we see that the proper time spent by such an observer is strictly bound. This implies a very bad future fore the observer, e.g. a big band or a big crunch.\\
+    Note that this need not be so bad from a mathematical point of view: Take $(\mathcal{L},g):=(I^+(0)\cap I^-(1,0,\dots,0),\eta) \subseteq (\mathbb{R}^{1,n-1},\eta)$. This space does not satisfy our assumptions, but nevertheless $\tau(p,q) \leq 1$, so the proper time experienced by any timelike observer is bound above. But for $\gamma: (a,b) \to \mathcal{L}$, nothing bad happens as $t \to a$ and $t \to b$. The theorem simply predicts geodesic incompleteness, which leads us to define a singularity as existence of incomplete causal geodesics.
+    Moreover, the theorem is physically rather useless because $\Ric \geq c >0$ excludes open subsets with $\Ric = 0$, i.e. vacuum regions in our space-time for $\Lambda =0$. The \textbf{Einstein Equation} \[
+    \Ric_g - \frac{1}{2} \scal_g g = T
+    \] tells us that $\Ric = T+\frac{1}{2} \scal_g g$ in any GR space-time. If there is $c >0$ with $(T + \frac{1}{2} \scal_g g) (X,X) \geq c|g(X,X)|$ for all timelike $X$, no observer can exist in the universe for an infinite amount of time.
+\end{remark}
+We can do better in terms of physical usefulness:
 \lecture{Exercise Class 14.01.2026}
 \label{subsec:hawking}
 \begin{theorem}[Hawking's Singularity Theorem]
@@ -706,11 +755,12 @@ We first try to control the diameter by controlling the Ricci curvature of a giv
        \end{align*}
        Therefore, we get $0 \geq -\frac{1}{b}+\beta$, so $$\frac{1}{\beta} \geq b = \tau_\Sigma (q).$$
 \end{proof}
-\begin{ex}
+\begin{eg}
    An interesting example is $\mathcal{L}=(I^+(0), \eta)$ in Minkowski space where $\Sigma$ is a hyperboloid. 
-\end{ex}
-\begin{remark}
-    The Riemannian version is a bit more difficult to phrase. If $(M,g)$ is a RMF with boundary $\partial M$, this implies the existence of an inward-pointing smooth unit-normal vector field $N$ along $\partial M$. Assume:
+\end{eg}
+The Riemannian version is a bit more difficult to phrase. 
+\begin{prop}[Hawking's Riemannian Theorem]
+If $(M,g)$ is a RMF with boundary $\partial M$, this implies the existence of an inward-pointing smooth unit-normal vector field $N$ along $\partial M$. Assume:
     \begin{enumerate}
         \item $M$ is (metrically) complete. 
         \item $\Ric \geq 0$
@@ -718,7 +768,10 @@ We first try to control the diameter by controlling the Ricci curvature of a giv
     \end{enumerate}
     Then \[
         d_{\partial M}(p)\leq \frac{1}{\beta}
-    \] for all $p \in M$. We can prove this as follows:
+    \] for all $p \in M$. 
+\end{prop}
+\begin{proof}
+    We can prove this as follows:
     \begin{enumerate}
         \item Show there exists a geodesic $\gamma: [0,b] \to M$ orthogonal to $\partial M$ such that $\gamma(0)=p$ and $\gamma(b)\in \partial M$, so $L[\gamma]=d_{\partial M}(p)$.
         \item For any $q \in \partial M$, there exists $\gamma_q$ with $L[\gamma_q]=d(p,q)$. Hopf-Rinow tells us that if $\partial M$ is compact, then \[
@@ -727,7 +780,8 @@ We first try to control the diameter by controlling the Ricci curvature of a giv
             d_{\partial M}(p)=\left\{ d(p,\tilde{q})\mid q \in \partial M \cap \overline{B_R(p)} \right\}
         .\] However, $\partial M \cap \overline{B_R(0)}$ is compact by completeness and Hopf-Rinow.
     \end{enumerate}
-\end{remark}
+\end{proof}
+
 \section{The Min/Max-Behaviour of Geodesics}
 \label{sec:minmax}
 
