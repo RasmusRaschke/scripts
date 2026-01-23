@@ -646,6 +646,156 @@ The second variation behaves a bit like the Hessian in real analysis on $\mathbb
 \begin{ex}
    Prove the preceeding corollary. 
 \end{ex}
+\section{Extremizing Behaviour and Cut Loci}
+\label{sec:minmax}
+Our goal is to study the interplay of geodesics and their extremizing behaviour with Jacobi fields and conjugate points.
+\begin{notation}
+    Let $X \in \overline{\mathfrak{X}}(\gamma)$ for some curve $\gamma: I \to M$. If $X$ has breakpoints at $t_i \in I$, we write \[
+        \eth_i \left( \nabla_{\frac{d}{d t}} X\right)=\lim_{s \nearrow t_i} \nabla_{\frac{d}{d t}} X(s) - \lim_{s \searrow t_i} \nabla_{\frac{d}{d t}} X(s) 
+    .\] 
+\end{notation}
+\begin{prop}
+    Let $(M,\langle \cdot,\cdot  \rangle )$ be a SRMF, $\gamma: [a,b] \to M$ be a unit-speed geodesic and $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ with breakpoints $(t_i)_{1\leq i \leq N}$. Then for all $W \in \overline{\mathfrak{X}}(\gamma)^\perp$:
+    \begin{align*}
+        \epsilon I(V,W) = - &\int_a^b \langle \nabla_{\frac{d}{d t}} ^2 V + R(V,\dot{\gamma})\dot{\gamma},W \rangle dt + \left.\langle \nabla_{\frac{d}{d t}} V,W  \rangle \right|_a^b \\
+                            &- \sum_{i=1}^N \langle \eth_i (\nabla_{\frac{d}{d t}} V),W(t_i)  \rangle 
+    .
+\end{align*}
+\end{prop}
+\begin{proof}
+    Metricity of the connection yields \[
+    \frac{d}{dt} \langle \nabla_{\frac{d}{d t}} V,W  \rangle = \langle \nabla_{\frac{d}{d t}} ^2 V,W  \rangle + \langle \nabla_{\frac{d}{d t}} V,\nabla_{\frac{d}{d t}} W  \rangle  
+    .\] Plugging this into the definition of the index form, we obtain:
+    \[
+        \epsilon I(V,W) = \int_a^b \frac{d}{dt} \langle \nabla_{\frac{d}{d t}} V,W  \rangle dt - \int_a^b \langle \nabla_{\frac{d}{d t}} ^2 V + \R(V,\dot{\gamma})\dot{\gamma},W  \rangle dt
+    .\] 
+    Now it just remains to apply the fundamental theorem of calculus to the first term. Noting that $t_1=a$ and $t_N=b$, we obtain the singled out boundary term as well as all remaining boundaries at the breakpoints.
+\end{proof}
+\begin{corollary}
+    Let $(M,g)$ be a SRMF and $\gamma: I \to M$ be an admissible curve. Then $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ is a Jacobi field along $\gamma$ if and only if $I(V,\cdot)=0$ on all of $\overline{\mathfrak{X}}_0(\gamma)^\perp$. 
+\end{corollary}
+\begin{proof}
+    $(\Rightarrow):$ Since Jacobi fields are smooth, the $\eth_i$ all vanish. This includes the boundary at $a$ and $b$ since all vector fields in $\overline{\mathfrak{X}}_0$ are vanishing at the end points by definition. This yields \[
+        \nabla_{\frac{d}{d t}} ^2 V + \R(V,\dot{\gamma})\dot{\gamma}=0
+    ,\] which is precisely the Jacobi equation.\newline
+    $(\Leftarrow):$ We only give a sketch: Reduce to $W \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ with $W(t_i)=0$ at all $t_i$. Therefore, \[
+        I(V,W) = \int_a^b \langle \R(V,\dot{\gamma})\dot{\gamma},W  \rangle dt
+    .\] Let $(E_i)$ be an ONF along $\gamma$ and write $W=fE_i$. We obtain \[
+    0 = \int_a^b f(t) \left( \R(V,\dot{\gamma})\dot{\gamma} + \nabla_{\frac{d}{d t}} ^2 V \right)^k dt
+\] for every component $k$. This implies $\R(V, \dot{\gamma})\dot{\gamma}+\nabla_{\frac{d}{d t}} ^2 V=0$ by the fundamental lemma of variational calculus.
+\end{proof}
+We already know that geodesics fail to be minimizing as one passes a conjugate point along that geodesic. We can detect this with the index form:
+\begin{theorem}[Index Form without Conjugacy]
+    Let $(M,g)$ be a RMF or a \red{LMF}, $\gamma: [a,b] \to M$ be a unit-speed \red{future-directed timelike} geodesic segment connecting $p,q \in M$ such that there is $t_0 \in (a,b)$ with $\gamma(t_0)$ being conjugate to $\gamma(a)$. Then there exists $X \in \overline{\mathfrak{X}}_0(\gamma)$ such that \[
+        \marginnote{\red{$I(X,X)>0 \text{ and } L[\gamma] < \tau(p,q)$}}
+        I(X,X) < 0 \text{ and } L[\gamma] > d(p,q)
+    .\] 
+\end{theorem}
+\begin{proof}
+    Choose a witnessing Jacobi field $J \in \mathfrak{J}(\gamma)^\perp$ with $J(a)=J(t_0)=0$ and define a new Jacobi field \[
+    V(t):=
+    \begin{cases}
+        J(t) &t\leq t_0\\
+        0 &t\geq t_0
+    \end{cases}
+.\] Choose some $W \in \mathfrak{X}_0(\gamma)^\perp$ with $W(t_0)=\eth_i (\nabla_{\frac{d}{d t}} V) \neq 0$. Note that since $J \perp \dot{\gamma}$, we also have $\nabla_{\frac{d}{d t}} J \perp \dot{\gamma}$ and hence $W(t_0) \perp \dot{\gamma}$. For some $\epsilon > 0$ we define $X_\epsilon := V + \epsilon W$. Using bilinearity of the index form, one arrives at: 
+\begin{align*}
+\marginnote{Note that $\langle \eth_i(\nabla_{\frac{d}{d t}} V),V(t_0)  \rangle=0$ since $V$ is a Jacobi field and Jacobi fields are smooth.}
+-I(X_\epsilon, X_\epsilon) &= - (I(V,V) + 2\epsilon I(V,W) + \epsilon^2 I(W,W))\\
+                           &=-(2 \epsilon I(V,W) + \epsilon^2 I(W,W))
+.
+\end{align*}
+Now we have \[
+    \marginnote{\red{In the Lorentzian case, $V$ and $W$ are spacelike by construction, so the claim still holds.}}
+    I(V,W) = \langle \eth_{0} (\nabla_{\frac{d}{dt}} V),W(t_0)  \rangle = \langle \eth_0 (\nabla_{\frac{d}{d t}} V), \eth_0 (\nabla_{\frac{d}{d t}} W)  \rangle > 0,\] so $-2\epsilon I(V,W) < 0$. Since this term dominates for small enough $\epsilon$, the claim follows. 
+\end{proof}
+We could now ask ourselves whether we can get a strong converse, i.e. a statement that a geodesic has to stay minimizing as long as it passes no conjugate points. However, this is clearly false: Consider the flat cylinder. Any helical geodesic seizes to be minimizing after some time without ever passing a conjugate point. We can only hope for a weaker characterization.
+\begin{lemma}
+    Let $(M,g)$ be a SRMF, $\gamma: I \to M$ be a geodesic, and let $J_1, \dots, J_k \in \mathfrak{J}(\gamma)$. Then:
+    \begin{enumerate}[(a)]
+        \item $\langle \nabla_{\frac{d}{d t}} J_i,J_j  \rangle - \langle J_i, \nabla_{\frac{d}{d t}} J_j  \rangle $ remains constant for all $i,j$.
+        \item If there is some $t_0$ with $\langle \nabla_{\frac{d}{d t}} J_i(t_0),J_j(t_0)  \rangle - \langle J_i(t_0), \nabla_{\frac{d}{d t}} J_j(t_0)  \rangle =0$ for all $i,j$, then for any $v^i \in \overline{\mathcal{C}}^\infty(I,\mathbb{R})$, $V:= v^iJ_i$ satisfies \[
+                \langle \nabla_{\frac{d}{d t}} V,\nabla_{\frac{d}{d t}} V  \rangle - \textcolor{blue}{\langle R(V,\dot{\gamma})\dot{\gamma},V  \rangle} = \textcolor{orange}{\langle \dot{v}^iJ_i,\dot{v}^iJ_i  \rangle} + \textcolor{purple}{\frac{d}{dt} \langle V,v^i \nabla_{\frac{d}{d t}} J_i  \rangle}    
+        .\]   
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}[(a)]
+        \item Just calculate the derivative directly:
+            \begin{align*}
+                \frac{d}{dt} (\langle \nabla_{\frac{d}{d t}} J_i,J_j  \rangle -\langle J_i, \nabla_{\frac{d}{d t}} J_j  \rangle )&= \langle \nabla_{\frac{d}{d t}} ^2 J_i,J_j  \rangle - \langle J_i,\nabla_{\frac{d}{d t}} ^2 J_j  \rangle   \\
+                                                                                                                                 &+ \langle \nabla_{\frac{d}{d t}} J_i,\nabla_{\frac{d}{d t}} J_j  \rangle - \langle \nabla_{\frac{d}{d t}} J_i,\nabla_{\frac{d}{d t}} J_j  \rangle \\
+                                                                                                                                 &= \langle \nabla_{\frac{d}{d t}} ^2 J_i,J_j  \rangle - \langle J_i, \nabla_{\frac{d}{d t}} ^2 J_j  \rangle  \\
+                                                                                                                                 &\eqnmark[blue]{node}{=} -\Rm(J_i,\dot{\gamma},\dot{\gamma},J_j) + \Rm(J_j,\dot{\gamma},\dot{\gamma}, J_i)&\\
+                                                                                                                                 =0
+            \end{align*}
+            \annotate[xshift=-.5em, yshift=.5em]{above, left}{node}{Jacobi Eqn.}
+        \item Calculating directly yields:
+            \[
+                \langle \nabla_{\frac{d}{d t}} V,\nabla_{\frac{d}{d t}} V  \rangle = \textcolor{orange}{\langle \dot{v}^i J_i,\dot{v}^i J_i  \rangle} + 2 \langle \dot{v}^i J_i,v^i \nabla_{\frac{d}{d t}} J_i  \rangle + \langle v^i \nabla_{\frac{d}{d t}} J_i,v^i\nabla_{\frac{d}{d t}} J_i  \rangle  
+            .\] 
+        The rightmost term of the original equation evaluates to
+        \[
+            \textcolor{purple}{\frac{d}{dt}\langle V,v^i \nabla_{\frac{d}{d t}} J_i  \rangle} = \langle \dot{v}^iJ_i,v^i \nabla_{\frac{d}{d t}} J_i  \rangle + \langle v^i \nabla_{\frac{d}{d t}} J_i, v^i \nabla_{\frac{d}{d t}} J_i  \rangle + \langle V,\nabla_{\frac{d}{d t}} (v^i \nabla_{\frac{d}{d t}} J_i)  \rangle    
+        .\] Calculating the new rightmost term yields: \[
+        \langle V,\frac{d}{dt} (v^i \nabla_{\frac{d}{d t}} J_i) \rangle = \langle v^i \nabla_{\frac{d}{d t}} J_i,\dot{v}^i J_i  \rangle  - \textcolor{blue}{\langle V,\R(V,\dot{\gamma})\dot{\gamma}  \rangle} 
+        .\] Collecting everything as indicated by color yields the claim.
+    \end{enumerate}
+\end{proof}
+With this, we can formulate a condition on the index form:
+\begin{theorem}[Index Form with Conjugacy]
+    Let $(M,g)$ be a RMF, and let $\gamma: [0,b] \to M$ be a unit-speed geodesic segment such that there are no conjugate points to $\gamma(0)$ for $t \in (0,b)$. Then for all $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$: \[
+    I(V,V) \geq  0
+    \] with equality if and only if $V \in \mathfrak{J}(\gamma)$. Furthermore, if $\gamma(b)$ is not conjugate to $\gamma(a)$ along $\gamma$, then $I(V,V)>0$.
+\end{theorem}
+\begin{proof}
+Let $(E_i)$ be an ONB at $\gamma(0)=p$ with $E_1=\dot{\gamma}(0)$. Let $(J_i)_{2 \leq i \leq n}$ be the unique Jacobi fields along $\gamma$ with $J_i(0)=0$ and $\nabla_{\frac{d}{d t}} J_i(0)=E_i$. Take some $V \in \overline{\mathfrak{X}}_0(\gamma)^\perp$ such that there exists $\delta > 0$ with $V|_{[b-\delta, b]} \equiv 0$. We want that $V=v^iJ_i$ for some $v^i \in \mathcal{C}^\infty ([a,b], \mathbb{R})$. Since all $J_i$ are non-zero and linearly independent (otherwise the linear combination would be a Jacobi field vanishing at some point in $\gamma$), the $v^i(t)$ are defined and piecewise smooth on $(0,b)$. We have to extend to the ends. At $t=b$, we have $V|_{[b-\delta, b]}\equiv 0$, so the $v^i$ extend trivially. At $t=0$, we find normal coordinates around $\gamma(0)$ with $E_i = \partial_i|_{\gamma(0)}$, so $J_i(t)=t\partial_i|_{\gamma(t)}$ for $t$ small enough. Therefore, $V(t)=v^i(t)t\partial_i|_{\gamma(t)}$, and we can write $V^i(t)= v^i(t)t$ in normal coordinates. These $V^i$ are smooth at $t=0$ and $V^i(0)=0$ since $V(0)=0$. The Taylor expansion yields \[
+        V^i(t)=0+t\int_0^t \dot{V}^i(s)ds
+    ,\] so $v^i(t)=\frac{V^i(t)}{t}=\int_0^t \dot{v}^i(s)$ extends smoothly to $t=0$. With the lemma above, the index form is quickly computed:
+    \[
+        I(V,V)= \int_0^b \langle \dot{v}^iJ_i,\dot{v}^iJ_i  \rangle  dt \geq 0
+    .\] If $I(V,V)=0$, all $\dot{v}^i$ have to vanish as $J_i$ are linearly independent, so all $v^i$ are constant. Thus $V$ is a linear combination of Jacobi fields with constant coefficients, thus itself a Jacobi field.
+\end{proof}
+To summarize, we have shown the following: Let $(M,g)$ be a RMF and $\gamma: [a,b] \to M$ be a unit-speed geodesic segment.
+\begin{enumerate}
+    \item If $\gamma$ has an interior conjugate point, it is not minimizing.
+    \item If $\gamma(a)$ is conjugate to $\gamma(b)$ but there are no interior conjugate points, then for every normal variation $\Gamma_s$ of $\gamma$, the curve $t \mapsto \Gamma_s(t)$ is strictly longer than $\gamma$ for $s$ small enough, unless the variation field of $\Gamma_s$ is a Jacobi field.
+    \item If $\gamma$ has no conjugate points, then for every normal variation $\Gamma_s$ of $\gamma$, the curve $t \mapsto \Gamma_s(t)$ is strictly longer than $\gamma$ for $s$ small enough.
+\end{enumerate}
+Nevertheless, we are able to characterize the points where geodesics stop minimizing better:
+\begin{definition}[Cut Locus]
+    Let $(M,g)$ be a complete RMF with $p \in M$ and $v \in T_pM$. We define:
+    \begin{enumerate}[(i)]
+        \item The \textbf{cut time} \[
+                t_\text{cut}(p,v):=\sup_{b \in I_v} \left\{b>0 \mid \gamma_v |_{[0,b]} \text{ is minimizing}\right\} 
+            .\] The \textbf{cut function} is the map $t_\text{cut}: TM \to (0,\infty]$ defined by the cut time.
+        \item If $t_\text{cut}(p,v)\in I_v$, we call $\gamma(t_\text{cut}(p,v))$ a \textbf{cut point}.
+        \item Lastly, we define the \textbf{cut locus} of $p$ as \[
+                \Cut(p):= \left\{q \in M \mid q \text{ cut point of }p \text{ along some geod.}\right\} 
+        .\] 
+    \end{enumerate}
+\end{definition}
+The exponential map shows special behaviour at those cut points, motivating the following definition:
+\begin{definition}[Injectivity Radius]
+    Let $(M,g)$ be a complete RMF and $p \in M$. We define:
+    \begin{enumerate}[(i)]
+        \item The \textbf{injectivity domain} of $p$ is \[
+                \text{ID}(p):=\left\{v \in T_pM \mid \|v\|<t_\text{cut}(p, \frac{v}{\|v\|})\right\} 
+        .\] 
+    \item The \textbf{injectivity radius} of $p$ is \[
+            \inj(p):= \sup \left\{r > 0 \mid \exp_p|_{B_r(0)}: B_r(0) \overset{\text{diffeo}}\to \exp_p(B_r(0)) \right\}  
+    .\] 
+    \end{enumerate}
+\end{definition}
+We will collect some important facts without proof. The proofs can be found in \cite{LeeRM}.
+\begin{enumerate}
+    \item For $t < t_\text{cut}$, $\gamma|_{[0,t]}$ has no conjugate points and $\gamma_v$ is the unique minimizing geodesic.
+    \item If $t_\text{cut}<\infty$, either $\gamma(t_\text{cut}(p,v))$ is conjugate to $\gamma(a)$, or there exist at least two different minimizing unit-speed geodesics, or both.
+    \item $t_\text{cut}: TM_\text{unit} \to (0, \infty]$ is continuous.
+    \item $\Cut(p)$ is closed and $\Cut(p)$ is a set of $g-$measure $0$.
+    \item $\text{ID}(p)$ is open and $\exp_p|_{\text{ID}(p)}: \text{ID}(p) \to M \setminus \Cut(p)$ is a diffeomorphism.
+    \item Every compact, connected, smooth $n$-manifold is homeomorphic to a quotient of $\overline{B}^n$ by an equivalence relation identifying only points on the boundary.
+\end{enumerate}
 \section{The Theorems of Bonnet-Myers and Hawking}
 \label{sec:bonnmyhaw}
 Our goal in this section is to control the diameter of certain Riemannian and Lorentzian manifolds. Given a Riemannian manifold $(M,g)$, we define its \textbf{diameter} by 
@@ -782,14 +932,3 @@ If $(M,g)$ is a RMF with boundary $\partial M$, this implies the existence of an
     \end{enumerate}
 \end{proof}
 
-\section{The Min/Max-Behaviour of Geodesics}
-\label{sec:minmax}
-
-\section{The Riemannian Cut Locus}
-\label{sec:rmcut}
-\lecture{20.01.25}
-\begin{definition}[Injectivity Radius]
-   Let $(M,g)$ be a RMF. For $p \in M$, we define the \textbf{injectivity radius} at $p$ as \[
-       \inj(p):= \sup \left\{r > 0 \mid \exp_p: B_r^{g_\text{st}}(0) \to M \, \text{diffeomorphic on its image}\right\} 
-   .\]  
-\end{definition}
