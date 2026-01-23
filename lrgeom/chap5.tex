@@ -34,3 +34,50 @@ The tools we need to prove this theorem are twofold:
    \end{enumerate} 
 \end{prop}
 \lecture{23.01.26}
+\begin{theorem}[Covering Map]
+    Let $(M,g)$ and $(\widetilde{M},\widetilde{g})$ be RMF, and let $\widetilde{M}$ be complete. If $\phi: \widetilde{M} \to M$ is a local isometry, then $(M,g)$ is also complete and $\phi$ is a covering map. 
+\end{theorem}
+\begin{proof}
+    We need to show that for all $p \in M$ there is some neighbourhood $U$ of $p$ such that $\phi^{-1}(U)$ is a disjoint union of connected open $\widetilde{U}_\alpha$ with $\phi|_{\widetilde{U}_\alpha}: \widetilde{U}_\alpha \to U$ being a diffeomorphism for all $\alpha$. We start with the path lifting property:
+    Let $p \in \phi(\widetilde{M}) \subseteq M$ and $\gamma: I \to M$ be a geodesic with $\gamma(0)=p$. Fix $\widetilde{p}\in \phi^{-1}(p)$. If $\widetilde{\gamma}: I \to \widetilde{M}$ is any geodesic with $\widetilde{\gamma}(0)=p$ and $\phi \circ \widetilde{\gamma}=\gamma$, then we know that $$\dot{\widetilde{\gamma}}(0)=(\phi)_{\ast, \widetilde{p}}^{-1}(\dot{\gamma}(0)) =: v \in T_{\widetilde{p}}\widetilde{M}.$$ Since $(\widetilde{M}, \widetilde{g})$ is complete, there exists precisely one geodesic $\widetilde{\gamma}_v: \mathbb{R} \to \widetilde{M}$ with $\widetilde{\gamma}(0)=\widetilde{p}$ and $\dot{\widetilde{\gamma}}_v(0)=v$. Hence $\widetilde{\gamma}:=\widetilde{\gamma}_v|_I: I \to \widetilde{M}$ is a geodesic in $\widetilde{M}$. Since $\phi$ is a local isometry, $\phi \circ \widetilde{\gamma}: I \to M$ is a geodesic in $M$ with initial data $(\phi \circ \widetilde{\gamma})(0) =p$ and $\partial_t(\phi \circ \widetilde{\gamma})(0)=\dot{\gamma}(0)$. Therefore, $\phi \circ \widetilde{\gamma}=\gamma$ as desired. Since $\phi \circ \widetilde{\gamma}_v: \mathbb{R} \to M$ is an extension of $\gamma: I \to M$, this also shows completeness.
+    \newline
+    Next we show surjectivity of $\phi$. Let $q \in M$ be arbitrary and $p \in \phi(\widetilde{M})$. Since $M$ is complete, there exists a geodesic $\gamma_{pq}: [0,1] \to M$ connecting $p$ and $q$. Let $\widetilde{\gamma}$ be a geodesic lift of $\gamma$, then $(\phi \circ \widetilde{\gamma})(1)=\gamma(1)=q$, so $q = \phi(\widetilde{\gamma}(1)) \in \im \phi$.
+    \newline
+    Now it remains to show that $\phi$ covers $M$. Let $p \in M$ be arbitrary, and set $U=B_\epsilon^{d_g}(p)$ with $\epsilon$ small enough for $U$ to be a normal neighbourhood of $p$. Write $\phi^{-1}(p)=\{p_\alpha\}_{\alpha \in A}$. For each $\alpha \in A$, let $\widetilde{U}_\alpha := B_\epsilon^{d_{\widetilde{g}}}(\widetilde{p}_\alpha)$. Let $\alpha, \beta \in A$ with $\alpha \neq \beta$. Then $\widetilde{p}_\alpha \neq \widetilde{p}_\beta$, and we can find a minimizing geodesic $\widetilde{\gamma}$ connecting the points. As $\phi$ is a local isometry, $\gamma := \phi \circ \widetilde{\gamma}$ is a geodesic from $p$ to $p$ with $L_g[\gamma]=L_{\widetilde{g}}[\widetilde{\gamma}] >0$. Therefore, $\gamma$ must leave $U$ eventually and return to $p$, implying $L_g[\gamma] \geq 2\epsilon$. Henceforth, \[
+        d(\widetilde{p}_\alpha,\widetilde{p}_\beta) = L_{\widetilde{g}}[\widetilde{\gamma}] \geq 2 \epsilon
+    ,\] so $\widetilde{U}_\alpha \cap \widetilde{U}_\beta = \emptyset$. \newline
+    We also have to show that $\phi^{-1}(U)=\bigcup_{\alpha \in A}\widetilde{U}_\alpha$. Let $\widetilde{q} \in \bigcup_{\alpha \in A}\widetilde{U}_\alpha$, so $\widetilde{q}\in \widetilde{U}_{\alpha_0}$ for some $\alpha_0 \in A$. Let $\widetilde{\gamma}$ be the minimizing geodesic from $\widetilde{p}_{\alpha_0}$ to $\widetilde{q}$. Then \[
+    \epsilon > d_{\widetilde{g}}(\widetilde{p}_{\alpha_0}, \widetilde{q})=L_{\widetilde{g}}[\widetilde{\gamma}] = L_g[\phi \circ \gamma]
+.\] This implies $d_g(\phi(\widetilde{p}_{\alpha_0}), \phi(\widetilde{q})) < \epsilon$, so $\phi(\widetilde{q}) \in U$, as desired. Now let $\widetilde{q} \in \phi^{-1}(U)$. Then $q := \phi(\widetilde{q}) \in U$. Let $\gamma$ be the minimizing geodesic connecting $p$ and $q$ in $M$. By the unique path lifting property, there exitsts precisely one geodesic $\widetilde{\gamma}$ in $\widetilde{M}$ with $\widetilde{\gamma}(1)=\widetilde{q}$ and $\phi \circ \widetilde{\gamma} = \gamma$. Therefore, \[
+d_{\widetilde{g}}(\widetilde{\gamma}(0), \widetilde{q}) < L_{\widetilde{g}}[\widetilde{\gamma}] = L_g[\gamma] = d_g (p,q) < \epsilon
+.\] Hence $\widetilde{q} \in B_\epsilon^{d_{\widetilde{g}}}(\widetilde{\gamma}(0))=\widetilde{p}_\alpha$ for some $\alpha \in A$. \newline
+The only remaining property to show is that $\phi|_{\widetilde{U}_\alpha}: \widetilde{U}_\alpha \to U$ is a diffeomorphism for all $\alpha \in A$, so we need bijectivity since it is already a local isometry. Let $q \in U$ and let $\gamma$ be the unique geodesic connection $p$ to $q$ in $U$. By the path lifting, there exists precisely one $\widetilde{\gamma}$ from $\widetilde{p}_\alpha$ to $\widetilde{\gamma}(1) \in \widetilde{U}_\alpha$ and $\widetilde{\gamma}(1)=(\phi|_{\widetilde{U}_\alpha})^{-1}(q)$. This means we can even explicitly construct $(\phi|_{\widetilde{U}_\alpha})^{-1}$.
+\end{proof}
+Back to Killing-Hopf: We know that for all $p \in M$ exists some $U_p$ and $\phi_p$ with $\phi_p: U_p \to M_c$ being a local isometry. The question is whether we are able to patch those $\phi_p$ together to obtain a local isometry $\Phi: M \to M_c$. Before that, we have to know if we can extend a given $\phi_p$ to a local isometry $\phi: U \to M_c$ along a given curve starting at $p$.
+\begin{definition}[Isometric Continuation]
+    \label{def:analcont}
+    \marginnote{For large $T$ we do not require $\phi_T = \phi_0$ on $U_0 \cap U_T$ even though $U_0 \cap U_T \neq \emptyset$ is possible.}
+Let $(M,g)$ and $(\widetilde{M}, \widetilde{g})$ be RMF, and let, for $U \subseteq M$, $\phi: U \to \widetilde{M}$ be a local isometry. Let $\gamma: [0,1] \to M$ be a continuous curve with $\gamma(0)\in U$. Then an \textbf{isometric (analytic) continuation} of $\phi$ along $\gamma$ is a family of pairs \[
+    \left\{(U_t,\phi_t) \mid t \in [0,1] \right\} 
+\] of connected, open neighbourhoods $U_t$ of $\gamma(t)$ and local isometries $\phi_t: U_t \to \widetilde{M}$ such that $\phi_0 = \phi$ on $U_0 \cap U$, and for any $t \in [0,1]$ exists $\delta_t > 0$ such that: \[
+\forall s \in [0,1] \text{ with } |t-s|<\delta_t: \gamma(s) \in U_t \text{ and } \phi_t = \phi_s \text{ on } U_t \cap U_s
+.\] 
+\end{definition}
+\begin{lemma}[Uniqueness of Isometric Continuation]
+    In the setting of Definition \ref{def:analcont}: If $\{(U_t,\phi_t)\}$ and $\{(U'_t,\phi'_t)\}$ are two isometric continuations of $\phi$ aong the same curve $\gamma$, then $\phi_1 = \phi_1'$ on a neighbourhood of $\gamma(1)$.
+\end{lemma}
+\begin{proof}
+    Let \[
+        \mathcal{I}:= \left\{t \in [0,1] \mid \phi_t = \phi_t' \text{ on a nbhd. of } \gamma(t)\right\} 
+    .\] We have $0 \in \mathcal{I}$ since $\phi_0 = \phi = \phi_0'$ on $U \cap U_0 \cap U_0'$. Now we show $\mathcal{I}$ is clopen. \newline
+    Let $t \in \mathcal{I}$. There exists $\delta_t, \delta_t'$ as in the definition such that for all $$s \in [t-\min(\delta_t, \delta_t'), t+\min(\delta_t, \delta_t'))\cap \mathcal{I}$$ we have $\phi_s=\phi_t=\phi_t'=\phi_s'$ on $U_s \cap U_t \cap \widetilde{U} \cap U_s' \cap U_t'$, so there exists an open neighbourhood of $t \in \mathcal{I}$. Therefore, $\mathcal{I}$ is open in $[0,1]$.\newline
+    Let $t_i \to t \in [0,1]$ be a sequence with $t_i \in \mathcal{I}$ for all $i$. For $i$ large enough, $\phi_t=\phi_{t_i}=\phi_{t_i}'=\phi_t'$ on a neighbourhood of $\gamma(t_i)$ in $U_t \cap U_t'$. This implies $(\phi_t)_{\ast, \gamma(t_i)}=(\phi_t')_{\ast, \gamma(t_i)}$ and $\phi_t(\gamma(t_i))=\phi_t'(\gamma(t_i))$ for all $i$. Taking the limit $i \to \infty$ then leads to $(\phi_t)_{\ast, \gamma(t)}=(\phi_t')_{\ast, \gamma(t)}$ and $\phi_t(\gamma(t))=\phi_t'(\gamma(t))$. By exercise 5 on sheet 10, $\phi_t = \phi_t'$ on a neighbourhood of $\gamma(t)$. Hence $\mathcal{I}$ is also closed, therefore clopen. The only non-empty clopen subset of $[0,1]$ is $[0,1]$, so $\mathcal{I}=[0,1]$.
+\end{proof}
+\begin{theorem}[Homotopic Uniqueness]
+With the same setup as in Definition \ref{def:analcont}: Assung $\phi$ has an isometric continuation along any continuous curve starting at $p$. If $\omega_1, \omega_2: [0,1] \to M$ are continuous curves starting at p which are also fixed-endpoint homotopic, then any isometric continuations $(U^0_t, \phi^0_t)$ and $(U_t^1, \phi_t^1)$ along $\omega_0$ resp. $\omega_1$ satisfy \[
+\phi_1^0 = \phi_1^1 
+\] on a neighbourhood of $q$. 
+\end{theorem}
+\begin{proof}
+    Let $H: [0,1]^2 \to M$ be a fixed-endpoint homotopy from $\omega_1 = H_1$ to $\omega_0 = H_0$. For any $s \in [0,1]$, there exist isometric continuations $(U_t^s, \phi_t^s)$ of $\phi$ along $H_s$. Since $H$ is continuous and $[0,1]$ compact, any $\overline{s} \in [0,1]$ has a neighbourhood $(\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$ such that $H_s(t) \in U_t^{\overline{s}}$ for all $t \in [0,1]$ and all $s \in (\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$. Hence $(U^s_t, \phi_t^s)$ is an isometric continuation along $H_s$ for all $s \in (\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$. 
+\end{proof}
