@@ -25,4 +25,5 @@
 \contentsline {section}{\numberline {4.3}Geodesic Consequences of Jacobi Field Comparison}{49}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Global Results for Riemannian Manifolds}{55}{chapter.5}%
 \contentsline {section}{\numberline {5.1}The Theorem of Killing-Hopf}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.2}The Theorem of Cartan-Hadamard}{59}{section.5.2}%
 \contentsfinish 

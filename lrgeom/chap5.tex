@@ -35,6 +35,7 @@ The tools we need to prove this theorem are twofold:
 \end{prop}
 \lecture{23.01.26}
 \begin{theorem}[Covering Map]
+    \label{thm:coveringmap}
     Let $(M,g)$ and $(\widetilde{M},\widetilde{g})$ be RMF, and let $\widetilde{M}$ be complete. If $\phi: \widetilde{M} \to M$ is a local isometry, then $(M,g)$ is also complete and $\phi$ is a covering map. 
 \end{theorem}
 \begin{proof}
@@ -80,4 +81,49 @@ With the same setup as in Definition \ref{def:analcont}: Assung $\phi$ has an is
 \end{theorem}
 \begin{proof}
     Let $H: [0,1]^2 \to M$ be a fixed-endpoint homotopy from $\omega_1 = H_1$ to $\omega_0 = H_0$. For any $s \in [0,1]$, there exist isometric continuations $(U_t^s, \phi_t^s)$ of $\phi$ along $H_s$. Since $H$ is continuous and $[0,1]$ compact, any $\overline{s} \in [0,1]$ has a neighbourhood $(\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$ such that $H_s(t) \in U_t^{\overline{s}}$ for all $t \in [0,1]$ and all $s \in (\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$. Hence $(U^s_t, \phi_t^s)$ is an isometric continuation along $H_s$ for all $s \in (\overline{s}-\delta_{\overline{s}}, \overline{s}+\delta_{\overline{s}})$. 
+
+\lecture{27.01.25}
+Using compactness of $[0,1]$, there exist finitely many $\overline{s}_i \in [0,1]$ s.t. \[
+    \bigcup_{i =1}^N (\overline{s}_i-\delta_i, \overline{s}_i+\delta_i) \cap [0,1] = [0,1]
+\] with $\delta_i:=\delta_{\overline{s}_i}$. Take $V \subseteq \cap_{i=1}^N U_i^{\overline{s}_i}$, which is an open, connected neighbourhood of $q$. Let $x \in V$ be arbitrary and define $p_x^i(s):=\phi_1^{\overline{s}_i}(x)$ for $s \in (\overline{s}_i-\delta_i, \overline{s}_i+\delta_i)$. Our goal is to show that this yields well-defined $p_x^i$ on $[0,1]$.\newline
+Take some curve $\omega$ from $q$ to some $x \in U$. Consider the concatenation $\omega_s := \omega \ast H_s$ on $[0,2]$ and set \[
+    \widetilde{U}_t^{\overline{s}_i} :=
+    \begin{cases}
+        U_t^{\overline{s}_i} &t \in [0,1]\\
+        U_1^{\overline{s}_1} &t \in [1,2]
+    \end{cases}
+.\] Then $(\widetilde{U}_t^{\overline{s}_i}, \phi_t^{\overline{s}_i})$ and $(\widetilde{U}_t^{\overline{s}_j}, \phi_t^{\overline{s}_j})$ are both isometric continuations of $\phi$ along $\omega_s$. By the preceeding lemma, \[
+p^i_x(s)=\phi_1^{\overline{s}_i}(x)=\phi_1^{\overline{s}_j}(s)=p_x^j (s)
+.\] Hence $p_x^i=p_x^j$ for all $s \in (\overline{s}_i-\delta_i, \overline{s}_i+\delta_i) \cap (\overline{s}_j-\delta_j, \overline{s}_j+\delta_j)$. With this, we obtain a well-defined map $p_x$ on $[0,1]$ which is locally constant per definitionem. This means it is constant, implying \[
+\phi_1^0(x)=p_x(0)=p_x(1)=\phi_1^1(x)
+.\] Since $x \in V$ was arbitrary, $\phi_1^0=\phi_1^1$ on $V$.
+\end{proof}
+\begin{corollary}
+    Let $(M,g)$ and $(N,h)$ be simply connected, complete Riemannian manifolds. Let $U$ be a connected neighbourhood of some $p \in M$. If $\phi: U \to N$ is a local isometry which can be isometrically continued along any curve starting at $p$. Then there exists a global isometry $\Phi: M \to N$ s.t. $\Phi|_U = \phi$.
+\end{corollary}
+\begin{proof}
+    Define $\Phi(q):=\phi_1(q)$ where $\left\{(U_t,\phi_t) \mid t \in [0,1] \right\}$ are isometric continuations of $\phi$ along any curve $\omega: [0,1] \to M$ from $p$ to $q$. By simply connectedness and the previous theorem, this is indeed well-defined, smooth, and a local isometry $M \to N$. It only remains to show bijectivity. By Theorem \ref{thm:coveringmap} and using that $M$ is complete and both spaces are connected, $\Phi: M \to N$ is a covering map. Since both $M$ and $N$ are simply connected, $\Phi$ is bijective (also using uniqueness of the universal cover).
+\end{proof}
+Now we can prove Killing-Hopf:
+\begin{proof}
+    Let $p \in M$. By Corollary 2.25, there exists on open neighbourhood $V$ fo $p$ and a local isometry $\phi: V \to \widetilde{M}$. Let $\gamma: [0,1] \to M$ be any curve starting at $p$. By corollary 2.25, any $\gamma(t)$ has a neighbourhood $U_t$ and a local isometry $\beta_{U_t}: U_t \to \widetilde{M}$. By compactness, we can cover $\gamma([0,1])$ by finitely many $U_i=U_{\overline{t}_i}$ for some partition $0 =t_0 < t_1 < \cdots < t_N=1$ such that $\gamma([t_i,t_{i+1}]) \subseteq U_i$ and points $\overline{t}_i$ such that $\overline{t}_i \in [t_i,t_{i+1}]$. W.l.o.g., assume $U_0 \subseteq V$. We will construct local isometries $\psi_i: U_i \to \widetilde{M}$ for all $0 \leq i \leq N$ such that $\psi_0 = \phi|_{U_0}$ and $\psi_i|_{U_i \cap U_{i+1}}=\psi_{i+1}|_{U_i \cap U_{i+1}}$. Then $(\widetilde{U}_t, \widetilde{\phi}_t)$ for $t \in [0,1]$ defined by $\widetilde{U}_t:=U_i$ for $t \in [t_i,t_{i+t}]$ and $\widetilde{\phi}_t := \psi_t$ for similar $t$ is an isometric continuation of $\phi$ along $\gamma$. We do this inductively:\newline
+    Set $\psi_0=\phi|_{U_0}$. Assume $\psi_i$ has been constructed for $0 \leq i \leq k$, so we want to construct $\psi_{k+1}$. We have \[
+    \psi_i \circ \beta^{-1}_{U_{\overline{t}_{i+1}}}: \beta_{U_{\overline{t}_{i+1}}}(U_i \cap U_{i+1}) \to \psi_i(U_i \cap U_{i+1}),\] which is a local isometry of the model space $\widetilde{M}.$ By Proposition 4.2 (structure of local isos in model spaces), there exists a global isometry $\widetilde{\Phi}_i: \widetilde{M} \to \widetilde{M}$ extending $\psi_i\circ \beta^{-1}_{U_{\overline{t}_{i+1}}}.$ Define \[
+    \psi_{i+1}:=\widetilde{\Phi}_i \circ \beta^{-1}_{U_{\overline{t}_{i+1}}}: U_{i+1} \to \widetilde{M}
+,\] so $\psi_{i+1}$ is a local isometry and $\psi_{i+1}|_{U_i\cap U_{i+1}} = \psi_i|_{\dots}$ by construction.
+\end{proof}
+\begin{remark}
+    The Theorem of Killing-Hopf holds in fact in arbitrary signature, but with a different proof stategy. Since Hopf-Rinow does not hold, one explicitly demands geodesic completeness. It can be found in \cite{ONeill10}. 
+\end{remark}
+\section{The Theorem of Cartan-Hadamard}
+\label{sec:cartanhadamard}
+\begin{theorem}[Cartan-Hadamard]
+    Let $(M,g)$ be a complete, connected RMF with sectional curvature bounded above by $0$. Then for all $p$ in $M$, the exponential map \[
+    \exp_p: T_pM \to M
+    \] is a smooth covering map.
+\end{theorem}
+\begin{proof}
+    Let $p \in M$, $v \in T_pM$ with $\|v\|=1$, and $\gamma_v: [0,\infty) \to M$ be the unique geodesic with $\gamma_v(0)=p$ and $\dot{\gamma}_v(0)=v$. By Jacobi Field Comparison, any normal Jacobi field $J$ with $J(0)$ along $\gamma_v$ satisfies \[
+        \|J(t)\|_g \geq s_0(t) \| \nabla_{\frac{d}{d t}} J(0)\|_{g_p} > 0 
+    \] for all $t \in (0, \infty)$ unless $J \equiv 0$, so $\gamma_v$ cannot have conjugate points. By rescaling, this also holds for $\gamma_v$ with $\|v\|\neq 1$ as long as $v \neq 0$, which is trivial anyway. So for any $v \in T_pM$ exists a neighbourhood $U_v \subseteq T_pM$ such that $\exp_p|_{U_v}: U_v \to M$ is a diffeomorphism onto its image. Hence $\exp_p: T_pM \to M$ is a local diffeomorphism. Consider $h:=\exp_p^\ast g$ on $T_pM$ which turns $\exp_p$ into a local isometry from $(T_pM, h)$ to $(M,g)$. Note that $(T_pM,h)$ is complete as geodesics starting in $_pM$ at $0$ are precisely straight lines in $T_pM$, so defined on all of $\mathbb{R}$. With Hopf-Rinow, completeness follows, so Theorem \ref{thm:coveringmap} yields the claim.
 \end{proof}
