@@ -26,4 +26,6 @@
 \contentsline {chapter}{\numberline {5}Global Results for Riemannian Manifolds}{55}{chapter.5}%
 \contentsline {section}{\numberline {5.1}The Theorem of Killing-Hopf}{55}{section.5.1}%
 \contentsline {section}{\numberline {5.2}The Theorem of Cartan-Hadamard}{59}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Comparison Geometry and Global Results based on Ricci Curvature}{61}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Comparison Geometry and Global Results based on Ricci Curvature}{65}{chapter.7}%
 \contentsfinish 

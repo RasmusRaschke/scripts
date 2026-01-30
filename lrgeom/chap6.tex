@@ -1,0 +1,123 @@
+\chapter{Comparison Geometry and Global Results based on Ricci Curvature}
+\label{chap:globalcomp}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{6}{}
+
+We already had a result concluded from Ricci curvature bounds: Bonnet-Myers Theorem \ref{thm:bonnetmyers}. We now want to prove the rigid version: Cheng's Theorem.
+\begin{theorem}[Laplacian Comparison]
+    \label{thm:lapcomp}
+    Let $(M,g)$ be a Riemannian $m$-manifold and $\Ric \geq c(n-1)g$. Let $U$ be a normal neighbourhood of some $p \in M$ and $r: U \setminus \{p\} \to \mathbb{R}$ be the radial distance function. Then 
+    \begin{equation}
+        \Delta r \leq (n-1) \frac{\dot{s}_c(r)}{s_c(r)}
+    \end{equation}
+    on \[
+        \widetilde{U}:= 
+        \begin{cases}
+            U \setminus \{p\} &c\leq 0\\
+            U \setminus \{p\} \cap \left\{q \in U \mid r(q) < \frac{\pi}{\sqrt{c}}=\pi R\right\} &c>0 
+        \end{cases}
+    .\] 
+\end{theorem}
+\begin{proof}
+    Start with the Riccati equation \[
+        \nabla_{\frac{d}{d t}} \mathcal{H}_r + \mathcal{H}_r^2 + R_{\dot{\gamma}} = 0
+    \] and take the trace: \[
+    \frac{d}{dt} (\Delta r) + \tr \mathcal{H}_r^2 + \Ric (\dot{\gamma},\dot{\gamma})=0
+.\] Split $\mathcal{H}_r = \mathring{\mathcal{H}_r} + \frac{\Delta r}{n-1} \pi$, where $\mathring{\mathcal{H}_r}$ is the trace-free part of $\mathcal{H}_r$. This yields \[
+\mathcal{H}_r^2 = \mathring{\mathcal{H}}_r^2 + \frac{\Delta r}{n-1} \mathring{\mathcal{H}}_r \circ \pi + \frac{\Delta r}{n-1} \pi \circ \mathring{\mathcal{H}}_r + \left( \frac{\Delta r}{n-1}\right)^2 \pi^2
+.\] 
+Note that $\pi^2=\pi$ and $\mathring{\mathcal{H}}_r \circ \pi = \pi \circ \mathring{\mathcal{H}}_r = \mathring{\mathcal{H}}_r$. Thus, \[
+    \marginnote{While $\mathring{\mathcal{H}}$ is trace-free, this does not necessarily make the square also trace-free.}
+    \tr \mathcal{H}_r^2 = \tr \mathring{\mathcal{H}}_r^2 + \frac{(\Delta r)^2}{n-1}
+.\] Plugging this into the trace of the Riccati equation yields 
+\begin{align*}
+    0 &= \frac{d}{dt} \Delta r + \frac{(\Delta r)^2}{n-1} + \tr \mathring{\mathcal{H}}_r^2 + \Ric (\dot{\gamma},\dot{\gamma})\\
+      &= \frac{d}{dt} \left( \frac{\Delta r}{n-1}\right) + \left( \frac{\Delta r}{n-1}\right)^2 + \underbrace{\frac{\tr \mathring{\mathcal{H}}_r^2 + \Ric (\dot{\gamma},\dot{\gamma})}{n-1}}_{=: \sigma}
+\end{align*}
+which is a scalar Riccati equation with solution $f:=\frac{\Delta r}{n-1}$. Along $\gamma$, we have 
+\begin{equation}
+    \label{eq:lapcompconst}
+    \marginnote{Note that \[
+        \lim_{r \to 0} (\Delta r-\Delta_c r)=0\]
+by $\lim_{r \to 0} (\mathcal{H}_r - \frac{\dot{s}_c}{s_c}\pi) = 0$ and taking the trace.}
+    \sigma \geq \frac{0+\Ric (\dot{\gamma},\dot{\gamma})}{n-1} \geq c,
+    \end{equation} 
+ so Riccati comparison implies \[
+\Delta r \leq \Delta_c r = (n-1) \frac{\dot{s}_c}{s_c}
+.\] 
+\end{proof}
+\begin{theorem}[Laplacian Rigidity of Sectional Curvature]
+   Let $(M,g)$ be an RMF and $\Ric \geq c(n-1)g$. Let $U$ be a normal neighbourhood of $p \in M$ and $r$ be the radial distance function. If
+   \begin{equation}
+       \label{eq:secrig}
+       \Delta r = (n-1) \frac{\dot{s}_c(r)}{s_c(r)}
+   \end{equation}
+on $\widetilde{U}$ as defined above, then $(M,g)$ is a manifold of constant sectional curvature $c$.
+\end{theorem}
+\begin{proof}
+    Equation \ref{eq:secrig} forces $\Ric = c(n-1)g$ and $\tr \mathring{H}_r^2 =0$ since it forces equality in Equation \ref{eq:lapcompconst}. This shows $\mathring{\mathcal{H}}_r^2 = 0$, so $\mathring{\mathcal{H}}_r =0$. So \[
+        \mathcal{H}_r = \frac{\Delta r}{n-1} \pi = \frac{\dot{s}_c(r)}{s_c(r)} \pi
+    .\] Since we know the form of the Hessian in constant curvature spaces, we get $\sec(\widetilde{U})=c$.
+\end{proof}
+\begin{theorem}[Bishop-Gromov Volume Comparison]
+    \label{thm:bishopgromov}
+    Let $(M,g)$ be a RMF and $\Ric \geq (n-1)cg$ for some $c \in \mathbb{R}$ constant. Let $v_g(\delta):=\vol_g(B_\delta^{d_g}(p))$ and $v_c(\delta)$ be the volume in the constant curvature space. Then for any $0 < \delta < \inj (p):=\delta_0$:
+    \begin{enumerate}[(1)]
+        \item $v_g(\delta)\leq v_c(\delta)$
+        \item $\delta \mapsto \frac{v_g(\delta)}{v_c(\delta)}$ is monotonically increasing on $(0,\delta_0)$ and goes to $1$ as $\delta$ approaches $0$.
+        \item If equality holds in (1), then $(M,g)$ has constant sectional curvature $c$ on $B_\delta^{d_g}(p)$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+   We only discuss the general idea. Showing (1)-(3) for $\delta \leq \delta_0$ can be done similarly to Günther's Volume Comparison. If $(M,g)$ is complete but $\delta > \delta_0$, use additionally that $\Cut (p)$ is closed and of zero measure, so $v_g(\delta)=\vol_g(B_\delta(p) \setminus \Cut (p))$. This also implies that there exists an open and star-shaped $\mathcal{E}_p \subseteq T_pM$ such that \[
+   \exp_p: \mathcal{E}_p \to M \setminus \Cut (p)
+\] is a diffeomorphism. Continue by modifying $f(r,\theta)$ from Günther's Volume Comparison to \[
+\widetilde{f}(r, \theta):=
+\begin{cases}
+    f(r,\theta) &(r,\theta) \in \mathcal{E}_p\\
+    0 &\text{else}
+\end{cases}
+\] and proceed analogously. 
+\end{proof}
+\begin{remark}
+    On the n-sphere $\mathbb{S}^n_R$, if $p,q \in \mathbb{S}^n_R$ have distance $\pi R$ they are antipodal points, and for any $\delta_1, \delta_2$ with $\delta_1+\delta_2 = \pi R$, we have \[
+    v_c(\delta_1)+v_c(\delta_2)= \vol(\mathbb{S}^n_R)
+    .\] 
+\end{remark}
+\begin{theorem}[Cheng's Maximal Diameter Rigidity]
+    Let $(M,g)$ be a complete RMF with $\Ric \geq c(n-1)g$ for some constant $c>0$. If $\diam (M) = \pi R$, then $(M,g)$ is globally isometric to $(\mathbb{S}^n_R, \mathring{g}_n)$.
+\end{theorem}
+\begin{proof}
+    Since $\diam (M)=\pi R$ and $M$ is complete, $M$ is also compact and there are $p_1, p_2 \in M$ with $\diam (M)=d(p_1,p_2)$. Set $v^i(\delta)=\vol_g(B_\delta(p_i))$, so by Theorem \ref{thm:bishopgromov} we obtain that $\frac{v_g^i}{v_c}$ is non-increasing for $i \in \{1,2\}$. Thus \[
+    \frac{v_g^i(\delta)}{\vol_g (M)} = \frac{v_g^i(\delta)}{v_g^i(\pi R)} \geq \frac{v_c(\delta)}{v_c(\pi R)} = \frac{v_c(\delta)}{\vol(\mathbb{S}^n_R)}
+    .\] 
+    A triangle inequality-like identity for volumes yields for $\delta_1 + \delta_2 = \pi R$ that \[
+    \marginnote{This identity follows from the fact that the intersection $B_{\delta_1}(p_1) \cap B_{\delta_2}(p_2)$ is empty: If there were some $q$ in the intersection, the triangle inequality would imply \[
+    d(p_1,p_2)\leq d(q,p_1)+d(q,p_2) < \delta_1 + \delta_2 = d(p_1,p_2) = \pi R
+    ,\] contradicting the assumption.}
+    v_g^1(\delta_1)+v_g^2(\delta_2) \leq \vol_g(M)
+    .\] 
+    With the remark above, we arrive at \[
+        1 \geq  \frac{v_g^1(\delta_1)+v_g^2(\delta_2)}{\vol (M)} \geq \frac{v_c(\delta_1)+v_c(\delta_2)}{\vol (\mathbb{S}^n_R)} = 1
+    .\] This shows that the inequality is actually an equality:
+    \[
+    v_g^1(\delta_1)+v_g^2(\delta_2) = \vol(M)
+    \] for all $\delta_i$ with $\delta_1 + \delta_2 = \pi R$. For the sake of contradiction, assume that the triangle inequality is strict:
+    \[
+    \pi R = d(p_1, p_2) < d(p_1,q)+d(p_2,q)
+.\] Choose $\delta_1, \delta_2$ and $\epsilon >0$ such that $\delta_1+\delta_2=\pi R$ and $\delta_i \leq d(p_i,q) + \epsilon$. $B_\epsilon (q)$ satisfies $B_\epsilon(q)\cap B_{\delta_i}(p_i)=\emptyset$ for both $i$. Hence \[
+\vol_g(B_\epsilon(q))+v_g(\delta_1)+v_g(\delta_2)\leq \vol_g (M)
+,\] a contradiction. Therefore, $d(p_1,p_2)=d(p_1,q)+d(p_2,q)$. This implies that $r_i := d(q,p_i)$ satisfy $r_1 + r_2 = \pi R$, which is constant. Take normal neighbourhoods $U_i$ of $p_i$. Then on $U_1 \cap U_2$, $\Delta r = -\Delta r_2$. By Theorem \ref{thm:lapcomp}, we have \[
+\Delta r_1 \leq (n-1) \frac{\dot{s}_c(r_1)}{s_c(r_1)} = -(n-1) \frac{\dot{s}_c(\pi R-r_1)}{s_c(\pi R -r_1)} = -(n-1) \frac{\dot{s}_c(r_2)}{s_c(r_2)} \leq  -\Delta r_2
+.\] We know that $\Delta r_1 = - \Delta r_2$, so all Laplacian comparison steps must have been equalities. This means we have constant sectional curvature $c$ on $U_1 \cap U_2$.
+Next, show that there exist suitable $U_1$, $U_2$ with $U_1 \cap U_2 = M \setminus \{p_1,p_2\}.$ Since $M \setminus \{p_2\} = B_{\pi R}(p_1)$, it suffices to show that $\inj(p_1) \geq \pi R$ since then the open $B_{\pi R}(p_1)$ is a normal neighbourhood of $p_1$. For that, it suffices to show that all unit-speed geodesics starting at $p_1$ are maximizing on $[0,\pi R)$. Take a geodesic and set $q:=\gamma(s)$ for $s < \pi R$, so $d(p_1,q)<\pi R$ and hence $d(p_2,q)>0$. Define \[
+    I:=\sup \left\{t \in [0,1] \mid \gamma \text{ minimizing on } [0,t]\right\} 
+\] and note that this is in fact a maximum as the set is closed. Take a minimizing geodesic segment $\omega$ from $\gamma(s)$ to $q$. Then $$L[\gamma|_{[0,s]}] + L[\omega] = d(p_1,q)+d(p_2,q) = d(p_1,p_2),$$ so $\gamma \ast \omega$ is minimizing from $p_1$ to $p_2$. Since minimizers are unbroken, the concatenation is an unbroken geodesic, and by uniqueness equal to $\gamma$ itself for all $t$. So for $s+ \epsilon$, we get
+\begin{align*}
+    d(p_1, \gamma(s+\epsilon)) &= \pi R - d(p_2, \delta(s+\epsilon)) = d(p_1,q)+d(q,p_2)-d(p_2,q)+\epsilon\\
+    = L[\gamma|_{[0,s]}] + \epsilon = L[\gamma|_{[0,s+\epsilon]}],
+\end{align*}
+so we can take $U_1 = M \setminus \{p_2\}$ and $U_2 = M \setminus \{p_1\}$. With continuity of sectional curvature, $(M,g)$ must have constant sectional curvature $c$. If $M$ is simply connected, the result follows by Killing-Hopf. If not, we can apply Killing-Hopf to the universal cover. 
+\end{proof}
